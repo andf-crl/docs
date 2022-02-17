@@ -24,6 +24,7 @@ backpressured
 backtraces
 badr
 bardea
+basename
 batog
 bergin
 biles
@@ -53,13 +54,16 @@ changefeeds
 changeset
 changesets
 chu
+cleartext
 cockroachadmin
 cockroachapp
+cockroachcloud
 cockroachdb
 cockroachweb
 codec
 codelab
 collatedstring
+colocated
 comms
 comodo
 composability
@@ -176,6 +180,7 @@ indexable
 inet
 ing
 ingestions
+initializr
 intellij
 interleavings
 intra
@@ -304,6 +309,7 @@ petersbug
 pgdump
 pgloader
 pgsql
+Pgweb
 pgwire
 pgx
 phelanm
@@ -317,7 +323,9 @@ plaintext
 pocockn
 pointcut
 postgres
+Postico
 postgresql
+Powershell
 pq
 pre
 precompiled
@@ -336,6 +344,7 @@ protobuf
 protobufs
 proxied
 psql
+psycopg
 pulldown
 quadtree
 qudsi
@@ -383,6 +392,7 @@ seif
 sequelize
 serializability
 serializable
+serverless
 servlet
 sessionmaker
 seto
@@ -409,6 +419,8 @@ southindia
 spammy
 spinny
 sql
+sqlalchemy
+sqlx
 srivatsa
 sstables
 stackdriver
@@ -425,7 +437,9 @@ subcommand
 subcommands
 subcomponents
 subexpressions
+subfolder
 subinterface
+sublayers
 subnet
 subpartition
 subpartitioned
@@ -443,6 +457,7 @@ subtransactions
 subtrees
 subzone
 sudo
+svg
 swingbench
 sys
 sysbench
@@ -497,6 +512,8 @@ unpartition
 unpartitioned
 unpartitioning
 unported
+unquiesced
+unquiesces
 unreplicated
 unsplit
 unsplitting
