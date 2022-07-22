@@ -13,7 +13,7 @@ Only the `root` user can modify cluster settings.
 
 ## Synopsis
 
-{% include {{ page.version.version }}/sql/diagrams/reset_csetting.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/reset_csetting.html %}
 
 ## Parameters
 
@@ -26,16 +26,16 @@ Only the `root` user can modify cluster settings.
 {{site.data.alerts.callout_success}}You can use <a href="set-cluster-setting.html"><code>SET CLUSTER SETTING .. TO DEFAULT</code></a> to reset a cluster setting as well.{{site.data.alerts.end}}
 
 ~~~ sql
-> SET CLUSTER SETTING sql.metrics.statement_details.enabled = false;
+> SET CLUSTER SETTING [sql.metrics.statement_details.enabled](cluster-settings.html#setting-sql-metrics-statement_details-enabled) = false;
 ~~~
 
 ~~~ sql
-> SHOW CLUSTER SETTING sql.metrics.statement_details.enabled;
+> SHOW CLUSTER SETTING [sql.metrics.statement_details.enabled](cluster-settings.html#setting-sql-metrics-statement_details-enabled);
 ~~~
 
 ~~~
 +---------------------------------------+
-| sql.metrics.statement_details.enabled |
+| [sql.metrics.statement_details.enabled](cluster-settings.html#setting-sql-metrics-statement_details-enabled) |
 +---------------------------------------+
 | false                                 |
 +---------------------------------------+
@@ -43,16 +43,16 @@ Only the `root` user can modify cluster settings.
 ~~~
 
 ~~~ sql
-> RESET CLUSTER SETTING sql.metrics.statement_details.enabled;
+> RESET CLUSTER SETTING [sql.metrics.statement_details.enabled](cluster-settings.html#setting-sql-metrics-statement_details-enabled);
 ~~~
 
 ~~~ sql
-> SHOW CLUSTER SETTING sql.metrics.statement_details.enabled;
+> SHOW CLUSTER SETTING [sql.metrics.statement_details.enabled](cluster-settings.html#setting-sql-metrics-statement_details-enabled);
 ~~~
 
 ~~~
 +---------------------------------------+
-| sql.metrics.statement_details.enabled |
+| [sql.metrics.statement_details.enabled](cluster-settings.html#setting-sql-metrics-statement_details-enabled) |
 +---------------------------------------+
 | true                                  |
 +---------------------------------------+

@@ -19,7 +19,7 @@ They can be updated anytime after a cluster has been started, but only by the `r
 
 {{site.data.alerts.callout_danger}}Many cluster settings are intended for tuning CockroachDB internals. Before changing these settings, we strongly encourage you to discuss your goals with Cockroach Labs; otherwise, you use them at your own risk.{{site.data.alerts.end}}
 
-{% include {{ page.version.version }}/sql/settings/settings.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/settings/settings.md %}
 
 ## View Current Cluster Settings
 
@@ -33,7 +33,7 @@ Before changing a cluster setting, please note the following:
 
 - 	Changing a cluster setting is not instantaneous, as the change must be propagated to other nodes in the cluster.
 
-- 	It's not recommended to change cluster settings [upgrading to a new version of CockroachDB](upgrade-cockroach-version.html); wait until all nodes have been upgraded and then make the change.
+- 	It's not recommended to change cluster settings [upgrading to a new [version](cluster-settings.html#setting-version) of CockroachDB](upgrade-cockroach-[version](cluster-settings.html#setting-version).html); wait until all nodes have been upgraded and then make the change.
 
 ## See Also
 

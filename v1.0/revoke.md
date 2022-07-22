@@ -11,7 +11,7 @@ For the list of privileges that can be granted to and revoked from users, see [`
 
 ## Synopsis
 
-{% include {{ page.version.version }}/sql/diagrams/revoke.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/revoke.html %}
 
 ## Required Privileges
 

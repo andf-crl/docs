@@ -14,7 +14,7 @@ No [privileges](authorization.html#assign-privileges) are required to display th
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/show_var.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/show_var.html %}
 </div>
 
 {{site.data.alerts.callout_info}}The <code>SHOW</code> statement for session settings is unrelated to the other <code>SHOW</code> statements: <a href="cluster-settings.html#view-current-cluster-settings"><code>SHOW CLUSTER SETTING</code></a>, <a href="show-create.html"><code>SHOW CREATE</code></a>, <a href="show-users.html"><code>SHOW USERS</code></a>, <a href="show-databases.html"><code>SHOW DATABASES</code></a>, <a href="show-columns.html"><code>SHOW COLUMNS</code></a>, <a href="show-grants.html"><code>SHOW GRANTS</code></a>, and <a href="show-constraints.html"><code>SHOW CONSTRAINTS</code></a>.{{site.data.alerts.end}}
@@ -30,20 +30,20 @@ The variable name is case insensitive. It may be enclosed in double quotes; this
  Variable name | Description | Initial value |  Can be modified with [`SET`](set-vars.html)?
 ---------------|-------------|---------------|-----------------------------------------------
  `application_name` | The current application name for statistics collection. | Empty string, or `cockroach` for sessions from the [built-in SQL client](use-the-built-in-sql-client.html)  | Yes
- `bytea_output` | The [mode for conversions from `STRING` to `BYTES`](bytes.html#supported-conversions). | `hex` | Yes |
+ `bytea_output` | The [mode for con[version](cluster-settings.html#setting-version)s from `STRING` to `BYTES`](bytes.html#supported-con[version](cluster-settings.html#setting-version)s). | `hex` | Yes |
  `database` | The [current database](sql-name-resolution.html#current-database). Database in connection string, or empty if not specified | Yes |
  `default_transaction_isolation` | All transactions execute with `SERIALIZABLE` isolation. See [Transactions: Isolation levels](transactions.html#isolation-levels). | `SERIALIZABLE`  | No
  `default_transaction_read_only` | The default transaction access mode for the current session. If set to `on`, only read operations are allowed in transactions in the current session; if set to `off`, both read and write operations are allowed. See [`SET TRANSACTION`](set-transaction.html) for more details. | `off` | Yes
- `distsql` | <span class="version-tag">New in v2.1:</span> The query distribution mode for the session. By default, CockroachDB determines which queries are faster to execute if distributed across multiple nodes, and all other queries are run through the gateway node. | `auto` | Yes
- `extra_float_digits` | <span class="version-tag">New in v2.1:</span> The number of digits displayed for floating-point values. Only values between `-15` and `3` are supported. | `0` | Yes
+ `distsql` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v2.1:</span> The query distribution mode for the session. By default, CockroachDB determines which queries are faster to execute if distributed across multiple nodes, and all other queries are run through the gateway node. | `auto` | Yes
+ `extra_float_digits` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v2.1:</span> The number of digits displayed for floating-point values. Only values between `-15` and `3` are supported. | `0` | Yes
  `node_id` | The ID of the node currently connected to.<br><br>This variable is particularly useful for verifying load balanced connections. | Node-dependent | No
- `optimizer` | <span class="version-tag">New in v2.1:</span> The mode in which a query execution plan is generated. If set to `on`, the [cost-based optimizer](cost-based-optimizer.html) is enabled by default and the heuristic planner will only be used if the query is not supported by the cost-based optimizer; if set to `off`, all queries are run through the legacy heuristic planner. | `on` | Yes
+ `optimizer` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v2.1:</span> The mode in which a query execution plan is generated. If set to `on`, the [cost-based optimizer](cost-based-optimizer.html) is enabled by default and the heuristic planner will only be used if the query is not supported by the cost-based optimizer; if set to `off`, all queries are run through the legacy heuristic planner. | `on` | Yes
  `search_path` | A list of schemas that will be searched to resolve unqualified table or function names. For more details, see [Name Resolution](sql-name-resolution.html). | `{public}` | Yes
- `server_version` | The version of PostgreSQL that CockroachDB emulates. | Version-dependent | No |
- `server_version_num` | The version of PostgreSQL that CockroachDB emulates. | Version-dependent | Yes
+ `server_[version](cluster-settings.html#setting-version)` | The [version](cluster-settings.html#setting-version) of PostgreSQL that CockroachDB emulates. | Version-dependent | No |
+ `server_[version](cluster-settings.html#setting-version)_num` | The [version](cluster-settings.html#setting-version) of PostgreSQL that CockroachDB emulates. | Version-dependent | Yes
  `session_user` | The user connected for the current session. | User in connection string | No
  `sql_safe_updates` | If `false`, potentially unsafe SQL statements are allowed, including `DROP` of a non-empty database and all dependent objects, `DELETE` without a `WHERE` clause, `UPDATE` without a `WHERE` clause, and `ALTER TABLE .. DROP COLUMN`. See [Allow Potentially Unsafe SQL Statements](use-the-built-in-sql-client.html#allow-potentially-unsafe-sql-statements) for more details. | `true` for interactive sessions from the [built-in SQL client](use-the-built-in-sql-client.html),<br>`false` for sessions from other clients | Yes
- `statement_timeout` | <span class="version-tag">New in v2.1:</span> The amount of time a statement can run before being stopped.<br><br>This value can be an `int` (e.g., `10`) and will be interpreted as milliseconds. It can also be an interval or string argument, where the string can be parsed as a valid interval (e.g., `'4s'`). A value of `0` turns it off. | `0s` | Yes
+ `statement_timeout` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v2.1:</span> The amount of time a statement can run before being stopped.<br><br>This value can be an `int` (e.g., `10`) and will be interpreted as milliseconds. It can also be an interval or string argument, where the string can be parsed as a valid interval (e.g., `'4s'`). A value of `0` turns it off. | `0s` | Yes
  `timezone` | The default time zone for the current session. <br><br>This session variable was named `"time zone"` (with a space) in CockroachDB 1.x. It has been renamed for compatibility with PostgreSQL. | `UTC` | Yes
  `tracing` | | `off` |
  `transaction_isolation` | All transactions execute with `SERIALIZABLE` isolation. See [Transactions: Isolation levels](transactions.html#isolation-levels). <br><br>This session variable was called `transaction isolation level` (with spaces) in CockroachDB 1.x. It has been renamed for compatibility with PostgreSQL. | `SERIALIZABLE` | No
@@ -117,8 +117,8 @@ Special syntax cases supported for compatibility:
 | node_id                        | 1              |
 | search_path                    | public         |
 | server_encoding                | UTF8           |
-| server_version                 | 9.5.0          |
-| server_version_num             | 90500          |
+| server_[version](cluster-settings.html#setting-version)                 | 9.5.0          |
+| server_[version](cluster-settings.html#setting-version)_num             | 90500          |
 | session_user                   | root           |
 | sql_safe_updates               | true           |
 | standard_conforming_strings    | on             |

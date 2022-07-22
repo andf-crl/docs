@@ -14,7 +14,7 @@ Only members of the `admin` role can modify cluster settings. By default, the `r
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/generated/diagrams/reset_csetting.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/reset_csetting.html %}
 </div>
 
 ## Parameters
@@ -29,17 +29,17 @@ Only members of the `admin` role can modify cluster settings. By default, the `r
 
 {% include_cached copy-clipboard.html %}
 ~~~ sql
-> SET CLUSTER SETTING sql.metrics.statement_details.enabled = false;
+> SET CLUSTER SETTING [sql.metrics.statement_details.enabled](cluster-settings.html#setting-sql-metrics-statement_details-enabled) = false;
 ~~~
 
 {% include_cached copy-clipboard.html %}
 ~~~ sql
-> SHOW CLUSTER SETTING sql.metrics.statement_details.enabled;
+> SHOW CLUSTER SETTING [sql.metrics.statement_details.enabled](cluster-settings.html#setting-sql-metrics-statement_details-enabled);
 ~~~
 
 ~~~
 +---------------------------------------+
-| sql.metrics.statement_details.enabled |
+| [sql.metrics.statement_details.enabled](cluster-settings.html#setting-sql-metrics-statement_details-enabled) |
 +---------------------------------------+
 | false                                 |
 +---------------------------------------+
@@ -48,17 +48,17 @@ Only members of the `admin` role can modify cluster settings. By default, the `r
 
 {% include_cached copy-clipboard.html %}
 ~~~ sql
-> RESET CLUSTER SETTING sql.metrics.statement_details.enabled;
+> RESET CLUSTER SETTING [sql.metrics.statement_details.enabled](cluster-settings.html#setting-sql-metrics-statement_details-enabled);
 ~~~
 
 {% include_cached copy-clipboard.html %}
 ~~~ sql
-> SHOW CLUSTER SETTING sql.metrics.statement_details.enabled;
+> SHOW CLUSTER SETTING [sql.metrics.statement_details.enabled](cluster-settings.html#setting-sql-metrics-statement_details-enabled);
 ~~~
 
 ~~~
 +---------------------------------------+
-| sql.metrics.statement_details.enabled |
+| [sql.metrics.statement_details.enabled](cluster-settings.html#setting-sql-metrics-statement_details-enabled) |
 +---------------------------------------+
 | true                                  |
 +---------------------------------------+

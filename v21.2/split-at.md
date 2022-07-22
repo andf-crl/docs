@@ -10,11 +10,11 @@ The `SPLIT AT` [statement](sql-statements.html) forces a range split at the spec
 ## Synopsis
 
 <div>
-{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.version.version | replace: "v", "" }}/grammar_svg/split_table_at.html %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/grammar_svg/split_table_at.html %}
 </div>
 
 <div>
-{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.version.version | replace: "v", "" }}/grammar_svg/split_index_at.html %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/grammar_svg/split_index_at.html %}
 </div>
 
 ## Required privileges
@@ -57,7 +57,7 @@ the ranges that store tables or indexes:
 
 ## Examples
 
-{% include {{page.version.version}}/sql/movr-statements-geo-partitioned-replicas.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/movr-statements-geo-partitioned-replicas.md %}
 
 ### Split a table
 

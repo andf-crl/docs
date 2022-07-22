@@ -223,7 +223,7 @@ $ cockroach start --insecure \
 
 ~~~
 CockroachDB node starting at {{page.release_info.start_time}}
-build:      CCL {{page.release_info.version}} @ {{page.release_info.build_time}}
+build:      CCL {{page.release_info.[version](cluster-settings.html#setting-version)}} @ {{page.release_info.build_time}}
 admin:      http://localhost:8081
 sql:        postgresql://root@localhost:26258?sslmode=disable
 logs:       node2/logs
@@ -289,7 +289,7 @@ $ cockroach start --insecure \
 
 ~~~
 CockroachDB node starting at {{page.release_info.start_time}}
-build:      CCL {{page.release_info.version}} @ {{page.release_info.build_time}}
+build:      CCL {{page.release_info.[version](cluster-settings.html#setting-version)}} @ {{page.release_info.build_time}}
 admin:      http://localhost:8083
 sql:        postgresql://root@localhost:26260?sslmode=disable
 logs:       node4/logs

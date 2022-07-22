@@ -19,11 +19,11 @@ If reads from a table must be exactly up-to-date, use [Global Tables](global-tab
 
 ### Fundamentals
 
-{% include {{ page.version.version }}/topology-patterns/fundamentals.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/topology-patterns/fundamentals.md %}
 
 ### Cluster setup
 
-{% include {{ page.version.version }}/topology-patterns/multi-region-cluster-setup.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/topology-patterns/multi-region-cluster-setup.md %}
 
 ## Configuration
 
@@ -138,4 +138,4 @@ Because this pattern balances the replicas for the table across regions, one ent
 
 ## See also
 
-{% include {{ page.version.version }}/topology-patterns/see-also.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/topology-patterns/see-also.md %}

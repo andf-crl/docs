@@ -20,27 +20,27 @@ If you plan to use CockroachDB in production, we strongly recommend using a secu
 
 ### Requirements
 
-{% include {{ page.version.version }}/prod-deployment/insecure-requirements.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/insecure-requirements.md %}
 
 ### Recommendations
 
-{% include {{ page.version.version }}/prod-deployment/insecure-recommendations.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/insecure-recommendations.md %}
 
 ## Step 1. Synchronize clocks
 
-{% include {{ page.version.version }}/prod-deployment/synchronize-clocks.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/synchronize-clocks.md %}
 
 ## Step 2. Start nodes
 
-{% include {{ page.version.version }}/prod-deployment/insecure-start-nodes.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/insecure-start-nodes.md %}
 
 ## Step 3. Initialize the cluster
 
-{% include {{ page.version.version }}/prod-deployment/insecure-initialize-cluster.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/insecure-initialize-cluster.md %}
 
 ## Step 4. Test the cluster
 
-{% include {{ page.version.version }}/prod-deployment/insecure-test-cluster.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/insecure-test-cluster.md %}
 
 ## Step 5. Set up load balancing
 
@@ -62,11 +62,11 @@ Each CockroachDB node is an equally suitable SQL gateway to your cluster, but to
   $ apt-get install haproxy
   ~~~
 
-3. Download the [CockroachDB archive](https://binaries.cockroachdb.com/cockroach-{{ page.release_info.version }}.linux-amd64.tgz) for Linux, and extract the binary:
+3. Download the [CockroachDB archive](https://binaries.cockroachdb.com/cockroach-{{ page.release_info.[version](cluster-settings.html#setting-version) }}.linux-amd64.tgz) for Linux, and extract the binary:
 
     {% include copy-clipboard.html %}
     ~~~ shell
-    $ curl https://binaries.cockroachdb.com/cockroach-{{ page.release_info.version }}.linux-amd64.tgz \
+    $ curl https://binaries.cockroachdb.com/cockroach-{{ page.release_info.[version](cluster-settings.html#setting-version) }}.linux-amd64.tgz \
     | tar -xz
     ~~~
 
@@ -74,7 +74,7 @@ Each CockroachDB node is an equally suitable SQL gateway to your cluster, but to
 
     {% include copy-clipboard.html %}
     ~~~ shell
-    $ cp -i cockroach-{{ page.release_info.version }}.linux-amd64/cockroach /usr/local/bin/
+    $ cp -i cockroach-{{ page.release_info.[version](cluster-settings.html#setting-version) }}.linux-amd64/cockroach /usr/local/bin/
     ~~~
 
   If you get a permissions error, prefix the command with `sudo`.
@@ -88,7 +88,7 @@ Each CockroachDB node is an equally suitable SQL gateway to your cluster, but to
     --port=26257
     ~~~
 
-      {% include {{ page.version.version }}/misc/haproxy.md %}
+      {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/haproxy.md %}
 
 6. Start HAProxy, with the `-f` flag pointing to the `haproxy.cfg` file:
 
@@ -101,20 +101,20 @@ Each CockroachDB node is an equally suitable SQL gateway to your cluster, but to
 
 ## Step 6. Run a sample workload
 
-{% include {{ page.version.version }}/prod-deployment/insecure-test-load-balancing.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/insecure-test-load-balancing.md %}
 
 ## Step 7. Monitor the cluster
 
-{% include {{ page.version.version }}/prod-deployment/monitor-cluster.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/monitor-cluster.md %}
 
 ## Step 8. Scale the cluster
 
-{% include {{ page.version.version }}/prod-deployment/insecure-scale-cluster.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/insecure-scale-cluster.md %}
 
 ## Step 9. Use the cluster
 
-{% include {{ page.version.version }}/prod-deployment/use-cluster.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/use-cluster.md %}
 
 ## See also
 
-{% include {{ page.version.version }}/prod-deployment/prod-see-also.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/prod-see-also.md %}

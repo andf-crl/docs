@@ -6,7 +6,7 @@ toc: true
 
 The `CREATE TABLE` [statement](sql-statements.html) creates a new table in a database.
 
-{% include {{{ page.version.version }}/misc/schema-change-stmt-note.md %}
+{% include {{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-stmt-note.md %}
 
 ## Required privileges
 
@@ -20,49 +20,49 @@ The user must have the `CREATE` [privilege](authorization.html#assign-privileges
 </div><p></p>
 
 <div class="filter-content" markdown="1" data-scope="basic">
-{% include {{ page.version.version }}/sql/diagrams/create_table.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/create_table.html %}
 </div>
 
 <div class="filter-content" markdown="1" data-scope="expanded">
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/create_table.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/create_table.html %}
 </div>
 
 **column_def ::=**
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/column_def.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/column_def.html %}
 </div>
 
 **col_qualification ::=**
 
 <div class="horizontal-scroll">
-  {% include {{ page.version.version }}/sql/diagrams/col_qualification.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/col_qualification.html %}
 </div>
 
 **index_def ::=**
 
 <div class="horizontal-scroll">
-  {% include {{ page.version.version }}/sql/diagrams/index_def.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/index_def.html %}
 </div>
 
 **family_def ::=**
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/family_def.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/family_def.html %}
 </div>
 
 **table_constraint ::=**
 
 <div class="horizontal-scroll">
-  {% include {{ page.version.version }}/sql/diagrams/table_constraint.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/table_constraint.html %}
 </div>
 
 **opt_interleave ::=**
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/opt_interleave.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/opt_interleave.html %}
 </div>
 
 </div>
@@ -192,7 +192,7 @@ We also have other resources on indexes:
 
 ### Create a table with auto-generated unique row IDs
 
-{% include {{ page.version.version }}/faq/auto-generate-unique-ids.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/faq/auto-generate-unique-ids.html %}
 
 ### Create a table with a foreign key constraint
 
@@ -364,7 +364,7 @@ In this example, we create the `users` table, but with some column [constraints]
 
 ### Create a table that mirrors key-value storage
 
-{% include {{ page.version.version }}/faq/simulate-key-value-store.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/faq/simulate-key-value-store.html %}
 
 ### Create a table from a `SELECT` statement
 
@@ -409,7 +409,7 @@ You can use the [`CREATE TABLE AS`](create-table-as.html) statement to create a 
 
 ### Create a table with a computed column
 
-{% include {{ page.version.version }}/computed-columns/simple.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/computed-columns/simple.md %}
 
 ### Create a table with partitions
 

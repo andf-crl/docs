@@ -13,7 +13,7 @@ The user must have any [privilege](authorization.html#assign-privileges) on the 
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/generated/diagrams/show_create.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/show_create.html %}
 </div>
 
 ## Parameters
@@ -32,7 +32,7 @@ Field | Description
 
 ## Example
 
-{% include {{page.version.version}}/sql/movr-statements-nodes.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/movr-statements-nodes.md %}
 
 ### Show the `CREATE TABLE` statement for a table
 
@@ -237,7 +237,7 @@ For more information, see [`COMMENT ON`](comment-on.html).
 
 ### Show the `CREATE TABLE` statement for a table with a multi-region locality
 
-{% include_cached new-in.html version="v21.1" %} Use the `SHOW CREATE TABLE` command to view [multi-region-defined](multiregion-overview.html) table localities.
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.1" %} Use the `SHOW CREATE TABLE` command to view [multi-region-defined](multiregion-overview.html) table localities.
 
 {% include enterprise-feature.md %}
 
@@ -286,7 +286,7 @@ All tables will be [`REGIONAL BY TABLE`](set-locality.html#regional-by-table) in
 
 ### Show the statements needed to recreate all tables, views, and sequences in the current database
 
-{% include_cached new-in.html version="v21.1" %} To return the `CREATE` statements for all of the tables, views, and sequences in the current database, use `SHOW CREATE ALL TABLES`.
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.1" %} To return the `CREATE` statements for all of the tables, views, and sequences in the current database, use `SHOW CREATE ALL TABLES`.
 
 Note that this statement also returns the [`ALTER` statements](alter-table.html) that add, modify, and validate an object's [constraints](constraints.html).
 

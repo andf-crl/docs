@@ -20,7 +20,7 @@ The user must have the `INSERT` [privilege](authorization.html#assign-privileges
 ## Synopsis
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/insert.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/insert.html %}
 </div>
 
 ## Parameters
@@ -38,7 +38,7 @@ Parameter | Description
 ### `ON CONFLICT` clause
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/on_conflict.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/on_conflict.html %}
 </div>
 
 Normally, when inserted values
@@ -256,7 +256,7 @@ The [`IMPORT`](import.html) statement performs better than `INSERT` when inserti
 
 ### Insert and return values
 
-In this example, the `RETURNING` clause returns the `id` values of the rows inserted, which are generated server-side by the `unique_rowid()` function. The language-specific versions assume that you have installed the relevant [client drivers](install-client-drivers.html).
+In this example, the `RETURNING` clause returns the `id` values of the rows inserted, which are generated server-side by the `unique_rowid()` function. The language-specific [version](cluster-settings.html#setting-version)s assume that you have installed the relevant [client drivers](install-client-drivers.html).
 
 {{site.data.alerts.callout_success}}This use of <code>RETURNING</code> mirrors the behavior of MySQL's <code>last_insert_id()</code> function.{{site.data.alerts.end}}
 

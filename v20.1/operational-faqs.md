@@ -44,20 +44,20 @@ Yes. By default, CockroachDB stores timeseries data for the last 10 days for dis
 
 ### Reduce the interval for timeseries storage
 
-To reduce the interval for storage of timeseries data, change the `timeseries.storage.resolution_10s.ttl` cluster setting to an [`INTERVAL`](interval.html) value less than `240h0m0s` (10 days). For example, to store timeseries data for the last 5 days, run the following [`SET CLUSTER SETTING`](set-cluster-setting.html) command:
+To reduce the interval for storage of timeseries data, change the `[timeseries.storage.resolution_10s.ttl](cluster-settings.html#setting-timeseries-storage-resolution_10s-ttl)` cluster setting to an [`INTERVAL`](interval.html) value less than `240h0m0s` (10 days). For example, to store timeseries data for the last 5 days, run the following [`SET CLUSTER SETTING`](set-cluster-setting.html) command:
 
 {% include copy-clipboard.html %}
 ~~~ sql
-> SET CLUSTER SETTING timeseries.storage.resolution_10s.ttl = '120h0m0s';
+> SET CLUSTER SETTING [timeseries.storage.resolution_10s.ttl](cluster-settings.html#setting-timeseries-storage-resolution_10s-ttl) = '120h0m0s';
 ~~~
 
 {% include copy-clipboard.html %}
 ~~~ sql
-> SHOW CLUSTER SETTING timeseries.storage.resolution_10s.ttl;
+> SHOW CLUSTER SETTING [timeseries.storage.resolution_10s.ttl](cluster-settings.html#setting-timeseries-storage-resolution_10s-ttl);
 ~~~
 
 ~~~
-  timeseries.storage.resolution_10s.ttl
+  [timeseries.storage.resolution_10s.ttl](cluster-settings.html#setting-timeseries-storage-resolution_10s-ttl)
 +---------------------------------------+
   360:00:00
 (1 row)
@@ -73,26 +73,26 @@ To disable the storage of timeseries data entirely, run the following command:
 
 {% include copy-clipboard.html %}
 ~~~ sql
-> SET CLUSTER SETTING timeseries.storage.enabled = false;
+> SET CLUSTER SETTING [timeseries.storage.enabled](cluster-settings.html#setting-timeseries-storage-enabled) = false;
 ~~~
 
 {% include copy-clipboard.html %}
 ~~~ sql
-> SHOW CLUSTER SETTING timeseries.storage.enabled;
+> SHOW CLUSTER SETTING [timeseries.storage.enabled](cluster-settings.html#setting-timeseries-storage-enabled);
 ~~~
 
 ~~~
-  timeseries.storage.enabled
+  [timeseries.storage.enabled](cluster-settings.html#setting-timeseries-storage-enabled)
 +----------------------------+
             false
 (1 row)
 ~~~
 
-If you want all existing timeseries data to be deleted, change the `timeseries.storage.resolution_10s.ttl` cluster setting as well:     
+If you want all existing timeseries data to be deleted, change the `[timeseries.storage.resolution_10s.ttl](cluster-settings.html#setting-timeseries-storage-resolution_10s-ttl)` cluster setting as well:     
 
 {% include copy-clipboard.html %}
 ~~~ sql
-> SET CLUSTER SETTING timeseries.storage.resolution_10s.ttl = '0s';
+> SET CLUSTER SETTING [timeseries.storage.resolution_10s.ttl](cluster-settings.html#setting-timeseries-storage-resolution_10s-ttl) = '0s';
 ~~~
 
 ## What happens when a node runs out of disk space?
@@ -120,17 +120,17 @@ Collecting information about CockroachDB's real world usage helps us prioritize 
 
 ## What happens when node clocks are not properly synchronized?
 
-{% include {{ page.version.version }}/faq/clock-synchronization-effects.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/faq/clock-synchronization-effects.md %}
 
 ## How can I tell how well node clocks are synchronized?
 
-{% include {{ page.version.version }}/faq/clock-synchronization-monitoring.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/faq/clock-synchronization-monitoring.html %}
 
 You can also see these metrics in [the Clock Offset graph](admin-ui-runtime-dashboard.html#clock-offset) on the Admin UI's Runtime dashboard.
 
 ## How do I prepare for planned node maintenance?
 
-{% include {{ page.version.version }}/faq/planned-maintenance.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/faq/planned-maintenance.md %}
 
 ## See also
 

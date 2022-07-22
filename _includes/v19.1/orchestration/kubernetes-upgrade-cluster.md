@@ -1,4 +1,4 @@
-As new versions of CockroachDB are released, it's strongly recommended to upgrade to newer versions in order to pick up bug fixes, performance improvements, and new features. The [general CockroachDB upgrade documentation](upgrade-cockroach-version.html) provides best practices for how to prepare for and execute upgrades of CockroachDB clusters, but the mechanism of actually stopping and restarting processes in Kubernetes is somewhat special.
+As new [version](cluster-settings.html#setting-version)s of CockroachDB are released, it's strongly recommended to upgrade to newer [version](cluster-settings.html#setting-version)s in order to pick up bug fixes, performance improvements, and new features. The [general CockroachDB upgrade documentation](upgrade-cockroach-[version](cluster-settings.html#setting-version).html) provides best practices for how to prepare for and execute upgrades of CockroachDB clusters, but the mechanism of actually stopping and restarting processes in Kubernetes is somewhat special.
 
 Kubernetes knows how to carry out a safe rolling upgrade process of the CockroachDB nodes. When you tell it to change the Docker image used in the CockroachDB StatefulSet, Kubernetes will go one-by-one, stopping a node, restarting it with the new image, and waiting for it to be ready to receive client requests before moving on to the next one. For more information, see [the Kubernetes documentation](https://kubernetes.io/docs/tutorials/stateful-application/basic-stateful-set/#updating-statefulsets).
 
@@ -8,7 +8,7 @@ Kubernetes knows how to carry out a safe rolling upgrade process of the Cockroac
     This step is relevant only when upgrading from v2.1.x to v19.1. For upgrades within the v19.1.x series, skip this step.
     {{site.data.alerts.end}}
 
-    By default, after all nodes are running the new version, the upgrade process will be **auto-finalized**. This will enable certain performance improvements and bug fixes introduced in v19.1. After finalization, however, it will no longer be possible to perform a downgrade to v2.1. In the event of a catastrophic failure or corruption, the only option will be to start a new cluster using the old binary and then restore from one of the backups created prior to performing the upgrade.
+    By default, after all nodes are running the new [version](cluster-settings.html#setting-version), the upgrade process will be **auto-finalized**. This will enable certain performance improvements and bug fixes introduced in v19.1. After finalization, however, it will no longer be possible to perform a downgrade to v2.1. In the event of a catastrophic failure or corruption, the only option will be to start a new cluster using the old binary and then restore from one of the backups created prior to performing the upgrade.
 
     We recommend disabling auto-finalization so you can monitor the stability and performance of the upgraded cluster before finalizing the upgrade:
 
@@ -68,11 +68,11 @@ Kubernetes knows how to carry out a safe rolling upgrade process of the Cockroac
 
     {% endif %}
 
-    2. Set the `cluster.preserve_downgrade_option` [cluster setting](cluster-settings.html):
+    2. Set the `[cluster.preserve_downgrade_option](cluster-settings.html#setting-cluster-preserve_downgrade_option)` [cluster setting](cluster-settings.html):
 
         {% include copy-clipboard.html %}
         ~~~ sql
-        > SET CLUSTER SETTING cluster.preserve_downgrade_option = '2.1';
+        > SET CLUSTER SETTING [cluster.preserve_downgrade_option](cluster-settings.html#setting-cluster-preserve_downgrade_option) = '2.1';
         ~~~
 
     3. Exit the SQL shell and delete the temporary pod:
@@ -100,7 +100,7 @@ Kubernetes knows how to carry out a safe rolling upgrade process of the Cockroac
     <section class="filter-content" markdown="1" data-scope="helm">
 
     {{site.data.alerts.callout_info}}
-    For Helm, you must remove the cluster initialization job from when the cluster was created before the cluster version can be changed.
+    For Helm, you must remove the cluster initialization job from when the cluster was created before the cluster [version](cluster-settings.html#setting-version) can be changed.
     {{site.data.alerts.end}}
 
     {% include copy-clipboard.html %}
@@ -180,7 +180,7 @@ Kubernetes knows how to carry out a safe rolling upgrade process of the Cockroac
     ~~~
     </section>
 
-    You can also check the CockroachDB version of each node in the Admin UI:
+    You can also check the CockroachDB [version](cluster-settings.html#setting-version) of each node in the Admin UI:
 
     <img src="{{ 'images/v19.1/kubernetes-upgrade.png' | relative_url }}" alt="Version in UI after upgrade" style="max-width:100%" />
 
@@ -192,7 +192,7 @@ Kubernetes knows how to carry out a safe rolling upgrade process of the Cockroac
 
     If you disabled auto-finalization in step 1 above, monitor the stability and performance of your cluster for as long as you require to feel comfortable with the upgrade (generally at least a day). If during this time you decide to roll back the upgrade, repeat the rolling restart procedure with the old binary.
 
-    Once you are satisfied with the new version, re-enable auto-finalization:
+    Once you are satisfied with the new [version](cluster-settings.html#setting-version), re-enable auto-finalization:
 
     {% if page.secure == true %}
 
@@ -254,7 +254,7 @@ Kubernetes knows how to carry out a safe rolling upgrade process of the Cockroac
 
         {% include copy-clipboard.html %}
         ~~~ sql
-        > RESET CLUSTER SETTING cluster.preserve_downgrade_option;
+        > RESET CLUSTER SETTING [cluster.preserve_downgrade_option](cluster-settings.html#setting-cluster-preserve_downgrade_option);
         ~~~
 
     3. Exit the SQL shell and delete the temporary pod:

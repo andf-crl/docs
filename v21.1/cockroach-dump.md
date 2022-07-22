@@ -6,7 +6,7 @@ key: sql-dump.html
 ---
 
 {{site.data.alerts.callout_danger}}
-`cockroach dump` is no longer fully supported and has been deprecated in v20.2. [`cockroach dump --dump-mode=schema`](#dump-just-a-tables-schema) is still supported, but is deprecated. Use [`SHOW CREATE ALL TABLES`](show-create.html) instead. All `cockroach dump` commands will be removed in v21.2 and later versions.
+`cockroach dump` is no longer fully supported and has been deprecated in v20.2. [`cockroach dump --dump-mode=schema`](#dump-just-a-tables-schema) is still supported, but is deprecated. Use [`SHOW CREATE ALL TABLES`](show-create.html) instead. All `cockroach dump` commands will be removed in v21.2 and later [version](cluster-settings.html#setting-version)s.
 
 Instead, back up your data in a [full backup](take-full-and-incremental-backups.html), [export](export.html) your data in plain text format, or view table schema in plain text with [`SHOW CREATE TABLE`](show-create.html).
 {{site.data.alerts.end}}
@@ -97,7 +97,7 @@ Flag | Description
 
 ### Client connection
 
-{% include {{ page.version.version }}/sql/connection-parameters.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/connection-parameters.md %}
 
 See [Client Connection Parameters](connection-parameters.html) for more details.
 
@@ -107,7 +107,7 @@ The user specified with `--user` must have the `SELECT` privilege on the target 
 
 ### Logging
 
-{% include {{ page.version.version }}/misc/logging-defaults.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/logging-defaults.md %}
 
 ## Examples
 

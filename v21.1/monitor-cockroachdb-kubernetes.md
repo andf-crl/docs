@@ -71,7 +71,7 @@ If you're on Hosted GKE, before starting, make sure the email address associated
 1. Install [CoreOS's Prometheus Operator](https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/release-0.43/bundle.yaml):
 
     {{site.data.alerts.callout_info}}
-    We recommend checking for the latest Prometheus Operator [release version](https://github.com/prometheus-operator/prometheus-operator/blob/master/RELEASE.md) and specifying this version in the following command.
+    We recommend checking for the latest Prometheus Operator [release [version](cluster-settings.html#setting-version)](https://github.com/prometheus-operator/prometheus-operator/blob/master/RELEASE.md) and specifying this [version](cluster-settings.html#setting-version) in the following command.
     {{site.data.alerts.end}}
 
     {% include_cached copy-clipboard.html %}

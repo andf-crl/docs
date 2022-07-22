@@ -416,9 +416,9 @@ Here are some general best practices to follow when executing `CREATE TABLE` sta
 
 - Do not create tables as the `root` user. Instead, create tables as a [different user](schema-design-overview.html#controlling-access-to-objects), with fewer privileges, following [authorization best practices](authorization.html#authorization-best-practices). The user that creates an object becomes that [object's owner](authorization.html#object-ownership).
 
-- {% include {{page.version.version}}/sql/dev-schema-changes.md %}
+- {% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/dev-schema-changes.md %}
 
-- {% include {{page.version.version}}/sql/dev-schema-change-limits.md %}
+- {% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/dev-schema-change-limits.md %}
 
 #### Execute the example `CREATE TABLE` statements
 

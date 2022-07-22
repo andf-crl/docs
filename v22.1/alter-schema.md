@@ -7,12 +7,12 @@ docs_area: reference.sql
 
 The `ALTER SCHEMA` [statement](sql-statements.html) modifies a user-defined [schema](sql-name-resolution.html#naming-hierarchy). CockroachDB currently supports changing the name of the schema and the owner of the schema.
 
-{% include {{ page.version.version }}/misc/schema-change-stmt-note.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-stmt-note.md %}
 
 ## Syntax
 
 <div>
-{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.version.version | replace: "v", "" }}/grammar_svg/alter_schema.html %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/grammar_svg/alter_schema.html %}
 </div>
 
 ### Parameters
@@ -30,7 +30,7 @@ Parameter | Description
 
 ## Example
 
-{% include {{page.version.version}}/sql/movr-statements.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/movr-statements.md %}
 
 ### Rename a schema
 

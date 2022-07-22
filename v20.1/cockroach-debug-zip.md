@@ -55,7 +55,7 @@ You can locate logs in the unarchived file's `debug/nodes/[node dir]/logs` direc
 
 ## Subcommands
 
-{% include {{ page.version.version }}/misc/debug-subcommands.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/debug-subcommands.md %}
 
 ## Synopsis
 

@@ -18,7 +18,7 @@ The user must have the `SELECT` and `UPDATE` [privileges](authorization.html#ass
 ## Synopsis
 
 <div class="horizontal-scroll">
-  {% include {{ page.version.version }}/sql/diagrams/update.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/update.html %}
 </div>
 
 ## Parameters
@@ -73,7 +73,7 @@ For an example, see [Update using values from a different table](#update-using-v
 
 ## Examples
 
-{% include {{page.version.version}}/sql/movr-statements.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/movr-statements.md %}
 
 ### Update a single column in a single row
 
@@ -287,7 +287,7 @@ You can use a [`SET`](set-vars.html) statement to set session variables.
 
 ### Update and return values
 
-In this example, the `RETURNING` clause returns the `id` value of the row updated. The language-specific versions assume that you have installed the relevant [client drivers](install-client-drivers.html).
+In this example, the `RETURNING` clause returns the `id` value of the row updated. The language-specific [version](cluster-settings.html#setting-version)s assume that you have installed the relevant [client drivers](install-client-drivers.html).
 
 {{site.data.alerts.callout_success}}This use of <code>RETURNING</code> mirrors the behavior of MySQL's <code>last_insert_id()</code> function.{{site.data.alerts.end}}
 

@@ -43,7 +43,7 @@ Click the **NO CONNECTIONS** link to see lost connections between nodes or [loca
 
 ## Topology fundamentals
 
-{% include {{ page.version.version }}/topology-patterns/fundamentals.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/topology-patterns/fundamentals.md %}
 
 {{site.data.alerts.callout_info}}
 Network latency limits the performance of individual operations. You can use the [Statements](admin-ui-statements-page.html) page to see the latencies of SQL statements on gateway nodes.

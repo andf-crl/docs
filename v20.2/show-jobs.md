@@ -6,11 +6,11 @@ toc: true
 
 The `SHOW JOBS` [statement](sql-statements.html) lists all of the types of long-running tasks your cluster has performed in the last 12 hours, including:
 
-{% include {{ page.version.version }}/sql/schema-changes.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/schema-changes.md %}
 - [`IMPORT`](import.html)
 - Enterprise [`BACKUP`](backup.html) and [`RESTORE`](restore.html)
 - [User-created table statistics](create-statistics.html) created for use by the [cost-based optimizer](cost-based-optimizer.html)
-- <span class="version-tag">New in v20.2:</span> [Scheduled backups](manage-a-backup-schedule.html)
+- <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> [Scheduled backups](manage-a-backup-schedule.html)
 
 These details can help you understand the status of crucial tasks that can impact the performance of your cluster, as well as help you control them.
 
@@ -22,7 +22,7 @@ To block a call to `SHOW JOBS` that returns after all specified job ID(s) have a
 
 - The `SHOW JOBS` statement shows only long-running tasks.
 - For jobs older than 12 hours, query the `crdb_internal.jobs` table.
-- Jobs are deleted after 14 days. This interval can be changed via the `jobs.retention_time` [cluster setting](cluster-settings.html).
+- Jobs are deleted after 14 days. This interval can be changed via the `[jobs.retention_time](cluster-settings.html#setting-jobs-retention_time)` [cluster setting](cluster-settings.html).
 - While the `SHOW JOBS WHEN COMPLETE` statement is blocking, it will time out after 24 hours.
 - Garbage collection jobs are created for [dropped tables](drop-table.html) and [dropped indexes](drop-index.html), and will execute after the [GC TTL](configure-replication-zones.html#replication-zone-variables) has elapsed (default is 25 hours). These jobs cannot be canceled.
 
@@ -33,7 +33,7 @@ By default, only the `root` user can execute `SHOW JOBS`.
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/show_jobs.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/show_jobs.html %}
 </div>
 
 ## Parameters
@@ -44,7 +44,7 @@ By default, only the `root` user can execute `SHOW JOBS`.
 `SHOW JOBS WHEN COMPLETE` | Block `SHOW JOB` until the provided job ID reaches a terminal state. For an example, see [Show job when complete](#show-job-when-complete).
 `select_stmt` | A [selection query](selection-queries.html) that specifies the `job_id`(s) to view.
 `job_id` | The ID of the job you want to view.
-`for_schedules_clause` | <span class="version-tag">New in v20.2:</span> The schedule you want to view jobs for. You can view jobs for a specific schedule (`FOR SCHEDULE id`) or view jobs for multiple schedules by nesting a [`SELECT` clause](select-clause.html) in the statement (`FOR SCHEDULES <select_clause>`). See the [examples](#show-jobs-for-a-schedule) below.
+`for_schedules_clause` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> The schedule you want to view jobs for. You can view jobs for a specific schedule (`FOR SCHEDULE id`) or view jobs for multiple schedules by nesting a [`SELECT` clause](select-clause.html) in the statement (`FOR SCHEDULES <select_clause>`). See the [examples](#show-jobs-for-a-schedule) below.
 
 ## Response
 
@@ -163,7 +163,7 @@ To block `SHOW JOB` until the provided job ID reaches a terminal state, use `SHO
 
 ### Show jobs for a schedule
 
-<span class="version-tag">New in v20.2:</span> To view jobs for a specific [backup schedule](create-schedule-for-backup.html), use the schedule's `id`:
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> To view jobs for a specific [backup schedule](create-schedule-for-backup.html), use the schedule's `id`:
 
 {% include copy-clipboard.html %}
 ~~~ sql

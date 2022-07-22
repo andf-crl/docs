@@ -68,7 +68,7 @@ The following information is also contained in the `.zip` file, and cannot be fi
 
 ## Subcommands
 
-{% include {{ page.version.version }}/misc/debug-subcommands.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/debug-subcommands.md %}
 
 ## Synopsis
 
@@ -113,7 +113,7 @@ Flag | Description
 
 ### Logging
 
-{% include {{ page.version.version }}/misc/logging-defaults.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/logging-defaults.md %}
 
 ## Examples
 

@@ -4,14 +4,14 @@ summary: Learn about the advanced options you can use when you backup and restor
 toc: true
 ---
 
-<span class="version-tag">New in v20.1:</span> The ability to [backup a full cluster](backup.html#backup-a-cluster) has been added and the syntax for [incremental backups](backup.html#create-incremental-backups) is simplified. Because of these two changes, [basic backup usage](backup-and-restore.html) is now sufficient for most CockroachDB clusters. However, you may want to control your backup and restore options more explicitly, which now falls under advanced usage.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> The ability to [backup a full cluster](backup.html#backup-a-cluster) has been added and the syntax for [incremental backups](backup.html#create-incremental-backups) is simplified. Because of these two changes, [basic backup usage](backup-and-restore.html) is now sufficient for most CockroachDB clusters. However, you may want to control your backup and restore options more explicitly, which now falls under advanced usage.
 
 This doc provides information about the advanced options you can use when you [backup](backup.html) and [restore](restore.html) data in a CockroachDB cluster:
 
 - [Incremental backups with a specified destination](#incremental-backups-with-explicitly-specified-destinations)
 - [Backup with revision history and point-in-time restore](#backup-with-revision-history-and-point-in-time-restore)
 - [Locality-aware backup and restore](#locality-aware-backup-and-restore)
-- <span class="version-tag">New in v20.1:</span> [Encrypted backup and restore](#encrypted-backup-and-restore)
+- <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> [Encrypted backup and restore](#encrypted-backup-and-restore)
 - [Restore into a different database](#restore-tables-into-a-different-database)
 - [Remove the foreign key before restore](#remove-the-foreign-key-before-restore)
 - [Restoring users from `system.users` backup](#restoring-users-from-system-users-backup)
@@ -56,7 +56,7 @@ AS OF SYSTEM TIME '-10s' WITH revision_history;
 
 If the full or incremental backup was taken [with revision history](#backup-with-revision-history-and-point-in-time-restore), you can restore the data as it existed at an arbitrary point-in-time within the revision history captured by that backup. Use the [`AS OF SYSTEM TIME`](as-of-system-time.html) clause to specify the point-in-time.
 
-<span class="version-tag">New in v20.1:</span> Additionally, if you want to restore a specific incremental backup, you can do so by specifying the `end_time` of the backup by using the [`AS OF SYSTEM TIME`](as-of-system-time.html) clause. To find the incremental backup's `end_time`, use [`SHOW BACKUP`](show-backup.html).
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> Additionally, if you want to restore a specific incremental backup, you can do so by specifying the `end_time` of the backup by using the [`AS OF SYSTEM TIME`](as-of-system-time.html) clause. To find the incremental backup's `end_time`, use [`SHOW BACKUP`](show-backup.html).
 
 If you do not specify a point-in-time, the data will be restored to the backup timestamp; that is, the restore will work as if the data was backed up without revision history.
 
@@ -280,11 +280,11 @@ Then, [resume the restore](resume-job.html):
 
 ## Encrypted backup and restore
 
-{% include {{ page.version.version }}/backups/encrypted-backup-description.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/backups/encrypted-backup-description.md %}
 
 ### Create an encrypted backup
 
-<span class="version-tag">New in v20.1:</span> To create an [encrypted backup](#encrypted-backup-and-restore), use the [`encryption_passphrase` option](backup.html#with-encryption-passphrase):
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> To create an [encrypted backup](#encrypted-backup-and-restore), use the [`encryption_passphrase` option](backup.html#with-encryption-passphrase):
 
 {% include copy-clipboard.html %}
 ~~~ sql
@@ -303,7 +303,7 @@ To [restore](restore.html), use the same `encryption_passphrase`:
 
 ### Restore from an encrypted backup
 
-<span class="version-tag">New in v20.1:</span> To decrypt an [encrypted backup](#encrypted-backup-and-restore), use the `encryption_passphrase` option and the same passphrase that was used to create the backup.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> To decrypt an [encrypted backup](#encrypted-backup-and-restore), use the `encryption_passphrase` option and the same passphrase that was used to create the backup.
 
 For example, the encrypted backup created in the [previous example](#create-an-encrypted-backup):
 

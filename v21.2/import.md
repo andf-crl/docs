@@ -14,16 +14,16 @@ The `IMPORT` [statement](sql-statements.html) imports the following types of dat
 - [MySQL dump files][mysql]
 - [Delimited data files](#delimited-data-files)
 
-{% include {{ page.version.version }}/import-table-deprecate.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/import-table-deprecate.md %}
 
 ## Considerations
 
 - `IMPORT` is a blocking statement. To run an import job asynchronously, use the [`DETACHED`](#options-detached) option.
-- `IMPORT` cannot be used within a [rolling upgrade](upgrade-cockroach-version.html).
+- `IMPORT` cannot be used within a [rolling upgrade](upgrade-cockroach-[version](cluster-settings.html#setting-version).html).
 - As of v21.2, certain `IMPORT TABLE` statements that defined the table schema inline are **deprecated**. These include running `IMPORT TABLE ... CREATE USING` and `IMPORT TABLE` with any non-bundle format (`CSV`, `DELIMITED`, `PGCOPY`, or `AVRO`) data types. Instead, use `CREATE TABLE` and `IMPORT INTO`; see this [example](import-into.html#import-into-a-new-table-from-a-csv-file) for more detail.
 - `IMPORT` can only import data to a new table. For information on how to import into existing tables, see [`IMPORT INTO`](import-into.html).
 - For instructions and working examples on how to migrate data from other databases, see the [Migration Overview](migration-overview.html).
-- `IMPORT` cannot directly import data to `REGIONAL BY ROW` tables that are part of [multi-region databases](multiregion-overview.html). {% include_cached new-in.html version="v21.2" %} Instead, use [`IMPORT INTO`](import-into.html) which supports importing into `REGIONAL BY ROW` tables.
+- `IMPORT` cannot directly import data to `REGIONAL BY ROW` tables that are part of [multi-region databases](multiregion-overview.html). {% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.2" %} Instead, use [`IMPORT INTO`](import-into.html) which supports importing into `REGIONAL BY ROW` tables.
 
 {{site.data.alerts.callout_success}}
 Optimize import operations in your applications by following our [Import Performance Best Practices](import-performance-best-practices.html).
@@ -37,20 +37,20 @@ The user must have the `CREATE` [privileges](security-reference/authorization.ht
 
 #### Source privileges
 
-{% include {{ page.version.version }}/misc/source-privileges.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/source-privileges.md %}
 
 ## Synopsis
 
 **Import a table from CSV or Avro**
 
 <div>
-{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.version.version | replace: "v", "" }}/grammar_svg/import_csv.html %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/grammar_svg/import_csv.html %}
 </div>
 
 **Import a database or table from dump file**
 
 <div>
-{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.version.version | replace: "v", "" }}/grammar_svg/import_dump.html %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/grammar_svg/import_dump.html %}
 </div>
 
 ## Parameters
@@ -133,7 +133,7 @@ For more information on details to consider when running an IMPORT, see [Conside
 
 ### Import targets
 
-{% include {{ page.version.version }}/import-table-deprecate.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/import-table-deprecate.md %}
 
 Imported tables must not exist and must be created in the `IMPORT` statement. If the table you want to import already exists, you must drop it with [`DROP TABLE`](drop-table.html) or use [`IMPORT INTO`](import-into.html).
 
@@ -199,7 +199,7 @@ If initiated correctly, the statement returns when the import is finished or if 
 
 The following provide connection examples to cloud storage providers. For more information on connecting to different storage options, read [Use Cloud Storage for Bulk Operations](use-cloud-storage-for-bulk-operations.html).
 
-{% include {{ page.version.version }}/import-table-deprecate.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/import-table-deprecate.md %}
 
 <div class="filters clearfix">
   <button class="filter-button" data-scope="s3">Amazon S3</button>
@@ -209,7 +209,7 @@ The following provide connection examples to cloud storage providers. For more i
 
 <section class="filter-content" markdown="1" data-scope="s3">
 
-{% include {{ page.version.version }}/backups/aws-auth-note.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/backups/aws-auth-note.md %}
 
 ### Import a table from a CSV file
 
@@ -236,7 +236,7 @@ CSV DATA ('s3://{BUCKET NAME}/{customers.csv}?AWS_ACCESS_KEY_ID={ACCESS_KEY}&AWS
 ;
 ~~~
 
-{% include {{ page.version.version }}/misc/csv-import-callout.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/csv-import-callout.md %}
 
 ### Import a table from multiple CSV files
 
@@ -563,7 +563,7 @@ CSV DATA ('azure://{CONTAINER NAME}/{customer-import-data.csv}?AZURE_ACCOUNT_NAM
 ;
 ~~~
 
-{% include {{ page.version.version }}/misc/csv-import-callout.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/csv-import-callout.md %}
 
 ### Import a table from multiple CSV files
 
@@ -866,7 +866,7 @@ job_id             |  status   | fraction_completed | rows | index_entries | byt
 
 <section class="filter-content" markdown="1" data-scope="gcs">
 
-{% include {{ page.version.version }}/backups/gcs-auth-note.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/backups/gcs-auth-note.md %}
 
 ### Import a table from a CSV file
 
@@ -893,7 +893,7 @@ CSV DATA ('gs://{BUCKET NAME}/{customers.csv}?AUTH=specified&CREDENTIALS={ENCODE
 ;
 ~~~
 
-{% include {{ page.version.version }}/misc/csv-import-callout.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/csv-import-callout.md %}
 
 ### Import a table from multiple CSV files
 
@@ -1247,7 +1247,7 @@ CSV DATA ('nodelocal://2/customers.csv')
 
 ## Known limitation
 
-{% include {{ page.version.version }}/known-limitations/import-high-disk-contention.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/import-high-disk-contention.md %}
 
 ## See also
 

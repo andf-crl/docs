@@ -6,7 +6,7 @@ toc: true
 
 The `ALTER VIEW` [statement](sql-statements.html) applies a schema change to a [view](views.html).
 
-{% include {{{ page.version.version }}/misc/schema-change-stmt-note.md %}
+{% include {{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-stmt-note.md %}
 
 ## Required privileges
 
@@ -16,7 +16,7 @@ The `ALTER VIEW` [statement](sql-statements.html) applies a schema change to a [
 ## Syntax
 
 <div>
-{% include {{ page.version.version }}/sql/generated/diagrams/alter_view.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/alter_view.html %}
 </div>
 
 ## Parameters

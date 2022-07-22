@@ -6,7 +6,7 @@ toc: true
 
 The `CREATE VIEW` statement creates a new [view](views.html), which is a stored query represented as a virtual table.
 
-{% include {{{ page.version.version }}/misc/schema-change-stmt-note.md %}
+{% include {{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-stmt-note.md %}
 
 ## Required privileges
 
@@ -14,7 +14,7 @@ The user must have the `CREATE` [privilege](authorization.html#assign-privileges
 
 ## Synopsis
 
-<section> {% include {{ page.version.version }}/sql/diagrams/create_view.html %} </section>
+<section> {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/create_view.html %} </section>
 
 ## Parameters
 

@@ -10,12 +10,12 @@ The `TRUNCATE` [statement](sql-statements.html) removes all rows from a table. A
 For smaller tables (with less than 1000 rows), using a [`DELETE` statement without a `WHERE` clause](delete.html#delete-all-rows) will be more performant than using `TRUNCATE`.
 {{site.data.alerts.end}}
 
-{% include {{{ page.version.version }}/misc/schema-change-stmt-note.md %}
+{% include {{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-stmt-note.md %}
 
 ## Synopsis
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/truncate.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/truncate.html %}
 </div>
 
 ## Required privileges
@@ -36,7 +36,7 @@ Parameter | Description
 
 ## Viewing schema changes
 
-{% include {{ page.version.version }}/misc/schema-change-view-job.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-view-job.md %}
 
 ## Examples
 

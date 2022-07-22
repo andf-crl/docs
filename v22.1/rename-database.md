@@ -7,12 +7,12 @@ docs_area: reference.sql
 
 The `RENAME TO` clause is part of [`ALTER DATABASE`](alter-database.html), and changes the name of a database.
 
-{% include {{ page.version.version }}/misc/schema-change-stmt-note.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-stmt-note.md %}
 
 ## Synopsis
 
 <div>
-{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.version.version | replace: "v", "" }}/grammar_svg/rename_database.html %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/grammar_svg/rename_database.html %}
 </div>
 
 ## Required privileges
@@ -27,7 +27,7 @@ Parameter | Description
 
 ## Viewing schema changes
 
-{% include {{ page.version.version }}/misc/schema-change-view-job.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-view-job.md %}
 
 ## Limitations
 

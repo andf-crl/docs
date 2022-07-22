@@ -4,7 +4,7 @@ summary: Use cockroach demo to open a SQL shell to a temporary, in-memory, singl
 toc: true
 ---
 
-<span class="version-tag">New in v2.1:</span> The `cockroach demo` [command](cockroach-commands.html) starts a temporary, in-memory, single-node CockroachDB cluster, optionally with a pre-loaded dataset, and opens an [interactive SQL shell](use-the-built-in-sql-client.html) to the cluster.  
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v2.1:</span> The `cockroach demo` [command](cockroach-commands.html) starts a temporary, in-memory, single-node CockroachDB cluster, optionally with a pre-loaded dataset, and opens an [interactive SQL shell](use-the-built-in-sql-client.html) to the cluster.  
 
 The in-memory cluster persists only as long as the SQL shell is open. As soon as the shell is exited, the cluster and all its data are permanently destroyed. This command is therefore recommended only as an easy way to experiment with the CockroachDB SQL dialect.
 
@@ -63,7 +63,7 @@ All [SQL shell commands, client-side options, help, and shortcuts](use-the-built
 
 ## Web UI
 
-When the SQL shell connects to the in-memory cluster, it prints a welcome text with some tips and CockroachDB version and cluster details. Most of these details resemble the [welcome text](use-the-built-in-sql-client.html#welcome-message) that gets printed when connecting `cockroach sql` to a permanent cluster. However, one unique detail to note is the **Web UI** link. For the duration of the cluster, you can open the Web UI for the cluster at this link.
+When the SQL shell connects to the in-memory cluster, it prints a welcome text with some tips and CockroachDB [version](cluster-settings.html#setting-version) and cluster details. Most of these details resemble the [welcome text](use-the-built-in-sql-client.html#welcome-message) that gets printed when connecting `cockroach sql` to a permanent cluster. However, one unique detail to note is the **Web UI** link. For the duration of the cluster, you can open the Web UI for the cluster at this link.
 
 ~~~ shell
 #
@@ -74,7 +74,7 @@ When the SQL shell connects to the in-memory cluster, it prints a welcome text w
 #
 # Web UI: http://127.0.0.1:60105
 #
-# Server version: CockroachDB CCL v2.1.0-alpha.20180702-281-g07a11b8e8c-dirty (x86_64-apple-darwin17.6.0, built 2018/07/08 14:00:29, go1.10.1) (same version as client)
+# Server [version](cluster-settings.html#setting-version): CockroachDB CCL v2.1.0-alpha.20180702-281-g07a11b8e8c-dirty (x86_64-apple-darwin17.6.0, built 2018/07/08 14:00:29, go1.10.1) (same [version](cluster-settings.html#setting-version) as client)
 # Cluster ID: 61b41af6-fb2c-4d9a-8a91-0a31933b3d31
 #
 # Enter \? for a brief introduction.

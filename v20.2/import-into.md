@@ -9,7 +9,7 @@ The `IMPORT INTO` [statement](sql-statements.html) imports CSV, Avro, or delimit
 ## Considerations
 
 - `IMPORT INTO` works for existing tables. To import data into new tables, read the following [Import into a new table from a CSV file](#import-into-a-new-table-from-a-csv-file) example.
-- `IMPORT INTO` cannot be used within a [transaction](transactions.html) or during a [rolling upgrade](upgrade-cockroach-version.html).
+- `IMPORT INTO` cannot be used within a [transaction](transactions.html) or during a [rolling upgrade](upgrade-cockroach-[version](cluster-settings.html#setting-version).html).
 - `IMPORT INTO` takes the table **offline** before importing the data. The table will be online again once the job has completed successfully.
 - `IMPORT INTO` invalidates all [foreign keys](foreign-key.html) on the target table. To validate the foreign key(s), use the [`VALIDATE CONSTRAINT`](validate-constraint.html) statement.
 - `IMPORT INTO` is an insert-only statement; it cannot be used to update existing rows—see [`UPDATE`](update.html). Imported rows cannot conflict with primary keys in the existing table, or any other [`UNIQUE`](unique.html) constraint on the table.
@@ -43,7 +43,7 @@ Learn more about [cloud storage for bulk operations](use-cloud-storage-for-bulk-
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/import_into.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/import_into.html %}
 </div>
 
 {{site.data.alerts.callout_info}}
@@ -61,7 +61,7 @@ Parameter | Description
 
 #### Delimited data files
 
-<span class="version-tag">New in v20.2:</span> The `DELIMITED DATA` format can be used to import delimited data from any text file type, while ignoring characters that need to be escaped, like the following:
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> The `DELIMITED DATA` format can be used to import delimited data from any text file type, while ignoring characters that need to be escaped, like the following:
 
 - The file's delimiter (`\t` by default)
 - Double quotes (`"`)
@@ -104,13 +104,13 @@ Before using `IMPORT INTO`, you should have:
 
 - An existing table to import into (use [`CREATE TABLE`](create-table.html)).
 
-    <span class="version-tag">New in v20.2:</span> `IMPORT INTO` supports [computed columns](computed-columns.html) and the [`DEFAULT` expressions listed below](#supported-default-expressions).
+    <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> `IMPORT INTO` supports [computed columns](computed-columns.html) and the [`DEFAULT` expressions listed below](#supported-default-expressions).
 
 - The CSV or Avro data you want to import, preferably hosted on cloud storage. This location must be equally accessible to all nodes using the same import file location. This is necessary because the `IMPORT INTO` statement is issued once by the client, but is executed concurrently across all nodes of the cluster. For more information, see the [Import file location](#import-file-location) section below.
 
 #### Supported `DEFAULT` expressions
 
-<span class="version-tag">New in v20.2:</span> `IMPORT INTO` supports [computed columns](computed-columns.html) and the following [`DEFAULT`](default-value.html) expressions:
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> `IMPORT INTO` supports [computed columns](computed-columns.html) and the following [`DEFAULT`](default-value.html) expressions:
 
 - Constant `DEFAULT` expressions, which are expressions that return the same value in different statements. Examples include:
 
@@ -142,7 +142,7 @@ On [`cockroach start`](cockroach-start.html), if you set `--max-disk-temp-storag
 CockroachDB uses the URL provided to construct a secure API call to the service you specify. The URL structure depends on the type of file storage you are using. For more information, see the following:
 
 - [Use Cloud Storage for Bulk Operations](use-cloud-storage-for-bulk-operations.html)
-- <span class="version-tag">New in v20.2:</span> [Use `userfile` for Bulk Operations](use-userfile-for-bulk-operations.html)
+- <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> [Use `userfile` for Bulk Operations](use-userfile-for-bulk-operations.html)
 - [Use a Local File Server for Bulk Operations](use-a-local-file-server-for-bulk-operations.html)
 
 ## Performance
@@ -175,7 +175,7 @@ We recommend reading the [Considerations](#considerations) section for important
 
 <section class="filter-content" markdown="1" data-scope="s3">
 
-{% include {{ page.version.version }}/backups/aws-auth-note.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/backups/aws-auth-note.md %}
 
 ### Import into a new table from a CSV file
 
@@ -358,7 +358,7 @@ For more information about importing data from Avro, including examples, see [Mi
 
 <section class="filter-content" markdown="1" data-scope="gcs">
 
-{% include {{ page.version.version }}/backups/gcs-auth-note.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/backups/gcs-auth-note.md %}
 
 ### Import into a new table from a CSV file
 
@@ -458,10 +458,10 @@ For more information about importing data from Avro, including examples, see [Mi
 - Imported rows must not conflict with existing rows in the table or any unique secondary indexes.
 - `IMPORT INTO` works for only a single existing table, and the table must not be [interleaved](interleave-in-parent.html).
 - `IMPORT INTO` cannot be used within a [transaction](transactions.html).
-- `IMPORT INTO` can sometimes fail with a "context canceled" error, or can restart itself many times without ever finishing. If this is happening, it is likely due to a high amount of disk contention. This can be mitigated by setting the `kv.bulk_io_write.max_rate` [cluster setting](cluster-settings.html) to a value below your max disk write speed. For example, to set it to 10MB/s, execute:
+- `IMPORT INTO` can sometimes fail with a "context canceled" error, or can restart itself many times without ever finishing. If this is happening, it is likely due to a high amount of disk contention. This can be mitigated by setting the `[kv.bulk_io_write.max_rate](cluster-settings.html#setting-kv-bulk_io_write-max_rate)` [cluster setting](cluster-settings.html) to a value below your max disk write speed. For example, to set it to 10MB/s, execute:
     {% include copy-clipboard.html %}
     ~~~ sql
-    > SET CLUSTER SETTING kv.bulk_io_write.max_rate = '10MB';
+    > SET CLUSTER SETTING [kv.bulk_io_write.max_rate](cluster-settings.html#setting-kv-bulk_io_write-max_rate) = '10MB';
     ~~~
 
 ## See also

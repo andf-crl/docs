@@ -135,7 +135,7 @@ This page is provided for reference purposes only. The inclusion of a term in th
 
 <a name="gis"></a>
 
-- _GIS_: A "Geographic Information System" (or GIS) is used to store geographic information in a computer for processing and interaction by humans and/or other software. Some systems provide graphical "point and click" user interfaces, and some are embedded in programming languages or data query languages like SQL. For example, CockroachDB versions 20.2 and later provide support for [executing spatial queries from SQL](spatial-data.html).
+- _GIS_: A "Geographic Information System" (or GIS) is used to store geographic information in a computer for processing and interaction by humans and/or other software. Some systems provide graphical "point and click" user interfaces, and some are embedded in programming languages or data query languages like SQL. For example, CockroachDB [version](cluster-settings.html#setting-version)s 20.2 and later provide support for [executing spatial queries from SQL](spatial-data.html).
 
 <a name="arcgis"></a>
 

@@ -4,7 +4,7 @@ summary:
 toc: true
 ---
 
-<span class="version-tag">New in v2.0:</span> The `CREATE SEQUENCE` [statement](sql-statements.html) creates a new sequence in a database. Use a sequence to auto-increment integers in a table.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v2.0:</span> The `CREATE SEQUENCE` [statement](sql-statements.html) creates a new sequence in a database. Use a sequence to auto-increment integers in a table.
 
 
 ## Considerations
@@ -18,7 +18,7 @@ The user must have the `CREATE` [privilege](privileges.html) on the parent datab
 
 ## Synopsis
 
-<section>{% include {{ page.version.version }}/sql/diagrams/create_sequence.html %}</section>
+<section>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/create_sequence.html %}</section>
 
 ## Parameters
 

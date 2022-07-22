@@ -15,7 +15,7 @@ expression.
 ## Synopsis
 
 <div class="horizontal-scroll">
-  {% include {{ page.version.version }}/sql/diagrams/table_ref.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/table_ref.html %}
 </div>
 
 ## Parameters
@@ -198,7 +198,7 @@ For example:
 +-----------------+
 ~~~
 
-<span class="version-tag">New in v2.1:</span> Set-returning functions (SRFs) can now be accessed using `(SRF).x` where `x` is one of the following:
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v2.1:</span> Set-returning functions (SRFs) can now be accessed using `(SRF).x` where `x` is one of the following:
 
 - The name of a column returned from the function
 - `*` to denote all columns.

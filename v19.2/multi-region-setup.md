@@ -6,7 +6,7 @@ toc: true
 
 This page walks you through setting up a virtual environment for developing and debugging an example multi-region application. It is the third section of the [Develop and Deploy a Multi-Region Web Application](multi-region-overview.html) tutorial. In this section, you will set up a demo CockroachDB cluster, initialize the database, and set up a virtual development environment.
 
-{% include {{ page.version.version }}/misc/movr-flask-211.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/movr-flask-211.md %}
 
 ## Before you begin
 

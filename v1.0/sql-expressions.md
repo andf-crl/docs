@@ -48,7 +48,7 @@ An expression in a query can refer to columns in the current data source in two 
   Ordinal references should be used with care in production
   code! During schema updates, column ordinal positions can change and
   invalidate existing queries that use ordinal positions based on a
-  previous version of the schema.
+  previous [version](cluster-settings.html#setting-version) of the schema.
   {{site.data.alerts.end}}
 
 ## Unary and Binary Operations
@@ -525,7 +525,7 @@ CAST (<expr> AS <type>)
 ~~~
 
 Evaluates the expression and converts the resulting value to the
-specified type. An error is reported if the conversion is invalid.
+specified type. An error is reported if the con[version](cluster-settings.html#setting-version) is invalid.
 
 For example: `CAST(now() AS DATE)`
 

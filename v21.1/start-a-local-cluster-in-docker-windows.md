@@ -14,7 +14,7 @@ Once you've [installed the official CockroachDB Docker image](install-cockroachd
 
 {% include cockroachcloud/use-cockroachcloud-instead.md %}
 
-{% include {{ page.version.version }}/prod-deployment/insecure-flag.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/insecure-flag.md %}
 
 ## Before you begin
 
@@ -45,7 +45,7 @@ We've used `roachnet` as the network name here and in subsequent steps, but feel
     --net=roachnet `
     -p 26257:26257 -p 8080:8080  `
     -v "//c/Users/<username>/cockroach-data/roach1:/cockroach/cockroach-data"  `
-    {{page.release_info.docker_image}}:{{page.release_info.version}} start `
+    {{page.release_info.docker_image}}:{{page.release_info.[version](cluster-settings.html#setting-version)}} start `
     --insecure `
     --join=roach1,roach2,roach3
     ~~~
@@ -58,7 +58,7 @@ We've used `roachnet` as the network name here and in subsequent steps, but feel
     - `--net`: The bridge network for the container to join. See step 1 for more details.
     - `-p 26257:26257 -p 8080:8080`: These flags map the default port for inter-node and client-node communication (`26257`) and the default port for HTTP requests to the DB Console (`8080`) from the container to the host. This enables inter-container communication and makes it possible to call up the DB Console from a browser.
     - `-v "//c/Users/<username>/cockroach-data/roach1:/cockroach/cockroach-data"`: This flag mounts a host directory as a data volume. This means that data and logs for this node will be stored in `Users/<username>/cockroach-data/roach1` on the host and will persist after the container is stopped or deleted. For more details, see Docker's <a href="https://docs.docker.com/engine/admin/volumes/bind-mounts/">Bind Mounts</a> topic.
-    - `{{page.release_info.docker_image}}:{{page.release_info.version}} start --insecure --join`: The CockroachDB command to [start a node](cockroach-start.html) in the container in insecure mode. The `--join` flag specifies the `hostname` of each node that will initially comprise your cluster. Otherwise, all [`cockroach start`](cockroach-start.html) defaults are accepted. Note that since each node is in a unique container, using identical default ports won’t cause conflicts.
+    - `{{page.release_info.docker_image}}:{{page.release_info.[version](cluster-settings.html#setting-version)}} start --insecure --join`: The CockroachDB command to [start a node](cockroach-start.html) in the container in insecure mode. The `--join` flag specifies the `hostname` of each node that will initially comprise your cluster. Otherwise, all [`cockroach start`](cockroach-start.html) defaults are accepted. Note that since each node is in a unique container, using identical default ports won’t cause conflicts.
 
 3. Start two more nodes:
 
@@ -70,7 +70,7 @@ We've used `roachnet` as the network name here and in subsequent steps, but feel
     --hostname=roach2 `
     --net=roachnet `
     -v "//c/Users/<username>/cockroach-data/roach2:/cockroach/cockroach-data"  `
-    {{page.release_info.docker_image}}:{{page.release_info.version}} start `
+    {{page.release_info.docker_image}}:{{page.release_info.[version](cluster-settings.html#setting-version)}} start `
     --insecure `
     --join=roach1,roach2,roach3
     ~~~
@@ -81,7 +81,7 @@ We've used `roachnet` as the network name here and in subsequent steps, but feel
     --hostname=roach3 `
     --net=roachnet `
     -v "//c/Users/<username>/cockroach-data/roach3:/cockroach/cockroach-data"  `
-    {{page.release_info.docker_image}}:{{page.release_info.version}} start `
+    {{page.release_info.docker_image}}:{{page.release_info.[version](cluster-settings.html#setting-version)}} start `
     --insecure `
     --join=roach1,roach2,roach3
     ~~~

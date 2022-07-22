@@ -4,7 +4,7 @@ summary: The OWNER TO subcommand changes the owner of an object.
 toc: true
 ---
 
-<span class="version-tag">New in v20.2</span>: `OWNER TO` is a subcommand of [`ALTER DATABASE`](alter-database.html), [`ALTER TABLE`](alter-table.html), [`ALTER SCHEMA`](alter-schema.html), and [`ALTER TYPE`](alter-type.html), and is used to change the owner of an object in a cluster.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2</span>: `OWNER TO` is a subcommand of [`ALTER DATABASE`](alter-database.html), [`ALTER TABLE`](alter-table.html), [`ALTER SCHEMA`](alter-schema.html), and [`ALTER TYPE`](alter-type.html), and is used to change the owner of an object in a cluster.
 
 {{site.data.alerts.callout_info}}
 This page documents `ALTER DATABASE ... OWNER TO` and `ALTER TABLE ... OWNER TO`. For details on the `ALTER SCHEMA ... OWNER TO` and `ALTER TYPE ... OWNER TO`, see the [`ALTER SCHEMA`](alter-schema.html) and [`ALTER TYPE`](alter-type.html) pages.
@@ -38,7 +38,7 @@ Parameter | Description
 
 ## Examples
 
-{% include {{page.version.version}}/sql/movr-statements.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/movr-statements.md %}
 
 ### Change a database's owner
 

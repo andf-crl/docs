@@ -4,7 +4,7 @@ summary: The IMPORT statement imports various types of data into CockroachDB.wit
 toc: true
 ---
 
-<span class="version-tag">New in v20.2:</span> To put files on your CockroachDB cluster without external servers, use `userfile`, a per-user bulk file storage. To interact with `userfile`, use the following [commands](cockroach-commands.html):
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> To put files on your CockroachDB cluster without external servers, use `userfile`, a per-user bulk file storage. To interact with `userfile`, use the following [commands](cockroach-commands.html):
 
 - [`cockroach userfile upload`](#upload-a-file)
 - [`cockroach userfile list`](#list-files)

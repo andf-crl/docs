@@ -14,15 +14,15 @@ This tutorial shows you how to build a [Spring Boot](https://spring.io/projects/
 
 ## Before you begin
 
-{% include {{page.version.version}}/app/before-you-begin.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/before-you-begin.md %}
 
 ## Step 1. Install JDK
 
-Download and install a Java Development Kit. Spring Boot supports Java versions 8, 11, and 14. In this tutorial, we use [JDK 8 from OpenJDK](https://openjdk.java.net/install/).
+Download and install a Java Development Kit. Spring Boot supports Java [version](cluster-settings.html#setting-version)s 8, 11, and 14. In this tutorial, we use [JDK 8 from OpenJDK](https://openjdk.java.net/install/).
 
 ## Step 2. Install Maven
 
-This example application uses [Maven](http://maven.apache.org/) to manage all application dependencies. Spring supports Maven versions 3.2 and later.
+This example application uses [Maven](http://maven.apache.org/) to manage all application dependencies. Spring supports Maven [version](cluster-settings.html#setting-version)s 3.2 and later.
 
 To install Maven on macOS, run the following command:
 
@@ -82,13 +82,13 @@ To get the application code, download or clone the [`roach-data` repository](htt
 - Liquibase Migration
 - PostgreSQL Driver
 
-The [Hibernate CockroachDB dialect](https://in.relation.to/2020/07/27/hibernate-orm-5419-final-release/) is supported in Hibernate v5.4.19+. At the time of writing this tutorial, Spring Data JPA used Hibernate v5.4.15 as its default JPA provider. To specify a different version of Hibernate than the default, add an additional entry to your application's `pom.xml` file, as shown in [the `roach-data` GitHub repo](https://github.com/cockroachlabs/roach-data/blob/master/roach-data-jpa/pom.xml):
+The [Hibernate CockroachDB dialect](https://in.relation.to/2020/07/27/hibernate-orm-5419-final-release/) is supported in Hibernate v5.4.19+. At the time of writing this tutorial, Spring Data JPA used Hibernate v5.4.15 as its default JPA provider. To specify a different [version](cluster-settings.html#setting-version) of Hibernate than the default, add an additional entry to your application's `pom.xml` file, as shown in [the `roach-data` GitHub repo](https://github.com/cockroachlabs/roach-data/blob/master/roach-data-jpa/pom.xml):
 
 ~~~ xml
 <dependency>
     <groupId>org.hibernate</groupId>
     <artifactId>hibernate-core</artifactId>
-    <version>5.4.19.Final</version>
+    <[version](cluster-settings.html#setting-version)>5.4.19.Final</[version](cluster-settings.html#setting-version)>
 </dependency>
 ~~~
 
@@ -335,7 +335,7 @@ The output should look like the following:
 2020-06-22 11:54:50.609  INFO 81343 --- [           main] liquibase.executor.jvm.JdbcExecutor      : INSERT INTO public.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('2', 'root', 'classpath:db/changelog-master.xml', NOW(), 2, '8:c2945f2a445cf60b4b203e1a91d14a89', 'insert tableName=account; insert tableName=account; insert tableName=account; insert tableName=account', '', 'EXECUTED', 'crdb', NULL, '3.8.9', '2852090551')
 2020-06-22 11:54:50.615  INFO 81343 --- [           main] l.lockservice.StandardLockService        : Successfully released change log lock
 2020-06-22 11:54:50.727  INFO 81343 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2020-06-22 11:54:50.817  INFO 81343 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.19.Final
+2020-06-22 11:54:50.817  INFO 81343 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core [version](cluster-settings.html#setting-version) 5.4.19.Final
 2020-06-22 11:54:50.993  INFO 81343 --- [           main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
 2020-06-22 11:54:51.154  INFO 81343 --- [           main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.CockroachDB201Dialect
 2020-06-22 11:54:51.875  INFO 81343 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
@@ -535,7 +535,7 @@ Here are the contents of [`JpaApplication.java`](https://github.com/cockroachlab
 
 {% include copy-clipboard.html %}
 ~~~ java
-{% include {{page.version.version}}/app/spring-data-jpa/JpaApplication.java %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/spring-data-jpa/JpaApplication.java %}
 ~~~
 
 The annotations listed at the top of the `JpaApplication` class definition declare some important configuration properties for the entire application:
@@ -558,14 +558,14 @@ Liquibase uses files called [changelogs](https://docs.liquibase.com/concepts/bas
 
 {% include copy-clipboard.html %}
 ~~~ xml
-{% include {{page.version.version}}/app/spring-data-jpa/changelog-master.xml %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/spring-data-jpa/changelog-master.xml %}
 ~~~
 
 The first changeset uses [the `sqlFile` tag](https://docs.liquibase.com/change-types/community/sql-file.html), which tells Liquibase that an external `.sql` file contains some SQL statements to execute. The file specified by the changeset, `resources/db/create.sql`, creates the `account` table:
 
 {% include copy-clipboard.html %}
 ~~~ sql
-{% include {{page.version.version}}/app/spring-data-jpa/create.sql %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/spring-data-jpa/create.sql %}
 ~~~
 
 The second changeset in the changelog uses the [Liquibase XML syntax](https://docs.liquibase.com/concepts/basic/xml-format.html) to specify a series of sequential `INSERT` statements that initialize the `account` table with some values.
@@ -626,7 +626,7 @@ Here are the contents of [`Account.java`](https://github.com/cockroachlabs/roach
 
 {% include copy-clipboard.html %}
 ~~~ java
-{% include {{page.version.version}}/app/spring-data-jpa/Account.java %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/spring-data-jpa/Account.java %}
 ~~~
 
 Spring Data JPA supports standard Java Persistence API (JPA) annotations for domain entity class definitions. The `Account` class definition uses these annotations to create the `accounts` table entity:
@@ -646,7 +646,7 @@ The contents of [`AccountModel.java`](https://github.com/cockroachlabs/roach-dat
 
 {% include copy-clipboard.html %}
 ~~~ java
-{% include {{page.version.version}}/app/spring-data-jpa/AccountModel.java %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/spring-data-jpa/AccountModel.java %}
 ~~~
 
 We do not go into much detail about hypermedia representation in this tutorial. For more information, see the [Spring HATEOAS Reference Documentation](https://docs.spring.io/spring-hateoas/docs/current/reference/html/).
@@ -659,7 +659,7 @@ To abstract the database layer, Spring applications use the [`Repository` interf
 
 {% include copy-clipboard.html %}
 ~~~ java
-{% include {{page.version.version}}/app/spring-data-jpa/AccountRepository.java %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/spring-data-jpa/AccountRepository.java %}
 ~~~
 
 `AccountRepository` extends a subinterface of `Repository` that is provided by Spring for JPA data access called `JpaRepository`. The `AccountRepository` methods use the [`@Query`](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods.at-query) annotation strategy to define queries manually, as strings.
@@ -676,7 +676,7 @@ There are several endpoints exposed by the application's web layer, some of whic
 
 {% include copy-clipboard.html %}
 ~~~ java
-{% include {{page.version.version}}/app/spring-data-jpa/AccountController.java %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/spring-data-jpa/AccountController.java %}
 ~~~
 
  Annotated with [`@RestController`](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/bind/annotation/RestController.html), `AccountController` defines the primary [web controller](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) component of the application. The `AccountController` methods define the endpoints, routes, and business logic of REST services for account querying and money transferring. Its attributes include an instantiation of [`AccountRepository`](#spring-repositories), called `accountRepository`, that establishes an interface to the `accounts` table through the data access layer.
@@ -707,7 +707,7 @@ In this application, transaction retry logic is written into the methods of the 
 
 {% include copy-clipboard.html %}
 ~~~ java
-{% include {{page.version.version}}/app/spring-data-jpa/RetryableTransactionAspect.java %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/spring-data-jpa/RetryableTransactionAspect.java %}
 ~~~
 
 The `anyTransactionBoundaryOperation` method is declared as a pointcut with the [`@Pointcut` annotation](https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#aop-pointcuts). In Spring, pointcut declarations must include an expression to determine where [join points](https://en.wikipedia.org/wiki/Join_point) occur in the application control flow. To help define these expressions, Spring supports a set of [designators](https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#aop-pointcuts-designators). The application uses two of them here: `execution`, which matches method execution joint points (i.e., defines a joint point when a specific method is executed, in this case, *any* method in the `io.roach.` namespace), and `@annotation`, which limits the matches to methods with a specific annotation, in this case `@Transactional`.

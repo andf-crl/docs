@@ -15,7 +15,7 @@ In general, this pattern is suited well for reference tables that are rarely upd
 Tables with the `GLOBAL` locality can survive zone or region failures, depending on the database-level [survival goal](multiregion-overview.html#survival-goals) setting.
 
 {{site.data.alerts.callout_success}}
-{% include {{page.version.version}}/misc/multiregion-max-offset.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/misc/multiregion-max-offset.md %}
 {{site.data.alerts.end}}
 
 {{site.data.alerts.callout_info}}
@@ -26,11 +26,11 @@ Tables with the `GLOBAL` locality can survive zone or region failures, depending
 
 ### Fundamentals
 
-{% include {{ page.version.version }}/topology-patterns/multiregion-fundamentals.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/topology-patterns/multiregion-fundamentals.md %}
 
 ### Cluster setup
 
-{% include {{ page.version.version }}/topology-patterns/multi-region-cluster-setup.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/topology-patterns/multi-region-cluster-setup.md %}
 
 ## Configuration
 
@@ -38,11 +38,11 @@ Tables with the `GLOBAL` locality can survive zone or region failures, depending
 
 To use this pattern, you tell CockroachDB to set the [table locality](multiregion-overview.html#table-locality) to `GLOBAL`.
 
-{% include {{page.version.version}}/sql/global-table-description.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/global-table-description.md %}
 
 ### Steps
 
-{% include {{page.version.version}}/topology-patterns/multiregion-db-setup.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/topology-patterns/multiregion-db-setup.md %}
 
 Next, create a [`GLOBAL` table](multiregion-overview.html#global-tables) by issuing the following statement:
 
@@ -95,4 +95,4 @@ For a step-by-step demonstration showing how CockroachDB's multi-region capabili
 
 ## See also
 
-{% include {{ page.version.version }}/topology-patterns/see-also.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/topology-patterns/see-also.md %}

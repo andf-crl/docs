@@ -14,7 +14,7 @@ When using transactions, your application should include logic to [retry transac
 ## Synopsis
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/begin_transaction.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/begin_transaction.html %}
 </div>
 
 ## Required privileges
@@ -34,9 +34,9 @@ In CockroachDB, the following are aliases for the `BEGIN` statement:
 -----------|-------------
 `PRIORITY` | If you do not want the transaction to run with `NORMAL` priority, you can set it to `LOW` or `HIGH`.<br/><br/>Transactions with higher priority are less likely to need to be retried.<br/><br/>For more information, see [Transactions: Priorities](transactions.html#transaction-priorities).<br/><br/>**Default**: `NORMAL`
 `READ` | Set the transaction access mode to `READ ONLY` or `READ WRITE`. The current transaction access mode is also exposed as the [session variable](show-vars.html) `transaction_read_only`.<br><br>**Default**: `READ WRITE`
-`AS OF SYSTEM TIME` | <span class="version-tag">New in v19.1</span> Execute the transaction using the database contents "as of" a specified time in the past.<br/><br/> The `AS OF SYSTEM TIME` clause can be used only when the transaction is read-only. If the transaction contains any writes, or if the `READ WRITE` mode is specified, an error will be returned.<br/><br/>For more information, see [AS OF SYSTEM TIME](as-of-system-time.html).<br/><br/>
+`AS OF SYSTEM TIME` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v19.1</span> Execute the transaction using the database contents "as of" a specified time in the past.<br/><br/> The `AS OF SYSTEM TIME` clause can be used only when the transaction is read-only. If the transaction contains any writes, or if the `READ WRITE` mode is specified, an error will be returned.<br/><br/>For more information, see [AS OF SYSTEM TIME](as-of-system-time.html).<br/><br/>
 
- CockroachDB now only supports `SERIALIZABLE` isolation, so transactions can no longer be meaningfully set to any other `ISOLATION LEVEL`. In previous versions of CockroachDB, you could set transactions to `SNAPSHOT` isolation, but that feature has been removed.
+ CockroachDB now only supports `SERIALIZABLE` isolation, so transactions can no longer be meaningfully set to any other `ISOLATION LEVEL`. In previous [version](cluster-settings.html#setting-version)s of CockroachDB, you could set transactions to `SNAPSHOT` isolation, but that feature has been removed.
 
 ## Examples
 
@@ -122,7 +122,7 @@ This example assumes you're using [client-side intervention to handle transactio
 
 You can execute the transaction using the database contents "as of" a specified time in the past.
 
-{% include {{ page.version.version }}/sql/begin-transaction-as-of-system-time-example.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/begin-transaction-as-of-system-time-example.md %}
 
 ### Begin a transaction with automatic retries
 

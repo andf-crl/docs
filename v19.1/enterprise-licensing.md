@@ -1,29 +1,29 @@
 ---
 title: Enterprise Features
-summary: Request and set trial and enterprise license keys for CockroachDB
+summary: Request and set trial and [enterprise.license](cluster-settings.html#setting-enterprise-license) keys for CockroachDB
 toc: true
 ---
 
-CockroachDB distributes a single binary that contains both core and [enterprise features](https://www.cockroachlabs.com/pricing/). You can use core features without any license key. However, to use the enterprise features, you need either a trial or an enterprise license key.
+CockroachDB distributes a single binary that contains both core and [enterprise features](https://www.cockroachlabs.com/pricing/). You can use core features without any license key. However, to use the enterprise features, you need either a trial or an [enterprise.license](cluster-settings.html#setting-enterprise-license) key.
 
-This page lists enterprise features, and shows you how to obtain and set trial and enterprise license keys for CockroachDB.
+This page lists enterprise features, and shows you how to obtain and set trial and [enterprise.license](cluster-settings.html#setting-enterprise-license) keys for CockroachDB.
 
 ## Enterprise features
 
-{% include {{ page.version.version }}/misc/enterprise-features.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/enterprise-features.md %}
 
 ## Types of licenses
 
 Type | Description
 -------------|------------
 **Trial License** | A trial license enables you to try out CockroachDB enterprise features for 30 days for free.
-**Enterprise License** | A paid enterprise license enables you to use CockroachDB enterprise features for longer periods (one year or more).
+**Enterprise License** | A paid [enterprise.license](cluster-settings.html#setting-enterprise-license) enables you to use CockroachDB enterprise features for longer periods (one year or more).
 
 ## Obtain a license
 
 To obtain a trial license key, fill out [the registration form](https://www.cockroachlabs.com/get-cockroachdb/enterprise) and receive your trial license key via email within a few minutes.
 
-To upgrade to an enterprise license, <a href="mailto:sales@cockroachlabs.com">contact Sales</a>.
+To upgrade to an [enterprise.license](cluster-settings.html#setting-enterprise-license), <a href="mailto:sales@cockroachlabs.com">contact Sales</a>.
 
 ## Set a license
 
@@ -36,12 +36,12 @@ $ cockroach sql --insecure
 
 {% include copy-clipboard.html %}
 ~~~ sql
->  SET CLUSTER SETTING cluster.organization = 'Acme Company';
+>  SET CLUSTER SETTING [cluster.organization](cluster-settings.html#setting-cluster-organization) = 'Acme Company';
 ~~~
 
 {% include copy-clipboard.html %}
 ~~~ sql
->  SET CLUSTER SETTING enterprise.license = 'xxxxxxxxxxxx';
+>  SET CLUSTER SETTING [enterprise.license](cluster-settings.html#setting-enterprise-license) = 'xxxxxxxxxxxx';
 ~~~
 
 ## Verify a license
@@ -50,10 +50,10 @@ To verify a license, open the [built-in SQL shell](use-the-built-in-sql-client.h
 
 {% include copy-clipboard.html %}
 ~~~ sql
->  SHOW CLUSTER SETTING cluster.organization;
+>  SHOW CLUSTER SETTING [cluster.organization](cluster-settings.html#setting-cluster-organization);
 ~~~
 ~~~
-  cluster.organization
+  [cluster.organization](cluster-settings.html#setting-cluster-organization)
 +----------------------+
   Acme Company
 (1 row)
@@ -61,10 +61,10 @@ To verify a license, open the [built-in SQL shell](use-the-built-in-sql-client.h
 
 {% include copy-clipboard.html %}
 ~~~ sql
->  SHOW CLUSTER SETTING enterprise.license;
+>  SHOW CLUSTER SETTING [enterprise.license](cluster-settings.html#setting-enterprise-license);
 ~~~
 ~~~
-             enterprise.license
+             [enterprise.license](cluster-settings.html#setting-enterprise-license)
 +-------------------------------------------+
   crl-0-ChB1x...
 (1 row)
@@ -77,7 +77,7 @@ The license setting is also logged in the cockroach.log on the node where the co
 $ cat cockroach.log | grep license
 ~~~
 ~~~
-I171116 18:11:48.279604 1514 sql/event_log.go:102  [client=[::1]:56357,user=root,n1] Event: "set_cluster_setting", target: 0, info: {SettingName:enterprise.license Value:xxxxxxxxxxxx User:root}
+I171116 18:11:48.279604 1514 sql/event_log.go:102  [client=[::1]:56357,user=root,n1] Event: "set_cluster_setting", target: 0, info: {SettingName:[enterprise.license](cluster-settings.html#setting-enterprise-license) Value:xxxxxxxxxxxx User:root}
 ~~~
 
 ## Renew an expired license

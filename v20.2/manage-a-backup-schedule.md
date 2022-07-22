@@ -4,7 +4,7 @@ summary: Learn about how to create, manage, and restore from a schedule of perio
 toc: true
 ---
 
-<span class="version-tag">New in v20.2:</span> You can create schedules in CockroachDB for periodic backups. Once a [backup schedule is created](#create-a-new-backup-schedule), you can do the following:
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> You can create schedules in CockroachDB for periodic backups. Once a [backup schedule is created](#create-a-new-backup-schedule), you can do the following:
 
 - [Set up monitoring for the backup schedule](#set-up-monitoring-for-the-backup-schedule)
 - [View scheduled backup details](#view-scheduled-backup-details)
@@ -57,14 +57,14 @@ For a tutorial on how to use Prometheus to set up monitoring and alerting, see [
 
 ## View scheduled backup details
 
-<span class="version-tag">New in v20.2:</span> When a [backup is created by a schedule](create-schedule-for-backup.html), it is stored within a collection of backups in the given location. To view details for a backup created by a schedule, you can use the following:
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> When a [backup is created by a schedule](create-schedule-for-backup.html), it is stored within a collection of backups in the given location. To view details for a backup created by a schedule, you can use the following:
 
 - `SHOW BACKUPS IN y` statement to [view a list of the full backup's subdirectories](#view-a-list-of-the-full-backups-subdirectories).
 - `SHOW BACKUP x IN y` statement to [view a list of the full and incremental backups that are stored in a specific full backup's subdirectory](#view-a-list-of-the-full-and-incremental-backups-in-a-specific-full-backup-subdirectory).
 
 For more details, see [`SHOW BACKUP`](show-backup.html).
 
-{% include {{ page.version.version }}/backups/show-scheduled-backups.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/backups/show-scheduled-backups.md %}
 
 ## View and control the backup schedule
 

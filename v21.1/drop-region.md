@@ -4,7 +4,7 @@ summary: The DROP REGION statement drops a region from a multi-region database.
 toc: true
 ---
 
-{% include_cached new-in.html version="v21.1" %} The `ALTER DATABASE .. DROP REGION` [statement](sql-statements.html) drops a [region](multiregion-overview.html#database-regions) from a [multi-region database](multiregion-overview.html). While CockroachDB processes an index modification or changing a table to or from a [`REGIONAL BY ROW` table](multiregion-overview.html#regional-by-row-tables), attempting to drop a region from the database containing that `REGIONAL BY ROW` table will produce an error. Similarly, while this statement is running, all index modifications and locality changes on [`REGIONAL BY ROW`](multiregion-overview.html#regional-by-row-tables) tables will be blocked.
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.1" %} The `ALTER DATABASE .. DROP REGION` [statement](sql-statements.html) drops a [region](multiregion-overview.html#database-regions) from a [multi-region database](multiregion-overview.html). While CockroachDB processes an index modification or changing a table to or from a [`REGIONAL BY ROW` table](multiregion-overview.html#regional-by-row-tables), attempting to drop a region from the database containing that `REGIONAL BY ROW` table will produce an error. Similarly, while this statement is running, all index modifications and locality changes on [`REGIONAL BY ROW`](multiregion-overview.html#regional-by-row-tables) tables will be blocked.
 
 {% include enterprise-feature.md %}
 
@@ -15,7 +15,7 @@ toc: true
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/generated/diagrams/alter_database_drop_region.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/alter_database_drop_region.html %}
 </div>
 
 ## Parameters
@@ -34,7 +34,7 @@ To drop a region from a database, the user must have one of the following:
 
 ## Examples
 
-{% include {{page.version.version}}/sql/multiregion-example-setup.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/multiregion-example-setup.md %}
 
 ### Set the primary region
 

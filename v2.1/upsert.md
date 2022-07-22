@@ -24,7 +24,7 @@ The user must have the `INSERT` and `UPDATE` [privileges](authorization.html#ass
 ## Synopsis
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/upsert.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/upsert.html %}
 </div>
 
 ## Parameters

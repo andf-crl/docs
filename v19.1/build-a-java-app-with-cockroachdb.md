@@ -16,10 +16,10 @@ We have tested the [Java JDBC driver](https://jdbc.postgresql.org/) and the [Hib
 
 ## Before you begin
 
-{% include {{page.version.version}}/app/before-you-begin.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/before-you-begin.md %}
 
 {{site.data.alerts.callout_danger}}
-The examples on this page assume you are using a Java version <= 9. They do not work with Java 10.
+The examples on this page assume you are using a Java [version](cluster-settings.html#setting-version) <= 9. They do not work with Java 10.
 {{site.data.alerts.end}}
 
 ## Step 1. Install the Java JDBC driver
@@ -30,13 +30,13 @@ Download and set up the Java JDBC driver as described in the [official documenta
 
 ## Step 2. Create the `maxroach` user and `bank` database
 
-{% include {{page.version.version}}/app/create-maxroach-user-and-bank-database.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/create-maxroach-user-and-bank-database.md %}
 
 ## Step 3. Generate a certificate for the `maxroach` user
 
 Create a certificate and key for the `maxroach` user by running the following command. The code samples will run as this user.
 
-<span class="version-tag">New in v19.1</span>: You can pass the [`--also-generate-pkcs8-key` flag](create-security-certificates.html#flag-pkcs8) to generate a key in [PKCS#8 format](https://tools.ietf.org/html/rfc5208), which is the standard key encoding format in Java. In this case, the generated PKCS8 key will be named `client.maxroach.key.pk8`.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v19.1</span>: You can pass the [`--also-generate-pkcs8-key` flag](create-security-certificates.html#flag-pkcs8) to generate a key in [PKCS#8 format](https://tools.ietf.org/html/rfc5208), which is the standard key encoding format in Java. In this case, the generated PKCS8 key will be named `client.maxroach.key.pk8`.
 
 {% include copy-clipboard.html %}
 ~~~ shell
@@ -82,7 +82,7 @@ The contents of [`BasicExample.java`](https://raw.githubusercontent.com/cockroac
 
 {% include copy-clipboard.html %}
 ~~~ java
-{% include {{page.version.version}}/app/BasicExample.java %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/BasicExample.java %}
 ~~~
 
 </section>
@@ -91,7 +91,7 @@ The contents of [`BasicExample.java`](https://raw.githubusercontent.com/cockroac
 
 ## Step 2. Create the `maxroach` user and `bank` database
 
-{% include {{page.version.version}}/app/insecure/create-maxroach-user-and-bank-database.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/insecure/create-maxroach-user-and-bank-database.md %}
 
 ## Step 3. Run the Java code
 
@@ -130,7 +130,7 @@ The contents of [`BasicExample.java`](https://raw.githubusercontent.com/cockroac
 
 {% include copy-clipboard.html %}
 ~~~ java
-{% include {{page.version.version}}/app/insecure/BasicExample.java %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/insecure/BasicExample.java %}
 ~~~
 
 </section>
@@ -260,4 +260,4 @@ try (PreparedStatement pstmt = connection.prepareStatement("INSERT INTO accounts
 
 Read more about using the [Java JDBC driver](https://jdbc.postgresql.org/).
 
-{% include {{page.version.version}}/app/see-also-links.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/see-also-links.md %}

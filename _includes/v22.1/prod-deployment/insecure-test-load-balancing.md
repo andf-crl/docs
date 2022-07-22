@@ -1,4 +1,4 @@
-CockroachDB comes with a number of [built-in workloads](cockroach-workload.html) for simulating client traffic. This step features CockroachDB's version of the [TPC-C](http://www.tpc.org/tpcc/) workload.
+CockroachDB comes with a number of [built-in workloads](cockroach-workload.html) for simulating client traffic. This step features CockroachDB's [version](cluster-settings.html#setting-version) of the [TPC-C](http://www.tpc.org/tpcc/) workload.
 
 {{site.data.alerts.callout_info}}
 Be sure that you have configured your network to allow traffic from the application to the load balancer. In this case, you will run the sample workload on one of your machines. The traffic source should therefore be the **internal (private)** IP address of that machine.
@@ -12,11 +12,11 @@ For comprehensive guidance on benchmarking CockroachDB with TPC-C, see [Performa
 
     This should be a machine that is not running a CockroachDB node.
 
-1. Download the [CockroachDB archive](https://binaries.cockroachdb.com/cockroach-{{ page.release_info.version }}.linux-amd64.tgz) for Linux, and extract the binary:
+1. Download the [CockroachDB archive](https://binaries.cockroachdb.com/cockroach-{{ page.release_info.[version](cluster-settings.html#setting-version) }}.linux-amd64.tgz) for Linux, and extract the binary:
 
     {% include_cached copy-clipboard.html %}
     ~~~ shell
-    $ curl https://binaries.cockroachdb.com/cockroach-{{ page.release_info.version }}.linux-amd64.tgz \
+    $ curl https://binaries.cockroachdb.com/cockroach-{{ page.release_info.[version](cluster-settings.html#setting-version) }}.linux-amd64.tgz \
     | tar -xz
     ~~~
 
@@ -24,7 +24,7 @@ For comprehensive guidance on benchmarking CockroachDB with TPC-C, see [Performa
 
     {% include_cached copy-clipboard.html %}
     ~~~ shell
-    $ cp -i cockroach-{{ page.release_info.version }}.linux-amd64/cockroach /usr/local/bin/
+    $ cp -i cockroach-{{ page.release_info.[version](cluster-settings.html#setting-version) }}.linux-amd64/cockroach /usr/local/bin/
     ~~~
 
     If you get a permissions error, prefix the command with `sudo`.

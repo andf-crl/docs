@@ -21,7 +21,7 @@ Running multiple nodes on a single host is useful for testing CockroachDB, but i
 - Make sure you have already [installed the official CockroachDB Docker image](install-cockroachdb.html).
 - For quick SQL testing or app development, consider [running a single-node cluster](cockroach-start-single-node.html) instead.
 
-{% include {{ page.version.version }}/start-in-docker/mac-linux-steps.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/start-in-docker/mac-linux-steps.md %}
 
 ## What's next?
 

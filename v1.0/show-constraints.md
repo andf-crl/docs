@@ -19,7 +19,7 @@ The user must have any [privilege](privileges.html) on the target table.
 
 ## Synopsis
 
-{% include {{ page.version.version }}/sql/diagrams/show_constraints.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/show_constraints.html %}
 
 ## Parameters
 

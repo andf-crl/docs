@@ -4,7 +4,7 @@ summary: The ALTER TYPE statement modifies a user-defined data type in a databas
 toc: true
 ---
 
-<span class="version-tag">New in v20.2:</span> The `ALTER TYPE` [statement](sql-statements.html) modifies a user-defined, [enumerated data type](enum.html) in the current database.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> The `ALTER TYPE` [statement](sql-statements.html) modifies a user-defined, [enumerated data type](enum.html) in the current database.
 
 {{site.data.alerts.callout_info}}
 You can only reference a user-defined type from the database that contains the type.
@@ -13,7 +13,7 @@ You can only reference a user-defined type from the database that contains the t
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/alter_type.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/alter_type.html %}
 </div>
 
 ## Parameters

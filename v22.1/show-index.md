@@ -22,7 +22,7 @@ In CockroachDB, the following are aliases for `SHOW INDEX`:
 ## Synopsis
 
 <div>
-{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.version.version | replace: "v", "" }}/grammar_svg/show_indexes.html %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/grammar_svg/show_indexes.html %}
 </div>
 
 ## Parameters
@@ -51,7 +51,7 @@ A column is in the primary key if the value of the `index_name` column is `{tb
 
 ## Example
 
-{% include {{page.version.version}}/sql/movr-statements.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/movr-statements.md %}
 
 ### Show indexes for a table
 

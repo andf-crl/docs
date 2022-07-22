@@ -32,7 +32,7 @@ To resolve this issue, do one of the following:
 
 If you're not sure what the IP address/hostname and port values might have been, you can look in the node's [logs](logging-overview.html). If necessary, you can also terminate the `cockroach` process and then restart the node:
 
-{% include {{ page.version.version }}/prod-deployment/node-shutdown.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/node-shutdown.md %}
 
 Then restart the node:
 
@@ -128,9 +128,9 @@ When running a multi-node CockroachDB cluster, if you see an error like the one 
 
 ## split failed while applying backpressure; are rows updated in a tight loop?
 
-In CockroachDB, a table row is stored on disk as a key-value pair. Whenever the row is updated, CockroachDB also stores a distinct version of the key-value pair to enable concurrent request processing while guaranteeing consistency (see [multi-version concurrency control (MVCC)](architecture/storage-layer.html#mvcc)). All versions of a key-value pair belong to a larger ["range"](architecture/overview.html#terms) of the total key space, and the historical versions remain until the garbage collection period defined by the `gc.ttlseconds` variable in the applicable [zone configuration](configure-replication-zones.html#gc-ttlseconds) has passed (25 hours by default). Once a range reaches a size threshold (512 MiB by default), CockroachDB splits the range into two ranges. However, this message indicates that a range cannot be split as intended.
+In CockroachDB, a table row is stored on disk as a key-value pair. Whenever the row is updated, CockroachDB also stores a distinct [version](cluster-settings.html#setting-version) of the key-value pair to enable concurrent request processing while guaranteeing consistency (see [multi-[version](cluster-settings.html#setting-version) concurrency control (MVCC)](architecture/storage-layer.html#mvcc)). All [version](cluster-settings.html#setting-version)s of a key-value pair belong to a larger ["range"](architecture/overview.html#terms) of the total key space, and the historical [version](cluster-settings.html#setting-version)s remain until the garbage collection period defined by the `gc.ttlseconds` variable in the applicable [zone configuration](configure-replication-zones.html#gc-ttlseconds) has passed (25 hours by default). Once a range reaches a size threshold (512 MiB by default), CockroachDB splits the range into two ranges. However, this message indicates that a range cannot be split as intended.
 
-One possible cause is that the range consists only of MVCC version data due to a row being repeatedly updated, and the range cannot be split because doing so would spread MVCC versions for a single row across multiple ranges.
+One possible cause is that the range consists only of MVCC [version](cluster-settings.html#setting-version) data due to a row being repeatedly updated, and the range cannot be split because doing so would spread MVCC [version](cluster-settings.html#setting-version)s for a single row across multiple ranges.
 
 To resolve this issue, make sure you are not repeatedly updating a single row. If frequent updates of a row are necessary, consider one of the following:
 
@@ -143,7 +143,7 @@ This message occurs when a component of CockroachDB gives up because it was rely
 
 ## protected ts verification error...
 
-{% include_cached new-in.html version="v21.1" %} Messages that begin with `protected ts verification error…` indicate that your [incremental backup](take-full-and-incremental-backups.html#incremental-backups) failed because the data you are trying to backup was garbage collected. This happens when incremental backups are taken less frequently than the garbage collection periods for any of the objects in the base backup. For example, if your incremental backups recur daily, but the garbage collection period of one table in your backup is less than one day, all of your incremental backups will fail.
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.1" %} Messages that begin with `protected ts verification error…` indicate that your [incremental backup](take-full-and-incremental-backups.html#incremental-backups) failed because the data you are trying to backup was garbage collected. This happens when incremental backups are taken less frequently than the garbage collection periods for any of the objects in the base backup. For example, if your incremental backups recur daily, but the garbage collection period of one table in your backup is less than one day, all of your incremental backups will fail.
 
 The error message will specify which part of your backup is causing the failure. For example, `range span: /Table/771` indicates that table `771` is part of the problem. You can then inspect this table by running [`SELECT * FROM crdb_internal.tables WHERE id=771`](select-clause.html). You can also run [`SHOW ZONE CONFIGURATIONS`](show-zone-configurations.html) and look for any `gc.ttlseconds` values that are set lower than your incremental backup frequency.
 

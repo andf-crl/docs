@@ -4,7 +4,7 @@ summary: The CREATE SCHEDULE FOR BACKUP statement creates a schedule for periodi
 toc: true
 ---
 
-<span class="version-tag">New in v20.2:</span> The `CREATE SCHEDULE FOR BACKUP` [statement](sql-statements.html) creates a schedule for periodic [backups](backup.html).
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> The `CREATE SCHEDULE FOR BACKUP` [statement](sql-statements.html) creates a schedule for periodic [backups](backup.html).
 
 For more information about creating, managing, monitoring, and restoring from a scheduled backup, see [Manage a Backup Schedule](manage-a-backup-schedule.html).
 
@@ -53,7 +53,7 @@ For schedules that include both [full and incremental backups](take-full-and-inc
 
 ### Backup options
 
-{% include {{ page.version.version }}/backups/backup-options.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/backups/backup-options.md %}
 
 ### Schedule options
 
@@ -224,7 +224,7 @@ When a [backup is created by a schedule](create-schedule-for-backup.html), it is
 
 For more details, see [`SHOW BACKUP`](show-backup.html).
 
-{% include {{ page.version.version }}/backups/show-scheduled-backups.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/backups/show-scheduled-backups.md %}
 
 ## See also
 

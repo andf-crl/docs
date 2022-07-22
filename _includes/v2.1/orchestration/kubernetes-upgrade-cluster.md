@@ -1,4 +1,4 @@
-As new versions of CockroachDB are released, it's strongly recommended to upgrade to newer versions in order to pick up bug fixes, performance improvements, and new features. The [general CockroachDB upgrade documentation](upgrade-cockroach-version.html) provides best practices for how to prepare for and execute upgrades of CockroachDB clusters, but the mechanism of actually stopping and restarting processes in Kubernetes is somewhat special.
+As new [version](cluster-settings.html#setting-version)s of CockroachDB are released, it's strongly recommended to upgrade to newer [version](cluster-settings.html#setting-version)s in order to pick up bug fixes, performance improvements, and new features. The [general CockroachDB upgrade documentation](upgrade-cockroach-[version](cluster-settings.html#setting-version).html) provides best practices for how to prepare for and execute upgrades of CockroachDB clusters, but the mechanism of actually stopping and restarting processes in Kubernetes is somewhat special.
 
 Kubernetes knows how to carry out a safe rolling upgrade process of the CockroachDB nodes. When you tell it to change the Docker image used in the CockroachDB StatefulSet, Kubernetes will go one-by-one, stopping a node, restarting it with the new image, and waiting for it to be ready to receive client requests before moving on to the next one. For more information, see [the Kubernetes documentation](https://kubernetes.io/docs/tutorials/stateful-application/basic-stateful-set/#updating-statefulsets).
 
@@ -8,7 +8,7 @@ Kubernetes knows how to carry out a safe rolling upgrade process of the Cockroac
     This step is relevant only when upgrading from v2.0.x to v2.1. For upgrades within the v2.1.x series, skip this step.
     {{site.data.alerts.end}}
 
-    By default, after all nodes are running the new version, the upgrade process will be **auto-finalized**. This will enable certain performance improvements and bug fixes introduced in v2.1. After finalization, however, it will no longer be possible to perform a downgrade to v2.0. In the event of a catastrophic failure or corruption, the only option will be to start a new cluster using the old binary and then restore from one of the backups created prior to performing the upgrade.
+    By default, after all nodes are running the new [version](cluster-settings.html#setting-version), the upgrade process will be **auto-finalized**. This will enable certain performance improvements and bug fixes introduced in v2.1. After finalization, however, it will no longer be possible to perform a downgrade to v2.0. In the event of a catastrophic failure or corruption, the only option will be to start a new cluster using the old binary and then restore from one of the backups created prior to performing the upgrade.
 
     We recommend disabling auto-finalization so you can monitor the stability and performance of the upgraded cluster before finalizing the upgrade:
 
@@ -53,14 +53,14 @@ Kubernetes knows how to carry out a safe rolling upgrade process of the Cockroac
 
     {% endif %}
 
-    2. Set the `cluster.preserve_downgrade_option` [cluster setting](cluster-settings.html):
+    2. Set the `[cluster.preserve_downgrade_option](cluster-settings.html#setting-cluster-preserve_downgrade_option)` [cluster setting](cluster-settings.html):
 
         {% include copy-clipboard.html %}
         ~~~ sql
-        > SET CLUSTER SETTING cluster.preserve_downgrade_option = '2.0';
+        > SET CLUSTER SETTING [cluster.preserve_downgrade_option](cluster-settings.html#setting-cluster-preserve_downgrade_option) = '2.0';
         ~~~
 
-2. Kick off the upgrade process by changing the desired Docker image. To do so, pick the version that you want to upgrade to, then run the following command, replacing "VERSION" with your desired new version:
+2. Kick off the upgrade process by changing the desired Docker image. To do so, pick the [version](cluster-settings.html#setting-version) that you want to upgrade to, then run the following command, replacing "VERSION" with your desired new [version](cluster-settings.html#setting-version):
 
     <section class="filter-content" markdown="1" data-scope="manual">
     {% include copy-clipboard.html %}
@@ -120,19 +120,19 @@ Kubernetes knows how to carry out a safe rolling upgrade process of the Cockroac
 
     <section class="filter-content" markdown="1" data-scope="manual">
     ~~~
-    cockroachdb-0	cockroachdb/cockroach:{{page.release_info.version}}
-    cockroachdb-1	cockroachdb/cockroach:{{page.release_info.version}}
-    cockroachdb-2	cockroachdb/cockroach:{{page.release_info.version}}
-    cockroachdb-3	cockroachdb/cockroach:{{page.release_info.version}}
+    cockroachdb-0	cockroachdb/cockroach:{{page.release_info.[version](cluster-settings.html#setting-version)}}
+    cockroachdb-1	cockroachdb/cockroach:{{page.release_info.[version](cluster-settings.html#setting-version)}}
+    cockroachdb-2	cockroachdb/cockroach:{{page.release_info.[version](cluster-settings.html#setting-version)}}
+    cockroachdb-3	cockroachdb/cockroach:{{page.release_info.[version](cluster-settings.html#setting-version)}}
     ~~~
     </section>
 
     <section class="filter-content" markdown="1" data-scope="helm">
     ~~~
-    my-release-cockroachdb-0	cockroachdb/cockroach:{{page.release_info.version}}
-    my-release-cockroachdb-1	cockroachdb/cockroach:{{page.release_info.version}}
-    my-release-cockroachdb-2	cockroachdb/cockroach:{{page.release_info.version}}
-    my-release-cockroachdb-3	cockroachdb/cockroach:{{page.release_info.version}}
+    my-release-cockroachdb-0	cockroachdb/cockroach:{{page.release_info.[version](cluster-settings.html#setting-version)}}
+    my-release-cockroachdb-1	cockroachdb/cockroach:{{page.release_info.[version](cluster-settings.html#setting-version)}}
+    my-release-cockroachdb-2	cockroachdb/cockroach:{{page.release_info.[version](cluster-settings.html#setting-version)}}
+    my-release-cockroachdb-3	cockroachdb/cockroach:{{page.release_info.[version](cluster-settings.html#setting-version)}}
     ~~~
     </section>
 
@@ -142,7 +142,7 @@ Kubernetes knows how to carry out a safe rolling upgrade process of the Cockroac
 
     If you disabled auto-finalization in step 1 above, monitor the stability and performance of your cluster for as long as you require to feel comfortable with the upgrade (generally at least a day). If during this time you decide to roll back the upgrade, repeat the rolling restart procedure with the old binary.
 
-    Once you are satisfied with the new version, re-enable auto-finalization:
+    Once you are satisfied with the new [version](cluster-settings.html#setting-version), re-enable auto-finalization:
 
     {% if page.secure == true %}
 
@@ -188,5 +188,5 @@ Kubernetes knows how to carry out a safe rolling upgrade process of the Cockroac
 
         {% include copy-clipboard.html %}
         ~~~ sql
-        > RESET CLUSTER SETTING cluster.preserve_downgrade_option;
+        > RESET CLUSTER SETTING [cluster.preserve_downgrade_option](cluster-settings.html#setting-cluster-preserve_downgrade_option);
         ~~~

@@ -10,14 +10,14 @@ The Cluster API is hosted by all nodes of your cluster and provides information 
 
 ## Resources
 
-The following endpoints are available as URLs under the `/api/v2` base path (for example, `https://localhost:8080/api/v2/health/`). Additional endpoints are planned for future versions of CockroachDB.
+The following endpoints are available as URLs under the `/api/v2` base path (for example, `https://localhost:8080/api/v2/health/`). Additional endpoints are planned for future [version](cluster-settings.html#setting-version)s of CockroachDB.
 
 Each listed endpoint links to its full [API reference documentation](https://cockroachlabs.com/docs/api/cluster/v2.html).
 
 Endpoint | Name | Description
 --- | --- | ---
 [`/health`](https://cockroachlabs.com/docs/api/cluster/v2.html#operation/health) | Check node health | Determine if the node is running and ready to accept SQL connections.
-[`/nodes`](https://cockroachlabs.com/docs/api/cluster/v2.html#operation/listNodes) | List nodes | Get details on all nodes in the cluster, including node IDs, software versions, and hardware.
+[`/nodes`](https://cockroachlabs.com/docs/api/cluster/v2.html#operation/listNodes) | List nodes | Get details on all nodes in the cluster, including node IDs, software [version](cluster-settings.html#setting-version)s, and hardware.
 [`/nodes/{node_id}/ranges`](https://cockroachlabs.com/docs/api/cluster/v2.html#operation/listNodeRanges) | List node ranges | For a specified node, get details on the ranges that it hosts. 
 [`/ranges/hot`](https://cockroachlabs.com/docs/api/cluster/v2.html#operation/listHotRanges) | List hot ranges | Get information on ranges receiving a high number of reads or writes.
 [`/ranges/{range_id}`](https://cockroachlabs.com/docs/api/cluster/v2.html#operation/listRange) | Get range details | Get detailed technical information on a range. Typically used by Cockroach Labs engineers.
@@ -63,6 +63,6 @@ To connect with the API on a secure cluster, you will need:
 
 ## Versioning and Stability
 
-Future versions of CockroachDB may provide multiple API versions and will continue to provide access to this v2.0 API until it is deprecated. 
+Future [version](cluster-settings.html#setting-version)s of CockroachDB may provide multiple API [version](cluster-settings.html#setting-version)s and will continue to provide access to this v2.0 API until it is deprecated. 
 
-All endpoint paths and payloads will remain available within a major API version number (v2.x). Minor versions could add new endpoints but will not remove existing endpoints.
+All endpoint paths and payloads will remain available within a major API [version](cluster-settings.html#setting-version) number (v2.x). Minor [version](cluster-settings.html#setting-version)s could add new endpoints but will not remove existing endpoints.

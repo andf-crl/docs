@@ -1,6 +1,6 @@
 # Jekyll Algolia Plugin
 
-[![gem version][1]][16]
+[![gem [version](cluster-settings.html#setting-version)][1]][16]
 ![ruby][2]
 ![jekyll][3]
 [![build master][4]][17]
@@ -78,7 +78,7 @@ plan is entirely free, with no time limit.
 What we ask in exchange is that you display a "Search by Algolia" logo next to
 your search results. Our [InstantSearch libraries][12] have a simple boolean
 option to toggle that on an off. If you want more flexibility, you can find
-all versions of our logo [here][13].
+all [version](cluster-settings.html#setting-version)s of our logo [here][13].
 
 If you need more information about the other Algolia plans, you can [check our
 FAQ][10].

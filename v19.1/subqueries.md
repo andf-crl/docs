@@ -39,7 +39,7 @@ query only observes 1 row using [`LIMIT`](limit-offset.html).
 
 ## Correlated subqueries
 
-<span class="version-tag">New in v19.1</span>: CockroachDB's [cost-based optimizer](cost-based-optimizer.html) supports most correlated subqueries.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v19.1</span>: CockroachDB's [cost-based optimizer](cost-based-optimizer.html) supports most correlated subqueries.
 
 A subquery is said to be "correlated" when it uses table or column names defined in the surrounding query.
 

@@ -5,7 +5,7 @@ keywords: availability zone, zone config, zone configs, zone configuration, cons
 toc: true
 ---
 
-<span class="version-tag">New in v19.2:</span> Several new and updated tables (listed below) are available to help you query the status of your cluster's data replication, data placement, and zone constraint conformance. For example, you can:
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v19.2:</span> Several new and updated tables (listed below) are available to help you query the status of your cluster's data replication, data placement, and zone constraint conformance. For example, you can:
 
 - See what data is under-replicated or unavailable.
 - Show which of your localities (if any) are critical. A locality is "critical" for a range if all of the nodes in that locality becoming unreachable would cause the range to become unavailable. In other words, the locality contains a majority of the range's replicas.
@@ -18,7 +18,7 @@ The information on this page assumes you are familiar with [replication zones](c
 {{site.data.alerts.callout_danger}}
 **This is an experimental feature.**  The interface and output are subject to change.
 
-In particular, the direct access to `system` tables shown here will not be a supported way to inspect CockroachDB in future versions. We're committed to adding stable ways to inspect these replication reports in the future, likely via `SHOW` statements and/or [views](views.html) and [built-in functions](functions-and-operators.html) in the `crdb_internal` schema.
+In particular, the direct access to `system` tables shown here will not be a supported way to inspect CockroachDB in future [version](cluster-settings.html#setting-version)s. We're committed to adding stable ways to inspect these replication reports in the future, likely via `SHOW` statements and/or [views](views.html) and [built-in functions](functions-and-operators.html) in the `crdb_internal` schema.
 {{site.data.alerts.end}}
 
 ## Conformance reporting tables
@@ -31,11 +31,11 @@ The following new and updated tables are available for verifying constraint conf
 - [`system.replication_critical_localities`](#system-replication_critical_localities) shows which localities in your cluster (if any) are critical. A locality is "critical" for a range if all of the nodes in that locality becoming unreachable would cause the range to become unavailable. In other words, the locality contains a majority of the range's replicas.
 - [`crdb_internal.zones`](#crdb_internal-zones) can be used with the tables above to figure out the databases and table names where the non-conforming or at-risk data is located.
 
-To configure how often the conformance reports are run, adjust the `kv.replication_reports.interval` [cluster setting](cluster-settings.html), which accepts an [`INTERVAL`](interval.html). For example, to run it every five minutes:
+To configure how often the conformance reports are run, adjust the `[kv.replication_reports.interval](cluster-settings.html#setting-kv-replication_reports-interval)` [cluster setting](cluster-settings.html), which accepts an [`INTERVAL`](interval.html). For example, to run it every five minutes:
 
 {% include copy-clipboard.html %}
 ~~~ sql
-SET CLUSTER setting kv.replication_reports.interval = '5m';
+SET CLUSTER setting [kv.replication_reports.interval](cluster-settings.html#setting-kv-replication_reports-interval) = '5m';
 ~~~
 
 Only members of the `admin` role can access these tables. By default, the `root` user belongs to the `admin` role. For more information about users and roles, see [Manage Users](authorization.html#create-and-manage-users) and [Manage Roles](roles.html).
@@ -122,7 +122,7 @@ For an example using this table, see [Find out which of your tables have a const
 
 The `system.reports_meta` report contains metadata about when the replication reports were last run. Each report contains a number of report entries, one per zone.
 
-Replication reports are run at the interval specified by the `kv.replication_reports.interval` [cluster setting](cluster-settings.html).
+Replication reports are run at the interval specified by the `[kv.replication_reports.interval](cluster-settings.html#setting-kv-replication_reports-interval)` [cluster setting](cluster-settings.html).
 
 #### Columns
 
@@ -161,7 +161,7 @@ SHOW COLUMNS FROM crdb_internal.zones;
 
 ## Examples
 
-{% include {{page.version.version}}/sql/movr-statements-geo-partitioned-replicas.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/movr-statements-geo-partitioned-replicas.md %}
 
 ### Find out which of your tables have a constraint violation
 
@@ -212,7 +212,7 @@ Once the statement above executes, the ranges currently stored in that locality 
 
 In other words, we are telling the ranges "where you are now is exactly where you are *not* supposed to be". This will cause the cluster to rebalance the ranges, which will take some time. During the time it takes for the rebalancing to occur, the ranges will be in violation.
 
-By default, the system constraint conformance report runs once every minute. You can change that interval by modifying the `kv.replication_reports.interval` [cluster setting](cluster-settings.html).
+By default, the system constraint conformance report runs once every minute. You can change that interval by modifying the `[kv.replication_reports.interval](cluster-settings.html#setting-kv-replication_reports-interval)` [cluster setting](cluster-settings.html).
 
 After the internal constraint conformance report has run again, the following query should report a violation:
 
@@ -317,7 +317,7 @@ ALTER TABLE rides CONFIGURE ZONE USING num_replicas=9;
 
 Once the statement above executes, the cluster will rebalance so that it's storing 9 copies of each range underlying the `rides` table. During the time it takes for the rebalancing to occur, these ranges will be considered "under-replicated", since there are not yet as many copies (9) of each range as you have just specified.
 
-By default, the internal constraint conformance report runs once every minute. You can change that interval by modifying the `kv.replication_reports.interval` [cluster setting](cluster-settings.html).
+By default, the internal constraint conformance report runs once every minute. You can change that interval by modifying the `[kv.replication_reports.interval](cluster-settings.html#setting-kv-replication_reports-interval)` [cluster setting](cluster-settings.html).
 
 After the system constraint conformance report has run again, the following query should report under-replicated ranges:
 

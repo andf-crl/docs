@@ -129,7 +129,7 @@ For a simple but complete example app, see [Build a Python App with CockroachDB 
 
 **Support level:** Full
 
-CockroachDB supports Django versions 3.1+.
+CockroachDB supports Django [version](cluster-settings.html#setting-version)s 3.1+.
 
 To install [Django](https://docs.djangoproject.com/en/4.0/topics/install/):
 
@@ -154,7 +154,7 @@ $ pip install django-cockroachdb==3.1.*
 ~~~
 
 {{site.data.alerts.callout_info}}
-The major version of `django-cockroachdb` must correspond to the major version of `django`. The minor release numbers do not need to match.
+The major [version](cluster-settings.html#setting-version) of `django-cockroachdb` must correspond to the major [version](cluster-settings.html#setting-version) of `django`. The minor release numbers do not need to match.
 {{site.data.alerts.end}}
 
 For a simple but complete example app, see [Build a Python App with CockroachDB and Django](build-a-python-app-with-cockroachdb-django.html).
@@ -241,9 +241,9 @@ For a simple but complete example app, see [Build a Go App with CockroachDB and 
 
 <section class="filter-content" markdown="1" data-scope="java">
 
-{% include {{page.version.version}}/app/java-version-note.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/java-[version](cluster-settings.html#setting-version)-note.md %}
 
-{% include {{page.version.version}}/app/java-tls-note.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/java-tls-note.md %}
 
 ## Java Drivers
 
@@ -261,7 +261,7 @@ For a simple but complete example app, see [Build a Java App with CockroachDB an
 
 **Support level:** Full
 
-You can use [Gradle](https://gradle.org/install) or [Maven](https://maven.apache.org/install.html) to get all dependencies for your application, including Hibernate. Only Hibernate versions 5.4.19 and later support the Hibernate CockroachDB dialect.
+You can use [Gradle](https://gradle.org/install) or [Maven](https://maven.apache.org/install.html) to get all dependencies for your application, including Hibernate. Only Hibernate [version](cluster-settings.html#setting-version)s 5.4.19 and later support the Hibernate CockroachDB dialect.
 
 If you are using Gradle, add the following to your `dependencies`:
 
@@ -278,7 +278,7 @@ If you are using Maven, add the following to your `<dependencies>`:
 <dependency>
     <groupId>org.hibernate</groupId>
     <artifactId>hibernate-core</artifactId>
-    <version>5.4.19.Final</version>
+    <[version](cluster-settings.html#setting-version)>5.4.19.Final</[version](cluster-settings.html#setting-version)>
 </dependency>
 <dependency>
     <groupId>org.postgresql</groupId>
@@ -290,7 +290,7 @@ For a complete example app that uses Maven for dependency management, see [Build
 
 You will also need to specify the CockroachDB dialect in your [Hibernate configuration file](https://www.tutorialspoint.com/hibernate/hibernate_configuration.htm).
 
-{% include {{page.version.version}}/app/hibernate-dialects-note.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/hibernate-dialects-note.md %}
 
 ### jOOQ
 
@@ -333,7 +333,7 @@ $ gem install activerecord pg activerecord-cockroachdb-adapter
 ~~~
 
 {{site.data.alerts.callout_info}}
-The exact command above will vary depending on the desired version of Active Record. Specifically, version 6.0.x of Active Record requires version 6.0.x of the adapter and version 7.0.x of Active Record requires version 7.0.x of the adapter.
+The exact command above will vary depending on the desired [version](cluster-settings.html#setting-version) of Active Record. Specifically, [version](cluster-settings.html#setting-version) 6.0.x of Active Record requires [version](cluster-settings.html#setting-version) 6.0.x of the adapter and [version](cluster-settings.html#setting-version) 7.0.x of Active Record requires [version](cluster-settings.html#setting-version) 7.0.x of the adapter.
 {{site.data.alerts.end}}
 
 For a simple but complete example app, see [Build a Ruby App with CockroachDB and Active Record](build-a-ruby-app-with-cockroachdb-activerecord.html).
@@ -374,7 +374,7 @@ Install the C libpq driver as described in the [official documentation](https://
 
     The `dotnet` command creates a new app of type `console`. The `-o` parameter creates a directory named `cockroachdb-test-app` where your app will be stored and populates it with the required files. The `cd cockroachdb-test-app` command puts you into the newly created app directory.
 
-2. Install the latest version of the [Npgsql driver](https://www.nuget.org/packages/Npgsql/) into the .NET project using the built-in nuget package manager:
+2. Install the latest [version](cluster-settings.html#setting-version) of the [Npgsql driver](https://www.nuget.org/packages/Npgsql/) into the .NET project using the built-in nuget package manager:
 
     {% include_cached copy-clipboard.html %}
     ~~~ shell

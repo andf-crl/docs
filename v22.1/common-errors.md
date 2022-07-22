@@ -128,9 +128,9 @@ When running a multi-node CockroachDB cluster, if you see an error like the one 
 
 ## split failed while applying backpressure; are rows updated in a tight loop?
 
-In CockroachDB, a table row is stored on disk as a key-value pair. Whenever the row is updated, CockroachDB also stores a distinct version of the key-value pair to enable concurrent request processing while guaranteeing consistency (see [multi-version concurrency control (MVCC)](architecture/storage-layer.html#mvcc)). All versions of a key-value pair belong to a larger ["range"](architecture/overview.html#architecture-range) of the total key space, and the historical versions remain until the garbage collection period defined by the `gc.ttlseconds` variable in the applicable [zone configuration](configure-replication-zones.html#gc-ttlseconds) has passed (25 hours by default). Once a range reaches a size threshold (512 MiB by default), CockroachDB splits the range into two ranges. However, this message indicates that a range cannot be split as intended.
+In CockroachDB, a table row is stored on disk as a key-value pair. Whenever the row is updated, CockroachDB also stores a distinct [version](cluster-settings.html#setting-version) of the key-value pair to enable concurrent request processing while guaranteeing consistency (see [multi-[version](cluster-settings.html#setting-version) concurrency control (MVCC)](architecture/storage-layer.html#mvcc)). All [version](cluster-settings.html#setting-version)s of a key-value pair belong to a larger ["range"](architecture/overview.html#architecture-range) of the total key space, and the historical [version](cluster-settings.html#setting-version)s remain until the garbage collection period defined by the `gc.ttlseconds` variable in the applicable [zone configuration](configure-replication-zones.html#gc-ttlseconds) has passed (25 hours by default). Once a range reaches a size threshold (512 MiB by default), CockroachDB splits the range into two ranges. However, this message indicates that a range cannot be split as intended.
 
-One possible cause is that the range consists only of MVCC version data due to a row being repeatedly updated, and the range cannot be split because doing so would spread MVCC versions for a single row across multiple ranges.
+One possible cause is that the range consists only of MVCC [version](cluster-settings.html#setting-version) data due to a row being repeatedly updated, and the range cannot be split because doing so would spread MVCC [version](cluster-settings.html#setting-version)s for a single row across multiple ranges.
 
 To resolve this issue, make sure you are not repeatedly updating a single row. If frequent updates of a row are necessary, consider one of the following:
 
@@ -191,16 +191,16 @@ When importing into an existing table with [`IMPORT INTO`](import-into.html), th
 
 This message usually indicates that `--max-sql-memory`, the memory allocated to the SQL layer, was exceeded by the operation referenced in the error. A `memory budget exceeded` error also suggests that a node is close to an OOM crash, which might be prevented by failing the query.
 
-{% include {{ page.version.version }}/prod-deployment/resolution-untuned-query.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/resolution-untuned-query.md %}
 
 Increasing `--max-sql-memory` can alleviate `memory budget exceeded` errors. However, allocating more `--max-sql-memory` can also increase the probability of [OOM crashes](cluster-setup-troubleshooting.html#out-of-memory-oom-crash) relative to the amount of memory currently provisioned on each node. For guidance on configuring this flag, see [Cache and SQL memory size](recommended-production-settings.html#cache-and-sql-memory-size).
 
-For [disk-spilling operations](vectorized-execution.html#disk-spilling-operations) such as hash joins that are memory-intensive, another solution is to increase the `sql.distsql.temp_storage.workmem` [cluster setting](cluster-settings.html) to allocate more memory to the operation before it spills to disk and likely consumes more memory. This improves the performance of the query, though at a possible reduction in the concurrency of the workload.
+For [disk-spilling operations](vectorized-execution.html#disk-spilling-operations) such as hash joins that are memory-intensive, another solution is to increase the `[sql.distsql.temp_storage.workmem](cluster-settings.html#setting-sql-distsql-temp_storage-workmem)` [cluster setting](cluster-settings.html) to allocate more memory to the operation before it spills to disk and likely consumes more memory. This improves the performance of the query, though at a possible reduction in the concurrency of the workload.
 
-For example, if a query contains a hash join that requires 128 MiB of memory before spilling to disk, values of `sql.distsql.temp_storage.workmem=64MiB` and `--max-sql-memory=1GiB` allow the query to run with a concurrency of 16 without errors. The 17th concurrent instance will exceed `--max-sql-memory` and produce a `memory budget exceeded` error. Increasing `sql.distsql.temp_storage.workmem` to `128MiB` reduces the workload concurrency to 8, but allows the queries to finish without spilling to disk. For more information, see [Disk-spilling operations](vectorized-execution.html#disk-spilling-operations).
+For example, if a query contains a hash join that requires 128 MiB of memory before spilling to disk, values of `[sql.distsql.temp_storage.workmem](cluster-settings.html#setting-sql-distsql-temp_storage-workmem)=64MiB` and `--max-sql-memory=1GiB` allow the query to run with a concurrency of 16 without errors. The 17th concurrent instance will exceed `--max-sql-memory` and produce a `memory budget exceeded` error. Increasing `[sql.distsql.temp_storage.workmem](cluster-settings.html#setting-sql-distsql-temp_storage-workmem)` to `128MiB` reduces the workload concurrency to 8, but allows the queries to finish without spilling to disk. For more information, see [Disk-spilling operations](vectorized-execution.html#disk-spilling-operations).
 
 {{site.data.alerts.callout_info}}
-{% include {{ page.version.version }}/prod-deployment/resolution-oom-crash.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/resolution-oom-crash.md %}
 {{site.data.alerts.end}}
 
 ## Something else?

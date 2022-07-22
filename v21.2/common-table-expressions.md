@@ -13,7 +13,7 @@ You can use CTEs in combination with [`SELECT` clauses](select-clause.html) and 
 ## Synopsis
 
 <div>
-{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.version.version | replace: "v", "" }}/grammar_svg/with_clause.html %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/grammar_svg/with_clause.html %}
 </div>
 
 <div markdown="1"></div>
@@ -307,7 +307,7 @@ CockroachDB does not support the [PostgreSQL recursive CTE variant](https://www.
 
 ## Correlated common table expressions
 
-{% include_cached new-in.html version="v21.2" %}
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.2" %}
 
 If a common table expression is contained in a subquery, the CTE can reference columns defined outside of the subquery. This is called a _correlated common table expression_. For example, in the following query, the expression `(SELECT 1 + x)` references `x` in the outer scope.
 

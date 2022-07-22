@@ -16,7 +16,7 @@ For a detailed description of the audit log file format, see [Audit log file for
 
 Note that enabling SQL audit logs can negatively impact performance. As a result, we recommend using SQL audit logs for security purposes only. For more details, see [Performance considerations](experimental-audit.html#performance-considerations), on the [`ALTER TABLE ... EXPERIMENTAL_AUDIT`](experimental-audit.html) reference page.
 
-{% include {{ page.version.version }}/misc/experimental-warning.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/experimental-warning.md %}
 
 {{site.data.alerts.callout_success}}
 To learn about other SQL query logging options, see [SQL logging](query-behavior-troubleshooting.html#sql-logging).
@@ -125,7 +125,7 @@ For reference documentation of the audit log file format, see [`ALTER TABLE ... 
 {{site.data.alerts.end}}
 
 {{site.data.alerts.callout_success}}
-{% include {{ page.version.version }}/admin-ui/admin-ui-log-files.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/admin-ui/admin-ui-log-files.md %}
 {{site.data.alerts.end}}
 
 ## Step 5. Populate the `orders` table
@@ -183,7 +183,7 @@ For reference documentation of the audit log file format, see [`ALTER TABLE ... 
 {{site.data.alerts.end}}
 
 {{site.data.alerts.callout_success}}
-{% include {{ page.version.version }}/admin-ui/admin-ui-log-files.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/admin-ui/admin-ui-log-files.md %}
 {{site.data.alerts.end}}
 
 ## Known limitations

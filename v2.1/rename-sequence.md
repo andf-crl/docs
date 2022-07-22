@@ -17,7 +17,7 @@ The user must have the `CREATE` [privilege](authorization.html#assign-privileges
 
 ## Synopsis
 
-<section>{% include {{ page.version.version }}/sql/diagrams/rename_sequence.html %}</section>
+<section>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/rename_sequence.html %}</section>
 
 ## Parameters
 

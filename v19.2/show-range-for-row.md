@@ -6,7 +6,7 @@ toc: true
 
 The `SHOW RANGE ... FOR ROW` [statement](sql-statements.html) shows information about a [range](architecture/overview.html#glossary) for a particular row of data. This information is useful for verifying how SQL data maps to underlying ranges, and where the replicas for a range are located.
 
-{% include {{ page.version.version }}/misc/experimental-warning.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/experimental-warning.md %}
 
 {{site.data.alerts.callout_info}}
 To show information about the ranges that comprise the data for a table, index, or entire database, use the [`SHOW RANGES`](show-ranges.html) statement.
@@ -15,7 +15,7 @@ To show information about the ranges that comprise the data for a table, index, 
 ## Synopsis
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/show_range_for_row.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/show_range_for_row.html %}
 </div>
 
 ## Required privileges
@@ -46,7 +46,7 @@ Field | Description
 
 ## Examples
 
-{% include {{page.version.version}}/sql/movr-statements-geo-partitioned-replicas.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/movr-statements-geo-partitioned-replicas.md %}
 
 ### Show range information for a row in a table
 

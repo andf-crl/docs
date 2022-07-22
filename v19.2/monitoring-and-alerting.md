@@ -94,8 +94,8 @@ Otherwise, it returns an HTTP `200 OK` status response code with details about t
 
 The `http://<node-host>:<http-port>/health?ready=1` endpoint returns an HTTP `503 Service Unavailable` status response code with an error in the following scenarios:
 
-- The node is being [decommissioned](remove-nodes.html) or in the process of [shutting down](cockroach-quit.html) and is therefore not able to accept SQL connections and execute queries. This is especially useful for making sure load balancers do not direct traffic to nodes that are live but not "ready", which is a necessary check during [rolling upgrades](upgrade-cockroach-version.html).
-    {{site.data.alerts.callout_success}}If you find that your load balancer's health check is not always recognizing a node as unready before the node shuts down, you can increase the <code>server.shutdown.drain_wait</code> <a href="cluster-settings.html">cluster setting</a> to cause a node to return <code>503 Service Unavailable</code> even before it has started shutting down.{{site.data.alerts.end}}
+- The node is being [decommissioned](remove-nodes.html) or in the process of [shutting down](cockroach-quit.html) and is therefore not able to accept SQL connections and execute queries. This is especially useful for making sure load balancers do not direct traffic to nodes that are live but not "ready", which is a necessary check during [rolling upgrades](upgrade-cockroach-[version](cluster-settings.html#setting-version).html).
+    {{site.data.alerts.callout_success}}If you find that your load balancer's health check is not always recognizing a node as unready before the node shuts down, you can increase the <code>[server.shutdown.drain_wait](cluster-settings.html#setting-server-shutdown-drain_wait)</code> <a href="cluster-settings.html">cluster setting</a> to cause a node to return <code>503 Service Unavailable</code> even before it has started shutting down.{{site.data.alerts.end}}
 - The node is unable to communicate with a majority of the other nodes in the cluster, likely because the cluster is unavailable due to too many nodes being down.
 
 {% include copy-clipboard.html %}

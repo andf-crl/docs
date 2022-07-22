@@ -4,7 +4,7 @@ summary: The CANCEL QUERY statement cancels a running SQL query.
 toc: true
 ---
 
-<span class="version-tag">New in v1.1:</span> The `CANCEL QUERY` [statement](sql-statements.html) cancels a running SQL query.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v1.1:</span> The `CANCEL QUERY` [statement](sql-statements.html) cancels a running SQL query.
 
 
 ## Considerations
@@ -19,7 +19,7 @@ The `root` user can cancel any currently active queries, whereas non-`root` user
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/cancel_query.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/cancel_query.html %}
 </div>
 
 ## Parameters

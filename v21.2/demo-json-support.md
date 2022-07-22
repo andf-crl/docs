@@ -16,13 +16,13 @@ This page guides you through a simple demonstration of how CockroachDB can store
 </div>
 
 <div class="filter-content" markdown="1" data-scope="go">
-- Install the latest version of [CockroachDB](install-cockroachdb.html).
-- Install the latest version of [Go](https://golang.org/dl/): `brew install go`
+- Install the latest [version](cluster-settings.html#setting-version) of [CockroachDB](install-cockroachdb.html).
+- Install the latest [version](cluster-settings.html#setting-version) of [Go](https://golang.org/dl/): `brew install go`
 - Install the [PostgreSQL driver](https://github.com/lib/pq): `go get github.com/lib/pq`
 </div>
 
 <div class="filter-content" markdown="1" data-scope="python">
-- Install the latest version of [CockroachDB](install-cockroachdb.html).
+- Install the latest [version](cluster-settings.html#setting-version) of [CockroachDB](install-cockroachdb.html).
 - Install the [Python psycopg2 driver](http://initd.org/psycopg/docs/install.html): `pip install psycopg2`
 - Install the [Python Requests library](https://requests.readthedocs.io/en/latest/): `pip install requests`
 </div>
@@ -117,11 +117,11 @@ Now that you have a database, user, and a table, let's run code to insert rows i
 </div>
 
 <section class="filter-content" markdown="1" data-scope="go">
-Download the <a href="https://raw.githubusercontent.com/cockroachdb/docs/master/_includes/{{ page.version.version }}/json/json-sample.go" download><code>json-sample.go</code></a> file, or create the file yourself and copy the code into it:
+Download the <a href="https://raw.githubusercontent.com/cockroachdb/docs/master/_includes/{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/json/json-sample.go" download><code>json-sample.go</code></a> file, or create the file yourself and copy the code into it:
 
 {% include_cached copy-clipboard.html %}
 ~~~ go
-{% include {{ page.version.version }}/json/json-sample.go %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/json/json-sample.go %}
 ~~~
 
 In a new terminal window, navigate to your sample code file and run it:
@@ -139,11 +139,11 @@ The code queries the [Reddit API](https://www.reddit.com/dev/api/) for posts in 
 </section>
 
 <section class="filter-content" markdown="1" data-scope="python">
-Download the <a href="https://raw.githubusercontent.com/cockroachdb/docs/master/_includes/{{ page.version.version }}/json/json-sample.py" download><code>json-sample.py</code></a> file, or create the file yourself and copy the code into it:
+Download the <a href="https://raw.githubusercontent.com/cockroachdb/docs/master/_includes/{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/json/json-sample.py" download><code>json-sample.py</code></a> file, or create the file yourself and copy the code into it:
 
 {% include_cached copy-clipboard.html %}
 ~~~ python
-{% include {{ page.version.version }}/json/json-sample.py %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/json/json-sample.py %}
 ~~~
 
 In a new terminal window, navigate to your sample code file and run it:
@@ -283,6 +283,6 @@ $ rm -rf json-test
 
 Explore other core CockroachDB benefits and features:
 
-{% include {{ page.version.version }}/misc/explore-benefits-see-also.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/explore-benefits-see-also.md %}
 
 You may also want to learn more about the [`JSONB`](jsonb.html) data type and [GIN indexes](inverted-indexes.html).

@@ -48,7 +48,7 @@ After your node ultimately receives a SQL request from a client, CockroachDB par
 
 #### Parsing
 
-Received queries are parsed against our `yacc` file (which describes our supported syntax), and converts the string version of each query into [abstract syntax trees](https://en.wikipedia.org/wiki/Abstract_syntax_tree) (AST).
+Received queries are parsed against our `yacc` file (which describes our supported syntax), and converts the string [version](cluster-settings.html#setting-version) of each query into [abstract syntax trees](https://en.wikipedia.org/wiki/Abstract_syntax_tree) (AST).
 
 #### Logical planning
 
@@ -80,7 +80,7 @@ Each processor uses an encoded form for the scalar values manipulated by the que
 
 #### Vectorized query execution
 
-<span class="version-tag">New in v19.2:</span> If [vectorized execution](../vectorized-execution.html) is enabled, the physical plan is sent to nodes to be processed by the vectorized execution engine.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v19.2:</span> If [vectorized execution](../vectorized-execution.html) is enabled, the physical plan is sent to nodes to be processed by the vectorized execution engine.
 
 Upon receiving the physical plan, the vectorized engine reads batches of table data [from disk](storage-layer.html) and converts the data from row format to columnar format. These batches of column data are stored in memory so the engine can access them quickly during execution.
 

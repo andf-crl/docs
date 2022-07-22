@@ -11,18 +11,18 @@ The `ADD CONSTRAINT` [statement](sql-statements.html) is part of `ALTER TABLE` a
 - [`CHECK`](#add-the-check-constraint)
 - [`FOREIGN KEY`](#add-the-foreign-key-constraint-with-cascade)
 
-{% include {{ page.version.version }}/misc/schema-change-stmt-note.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-stmt-note.md %}
 
 To add a primary key constraint to a table, you should explicitly define the primary key at [table creation](create-table.html). To replace an existing primary key, you can use `ADD CONSTRAINT ... PRIMARY KEY`. For details, see [Changing primary keys with `ADD CONSTRAINT ... PRIMARY KEY`](#changing-primary-keys-with-add-constraint-primary-key).
 
 The [`DEFAULT`](default-value.html) and [`NOT NULL`](not-null.html) constraints are managed through [`ALTER COLUMN`](alter-column.html).
 
-{% include {{ page.version.version }}/sql/combine-alter-table-commands.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/combine-alter-table-commands.md %}
 
 ## Synopsis
 
 <div>
-{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.version.version | replace: "v", "" }}/grammar_svg/add_constraint.html %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/grammar_svg/add_constraint.html %}
 </div>
 
 ## Required privileges
@@ -39,7 +39,7 @@ The user must have the `CREATE` [privilege](security-reference/authorization.htm
 
 ## View schema changes
 
-{% include {{ page.version.version }}/misc/schema-change-view-job.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-view-job.md %}
 
 ## Changing primary keys with `ADD CONSTRAINT ... PRIMARY KEY`
 
@@ -56,7 +56,7 @@ The user must have the `CREATE` [privilege](security-reference/authorization.htm
 
 ## Examples
 
-{% include {{page.version.version}}/sql/movr-statements.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/movr-statements.md %}
 
 ### Add the `UNIQUE` constraint
 
@@ -167,7 +167,7 @@ Using `ON DELETE CASCADE` will ensure that when the referenced row is deleted, a
 ~~~
 
 {{site.data.alerts.callout_info}}
- By default, referenced columns must be in the same database as the referencing foreign key column. To enable cross-database foreign key references, set the `sql.cross_db_fks.enabled` [cluster setting](cluster-settings.html) to `true`.
+ By default, referenced columns must be in the same database as the referencing foreign key column. To enable cross-database foreign key references, set the `[sql.cross_db_fks.enabled](cluster-settings.html#setting-sql-cross_db_fks-enabled)` [cluster setting](cluster-settings.html) to `true`.
 {{site.data.alerts.end}}
 
 ### Drop and add a primary key constraint
@@ -239,7 +239,7 @@ Using [`ALTER PRIMARY KEY`](alter-primary-key.html) would have created a `UNIQUE
 
 ### Add a unique index to a `REGIONAL BY ROW` table
 
-{% include {{page.version.version}}/sql/indexes-regional-by-row.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/indexes-regional-by-row.md %}
 
 This example assumes you have a simulated multi-region database running on your local machine following the steps described in [Low Latency Reads and Writes in a Multi-Region Cluster](demo-low-latency-multi-region-deployment.html). It shows how a `UNIQUE` index is partitioned, but it's similar to how all indexes are partitioned on `REGIONAL BY ROW` tables.
 
@@ -307,7 +307,7 @@ To ensure that the uniqueness constraint is enforced properly across regions whe
 1. Run a one-time-only validation query to ensure that the existing data in the table satisfies the unique constraint.
 1. Thereafter, the [optimizer](cost-based-optimizer.html) will automatically add a "uniqueness check" when necessary to any [`INSERT`](insert.html), [`UPDATE`](update.html), or [`UPSERT`](upsert.html) statement affecting the columns in the unique constraint.
 
-{% include {{page.version.version}}/sql/locality-optimized-search.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/locality-optimized-search.md %}
 
 ### Using `DEFAULT gen_random_uuid()` in `REGIONAL BY ROW` tables
 
@@ -346,7 +346,7 @@ To auto-generate unique row identifiers in `REGIONAL BY ROW` tables, use the [`U
 ~~~
 
 {{site.data.alerts.callout_info}}
-When using `DEFAULT gen_random_uuid()` on columns in `REGIONAL BY ROW` tables, uniqueness checks on those columns are disabled by default for performance purposes. CockroachDB assumes uniqueness based on the way this column generates [`UUIDs`](uuid.html#create-a-table-with-auto-generated-unique-row-ids). To enable this check, you can modify the `sql.optimizer.uniqueness_checks_for_gen_random_uuid.enabled` [cluster setting](cluster-settings.html). Note that while there is virtually no chance of a [collision](https://en.wikipedia.org/wiki/Universally_unique_identifier#Collisions) occurring when enabling this setting, it is not truly zero.
+When using `DEFAULT gen_random_uuid()` on columns in `REGIONAL BY ROW` tables, uniqueness checks on those columns are disabled by default for performance purposes. CockroachDB assumes uniqueness based on the way this column generates [`UUIDs`](uuid.html#create-a-table-with-auto-generated-unique-row-ids). To enable this check, you can modify the `[sql.optimizer.uniqueness_checks_for_gen_random_uuid.enabled](cluster-settings.html#setting-sql-optimizer-uniqueness_checks_for_gen_random_uuid-enabled)` [cluster setting](cluster-settings.html). Note that while there is virtually no chance of a [collision](https://en.wikipedia.org/wiki/Universally_unique_identifier#Collisions) occurring when enabling this setting, it is not truly zero.
 {{site.data.alerts.end}}
 
 ### Using implicit vs. explicit index partitioning in `REGIONAL BY ROW` tables

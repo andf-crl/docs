@@ -16,7 +16,7 @@ This tutorial shows you how build a simple Ruby application with CockroachDB and
 
 ## Step 1. Start CockroachDB
 
-{% include {{ page.version.version }}/setup/sample-setup-certs.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/setup/sample-setup-certs.md %}
 
 ## Step 2. Get the code
 
@@ -110,4 +110,4 @@ The code connects as the user you created and executes some basic SQL statements
 
 Read more about using the [Ruby pg driver](https://rubygems.org/gems/pg).
 
-{% include {{page.version.version}}/app/see-also-links.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/see-also-links.md %}

@@ -21,7 +21,7 @@ Read the following [Considerations](#considerations) before working with changef
 - Many DDL queries (including [`TRUNCATE`](truncate.html), [`DROP TABLE`](drop-table.html), and queries that add a column family) will cause errors on a changefeed watching the affected tables. You will need to [start a new changefeed](create-changefeed.html#start-a-new-changefeed-where-another-ended).
 - Partial or intermittent sink unavailability may impact changefeed stability. If a sink is unavailable, messages can't send, which means that a changefeed's high-water mark timestamp is at risk of falling behind the cluster's [garbage collection window](configure-replication-zones.html#replication-zone-variables). Throughput and latency can be affected once the sink is available again. However, [ordering guarantees](#ordering-guarantees) will still hold for as long as a changefeed [remains active](monitor-and-debug-changefeeds.html#monitor-a-changefeed).
 - When an [`IMPORT INTO`](import-into.html) statement is run, any current changefeed jobs targeting that table will fail.
-- {% include {{ page.version.version }}/cdc/virtual-computed-column-cdc.md %}
+- {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/cdc/virtual-computed-column-cdc.md %}
 
 ## Enable rangefeeds
 
@@ -31,7 +31,7 @@ Changefeeds connect to a long-lived request (i.e., a rangefeed), which pushes ch
 
 {% include_cached copy-clipboard.html %}
 ~~~ sql
-> SET CLUSTER SETTING kv.rangefeed.enabled = true;
+> SET CLUSTER SETTING [kv.rangefeed.enabled](cluster-settings.html#setting-kv-rangefeed-enabled) = true;
 ~~~
 
 Any created changefeed will error until this setting is enabled. Note that enabling rangefeeds currently has a small performance cost (about a 5-10% increase in latencies), whether or not the rangefeed is being used in a changefeed.
@@ -40,9 +40,9 @@ The `kv.closed_timestamp.target_duration` [cluster setting](cluster-settings.htm
 
 ## Ordering guarantees
 
-- In most cases, each version of a row will be emitted once. However, some infrequent conditions (e.g., node failures, network partitions) will cause them to be repeated. This gives our changefeeds an **at-least-once delivery guarantee**.
+- In most cases, each [version](cluster-settings.html#setting-version) of a row will be emitted once. However, some infrequent conditions (e.g., node failures, network partitions) will cause them to be repeated. This gives our changefeeds an **at-least-once delivery guarantee**.
 
-- Once a row has been emitted with some timestamp, no previously unseen versions of that row will be emitted with a lower timestamp. That is, you will never see a _new_ change for that row at an earlier timestamp.
+- Once a row has been emitted with some timestamp, no previously unseen [version](cluster-settings.html#setting-version)s of that row will be emitted with a lower timestamp. That is, you will never see a _new_ change for that row at an earlier timestamp.
 
     For example, if you ran the following:
 
@@ -157,7 +157,7 @@ The changefeed emits duplicate records 1, 2, and 3 before outputting the records
 When using the [`schema_change_policy = nobackfill` option](create-changefeed.html#schema-policy), the changefeed will still emit duplicate records for the table that is being altered. In the preceding output, the records marked as `# Duplicate` will still emit with this option, but not the new schema records.
 
 {{site.data.alerts.callout_info}}
-{% include {{ page.version.version }}/cdc/virtual-computed-column-cdc.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/cdc/virtual-computed-column-cdc.md %}
 {{site.data.alerts.end}}
 
 ## Responses
@@ -194,7 +194,7 @@ See [Files](create-changefeed.html#files) for more detail on the file naming for
 
 ## Garbage collection and changefeeds
 
-{% include_cached new-in.html version="v22.1" %} By default, [protected timestamps](architecture/storage-layer.html#protected-timestamps) will protect changefeed data from [garbage collection](architecture/storage-layer.html#garbage-collection) up to the time of the [_checkpoint_](change-data-capture-overview.html#how-does-an-enterprise-changefeed-work).
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v22.1" %} By default, [protected timestamps](architecture/storage-layer.html#protected-timestamps) will protect changefeed data from [garbage collection](architecture/storage-layer.html#garbage-collection) up to the time of the [_checkpoint_](change-data-capture-overview.html#how-does-an-enterprise-changefeed-work).
 
 Protected timestamps will protect changefeed data from garbage collection in the following scenarios:
 
@@ -215,7 +215,7 @@ The only ways for changefeeds to **not** protect data are:
 
 ## Changefeeds on tables with column families
 
-{% include_cached new-in.html version="v22.1" %} You can create changefeeds on tables with more than one [column family](column-families.html). Changefeeds will emit individual messages per column family on a table.
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v22.1" %} You can create changefeeds on tables with more than one [column family](column-families.html). Changefeeds will emit individual messages per column family on a table.
 
 To target a table with multiple column families, set the [`split_column_families` option](create-changefeed.html#split-column-families) when creating a changefeed:
 
@@ -294,7 +294,7 @@ Below are clarifications for particular SQL types and values for Avro changefeed
 - [Decimals](decimal.html) must have precision specified.
 - [`BIT`](bit.html) and [`VARBIT`](bit.html) types are encoded as arrays of 64-bit integers.
 
-  {% include {{ page.version.version }}/cdc/avro-bit-varbit.md %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/cdc/avro-bit-varbit.md %}
 
 ### Avro types
 

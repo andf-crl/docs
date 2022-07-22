@@ -5,21 +5,21 @@ toc: true
 docs_area: manage
 ---
 
-{% assign previous_version = site.data.versions | where_exp: "previous_version", "previous_version.major_version == page.version.version" | first | map: "previous_version" %}
+{% assign previous_[version](cluster-settings.html#setting-version) = site.data.[version](cluster-settings.html#setting-version)s | where_exp: "previous_[version](cluster-settings.html#setting-version)", "previous_[version](cluster-settings.html#setting-version).major_[version](cluster-settings.html#setting-version) == page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)" | first | map: "previous_[version](cluster-settings.html#setting-version)" %}
 
 Because of CockroachDB's [multi-active availability](multi-active-availability.html) design, you can perform a "rolling upgrade" of your CockroachDB cluster. This means that you can upgrade nodes one at a time without interrupting the cluster's overall health and operations.
 
 ## Step 1. Verify that you can upgrade
 
-To upgrade to a new version, you must first be on a production [release](../releases/) of the previous version. The release does not need to be the latest production release of the previous version, but it **must be a production release** and not a testing release (alpha/beta).
+To upgrade to a new [version](cluster-settings.html#setting-version), you must first be on a production [release](../releases/) of the previous [version](cluster-settings.html#setting-version). The release does not need to be the latest production release of the previous [version](cluster-settings.html#setting-version), but it **must be a production release** and not a testing release (alpha/beta).
 
-Therefore, to upgrade to {{ page.version.version }}:
+Therefore, to upgrade to {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}:
 
-- If your current CockroachDB version is a production release earlier than {{ previous_version }}, or is a {{ previous_version }} testing release (alpha/beta):
-    1. First [upgrade to a production release of {{ previous_version }}](../{{ previous_version }}/upgrade-cockroach-version.html). Be sure to complete all the steps.
-    1. Return to this page and perform a second rolling upgrade to {{ page.version.version }}, starting from [step 2](#step-2-prepare-to-upgrade).
+- If your current CockroachDB [version](cluster-settings.html#setting-version) is a production release earlier than {{ previous_[version](cluster-settings.html#setting-version) }}, or is a {{ previous_[version](cluster-settings.html#setting-version) }} testing release (alpha/beta):
+    1. First [upgrade to a production release of {{ previous_[version](cluster-settings.html#setting-version) }}](../{{ previous_[version](cluster-settings.html#setting-version) }}/upgrade-cockroach-[version](cluster-settings.html#setting-version).html). Be sure to complete all the steps.
+    1. Return to this page and perform a second rolling upgrade to {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}, starting from [step 2](#step-2-prepare-to-upgrade).
 
-- If your current CockroachDB version is any {{ previous_version }} production release, or any earlier {{ page.version.version }} release, you do not have to go through intermediate releases; continue to [step 2](#step-2-prepare-to-upgrade).
+- If your current CockroachDB [version](cluster-settings.html#setting-version) is any {{ previous_[version](cluster-settings.html#setting-version) }} production release, or any earlier {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }} release, you do not have to go through intermediate releases; continue to [step 2](#step-2-prepare-to-upgrade).
 
 ## Step 2. Prepare to upgrade
 
@@ -40,46 +40,46 @@ Verify the overall health of your cluster using the [DB Console](ui-cluster-over
 - Under **Replication Status**, make sure there are `0` under-replicated and unavailable ranges. Otherwise, performing a rolling upgrade increases the risk that ranges will lose a majority of their replicas and cause cluster unavailability. Therefore, it's important to identify and resolve the cause of range under-replication and/or unavailability before beginning your upgrade.
 
 - In the **Node List**:
-    - Make sure all nodes are on the same version. If any nodes are behind, upgrade them to the cluster's current version first, and then start this process over.
+    - Make sure all nodes are on the same [version](cluster-settings.html#setting-version). If any nodes are behind, upgrade them to the cluster's current [version](cluster-settings.html#setting-version) first, and then start this process over.
 
 - In the **Metrics** dashboards:
-    - Make sure [CPU](common-issues-to-monitor.html#cpu-usage), [memory](common-issues-to-monitor.html#database-memory-usage), and [storage](common-issues-to-monitor.html#storage-capacity) capacity are within acceptable values for each node. Nodes must be able to tolerate some increase in case the new version uses more resources for your workload. If any of these metrics is above healthy limits, consider [adding nodes](cockroach-start.html) to your cluster before beginning your upgrade.
+    - Make sure [CPU](common-issues-to-monitor.html#cpu-usage), [memory](common-issues-to-monitor.html#database-memory-usage), and [storage](common-issues-to-monitor.html#storage-capacity) capacity are within acceptable values for each node. Nodes must be able to tolerate some increase in case the new [version](cluster-settings.html#setting-version) uses more resources for your workload. If any of these metrics is above healthy limits, consider [adding nodes](cockroach-start.html) to your cluster before beginning your upgrade.
 
 ### Review breaking changes
 
-{% assign rd = site.data.versions | where_exp: "rd", "rd.major_version == page.version.version" | first %}
+{% assign rd = site.data.[version](cluster-settings.html#setting-version)s | where_exp: "rd", "rd.major_[version](cluster-settings.html#setting-version) == page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)" | first %}
 
-Review the [backward-incompatible changes in {{ page.version.version }}](../releases/{{ page.version.version }}.html{% unless rd.release_date == "N/A" or rd.release_date > today %}#{{ page.version.version | replace: ".", "-" }}-0-backward-incompatible-changes{% endunless %}) and [deprecated features](../releases/{{ page.version.version }}.html#{% unless rd.release_date == "N/A" or rd.release_date > today %}{{ page.version.version | replace: ".", "-" }}-0-deprecations{% endunless %}). If any affect your deployment, make the necessary changes before starting the rolling upgrade to {{ page.version.version }}.
+Review the [backward-incompatible changes in {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}](../releases/{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}.html{% unless rd.release_date == "N/A" or rd.release_date > today %}#{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: ".", "-" }}-0-backward-incompatible-changes{% endunless %}) and [deprecated features](../releases/{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}.html#{% unless rd.release_date == "N/A" or rd.release_date > today %}{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: ".", "-" }}-0-deprecations{% endunless %}). If any affect your deployment, make the necessary changes before starting the rolling upgrade to {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}.
 
 ## Step 3. Decide how the upgrade will be finalized
 
 {{site.data.alerts.callout_info}}
-This step is relevant only when upgrading from {{ previous_version }}.x to {{ page.version.version }}. For upgrades within the {{ page.version.version }}.x series, skip this step.
+This step is relevant only when upgrading from {{ previous_[version](cluster-settings.html#setting-version) }}.x to {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}. For upgrades within the {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}.x series, skip this step.
 {{site.data.alerts.end}}
 
-By default, after all nodes are running the new version, the upgrade process will be **auto-finalized**. This will enable certain [features and performance improvements introduced in {{ page.version.version }}](#features-that-require-upgrade-finalization). However, it will no longer be possible to perform a downgrade to {{ previous_version }}. In the event of a catastrophic failure or corruption, the only option will be to start a new cluster using the previous binary and then restore from one of the backups created prior to performing the upgrade. For this reason, **we recommend disabling auto-finalization** so you can monitor the stability and performance of the upgraded cluster before finalizing the upgrade, but note that you will need to follow all of the subsequent directions, including the manual finalization in [step 5](#step-5-finish-the-upgrade):
+By default, after all nodes are running the new [version](cluster-settings.html#setting-version), the upgrade process will be **auto-finalized**. This will enable certain [features and performance improvements introduced in {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}](#features-that-require-upgrade-finalization). However, it will no longer be possible to perform a downgrade to {{ previous_[version](cluster-settings.html#setting-version) }}. In the event of a catastrophic failure or corruption, the only option will be to start a new cluster using the previous binary and then restore from one of the backups created prior to performing the upgrade. For this reason, **we recommend disabling auto-finalization** so you can monitor the stability and performance of the upgraded cluster before finalizing the upgrade, but note that you will need to follow all of the subsequent directions, including the manual finalization in [step 5](#step-5-finish-the-upgrade):
 
-1. [Upgrade to {{ previous_version }}](../{{ previous_version }}/upgrade-cockroach-version.html), if you haven't already.
+1. [Upgrade to {{ previous_[version](cluster-settings.html#setting-version) }}](../{{ previous_[version](cluster-settings.html#setting-version) }}/upgrade-cockroach-[version](cluster-settings.html#setting-version).html), if you haven't already.
 
 2. Start the [`cockroach sql`](cockroach-sql.html) shell against any node in the cluster.
 
-3. Set the `cluster.preserve_downgrade_option` [cluster setting](cluster-settings.html):
+3. Set the `[cluster.preserve_downgrade_option](cluster-settings.html#setting-cluster-preserve_downgrade_option)` [cluster setting](cluster-settings.html):
 
     {% include_cached copy-clipboard.html %}
     ~~~ sql
-    > SET CLUSTER SETTING cluster.preserve_downgrade_option = '21.2';
+    > SET CLUSTER SETTING [cluster.preserve_downgrade_option](cluster-settings.html#setting-cluster-preserve_downgrade_option) = '21.2';
     ~~~
 
-    It is only possible to set this setting to the current cluster version.
+    It is only possible to set this setting to the current cluster [version](cluster-settings.html#setting-version).
 
 ### Features that require upgrade finalization
 
-When upgrading from {{ previous_version }} to {{ page.version.version }}, certain features and performance improvements will be enabled only after finalizing the upgrade, including but not limited to:
+When upgrading from {{ previous_[version](cluster-settings.html#setting-version) }} to {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}, certain features and performance improvements will be enabled only after finalizing the upgrade, including but not limited to:
 
 - **SCRAM-SHA-256 authentication:** CockroachDB supports [SCRAM-SHA-256](security-reference/scram-authentication.html) authentication for clients in both CockroachDB Cloud and CockroachDB Self-Hosted. For SQL client sessions, it is now possible to use the authentication methods `password` (cleartext passwords), and `cert-password` (TLS client cert or cleartext password) with either CRDB-BCRYPT or SCRAM-SHA-256 stored credentials.
 - **Row-Level Time to Live (TTL):** CockroachDB has preview support for Time to Live ("TTL") expiration on table rows, also known as [Row-Level TTL](row-level-ttl.html). Row-Level TTL is a mechanism whereby rows from a table are considered "expired" and can be automatically deleted once those rows have been stored longer than a specified expiration time.
 
-For an expanded list of features included in the {{ page.version.version }} release, see the [{{ page.version.version }} release notes](../releases/{{ page.version.version }}.html).
+For an expanded list of features included in the {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }} release, see the [{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }} release notes](../releases/{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}.html).
 
 ## Step 4. Perform the rolling upgrade
 
@@ -102,14 +102,14 @@ We recommend creating scripts to perform these steps instead of performing them 
     <div class="filter-content" markdown="1" data-scope="mac">
     {% include_cached copy-clipboard.html %}
     ~~~ shell
-    $ curl https://binaries.cockroachdb.com/cockroach-{{page.release_info.version}}.darwin-10.9-amd64.tgz|tar -xzf -
+    $ curl https://binaries.cockroachdb.com/cockroach-{{page.release_info.[version](cluster-settings.html#setting-version)}}.darwin-10.9-amd64.tgz|tar -xzf -
     ~~~
     </div>
 
     <div class="filter-content" markdown="1" data-scope="linux">
     {% include_cached copy-clipboard.html %}
     ~~~ shell
-    $ curl https://binaries.cockroachdb.com/cockroach-{{page.release_info.version}}.linux-amd64.tgz|tar -xzf -
+    $ curl https://binaries.cockroachdb.com/cockroach-{{page.release_info.[version](cluster-settings.html#setting-version)}}.linux-amd64.tgz|tar -xzf -
     ~~~
     </div>
 
@@ -129,7 +129,7 @@ We recommend creating scripts to perform these steps instead of performing them 
 
     {% include_cached copy-clipboard.html %}
     ~~~ shell
-    $ cp -i cockroach-{{page.release_info.version}}.darwin-10.9-amd64/cockroach /usr/local/bin/cockroach
+    $ cp -i cockroach-{{page.release_info.[version](cluster-settings.html#setting-version)}}.darwin-10.9-amd64/cockroach /usr/local/bin/cockroach
     ~~~
     </div>
 
@@ -141,7 +141,7 @@ We recommend creating scripts to perform these steps instead of performing them 
 
     {% include_cached copy-clipboard.html %}
     ~~~ shell
-    $ cp -i cockroach-{{page.release_info.version}}.linux-amd64/cockroach /usr/local/bin/cockroach
+    $ cp -i cockroach-{{page.release_info.[version](cluster-settings.html#setting-version)}}.linux-amd64/cockroach /usr/local/bin/cockroach
     ~~~
     </div>
 
@@ -173,7 +173,7 @@ We recommend creating scripts to perform these steps instead of performing them 
     $ rm /usr/local/bin/cockroach_old
     ~~~
 
-    If you leave versioned binaries on your servers, you do not need to do anything.
+    If you leave [version](cluster-settings.html#setting-version)ed binaries on your servers, you do not need to do anything.
 
 1. After the node has rejoined the cluster, ensure that the node is ready to accept a SQL connection.
 
@@ -191,12 +191,12 @@ We recommend creating scripts to perform these steps instead of performing them 
 ## Step 5. Finish the upgrade
 
 {{site.data.alerts.callout_info}}
-This step is relevant only when upgrading from {{ previous_version }}.x to {{ page.version.version }}. For upgrades within the {{ page.version.version }}.x series, skip this step.
+This step is relevant only when upgrading from {{ previous_[version](cluster-settings.html#setting-version) }}.x to {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}. For upgrades within the {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}.x series, skip this step.
 {{site.data.alerts.end}}
 
 If you disabled auto-finalization in [step 3](#step-3-decide-how-the-upgrade-will-be-finalized), monitor the stability and performance of your cluster for as long as you require to feel comfortable with the upgrade (generally at least a day). If during this time you decide to roll back the upgrade, repeat the rolling restart procedure with the old binary.
 
-Once you are satisfied with the new version:
+Once you are satisfied with the new [version](cluster-settings.html#setting-version):
 
 1. Start the [`cockroach sql`](cockroach-sql.html) shell against any node in the cluster.
 
@@ -204,7 +204,7 @@ Once you are satisfied with the new version:
 
     {% include_cached copy-clipboard.html %}
     ~~~ sql
-    > RESET CLUSTER SETTING cluster.preserve_downgrade_option;
+    > RESET CLUSTER SETTING [cluster.preserve_downgrade_option](cluster-settings.html#setting-cluster-preserve_downgrade_option);
     ~~~
 
     {{site.data.alerts.callout_info}}
@@ -225,5 +225,5 @@ In the event of catastrophic failure or corruption, the only option will be to s
 
 - [View Node Details](cockroach-node.html)
 - [Collect Debug Information](cockroach-debug-zip.html)
-- [View Version Details](cockroach-version.html)
-- [Release notes for our latest version](../releases/{{page.version.version}}.html)
+- [View Version Details](cockroach-[version](cluster-settings.html#setting-version).html)
+- [Release notes for our latest [version](cluster-settings.html#setting-version)](../releases/{{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}.html)

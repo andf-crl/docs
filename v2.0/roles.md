@@ -4,7 +4,7 @@ summary: Roles are SQL groups that contain any number of users and roles as memb
 toc: true
 ---
 
-<span class="version-tag">New in v2.0:</span> Roles are SQL groups that contain any number of users and roles as members. To create and manage your cluster's roles, use the following statements:
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v2.0:</span> Roles are SQL groups that contain any number of users and roles as members. To create and manage your cluster's roles, use the following statements:
 
 - [`CREATE ROLE` (Enterprise)](create-role.html)
 - [`DROP ROLE` (Enterprise)](drop-role.html)
@@ -34,7 +34,7 @@ Indirect member | A user or role that is a member of the role by association. <b
 
 For the purpose of this example, you need:
 
-- An [enterprise license](enterprise-licensing.html)
+- An [[enterprise.license](cluster-settings.html#setting-enterprise-license)](enterprise-licensing.html)
 - One CockroachDB node running in insecure mode:
 
     {% include copy-clipboard.html %}

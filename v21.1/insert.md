@@ -31,7 +31,7 @@ To use `ON CONFLICT DO UPDATE`, the user must additionally have the `UPDATE` pri
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/generated/diagrams/insert.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/insert.html %}
 </div>
 
 ## Parameters
@@ -49,7 +49,7 @@ Parameter | Description
 ### `ON CONFLICT` clause
 
 <div>
-{% include {{ page.version.version }}/sql/generated/diagrams/on_conflict.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/on_conflict.html %}
 </div>
 
 Normally, when inserted values
@@ -76,11 +76,11 @@ statement. However, `UPSERT` does not let you specify the column(s) with
 the unique constraint; it always uses the column(s) from the primary
 key. Using `ON CONFLICT` is therefore more flexible.
 
-{% include {{page.version.version}}/sql/insert-vs-upsert.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/insert-vs-upsert.md %}
 
 ## Examples
 
-{% include {{page.version.version}}/sql/movr-statements.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/movr-statements.md %}
 
 ### Insert a single row
 
@@ -297,7 +297,7 @@ pq: null value in column "city" violates not-null constraint
 
 ### Insert and return values
 
-In this example, the `RETURNING` clause returns the `id` values of the rows inserted, which are generated server-side by the `gen_random_uuid()` function. The language-specific versions assume that you have installed the relevant [client drivers](install-client-drivers.html).
+In this example, the `RETURNING` clause returns the `id` values of the rows inserted, which are generated server-side by the `gen_random_uuid()` function. The language-specific [version](cluster-settings.html#setting-version)s assume that you have installed the relevant [client drivers](install-client-drivers.html).
 
 {{site.data.alerts.callout_success}}This use of <code>RETURNING</code> mirrors the behavior of MySQL's <code>last_insert_id()</code> function.{{site.data.alerts.end}}
 

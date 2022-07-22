@@ -4,12 +4,12 @@ summary: The DROP TYPE statement drops an enumerated data type from the database
 toc: true
 ---
 
-<span class="version-tag">New in v20.2:</span> The `DROP TYPE` [statement](sql-statements.html) drops a specified [enumerated data type](enum.html) from the current database.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> The `DROP TYPE` [statement](sql-statements.html) drops a specified [enumerated data type](enum.html) from the current database.
 
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/drop_type.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/drop_type.html %}
 </div>
 
 ## Parameters

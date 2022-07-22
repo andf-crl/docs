@@ -9,7 +9,7 @@ A view is a stored and named [selection query](selection-queries.html). By defau
  CockroachDB also supports [**materialized views**](#materialized-views). Materialized views are views that store their selection query results.
 
 {{site.data.alerts.callout_info}}
- By default, views created in a database cannot reference objects in a different database. To enable cross-database references for views, set the `sql.cross_db_views.enabled` [cluster setting](cluster-settings.html) to `true`.
+ By default, views created in a database cannot reference objects in a different database. To enable cross-database references for views, set the `[sql.cross_db_views.enabled](cluster-settings.html#setting-sql-cross_db_views-enabled)` [cluster setting](cluster-settings.html) to `true`.
 {{site.data.alerts.end}}
 
 ## Why use views?

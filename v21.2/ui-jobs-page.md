@@ -7,7 +7,7 @@ docs_area: reference.db_console
 
 The **Jobs** page of the DB Console provides details about long-running tasks performed by your cluster. These can include:
 
-{% include {{ page.version.version }}/sql/schema-changes.md %}.
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/schema-changes.md %}.
 - [`IMPORT`](import.html).
 - {{ site.data.products.enterprise }} [`BACKUP`](backup.html) and [`RESTORE`](restore.html).
 - [User-created table statistics](create-statistics.html) created for use by the [cost-based optimizer](cost-based-optimizer.html).
@@ -27,7 +27,7 @@ Use the **Type** menu to filter jobs by type.
 You can toggle between showing the latest 50 jobs or all jobs on the cluster.
 
 {{site.data.alerts.callout_info}}
-Jobs are deleted every 14 days. This interval can be changed via the `jobs.retention_time` [cluster setting](cluster-settings.html).
+Jobs are deleted every 14 days. This interval can be changed via the `[jobs.retention_time](cluster-settings.html#setting-jobs-retention_time)` [cluster setting](cluster-settings.html).
 
 The Jobs list is designed for you to manage pending work. It is not intended to display the canonical record of all jobs that have run. If you need a historical record of all jobs you have run, you should log this information externally.
 {{site.data.alerts.end}}

@@ -9,12 +9,12 @@ The `REVOKE` [statement](sql-statements.html) revokes [privileges](security-refe
 
 You can use `REVOKE` to directly revoke privileges from a role or user, or you can revoke membership to an existing role, which effectively revokes that role's privileges.
 
-{% include {{ page.version.version }}/misc/schema-change-stmt-note.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-stmt-note.md %}
 
 ## Syntax
 
 <div>
-{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.version.version | replace: "v", "" }}/grammar_svg/revoke.html %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/grammar_svg/revoke.html %}
 </div>
 
 ### Parameters
@@ -34,7 +34,7 @@ Parameter                   | Description
 
 The following privileges can be revoked:
 
-{% include {{ page.version.version }}/sql/privileges.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/privileges.md %}
 
 ## Required privileges
 
@@ -48,7 +48,7 @@ The following privileges can be revoked:
 
 ## Examples
 
-{% include {{page.version.version}}/sql/movr-statements.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/movr-statements.md %}
 
 ### Revoke privileges on databases
 

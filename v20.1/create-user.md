@@ -7,7 +7,7 @@ toc: true
 The `CREATE USER` [statement](sql-statements.html) creates SQL users, which let you control [privileges](authorization.html#assign-privileges) on your databases and tables.
 
 {{site.data.alerts.callout_info}}
-<span class="version-tag">New in v20.1</span>: Since the keywords `ROLE` and `USER` can now be used interchangeably in SQL statements for enhanced Postgres compatibility, `CREATE USER` is now an alias for [`CREATE ROLE`](create-role.html).
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1</span>: Since the keywords `ROLE` and `USER` can now be used interchangeably in SQL statements for enhanced Postgres compatibility, `CREATE USER` is now an alias for [`CREATE ROLE`](create-role.html).
 {{site.data.alerts.end}}
 
 ## Considerations
@@ -23,11 +23,11 @@ The `CREATE USER` [statement](sql-statements.html) creates SQL users, which let 
 
 ## Required privileges
 
-<span class="version-tag">New in v20.1:</span> To create other users, the user must have the [`CREATEROLE`](#allow-the-user-to-create-other-users) parameter set.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> To create other users, the user must have the [`CREATEROLE`](#allow-the-user-to-create-other-users) parameter set.
 
 ## Synopsis
 
-<section>{% include {{ page.version.version }}/sql/diagrams/create_user.html %}</section>
+<section>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/create_user.html %}</section>
 
 ## Parameters
 
@@ -41,9 +41,9 @@ table td:first-child {
 -----------|-------------
 `user_name` | The name of the user you want to create.<br><br>Usernames are case-insensitive; must start with a letter, number, or underscore; must contain only letters, numbers, or underscores; and must be between 1 and 63 characters.
 `password` | Let the user [authenticate their access to a secure cluster](authentication.html#client-authentication) using this password. Passwords should be entered as a [string literal](sql-constants.html#string-literals). For compatibility with PostgreSQL, a password can also be entered as an [identifier](#create-a-user-with-a-password-using-an-identifier). <br><br>To prevent a user from using [password authentication](authentication.html#client-authentication) and to mandate [certificate-based client authentication](authentication.html#client-authentication), [set the password as `NULL`](#prevent-a-user-from-using-password-authentication).
-`VALID UNTIL` | <span class="version-tag">New in v20.1:</span> The date and time (in the [`timestamp`](timestamp.html) format) after which the password is not valid.
-`LOGIN`/`NOLOGIN` | <span class="version-tag">New in v20.1:</span> The `LOGIN` parameter allows a user to login with one of the [user authentication methods](#user-authentication). [Setting the parameter to `NOLOGIN`](#set-login-privileges-for-a-user) prevents the user from logging in using any authentication method. <br><br>By default, the parameter is set to `LOGIN` for the `CREATE USER` statement.
-`CREATEROLE`/`NOCREATEROLE` | <span class="version-tag">New in v20.1:</span> Allow or disallow the new user to create, alter, and drop other users. <br><br>By default, the parameter is set to `NOCREATEROLE` for all non-admin and non-root users.
+`VALID UNTIL` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> The date and time (in the [`timestamp`](timestamp.html) format) after which the password is not valid.
+`LOGIN`/`NOLOGIN` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> The `LOGIN` parameter allows a user to login with one of the [user authentication methods](#user-authentication). [Setting the parameter to `NOLOGIN`](#set-login-privileges-for-a-user) prevents the user from logging in using any authentication method. <br><br>By default, the parameter is set to `LOGIN` for the `CREATE USER` statement.
+`CREATEROLE`/`NOCREATEROLE` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> Allow or disallow the new user to create, alter, and drop other users. <br><br>By default, the parameter is set to `NOCREATEROLE` for all non-admin and non-root users.
 
 ## User authentication
 

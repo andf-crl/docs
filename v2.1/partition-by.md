@@ -21,7 +21,7 @@ As of CockroachDB v2.0, you cannot alter the primary key after it has been defin
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/alter_table_partition_by.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/alter_table_partition_by.html %}
 </div>
 
 ## Parameters

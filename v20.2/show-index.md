@@ -21,7 +21,7 @@ In CockroachDB, the following are aliases for `SHOW INDEX`:
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/show_indexes.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/show_indexes.html %}
 </div>
 
 ## Parameters
@@ -48,7 +48,7 @@ Field | Description
 
 ## Example
 
-{% include {{page.version.version}}/sql/movr-statements.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/movr-statements.md %}
 
 ### Show indexes for a table
 

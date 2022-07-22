@@ -196,4 +196,4 @@ $ rm -rf repdemo-node1 repdemo-node2 repdemo-node3 repdemo-node4 repdemo-node5
 
 Explore other core CockroachDB benefits and features:
 
-{% include {{ page.version.version }}/misc/explore-benefits-see-also.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/explore-benefits-see-also.md %}

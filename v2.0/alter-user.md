@@ -4,7 +4,7 @@ summary: The ALTER USER statement can be used to add or change a user's password
 toc: true
 ---
 
-<span class="version-tag">New in v2.0:</span> The `ALTER USER` [statement](sql-statements.html) can be used to add or change a [user's](create-and-manage-users.html) password.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v2.0:</span> The `ALTER USER` [statement](sql-statements.html) can be used to add or change a [user's](create-and-manage-users.html) password.
 
 {{site.data.alerts.callout_success}}You can also use the <a href="create-and-manage-users.html#update-a-users-password"><code>cockroach user</code></a> command to add or change a user's password.{{site.data.alerts.end}}
 
@@ -19,7 +19,7 @@ The user must have the `INSERT` and `UPDATE` [privileges](privileges.html) on th
 
 ## Synopsis
 
-<div>{% include {{ page.version.version }}/sql/diagrams/alter_user_password.html %}</div>
+<div>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/alter_user_password.html %}</div>
 
 ## Parameters
 

@@ -15,7 +15,7 @@ By default, only the `root` user can control a job.
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/pause_job.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/pause_job.html %}
 </div>
 
 ## Parameters
@@ -78,11 +78,11 @@ All jobs created by `maxroach` will be paused.
 > PAUSE JOB 438235476849557505;
 ~~~
 
-To permanently disable automatic table statistics jobs, disable the `sql.stats.automatic_collection.enabled` [cluster setting](cluster-settings.html):
+To permanently disable automatic table statistics jobs, disable the `[sql.stats.automatic_collection.enabled](cluster-settings.html#setting-sql-stats-automatic_collection-enabled)` [cluster setting](cluster-settings.html):
 
 {% include copy-clipboard.html %}
 ~~~ sql
-> SET CLUSTER SETTING sql.stats.automatic_collection.enabled = false;
+> SET CLUSTER SETTING [sql.stats.automatic_collection.enabled](cluster-settings.html#setting-sql-stats-automatic_collection-enabled) = false;
 ~~~
 
 ## See also

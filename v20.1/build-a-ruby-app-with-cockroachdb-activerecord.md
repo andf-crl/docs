@@ -18,7 +18,7 @@ For a more realistic use of ActiveRecord with CockroachDB in a Rails app, see ou
 
 ## Before you begin
 
-{% include {{page.version.version}}/app/before-you-begin.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/before-you-begin.md %}
 
 ## Step 1. Install PostgreSQL
 
@@ -44,7 +44,7 @@ $ apt-get install postgresql
 
 ## Step 2. Create the `maxroach` user and `bank` database
 
-{% include {{page.version.version}}/app/create-maxroach-user-and-bank-database.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/create-maxroach-user-and-bank-database.md %}
 
 ## Step 3. Generate a certificate for the `maxroach` user
 
@@ -60,11 +60,11 @@ $ cockroach cert create-client maxroach --certs-dir=certs --ca-key=my-safe-direc
 The following code uses [ActiveRecord](http://guides.rubyonrails.org/active_record_basics.html) to map Ruby-specific objects to SQL operations. Specifically, `Schema.new.change()` creates an `accounts` table based on the Account model (or drops and recreates the table if it already exists), `Account.create()` inserts rows into the table, and `Account.all` selects from the table so that balances can be printed.
 
 Copy the code or
-<a href="https://raw.githubusercontent.com/cockroachdb/docs/master/_includes/{{ page.version.version }}/app/activerecord-basic-sample.rb" download>download it directly</a>.
+<a href="https://raw.githubusercontent.com/cockroachdb/docs/master/_includes/{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/app/activerecord-basic-sample.rb" download>download it directly</a>.
 
 {% include copy-clipboard.html %}
 ~~~ ruby
-{% include {{page.version.version}}/app/activerecord-basic-sample.rb %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/activerecord-basic-sample.rb %}
 ~~~
 
 Then run the code:
@@ -111,18 +111,18 @@ Then, issue the following statement:
 
 ## Step 2. Create the `maxroach` user and `bank` database
 
-{% include {{page.version.version}}/app/insecure/create-maxroach-user-and-bank-database.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/insecure/create-maxroach-user-and-bank-database.md %}
 
 ## Step 3. Run the Ruby code
 
 The following code uses [ActiveRecord](http://guides.rubyonrails.org/active_record_basics.html) to map Ruby-specific objects to database tables. Specifically, `Schema.new.change()` creates an `accounts` table based on the `Account` model (or drops and recreates the table if it already exists), `Account.create()` inserts rows into the table, and `Account.all` selects from the table so that balances can be printed.
 
 Copy the code or
-<a href="https://raw.githubusercontent.com/cockroachdb/docs/master/_includes/{{ page.version.version }}/app/insecure/activerecord-basic-sample.rb" download>download it directly</a>.
+<a href="https://raw.githubusercontent.com/cockroachdb/docs/master/_includes/{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/app/insecure/activerecord-basic-sample.rb" download>download it directly</a>.
 
 {% include copy-clipboard.html %}
 ~~~ ruby
-{% include {{page.version.version}}/app/insecure/activerecord-basic-sample.rb %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/insecure/activerecord-basic-sample.rb %}
 ~~~
 
 Then run the code (no need to run bundler first):
@@ -169,4 +169,4 @@ Then, issue the following statement:
 
 Read more about using [ActiveRecord](http://guides.rubyonrails.org/active_record_basics.html), or check out a more realistic implementation of ActiveRecord with CockroachDB in a Rails app in our [`examples-orms`](https://github.com/cockroachdb/examples-orms) repository.
 
-{% include {{page.version.version}}/app/see-also-links.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/see-also-links.md %}

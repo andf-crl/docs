@@ -81,7 +81,7 @@ To access the cluster's [DB Console](ui-overview.html):
 
 1. Go to <a href="https://localhost:8080/" data-proofer-ignore>https://localhost:8080</a> and log in with the username and password you created earlier.
 
-    {% include {{ page.version.version }}/misc/chrome-localhost.md %}
+    {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/chrome-localhost.md %}
 
 {% else %}
 

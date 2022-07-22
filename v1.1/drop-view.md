@@ -13,7 +13,7 @@ The user must have the `DROP` [privilege](privileges.html) on the specified view
 
 ## Synopsis
 
-{% include {{ page.version.version }}/sql/diagrams/drop_view.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/drop_view.html %}
 
 ## Parameters
 

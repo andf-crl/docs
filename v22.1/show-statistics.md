@@ -10,7 +10,7 @@ By default, CockroachDB [automatically generates statistics](cost-based-optimize
 ## Synopsis
 
 <div>
-{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.version.version | replace: "v", "" }}/grammar_svg/show_stats.html %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/grammar_svg/show_stats.html %}
 </div>
 
 ## Required Privileges
@@ -38,7 +38,7 @@ Parameter      | Description
 
 ## Examples
 
-{% include {{page.version.version}}/sql/movr-statements.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/movr-statements.md %}
 
 ### List table statistics
 
@@ -68,7 +68,7 @@ Parameter      | Description
 
 ### Delete statistics
 
-{% include {{ page.version.version }}/misc/delete-statistics.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/delete-statistics.md %}
 
 ## See also
 

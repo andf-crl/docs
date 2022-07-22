@@ -79,13 +79,13 @@ To [index](indexes.html) a `JSONB` column you can use a [GIN index](inverted-ind
 
 - You cannot use [primary key](primary-key.html), [foreign key](foreign-key.html), and [unique](unique.html) [constraints](constraints.html) on `JSONB` values.
 
-- {% include {{page.version.version}}/sql/jsonb-comparison.md %}
+- {% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/jsonb-comparison.md %}
 
 - You cannot [order](order-by.html) queries using `JSONB` and `JSON`-typed columns.
 
     [Tracking issue](https://github.com/cockroachdb/cockroach/issues/35706)
 
-- If the execution of a [join](joins.html) query exceeds the limit set for [memory-buffering operations](vectorized-execution.html#disk-spilling-operations) (i.e., the value set for the `sql.distsql.temp_storage.workmem` [cluster setting](cluster-settings.html)), CockroachDB will spill the intermediate results of computation to disk. If the join operation spills to disk, and at least one of the columns is of type `JSON`, CockroachDB returns the error `unable to encode table key: *tree.DJSON`. If the memory limit is not reached, then the query will be processed without error.
+- If the execution of a [join](joins.html) query exceeds the limit set for [memory-buffering operations](vectorized-execution.html#disk-spilling-operations) (i.e., the value set for the `[sql.distsql.temp_storage.workmem](cluster-settings.html#setting-sql-distsql-temp_storage-workmem)` [cluster setting](cluster-settings.html)), CockroachDB will spill the intermediate results of computation to disk. If the join operation spills to disk, and at least one of the columns is of type `JSON`, CockroachDB returns the error `unable to encode table key: *tree.DJSON`. If the memory limit is not reached, then the query will be processed without error.
 
     [Tracking issue](https://github.com/cockroachdb/cockroach/issues/35706)
 
@@ -309,7 +309,7 @@ Group and order the data.
   Lola       | 2
 ~~~
 
-The `->>` operator returns `STRING` and uses string comparison rules to order the data. If you want numeric ordering, [cast the resulting data](#supported-casting-and-conversion) to `FLOAT`.
+The `->>` operator returns `STRING` and uses string comparison rules to order the data. If you want numeric ordering, [cast the resulting data](#supported-casting-and-con[version](cluster-settings.html#setting-version)) to `FLOAT`.
 
 ### Map a `JSONB` array field into rows
 
@@ -388,17 +388,17 @@ SELECT * FROM commodity;
 
 ### Create a table with a `JSONB` column and a computed column
 
-{% include {{ page.version.version }}/computed-columns/jsonb.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/computed-columns/jsonb.md %}
 
 ### Create a table with a `JSONB` column and a virtual computed column
 
-{% include {{ page.version.version }}/computed-columns/virtual.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/computed-columns/virtual.md %}
 
-## Supported casting and conversion
+## Supported casting and con[version](cluster-settings.html#setting-version)
 
 This section describes how to cast and convert `JSONB` values.
 
-You can [cast](data-types.html#data-type-conversions-and-casts) all `JSONB` values to the following data type:
+You can [cast](data-types.html#data-type-con[version](cluster-settings.html#setting-version)s-and-casts) all `JSONB` values to the following data type:
 
 - [`STRING`](string.html)
 

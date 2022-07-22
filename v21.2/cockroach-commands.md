@@ -23,7 +23,7 @@ Command | Usage
 [`cockroach node`](cockroach-node.html) | List node IDs, show their status, decommission nodes for removal, or recommission nodes.
 [`cockroach demo`](cockroach-demo.html) | Start a temporary, in-memory CockroachDB cluster, and open an interactive SQL shell to it.
 [`cockroach gen`](cockroach-gen.html) | Generate manpages, a bash completion file, example SQL data, or an HAProxy configuration file for a running cluster.
-[`cockroach version`](cockroach-version.html) | Output CockroachDB version details.
+[`cockroach [version](cluster-settings.html#setting-version)`](cockroach-[version](cluster-settings.html#setting-version).html) | Output CockroachDB [version](cluster-settings.html#setting-version) details.
 [`cockroach debug ballast`](cockroach-debug-ballast.html) | Create a large, unused file in a node's storage directory that you can delete if the node runs out of disk space.
 [`cockroach debug encryption-active-key`](cockroach-debug-encryption-active-key.html) | View the encryption algorithm and store key.
 [`cockroach debug job-trace`](cockroach-debug-job-trace.html) | Generate trace payloads for an executing job from a particular node.

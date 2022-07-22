@@ -16,12 +16,12 @@ There are two ways to use `ROLLBACK`:
   - [Rollback a nested transaction](#rollback-a-nested-transaction)
   - [Retry a transaction](#retry-a-transaction)
 
-{% include {{page.version.version}}/sql/savepoint-ddl-rollbacks.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/savepoint-ddl-rollbacks.md %}
 
 ## Synopsis
 
 <div>
-{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.version.version | replace: "v", "" }}/grammar_svg/rollback_transaction.html %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/grammar_svg/rollback_transaction.html %}
 </div>
 
 ## Required privileges
@@ -37,11 +37,11 @@ No [privileges](security-reference/authorization.html#managing-privileges) are r
 
 ## Savepoints and row locks
 
-{% include {{page.version.version}}/sql/savepoints-and-row-locks.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/savepoints-and-row-locks.md %}
 
 ## Savepoints and high priority transactions
 
-{% include {{page.version.version}}/sql/savepoints-and-high-priority-transactions.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/savepoints-and-high-priority-transactions.md %}
 
 ## Examples
 

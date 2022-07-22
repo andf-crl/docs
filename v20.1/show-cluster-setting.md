@@ -29,7 +29,7 @@ The `SHOW` statement for cluster settings is unrelated to the other `SHOW` state
     SHOW PUBLIC CLUSTER SETTINGS;
     ~~~
 
-- <span class="version-tag">New in v20.1:</span> To display the values of all cluster settings use one of the following:
+- <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> To display the values of all cluster settings use one of the following:
 
     ~~~ sql
     SHOW ALL CLUSTER SETTINGS;
@@ -47,7 +47,7 @@ Only members of the `admin` role can display cluster settings. By default, the `
 ## Synopsis
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/show_cluster_setting.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/show_cluster_setting.html %}
 </div>
 
 ## Parameters
@@ -76,11 +76,11 @@ Field | Description
 
 {% include copy-clipboard.html %}
 ~~~ sql
-> SHOW CLUSTER SETTING diagnostics.reporting.enabled;
+> SHOW CLUSTER SETTING [diagnostics.reporting.enabled](cluster-settings.html#setting-diagnostics-reporting-enabled);
 ~~~
 
 ~~~
-  diagnostics.reporting.enabled
+  [diagnostics.reporting.enabled](cluster-settings.html#setting-diagnostics-reporting-enabled)
 ---------------------------------
               true
 (1 row)
@@ -97,8 +97,8 @@ Field | Description
               variable              |     value      | setting_type |                                                   description
 ------------------------------------+----------------+--------------+-------------------------------------------------------------------------------------------------------------------
   cloudstorage.gs.default.key       |                | s            | if set, JSON key to use during Google Cloud Storage operations
-  cloudstorage.http.custom_ca       |                | s            | custom root CA (appended to system's default CAs) for verifying certificates when interacting with HTTPS storage
-  cloudstorage.timeout              | 10m0s          | d            | the timeout for import/export storage operations
+  [cloudstorage.http.custom_ca](cluster-settings.html#setting-cloudstorage-http-custom_ca)       |                | s            | custom root CA (appended to system's default CAs) for verifying certificates when interacting with HTTPS storage
+  [cloudstorage.timeout](cluster-settings.html#setting-cloudstorage-timeout)              | 10m0s          | d            | the timeout for import/export storage operations
   ...
 ~~~
 
@@ -114,8 +114,8 @@ Field | Description
 ----------------------------------------+----------------+--------------+--------+-------------------------------------------------------------------------------------------------------------------
   changefeed.experimental_poll_interval | 1s             | d            | false  | polling interval for the table descriptors
   cloudstorage.gs.default.key           |                | s            |  true  | if set, JSON key to use during Google Cloud Storage operations
-  cloudstorage.http.custom_ca           |                | s            |  true  | custom root CA (appended to system's default CAs) for verifying certificates when interacting with HTTPS storage
-  cloudstorage.timeout                  | 10m0s          | d            |  true  | the timeout for import/export storage operations
+  [cloudstorage.http.custom_ca](cluster-settings.html#setting-cloudstorage-http-custom_ca)           |                | s            |  true  | custom root CA (appended to system's default CAs) for verifying certificates when interacting with HTTPS storage
+  [cloudstorage.timeout](cluster-settings.html#setting-cloudstorage-timeout)                  | 10m0s          | d            |  true  | the timeout for import/export storage operations
   ...
 ~~~
 

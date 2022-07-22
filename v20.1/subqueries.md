@@ -61,7 +61,7 @@ The subquery is correlated because it uses `c` defined in the surrounding query.
 
 ### `LATERAL` subqueries
 
-<span class="version-tag">New in v20.1:</span> CockroachDB supports `LATERAL` subqueries. A `LATERAL` subquery is a correlated subquery that references another query or subquery in its `SELECT` statement, usually in the context of a [`LEFT` join](joins.html#left-outer-joins) or an [`INNER` join](joins.html#inner-joins). Unlike other correlated subqueries, `LATERAL` subqueries iterate through each row in the referenced query for each row in the inner subquery, like a [for loop](https://en.wikipedia.org/wiki/For_loop).
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> CockroachDB supports `LATERAL` subqueries. A `LATERAL` subquery is a correlated subquery that references another query or subquery in its `SELECT` statement, usually in the context of a [`LEFT` join](joins.html#left-outer-joins) or an [`INNER` join](joins.html#inner-joins). Unlike other correlated subqueries, `LATERAL` subqueries iterate through each row in the referenced query for each row in the inner subquery, like a [for loop](https://en.wikipedia.org/wiki/For_loop).
 
 To create a `LATERAL` subquery, use the `LATERAL` keyword directly before the inner subquery's `SELECT` statement.
 

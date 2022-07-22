@@ -7,7 +7,7 @@ keywords: gin, gin index, gin indexes, inverted index, inverted indexes, acceler
 
 The `CREATE TABLE` [statement](sql-statements.html) creates a new table in a database.
 
-{% include {{{ page.version.version }}/misc/schema-change-stmt-note.md %}
+{% include {{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-stmt-note.md %}
 
 ## Required privileges
 
@@ -25,67 +25,67 @@ To create a table, the user must have one of the following:
 </div><p></p>
 
 <div class="filter-content" markdown="1" data-scope="basic">
-{% include {{ page.version.version }}/sql/generated/diagrams/create_table.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/create_table.html %}
 </div>
 
 <div class="filter-content" markdown="1" data-scope="expanded">
 
 <div>
-{% include {{ page.version.version }}/sql/generated/diagrams/create_table.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/create_table.html %}
 </div>
 
 **opt_persistence_temp_table ::=**
 
 <div>
-{% include {{ page.version.version }}/sql/generated/diagrams/opt_persistence_temp_table.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/opt_persistence_temp_table.html %}
 </div>
 
 **column_def ::=**
 
 <div>
-{% include {{ page.version.version }}/sql/generated/diagrams/column_def.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/column_def.html %}
 </div>
 
 **col_qualification ::=**
 
 <div>
-{% include {{ page.version.version }}/sql/generated/diagrams/col_qualification.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/col_qualification.html %}
 </div>
 
 **index_def ::=**
 
 <div>
-{% include {{ page.version.version }}/sql/generated/diagrams/index_def.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/index_def.html %}
 </div>
 
 **family_def ::=**
 
 <div>
-{% include {{ page.version.version }}/sql/generated/diagrams/family_def.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/family_def.html %}
 </div>
 
 **table_constraint ::=**
 
 <div>
-{% include {{ page.version.version }}/sql/generated/diagrams/table_constraint.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/table_constraint.html %}
 </div>
 
 **like_table_option_list::=**
 
 <div>
-{% include {{ page.version.version }}/sql/generated/diagrams/like_table_option_list.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/like_table_option_list.html %}
 </div>
 
 **opt_with_storage_parameter_list ::=**
 
 <div>
-{% include {{ page.version.version }}/sql/generated/diagrams/opt_with_storage_parameter_list.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/opt_with_storage_parameter_list.html %}
 </div>
 
 **opt_locality ::=**
 
 <div>
-{% include {{ page.version.version }}/sql/generated/diagrams/opt_locality.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/opt_locality.html %}
 </div>
 
 </div>
@@ -110,7 +110,7 @@ Parameter | Description
 `opt_where_clause` |  An optional `WHERE` clause that defines the predicate boolean expression of a [partial index](partial-indexes.html).
 `opt_with_storage_parameter_list` |  A comma-separated list of [spatial index tuning parameters](spatial-indexes.html#index-tuning-parameters). Supported parameters include `fillfactor`, `s2_max_level`, `s2_level_mod`, `s2_max_cells`, `geometry_min_x`, `geometry_max_x`, `geometry_min_y`, and `geometry_max_y`. The `fillfactor` parameter is a no-op, allowed for PostgreSQL-compatibility.<br><br>For details, see [Spatial index tuning parameters](spatial-indexes.html#index-tuning-parameters). For an example, see [Create a spatial index that uses all of the tuning parameters](spatial-indexes.html#create-a-spatial-index-that-uses-all-of-the-tuning-parameters).
 `ON COMMIT PRESERVE ROWS` | This clause is a no-op, allowed by the parser for PostgresSQL compatibility. CockroachDB only supports session-scoped [temporary tables](temporary-tables.html), and does not support the clauses `ON COMMIT DELETE ROWS` and `ON COMMIT DROP`, which are used to define transaction-scoped temporary tables in PostgreSQL.
-`opt_interleave` | [Interleave table into parent object](interleave-in-parent.html).<br>{% include {{ page.version.version }}/misc/interleave-deprecation-note.md %}
+`opt_interleave` | [Interleave table into parent object](interleave-in-parent.html).<br>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/interleave-deprecation-note.md %}
 
 
 ## Create a table like an existing table
@@ -249,7 +249,7 @@ We also have other resources on indexes:
 
 ### Create a table with auto-generated unique row IDs
 
-{% include {{ page.version.version }}/faq/auto-generate-unique-ids.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/faq/auto-generate-unique-ids.html %}
 
 ### Create a table with a foreign key constraint
 
@@ -417,7 +417,7 @@ In this example, we create the `users` table, but with some column [constraints]
 
 ### Create a table that mirrors key-value storage
 
-{% include {{ page.version.version }}/faq/simulate-key-value-store.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/faq/simulate-key-value-store.html %}
 
 ### Create a table from a `SELECT` statement
 
@@ -462,11 +462,11 @@ You can use the [`CREATE TABLE AS`](create-table-as.html) statement to create a 
 
 ### Create a table with a computed column
 
-{% include {{ page.version.version }}/computed-columns/simple.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/computed-columns/simple.md %}
 
 ### Create a table with a hash-sharded primary index
 
-{% include {{page.version.version}}/performance/use-hash-sharded-indexes.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/performance/use-hash-sharded-indexes.md %}
 
 {% include_cached copy-clipboard.html %}
 ~~~ sql
@@ -671,7 +671,7 @@ Note that the foreign key constraint `fk_owner_id_ref_users` in the source table
 
 ### Create tables in a multi-region database
 
-{% include_cached new-in.html version="v21.1" %} To create a table with a specific [table locality](multiregion-overview.html#table-locality) in a [multi-region database](multiregion-overview.html), add a `LOCALITY` clause to the end of the table's `CREATE TABLE` statement.
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.1" %} To create a table with a specific [table locality](multiregion-overview.html#table-locality) in a [multi-region database](multiregion-overview.html), add a `LOCALITY` clause to the end of the table's `CREATE TABLE` statement.
 
 {{site.data.alerts.callout_info}}
 In order to set table localities, the database that contains the table must have [database regions](multiregion-overview.html#database-regions).

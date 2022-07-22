@@ -29,7 +29,7 @@ The locations of all ranges in a cluster are stored in a two-level index at the 
 
 ### Downgrading to v1.1.0 from a later v1.1.x patch release
 
-If you have started or [upgraded](upgrade-cockroach-version.html#finalize-the-upgrade) a cluster using v1.1.1 or a later release, then you will not be able to downgrade the cluster to the v1.1.0 binary. This is due to an issue with the `version` setting in the v1.1.0 release that was fixed in v1.1.1. Changing between different `x.y.z` versions of the same `x.y` release is typically safe.
+If you have started or [upgraded](upgrade-cockroach-[version](cluster-settings.html#setting-version).html#finalize-the-upgrade) a cluster using v1.1.1 or a later release, then you will not be able to downgrade the cluster to the v1.1.0 binary. This is due to an issue with the `[version](cluster-settings.html#setting-version)` setting in the v1.1.0 release that was fixed in v1.1.1. Changing between different `x.y.z` [version](cluster-settings.html#setting-version)s of the same `x.y` release is typically safe.
 
 ## Unresolved Limitations
 
@@ -183,4 +183,4 @@ Every [`DELETE`](delete.html) or [`UPDATE`](update.html) statement constructs a 
 
 ### `cockroach dump` does not support cyclic foreign key references
 
-{% include {{ page.version.version }}/known-limitations/dump-cyclic-foreign-keys.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/dump-cyclic-foreign-keys.md %}

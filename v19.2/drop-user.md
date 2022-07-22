@@ -12,7 +12,7 @@ The user must have the `DELETE` [privilege](authorization.html#assign-privileges
 
 ## Synopsis
 
-<section>{% include {{ page.version.version }}/sql/diagrams/drop_user.html %}</section>
+<section>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/drop_user.html %}</section>
 
 ## Parameters
 

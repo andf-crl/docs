@@ -11,7 +11,7 @@ The `DROP CONSTRAINT` [statement](sql-statements.html) is part of `ALTER TABLE` 
 
 ## Synopsis
 
-{% include {{ page.version.version }}/sql/diagrams/drop_constraint.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/drop_constraint.html %}
 
 ## Required Privileges
 

@@ -13,7 +13,7 @@ The user must have the `INSERT` [privilege](privileges.html) on the table. To us
 
 ## Synopsis
 
-<div>{% include {{ page.version.version }}/sql/diagrams/insert.html %}</div>
+<div>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/insert.html %}</div>
 
 ## Parameters
 
@@ -165,7 +165,7 @@ If you do not list column names, the statement will use the columns of the table
 
 ### Insert and Return Values
 
-In this example, the `RETURNING` clause returns the `id` values of the rows inserted, which are generated server-side by the `unique_rowid()` function. The language-specific versions assume that you have installed the relevant [client drivers](install-client-drivers.html).
+In this example, the `RETURNING` clause returns the `id` values of the rows inserted, which are generated server-side by the `unique_rowid()` function. The language-specific [version](cluster-settings.html#setting-version)s assume that you have installed the relevant [client drivers](install-client-drivers.html).
 
 {{site.data.alerts.callout_success}}This use of <code>RETURNING</code> mirrors the behavior of MySQL's <code>last_insert_id()</code> function.{{site.data.alerts.end}}
 

@@ -30,7 +30,7 @@ For `SHOW TRACE FOR SESSION`, no privileges are required.
 ## Syntax
 
 <div>
-{% include {{ page.version.version }}/sql/generated/diagrams/show_trace.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/show_trace.html %}
 </div>
 
 ## Parameters
@@ -57,7 +57,7 @@ To further clarify these concepts, let's look at a visualization of a trace for 
 
 ## Response
 
-{{site.data.alerts.callout_info}}The format of the <code>SHOW TRACE FOR SESSION</code> response may change in future versions.{{site.data.alerts.end}}
+{{site.data.alerts.callout_info}}The format of the <code>SHOW TRACE FOR SESSION</code> response may change in future [version](cluster-settings.html#setting-version)s.{{site.data.alerts.end}}
 
 CockroachDB outputs traces in linear tabular format. Each result row represents either a span start (identified by the `=== SPAN START: <operation> ===` message) or a log message from a span. Rows are generally listed in their timestamp order (i.e., the order in which the events they represent occurred) with the exception that messages from child spans are interleaved in the parent span according to their timing. Messages from sibling spans, however, are not interleaved with respect to one another.
 

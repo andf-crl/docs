@@ -87,9 +87,9 @@ INSERT 1
 (1 row)
 ~~~
 
-## Supported Casting & Conversion
+## Supported Casting & Con[version](cluster-settings.html#setting-version)
 
-`INT` values can be [cast](data-types.html#data-type-conversions-casts) to any of the following data types:
+`INT` values can be [cast](data-types.html#data-type-con[version](cluster-settings.html#setting-version)s-casts) to any of the following data types:
 
 Type | Details
 -----|--------

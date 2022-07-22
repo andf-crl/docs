@@ -37,7 +37,7 @@ For the purposes of this example, the data domiciling requirement is to configur
 
 ### Step 1. Start a simulated multi-region cluster
 
-{% include {{page.version.version}}/sql/start-a-multi-region-demo-cluster.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/start-a-multi-region-demo-cluster.md %}
 
 You now have a cluster running across 9 nodes, with 3 nodes each in the following regions:
 
@@ -72,9 +72,9 @@ ALTER DATABASE movr ADD REGION "us-east1";
 ALTER DATABASE movr ADD REGION "us-west1";
 ~~~
 
-{% include {{page.version.version}}/sql/multiregion-movr-global.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/multiregion-movr-global.md %}
 
-{% include {{page.version.version}}/sql/multiregion-movr-regional-by-row.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/multiregion-movr-regional-by-row.md %}
 
 ### Step 3. View noncompliant replicas
 

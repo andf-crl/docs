@@ -100,7 +100,7 @@ Use the `ccloud cluster create` command to create a new {{ site.data.products.de
 ccloud cluster create dedicated
 ~~~
 
-This command creates a 1 node {{ site.data.products.dedicated }} cluster with 2 virtual CPUs (vCPUs) and 15 GiB of storage in the default cloud infrastructure provider (GCP) and the closest region for that provider. It will generate a cluster name. The CockroachDB version will be the latest stable version.
+This command creates a 1 node {{ site.data.products.dedicated }} cluster with 2 virtual CPUs (vCPUs) and 15 GiB of storage in the default cloud infrastructure provider (GCP) and the closest region for that provider. It will generate a cluster name. The CockroachDB [version](cluster-settings.html#setting-version) will be the latest stable [version](cluster-settings.html#setting-version).
 
 You can set the cluster name, cloud infrastructure provider, region, number of nodes, and storage as command options. The following command is equivalent to the previous command that uses the default values.
 
@@ -210,7 +210,7 @@ Success! Deleted IP allowlist entry for
 
 ## Get a list of all the clusters in your organization using `ccloud cluster list`
 
-Use the `ccloud cluster list` command to show information about the clusters in your organization. It outputs columns with the cluster name, the cluster ID, the cluster plan, the creation date, the cluster's current state, the cloud provider, and the version of CockroachDB.
+Use the `ccloud cluster list` command to show information about the clusters in your organization. It outputs columns with the cluster name, the cluster ID, the cluster plan, the creation date, the cluster's current state, the cloud provider, and the [version](cluster-settings.html#setting-version) of CockroachDB.
 
 {% include_cached copy-clipboard.html %}
 ~~~ shell
@@ -250,7 +250,7 @@ ccloud cluster info dim-dog
 Cluster info
  name: dim-dog
  id: 041d4c6b-69b9-4121-9c5a-8dd6ffd6b73d
- cockroach version: v21.2.4
+ cockroach [version](cluster-settings.html#setting-version): v21.2.4
  cloud: CLOUD_PROVIDER_GCP
  plan type: PLAN_SERVERLESS
  state: CLUSTER_STATE_CREATED
@@ -265,7 +265,7 @@ Cluster info
 Cluster info
  name: ievans-dim-dog-dos
  id: 041d4c6b-69b9-4121-9c5a-8dd6ffd6b73d
- cockroach version: v21.2.4
+ cockroach [version](cluster-settings.html#setting-version): v21.2.4
  cloud: CLOUD_PROVIDER_GCP
  plan type: PLAN_DEDICATED
  state: CLUSTER_STATE_CREATING
@@ -305,10 +305,10 @@ Starting CockroachDB SQL shell...
 # All statements must be terminated by a semicolon.
 # To exit, type: \q.
 #
-# Client version: CockroachDB CCL v21.2.5 (x86_64-apple-darwin19, built 2022/02/07 21:04:05, go1.16.6)
-# Server version: CockroachDB CCL v21.2.4-1-g70835279ac (x86_64-unknown-linux-gnu, built 2022/02/03 22:31:25, go1.16.6)
+# Client [version](cluster-settings.html#setting-version): CockroachDB CCL v21.2.5 (x86_64-apple-darwin19, built 2022/02/07 21:04:05, go1.16.6)
+# Server [version](cluster-settings.html#setting-version): CockroachDB CCL v21.2.4-1-g70835279ac (x86_64-unknown-linux-gnu, built 2022/02/03 22:31:25, go1.16.6)
 
-warning: server version older than client! proceed with caution; some features may not be available.
+warning: server [version](cluster-settings.html#setting-version) older than client! proceed with caution; some features may not be available.
 
 # Cluster ID: 041d4c6b-69b9-4121-9c5a-8dd6ffd6b73d
 #
@@ -321,7 +321,7 @@ user@free-tier7.gcp-us-central1.crdb.io:26257/defaultdb>
 
 Use the `ccloud cluster sql` command to get connection information for the specified cluster using the cluster name.
 
-To get the [connection URL](../{{site.versions["stable"]}}/connection-parameters.html#connect-using-a-url), use the `--connection-url` option.
+To get the [connection URL](../{{site.[version](cluster-settings.html#setting-version)s["stable"]}}/connection-parameters.html#connect-using-a-url), use the `--connection-url` option.
 
 {% include_cached copy-clipboard.html %}
 ~~~ shell

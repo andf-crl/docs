@@ -27,7 +27,7 @@ Parameter       | Description
 
 Roles and users can be granted the following privileges:
 
-{% include {{ page.version.version }}/sql/privileges.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/privileges.md %}
 
 ## Required privileges
 
@@ -47,7 +47,7 @@ The user granting privileges must also have the privilege being granted on the t
 
 ## Examples
 
-{% include {{page.version.version}}/sql/movr-statements.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/movr-statements.md %}
 
 ### Grant privileges on databases
 

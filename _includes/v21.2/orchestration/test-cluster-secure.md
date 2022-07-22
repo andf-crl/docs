@@ -22,7 +22,7 @@ $ kubectl create \
     # All statements must be terminated by a semicolon.
     # To exit, type: \q.
     #
-    # Server version: CockroachDB CCL v21.1.0 (x86_64-unknown-linux-gnu, built 2021/04/23 13:54:57, go1.13.14) (same version as client)
+    # Server [version](cluster-settings.html#setting-version): CockroachDB CCL v21.1.0 (x86_64-unknown-linux-gnu, built 2021/04/23 13:54:57, go1.13.14) (same [version](cluster-settings.html#setting-version) as client)
     # Cluster ID: a96791d9-998c-4683-a3d3-edbf425bbf11
     #
     # Enter \? for a brief introduction.
@@ -30,7 +30,7 @@ $ kubectl create \
     root@cockroachdb-public:26257/defaultdb>
     ~~~
 
-{% include {{ page.version.version }}/orchestration/kubernetes-basic-sql.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/orchestration/kubernetes-basic-sql.md %}
 </section>
 
 <section class="filter-content" markdown="1" data-scope="manual">
@@ -59,8 +59,8 @@ pod/cockroachdb-client-secure created
     # All statements must be terminated by a semicolon.
     # To exit: CTRL + D.
     #
-    # Client version: CockroachDB CCL v19.1.0 (x86_64-unknown-linux-gnu, built 2019/04/29 18:36:40, go1.11.6)
-    # Server version: CockroachDB CCL v19.1.0 (x86_64-unknown-linux-gnu, built 2019/04/29 18:36:40, go1.11.6)
+    # Client [version](cluster-settings.html#setting-version): CockroachDB CCL v19.1.0 (x86_64-unknown-linux-gnu, built 2019/04/29 18:36:40, go1.11.6)
+    # Server [version](cluster-settings.html#setting-version): CockroachDB CCL v19.1.0 (x86_64-unknown-linux-gnu, built 2019/04/29 18:36:40, go1.11.6)
 
     # Cluster ID: 256a8705-e348-4e3a-ab12-e1aba96857e4
     #
@@ -75,7 +75,7 @@ pod/cockroachdb-client-secure created
     If you'd prefer to delete the pod and recreate it when needed, run `kubectl delete pod cockroachdb-client-secure`.
     {{site.data.alerts.end}}
 
-{% include {{ page.version.version }}/orchestration/kubernetes-basic-sql.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/orchestration/kubernetes-basic-sql.md %}
 </section>
 
 <section class="filter-content" markdown="1" data-scope="helm">
@@ -91,7 +91,7 @@ From your local workstation, use our [`client-secure.yaml`](https://github.com/c
 
 1. In the file, set the following values:
     - `spec.serviceAccountName: my-release-cockroachdb`
-    - `spec.image: cockroachdb/cockroach: {your CockroachDB version}`
+    - `spec.image: cockroachdb/cockroach: {your CockroachDB [version](cluster-settings.html#setting-version)}`
     - `spec.volumes[0].project.sources[0].secret.name: my-release-cockroachdb-client-secret`
 
 1. Use the file to launch a pod and keep it running indefinitely:
@@ -120,8 +120,8 @@ From your local workstation, use our [`client-secure.yaml`](https://github.com/c
     # All statements must be terminated by a semicolon.
     # To exit: CTRL + D.
     #
-    # Client version: CockroachDB CCL v19.1.0 (x86_64-unknown-linux-gnu, built 2019/04/29 18:36:40, go1.11.6)
-    # Server version: CockroachDB CCL v19.1.0 (x86_64-unknown-linux-gnu, built 2019/04/29 18:36:40, go1.11.6)
+    # Client [version](cluster-settings.html#setting-version): CockroachDB CCL v19.1.0 (x86_64-unknown-linux-gnu, built 2019/04/29 18:36:40, go1.11.6)
+    # Server [version](cluster-settings.html#setting-version): CockroachDB CCL v19.1.0 (x86_64-unknown-linux-gnu, built 2019/04/29 18:36:40, go1.11.6)
 
     # Cluster ID: 256a8705-e348-4e3a-ab12-e1aba96857e4
     #
@@ -136,5 +136,5 @@ From your local workstation, use our [`client-secure.yaml`](https://github.com/c
     If you'd prefer to delete the pod and recreate it when needed, run `kubectl delete pod cockroachdb-client-secure`.
     {{site.data.alerts.end}}
 
-{% include {{ page.version.version }}/orchestration/kubernetes-basic-sql.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/orchestration/kubernetes-basic-sql.md %}
 </section>

@@ -5,7 +5,7 @@ toc: true
 keywords: gin, gin index, gin indexes, inverted index, inverted indexes, accelerated index, accelerated indexes
 ---
 
-This page describes newly identified limitations in the CockroachDB {{page.release_info.version}} release as well as unresolved limitations identified in earlier releases.
+This page describes newly identified limitations in the CockroachDB {{page.release_info.[version](cluster-settings.html#setting-version)}} release as well as unresolved limitations identified in earlier releases.
 
 ## New limitations
 
@@ -162,19 +162,19 @@ UNION ALL SELECT * FROM t1 LEFT JOIN t2 ON st_contains(t1.geom, t2.geom) AND t2.
 
 ### `SET` does not `ROLLBACK` in a transaction
 
-{% include {{page.version.version}}/known-limitations/set-transaction-no-rollback.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/known-limitations/set-transaction-no-rollback.md %}
 
 ## Unresolved limitations
 
 ### Optimizer stale statistics deletion when columns are dropped
 
-* {% include {{page.version.version}}/known-limitations/old-multi-col-stats.md %}
+* {% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/known-limitations/old-multi-col-stats.md %}
 
-* {% include {{page.version.version}}/known-limitations/single-col-stats-deletion.md %}
+* {% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/known-limitations/single-col-stats-deletion.md %}
 
 ### Automatic statistics refresher may not refresh after upgrade
 
-{% include {{page.version.version}}/known-limitations/stats-refresh-upgrade.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/known-limitations/stats-refresh-upgrade.md %}
 
 ### `IMPORT` into a `REGIONAL BY ROW` table
 
@@ -221,7 +221,7 @@ To work around this limitation, you will need to take the following steps:
 
 ### `BACKUP` of multi-region tables
 
-{% include {{page.version.version}}/backups/no-multiregion-table-backups.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/backups/no-multiregion-table-backups.md %}
 
 ### Differences in syntax and behavior between CockroachDB and PostgreSQL
 
@@ -256,7 +256,7 @@ If you are [performing an `IMPORT` of a `PGDUMP`](migrate-from-postgres.html) wi
 
 ### Historical reads on restored objects
 
-{% include {{ page.version.version }}/known-limitations/restore-aost.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/restore-aost.md %}
 
 [Tracking GitHub Issue](https://github.com/cockroachdb/cockroach/issues/53044)
 
@@ -280,11 +280,11 @@ CockroachDB supports efficiently storing and querying [spatial data](spatial-dat
 
     [Tracking GitHub Issue](https://github.com/cockroachdb/cockroach/issues/56124)
 
-- CockroachDB does not yet support [`INSERT`](insert.html)s into the [`spatial_ref_sys` table](spatial-glossary.html#spatial-system-tables). This limitation also blocks the [`ogr2ogr -f PostgreSQL` file conversion command](https://gdal.org/programs/ogr2ogr.html#cmdoption-ogr2ogr-f).
+- CockroachDB does not yet support [`INSERT`](insert.html)s into the [`spatial_ref_sys` table](spatial-glossary.html#spatial-system-tables). This limitation also blocks the [`ogr2ogr -f PostgreSQL` file con[version](cluster-settings.html#setting-version) command](https://gdal.org/programs/ogr2ogr.html#cmdoption-ogr2ogr-f).
 
     [Tracking GitHub Issue](https://github.com/cockroachdb/cockroach/issues/55903)
 
-- CockroachDB does not yet support `DECLARE CURSOR`, which prevents the `ogr2ogr` conversion tool from exporting from CockroachDB to certain formats and prevents [QGIS](https://qgis.org/en/site/) from working with CockroachDB. To work around this limitation, [export data first to CSV](export-spatial-data.html) or GeoJSON format.
+- CockroachDB does not yet support `DECLARE CURSOR`, which prevents the `ogr2ogr` con[version](cluster-settings.html#setting-version) tool from exporting from CockroachDB to certain formats and prevents [QGIS](https://qgis.org/en/site/) from working with CockroachDB. To work around this limitation, [export data first to CSV](export-spatial-data.html) or GeoJSON format.
 
     [Tracking GitHub Issue](https://github.com/cockroachdb/cockroach/issues/41412)
 
@@ -335,7 +335,7 @@ As a workaround, take a cluster backup instead, as the `system.comments` table i
 
 Change data capture (CDC) provides efficient, distributed, row-level change feeds into Apache Kafka for downstream processing such as reporting, caching, or full-text indexing. It has the following known limitations:
 
-{% include {{ page.version.version }}/known-limitations/cdc.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/cdc.md %}
 
 ### DB Console may become inaccessible for secure clusters
 
@@ -389,19 +389,19 @@ As a workaround, set `default_int_size` via your database driver, or ensure that
 
 ### `COPY FROM` statements are not supported in the CockroachDB SQL shell
 
-{% include {{ page.version.version }}/known-limitations/copy-from-clients.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/copy-from-clients.md %}
 
 ### `COPY` syntax not supported by CockroachDB
 
-{% include {{ page.version.version }}/known-limitations/copy-syntax.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/copy-syntax.md %}
 
 ### Import with a high amount of disk contention
 
-{% include {{ page.version.version }}/known-limitations/import-high-disk-contention.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/import-high-disk-contention.md %}
 
 ### Placeholders in `PARTITION BY`
 
-{% include {{ page.version.version }}/known-limitations/partitioning-with-placeholders.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/partitioning-with-placeholders.md %}
 
 [Tracking GitHub Issue](https://github.com/cockroachdb/cockroach/issues/19464)
 
@@ -438,19 +438,19 @@ SQLSTATE: 0A000
 
 ### Available capacity metric in the DB Console
 
-{% include {{ page.version.version }}/misc/available-capacity-metric.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/available-capacity-metric.md %}
 
 ### Schema changes within transactions
 
-{% include {{ page.version.version }}/known-limitations/schema-changes-within-transactions.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/schema-changes-within-transactions.md %}
 
 ### Schema change DDL statements inside a multi-statement transaction can fail while other statements succeed
 
-{% include {{ page.version.version }}/known-limitations/schema-change-ddl-inside-multi-statement-transactions.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/schema-change-ddl-inside-multi-statement-transactions.md %}
 
 ### Schema changes between executions of prepared statements
 
-{% include {{ page.version.version }}/known-limitations/schema-changes-between-prepared-statements.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/schema-changes-between-prepared-statements.md %}
 
 ### Size limits on statement input from SQL clients
 
@@ -530,7 +530,7 @@ Every [`DELETE`](delete.html) or [`UPDATE`](update.html) statement constructs a 
 
 ### Correlated common table expressions
 
-{% include {{ page.version.version }}/known-limitations/correlated-ctes.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/correlated-ctes.md %}
 
 [Tracking GitHub Issue](https://github.com/cockroachdb/cockroach/issues/42540)
 
@@ -611,17 +611,17 @@ If you think a rollback of a column-dropping schema change has occurred, check t
 
 ### Disk-spilling on joins with `JSON` columns
 
-If the execution of a [join](joins.html) query exceeds the limit set for memory-buffering operations (i.e., the value set for the `sql.distsql.temp_storage.workmem` [cluster setting](cluster-settings.html)), CockroachDB will spill the intermediate results of computation to disk. If the join operation spills to disk, and at least one of the equality columns is of type [`JSON`](jsonb.html), CockroachDB returns the error `unable to encode table key: *tree.DJSON`. If the memory limit is not reached, then the query will be processed without error.
+If the execution of a [join](joins.html) query exceeds the limit set for memory-buffering operations (i.e., the value set for the `[sql.distsql.temp_storage.workmem](cluster-settings.html#setting-sql-distsql-temp_storage-workmem)` [cluster setting](cluster-settings.html)), CockroachDB will spill the intermediate results of computation to disk. If the join operation spills to disk, and at least one of the equality columns is of type [`JSON`](jsonb.html), CockroachDB returns the error `unable to encode table key: *tree.DJSON`. If the memory limit is not reached, then the query will be processed without error.
 
 [Tracking GitHub Issue](https://github.com/cockroachdb/cockroach/issues/35706)
 
 ### Disk-spilling not supported for some unordered distinct operations
 
-{% include {{ page.version.version }}/known-limitations/unordered-distinct-operations.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/unordered-distinct-operations.md %}
 
 ### Using interleaved tables in backups
 
-{% include {{ page.version.version }}/known-limitations/backup-interleaved.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/backup-interleaved.md %}
 
 ### GIN index scans can't be generated for some statement filters
 
@@ -659,4 +659,4 @@ A workaround is to use [stored computed columns](computed-columns.html).
 
 ### Remove a `UNIQUE` index created as part of `CREATE TABLE`
 
-{% include {{ page.version.version }}/known-limitations/drop-unique-index-from-create-table.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/drop-unique-index-from-create-table.md %}

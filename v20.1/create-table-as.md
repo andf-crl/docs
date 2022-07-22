@@ -38,25 +38,25 @@ The user must have the `CREATE` [privilege](authorization.html#assign-privileges
 </div><p></p>
 
 <div class="filter-content horizontal-scroll" markdown="1" data-scope="basic">
-{% include {{ page.version.version }}/sql/diagrams/create_table_as.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/create_table_as.html %}
 </div>
 
 <div class="filter-content" markdown="1" data-scope="expanded">
 
 <div class="horizontal-scroll">
-  {% include {{ page.version.version }}/sql/diagrams/create_table_as.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/create_table_as.html %}
 </div>
 
 **create_as_col_qual_list ::=**
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/create_as_col_qual_list.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/create_as_col_qual_list.html %}
 </div>
 
 **create_as_constraint_def ::=**
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/create_as_constraint_def.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/create_as_constraint_def.html %}
 </div>
 
 </div>
@@ -78,7 +78,7 @@ table td:first-child {
  `family_def` | An optional [column family definition](column-families.html). Column family names must be unique within the table but can have the same name as columns, constraints, or indexes.
  `create_as_constraint_def` | An optional [primary key constraint](primary-key.html).
  `select_stmt` | A [selection query](selection-queries.html) to provide the data.
- `opt_temp_create_table` | <span class="version-tag">New in v20.1:</span> Defines the table as a session-scoped temporary table. For more information, see [Temporary Tables](temporary-tables.html).<br>**Support for temporary tables is experimental**. The interface and output are subject to change.
+ `opt_temp_create_table` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> Defines the table as a session-scoped temporary table. For more information, see [Temporary Tables](temporary-tables.html).<br>**Support for temporary tables is experimental**. The interface and output are subject to change.
 
 ## Limitations
 
@@ -89,7 +89,7 @@ The [primary key](primary-key.html) of tables created with `CREATE TABLE ... AS`
 
 ## Examples
 
-{% include {{page.version.version}}/sql/movr-statements.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/movr-statements.md %}
 
 ### Create a table from a `SELECT` query
 

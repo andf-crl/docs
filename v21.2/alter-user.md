@@ -21,7 +21,7 @@ The `ALTER USER` [statement](sql-statements.html) can be used to add, change, or
 
 ## Synopsis
 
-<div>{% include {{ page.version.version }}/sql/generated/diagrams/alter_user_password.html %}</div>
+<div>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/alter_user_password.html %}</div>
 
 ## Parameters
 

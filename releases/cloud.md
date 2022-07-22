@@ -6,7 +6,7 @@ redirect-from: index-cockroachcloud.html
 docs_area: releases
 ---
 
-CockroachDB Cloud supports the latest major version of CockroachDB and the version immediately preceding it. All clusters are subject to automatic upgrades to the latest supported minor version. [{{ site.data.products.serverless }}](../cockroachcloud/quickstart.html) clusters are subject to automatic upgrades for both minor and major releases while Serverless is in beta. For more information, see the [{{ site.data.products.db }} Upgrade Policy](../cockroachcloud/upgrade-policy.html).
+CockroachDB Cloud supports the latest major [version](cluster-settings.html#setting-version) of CockroachDB and the [version](cluster-settings.html#setting-version) immediately preceding it. All clusters are subject to automatic upgrades to the latest supported minor [version](cluster-settings.html#setting-version). [{{ site.data.products.serverless }}](../cockroachcloud/quickstart.html) clusters are subject to automatic upgrades for both minor and major releases while Serverless is in beta. For more information, see the [{{ site.data.products.db }} Upgrade Policy](../cockroachcloud/upgrade-policy.html).
 
 For details on features that are not supported in {{ site.data.products.serverless }}, see [Unsupported Features in CockroachDB Serverless](../cockroachcloud/serverless-unsupported-features.html).
 
@@ -14,7 +14,7 @@ Get future release notes emailed to you:
 
 {% include marketo.html %}
 
-{{site.data.alerts.callout_version}}
+{{site.data.alerts.callout_[version](cluster-settings.html#setting-version)}}
 As of July 12, 2022, {{ site.data.products.serverless }} clusters are running CockroachDB [v22.1.1](v22.1.html#v22-1-1) and new {{ site.data.products.dedicated }} clusters are running CockroachDB [v22.1.2](v22.1.html#v22-1-2).
 {{site.data.alerts.end}}
 
@@ -22,7 +22,7 @@ As of July 12, 2022, {{ site.data.products.serverless }} clusters are running Co
 
 <h3>Console changes</h3>
 
-- The [**Connect to your cluster**](../{{site.versions["stable"]}}/connect-to-the-database.html) dialog now includes code snippets for [supported languages and tools](../{{site.versions["stable"]}}/third-party-database-tools.html).
+- The [**Connect to your cluster**](../{{site.[version](cluster-settings.html#setting-version)s["stable"]}}/connect-to-the-database.html) dialog now includes code snippets for [supported languages and tools](../{{site.[version](cluster-settings.html#setting-version)s["stable"]}}/third-party-database-tools.html).
 - The [**Connect to your cluster**](../cockroachcloud/connect-to-a-serverless-cluster.html) dialog for clusters running CockroachDB [v22.1](v22.1.html) now loads more quickly.
 - If users log in using an [SSO](../cockroachcloud/cloud-sso.html) method other than the one they have used previously, they will now be asked if they want to switch to the new login method.
 - Previously, {{ site.data.products.dedicated }} users could only choose storage amounts within the [recommendations](../cockroachcloud/plan-your-cluster.html?filters=dedicated) for the selected machine size. Now, a warning message will appear if the storage is outside the recommended range, but any storage option can be selected.
@@ -270,7 +270,7 @@ As of July 12, 2022, {{ site.data.products.serverless }} clusters are running Co
 - The **Connect** modal now has updated commands to make [connecting to your cluster](../cockroachcloud/connect-to-a-serverless-cluster.html) a smoother experience on Mac, Linux, and Windows.
 - All CockroachCloud users now have access to the [**Transactions** page](../cockroachcloud/transactions-page.html) in the Console.
 - Navigation on the **Clusters** page is now a vertical sidebar instead of horizontal tabs.
-- Added a tooltip to the **Upgrade** option in the **Action** Menu, which gives users more version-specific context.
+- Added a tooltip to the **Upgrade** option in the **Action** Menu, which gives users more [version](cluster-settings.html#setting-version)-specific context.
 - Users can now **Clear SQL Stats** from the [**Statements** page](../cockroachcloud/statements-page.html) for clusters running [v21.1.3](v21.1.html#v21-1-3) or later.
 
 <h3>Bug fixes</h3>
@@ -347,7 +347,7 @@ New CockroachCloud clusters will now run CockroachDB [v20.2.5](v20.2.html#v20-2-
 <h3>Console changes</h3>
 
 - Self-service [AWS PrivateLink](../cockroachcloud/network-authorization.html#aws-privatelink) is now generally available for CockroachCloud clusters running on AWS.
-- On the [**Clusters** page](../cockroachcloud/cluster-management.html#view-clusters-page), clusters that are running unsupported versions now have a warning in the **Version** column.
+- On the [**Clusters** page](../cockroachcloud/cluster-management.html#view-clusters-page), clusters that are running unsupported [version](cluster-settings.html#setting-version)s now have a warning in the **Version** column.
 
 <h3>Security changes</h3>
 
@@ -368,7 +368,7 @@ New CockroachCloud clusters will now run CockroachDB [v20.2.4](v20.2.html#v20-2-
 
     You can submit feedback or log any bugs you find through [this survey](https://forms.gle/jWNgmCFtF4y15ePw5).
 
-- You can now [restore databases and tables](../cockroachcloud/backups-page.html) from backups of CockroachCloud clusters. This feature is only available to clusters running the paid version of CockroachCloud.
+- You can now [restore databases and tables](../cockroachcloud/backups-page.html) from backups of CockroachCloud clusters. This feature is only available to clusters running the paid [version](cluster-settings.html#setting-version) of CockroachCloud.
 - [reCAPTCHA](https://www.google.com/recaptcha/about/) has been added to the sign up process for new users signing up with an email and password. Some users may need to complete an image challenge.
 - An email will now be sent to [Console Admins](../cockroachcloud/console-access-management.html#console-admin) when a [30-day free trial of CockroachCloud](../cockroachcloud/quickstart-trial-cluster.html) is nearing its end and once it has expired.
 

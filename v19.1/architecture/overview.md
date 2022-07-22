@@ -35,7 +35,7 @@ With the confluence of these features, we hope that CockroachDB lets teams easil
 
 It's helpful to understand a few terms before reading our architecture documentation.
 
-{% include {{ page.version.version }}/misc/basic-terms.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/basic-terms.md %}
 
 ### Concepts
 

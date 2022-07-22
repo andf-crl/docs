@@ -4,7 +4,7 @@ summary: The DROP SCHEMA statement removes a schema and all its objects from a C
 toc: true
 ---
 
-<span class="version-tag">New in v20.2:</span> The `DROP SCHEMA` [statement](sql-statements.html) removes a user-defined [schema](sql-name-resolution.html#naming-hierarchy) from the current database.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> The `DROP SCHEMA` [statement](sql-statements.html) removes a user-defined [schema](sql-name-resolution.html#naming-hierarchy) from the current database.
 
 ## Required privileges
 
@@ -13,7 +13,7 @@ The user must have the `DROP` [privilege](authorization.html#assign-privileges) 
 ## Syntax
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/drop_schema.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/drop_schema.html %}
 </div>
 
 ### Parameters
@@ -27,7 +27,7 @@ Parameter | Description
 
 ## Examples
 
-{% include {{page.version.version}}/sql/movr-statements.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/movr-statements.md %}
 
 ### Drop a schema
 

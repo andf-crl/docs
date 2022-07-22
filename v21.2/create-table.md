@@ -8,7 +8,7 @@ docs_area: reference.sql
 
 The `CREATE TABLE` [statement](sql-statements.html) creates a new table in a database.
 
-{% include {{ page.version.version }}/misc/schema-change-stmt-note.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-stmt-note.md %}
 
 ## Required privileges
 
@@ -26,67 +26,67 @@ To create a table, the user must have one of the following:
 </div><p></p>
 
 <div class="filter-content" markdown="1" data-scope="basic">
-{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.version.version | replace: "v", "" }}/grammar_svg/create_table.html %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/grammar_svg/create_table.html %}
 </div>
 
 <div class="filter-content" markdown="1" data-scope="expanded">
 
 <div>
-{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.version.version | replace: "v", "" }}/grammar_svg/create_table.html %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/grammar_svg/create_table.html %}
 </div>
 
 **opt_persistence_temp_table ::=**
 
 <div>
-{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.version.version | replace: "v", "" }}/grammar_svg/opt_persistence_temp_table.html %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/grammar_svg/opt_persistence_temp_table.html %}
 </div>
 
 **column_def ::=**
 
 <div>
-{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.version.version | replace: "v", "" }}/grammar_svg/column_def.html %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/grammar_svg/column_def.html %}
 </div>
 
 **col_qualification ::=**
 
 <div>
-{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.version.version | replace: "v", "" }}/grammar_svg/col_qualification.html %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/grammar_svg/col_qualification.html %}
 </div>
 
 **index_def ::=**
 
 <div>
-{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.version.version | replace: "v", "" }}/grammar_svg/index_def.html %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/grammar_svg/index_def.html %}
 </div>
 
 **family_def ::=**
 
 <div>
-{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.version.version | replace: "v", "" }}/grammar_svg/family_def.html %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/grammar_svg/family_def.html %}
 </div>
 
 **table_constraint ::=**
 
 <div>
-{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.version.version | replace: "v", "" }}/grammar_svg/table_constraint.html %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/grammar_svg/table_constraint.html %}
 </div>
 
 **like_table_option_list::=**
 
 <div>
-{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.version.version | replace: "v", "" }}/grammar_svg/like_table_option_list.html %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/grammar_svg/like_table_option_list.html %}
 </div>
 
 **opt_with_storage_parameter_list ::=**
 
 <div>
-{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.version.version | replace: "v", "" }}/grammar_svg/opt_with_storage_parameter_list.html %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/grammar_svg/opt_with_storage_parameter_list.html %}
 </div>
 
 **opt_locality ::=**
 
 <div>
-{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.version.version | replace: "v", "" }}/grammar_svg/opt_locality.html %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/grammar_svg/opt_locality.html %}
 </div>
 
 </div>
@@ -111,7 +111,7 @@ Parameter | Description
 `opt_where_clause` |  An optional `WHERE` clause that defines the predicate boolean expression of a [partial index](partial-indexes.html).
 `opt_with_storage_parameter_list` |  A comma-separated list of [spatial index tuning parameters](spatial-indexes.html#index-tuning-parameters). Supported parameters include `fillfactor`, `s2_max_level`, `s2_level_mod`, `s2_max_cells`, `geometry_min_x`, `geometry_max_x`, `geometry_min_y`, and `geometry_max_y`. The `fillfactor` parameter is a no-op, allowed for PostgreSQL-compatibility.<br><br>For details, see [Spatial index tuning parameters](spatial-indexes.html#index-tuning-parameters). For an example, see [Create a spatial index that uses all of the tuning parameters](spatial-indexes.html#create-a-spatial-index-that-uses-all-of-the-tuning-parameters).
 `ON COMMIT PRESERVE ROWS` | This clause is a no-op, allowed by the parser for PostgresSQL compatibility. CockroachDB only supports session-scoped [temporary tables](temporary-tables.html), and does not support the clauses `ON COMMIT DELETE ROWS` and `ON COMMIT DROP`, which are used to define transaction-scoped temporary tables in PostgreSQL.
-`opt_interleave` | {% include {{ page.version.version }}/misc/interleave-deprecation-note.md %}
+`opt_interleave` | {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/interleave-deprecation-note.md %}
 
 ## Column qualifications
 
@@ -121,12 +121,12 @@ CockroachDB supports the following column qualifications:
 - [Collations](collate.html)
 - [Column family assignments](column-families.html)
 - [`DEFAULT` expressions](default-value.html)
-- {% include_cached new-in.html version="v21.2" %} [`ON UPDATE` expressions](#on-update-expressions)
-- {% include_cached new-in.html version="v21.2" %} [Identity columns](#identity-columns) (sequence-populated columns)
+- {% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.2" %} [`ON UPDATE` expressions](#on-update-expressions)
+- {% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.2" %} [Identity columns](#identity-columns) (sequence-populated columns)
 
 ### `ON UPDATE` expressions
 
-{% include_cached new-in.html version="v21.2" %} `ON UPDATE` expressions update column values in the following cases:
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.2" %} `ON UPDATE` expressions update column values in the following cases:
 
 - An [`UPDATE`](update.html) or [`UPSERT`](upsert.html) statement modifies a different column value in the same row.
 - An `ON UPDATE CASCADE` [foreign key action](foreign-key.html#foreign-key-actions) modifies a different column value in the same row.
@@ -146,7 +146,7 @@ For an example of `ON UPDATE`, see [Add a column with an `ON UPDATE` expression]
 
 ### Identity columns
 
-{% include_cached new-in.html version="v21.2" %} *Identity columns* are columns that are populated with values in a [sequence](create-sequence.html). When you create an identity column, CockroachDB creates a sequence and sets the default value for the identity column to the result of the `nextval()` [built-in function](functions-and-operators.html) on the sequence.
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.2" %} *Identity columns* are columns that are populated with values in a [sequence](create-sequence.html). When you create an identity column, CockroachDB creates a sequence and sets the default value for the identity column to the result of the `nextval()` [built-in function](functions-and-operators.html) on the sequence.
 
 To create an identity column, add a `GENERATED BY DEFAULT AS IDENTITY`/`GENERATED ALWAYS AS IDENTITY` clause to the column definition, followed by [sequence options](create-sequence.html#parameters). If you do not specify any sequence options in the column definition, the column assumes the default options of [`CREATE SEQUENCE`](create-sequence.html).
 
@@ -306,7 +306,7 @@ We also have other resources on indexes:
 
 ### Create a table with auto-generated unique row IDs
 
-{% include {{ page.version.version }}/faq/auto-generate-unique-ids.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/faq/auto-generate-unique-ids.html %}
 
 ### Create a table with a foreign key constraint
 
@@ -474,7 +474,7 @@ In this example, we create the `users` table, but with some column [constraints]
 
 ### Create a table that mirrors key-value storage
 
-{% include {{ page.version.version }}/faq/simulate-key-value-store.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/faq/simulate-key-value-store.html %}
 
 ### Create a table from a `SELECT` statement
 
@@ -519,11 +519,11 @@ You can use the [`CREATE TABLE AS`](create-table-as.html) statement to create a 
 
 ### Create a table with a computed column
 
-{% include {{ page.version.version }}/computed-columns/simple.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/computed-columns/simple.md %}
 
 ### Create a table with a hash-sharded primary index
 
-{% include {{page.version.version}}/performance/use-hash-sharded-indexes.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/performance/use-hash-sharded-indexes.md %}
 
 {% include_cached copy-clipboard.html %}
 ~~~ sql
@@ -925,7 +925,7 @@ CockroachDB will then assign a region to each row, based on the value of the `re
 
 ### Create a table with an identity column
 
-{% include_cached new-in.html version="v21.2" %} [Identity columns](#identity-columns) define a sequence from which to populate a column when a new row is inserted.
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.2" %} [Identity columns](#identity-columns) define a sequence from which to populate a column when a new row is inserted.
 
 For example:
 

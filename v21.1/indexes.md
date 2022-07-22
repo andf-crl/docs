@@ -19,7 +19,7 @@ For example, if you index an `INT` column and then filter it <code>WHERE &lt;ind
 
  To index [spatial data](spatial-data.html), CockroachDB uses *spatial indexes*. For more information about spatial indexes, see [Spatial Indexes](spatial-indexes.html).
 
-{% include {{page.version.version}}/sql/indexes-regional-by-row.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/indexes-regional-by-row.md %}
 
 ### Creation
 
@@ -63,7 +63,7 @@ For more information about how to tune CockroachDB's performance, see [SQL Perfo
 
 The `STORING` clause specifies columns which are not part of the index key but should be stored in the index. This optimizes queries which retrieve those columns without filtering on them, because it prevents the need to read the [primary index](primary-key.html).
 
-{% include {{page.version.version}}/sql/covering-index.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/covering-index.md %}
 
 Note that the synonym `COVERING` is also supported.
 
@@ -125,7 +125,7 @@ For best practices, see [Add a Secondary Index: Best Practices](schema-design-in
 
 ## Indexes on `REGIONAL BY ROW` tables in multi-region databases
 
-{% include {{page.version.version}}/sql/indexes-regional-by-row.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/indexes-regional-by-row.md %}
 
 Note that the behavior described above also applies to [GIN indexes](inverted-indexes.html).
 

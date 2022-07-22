@@ -18,7 +18,7 @@ This page walks you through a simple demonstration, using the open-source [Kuber
 To orchestrate a physically distributed cluster in production, see [Orchestrated Deployments](orchestration.html). To deploy a free {{ site.data.products.db }} cluster instead of running CockroachDB yourself, see the [Quickstart](../cockroachcloud/quickstart.html).
 {{site.data.alerts.end}}
 
-{% include {{ page.version.version }}/orchestration/local-start-kubernetes.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/orchestration/local-start-kubernetes.md %}
 
 ## Step 2. Start CockroachDB
 
@@ -35,36 +35,36 @@ Choose a way to deploy and maintain the CockroachDB cluster:
 </div>
 
 <section class="filter-content" markdown="1" data-scope="operator">
-{% include {{ page.version.version }}/orchestration/start-cockroachdb-operator-secure.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/orchestration/start-cockroachdb-operator-secure.md %}
 </section>
 
 <section class="filter-content" markdown="1" data-scope="manual">
-{% include {{ page.version.version }}/orchestration/start-cockroachdb-secure.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/orchestration/start-cockroachdb-secure.md %}
 </section>
 
 <section class="filter-content" markdown="1" data-scope="helm">
-{% include {{ page.version.version }}/orchestration/start-cockroachdb-helm-secure.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/orchestration/start-cockroachdb-helm-secure.md %}
 </section>
 
 ## Step 3. Use the built-in SQL client
 
-{% include {{ page.version.version }}/orchestration/test-cluster-secure.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/orchestration/test-cluster-secure.md %}
 
 ## Step 4. Access the DB Console
 
-{% include {{ page.version.version }}/orchestration/monitor-cluster.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/orchestration/monitor-cluster.md %}
 
 ## Step 5. Simulate node failure
 
-{% include {{ page.version.version }}/orchestration/kubernetes-simulate-failure.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/orchestration/kubernetes-simulate-failure.md %}
 
 ## Step 6. Add nodes
 
-{% include {{ page.version.version }}/orchestration/kubernetes-scale-cluster.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/orchestration/kubernetes-scale-cluster.md %}
 
 ## Step 7. Remove nodes
 
-{% include {{ page.version.version }}/orchestration/kubernetes-remove-nodes-secure.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/orchestration/kubernetes-remove-nodes-secure.md %}
 
 ## Step 8. Stop the cluster
 
@@ -100,6 +100,6 @@ Choose a way to deploy and maintain the CockroachDB cluster:
 
 Explore other core CockroachDB benefits and features:
 
-{% include {{ page.version.version }}/misc/explore-benefits-see-also.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/explore-benefits-see-also.md %}
 
 You might also want to learn how to [orchestrate a production deployment of CockroachDB with Kubernetes](orchestrate-cockroachdb-with-kubernetes.html).

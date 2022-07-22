@@ -20,7 +20,7 @@ ISO 8601 | `INTERVAL 'P1Y2M3DT4H5M6S'`
 Traditional PostgreSQL | `INTERVAL '1 year 2 months 3 days 4 hours 5 minutes 6 seconds'`
 Abbreviated PostgreSQL | `INTERVAL '1 yr 2 mons 3 d 4 hrs 5 mins 6 secs'`
 
- By default, CockroachDB displays `INTERVAL` values in the traditional PostgreSQL format (e.g., `INTERVAL '1 year 2 months 3 days 4 hours 5 minutes 6 seconds'`). To change the display format of `INTERVAL` values, set the `intervalstyle` [session variable](set-vars.html) or the `sql.defaults.intervalstyle` [cluster setting](cluster-settings.html) to a supported format (`iso_8601` for the ISO 8601 format; `sql_standard` for the SQL Standard format).
+ By default, CockroachDB displays `INTERVAL` values in the traditional PostgreSQL format (e.g., `INTERVAL '1 year 2 months 3 days 4 hours 5 minutes 6 seconds'`). To change the display format of `INTERVAL` values, set the `intervalstyle` [session variable](set-vars.html) or the `[sql.defaults.intervalstyle](cluster-settings.html#setting-sql-defaults-intervalstyle)` [cluster setting](cluster-settings.html) to a supported format (`iso_8601` for the ISO 8601 format; `sql_standard` for the SQL Standard format).
 
 The value of `intervalstyle` affects how CockroachDB parses certain `INTERVAL` values. Specifically, when `intervalstyle = 'sql_standard'`, and when the `INTERVAL` value begins with a negative symbol, CockroachDB parses all fields as negative values (e.g., `-3 years 1 day` is parsed as `-(3 years 1 day)`, or `-3 years, -1 day`). When `intervalstyle = 'postgres'` (the default format), and when the `INTERVAL` value begins with a negative symbol, CockroachDB only applies the negative symbol to the field that it directly precedes (e.g., `-3 years 1 day` is parsed as `-3 years, +1 day`).
 
@@ -104,9 +104,9 @@ If the interval input is ambiguous, specifying two duration fields stores the in
 (3 rows)
 ~~~
 
-## Supported casting and conversion
+## Supported casting and con[version](cluster-settings.html#setting-version)
 
-You can [cast](data-types.html#data-type-conversions-and-casts) `INTERVAL` values to any of the following data types:
+You can [cast](data-types.html#data-type-con[version](cluster-settings.html#setting-version)s-and-casts) `INTERVAL` values to any of the following data types:
 
 Type | Details
 -----|--------

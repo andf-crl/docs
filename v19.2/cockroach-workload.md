@@ -63,7 +63,7 @@ Workload | Description
 [`bank`](#bank-workload) | Models a set of accounts with currency balances.<br><br>For this workload, you run `workload init` to load the schema and then `workload run` to generate data.
 [`intro`](#intro-and-startrek-workloads) | Loads an `intro` database, with one table, `mytable`, with a hidden message.<br><br>For this workload, you run only `workload init` to load the data. The `workload run` subcommand is not applicable.
 [`kv`](#kv-workload) | Reads and writes to keys spread (by default, uniformly at random) across the cluster.<br><br>For this workload, you run `workload init` to load the schema and then `workload run` to generate data.
-[`movr`](#movr-workload) |  <span class="version-tag">New in v19.2:</span>  Simulates a workload for the [MovR example application](movr.html).<br><br>For this workload, you run `workload init` to load the schema and then `workload run` to generate data.
+[`movr`](#movr-workload) |  <span class="[version](cluster-settings.html#setting-version)-tag">New in v19.2:</span>  Simulates a workload for the [MovR example application](movr.html).<br><br>For this workload, you run `workload init` to load the schema and then `workload run` to generate data.
 [`startrek`](#intro-and-startrek-workloads) | Loads a `startrek` database, with two tables, `episodes` and `quotes`.<br><br>For this workload, you run only `workload init` to load the data. The `workload run` subcommand is not applicable.
 [`tpcc`](#tpcc-workload) | Simulates a transaction processing workload using a rich schema of multiple tables.<br><br>For this workload, you run `workload init` to load the schema and then `workload run` to generate data.
 [`ycsb`](#ycsb-workload) | Simulates a high-scale key value workload, either read-heavy, write-heavy, or scan-based, with additional customizations.<br><br>For this workload, you run `workload init` to load the schema and then `workload run` to generate data.
@@ -80,8 +80,8 @@ Flag | Description
 -----|------------
 `--concurrency` | The number of concurrent workers.<br><br>**Applicable commands:** `init` or `run`<br>**Default:** 2 * number of CPUs
 `--db` | The SQL database to use.<br><br>**Applicable commands:** `init` or `run`<br>**Default:** `bank`
-`--display-every` | <span class="version-tag">New in v19.2:</span> The frequency for printing per-operation statistics. Valid [time units](https://en.wikipedia.org/wiki/Orders_of_magnitude_(time)) are `ns`, `us`, `ms`, `s`, `m`, and `h`.<br><br>**Applicable command:** `run`<br>**Default:** `1s`
-`--display-format` | <span class="version-tag">New in v19.2:</span> The format for printing per-operation statistics (`simple`, `incremental-json`). When using `incremental-json`, note that totals are not printed at the end of the workload's duration.<br><br>**Applicable command:** `run`<br>**Default:** `simple`
+`--display-every` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v19.2:</span> The frequency for printing per-operation statistics. Valid [time units](https://en.wikipedia.org/wiki/Orders_of_magnitude_(time)) are `ns`, `us`, `ms`, `s`, `m`, and `h`.<br><br>**Applicable command:** `run`<br>**Default:** `1s`
+`--display-format` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v19.2:</span> The format for printing per-operation statistics (`simple`, `incremental-json`). When using `incremental-json`, note that totals are not printed at the end of the workload's duration.<br><br>**Applicable command:** `run`<br>**Default:** `simple`
 `--drop` | Drop the existing database, if it exists.<br><br>**Applicable commands:** `init` or `run`. For the `run` command, this flag must be used in conjunction with `--init`.
 `--duration` | The duration to run, with a required time unit suffix. Valid [time units](https://en.wikipedia.org/wiki/Orders_of_magnitude_(time)) are `ns`, `us`, `ms`, `s`, `m`, and `h`.<br><br>**Applicable commands:** `init` or `run`<br>**Default:** `0`, which means run forever.
 `--histograms` | The file to write per-op incremental and cumulative histogram data to.<br><br>**Applicable command:** `run`
@@ -113,8 +113,8 @@ Flag | Description
 `--batch` | The number of blocks to insert in a single SQL statement.<br><br>**Applicable commands:** `init` or `run`<br>**Default:** `1`
 `--concurrency` | The number of concurrent workers.<br><br>**Applicable commands:** `init` or `run`<br>**Default:** `8`  `--cycle-length`| The number of keys repeatedly accessed by each writer.**Applicable commands:** `init` or `run`<br>**Default:** `9223372036854775807`
 `--db` | The SQL database to use.<br><br>**Applicable commands:** `init` or `run`<br>**Default:** `kv`
-`--display-every` | <span class="version-tag">New in v19.2:</span> The frequency for printing per-operation statistics. Valid [time units](https://en.wikipedia.org/wiki/Orders_of_magnitude_(time)) are `ns`, `us`, `ms`, `s`, `m`, and `h`.<br><br>**Applicable command:** `run`<br>**Default:** `1s`
-`--display-format` | <span class="version-tag">New in v19.2:</span> The format for printing per-operation statistics (`simple`, `incremental-json`). When using `incremental-json`, note that totals are not printed at the end of the workload's duration.<br><br>**Applicable command:** `run`<br>**Default:** `simple`
+`--display-every` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v19.2:</span> The frequency for printing per-operation statistics. Valid [time units](https://en.wikipedia.org/wiki/Orders_of_magnitude_(time)) are `ns`, `us`, `ms`, `s`, `m`, and `h`.<br><br>**Applicable command:** `run`<br>**Default:** `1s`
+`--display-format` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v19.2:</span> The format for printing per-operation statistics (`simple`, `incremental-json`). When using `incremental-json`, note that totals are not printed at the end of the workload's duration.<br><br>**Applicable command:** `run`<br>**Default:** `simple`
 `--drop` | Drop the existing database, if it exists.<br><br>**Applicable commands:** `init` or `run`
 `--duration` | The duration to run, with a required time unit suffix. Valid [time units](https://en.wikipedia.org/wiki/Orders_of_magnitude_(time)) are `ns`, `us`, `ms`, `s`, `m`, and `h`.<br><br>**Applicable command:** `run`<br>**Default:** `0`, which means run forever.
 `--histograms` | The file to write per-op incremental and cumulative histogram data to.<br><br>**Applicable command:** `run`
@@ -138,8 +138,8 @@ Flag | Description
 -----|------------
 `--data-loader` | How to load initial table data. Valid options are `INSERT` and `IMPORT`.<br><br>**Applicable commands:** `init` or `run`<br>**Default:** `INSERT`
 `--db` | The SQL database to use.<br><br>**Applicable commands:** `init` or `run`<br>**Default:** `movr`
-`--display-every` | <span class="version-tag">New in v19.2:</span> The frequency for printing per-operation statistics. Valid [time units](https://en.wikipedia.org/wiki/Orders_of_magnitude_(time)) are `ns`, `us`, `ms`, `s`, `m`, and `h`.<br><br>**Applicable command:** `run`<br>**Default:** `1s`
-`--display-format` | <span class="version-tag">New in v19.2:</span> The format for printing per-operation statistics (`simple`, `incremental-json`). When using `incremental-json`, note that totals are not printed at the end of the workload's duration.<br><br>**Applicable command:** `run`<br>**Default:** `simple`
+`--display-every` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v19.2:</span> The frequency for printing per-operation statistics. Valid [time units](https://en.wikipedia.org/wiki/Orders_of_magnitude_(time)) are `ns`, `us`, `ms`, `s`, `m`, and `h`.<br><br>**Applicable command:** `run`<br>**Default:** `1s`
+`--display-format` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v19.2:</span> The format for printing per-operation statistics (`simple`, `incremental-json`). When using `incremental-json`, note that totals are not printed at the end of the workload's duration.<br><br>**Applicable command:** `run`<br>**Default:** `simple`
 `--drop` | Drop the existing database, if it exists.<br><br>**Applicable commands:** `init` or `run`
 `--duration` | The duration to run, with a required time unit suffix. Valid [time units](https://en.wikipedia.org/wiki/Orders_of_magnitude_(time)) are `ns`, `us`, `ms`, `s`, `m`, and `h`.<br><br>**Applicable command:** `run`<br>**Default:** `0`, which means run forever.
 `--histograms` | The file to write per-op incremental and cumulative histogram data to.<br><br>**Applicable command:** `run`
@@ -162,8 +162,8 @@ Flag | Description
 -----|------------
 `--active-warehouses` | Run the load generator against a specific number of warehouses.<br><br>**Applicable commands:** `init` or `run`<br>**Defaults:** Value of `--warehouses`
 `--db` | The SQL database to use.<br><br>**Applicable commands:** `init` or `run`<br>**Default:** `tpcc`
-`--display-every` | <span class="version-tag">New in v19.2:</span> The frequency for printing per-operation statistics. Valid [time units](https://en.wikipedia.org/wiki/Orders_of_magnitude_(time)) are `ns`, `us`, `ms`, `s`, `m`, and `h`.<br><br>**Applicable command:** `run`<br>**Default:** `1s`
-`--display-format` | <span class="version-tag">New in v19.2:</span> The format for printing per-operation statistics (`simple`, `incremental-json`). When using `incremental-json`, note that totals are not printed at the end of the workload's duration.<br><br>**Applicable command:** `run`<br>**Default:** `simple`
+`--display-every` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v19.2:</span> The frequency for printing per-operation statistics. Valid [time units](https://en.wikipedia.org/wiki/Orders_of_magnitude_(time)) are `ns`, `us`, `ms`, `s`, `m`, and `h`.<br><br>**Applicable command:** `run`<br>**Default:** `1s`
+`--display-format` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v19.2:</span> The format for printing per-operation statistics (`simple`, `incremental-json`). When using `incremental-json`, note that totals are not printed at the end of the workload's duration.<br><br>**Applicable command:** `run`<br>**Default:** `simple`
 `--drop` | Drop the existing database, if it exists.<br><br>**Applicable commands:** `init` or `run`. For the `run` command, this flag must be used in conjunction with `--init`.
 `--duration` | The duration to run, with a required time unit suffix. Valid [time units](https://en.wikipedia.org/wiki/Orders_of_magnitude_(time)) are `ns`, `us`, `ms`, `s`, `m`, and `h`.<br><br>**Applicable command:** `run`<br>**Default:** `0`, which means run forever.
 `--fks` | Add foreign keys.<br><br>**Applicable commands:** `init` or `run`<br>**Default:** `true`
@@ -172,7 +172,7 @@ Flag | Description
 `--interleaved` | Use [interleaved tables](interleave-in-parent.html).<br><br>**Applicable commands:** `init` or `run`
 `--max-ops` | The maximum number of operations to run.<br><br>**Applicable command:** `run`
 `--max-rate` | The maximum frequency of operations (reads/writes).<br><br>**Applicable command:** `run`<br>**Default:** `0`, which means unlimited.
-`--mix` | Weights for the transaction mix.<br><br>**Applicable commands:** `init` or `run`<br>**Default:** `newOrder=10,payment=10,orderStatus=1,delivery=1,stockLevel=1`, which matches the [TPC-C specification](http://tpc.org/tpc_documents_current_versions/current_specifications5.asp).
+`--mix` | Weights for the transaction mix.<br><br>**Applicable commands:** `init` or `run`<br>**Default:** `newOrder=10,payment=10,orderStatus=1,delivery=1,stockLevel=1`, which matches the [TPC-C specification](http://tpc.org/tpc_documents_current_[version](cluster-settings.html#setting-version)s/current_specifications5.asp).
 `--partition-affinity` | Run the load generator against a specific partition. This flag must be used in conjunction with `--partitions`.<br><br>**Applicable commands:** `init` or `run`<br>**Default:** `-1`
 `--partitions` | Partition tables. This flag must be used in conjunction with `--split`.<br><br>**Applicable commands:** `init` or `run`
 `--ramp` | The duration over which to ramp up load.<br><br>**Applicable command:** `run`
@@ -192,8 +192,8 @@ Flag | Description
 -----|------------
 `--concurrency` | The number of concurrent workers.<br><br>**Applicable commands:** `init` or `run`<br>**Default:** `8`
 `--db` | The SQL database to use.<br><br>**Applicable commands:** `init` or `run`<br>**Default:** `ycsb`
-`--display-every` | <span class="version-tag">New in v19.2:</span> The frequency for printing per-operation statistics. Valid [time units](https://en.wikipedia.org/wiki/Orders_of_magnitude_(time)) are `ns`, `us`, `ms`, `s`, `m`, and `h`.<br><br>**Applicable command:** `run`<br>**Default:** `1s`
-`--display-format` | <span class="version-tag">New in v19.2:</span> The format for printing per-operation statistics (`simple`, `incremental-json`). When using `incremental-json`, note that totals are not printed at the end of the workload's duration.<br><br>**Applicable command:** `run`<br>**Default:** `simple`
+`--display-every` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v19.2:</span> The frequency for printing per-operation statistics. Valid [time units](https://en.wikipedia.org/wiki/Orders_of_magnitude_(time)) are `ns`, `us`, `ms`, `s`, `m`, and `h`.<br><br>**Applicable command:** `run`<br>**Default:** `1s`
+`--display-format` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v19.2:</span> The format for printing per-operation statistics (`simple`, `incremental-json`). When using `incremental-json`, note that totals are not printed at the end of the workload's duration.<br><br>**Applicable command:** `run`<br>**Default:** `simple`
 `--drop` | Drop the existing database, if it exists.<br><br>**Applicable commands:** `init` or `run`. For the `run` command, this flag must be used in conjunction with `--init`.
 `--duration` | The duration to run, with a required time unit suffix. Valid [time units](https://en.wikipedia.org/wiki/Orders_of_magnitude_(time)) are `ns`, `us`, `ms`, `s`, `m`, and `h`.<br><br>**Applicable command:** `run`<br>**Default:** `0`, which means run forever.
 `--families` | Place each column in its own [column family](column-families.html).<br><br>**Applicable commands:** `init` or `run`

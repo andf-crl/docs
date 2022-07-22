@@ -5,7 +5,7 @@ toc: true
 ---
 The `TIME` [data type](data-types.html) stores the time of day in UTC.
 
-{% include {{page.version.version}}/sql/vectorized-support.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/vectorized-support.md %}
 
 ## Aliases
 
@@ -97,9 +97,9 @@ Comparing `TIME` values:
 (1 row)
 ~~~
 
-## Supported casting & conversion
+## Supported casting & con[version](cluster-settings.html#setting-version)
 
-`TIME` values can be [cast](data-types.html#data-type-conversions-and-casts) to any of the following data types:
+`TIME` values can be [cast](data-types.html#data-type-con[version](cluster-settings.html#setting-version)s-and-casts) to any of the following data types:
 
 Type | Details
 -----|--------

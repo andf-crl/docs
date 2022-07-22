@@ -16,9 +16,9 @@ After a column is indexed, SQL can easily filter its values using the index inst
 
 For example, if you index an `INT` column and then filter it <code>WHERE &lt;indexed column&gt; = 10</code>, SQL can use the index to find values starting at 10 but less than 11. In contrast, without an index, SQL would have to evaluate _every_ row in the table for values equaling 10.  This is also known as a "full table scan", and it can be very bad for query performance.
 
-<span class="version-tag">New in v20.2:</span> You can also create an index on a subset of rows. This type of index is called a partial index. For more information, see [Partial indexes](partial-indexes.html).
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> You can also create an index on a subset of rows. This type of index is called a partial index. For more information, see [Partial indexes](partial-indexes.html).
 
-<span class="version-tag">New in v20.2</span>: To index [spatial data](spatial-data.html), CockroachDB uses *spatial indexes*. For more information about spatial indexes, see [Spatial Indexes](spatial-indexes.html).
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2</span>: To index [spatial data](spatial-data.html), CockroachDB uses *spatial indexes*. For more information about spatial indexes, see [Spatial Indexes](spatial-indexes.html).
 
 ### Creation
 

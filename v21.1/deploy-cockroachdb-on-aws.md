@@ -28,7 +28,7 @@ If you need a license to use [{{ site.data.products.enterprise }} features](ente
 
 ### Requirements
 
-{% include {{ page.version.version }}/prod-deployment/secure-requirements.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/secure-requirements.md %}
 
 {{site.data.alerts.callout_info}}
 CockroachDB is supported in all [AWS regions](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html).
@@ -36,7 +36,7 @@ CockroachDB is supported in all [AWS regions](https://docs.aws.amazon.com/AWSEC2
 
 ### Recommendations
 
-{% include {{ page.version.version }}/prod-deployment/secure-recommendations.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/secure-recommendations.md %}
 
 - You should have familiarity with configuring the following AWS components:
   - [Amazon VPC](https://docs.aws.amazon.com/vpc/index.html)
@@ -90,7 +90,7 @@ For more details, see [Hardware Recommendations](recommended-production-settings
 - `26257` for inter-node and client-node communication. This enables the nodes to work as a cluster, the load balancer to route traffic to the nodes, and applications to connect to the load balancer.
 - `8080` for exposing the DB Console to the user, and for routing the load balancer to the health check endpoint.
 
-{% include {{ page.version.version }}/prod-deployment/aws-inbound-rules.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/aws-inbound-rules.md %}
 
 #### Load balancer-health check communication
 
@@ -103,7 +103,7 @@ To get the IP range of a VPC, open the [Amazon VPC console](https://console.aws.
 
 ## Step 3. Synchronize clocks
 
-{% include {{ page.version.version }}/prod-deployment/synchronize-clocks.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/synchronize-clocks.md %}
 
 ## Step 4. Set up load balancing
 
@@ -128,40 +128,40 @@ AWS offers fully-managed load balancing to distribute traffic between instances.
 
 ## Step 5. Generate certificates
 
-{% include {{ page.version.version }}/prod-deployment/secure-generate-certificates.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/secure-generate-certificates.md %}
 
 ## Step 6. Start nodes
 
-{% include {{ page.version.version }}/prod-deployment/secure-start-nodes.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/secure-start-nodes.md %}
 
 ## Step 7. Initialize the cluster
 
-{% include {{ page.version.version }}/prod-deployment/secure-initialize-cluster.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/secure-initialize-cluster.md %}
 
 ## Step 8. Test your cluster
 
-{% include {{ page.version.version }}/prod-deployment/secure-test-cluster.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/secure-test-cluster.md %}
 
 ## Step 9. Run a sample workload
 
-{% include {{ page.version.version }}/prod-deployment/secure-test-load-balancing.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/secure-test-load-balancing.md %}
 
 ## Step 10. Monitor the cluster
 
 In the Target Groups section of the Amazon EC2 console, [check the health](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/target-group-health-checks.html) of your instances by inspecting your target group and opening the Targets tab.
 
-{% include {{ page.version.version }}/prod-deployment/monitor-cluster.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/monitor-cluster.md %}
 
 ## Step 11. Scale the cluster
 
 Before adding a new node, [create a new instance](#step-1-create-instances) as you did earlier. Then [generate and upload a certificate and key](#step-5-generate-certificates) for the new node.
 
-{% include {{ page.version.version }}/prod-deployment/secure-scale-cluster.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/secure-scale-cluster.md %}
 
 ## Step 12. Use the database
 
-{% include {{ page.version.version }}/prod-deployment/use-cluster.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/use-cluster.md %}
 
 ## See also
 
-{% include {{ page.version.version }}/prod-deployment/prod-see-also.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/prod-see-also.md %}

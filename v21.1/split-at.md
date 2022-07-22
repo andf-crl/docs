@@ -9,11 +9,11 @@ The `SPLIT AT` [statement](sql-statements.html) forces a range split at the spec
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/generated/diagrams/split_table_at.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/split_table_at.html %}
 </div>
 
 <div>
-{% include {{ page.version.version }}/sql/generated/diagrams/split_index_at.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/split_index_at.html %}
 </div>
 
 ## Required privileges
@@ -56,7 +56,7 @@ the ranges that store tables or indexes:
 
 ## Examples
 
-{% include {{page.version.version}}/sql/movr-statements-geo-partitioned-replicas.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/movr-statements-geo-partitioned-replicas.md %}
 
 ### Split a table
 

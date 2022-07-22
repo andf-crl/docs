@@ -5,7 +5,7 @@ toc: true
 docs_area: reference.db_console
 ---
 
-{% include {{ page.version.version }}/ui/admin-access.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/ui/admin-access.md %}
 
 The **Statements** page  of the DB Console helps you:
 
@@ -27,14 +27,14 @@ By default, the Statements page shows SQL statements from all applications and d
 
 To search using the search field, type a string over `Search Statements` and press `Enter`. The list of statements is filtered by the string.
 
-{% include {{ page.version.version }}/ui/statements-filter.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/ui/statements-filter.md %}
 
 ## Statement statistics
 
-{% include {{ page.version.version }}/ui/statistics.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/ui/statistics.md %}
 
 {% include common/ui/statements-page.md %}
 
-{% include {{ page.version.version }}/ui/statements-table.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/ui/statements-table.md %}
 
-{% include {{ page.version.version }}/ui/statement-details.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/ui/statement-details.md %}

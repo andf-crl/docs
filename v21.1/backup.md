@@ -36,7 +36,7 @@ For guidance on the syntax for backups and restores, see the [`BACKUP`](backup.h
 - Core users can only take [full backups](take-full-and-incremental-backups.html#full-backups). To use the other backup features, you need an [Enterprise license](enterprise-licensing.html). You can also use [{{ site.data.products.dedicated }}](https://cockroachlabs.cloud/signup?referralId=docs-crdb-backup), which runs [full backups daily and incremental backups hourly](../cockroachcloud/backups-page.html).
 - `BACKUP` is a blocking statement. To run a backup job asynchronously, use the `DETACHED` option. See the [options](#options) below.
 - Backups will export [Enterprise license keys](enterprise-licensing.html) during a [full cluster backup](#backup-a-cluster). When you [restore](restore.html) a full cluster with an Enterprise license, it will restore the Enterprise license of the cluster you are restoring from.
-- [Interleaving data](interleave-in-parent.html) is disabled in v21.1 by default, and will be permanently removed from CockroachDB in a future release. CockroachDB versions v21.2 and later will not be able to read or restore backups that include interleaved data. To backup interleaved data in v21.1, a `BACKUP` statement must include the [`INCLUDE_DEPRECATED_INTERLEAVES` option](#include-deprecated-interleaves).
+- [Interleaving data](interleave-in-parent.html) is disabled in v21.1 by default, and will be permanently removed from CockroachDB in a future release. CockroachDB [version](cluster-settings.html#setting-version)s v21.2 and later will not be able to read or restore backups that include interleaved data. To backup interleaved data in v21.1, a `BACKUP` statement must include the [`INCLUDE_DEPRECATED_INTERLEAVES` option](#include-deprecated-interleaves).
 - [Zone configurations](configure-zone.html) present on the destination cluster prior to a restore will be **overwritten** during a [cluster restore](restore.html#full-cluster) with the zone configurations from the [backed-up cluster](#backup-a-cluster). If there were no customized zone configurations on the cluster when the backup was taken, then after the restore the destination cluster will use the zone configuration from the [`RANGE DEFAULT` configuration](configure-replication-zones.html#view-the-default-replication-zone).
 - You cannot restore a backup of a multi-region database into a single-region database.
 
@@ -52,12 +52,12 @@ To view the contents of an Enterprise backup created with the `BACKUP` statement
 
 ### Destination privileges
 
-{% include {{ page.version.version }}/backups/destination-file-privileges.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/backups/destination-file-privileges.md %}
 
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/generated/diagrams/backup.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/backup.html %}
 </div>
 
 ## Parameters
@@ -81,7 +81,7 @@ N/A                                | Backup the cluster. For an example of a ful
 
 ### Options
 
-{% include {{ page.version.version }}/backups/backup-options.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/backups/backup-options.md %}
 
 ### Backup file URLs
 
@@ -149,7 +149,7 @@ The presence of the `BACKUP MANIFEST` file in the backup subdirectory is an indi
 
 Per our guidance in the [Performance](#performance) section, we recommend starting backups from a time at least 10 seconds in the past using [`AS OF SYSTEM TIME`](as-of-system-time.html). Each example below follows this guidance.
 
-{% include {{ page.version.version }}/backups/bulk-auth-options.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/backups/bulk-auth-options.md %}
 
 <div class="filters clearfix">
   <button class="filter-button" data-scope="s3">Amazon S3</button>
@@ -162,7 +162,7 @@ Per our guidance in the [Performance](#performance) section, we recommend starti
 The examples in this section use the **default** `AUTH=specified` parameter. For more detail on how to use `implicit` authentication with Amazon S3 buckets, read [Use Cloud Storage for Bulk Operations — Authentication](use-cloud-storage-for-bulk-operations.html#authentication).
 
 {{site.data.alerts.callout_info}}
-{% include_cached new-in.html version="v21.1" %} The syntax `BACKUP ... INTO` adds a backup to a collection within the backup destination. The path to the backup is created using a date-based naming scheme. Versions of CockroachDB prior to v21.1 used the syntax `BACKUP ... TO` to backup directly to a specific operator-chosen destination, rather than picking a date-based path. The `BACKUP ... TO` syntax will be **deprecated** in future releases. For more information on this soon-to-be deprecated syntax, [see the docs for v20.2](../v20.2/backup.html) or earlier.
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.1" %} The syntax `BACKUP ... INTO` adds a backup to a collection within the backup destination. The path to the backup is created using a date-based naming scheme. Versions of CockroachDB prior to v21.1 used the syntax `BACKUP ... TO` to backup directly to a specific operator-chosen destination, rather than picking a date-based path. The `BACKUP ... TO` syntax will be **deprecated** in future releases. For more information on this soon-to-be deprecated syntax, [see the docs for v20.2](../v20.2/backup.html) or earlier.
 {{site.data.alerts.end}}
 
 ### Backup a cluster
@@ -217,7 +217,7 @@ AS OF SYSTEM TIME '-10s';
 ~~~
 
 {{site.data.alerts.callout_danger}}
-{% include {{page.version.version}}/backups/no-multiregion-table-backups.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/backups/no-multiregion-table-backups.md %}
 {{site.data.alerts.end}}
 
 ### Specify a subdirectory for backups
@@ -276,7 +276,7 @@ job_id             |  status   | fraction_completed | rows | index_entries | byt
 <section class="filter-content" markdown="1" data-scope="azure">
 
 {{site.data.alerts.callout_info}}
-{% include_cached new-in.html version="v21.1" %} The syntax `BACKUP ... INTO` adds a backup to a collection within the backup destination. The path to the backup is created using a date-based naming scheme. Versions of CockroachDB prior to v21.1 used the syntax `BACKUP ... TO` to backup directly to a specific operator-chosen destination, rather than picking a date-based path. The `BACKUP ... TO` syntax will be **deprecated** in future releases. For more information on this soon-to-be deprecated syntax, [see the docs for v20.2](../v20.2/backup.html) or earlier.
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.1" %} The syntax `BACKUP ... INTO` adds a backup to a collection within the backup destination. The path to the backup is created using a date-based naming scheme. Versions of CockroachDB prior to v21.1 used the syntax `BACKUP ... TO` to backup directly to a specific operator-chosen destination, rather than picking a date-based path. The `BACKUP ... TO` syntax will be **deprecated** in future releases. For more information on this soon-to-be deprecated syntax, [see the docs for v20.2](../v20.2/backup.html) or earlier.
 {{site.data.alerts.end}}
 
 ### Backup a cluster
@@ -331,7 +331,7 @@ AS OF SYSTEM TIME '-10s';
 ~~~
 
 {{site.data.alerts.callout_danger}}
-{% include {{page.version.version}}/backups/no-multiregion-table-backups.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/backups/no-multiregion-table-backups.md %}
 {{site.data.alerts.end}}
 
 ### Specify a subdirectory for backups
@@ -392,7 +392,7 @@ job_id             |  status   | fraction_completed | rows | index_entries | byt
 The examples in this section use the `AUTH=specified` parameter, which will be the default behavior in v21.2 and beyond for connecting to Google Cloud Storage. For more detail on how to pass your Google Cloud Storage credentials with this parameter, or, how to use `implicit` authentication, read [Use Cloud Storage for Bulk Operations — Authentication](use-cloud-storage-for-bulk-operations.html#authentication).
 
 {{site.data.alerts.callout_info}}
-{% include_cached new-in.html version="v21.1" %} The syntax `BACKUP ... INTO` adds a backup to a collection within the backup destination. The path to the backup is created using a date-based naming scheme. Versions of CockroachDB prior to v21.1 used the syntax `BACKUP ... TO` to backup directly to a specific operator-chosen destination, rather than picking a date-based path. The `BACKUP ... TO` syntax will be **deprecated** in future releases. For more information on this soon-to-be deprecated syntax, [see the docs for v20.2](../v20.2/backup.html) or earlier.
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.1" %} The syntax `BACKUP ... INTO` adds a backup to a collection within the backup destination. The path to the backup is created using a date-based naming scheme. Versions of CockroachDB prior to v21.1 used the syntax `BACKUP ... TO` to backup directly to a specific operator-chosen destination, rather than picking a date-based path. The `BACKUP ... TO` syntax will be **deprecated** in future releases. For more information on this soon-to-be deprecated syntax, [see the docs for v20.2](../v20.2/backup.html) or earlier.
 {{site.data.alerts.end}}
 
 ### Backup a cluster
@@ -447,7 +447,7 @@ AS OF SYSTEM TIME '-10s';
 ~~~
 
 {{site.data.alerts.callout_danger}}
-{% include {{page.version.version}}/backups/no-multiregion-table-backups.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/backups/no-multiregion-table-backups.md %}
 {{site.data.alerts.end}}
 
 ### Specify a subdirectory for backups
@@ -505,17 +505,17 @@ job_id             |  status   | fraction_completed | rows | index_entries | byt
 
 ### Advanced examples
 
-{% include {{ page.version.version }}/backups/advanced-examples-list.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/backups/advanced-examples-list.md %}
 
 ## Known limitations
 
 ### Using interleaved tables in backups
 
-{% include {{ page.version.version }}/known-limitations/backup-interleaved.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/backup-interleaved.md %}
 
 ### `BACKUP` of multi-region tables
 
-{% include {{page.version.version}}/backups/no-multiregion-table-backups.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/backups/no-multiregion-table-backups.md %}
 
 ## See also
 

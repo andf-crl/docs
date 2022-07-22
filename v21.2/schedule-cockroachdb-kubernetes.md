@@ -18,11 +18,11 @@ This page describes how to configure the following, using the [Operator](https:/
 
 These settings control how CockroachDB pods can be identified or scheduled onto worker nodes.
 
-{% include {{ page.version.version }}/orchestration/operator-check-namespace.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/orchestration/operator-check-namespace.md %}
 
 ## Enable feature gates
 
-To enable the [affinity](#affinities-and-anti-affinities), [toleration](#taints-and-tolerations), and [topology spread constraint](#topology-spread-constraints) rules, [download the Operator manifest](https://raw.githubusercontent.com/cockroachdb/cockroach-operator/{{site.operator_version}}/install/operator.yaml) and add the following line to the `spec.containers.args` field:
+To enable the [affinity](#affinities-and-anti-affinities), [toleration](#taints-and-tolerations), and [topology spread constraint](#topology-spread-constraints) rules, [download the Operator manifest](https://raw.githubusercontent.com/cockroachdb/cockroach-operator/{{site.operator_[version](cluster-settings.html#setting-version)}}/install/operator.yaml) and add the following line to the `spec.containers.args` field:
 
 {% include_cached copy-clipboard.html %}
 ~~~ yaml
@@ -390,7 +390,7 @@ Specify labels in `additionalLabels` and annotations in `additionalAnnotations` 
 ~~~ yaml
 spec:
   additionalLabels:
-    app.kubernetes.io/version: {{page.release_info.version}}
+    app.kubernetes.io/[version](cluster-settings.html#setting-version): {{page.release_info.[version](cluster-settings.html#setting-version)}}
   additionalAnnotations:
     operator: https://github.com/cockroachdb/cockroach-operator/blob/master/install/operator.yaml
 ~~~

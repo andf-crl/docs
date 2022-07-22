@@ -56,14 +56,14 @@ For `SHOW TRACE FOR <stmt>`, the user must have the appropriate [privileges](pri
 
 ## Syntax
 
-<section>{% include {{ page.version.version }}/sql/diagrams/show_trace.html %}</section>
+<section>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/show_trace.html %}</section>
 
 ## Parameters
 
 Parameter | Description
 ----------|------------
 `KV` | If specified, the returned messages are restricted to those describing requests to and responses from the underlying key-value [storage layer](architecture/storage-layer.html), including per-result-row messages.<br><br>For `SHOW KV TRACE FOR <stmt>`, per-result-row messages are included.<br><br>For `SHOW KV TRACE FOR SESSION`, per-result-row messages are included only if the session was/is recording with `SET tracing = kv;`.
-`COMPACT` | <span class="version-tag">New in v2.0:</span> If specified, fewer columns are returned by the statement. See [Response](#response) for more details.
+`COMPACT` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v2.0:</span> If specified, fewer columns are returned by the statement. See [Response](#response) for more details.
 `explainable_stmt` | The statement to execute and trace. Only [explainable](explain.html#explainable-statements) statements are supported.
 
 ## Trace Description
@@ -83,7 +83,7 @@ To further clarify these concepts, let's look at a visualization of a trace for 
 
 ## Response
 
-{{site.data.alerts.callout_info}}The format of the <code>SHOW TRACE</code> response may change in future versions.{{site.data.alerts.end}}
+{{site.data.alerts.callout_info}}The format of the <code>SHOW TRACE</code> response may change in future [version](cluster-settings.html#setting-version)s.{{site.data.alerts.end}}
 
 CockroachDB outputs traces in linear tabular format. Each result row represents either a span start (identified by the `=== SPAN START: <operation> ===` message) or a log message from a span. Rows are generally listed in their timestamp order (i.e., the order in which the events they represent occurred) with the exception that messages from child spans are interleaved in the parent span according to their timing. Messages from sibling spans, however, are not interleaved with respect to one another.
 
@@ -115,7 +115,7 @@ Column | Type | Description
 `age` | interval | The age of the message relative to the beginning of the trace (i.e., the beginning of the statement execution in the case of `SHOW TRACE FOR <stmt>` and the beginning of the recording in the case of `SHOW TRACE FOR SESSION`.
 `message` | string | The log message.
 `tag` | string | Meta-information about the message's context. This is the same information that appears in the beginning of log file messages in between square brackets (e.g, `[client=[::1]:49985,user=root,n1]`).
-`loc` | string | <span class="version-tag">New in v2.0:</span> The file:line location of the line of code that produced the message. Only some of the messages have this field set; it depends on specifically how the message was logged. The `--vmodule` flag passed to the node producing the message also affects what rows get this field populated. Generally, if `--vmodule=<file>=<level>` is specified, messages produced by that file will have the field populated.
+`loc` | string | <span class="[version](cluster-settings.html#setting-version)-tag">New in v2.0:</span> The file:line location of the line of code that produced the message. Only some of the messages have this field set; it depends on specifically how the message was logged. The `--vmodule` flag passed to the node producing the message also affects what rows get this field populated. Generally, if `--vmodule=<file>=<level>` is specified, messages produced by that file will have the field populated.
 `operation` | string | The name of the operation (or sub-operation) on whose behalf the message was logged.
 `span` | int | The index of the span within the virtual list of all spans if they were ordered by the span's start time.
 

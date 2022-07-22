@@ -28,18 +28,18 @@ To install Sequelize, as well as a [CockroachDB Node.js package](https://github.
 $ npm install sequelize sequelize-cockroachdb
 ~~~
 
-{% include {{ page.version.version }}/app/common-steps.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/app/common-steps.md %}
 
 ## Step 5. Run the Node.js code
 
 The following code uses the [Sequelize](https://sequelize.org/) ORM to map Node.js-specific objects to SQL operations. Specifically, `Account.sync({force: true})` creates an `accounts` table based on the Account model (or drops and recreates the table if it already exists), `Account.bulkCreate([...])` inserts rows into the table, and `Account.findAll()` selects from the table so that balances can be printed.
 
 Copy the code or
-<a href="https://raw.githubusercontent.com/cockroachdb/docs/master/_includes/{{ page.version.version }}/app/sequelize-basic-sample.js" download>download it directly</a>.
+<a href="https://raw.githubusercontent.com/cockroachdb/docs/master/_includes/{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/app/sequelize-basic-sample.js" download>download it directly</a>.
 
 {% include copy-clipboard.html %}
 ~~~ js
-{% include {{ page.version.version }}/app/sequelize-basic-sample.js %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/app/sequelize-basic-sample.js %}
 ~~~
 
 Then run the code:

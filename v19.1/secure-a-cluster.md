@@ -77,7 +77,7 @@ $ cockroach start \
 
 ~~~
 CockroachDB node starting at 2018-09-13 01:25:57.878119479 +0000 UTC (took 0.3s)
-build:               CCL {{page.release_info.version}} @ {{page.release_info.build_time}}
+build:               CCL {{page.release_info.[version](cluster-settings.html#setting-version)}} @ {{page.release_info.build_time}}
 webui:               https://localhost:8080
 sql:                 postgresql://root@ROACHs-MBP:26257?sslcert=%2FUsers%2F...
 client flags:        cockroach <client cmd> --host=localhost:26257 --certs-dir=certs
@@ -95,7 +95,7 @@ This command starts a node in secure mode, accepting most [`cockroach start`](st
 - The `--certs-dir` directory points to the directory holding certificates and keys.
 - Since this is a purely local cluster, `--listen-addr=localhost` tells the node to listens only on `localhost`, with default ports used for internal and client traffic (`26257`) and for HTTP requests from the Admin UI (`8080`).
 - Node data is stored in the `cockroach-data` directory.
-- The [standard output](start-a-node.html#standard-output) gives you helpful details such as the CockroachDB version, the URL for the Admin UI, and the SQL URL for clients.
+- The [standard output](start-a-node.html#standard-output) gives you helpful details such as the CockroachDB [version](cluster-settings.html#setting-version), the URL for the Admin UI, and the SQL URL for clients.
 
 ## Step 3. Add nodes to the cluster
 
@@ -246,7 +246,7 @@ The CockroachDB [Admin UI](admin-ui-overview.html) gives you insight into the ov
 
 4. Go to <a href="https://localhost:8080" data-proofer-ignore>https://localhost:8080</a>. Note that your browser will consider the CockroachDB-created certificate invalid; you'll need to click through a warning message to get to the UI.
 
-    {% include {{ page.version.version }}/misc/chrome-localhost.md %}
+    {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/chrome-localhost.md %}
 
 5. Log in with the username and password you created earlier (`max`/`roach`).
 
@@ -270,7 +270,7 @@ The CockroachDB [Admin UI](admin-ui-overview.html) gives you insight into the ov
 
 Access the [Admin UI](admin-ui-overview.html) for your cluster by pointing a browser to <a href="https://localhost:8080" data-proofer-ignore>https://localhost:8080</a>, or to the address in the `admin` field in the standard output of any node on startup. Note that your browser will consider the CockroachDB-created certificate invalid; you’ll need to click through a warning message to get to the UI.
 
-{% include {{ page.version.version }}/misc/chrome-localhost.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/chrome-localhost.md %}
 
 Log in with the username and password created earlier (`max`/`roach`). Then click **Metrics** on the left-hand navigation bar.
 

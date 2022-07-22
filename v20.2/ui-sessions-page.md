@@ -8,7 +8,7 @@ toc: true
 On a secure cluster, this area of the DB Console can only be accessed by a SQL user with the [`VIEWACTIVITY`](authorization.html#create-and-manage-users) role option. Note that non-`admin` users will see only their own sessions, while `admin` users see sessions for all users.
 {{site.data.alerts.end}}
 
-<span class="version-tag">New in v20.2:</span> The **Sessions** page of the DB Console provides details of all open sessions in the cluster.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> The **Sessions** page of the DB Console provides details of all open sessions in the cluster.
 
 To view this page, [access the DB Console](ui-overview.html#db-console-access) and click **Sessions** in the left-hand navigation.
 

@@ -19,40 +19,40 @@ The user must have the `CREATE` [privilege](privileges.html) on the parent datab
 </div><p></p>
 
 <div class="filter-content" markdown="1" data-scope="basic">
-{% include {{ page.version.version }}/sql/diagrams/create_table.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/create_table.html %}
 </div>
 
 <div class="filter-content" markdown="1" data-scope="expanded">
 
-{% include {{ page.version.version }}/sql/diagrams/create_table.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/create_table.html %}
 
 **column_def ::=**
 
-{% include {{ page.version.version }}/sql/diagrams/column_def.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/column_def.html %}
 
 **col_qual_list ::=**
 
 <div class="horizontal-scroll">
-  {% include {{ page.version.version }}/sql/diagrams/col_qual_list.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/col_qual_list.html %}
 </div>
 
 **index_def ::=**
 
-{% include {{ page.version.version }}/sql/diagrams/index_def.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/index_def.html %}
 
 **family_def ::=**
 
-{% include {{ page.version.version }}/sql/diagrams/family_def.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/family_def.html %}
 
 **table_constraint ::=**
 
 <div class="horizontal-scroll">
-  {% include {{ page.version.version }}/sql/diagrams/table_constraint.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/table_constraint.html %}
 </div>
 
 **opt_interleave ::=**
 
-{% include {{ page.version.version }}/sql/diagrams/opt_interleave.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/opt_interleave.html %}
 
 </div>
 
@@ -206,7 +206,7 @@ We also have other resources on indexes:
 
 ### Create a Table with Auto-Generated Unique Row IDs
 
-{% include {{ page.version.version }}/faq/auto-generate-unique-ids.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/faq/auto-generate-unique-ids.html %}
 
 ### Create a Table with Foreign Keys
 
@@ -250,7 +250,7 @@ In this example, we'll show a series of tables using different formats of foreig
 
 ### Create a Table that Mirrors Key-Value Storage
 
-{% include {{ page.version.version }}/faq/simulate-key-value-store.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/faq/simulate-key-value-store.html %}
 
 ### Create a Table from a `SELECT` Statement
 

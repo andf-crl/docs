@@ -61,7 +61,7 @@ $ cockroach start \
 
 ~~~
 CockroachDB node starting at {{page.release_info.start_time}}
-build:      CCL {{page.release_info.version}} @ {{page.release_info.build_time}}
+build:      CCL {{page.release_info.[version](cluster-settings.html#setting-version)}} @ {{page.release_info.build_time}}
 admin:      https://ROACHs-MBP:8080
 sql:        postgresql://root@ROACHs-MBP:26257?sslcert=%2FUsers%2F...
 logs:       cockroach-data/logs
@@ -77,7 +77,7 @@ This command starts a node in secure mode, accepting most [`cockroach start`](st
 - Since this is a purely local cluster, `--host=localhost` tells the node to listens only on `localhost`, with default ports used for internal and client traffic (`26257`) and for HTTP requests from the Admin UI (`8080`).
 - The Admin UI defaults to listening on all interfaces. The `--http-host` flag is therefore used to restrict Admin UI access to the specified interface, in this case, `localhost`.
 - Node data is stored in the `cockroach-data` directory.
-- The [standard output](start-a-node.html#standard-output) gives you helpful details such as the CockroachDB version, the URL for the admin UI, and the SQL URL for clients.
+- The [standard output](start-a-node.html#standard-output) gives you helpful details such as the CockroachDB [version](cluster-settings.html#setting-version), the URL for the admin UI, and the SQL URL for clients.
 
 {{site.data.alerts.callout_success}}By default, each node's cache is limited to 25% of available memory. This default is reasonable when running one node per host. When you run multiple nodes on a single host, however, this default may lead to out-of-memory errors, especially if you test in a serious way. To avoid such errors, you can limit each node's cache size by setting the <code>--cache</code> flag in the <code>start</code> command.{{site.data.alerts.end}}
 

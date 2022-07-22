@@ -4,7 +4,7 @@
     {% include_cached copy-clipboard.html %}
     ~~~ shell
     $ kubectl run cockroachdb -it \
-    --image=cockroachdb/cockroach:{{page.release_info.version}} \
+    --image=cockroachdb/cockroach:{{page.release_info.[version](cluster-settings.html#setting-version)}} \
     --rm \
     --restart=Never \
     -- sql \
@@ -17,7 +17,7 @@
     {% include_cached copy-clipboard.html %}
     ~~~ shell
     $ kubectl run cockroachdb -it \
-    --image=cockroachdb/cockroach:{{page.release_info.version}} \
+    --image=cockroachdb/cockroach:{{page.release_info.[version](cluster-settings.html#setting-version)}} \
     --rm \
     --restart=Never \
     -- sql \

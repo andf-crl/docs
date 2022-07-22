@@ -14,7 +14,7 @@ While a table or view is being [dropped](drop-table.html), `SHOW TABLES` will li
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/generated/diagrams/show_tables.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/show_tables.html %}
 </div>
 
 ## Required privileges
@@ -41,7 +41,7 @@ To optimize the performance of the `SHOW TABLES` statement, you can do the follo
 
 ## Examples
 
-{% include {{page.version.version}}/sql/movr-statements-nodes.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/movr-statements-nodes.md %}
 
 ### Show tables in the current database
 

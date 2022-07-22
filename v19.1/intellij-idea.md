@@ -8,11 +8,11 @@ You can use CockroachDB in [IntelliJ IDEA](https://www.jetbrains.com/idea/) as a
 
 ## Support
 
-As of CockroachDB {{page.version.version}}, IntelliJ IDEA only has **partial support**. This means that the application is mostly functional, but its integration still has a few rough edges.
+As of CockroachDB {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}, IntelliJ IDEA only has **partial support**. This means that the application is mostly functional, but its integration still has a few rough edges.
 
 ### Versions
 
-The level of support in this document was tested as of the following versions:
+The level of support in this document was tested as of the following [version](cluster-settings.html#setting-version)s:
 
 - CockroachDB v19.1.0-beta.20190225
 - IntelliJ IDEA Ultimate 18.1.3
@@ -68,10 +68,10 @@ Requires setting **Introspect using JDBC metadata** ([details below](#set-cockro
 	**Database** | The database you want to connect to. Note that CockroachDB's notion of database differs from PostgreSQL's; you can see your cluster's databases through the [`SHOW DATABASES`](show-databases.html) command.
 	**User** | The user to connect as. By default, you can use **root**.
 	**Password** | If your cluster uses password authentication, enter the password.
-	**Driver** | Select or install **PostgreSQL** using a version greater than or equal to 41.1. (Older drivers have not been tested.)
+	**Driver** | Select or install **PostgreSQL** using a [version](cluster-settings.html#setting-version) greater than or equal to 41.1. (Older drivers have not been tested.)
 
 	<img src="{{ 'images/v2.1/intellij/03_general_tab.png' | relative_url }}" alt="DBeaver - Select CockroachDB" style="border:1px solid #eee;max-width:100%" />
-1. Install or select a **PostgreSQL** driver. We recommend a version greater than or equal to 41.1.
+1. Install or select a **PostgreSQL** driver. We recommend a [version](cluster-settings.html#setting-version) greater than or equal to 41.1.
 1. If your cluster uses SSL authentication, go to the **SSH/SSL** tab, select **Use SSL** and provide the location of your certificate files.
 1. Go to the **Options** tab, and then select **Introspect using JDBC metadata**.<img src="{{ 'images/v2.1/intellij/04_options_tab.png' | relative_url }}" alt="DBeaver - Select CockroachDB" style="border:1px solid #eee;max-width:100%" />
 1. Click **OK**.
@@ -82,8 +82,8 @@ You can now use IntelliJ's [database tool window](https://www.jetbrains.com/help
 
 If you encounter issues other than those outlined above, please [file an issue on the `cockroachdb/cockroach` GitHub repo](https://github.com/cockroachdb/cockroach/issues/new?template=bug_report.md), including the following details about the environment where you encountered the issue:
 
-- CockroachDB version ([`cockroach version`](view-version-details.html))
-- IntelliJ IDEA version
+- CockroachDB [version](cluster-settings.html#setting-version) ([`cockroach [version](cluster-settings.html#setting-version)`](view-[version](cluster-settings.html#setting-version)-details.html))
+- IntelliJ IDEA [version](cluster-settings.html#setting-version)
 - Operating system
 - Steps to reproduce the behavior
 - If possible, a trace of the SQL statements sent to CockroachDB while the error is being reproduced using [SQL query logging](query-behavior-troubleshooting.html#sql-logging).

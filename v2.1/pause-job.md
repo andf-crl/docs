@@ -18,7 +18,7 @@ By default, only the `root` user can control a job.
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/pause_job.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/pause_job.html %}
 </div>
 
 ## Parameters
@@ -52,7 +52,7 @@ Parameter | Description
 
 ### Pause multiple jobs
 
-<span class="version-tag">New in v2.1:</span> To pause multiple jobs, nest a [`SELECT` clause](select-clause.html) that retrieves `job_id`(s) inside the `PAUSE JOBS` statement:
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v2.1:</span> To pause multiple jobs, nest a [`SELECT` clause](select-clause.html) that retrieves `job_id`(s) inside the `PAUSE JOBS` statement:
 
 {% include copy-clipboard.html %}
 ~~~ sql

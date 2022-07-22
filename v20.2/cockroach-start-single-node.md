@@ -87,7 +87,7 @@ Field | Description
 
 By default, `cockroach start-single-node` writes all messages to log files, and prints nothing to `stderr`. However, you can control the process's [logging](debug-and-error-logs.html) behavior with the following flags:
 
-{% include {{ page.version.version }}/misc/logging-flags.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/logging-flags.md %}
 
 #### Defaults
 
@@ -104,7 +104,7 @@ When you run `cockroach start-single-node`, some helpful details are printed to 
 
 ~~~ shell
 CockroachDB node starting at {{ now | date: "%Y-%m-%d %H:%M:%S.%6 +0000 UTC" }}
-build:               CCL {{page.release_info.version}} @ {{page.release_info.build_time}} (go1.12.6)
+build:               CCL {{page.release_info.[version](cluster-settings.html#setting-version)}} @ {{page.release_info.build_time}} (go1.12.6)
 webui:               http://localhost:8080
 sql:                 postgresql://root@localhost:26257?sslmode=disable
 RPC client flags:    cockroach <client cmd> --host=localhost:26257 --insecure
@@ -123,7 +123,7 @@ These details are also written to the `INFO` log in the `/logs` directory. You c
 
 Field | Description
 ------|------------
-`build` | The version of CockroachDB you are running.
+`build` | The [version](cluster-settings.html#setting-version) of CockroachDB you are running.
 `webui` | The URL for accessing the DB Console.
 `sql` | The connection URL for your client.
 `RPC client flags` | The flags to use when connecting to the node via [`cockroach` client commands](cockroach-commands.html).
@@ -246,7 +246,7 @@ Scaling a cluster started with `cockroach start-single-node` involves restarting
 
     The new flag to note is `--join`, which specifies the addresses and ports of the nodes that will initially comprise your cluster. You'll use this exact `--join` flag when starting other nodes as well.
 
-    {% include {{ page.version.version }}/prod-deployment/join-flag-single-region.md %}
+    {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/join-flag-single-region.md %}
 
 3. Add two more nodes:
 

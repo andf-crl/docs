@@ -17,7 +17,7 @@ Only members of the `admin` role can cancel a job. By default, the `root` user b
 ## Synopsis
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/cancel_job.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/cancel_job.html %}
 </div>
 
 ## Parameters
@@ -59,11 +59,11 @@ All jobs created by `maxroach` will be cancelled.
 
 ### Cancel automatic table statistics jobs
 
-Canceling an automatic table statistics job is not useful since the system will automatically restart the job immediately. To permanently disable automatic table statistics jobs, disable the `sql.stats.automatic_collection.enabled` [cluster setting](cluster-settings.html):
+Canceling an automatic table statistics job is not useful since the system will automatically restart the job immediately. To permanently disable automatic table statistics jobs, disable the `[sql.stats.automatic_collection.enabled](cluster-settings.html#setting-sql-stats-automatic_collection-enabled)` [cluster setting](cluster-settings.html):
 
 {% include copy-clipboard.html %}
 ~~~ sql
-> SET CLUSTER SETTING sql.stats.automatic_collection.enabled = false;
+> SET CLUSTER SETTING [sql.stats.automatic_collection.enabled](cluster-settings.html#setting-sql-stats-automatic_collection-enabled) = false;
 ~~~
 
 ## See also

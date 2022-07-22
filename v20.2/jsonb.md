@@ -74,7 +74,7 @@ For the full list of supported `JSONB` operators, see [Functions and Operators](
 
 ## Known limitations
 
-If the execution of a [join](joins.html) query exceeds the limit set for [memory-buffering operations](vectorized-execution.html#disk-spilling-operations) (i.e., the value set for the `sql.distsql.temp_storage.workmem` [cluster setting](cluster-settings.html)), CockroachDB will spill the intermediate results of computation to disk. If the join operation spills to disk, and at least one of the columns is of type `JSON`, CockroachDB returns the error `unable to encode table key: *tree.DJSON`. If the memory limit is not reached, then the query will be processed without error.
+If the execution of a [join](joins.html) query exceeds the limit set for [memory-buffering operations](vectorized-execution.html#disk-spilling-operations) (i.e., the value set for the `[sql.distsql.temp_storage.workmem](cluster-settings.html#setting-sql-distsql-temp_storage-workmem)` [cluster setting](cluster-settings.html)), CockroachDB will spill the intermediate results of computation to disk. If the join operation spills to disk, and at least one of the columns is of type `JSON`, CockroachDB returns the error `unable to encode table key: *tree.DJSON`. If the memory limit is not reached, then the query will be processed without error.
 
 For details, see [tracking issue](https://github.com/cockroachdb/cockroach/issues/35706).
 
@@ -253,11 +253,11 @@ For the full list of functions and operators we support, see [Functions and Oper
 
 ### Create a table with a `JSONB` column and a computed column
 
-{% include {{ page.version.version }}/computed-columns/jsonb.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/computed-columns/jsonb.md %}
 
-## Supported casting and conversion
+## Supported casting and con[version](cluster-settings.html#setting-version)
 
-`JSONB` values can be [cast](data-types.html#data-type-conversions-and-casts) to the following data type:
+`JSONB` values can be [cast](data-types.html#data-type-con[version](cluster-settings.html#setting-version)s-and-casts) to the following data type:
 
 - `STRING`
 

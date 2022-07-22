@@ -10,7 +10,7 @@ The `RENAME TO` [statement](sql-statements.html) is part of [`ALTER TABLE`](alte
 It is not possible to rename a table referenced by a view. For more details, see <a href="views.html#view-dependencies">View Dependencies</a>.
 {{site.data.alerts.end}}
 
-{% include {{{ page.version.version }}/misc/schema-change-stmt-note.md %}
+{% include {{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-stmt-note.md %}
 
 ## Required privileges
 
@@ -19,7 +19,7 @@ The user must have the `DROP` [privilege](authorization.html#assign-privileges) 
 ## Synopsis
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/rename_table.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/rename_table.html %}
 </div>
 
 ## Parameters
@@ -32,7 +32,7 @@ The user must have the `DROP` [privilege](authorization.html#assign-privileges) 
 
 ## Viewing schema changes
 
-{% include {{ page.version.version }}/misc/schema-change-view-job.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-view-job.md %}
 
 ## Examples
 

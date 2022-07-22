@@ -9,7 +9,7 @@ This page has instructions for migrating data from MySQL to CockroachDB using [`
 
 The examples use the [employees data set](https://github.com/datacharmer/test_db) that is also used in the [MySQL docs](https://dev.mysql.com/doc/employee/en/).
 
-{% include {{ page.version.version }}/misc/import-perf.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/import-perf.md %}
 
 {{site.data.alerts.callout_info}}
 To migrate from MySQL to CockroachDB using the AWS Database Migration Service, see [Migrate with AWS Database Migration Service (DMS)](aws-dms.html).

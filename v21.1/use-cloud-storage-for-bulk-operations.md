@@ -148,7 +148,7 @@ The `AUTH` parameter passed to the file URL must be set to either `specified` or
 
 In v21.1 and earlier, if no `AUTH` parameter is provided with a Google Cloud Storage URI then authentication will default to `default`. This means that the connection will only use the key provided in the `cloudstorage.gs.default.key` [cluster setting](cluster-settings.html), and will error if not present.
 
-{% include {{ page.version.version }}/backups/gcs-default-deprec.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/backups/gcs-default-deprec.md %}
 
 ### Specified authentication
 
@@ -215,7 +215,7 @@ BACKUP DATABASE <database> INTO 'azure://{container name}/{path}?AZURE_ACCOUNT_N
 
 <section class="filter-content" markdown="1" data-scope="http">
 
-If your environment requires an HTTP or HTTPS proxy server for outgoing connections, you can set the standard `HTTP_PROXY` and `HTTPS_PROXY` [environment variables](https://www.cockroachlabs.com/docs/stable/cockroach-commands.html#environment-variables) when starting CockroachDB. You can create your own HTTP server with [NGINX](use-a-local-file-server-for-bulk-operations.html). A custom root CA can be appended to the system's default CAs by setting the `cloudstorage.http.custom_ca` [cluster setting](cluster-settings.html), which will be used when verifying certificates from HTTPS URLs.
+If your environment requires an HTTP or HTTPS proxy server for outgoing connections, you can set the standard `HTTP_PROXY` and `HTTPS_PROXY` [environment variables](https://www.cockroachlabs.com/docs/stable/cockroach-commands.html#environment-variables) when starting CockroachDB. You can create your own HTTP server with [NGINX](use-a-local-file-server-for-bulk-operations.html). A custom root CA can be appended to the system's default CAs by setting the `[cloudstorage.http.custom_ca](cluster-settings.html#setting-cloudstorage-http-custom_ca)` [cluster setting](cluster-settings.html), which will be used when verifying certificates from HTTPS URLs.
 
 If you cannot run a full proxy, you can disable external HTTP(S) access (as well as custom HTTP(S) endpoints) when importing by using the [`--external-io-disable-http` flag](cockroach-start.html#flags-external-io-disable-http).
 
@@ -227,7 +227,7 @@ If you cannot run a full proxy, you can disable external HTTP(S) access (as well
 Unlike Amazon S3, Google Cloud Storage, and Azure storage options, the usage of S3-compatible services is not actively tested by Cockroach Labs.
 {{site.data.alerts.end}}
 
-A custom root CA can be appended to the system's default CAs by setting the `cloudstorage.http.custom_ca` [cluster setting](cluster-settings.html), which will be used when verifying certificates from an S3-compatible service.
+A custom root CA can be appended to the system's default CAs by setting the `[cloudstorage.http.custom_ca](cluster-settings.html#setting-cloudstorage-http-custom_ca)` [cluster setting](cluster-settings.html), which will be used when verifying certificates from an S3-compatible service.
 
 </section>
 

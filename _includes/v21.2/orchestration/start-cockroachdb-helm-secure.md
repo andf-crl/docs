@@ -1,14 +1,14 @@
 {{site.data.alerts.callout_danger}}
-The CockroachDB Helm chart is compatible with Kubernetes versions 1.22 and earlier (the latest version as of this writing). However, no new feature development is currently planned. If you are experiencing issues with a Helm deployment on production, contact our [Support team](https://support.cockroachlabs.com/).
+The CockroachDB Helm chart is compatible with Kubernetes [version](cluster-settings.html#setting-version)s 1.22 and earlier (the latest [version](cluster-settings.html#setting-version) as of this writing). However, no new feature development is currently planned. If you are experiencing issues with a Helm deployment on production, contact our [Support team](https://support.cockroachlabs.com/).
 
-If you are already running a secure Helm deployment on Kubernetes 1.22 and later, you must migrate away from using the Kubernetes CA for cluster authentication. For details, see [Certificate management](/docs/{{site.versions["stable"]}}/secure-cockroachdb-kubernetes.html?filters=helm#migration-to-self-signer).
+If you are already running a secure Helm deployment on Kubernetes 1.22 and later, you must migrate away from using the Kubernetes CA for cluster authentication. For details, see [Certificate management](/docs/{{site.[version](cluster-settings.html#setting-version)s["stable"]}}/secure-cockroachdb-kubernetes.html?filters=helm#migration-to-self-signer).
 {{site.data.alerts.end}}
 
 {{site.data.alerts.callout_info}}
 Secure CockroachDB deployments on Amazon EKS via Helm are [not yet supported](https://github.com/cockroachdb/cockroach/issues/38847).
 {{site.data.alerts.end}}
 
-1. [Install the Helm client](https://helm.sh/docs/intro/install) (version 3.0 or higher) and add the `cockroachdb` chart repository:
+1. [Install the Helm client](https://helm.sh/docs/intro/install) ([version](cluster-settings.html#setting-version) 3.0 or higher) and add the `cockroachdb` chart repository:
 
     {% include_cached copy-clipboard.html %}
     ~~~ shell
@@ -52,7 +52,7 @@ Secure CockroachDB deployments on Amazon EKS via Helm are [not yet supported](ht
         The Helm chart defaults to a secure deployment by automatically setting `tls.enabled` to `true`.
 
         {{site.data.alerts.callout_info}}
-        By default, the Helm chart will generate and sign 1 client and 1 node certificate to secure the cluster. To authenticate using your own CA, see [Certificate management](/docs/{{site.versions["stable"]}}/secure-cockroachdb-kubernetes.html?filters=helm#use-a-custom-ca).
+        By default, the Helm chart will generate and sign 1 client and 1 node certificate to secure the cluster. To authenticate using your own CA, see [Certificate management](/docs/{{site.[version](cluster-settings.html#setting-version)s["stable"]}}/secure-cockroachdb-kubernetes.html?filters=helm#use-a-custom-ca).
         {{site.data.alerts.end}}
 
 1. Install the CockroachDB Helm chart, specifying your custom values file.

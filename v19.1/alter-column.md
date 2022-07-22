@@ -10,12 +10,12 @@ The `ALTER COLUMN` [statement](sql-statements.html) is part of `ALTER TABLE` and
 To manage other constraints, see [`ADD CONSTRAINT`](add-constraint.html) and [`DROP CONSTRAINT`](drop-constraint.html).
 {{site.data.alerts.end}}
 
-{% include {{ page.version.version }}/sql/combine-alter-table-commands.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/combine-alter-table-commands.md %}
 
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/alter_column.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/alter_column.html %}
 </div>
 
 ## Required privileges
@@ -32,7 +32,7 @@ The user must have the `CREATE` [privilege](authorization.html#assign-privileges
 
 ## Viewing schema changes
 
-{% include {{ page.version.version }}/misc/schema-change-view-job.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-view-job.md %}
 
 ## Examples
 
@@ -67,7 +67,7 @@ If the column has the [`NOT NULL` constraint](not-null.html) applied to it, you 
 
 ### Convert a computed column into a regular column
 
-{% include {{ page.version.version }}/computed-columns/convert-computed-column.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/computed-columns/convert-computed-column.md %}
 
 ## See also
 

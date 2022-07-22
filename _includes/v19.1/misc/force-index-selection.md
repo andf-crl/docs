@@ -18,7 +18,7 @@ This is equivalent to the longer expression:
 > SELECT * FROM table@{FORCE_INDEX=my_idx};
 ~~~
 
-<span class="version-tag">New in v19.1</span>: The syntax to force a **reverse scan** of a specific index is:
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v19.1</span>: The syntax to force a **reverse scan** of a specific index is:
 
 {% include copy-clipboard.html %}
 ~~~ sql

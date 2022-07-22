@@ -522,10 +522,10 @@ failed to satisfy CHECK constraint (discount <= price)
 
 ## NULLs and concatenation with other types
 
-{% include_cached new-in.html version="v21.1" %} Concatenation between a non-`NULL` value and a `NULL` value results in a `NULL` value.
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.1" %} Concatenation between a non-`NULL` value and a `NULL` value results in a `NULL` value.
 
 {{site.data.alerts.callout_info}}
-In CockroachDB v20.2 and earlier, for all values other than [`STRING`](string.html), concatenation between a non-`NULL` value and a `NULL` value results in an [`ARRAY`](array.html) of the non-`NULL` value's type. To return an `ARRAY` of a specific type from a `NULL` concatenation in CockroachDB v21.1 and later, [cast](data-types.html#data-type-conversions-and-casts) the `NULL` value to an `ARRAY`.
+In CockroachDB v20.2 and earlier, for all values other than [`STRING`](string.html), concatenation between a non-`NULL` value and a `NULL` value results in an [`ARRAY`](array.html) of the non-`NULL` value's type. To return an `ARRAY` of a specific type from a `NULL` concatenation in CockroachDB v21.1 and later, [cast](data-types.html#data-type-con[version](cluster-settings.html#setting-version)s-and-casts) the `NULL` value to an `ARRAY`.
 {{site.data.alerts.end}}
 
 For example:

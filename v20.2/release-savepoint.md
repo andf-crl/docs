@@ -9,7 +9,7 @@ toc: true
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/release_savepoint.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/release_savepoint.html %}
 </div>
 
 ## Required privileges
@@ -62,7 +62,7 @@ COMMIT
 
 ### Commit a transaction by releasing a retry savepoint
 
-{% include {{page.version.version}}/sql/retry-savepoints.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/retry-savepoints.md %}
 
 After declaring a retry savepoint, commit the transaction with `RELEASE SAVEPOINT` and then prepare the connection for the next transaction with [`COMMIT`](commit-transaction.html):
 

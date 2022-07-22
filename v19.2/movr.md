@@ -15,7 +15,7 @@ The MovR example consists of the following:
 
 ## The `movr` database
 
-{% include {{ page.version.version }}/misc/movr-schema.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/movr-schema.md %}
 
 ## Generating schemas and data for MovR
 
@@ -88,7 +88,7 @@ $ cockroach demo movr
 
 ## How the MovR application works
 
-{% include {{ page.version.version }}/misc/movr-workflow.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/movr-workflow.md %}
 
 ## Extended examples
 

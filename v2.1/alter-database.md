@@ -6,11 +6,11 @@ toc: false
 
 The `ALTER DATABASE` [statement](sql-statements.html) applies a schema change to a database.
 
-{% include {{{ page.version.version }}/misc/schema-change-stmt-note.md %}
+{% include {{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-stmt-note.md %}
 
 For information on using `ALTER DATABASE`, see the documents for its relevant subcommands.
 
 Subcommand | Description
 -----------|------------
-[`CONFIGURE ZONE`](configure-zone.html) | <span class="version-tag">New in v2.1:</span> [Configure replication zones](configure-replication-zones.html) for a database.
+[`CONFIGURE ZONE`](configure-zone.html) | <span class="[version](cluster-settings.html#setting-version)-tag">New in v2.1:</span> [Configure replication zones](configure-replication-zones.html) for a database.
 [`RENAME`](rename-database.html) | Change the name of a database.

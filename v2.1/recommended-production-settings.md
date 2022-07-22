@@ -80,7 +80,7 @@ Nodes should have sufficient CPU, RAM, network, and storage capacity to handle y
     This is especially recommended if you are using local disks with no RAID protection rather than a cloud provider's network-attached disks that are often replicated under the hood, because local disks have a greater risk of failure. You can do this for the [entire cluster](configure-replication-zones.html#edit-the-default-replication-zone) or for specific [databases](configure-replication-zones.html#create-a-replication-zone-for-a-database), [tables](configure-replication-zones.html#create-a-replication-zone-for-a-table), or [rows](configure-replication-zones.html#create-a-replication-zone-for-a-table-or-secondary-index-partition) (enterprise-only).
 
     {{site.data.alerts.callout_info}}
-    {% include {{page.version.version}}/known-limitations/system-range-replication.md %}
+    {% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/known-limitations/system-range-replication.md %}
     {{site.data.alerts.end}}
 
 - The optimal configuration for striping more than one device is [RAID 10](https://en.wikipedia.org/wiki/Nested_RAID_levels#RAID_10_(RAID_1+0)). RAID 0 and 1 are also acceptable from a performance perspective.
@@ -214,11 +214,11 @@ Environment | Featured Approach
 
 ## Monitoring and alerting
 
-{% include {{ page.version.version }}/prod-deployment/monitor-cluster.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/monitor-cluster.md %}
 
 ## Clock synchronization
 
-{% include {{ page.version.version }}/faq/clock-synchronization-effects.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/faq/clock-synchronization-effects.md %}
 
 ## Cache and SQL memory size
 
@@ -248,7 +248,7 @@ Library | Description
 `libncurses` | Required by the [built-in SQL shell](use-the-built-in-sql-client.html).
 [`tzdata`](https://www.iana.org/time-zones) | Required by certain features of CockroachDB that use time zone data, for example, to support using location-based names as time zone identifiers. This library is sometimes called `tz` or `zoneinfo`.<br><br>When running CockroachDB on a Windows machine, install the Go toolchain to ensure that location-based time zone names resolve successfully. For more details, see this [known limitation](known-limitations.html#location-based-time-zone-names-on-windows).
 
-These libraries are found by default on nearly all Linux distributions, with Alpine as the notable exception, but it's nevertheless important to confirm that they are installed and kept up-to-date. For the `tzdata` library in particular, it's important for all nodes to have the same version; when updating the library, do so as quickly as possible across all nodes.
+These libraries are found by default on nearly all Linux distributions, with Alpine as the notable exception, but it's nevertheless important to confirm that they are installed and kept up-to-date. For the `tzdata` library in particular, it's important for all nodes to have the same [version](cluster-settings.html#setting-version); when updating the library, do so as quickly as possible across all nodes.
 
 {{site.data.alerts.callout_info}}
 In Docker-based deployments of CockroachDB, these dependencies do not need to be manually addressed. The Docker image for CockroachDB includes them and keeps them up to date with each release of CockroachDB.
@@ -341,7 +341,7 @@ $(document).ready(function(){
 <section id="macinstall" markdown="1">
 
 - [Yosemite and later](#yosemite-and-later)
-- [Older versions](#older-versions)
+- [Older [version](cluster-settings.html#setting-version)s](#older-[version](cluster-settings.html#setting-version)s)
 
 #### Yosemite and later
 
@@ -364,9 +364,9 @@ For example, for a node with 3 stores, we would set the hard limit to at least 3
 2.  Create `/Library/LaunchDaemons/limit.maxfiles.plist` and add the following contents, with the final strings in the `ProgramArguments` array set to 35000:
 
     ~~~ xml
-    <?xml version="1.0" encoding="UTF-8"?>
+    <?xml [version](cluster-settings.html#setting-version)="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
+      <plist [version](cluster-settings.html#setting-version)="1.0">
         <dict>
           <key>Label</key>
             <string>limit.maxfiles</string>
@@ -400,9 +400,9 @@ For example, for a node with 3 stores, we would set the hard limit to at least 3
     maxfiles    35000          35000
     ~~~
 
-#### Older versions
+#### Older [version](cluster-settings.html#setting-version)s
 
-To adjust the file descriptors limit for a single process in OS X versions earlier than Yosemite, edit `/etc/launchd.conf` and increase the hard limit to the recommendation mentioned [above](#file-descriptors-limit). Note that CockroachDB always uses the hard limit, so it's not technically necessary to adjust the soft limit, although we do so in the steps below.
+To adjust the file descriptors limit for a single process in OS X [version](cluster-settings.html#setting-version)s earlier than Yosemite, edit `/etc/launchd.conf` and increase the hard limit to the recommendation mentioned [above](#file-descriptors-limit). Note that CockroachDB always uses the hard limit, so it's not technically necessary to adjust the soft limit, although we do so in the steps below.
 
 For example, for a node with 3 stores, we would set the hard limit to at least 35000 (10000 per store and 5000 for networking) as follows:
 

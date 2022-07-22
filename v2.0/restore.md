@@ -63,9 +63,9 @@ Restore Type | Parameters
 **Full backup** | Include only the path to the full backup.
 **Full backup + <br/>incremental backups** | Include the path to the full backup as the first argument and the subsequent incremental backups from oldest to newest as the following arguments.
 
-### Point-in-time Restore <span class="version-tag">New in v2.0</span>
+### Point-in-time Restore <span class="[version](cluster-settings.html#setting-version)-tag">New in v2.0</span>
 
-{% include {{ page.version.version }}/misc/beta-warning.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/beta-warning.md %}
 
 If the full or incremental backup was taken [with revision history](backup.html#backups-with-revision-history-new-in-v2-0), you can restore the data as it existed at the specified point-in-time within the revision history captured by that backup.
 
@@ -86,7 +86,7 @@ After the restore has been initiated, you can control it with [`PAUSE JOB`](paus
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/restore.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/restore.html %}
 </div>
 
 {{site.data.alerts.callout_info}}The <code>RESTORE</code> statement cannot be used within a <a href=transactions.html>transaction</a>.{{site.data.alerts.end}}
@@ -103,14 +103,14 @@ Only the `root` user can run `RESTORE`.
 | `database_name` | The name of the database you want to restore (i.e., restore all tables and views in the database). You can restore an entire database only if you had backed up the entire database. |
 | `full_backup_location` | The URL where the full backup is stored. <br/><br/>For information about this URL structure, see [Backup File URLs](#backup-file-urls). |
 | `incremental_backup_location` | The URL where an incremental backup is stored.  <br/><br/>Lists of incremental backups must be sorted from oldest to newest. The newest incremental backup's timestamp must be within the table's garbage collection period.<br/><br/>For information about this URL structure, see [Backup File URLs](#backup-file-urls). <br/><br/>For more information about garbage collection, see [Configure Replication Zones](configure-replication-zones.html#replication-zone-format). |
-| `AS OF SYSTEM TIME timestamp` | <span class="version-tag">New in v2.0:</span> Restore data as it existed as of [`timestamp`](as-of-system-time.html). You can restore point-in-time data only if you had taken full or incremental backup [with revision history](backup.html#backups-with-revision-history-new-in-v2-0). |
+| `AS OF SYSTEM TIME timestamp` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v2.0:</span> Restore data as it existed as of [`timestamp`](as-of-system-time.html). You can restore point-in-time data only if you had taken full or incremental backup [with revision history](backup.html#backups-with-revision-history-new-in-v2-0). |
 | `kv_option_list` | Control your backup's behavior with [these options](#restore-option-list). |
 
 ### Backup File URLs
 
 The URL for your backup's locations must use the following format:
 
-{% include {{ page.version.version }}/misc/external-urls.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/external-urls.md %}
 
 ### Restore Option List
 
@@ -132,7 +132,7 @@ You can include the following options as key-value pairs in the `kv_option_list`
 
 #### `skip_missing_sequences`
 
-<span class="version-tag">New in v2.0</span>
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v2.0</span>
 
 - **Description**: If you want to restore a table that depends on a sequence but do not want to restore the sequence it references, you can drop the sequence dependency from a table (i.e., the `DEFAULT` expression that uses the sequence) and then have it restored.
 - **Key**: `skip_missing_sequences`
@@ -161,7 +161,7 @@ You can include the following options as key-value pairs in the `kv_option_list`
 
 {{site.data.alerts.callout_info}}<code>RESTORE DATABASE</code> can only be used if the entire database was backed up.{{site.data.alerts.end}}
 
-### Point-in-time Restore<span class="version-tag">New in v2.0</span>
+### Point-in-time Restore<span class="[version](cluster-settings.html#setting-version)-tag">New in v2.0</span>
 
 ~~~ sql
 > RESTORE bank.customers FROM 'gs://acme-co-backup/database-bank-2017-03-27-weekly' \
@@ -175,7 +175,7 @@ AS OF SYSTEM TIME '2017-02-26 10:00:00';
 FROM 'gs://acme-co-backup/database-bank-2017-03-27-weekly', 'gs://acme-co-backup/database-bank-2017-03-28-nightly', 'gs://acme-co-backup/database-bank-2017-03-29-nightly';
 ~~~
 
-### Point-in-time Restore from Incremental Backups<span class="version-tag">New in v2.0</span>
+### Point-in-time Restore from Incremental Backups<span class="[version](cluster-settings.html#setting-version)-tag">New in v2.0</span>
 
 ~~~ sql
 > RESTORE bank.customers \

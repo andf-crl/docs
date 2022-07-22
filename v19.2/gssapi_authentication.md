@@ -133,17 +133,17 @@ Copy the resulting keytab to the database nodes. If clients are connecting to mu
     $ cockroach sql --certs-dir=certs
     ~~~
 
-6. [Enable an enterprise license](enterprise-licensing.html#obtain-a-license).
-    {{site.data.alerts.callout_info}} You need the enterprise license if you want to use the GSSAPI feature. However, if you only want to test that the GSSAPI setup is working, you do not need to enable an enterprise license. {{site.data.alerts.end}}
+6. [Enable an [enterprise.license](cluster-settings.html#setting-enterprise-license)](enterprise-licensing.html#obtain-a-license).
+    {{site.data.alerts.callout_info}} You need the [enterprise.license](cluster-settings.html#setting-enterprise-license) if you want to use the GSSAPI feature. However, if you only want to test that the GSSAPI setup is working, you do not need to enable an [enterprise.license](cluster-settings.html#setting-enterprise-license). {{site.data.alerts.end}}
 
 7. Enable GSSAPI authentication:
 
     {% include copy-clipboard.html %}
     ~~~ sql
-    > SET cluster setting server.host_based_authentication.configuration = 'host all all all gss include_realm=0';
+    > SET cluster setting [server.host_based_authentication.configuration](cluster-settings.html#setting-server-host_based_authentication-configuration) = 'host all all all gss include_realm=0';
     ~~~
 
-      Setting the `server.host_based_authentication.configuration` [cluster setting](cluster-settings.html) makes it mandatory for all users (except `root`) to authenticate using GSSAPI. The `root` user is still required to authenticate using its client certificate.
+      Setting the `[server.host_based_authentication.configuration](cluster-settings.html#setting-server-host_based_authentication-configuration)` [cluster setting](cluster-settings.html) makes it mandatory for all users (except `root`) to authenticate using GSSAPI. The `root` user is still required to authenticate using its client certificate.
 
       The `include_realm=0` option is required to tell CockroachDB to remove the `@DOMAIN.COM` realm information from the username. We do not support any advanced mapping of GSSAPI usernames to CockroachDB usernames right now. If you want to limit which realms' users can connect, you can also add one or more `krb_realm` parameters to the end of the line as an allowlist, as follows: `host all all all gss include_realm=0 krb_realm=domain.com krb_realm=corp.domain.com`
 
@@ -238,7 +238,7 @@ The `cockroach sql` shell does not yet support GSSAPI authentication. You need t
     $ psql "postgresql://localhost:26257/defaultdb?sslmode=require" -U carl
     ~~~
 
-4. If you specified an enterprise license earlier, you should now have a Postgres shell in CockroachDB, indicating that the GSSAPI authentication was successful. If you did not specify an enterprise license, you'll see a message like this: `psql: ERROR:  use of GSS authentication requires an enterprise license.` If you see this message, GSSAPI authentication is set up correctly.
+4. If you specified an [enterprise.license](cluster-settings.html#setting-enterprise-license) earlier, you should now have a Postgres shell in CockroachDB, indicating that the GSSAPI authentication was successful. If you did not specify an [enterprise.license](cluster-settings.html#setting-enterprise-license), you'll see a message like this: `psql: ERROR:  use of GSS authentication requires an [enterprise.license](cluster-settings.html#setting-enterprise-license).` If you see this message, GSSAPI authentication is set up correctly.
 
 ## See also
 

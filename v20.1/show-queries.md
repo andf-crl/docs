@@ -11,7 +11,7 @@ The `SHOW QUERIES` [statement](sql-statements.html) lists details about currentl
 - The SQL query itself
 - How long the query has been running
 - The client address, application name, and user that issued the query
-- <span class="version-tag">New in v20.1:</span> The ID for the current session
+- <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> The ID for the current session
 
 These details let you monitor the progress of active queries and, if necessary, identify those that may need to be [cancelled](cancel-query.html) to prevent unwanted resource consumption.
 
@@ -26,7 +26,7 @@ No [privileges](authorization.html#assign-privileges) are required to execute th
 ## Synopsis
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/show_queries.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/show_queries.html %}
 </div>
 
 - To list the active queries across all nodes of the cluster, use `SHOW QUERIES` or `SHOW CLUSTER QUERIES`.

@@ -54,7 +54,7 @@ Term | Definition
     - Use many smaller nodes instead of fewer larger ones. Recovery from a failed node is faster when data is spread across more nodes.
     - Use [zone configs](configure-replication-zones.html) to increase the replication factor from 3 (the default) to 5. This is especially recommended if you are using local disks rather than a cloud providers' network-attached disks that are often replicated underneath the covers, because local disks have a greater risk of failure. You can do this for the [entire cluster](configure-replication-zones.html#edit-the-default-replication-zone) or for specific [databases](configure-replication-zones.html#create-a-replication-zone-for-a-database), [tables](configure-replication-zones.html#create-a-replication-zone-for-a-table), or [rows](configure-replication-zones.html#create-a-replication-zone-for-a-table-or-secondary-index-partition-new-in-v2-0) (enterprise-only).
         {{site.data.alerts.callout_danger}}
-        {% include {{page.version.version}}/known-limitations/system-range-replication.md %}
+        {% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/known-limitations/system-range-replication.md %}
         {{site.data.alerts.end}}
 
 ### Cloud-Specific Recommendations
@@ -160,15 +160,15 @@ Environment | Featured Approach
 
 ## Monitoring and Alerting
 
-{% include {{ page.version.version }}/prod-deployment/monitor-cluster.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/monitor-cluster.md %}
 
 ## Clock Synchronization
 
-{% include {{ page.version.version }}/faq/clock-synchronization-effects.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/faq/clock-synchronization-effects.md %}
 
 ## Cache and SQL Memory Size
 
-<span class="version-tag">Changed in v1.1: </span>By default, each node's cache size and temporary SQL memory size is `128MiB` respectively. These defaults were chosen to facilitate development and testing, where users are likely to run multiple CockroachDB nodes on a single computer. When running a production cluster with one node per host, however, it's recommended to increase these values:
+<span class="[version](cluster-settings.html#setting-version)-tag">Changed in v1.1: </span>By default, each node's cache size and temporary SQL memory size is `128MiB` respectively. These defaults were chosen to facilitate development and testing, where users are likely to run multiple CockroachDB nodes on a single computer. When running a production cluster with one node per host, however, it's recommended to increase these values:
 
 - Increasing a node's **cache size** will improve the node's read performance.
 - Increasing a node's **SQL memory size** will increase the number of simultaneous client connections it allows (the `128MiB` default allows a maximum of 6200 simultaneous connections) as well as the node's capacity for in-memory processing of rows when using `ORDER BY`, `GROUP BY`, `DISTINCT`, joins, and window functions.
@@ -266,7 +266,7 @@ $(document).ready(function(){
 <div id="macinstall" markdown="1">
 
 - [Yosemite and later](#yosemite-and-later)
-- [Older versions](#older-versions)
+- [Older [version](cluster-settings.html#setting-version)s](#older-[version](cluster-settings.html#setting-version)s)
 
 #### Yosemite and later
 
@@ -286,9 +286,9 @@ For example, for a node with 3 stores, we would set the hard limit to at least 3
 2.  Create `/Library/LaunchDaemons/limit.maxfiles.plist` and add the following contents, with the final strings in the `ProgramArguments` array set to 35000:
 
     ~~~ xml
-    <?xml version="1.0" encoding="UTF-8"?>
+    <?xml [version](cluster-settings.html#setting-version)="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
+      <plist [version](cluster-settings.html#setting-version)="1.0">
         <dict>
           <key>Label</key>
             <string>limit.maxfiles</string>
@@ -319,9 +319,9 @@ For example, for a node with 3 stores, we would set the hard limit to at least 3
     maxfiles    35000          35000
     ~~~
 
-#### Older versions
+#### Older [version](cluster-settings.html#setting-version)s
 
-To adjust the file descriptors limit for a single process in OS X versions earlier than Yosemite, edit `/etc/launchd.conf` and increase the hard limit to the recommendation mentioned [above](#file-descriptors-limit). Note that CockroachDB always uses the hard limit, so it's not technically necessary to adjust the soft limit, although we do so in the steps below.
+To adjust the file descriptors limit for a single process in OS X [version](cluster-settings.html#setting-version)s earlier than Yosemite, edit `/etc/launchd.conf` and increase the hard limit to the recommendation mentioned [above](#file-descriptors-limit). Note that CockroachDB always uses the hard limit, so it's not technically necessary to adjust the soft limit, although we do so in the steps below.
 
 For example, for a node with 3 stores, we would set the hard limit to at least 35000 (10000 per store and 5000 for networking) as follows:
 

@@ -7,7 +7,7 @@ docs_area: reference.sql
 
 The `DROP CONSTRAINT` [statement](sql-statements.html) is part of [`ALTER TABLE`](alter-table.html) and removes [`CHECK`](check.html) and [`FOREIGN KEY`](foreign-key.html) constraints from columns.
 
-{% include {{ page.version.version }}/misc/schema-change-stmt-note.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-stmt-note.md %}
 
 [`PRIMARY KEY`](primary-key.html) constraints can be dropped with `DROP CONSTRAINT` if an [`ADD CONSTRAINT`](add-constraint.html) statement follows the `DROP CONSTRAINT` statement in the same transaction.
 
@@ -19,11 +19,11 @@ When you change a primary key with [`ALTER TABLE ... ALTER PRIMARY KEY`](alter-p
 For information about removing other constraints, see [Constraints: Remove Constraints](constraints.html#remove-constraints).
 {{site.data.alerts.end}}
 
-{% include {{ page.version.version }}/sql/combine-alter-table-commands.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/combine-alter-table-commands.md %}
 
 ## Synopsis
 
-<div>{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.version.version | replace: "v", "" }}/grammar_svg/drop_constraint.html %}</div>
+<div>{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/grammar_svg/drop_constraint.html %}</div>
 
 ## Required privileges
 
@@ -38,11 +38,11 @@ The user must have the `CREATE` [privilege](security-reference/authorization.htm
 
 ## Viewing schema changes
 
-{% include {{ page.version.version }}/misc/schema-change-view-job.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-view-job.md %}
 
 ## Examples
 
-{% include {{page.version.version}}/sql/movr-statements.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/movr-statements.md %}
 
 ### Drop a foreign key constraint
 

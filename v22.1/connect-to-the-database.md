@@ -112,7 +112,7 @@ const sequelize = new Sequelize(connectionString)
 
 Where `DATABASE_URL` is an environment variable set to a valid CockroachDB connection string.
 
-Sequelize versions 6.10 and later accept the following format for CockroachDB connection strings:
+Sequelize [version](cluster-settings.html#setting-version)s 6.10 and later accept the following format for CockroachDB connection strings:
 
 <div class="filter-content" markdown="1" data-scope="serverless">
 
@@ -141,7 +141,7 @@ postgresql://<username>@<host>:<port>/<database>?sslmode=verify-full&sslrootcert
 
 </div>
 
-For Sequelize versions 6.9 and earlier, use the following format:
+For Sequelize [version](cluster-settings.html#setting-version)s 6.9 and earlier, use the following format:
 
 <div class="filter-content" markdown="1" data-scope="serverless">
 

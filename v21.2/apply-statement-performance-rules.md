@@ -9,7 +9,7 @@ This tutorial shows how to apply [SQL statement performance rules](make-queries-
 
 ## Before you begin
 
-{% include {{ page.version.version }}/demo_movr.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/demo_movr.md %}
 
 It's common to offer users promo codes to increase usage and customer loyalty. In this scenario, you want to find the 10 users who have taken the highest number of rides on a given date, and offer them promo codes that provide a 10% discount. To phrase it in the form of a question: "Who are the top 10 users by number of rides on a given date?"
 

@@ -56,18 +56,18 @@ The size of a `BYTES` value is variable, but it's recommended to keep values und
 (4 rows)
 ~~~
 
-## Supported Conversions
+## Supported Con[version](cluster-settings.html#setting-version)s
 
 `BYTES` values can be
-[cast](data-types.html#data-type-conversions-casts) explicitly to
-[`STRING`](string.html). The output of the conversion starts with the
+[cast](data-types.html#data-type-con[version](cluster-settings.html#setting-version)s-casts) explicitly to
+[`STRING`](string.html). The output of the con[version](cluster-settings.html#setting-version) starts with the
 two characters `\`, `x` and the rest of the string is composed by the
 hexadecimal encoding of each byte in the input. For example,
 `x'48AA'::STRING` produces `'\x48AA'`.
 
-`STRING` values can be cast explicitly to `BYTES`. This conversion
+`STRING` values can be cast explicitly to `BYTES`. This con[version](cluster-settings.html#setting-version)
 will fail if the hexadecimal digits are not valid, or if there is an
-odd number of them. Two conversion modes are supported:
+odd number of them. Two con[version](cluster-settings.html#setting-version) modes are supported:
 
 - If the string starts with the two special characters `\` and `x`
   (e.g., `\xAABB`), the rest of the string is interpreted as a sequence

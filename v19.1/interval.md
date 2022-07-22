@@ -39,7 +39,7 @@ An `INTERVAL` column supports values up to 24 bytes in width, but the total stor
 
 ## Precision
 
-<span class="version-tag">New in v19.1</span>: Intervals are stored with microsecond precision instead of nanoseconds, and it is no longer possible to create intervals with nanosecond precision.  As a result, parsing from a [string](string.html) or converting from a [float](float.html) or [decimal](decimal.html) will round to the nearest microsecond, as will any arithmetic [operation](functions-and-operators.html#supported-operations) (add, sub, mul, div) on intervals. CockroachDB rounds (instead of truncating) to match the behavior of Postgres.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v19.1</span>: Intervals are stored with microsecond precision instead of nanoseconds, and it is no longer possible to create intervals with nanosecond precision.  As a result, parsing from a [string](string.html) or converting from a [float](float.html) or [decimal](decimal.html) will round to the nearest microsecond, as will any arithmetic [operation](functions-and-operators.html#supported-operations) (add, sub, mul, div) on intervals. CockroachDB rounds (instead of truncating) to match the behavior of Postgres.
 
 {{site.data.alerts.callout_danger}}
 When upgrading to 19.1, existing intervals with nanoseconds will no longer be able to return their nanosecond part. An existing table `t` with nanoseconds in intervals of column `s` can round them to the nearest microsecond with `UPDATE t SET s = s + '0s'`. Note that this could cause uniqueness problems if the interval is being used as a [primary key](primary-key.html).
@@ -88,9 +88,9 @@ When upgrading to 19.1, existing intervals with nanoseconds will no longer be ab
 (3 rows)
 ~~~
 
-## Supported casting and conversion
+## Supported casting and con[version](cluster-settings.html#setting-version)
 
-`INTERVAL` values can be [cast](data-types.html#data-type-conversions-and-casts) to any of the following data types:
+`INTERVAL` values can be [cast](data-types.html#data-type-con[version](cluster-settings.html#setting-version)s-and-casts) to any of the following data types:
 
 Type | Details
 -----|--------

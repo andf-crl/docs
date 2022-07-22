@@ -33,7 +33,7 @@ A retryable transaction goes through the process described below, which maps to 
 
 1. The transaction starts with the [`BEGIN`](begin-transaction.html) statement.
 
-2. The [`SAVEPOINT`](savepoint.html) statement shown here is a [retry savepoint](#retry-savepoints); that is, it declares the intention to retry the transaction in the case of contention errors. It must be executed after [`BEGIN`](begin-transaction.html), but before the first statement that manipulates a database. Although [nested transactions](savepoint.html#savepoints-for-nested-transactions) are supported in versions of CockroachDB 20.1 and later, a retry savepoint must be the outermost savepoint in a transaction.
+2. The [`SAVEPOINT`](savepoint.html) statement shown here is a [retry savepoint](#retry-savepoints); that is, it declares the intention to retry the transaction in the case of contention errors. It must be executed after [`BEGIN`](begin-transaction.html), but before the first statement that manipulates a database. Although [nested transactions](savepoint.html#savepoints-for-nested-transactions) are supported in [version](cluster-settings.html#setting-version)s of CockroachDB 20.1 and later, a retry savepoint must be the outermost savepoint in a transaction.
 
 3. The statements in the transaction are executed.
 
@@ -59,7 +59,7 @@ Note that you can [customize the retry savepoint name](#customizing-the-retry-sa
 
 ## Customizing the retry savepoint name
 
-{% include {{ page.version.version }}/misc/customizing-the-savepoint-name.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/customizing-the-savepoint-name.md %}
 
 ## Examples
 

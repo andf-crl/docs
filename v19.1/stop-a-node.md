@@ -6,7 +6,7 @@ toc: true
 
 This page shows you how to use the `cockroach quit` [command](cockroach-commands.html) to temporarily stop a node that you plan to restart.
 
-You might do this, for example, during the process of [upgrading your cluster's version of CockroachDB](upgrade-cockroach-version.html) or to perform planned maintenance (e.g., upgrading system software).
+You might do this, for example, during the process of [upgrading your cluster's [version](cluster-settings.html#setting-version) of CockroachDB](upgrade-cockroach-[version](cluster-settings.html#setting-version).html) or to perform planned maintenance (e.g., upgrading system software).
 
 {{site.data.alerts.callout_info}}
 In other scenarios, such as when downsizing a cluster or reacting to hardware failures, it's best to remove nodes from your cluster entirely. For information about this, see [Decommission Nodes](remove-nodes.html).
@@ -18,8 +18,8 @@ In other scenarios, such as when downsizing a cluster or reacting to hardware fa
 
 When you stop a node, it performs the following steps:
 
-- Finishes in-flight requests. Note that this is a best effort that times out after the duration specified by the `server.shutdown.query_wait` [cluster setting](cluster-settings.html).
-- Gossips its draining state to the cluster, so that other nodes do not try to distribute query planning to the draining node. Note that this is a best effort that times out after the duration specified by the `server.shutdown.drain_wait` [cluster setting](cluster-settings.html), so other nodes may not receive the gossip info in time.
+- Finishes in-flight requests. Note that this is a best effort that times out after the duration specified by the `[server.shutdown.query_wait](cluster-settings.html#setting-server-shutdown-query_wait)` [cluster setting](cluster-settings.html).
+- Gossips its draining state to the cluster, so that other nodes do not try to distribute query planning to the draining node. Note that this is a best effort that times out after the duration specified by the `[server.shutdown.drain_wait](cluster-settings.html#setting-server-shutdown-drain_wait)` [cluster setting](cluster-settings.html), so other nodes may not receive the gossip info in time.
 - No new ranges are transferred to the draining node, to avoid a possible loss of quorum after the node shuts down.
 
 If the node then stays offline for a certain amount of time (5 minutes by default), the cluster considers the node dead and starts to transfer its **range replicas** to other nodes as well.
@@ -33,7 +33,7 @@ Basic terms:
 
 ### Considerations
 
-{% include {{ page.version.version }}/faq/planned-maintenance.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/faq/planned-maintenance.md %}
 
 ## Synopsis
 
@@ -62,7 +62,7 @@ Flag | Description
 
 ### Client connection
 
-{% include {{ page.version.version }}/sql/connection-parameters.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/connection-parameters.md %}
 
 See [Client Connection Parameters](connection-parameters.html) for more details.
 
@@ -133,4 +133,4 @@ If you need to troubleshoot this command's behavior, you can change its [logging
 
 - [Other Cockroach Commands](cockroach-commands.html)
 - [Decommission Nodes](remove-nodes.html)
-- [Upgrade a Cluster's Version](upgrade-cockroach-version.html)
+- [Upgrade a Cluster's Version](upgrade-cockroach-[version](cluster-settings.html#setting-version).html)

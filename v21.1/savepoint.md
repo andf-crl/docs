@@ -8,12 +8,12 @@ A savepoint is a marker that defines the beginning of a [nested transaction](tra
 
  CockroachDB supports [general purpose savepoints for nested transactions](#savepoints-for-nested-transactions), in addition to continued support for [special-purpose retry savepoints](#savepoints-for-client-side-transaction-retries).
 
-{% include {{page.version.version}}/sql/savepoint-ddl-rollbacks.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/savepoint-ddl-rollbacks.md %}
 
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/generated/diagrams/savepoint.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/savepoint.html %}
 </div>
 
 ## Required privileges
@@ -28,11 +28,11 @@ name      | The name of the savepoint.  [Nested transactions](savepoint.html#sav
 
 ## Savepoints and row locks
 
-{% include {{page.version.version}}/sql/savepoints-and-row-locks.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/savepoints-and-row-locks.md %}
 
 ## Savepoints and high priority transactions
 
-{% include {{page.version.version}}/sql/savepoints-and-high-priority-transactions.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/savepoints-and-high-priority-transactions.md %}
 
 ## Examples
 
@@ -246,7 +246,7 @@ COMMIT;
 
 ### Savepoints for client-side transaction retries
 
-{% include {{page.version.version}}/sql/retry-savepoints.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/retry-savepoints.md %}
 
 The example below shows basic usage of a retry savepoint.
 
@@ -266,7 +266,7 @@ Note that you can [customize the retry savepoint name](#customizing-the-retry-sa
 
 #### Customizing the retry savepoint name
 
-{% include {{page.version.version}}/misc/customizing-the-savepoint-name.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/misc/customizing-the-savepoint-name.md %}
 
 ### Showing savepoint status
 

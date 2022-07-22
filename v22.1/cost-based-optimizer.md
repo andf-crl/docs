@@ -49,8 +49,8 @@ Statistics are refreshed in the following cases:
 
     | Setting                                              | Default Value | Details                                                                               |
     |------------------------------------------------------+---------------+---------------------------------------------------------------------------------------|
-    | `sql.stats.automatic_collection.fraction_stale_rows` |           0.2 | Target fraction of stale rows per table that will trigger a statistics refresh.       |
-    | `sql.stats.automatic_collection.min_stale_rows`      |           500 | Target minimum number of stale rows per table that will trigger a statistics refresh. |
+    | `[sql.stats.automatic_collection.fraction_stale_rows](cluster-settings.html#setting-sql-stats-automatic_collection-fraction_stale_rows)` |           0.2 | Target fraction of stale rows per table that will trigger a statistics refresh.       |
+    | `[sql.stats.automatic_collection.min_stale_rows](cluster-settings.html#setting-sql-stats-automatic_collection-min_stale_rows)`      |           500 | Target minimum number of stale rows per table that will trigger a statistics refresh. |
 
     {{site.data.alerts.callout_info}}
     Because the formula for statistics refreshes is probabilistic, you will not see statistics update immediately after changing these settings, or immediately after exactly 500 rows have been updated.
@@ -58,23 +58,23 @@ Statistics are refreshed in the following cases:
 
 #### Small versus large table examples
 
-Suppose the [clusters settings](cluster-settings.html) `sql.stats.automatic_collection.fraction_stale_rows` and `sql.stats.automatic_collection.min_stale_rows` have the default values .2 and 500 as shown in the preceding table.
+Suppose the [clusters settings](cluster-settings.html) `[sql.stats.automatic_collection.fraction_stale_rows](cluster-settings.html#setting-sql-stats-automatic_collection-fraction_stale_rows)` and `[sql.stats.automatic_collection.min_stale_rows](cluster-settings.html#setting-sql-stats-automatic_collection-min_stale_rows)` have the default values .2 and 500 as shown in the preceding table.
 
 If a table has 100 rows and 20 became stale, a re-collection would not be triggered because, even though 20% of the rows are stale, they do not meet the 500 row minimum.
 
-On the other hand, if a table has 1,500,000,000 rows, 20% of that, or 300,000,000 rows, would have to become stale before auto statistics collection was triggered. With a table this large, you would have to lower `sql.stats.automatic_collection.fraction_stale_rows` significantly to allow for regular stats collections. This can cause smaller tables to have stats collected much more frequently, because it is a global setting that affects automatic stats collection for all tables.
+On the other hand, if a table has 1,500,000,000 rows, 20% of that, or 300,000,000 rows, would have to become stale before auto statistics collection was triggered. With a table this large, you would have to lower `[sql.stats.automatic_collection.fraction_stale_rows](cluster-settings.html#setting-sql-stats-automatic_collection-fraction_stale_rows)` significantly to allow for regular stats collections. This can cause smaller tables to have stats collected much more frequently, because it is a global setting that affects automatic stats collection for all tables.
 
-In such cases we recommend that you use the [`sql_stats_automatic_collection_enabled` storage parameter](#enable-and-disable-automatic-statistics-collection-for-tables), which lets you configure auto statistics on a per-table basis.
+In such cases we recommend that you use the [`[sql.stats.automatic_collection.enabled](cluster-settings.html#setting-sql-stats-automatic_collection-enabled)` storage parameter](#enable-and-disable-automatic-statistics-collection-for-tables), which lets you configure auto statistics on a per-table basis.
 
 ### Enable and disable automatic statistics collection for clusters
 
 Automatic statistics collection is enabled by default. To disable automatic statistics collection, follow these steps:
 
-1. Set the `sql.stats.automatic_collection.enabled` cluster setting to `false`:
+1. Set the `[sql.stats.automatic_collection.enabled](cluster-settings.html#setting-sql-stats-automatic_collection-enabled)` cluster setting to `false`:
 
     {% include_cached copy-clipboard.html %}
     ~~~ sql
-    > SET CLUSTER SETTING sql.stats.automatic_collection.enabled = false;
+    > SET CLUSTER SETTING [sql.stats.automatic_collection.enabled](cluster-settings.html#setting-sql-stats-automatic_collection-enabled) = false;
     ~~~
 
 1. Use the [`SHOW STATISTICS`](show-statistics.html) statement to view automatically generated statistics.
@@ -94,13 +94,13 @@ To learn how to manually generate statistics, see the [`CREATE STATISTICS` examp
 
 Statistics collection can be expensive for large tables, and you may prefer to defer collection until after data is finished loading or during off-peak hours. Tables that are frequently updated, including small tables, may trigger statistics collection more often, which can lead to unnecessary overhead and unpredictable query plan changes.
 
-You can enable and disable automatic statistics collection for individual tables using the `sql_stats_automatic_collection_enabled` storage parameter. For example:
+You can enable and disable automatic statistics collection for individual tables using the `[sql.stats.automatic_collection.enabled](cluster-settings.html#setting-sql-stats-automatic_collection-enabled)` storage parameter. For example:
 
 ~~~ sql
 CREATE TABLE accounts (
     id INT PRIMARY KEY,
     balance DECIMAL)
-WITH (sql_stats_automatic_collection_enabled = false);
+WITH ([sql.stats.automatic_collection.enabled](cluster-settings.html#setting-sql-stats-automatic_collection-enabled) = false);
 ~~~
 
 The table setting **takes precedence** over the cluster setting described in
@@ -114,7 +114,7 @@ CREATE TABLE accounts (
     balance DECIMAL);
 
 ALTER TABLE accounts
-SET (sql_stats_automatic_collection_enabled = false);
+SET ([sql.stats.automatic_collection.enabled](cluster-settings.html#setting-sql-stats-automatic_collection-enabled) = false);
 ~~~
 
 The current table settings are shown in the `WITH` clause output of `SHOW CREATE TABLE`:
@@ -126,28 +126,28 @@ The current table settings are shown in the `WITH` clause output of `SHOW CREATE
              |     id INT8 NOT NULL,
              |     balance DECIMAL NULL,
              |     CONSTRAINT accounts_pkey PRIMARY KEY (id ASC)
-             | ) WITH (sql_stats_automatic_collection_enabled = false)
+             | ) WITH ([sql.stats.automatic_collection.enabled](cluster-settings.html#setting-sql-stats-automatic_collection-enabled) = false)
 (1 row)
 ~~~
 
-`ALTER TABLE accounts RESET (sql_stats_automatic_collection_enabled)` removes the table setting, in which case
+`ALTER TABLE accounts RESET ([sql.stats.automatic_collection.enabled](cluster-settings.html#setting-sql-stats-automatic_collection-enabled))` removes the table setting, in which case
 the cluster setting is in effect for the table.
 
 The "stale row" cluster settings discussed in [Control statistics refresh rate](#control-statistics-refresh-rate) have table
-setting counterparts `sql_stats_automatic_collection_fraction_stale_rows` and `sql_stats_automatic_collection_min_stale_rows`. For example:
+setting counterparts `[sql.stats.automatic_collection.fraction_stale_rows](cluster-settings.html#setting-sql-stats-automatic_collection-fraction_stale_rows)` and `[sql.stats.automatic_collection.min_stale_rows](cluster-settings.html#setting-sql-stats-automatic_collection-min_stale_rows)`. For example:
 
 ~~~ sql
 CREATE TABLE accounts (
     id INT PRIMARY KEY,
     balance DECIMAL)
-WITH (sql_stats_automatic_collection_enabled = true,
-sql_stats_automatic_collection_min_stale_rows = 1000000,
-sql_stats_automatic_collection_fraction_stale_rows= 0.05
+WITH ([sql.stats.automatic_collection.enabled](cluster-settings.html#setting-sql-stats-automatic_collection-enabled) = true,
+[sql.stats.automatic_collection.min_stale_rows](cluster-settings.html#setting-sql-stats-automatic_collection-min_stale_rows) = 1000000,
+[sql.stats.automatic_collection.fraction_stale_rows](cluster-settings.html#setting-sql-stats-automatic_collection-fraction_stale_rows)= 0.05
 );
 
 ALTER TABLE accounts
-SET (sql_stats_automatic_collection_fraction_stale_rows = 0.1,
-sql_stats_automatic_collection_min_stale_rows = 2000);
+SET ([sql.stats.automatic_collection.fraction_stale_rows](cluster-settings.html#setting-sql-stats-automatic_collection-fraction_stale_rows) = 0.1,
+[sql.stats.automatic_collection.min_stale_rows](cluster-settings.html#setting-sql-stats-automatic_collection-min_stale_rows) = 2000);
 ~~~
 
 Automatic statistics rules are checked once per minute. While altered automatic statistics table settings take immediate effect for any subsequent DML statements on a table, running row mutations that started prior to modifying the table settings may still trigger statistics collection based on the settings that existed before you ran the `ALTER TABLE ... SET` statement.
@@ -163,18 +163,18 @@ CockroachDB does not support:
 - Multi-column histograms.
 {{site.data.alerts.end}}
 
-If you are an advanced user and need to disable histogram collection for troubleshooting or performance tuning reasons, change the [`sql.stats.histogram_collection.enabled` cluster setting](cluster-settings.html) by running [`SET CLUSTER SETTING`](set-cluster-setting.html) as follows:
+If you are an advanced user and need to disable histogram collection for troubleshooting or performance tuning reasons, change the [`[sql.stats.histogram_collection.enabled](cluster-settings.html#setting-sql-stats-histogram_collection-enabled)` cluster setting](cluster-settings.html) by running [`SET CLUSTER SETTING`](set-cluster-setting.html) as follows:
 
 {% include_cached copy-clipboard.html %}
 ~~~ sql
-SET CLUSTER SETTING sql.stats.histogram_collection.enabled = false;
+SET CLUSTER SETTING [sql.stats.histogram_collection.enabled](cluster-settings.html#setting-sql-stats-histogram_collection-enabled) = false;
 ~~~
 
-When `sql.stats.histogram_collection.enabled` is set to `false`, histograms are never collected, either as part of automatic statistics collection or by manually invoking [`CREATE STATISTICS`](create-statistics.html).
+When `[sql.stats.histogram_collection.enabled](cluster-settings.html#setting-sql-stats-histogram_collection-enabled)` is set to `false`, histograms are never collected, either as part of automatic statistics collection or by manually invoking [`CREATE STATISTICS`](create-statistics.html).
 
 ### Control whether the `avg_size` statistic is used to cost scans
 
-{% include_cached new-in.html version="v22.1" %} The `avg_size` table statistic represents the average size of a table column.
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v22.1" %} The `avg_size` table statistic represents the average size of a table column.
 If a table does not have an average size statistic available for a column, it uses the default value of 4 bytes.
 
 The optimizer uses `avg_size` to cost scans and relevant joins. Costing scans per row regardless of the size of the columns comprising the row doesn't account for time to read or transport a large number of bytes over the network. This can lead to undesirable plans when there are multiple options for scans or joins that read directly from tables.
@@ -195,9 +195,9 @@ Locality optimized search is supported for scans that are guaranteed to return 1
 
 ### Limitations
 
-{% include {{page.version.version}}/sql/locality-optimized-search-limited-records.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/locality-optimized-search-limited-records.md %}
 
-{% include {{page.version.version}}/sql/locality-optimized-search-virtual-computed-columns.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/locality-optimized-search-virtual-computed-columns.md %}
 
 ## Query plan cache
 
@@ -231,7 +231,7 @@ To change this setting, which is controlled by the `reorder_joins_limit` [sessio
 > SET reorder_joins_limit = 0;
 ~~~
 
-To disable this feature, set the variable to `0`. You can configure the default `reorder_joins_limit` session setting with the [cluster setting](cluster-settings.html) `sql.defaults.reorder_joins_limit`, which has a default value of `8`.
+To disable this feature, set the variable to `0`. You can configure the default `reorder_joins_limit` session setting with the [cluster setting](cluster-settings.html) `[sql.defaults.reorder_joins_limit](cluster-settings.html#setting-sql-defaults-reorder_joins_limit)`, which has a default value of `8`.
 
 {{site.data.alerts.callout_danger}}
 To avoid performance degradation, Cockroach Labs strongly recommends setting this value to a maximum of 8. If set too high, the cost of generating and costing execution plans can end up dominating the total execution time of the query.
@@ -308,7 +308,7 @@ To make the optimizer prefer lookup joins to merge joins when performing foreign
 
   - `(a JOIN b) JOIN c` might be changed to `a JOIN (b JOIN c)`, but this does not happen if `a JOIN b` uses a hint; the hint forces that particular join to happen as written in the query.
 
-- You should reconsider hint usage with each new release of CockroachDB. Due to improvements in the optimizer, hints specified to work with an older version may cause decreased performance in a newer version.
+- You should reconsider hint usage with each new release of CockroachDB. Due to improvements in the optimizer, hints specified to work with an older [version](cluster-settings.html#setting-version) may cause decreased performance in a newer [version](cluster-settings.html#setting-version).
 
 ## Zigzag joins
 
@@ -351,7 +351,7 @@ To prevent the optimizer from planning a zigzag join for the specified table, us
 SELECT * FROM abc@{NO_ZIGZAG_JOIN};
 ~~~
 
-{% include_cached new-in.html version="v22.1" %} To force the optimizer to plan a zigzag join for the specified table, use the hint `FORCE_ZIGZAG`. For example:
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v22.1" %} To force the optimizer to plan a zigzag join for the specified table, use the hint `FORCE_ZIGZAG`. For example:
 
 ~~~ sql
 SELECT * FROM abc@{FORCE_ZIGZAG};
@@ -363,13 +363,13 @@ If you have an index named `FORCE_ZIGZAG` and use the hint `table@{FORCE_ZIGZAG}
 
 ## Inverted join examples
 
-{% include {{ page.version.version }}/sql/inverted-joins.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/inverted-joins.md %}
 
 ## Known limitations
 
-* {% include {{page.version.version}}/known-limitations/old-multi-col-stats.md %}
-* {% include {{page.version.version}}/known-limitations/single-col-stats-deletion.md %}
-* {% include {{page.version.version}}/known-limitations/stats-refresh-upgrade.md %}
+* {% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/known-limitations/old-multi-col-stats.md %}
+* {% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/known-limitations/single-col-stats-deletion.md %}
+* {% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/known-limitations/stats-refresh-upgrade.md %}
 
 ## See also
 

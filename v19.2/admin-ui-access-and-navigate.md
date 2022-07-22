@@ -90,7 +90,7 @@ P50 Latency | The 50th percentile of service latency. Service latency is calcula
 P99 Latency | The 99th percentile of service latency.
 
 {{site.data.alerts.callout_info}}
-{% include {{ page.version.version }}/misc/available-capacity-metric.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/available-capacity-metric.md %}
 {{site.data.alerts.end}}
 
 ### Events panel

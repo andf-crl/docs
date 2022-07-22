@@ -4,14 +4,14 @@ summary: Table and function names can exist in multiple places. Resolution decid
 toc: true
 ---
 
-<span class="version-tag">Changed in v2.0:</span> A query can specify a table name without a database or schema name (e.g., `SELECT * FROM orders`). How does CockroachDB know which `orders` table is being considered and in which schema?
+<span class="[version](cluster-settings.html#setting-version)-tag">Changed in v2.0:</span> A query can specify a table name without a database or schema name (e.g., `SELECT * FROM orders`). How does CockroachDB know which `orders` table is being considered and in which schema?
 
 This page details how CockroachDB performs **name resolution** to answer this question.
 
 
 ## Logical Schemas And Namespaces
 
-<span class="version-tag">New in v2.0:</span> A CockroachDB cluster can store multiple databases, and each database can store multiple tables/views/sequences. This **two-level structure for stored data** is commonly called the "logical schema" in relational database management systems.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v2.0:</span> A CockroachDB cluster can store multiple databases, and each database can store multiple tables/views/sequences. This **two-level structure for stored data** is commonly called the "logical schema" in relational database management systems.
 
 Meanwhile, CockroachDB aims to provide compatibility with PostgreSQL
 client applications and thus supports PostgreSQL's semantics for SQL

@@ -64,7 +64,7 @@ Restore Type | Parameters
 
 ### Point-in-time restore
 
-{% include {{ page.version.version }}/misc/beta-warning.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/beta-warning.md %}
 
 If the full or incremental backup was taken [with revision history](backup.html#backups-with-revision-history), you can restore the data as it existed at the specified point-in-time within the revision history captured by that backup.
 
@@ -85,7 +85,7 @@ After the restore has been initiated, you can control it with [`PAUSE JOB`](paus
 ## Synopsis
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/restore.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/restore.html %}
 </div>
 
 {{site.data.alerts.callout_info}}The <code>RESTORE</code> statement cannot be used within a <a href=transactions.html>transaction</a>.{{site.data.alerts.end}}
@@ -109,7 +109,7 @@ Only members of the `admin` role can run `RESTORE`. By default, the `root` user 
 
 The URL for your backup's locations must use the following format:
 
-{% include {{ page.version.version }}/misc/external-urls.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/external-urls.md %}
 
 ### Restore option list
 

@@ -21,9 +21,9 @@ Area | Description
 [Replication Dashboard](ui-replication-dashboard.html) | Metrics about how data is replicated across the cluster, e.g., range status, replicas per store, and replica quiescence.
 [Changefeeds Dashboard](ui-cdc-dashboard.html) | Metrics about the [changefeeds](stream-data-out-of-cockroachdb-using-changefeeds.html) created across your cluster.
 [Databases](ui-databases-page.html) | Details about the system and user databases in the cluster.
-[Sessions](ui-sessions-page.html) | <span class="version-tag">New in v20.2:</span> Details about open sessions in the cluster.
+[Sessions](ui-sessions-page.html) | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> Details about open sessions in the cluster.
 [Statements](ui-statements-page.html) | Frequently executed and high latency [SQL statements](sql-statements.html), with the option to collect statement diagnostics.
-[Transactions](ui-transactions-page.html) | <span class="version-tag">New in v20.2:</span> Details about transactions running on the cluster.
+[Transactions](ui-transactions-page.html) | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> Details about transactions running on the cluster.
 [Network Latency](ui-network-latency-page.html) | Latencies and lost connections between all nodes in your cluster.
 [Jobs](ui-jobs-page.html) | Details of jobs running in the cluster.
 [Advanced Debug](ui-debug-pages.html) | Advanced monitoring and troubleshooting reports. These include details about data distribution, the state of specific queues, and slow query metrics. These details are largely intended for use by CockroachDB developers.

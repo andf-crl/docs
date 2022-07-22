@@ -6,13 +6,13 @@ toc: true
 
 The `CREATE SEQUENCE` [statement](sql-statements.html) creates a new sequence in a database. Use a sequence to auto-increment integers in a table.
 
-{% include {{{ page.version.version }}/misc/schema-change-stmt-note.md %}
+{% include {{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-stmt-note.md %}
 
 ## Considerations
 
 - Using a sequence is slower than [auto-generating unique IDs with the `gen_random_uuid()`, `uuid_v4()` or `unique_rowid()` built-in functions](sql-faqs.html#how-do-i-auto-generate-unique-row-ids-in-cockroachdb). Incrementing a sequence requires a write to persistent storage, whereas auto-generating a unique ID does not. Therefore, use auto-generated unique IDs unless an incremental sequence is preferred or required.
 - A column that uses a sequence can have a gap in the sequence values if a transaction advances the sequence and is then rolled back. Sequence updates are committed immediately and aren't rolled back along with their containing transaction. This is done to avoid blocking concurrent transactions that use the same sequence.
-- {% include {{page.version.version}}/performance/use-hash-sharded-indexes.md %}
+- {% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/performance/use-hash-sharded-indexes.md %}
 - If a table references a sequence, and the reference explicitly specifies a database name, that [database cannot be renamed](rename-database.html). In this case, you can drop the column in the table that references the sequence, or you can modify the reference so that it does not specify the database name.
 
 ## Required privileges
@@ -21,7 +21,7 @@ The user must have the `CREATE` [privilege](authorization.html#assign-privileges
 
 ## Synopsis
 
-<section>{% include {{ page.version.version }}/sql/diagrams/create_sequence.html %}</section>
+<section>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/create_sequence.html %}</section>
 
 ## Parameters
 
@@ -40,7 +40,7 @@ table td:first-child {
 `START` | The first value of the sequence. <br><br>**Default for ascending:** `1` <br><br>**Default for descending:** `-1`
 `NO CYCLE` | Currently, all sequences are set to `NO CYCLE` and the sequence will not wrap.
 `OWNED BY column_name` | Associates the sequence to a particular column. If that column or its parent table is dropped, the sequence will also be dropped.<br>Specifying an owner column with `OWNED BY` replaces any existing owner column on the sequence. To remove existing column ownership on the sequence and make the column free-standing, specify `OWNED BY NONE`.<br><br>**Default:** `NONE`
-`opt_temp` | <span class="version-tag">New in v20.1:</span> Defines the sequence as a session-scoped temporary sequence. For more information, see [Temporary sequences](#temporary-sequences).<br><br>**Support for temporary sequences is [experimental](experimental-features.html#temporary-objects)**.
+`opt_temp` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> Defines the sequence as a session-scoped temporary sequence. For more information, see [Temporary sequences](#temporary-sequences).<br><br>**Support for temporary sequences is [experimental](experimental-features.html#temporary-objects)**.
 
 <!-- CYCLE | Not yet implemented. The sequence will wrap around when the sequence value hits the maximum or minimum value.
 `CACHE <seq_value>` | The number of sequence values to allocate in memory for faster access. Currently, you can only `CACHE 1` or leave unspecified.-->
@@ -56,7 +56,7 @@ We support the following [SQL sequence functions](functions-and-operators.html):
 
 ## Temporary sequences
 
-<span class="version-tag">New in v20.1:</span> CockroachDB supports session-scoped temporary sequences. Unlike persistent sequences, temporary sequences can only be accessed from the session in which they were created, and they are dropped at the end of the session. You can create temporary sequences on both persistent tables and [temporary tables](temporary-tables.html).
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> CockroachDB supports session-scoped temporary sequences. Unlike persistent sequences, temporary sequences can only be accessed from the session in which they were created, and they are dropped at the end of the session. You can create temporary sequences on both persistent tables and [temporary tables](temporary-tables.html).
 
 {{site.data.alerts.callout_danger}}
 **This is an experimental feature**. The interface and output are subject to change. For details, see the tracking issue [cockroachdb/cockroach#46260](https://github.com/cockroachdb/cockroach/issues/46260).

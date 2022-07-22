@@ -5,7 +5,7 @@ toc: true
 docs_area: reference.sql
 ---
 
-This page lists the experimental features that are available in CockroachDB {{ page.version.version }}.
+This page lists the experimental features that are available in CockroachDB {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}.
 
 {{site.data.alerts.callout_danger}}
 **This page describes experimental features.**  Their interfaces and outputs are subject to change, and there may be bugs.
@@ -152,7 +152,7 @@ The table below lists the experimental SQL functions and operators available in 
 
    For deployments where transport security is already handled at the infrastructure level (e.g., IPSec with DMZ), and TLS-based transport security is not possible or not desirable, CockroachDB now supports delegating transport security to the infrastructure with the new experimental flag `--accept-sql-without-tls` for [`cockroach start`](cockroach-start.html#security).
 
-  With this flag, SQL clients can establish a session over TCP without a TLS handshake. They still need to present valid authentication credentials, for example a password in the default configuration. Different authentication schemes can be further configured as per `server.host_based_authentication.configuration`.
+  With this flag, SQL clients can establish a session over TCP without a TLS handshake. They still need to present valid authentication credentials, for example a password in the default configuration. Different authentication schemes can be further configured as per `[server.host_based_authentication.configuration](cluster-settings.html#setting-server-host_based_authentication-configuration)`.
 
   Example:
   {% include_cached copy-clipboard.html %}
@@ -170,7 +170,7 @@ The table below lists the experimental SQL functions and operators available in 
 
 ## Changefeed metrics labels
 
-{% include {{ page.version.version }}/cdc/metrics-labels.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/cdc/metrics-labels.md %}
 
 For usage details, see the [Monitor and Debug Changefeeds](monitor-and-debug-changefeeds.html) page.
 

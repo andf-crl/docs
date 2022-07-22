@@ -8,16 +8,16 @@ CockroachDB supports [importing](import.html) data from the following databases:
 
 - MySQL
 - Oracle (using CSV)
-- Postgres (and <span class="version-tag">New in v20.2</span>: PostGIS)
+- Postgres (and <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2</span>: PostGIS)
 
 and from the following data formats:
 
 - CSV/TSV
 - Avro
-- <span class="version-tag">New in v20.2</span>: ESRI Shapefiles (`.shp`) (using `shp2pgsql`)
-- <span class="version-tag">New in v20.2</span>: OpenStreetMap data files (`.pbf`) (using `osm2pgsql`)
-- <span class="version-tag">New in v20.2</span>: GeoPackage data files (`.gpkg`) (using `ogr2ogr`)
-- <span class="version-tag">New in v20.2</span>: GeoJSON data files (`.geojson`) (using `ogr2ogr`)
+- <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2</span>: ESRI Shapefiles (`.shp`) (using `shp2pgsql`)
+- <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2</span>: OpenStreetMap data files (`.pbf`) (using `osm2pgsql`)
+- <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2</span>: GeoPackage data files (`.gpkg`) (using `ogr2ogr`)
+- <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2</span>: GeoJSON data files (`.geojson`) (using `ogr2ogr`)
 
 This page lists general considerations to be aware of as you plan your migration to CockroachDB.
 
@@ -34,7 +34,7 @@ In addition to the information listed below, see the following pages for specifi
 - [Migrate from GeoPackage][gpkg]
 - [Migrate from GeoJSON][geojson]
 
-{% include {{ page.version.version }}/misc/import-perf.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/import-perf.md %}
 
 ## File storage during import
 

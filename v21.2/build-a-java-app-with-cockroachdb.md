@@ -14,7 +14,7 @@ docs_area: get_started
 
 This tutorial shows you how to build a simple CRUD Java application with CockroachDB and the Java JDBC driver.
 
-{% include {{page.version.version}}/app/java-version-note.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/java-[version](cluster-settings.html#setting-version)-note.md %}
 
 {{site.data.alerts.callout_success}}
 For a sample app and tutorial that uses Spring Data JDBC and CockroachDB, see [Build a Spring App with CockroachDB and JDBC](build-a-spring-app-with-cockroachdb-jdbc.html).
@@ -22,7 +22,7 @@ For a sample app and tutorial that uses Spring Data JDBC and CockroachDB, see [B
 
 ## Step 1. Start CockroachDB
 
-{% include {{ page.version.version }}/setup/sample-setup.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/setup/sample-setup.md %}
 
 ## Step 2. Get the code
 
@@ -248,7 +248,7 @@ BUILD SUCCESSFUL in 8s
 
 ### Generate PKCS8 keys for user authentication
 
-{% include {{page.version.version}}/app/pkcs8-gen.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/pkcs8-gen.md %}
 
 <section class="filter-content" markdown="1" data-scope="cockroachcloud">
 
@@ -318,4 +318,4 @@ For guidance on connection pooling, with an example using JDBC and [HikariCP](ht
 
 Read more about using the [Java JDBC driver](https://jdbc.postgresql.org/).
 
-{% include {{page.version.version}}/app/see-also-links.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/see-also-links.md %}

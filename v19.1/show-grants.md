@@ -10,7 +10,7 @@ The `SHOW GRANTS` [statement](sql-statements.html) lists the [privileges](author
 ## Synopsis
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/show_grants.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/show_grants.html %}
 </div>
 
 ## Required privileges

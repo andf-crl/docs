@@ -248,7 +248,7 @@ Note that `userfile:///` refers to the default path `userfile://defaultdb.public
 
 ## Known limitation
 
-{% include {{ page.version.version }}/known-limitations/userfile-upload-non-recursive.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/userfile-upload-non-recursive.md %}
 
 ## See also
 

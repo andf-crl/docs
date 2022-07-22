@@ -4,7 +4,7 @@ summary: Learn about the experimental features available in CockroachDB
 toc: true
 ---
 
-This page lists the experimental features that are available in CockroachDB {{ page.version.version }}.
+This page lists the experimental features that are available in CockroachDB {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}.
 
 {{site.data.alerts.callout_danger}}
 **This page describes experimental features.**  Their interfaces and outputs are subject to change, and there may be bugs.
@@ -138,7 +138,7 @@ The table below lists the experimental SQL functions and operators available in 
 
 [Vectorized query execution](vectorized-execution.html) in CockroachDB is experimental for the following [memory-intensive operations](vectorized-execution.html#memory-intensive-operations):
 
-{% include {{page.version.version}}/sql/disk-spilling-ops.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/disk-spilling-ops.md %}
 
 To turn vectorized execution on for all operations, set the `vectorize` [session variable](set-vars.html) to `experimental_on`.
 

@@ -84,8 +84,8 @@ This JSON example shows an excerpt of what table structure details look like whe
          "name":"_",
          "id":51,
          "parent_id":50,
-         "version":1,
-         "up_version":false,
+         "[version](cluster-settings.html#setting-version)":1,
+         "up_[version](cluster-settings.html#setting-version)":false,
          "modification_time":{
             "wall_time":0,
             "logical":0
@@ -207,10 +207,10 @@ To make sure that absolutely no diagnostic details are shared, you can set the e
 
 ### After Cluster Initialization
 
-To stop sending diagnostic details to Cockroach Labs once a cluster is running, [use the built-in SQL client](use-the-built-in-sql-client.html) to execute the following [`SET CLUSTER SETTING`](set-cluster-setting.html) statement, which switches the `diagnostics.reporting.enabled` [cluster setting](cluster-settings.html) to `false`:
+To stop sending diagnostic details to Cockroach Labs once a cluster is running, [use the built-in SQL client](use-the-built-in-sql-client.html) to execute the following [`SET CLUSTER SETTING`](set-cluster-setting.html) statement, which switches the `[diagnostics.reporting.enabled](cluster-settings.html#setting-diagnostics-reporting-enabled)` [cluster setting](cluster-settings.html) to `false`:
 
 ~~~ sql
-> SET CLUSTER SETTING diagnostics.reporting.enabled = false;
+> SET CLUSTER SETTING [diagnostics.reporting.enabled](cluster-settings.html#setting-diagnostics-reporting-enabled) = false;
 ~~~
 
 This change will not be instantaneous, as it must be propagated to other nodes in the cluster.
@@ -220,12 +220,12 @@ This change will not be instantaneous, as it must be propagated to other nodes i
 To check the state of diagnostics reporting, [use the built-in SQL client](use-the-built-in-sql-client.html) to execute the following [`SHOW CLUSTER SETTING`](show-cluster-setting.html) statement:
 
 ~~~ sql
-> SHOW CLUSTER SETTING diagnostics.reporting.enabled;
+> SHOW CLUSTER SETTING [diagnostics.reporting.enabled](cluster-settings.html#setting-diagnostics-reporting-enabled);
 ~~~
 
 ~~~
 +-------------------------------+
-| diagnostics.reporting.enabled |
+| [diagnostics.reporting.enabled](cluster-settings.html#setting-diagnostics-reporting-enabled) |
 +-------------------------------+
 | false                         |
 +-------------------------------+

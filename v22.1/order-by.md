@@ -16,7 +16,7 @@ statements.
 ## Synopsis
 
 <div>
-{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.version.version | replace: "v", "" }}/grammar_svg/sort_clause.html %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/grammar_svg/sort_clause.html %}
 </div>
 
 ## Parameters
@@ -40,7 +40,7 @@ the sorting key as-is, and thus is meaningless.
 The optional keyword `DESC` inverts the direction of the column(s)
 selected by the selection that immediately precedes.
 
-{% include_cached new-in.html version="v22.1" %} CockroachDB supports `NULLS FIRST` and `NULLS LAST` in `ORDER BY` clauses for compatibility with [PostgreSQL row-sorting syntax](https://www.postgresql.org/docs/current/queries-order.html).
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v22.1" %} CockroachDB supports `NULLS FIRST` and `NULLS LAST` in `ORDER BY` clauses for compatibility with [PostgreSQL row-sorting syntax](https://www.postgresql.org/docs/current/queries-order.html).
 The default CockroachDB ordering is `NULL`s first for ascending order and `NULL`s last for descending order, which is the opposite of the PostgreSQL default. To change the default CockroachDB ordering, set the `null_ordered_last` [session variable](set-vars.html) to `true`.
 
 ## Order preservation
@@ -273,7 +273,7 @@ of deletes](#sorting-the-output-of-deletes).
 
 ## Sorting the output of deletes
 
-{% include {{page.version.version}}/misc/sorting-delete-output.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/misc/sorting-delete-output.md %}
 
 ## See also
 

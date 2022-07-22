@@ -16,9 +16,9 @@ Statement | Usage
 ----------|------------
 [`CREATE TABLE AS`](create-table-as.html) | Create a new table in a database using the results from a [selection query](selection-queries.html).
 [`DELETE`](delete.html) | Delete specific rows from a table.
-[`EXPORT`](export.html) | Export an entire table's data, or the results of a `SELECT` statement, to CSV files. Note that this statement requires an [enterprise license](enterprise-licensing.html).
+[`EXPORT`](export.html) | Export an entire table's data, or the results of a `SELECT` statement, to CSV files. Note that this statement requires an [[enterprise.license](cluster-settings.html#setting-enterprise-license)](enterprise-licensing.html).
 [`IMPORT`](import.html) | Bulk-insert CSV data into a new table.
-[`IMPORT INTO`](import-into.html) | <span class="version-tag">New in v19.2:</span> Bulk-insert CSV data into an existing table.
+[`IMPORT INTO`](import-into.html) | <span class="[version](cluster-settings.html#setting-version)-tag">New in v19.2:</span> Bulk-insert CSV data into an existing table.
 [`INSERT`](insert.html) | Insert rows into a table.
 [`SELECT`](select-clause.html) | Select specific rows and columns from a table and optionally compute derived values.
 [`TABLE`](selection-queries.html#table-clause) | Select all rows and columns from a table.
@@ -36,7 +36,7 @@ Statement | Usage
 [`ALTER COLUMN`](alter-column.html) | Change a column's [Default constraint](default-value.html) or [`NOT NULL` constraint](not-null.html).
 [`ALTER DATABASE`](alter-database.html) | Apply a schema change to a database.
 [`ALTER INDEX`](alter-index.html) | Apply a schema change to an index.
-[`ALTER PARTITION`](alter-partition.html) | Configure the replication zone for a partition. Note that [partitioning](partitioning.html) requires an [enterprise license](enterprise-licensing.html).
+[`ALTER PARTITION`](alter-partition.html) | Configure the replication zone for a partition. Note that [partitioning](partitioning.html) requires an [[enterprise.license](cluster-settings.html#setting-enterprise-license)](enterprise-licensing.html).
 [`ALTER RANGE`](alter-range.html) | Configure the replication zone for a system range.
 [`ALTER SEQUENCE`](alter-sequence.html) | Apply a schema change to a sequence.
 [`ALTER TABLE`](alter-table.html) | Apply a schema change to a table.
@@ -58,7 +58,7 @@ Statement | Usage
 [`DROP TABLE`](drop-table.html) | Remove a table.
 [`DROP VIEW`](drop-view.html)| Remove a view.
 [`EXPERIMENTAL_AUDIT`](experimental-audit.html) | Turn SQL audit logging on or off for a table.
-[`PARTITION BY`](partition-by.html) | Partition, re-partition, or un-partition a table or secondary index. Note that [partitioning](partitioning.html) requires an [enterprise license](enterprise-licensing.html).
+[`PARTITION BY`](partition-by.html) | Partition, re-partition, or un-partition a table or secondary index. Note that [partitioning](partitioning.html) requires an [[enterprise.license](cluster-settings.html#setting-enterprise-license)](enterprise-licensing.html).
 [`RENAME COLUMN`](rename-column.html) | Rename a column in a table.
 [`RENAME CONSTRAINT`](rename-constraint.html) | Rename a constraint on a column.
 [`RENAME DATABASE`](rename-database.html) | Rename a database.
@@ -70,15 +70,15 @@ Statement | Usage
 [`SHOW CREATE`](show-create.html) | View the `CREATE` statement for a table, view, or sequence.
 [`SHOW DATABASES`](show-databases.html) | List databases in the cluster.
 [`SHOW INDEX`](show-index.html) | View index information for a table or database.
-[`SHOW LOCALITY`](show-locality.html) | <span class="version-tag">New in v19.2:</span> View the locality of the current node.
-[`SHOW PARTITIONS`](show-partitions.html) | <span class="version-tag">New in v19.2:</span> List partitions in a database. Note that [partitioning](partitioning.html) requires an [enterprise license](enterprise-licensing.html).
+[`SHOW LOCALITY`](show-locality.html) | <span class="[version](cluster-settings.html#setting-version)-tag">New in v19.2:</span> View the locality of the current node.
+[`SHOW PARTITIONS`](show-partitions.html) | <span class="[version](cluster-settings.html#setting-version)-tag">New in v19.2:</span> List partitions in a database. Note that [partitioning](partitioning.html) requires an [[enterprise.license](cluster-settings.html#setting-enterprise-license)](enterprise-licensing.html).
 [`SHOW SCHEMAS`](show-schemas.html) | List the schemas in a database.
 [`SHOW SEQUENCES`](show-sequences.html) | List the sequences in a database.
 [`SHOW TABLES`](show-tables.html) | List tables or views in a database or virtual schema.
 [`SHOW RANGES`](show-ranges.html) | Show range information about a specific table or index.
 [`SHOW ZONE CONFIGURATIONS`](show-zone-configurations.html) | List details about existing [replication zones](configure-replication-zones.html).
 [`SPLIT AT`](split-at.html) | Force a range split at the specified row in the table or index.
-[`UNSPLIT AT`](unsplit-at.html) | <span class="version-tag">New in v19.2:</span> Remove a range split enforcement at a specified row in the table or index.
+[`UNSPLIT AT`](unsplit-at.html) | <span class="[version](cluster-settings.html#setting-version)-tag">New in v19.2:</span> Remove a range split enforcement at a specified row in the table or index.
 [`VALIDATE CONSTRAINT`](validate-constraint.html) | Check whether values in a column match a [constraint](constraints.html) on the column.
 
 ## Transaction management statements
@@ -159,7 +159,7 @@ Statement | Usage
 
 ## Backup and restore statements (Enterprise)
 
-The following statements require an [enterprise license](enterprise-licensing.html).
+The following statements require an [[enterprise.license](cluster-settings.html#setting-enterprise-license)](enterprise-licensing.html).
 
 {{site.data.alerts.callout_info}}
 For non-enterprise users, see [Back up Data](backup.html) and [Restore Data](restore.html).
@@ -173,7 +173,7 @@ Statement | Usage
 
 ## Changefeed statements (Enterprise)
 
-[Change data capture](change-data-capture.html) (CDC) provides an enterprise and core version of row-level change subscriptions for downstream processing.
+[Change data capture](change-data-capture.html) (CDC) provides an enterprise and core [version](cluster-settings.html#setting-version) of row-level change subscriptions for downstream processing.
 
 Statement | Usage
 ----------|------------

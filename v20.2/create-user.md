@@ -18,7 +18,7 @@ See [Authorization](authorization.html) for more information on privilege manage
 
 ## Considerations
 
-{% include {{ page.version.version }}/sql/role-considerations.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/role-considerations.md %}
 
 ## Required privileges
 
@@ -30,7 +30,7 @@ Unless a role is a member of the admin role, additional [privileges](#parameters
 
 ## Synopsis
 
-<section>{% include {{ page.version.version }}/sql/diagrams/create_user.html %}</section>
+<section>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/create_user.html %}</section>
 
 ## Parameters
 

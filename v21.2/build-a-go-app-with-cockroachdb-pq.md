@@ -16,7 +16,7 @@ This tutorial shows you how build a simple Go application with CockroachDB and t
 
 ## Step 1. Start CockroachDB
 
-{% include {{ page.version.version }}/setup/sample-setup.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/setup/sample-setup.md %}
 
 ## Step 2. Get the code
 
@@ -73,4 +73,4 @@ You can now run the code sample (`main.go`) provided in this tutorial to do the 
 
 Read more about using the [Go pq driver](https://godoc.org/github.com/lib/pq).
 
-{% include {{ page.version.version }}/app/see-also-links.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/app/see-also-links.md %}

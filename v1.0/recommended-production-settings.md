@@ -146,7 +146,7 @@ $(document).ready(function(){
 <div id="macinstall" markdown="1">
 
 - [Yosemite and later](#yosemite-and-later)
-- [Older versions](#older-versions)
+- [Older [version](cluster-settings.html#setting-version)s](#older-[version](cluster-settings.html#setting-version)s)
 
 #### Yosemite and later
 
@@ -166,9 +166,9 @@ For example, for a node with 3 stores, we would set the hard limit to at least 3
 2.  Create `/Library/LaunchDaemons/limit.maxfiles.plist` and add the following contents, with the final strings in the `ProgramArguments` array set to 35000:
 
     ~~~ xml
-    <?xml version="1.0" encoding="UTF-8"?>
+    <?xml [version](cluster-settings.html#setting-version)="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
+      <plist [version](cluster-settings.html#setting-version)="1.0">
         <dict>
           <key>Label</key>
             <string>limit.maxfiles</string>
@@ -199,9 +199,9 @@ For example, for a node with 3 stores, we would set the hard limit to at least 3
     maxfiles    35000          35000
     ~~~
 
-#### Older versions
+#### Older [version](cluster-settings.html#setting-version)s
 
-To adjust the file descriptors limit for a single process in OS X versions earlier than Yosemite, edit `/etc/launchd.conf` and increase the hard limit to the recommendation mentioned [above](#file-descriptors-limit). Note that CockroachDB always uses the hard limit, so it's not technically necessary to adjust the soft limit, although we do so in the steps below.
+To adjust the file descriptors limit for a single process in OS X [version](cluster-settings.html#setting-version)s earlier than Yosemite, edit `/etc/launchd.conf` and increase the hard limit to the recommendation mentioned [above](#file-descriptors-limit). Note that CockroachDB always uses the hard limit, so it's not technically necessary to adjust the soft limit, although we do so in the steps below.
 
 For example, for a node with 3 stores, we would set the hard limit to at least 35000 (10000 per store and 5000 for networking) as follows:
 

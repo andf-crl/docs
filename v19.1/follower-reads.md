@@ -4,7 +4,7 @@ summary: To reduce latency for read queries, you can choose to have the closest 
 toc: true
 ---
 
-<span class="version-tag">New in v19.1:</span> To reduce latency for read queries, you can use the follower reads feature, which lets the closest replica serve the read request at the expense of only not guaranteeing that data is up to date.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v19.1:</span> To reduce latency for read queries, you can use the follower reads feature, which lets the closest replica serve the read request at the expense of only not guaranteeing that data is up to date.
 
 {{site.data.alerts.callout_danger}}
 The follower reads feature is only available to [enterprise](https://www.cockroachlabs.com/product/cockroachdb/) users.
@@ -22,14 +22,14 @@ To make it easier to know when it's safe for your application to make follower r
 
 ### Enable/disable follower reads
 
-Use [`SET CLUSTER SETTING`](set-cluster-setting.html) to set `kv.closed_timestamp.follower_reads_enabled` to:
+Use [`SET CLUSTER SETTING`](set-cluster-setting.html) to set `[kv.closed_timestamp.follower_reads_enabled](cluster-settings.html#setting-kv-closed_timestamp-follower_reads_enabled)` to:
 
 - `true` to enable follower reads _(default)_
 - `false` to disable follower reads
 
 {% include copy-clipboard.html %}
 ~~~ sql
-> SET CLUSTER SETTING kv.closed_timestamp.follower_reads_enabled = false;
+> SET CLUSTER SETTING [kv.closed_timestamp.follower_reads_enabled](cluster-settings.html#setting-kv-closed_timestamp-follower_reads_enabled) = false;
 ~~~
 
 #### When to use follower reads
@@ -73,7 +73,7 @@ In CockroachDB's general architecture, all reads are served by a range's [leaseh
 
 However, if you were to lower the isolation requirements of an operation, it's possible to serve the read from _any_ replica, not only the leaseholder, given that the data can be sufficiently old.
 
-To accomplish this in CockroachDB, we've created a mechanism to let you express that any node can serve the request (`kv.closed_timestamp.follower_reads_enabled`) and that a historical read is sufficient (`AS OF SYSTEM TIME`), given that the argument to `AS OF SYSTEM TIME` is sufficiently in the past (`experimental_follower_read_timestamp()`.
+To accomplish this in CockroachDB, we've created a mechanism to let you express that any node can serve the request (`[kv.closed_timestamp.follower_reads_enabled](cluster-settings.html#setting-kv-closed_timestamp-follower_reads_enabled)`) and that a historical read is sufficient (`AS OF SYSTEM TIME`), given that the argument to `AS OF SYSTEM TIME` is sufficiently in the past (`experimental_follower_read_timestamp()`.
 
 For a more detailed explanation, you can also read the [follower reads RFC](https://github.com/cockroachdb/cockroach/blob/master/docs/RFCS/20180603_follower_reads.md).
 

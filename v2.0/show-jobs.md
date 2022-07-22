@@ -4,7 +4,7 @@ summary: The SHOW JOBS statement lists all currently active schema changes and b
 toc: true
 ---
 
-<span class="version-tag">New in v1.1:</span> The `SHOW JOBS` [statement](sql-statements.html) lists all of the types of long-running tasks your cluster has performed, including:
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v1.1:</span> The `SHOW JOBS` [statement](sql-statements.html) lists all of the types of long-running tasks your cluster has performed, including:
 
 - Schema changes through `ALTER TABLE`.
 - [`IMPORT`](import.html).
@@ -22,7 +22,7 @@ By default, only the `root` user can execute `SHOW JOBS`.
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/show_jobs.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/show_jobs.html %}
 </div>
 
 ## Response

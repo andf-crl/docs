@@ -14,12 +14,12 @@ To add a primary key constraint to a table, you should explicitly define the pri
 
 The [`DEFAULT`](default-value.html) and [`NOT NULL`](not-null.html) constraints are managed through [`ALTER COLUMN`](alter-column.html).
 
-{% include {{ page.version.version }}/sql/combine-alter-table-commands.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/combine-alter-table-commands.md %}
 
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/add_constraint.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/add_constraint.html %}
 </div>
 
 ## Required privileges
@@ -36,11 +36,11 @@ The user must have the `CREATE` [privilege](authorization.html#assign-privileges
 
 ## Viewing schema changes
 
-{% include {{ page.version.version }}/misc/schema-change-view-job.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-view-job.md %}
 
 ## Changing primary keys with `ADD CONSTRAINT ... PRIMARY KEY`
 
-<span class="version-tag">New in v20.1:</span> When you change a primary key with [`ALTER TABLE ... ALTER PRIMARY KEY`](alter-primary-key.html), the old primary key index becomes a secondary index. The secondary index created by `ALTER PRIMARY KEY` takes up node memory and can slow down write performance to a cluster. If you do not have queries that filter on the primary key that you are replacing, you can use `ADD CONSTRAINT` to replace the old primary index without creating a secondary index.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> When you change a primary key with [`ALTER TABLE ... ALTER PRIMARY KEY`](alter-primary-key.html), the old primary key index becomes a secondary index. The secondary index created by `ALTER PRIMARY KEY` takes up node memory and can slow down write performance to a cluster. If you do not have queries that filter on the primary key that you are replacing, you can use `ADD CONSTRAINT` to replace the old primary index without creating a secondary index.
 
 `ADD CONSTRAINT ... PRIMARY KEY` can be used to add a primary key to an existing table if one of the following is true:
 
@@ -53,7 +53,7 @@ The user must have the `CREATE` [privilege](authorization.html#assign-privileges
 
 ## Examples
 
-{% include {{page.version.version}}/sql/movr-statements.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/movr-statements.md %}
 
 ### Add the `UNIQUE` constraint
 

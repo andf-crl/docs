@@ -15,7 +15,7 @@ Make sure you have already:
 - [Connected to the database](connect-to-the-database.html).
 - [Inserted data](insert-data.html) that you now want to delete.
 
-{% include {{page.version.version}}/app/retry-errors.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/retry-errors.md %}
 
 ## Delete a single row
 
@@ -48,7 +48,7 @@ if _, err := db.Exec("DELETE FROM accounts WHERE id = 1"); err != nil {
 }
 ~~~
 
-{% include {{page.version.version}}/app/for-a-complete-example-go.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/for-a-complete-example-go.md %}
 
 </section>
 
@@ -67,7 +67,7 @@ try (Connection connection = ds.getConnection()) {
 }
 ~~~
 
-{% include {{page.version.version}}/app/for-a-complete-example-java.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/for-a-complete-example-java.md %}
 
 </section>
 
@@ -82,7 +82,7 @@ with conn.cursor() as cur:
 conn.commit()
 ~~~
 
-{% include {{page.version.version}}/app/for-a-complete-example-python.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/for-a-complete-example-python.md %}
 
 </section>
 

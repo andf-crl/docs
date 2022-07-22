@@ -4,7 +4,7 @@ summary: Export tabular data from a CockroachDB cluster in CSV format.
 toc: true
 ---
 
-<span class="version-tag">New in v2.1:</span> The `EXPORT` [statement](sql-statements.html) exports tabular data or the results of arbitrary `SELECT` statements to CSV files.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v2.1:</span> The `EXPORT` [statement](sql-statements.html) exports tabular data or the results of arbitrary `SELECT` statements to CSV files.
 
 Using the [CockroachDB distributed execution engine](architecture/sql-layer.html#distsql), `EXPORT` parallelizes CSV creation across all nodes in the cluster, making it possible to quickly get large sets of data out of CockroachDB in a format that can be ingested by downstream systems. If you do not need distributed exports, you can use the [non-enterprise feature to export tabular data in CSV format](#non-distributed-export-using-the-sql-shell).
 
@@ -24,7 +24,7 @@ After the export has been initiated, you can cancel it with [`CANCEL QUERY`](can
 
 ## Synopsis
 
-<div>{% include {{ page.version.version }}/sql/diagrams/export.html %}</div>
+<div>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/export.html %}</div>
 
 {{site.data.alerts.callout_info}}The <code>EXPORT</code> statement cannot be used within a <a href=transactions.html>transaction</a>.{{site.data.alerts.end}}
 
@@ -45,7 +45,7 @@ Only members of the `admin` role can run `EXPORT`. By default, the `root` user b
 
 URLs for the file directory location you want to export to must use the following format:
 
-{% include {{ page.version.version }}/misc/external-urls.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/external-urls.md %}
 
 You can specify the base directory where you want to store the exported .csv files. CockroachDB will create several files in the specified directory with programmatically generated names (e.g., n1.1.csv, n1.2.csv, n2.1.csv, ...).
 

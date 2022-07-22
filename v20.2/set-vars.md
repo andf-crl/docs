@@ -16,7 +16,7 @@ No [privileges](authorization.html#assign-privileges) are required to modify the
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/set_var.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/set_var.html %}
 </div>
 
 {{site.data.alerts.callout_info}}The <code>SET</code> statement for session settings is unrelated to the other <a href="set-transaction.html"><code>SET TRANSACTION</code></a> and <a href="cluster-settings.html#change-a-cluster-setting"><code>SET CLUSTER SETTING</code></a> statements.{{site.data.alerts.end}}
@@ -30,7 +30,7 @@ The variable name is case insensitive. The value can be a list of one or more it
 
 ### Supported variables
 
-{% include {{ page.version.version }}/misc/session-vars.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/session-vars.html %}
 
 Special syntax cases:
 
@@ -229,7 +229,7 @@ All timezone abbreviations are case-sensitive and must be uppercase, with the ex
 
 ## Known Limitations
 
-{% include {{page.version.version}}/known-limitations/set-transaction-no-rollback.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/known-limitations/set-transaction-no-rollback.md %}
 
 ## See also
 

@@ -50,7 +50,7 @@ Different databases and tables within the same cluster can each use different co
 {{site.data.alerts.end}}
 
 {{site.data.alerts.callout_success}}
-{% include {{page.version.version}}/misc/multiregion-max-offset.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/misc/multiregion-max-offset.md %}
 {{site.data.alerts.end}}
 
 ## See also

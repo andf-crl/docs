@@ -176,7 +176,7 @@ This will result in the following output:
 Once the logging is enabled, all client-generated SQL queries executed by the node will be written to the `DEV` [logging channel](logging.html#dev), which outputs by [default](configure-logs.html#default-logging-configuration) to the primary `cockroach` log file in `/cockroach-data/logs`. Use the symlink `cockroach.log` to open the most recent log.
 
 ~~~
-I180402 19:12:28.112957 394661 sql/exec_log.go:173  [n1,client=127.0.0.1:50155,user=root] exec "psql" {} "SELECT version()" {} 0.795 1 ""
+I180402 19:12:28.112957 394661 sql/exec_log.go:173  [n1,client=127.0.0.1:50155,user=root] exec "psql" {} "SELECT [version](cluster-settings.html#setting-version)()" {} 0.795 1 ""
 ~~~
 
 ## Something else?

@@ -3,11 +3,11 @@ title: CREATE STATISTICS (Experimental)
 summary: Use the CREATE STATISTICS statement to generate table statistics for the cost-based optimizer to use.
 toc: true
 ---
-<span class="version-tag">New in v2.1:</span> Use the `CREATE STATISTICS` [statement](sql-statements.html) to generate table statistics for the [cost-based optimizer](cost-based-optimizer.html) to use.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v2.1:</span> Use the `CREATE STATISTICS` [statement](sql-statements.html) to generate table statistics for the [cost-based optimizer](cost-based-optimizer.html) to use.
 
 Once you [create a table](create-table.html) and load data into it (e.g., [`INSERT`](insert.html), [`IMPORT`](import.html)), table statistics can be generated. Table statistics help the cost-based optimizer determine the cardinality of the rows used in each query, which helps to predict more accurate costs.
 
-{% include {{ page.version.version }}/misc/experimental-warning.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/experimental-warning.md %}
 
 ## Considerations
 
@@ -16,7 +16,7 @@ Each time `CREATE STATISTICS` is used, a new statistic is created without removi
 ## Synopsis
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/create_stats.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/create_stats.html %}
 </div>
 
 ## Required Privileges

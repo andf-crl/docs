@@ -49,7 +49,7 @@ On each instance:
 
     {% include copy-clipboard.html %}
     ~~~ shell
-    $ sudo docker version
+    $ sudo docker [version](cluster-settings.html#setting-version)
     ~~~
 
 ## Step 3. Start the swarm
@@ -125,7 +125,7 @@ $ sudo docker network create --driver overlay cockroachdb
     --mount type=volume,source=cockroachdb-1,target=/cockroach/cockroach-data,volume-driver=local \
     --stop-grace-period 60s \
     --publish 8080:8080 \
-    cockroachdb/cockroach:{{page.release_info.version}} start \
+    cockroachdb/cockroach:{{page.release_info.[version](cluster-settings.html#setting-version)}} start \
     --logtostderr \
     --insecure
     ~~~
@@ -140,7 +140,7 @@ $ sudo docker network create --driver overlay cockroachdb
      {{site.data.alerts.callout_info}}If you plan on replacing or adding instances, it's recommended to use remote storage instead of local disk. To do so, <a href="https://docs.docker.com/engine/reference/commandline/volume_create/">create a remote volume</a> for each CockroachDB instance using the volume driver of your choice, and then specify that volume driver instead of the <code>volume-driver=local</code> part of the command above, e.g., <code>volume-driver=gce</code> if using the <a href="https://github.com/mcuadros/gce-docker">GCE volume driver</a>.
     - `--stop-grace-period`: This flag sets a grace period to give CockroachDB enough time to shut down gracefully, when possible.
     - `--publish`: This flag makes the Admin UI accessible at the IP of any instance running a swarm node on port `8080`. Note that, even though this flag is defined only in the first node's service, the swarm exposes this port on every swarm node using a routing mesh. See [Publishing ports](https://docs.docker.com/engine/swarm/services/#publish-ports) for more details.
-    - `cockroachdb/cockroach:{{page.release_info.version}} start ...`: The CockroachDB command to [start a node](start-a-node.html) in the container in insecure mode and instruct other cluster members to talk to it using its persistent network address, `cockroachdb-1`.
+    - `cockroachdb/cockroach:{{page.release_info.[version](cluster-settings.html#setting-version)}} start ...`: The CockroachDB command to [start a node](start-a-node.html) in the container in insecure mode and instruct other cluster members to talk to it using its persistent network address, `cockroachdb-1`.
 
 2. On the same instance, create the services to start two other CockroachDB nodes and join them to the cluster:
 
@@ -154,7 +154,7 @@ $ sudo docker network create --driver overlay cockroachdb
     --network cockroachdb \
     --mount type=volume,source=cockroachdb-2,target=/cockroach/cockroach-data,volume-driver=local \
     --stop-grace-period 60s \
-    cockroachdb/cockroach:{{page.release_info.version}} start \
+    cockroachdb/cockroach:{{page.release_info.[version](cluster-settings.html#setting-version)}} start \
     --join=cockroachdb-1:26257 \
     --logtostderr \
     --insecure
@@ -170,7 +170,7 @@ $ sudo docker network create --driver overlay cockroachdb
     --network cockroachdb \
     --mount type=volume,source=cockroachdb-3,target=/cockroach/cockroach-data,volume-driver=local \
     --stop-grace-period 60s \
-    cockroachdb/cockroach:{{page.release_info.version}} start \
+    cockroachdb/cockroach:{{page.release_info.[version](cluster-settings.html#setting-version)}} start \
     --join=cockroachdb-1:26257 \
     --logtostderr \
     --insecure
@@ -189,9 +189,9 @@ $ sudo docker network create --driver overlay cockroachdb
 
     ~~~
     ID            NAME           MODE        REPLICAS  IMAGE
-    a6g0ur6857j6  cockroachdb-1  replicated  1/1       cockroachdb/cockroach:{{page.release_info.version}}
-    dr81a756gaa6  cockroachdb-2  replicated  1/1       cockroachdb/cockroach:{{page.release_info.version}}
-    il4m7op1afg9  cockroachdb-3  replicated  1/1       cockroachdb/cockroach:{{page.release_info.version}}
+    a6g0ur6857j6  cockroachdb-1  replicated  1/1       cockroachdb/cockroach:{{page.release_info.[version](cluster-settings.html#setting-version)}}
+    dr81a756gaa6  cockroachdb-2  replicated  1/1       cockroachdb/cockroach:{{page.release_info.[version](cluster-settings.html#setting-version)}}
+    il4m7op1afg9  cockroachdb-3  replicated  1/1       cockroachdb/cockroach:{{page.release_info.[version](cluster-settings.html#setting-version)}}
     ~~~
 
     {{site.data.alerts.callout_success}}The service definitions tell the CockroachDB nodes to log to <code>stderr</code>, so if you ever need access to a node's logs for troubleshooting, use <a href="https://docs.docker.com/engine/reference/commandline/logs/"><code>sudo docker logs &lt;container id&gt;</code></a> from the instance on which the container is running.{{site.data.alerts.end}}
@@ -213,7 +213,7 @@ $ sudo docker network create --driver overlay cockroachdb
     --mount type=volume,source=cockroachdb-1,target=/cockroach/cockroach-data,volume-driver=local \
     --stop-grace-period 60s \
     --publish 8080:8080 \
-    cockroachdb/cockroach:{{page.release_info.version}} start \
+    cockroachdb/cockroach:{{page.release_info.[version](cluster-settings.html#setting-version)}} start \
     --join=cockroachdb-2:26257 \
     --logtostderr \
     --insecure
@@ -229,7 +229,7 @@ $ sudo docker network create --driver overlay cockroachdb
     ~~~
 
     ~~~
-    9539871cc769        cockroachdb/cockroach:{{page.release_info.version}}   "/cockroach/cockroach"   2 minutes ago        Up 2 minutes         8080/tcp, 26257/tcp   cockroachdb-1.1.0wigdh8lx0ylhuzm4on9bbldq
+    9539871cc769        cockroachdb/cockroach:{{page.release_info.[version](cluster-settings.html#setting-version)}}   "/cockroach/cockroach"   2 minutes ago        Up 2 minutes         8080/tcp, 26257/tcp   cockroachdb-1.1.0wigdh8lx0ylhuzm4on9bbldq
     ~~~
 
 2. Use the `sudo docker exec` command to open the built-in SQL shell in interactive mode inside the container:
@@ -274,7 +274,7 @@ To see this in action:
     ~~~
 
     ~~~
-    9539871cc769        cockroachdb/cockroach:{{page.release_info.version}}   "/cockroach/cockroach"   10 minutes ago        Up 10 minutes         8080/tcp, 26257/tcp   cockroachdb-0.1.0wigdh8lx0ylhuzm4on9bbldq
+    9539871cc769        cockroachdb/cockroach:{{page.release_info.[version](cluster-settings.html#setting-version)}}   "/cockroach/cockroach"   10 minutes ago        Up 10 minutes         8080/tcp, 26257/tcp   cockroachdb-0.1.0wigdh8lx0ylhuzm4on9bbldq
     ~~~
 
 2. Use `sudo docker kill` to remove the container, which implicitly stops the node:
@@ -292,7 +292,7 @@ To see this in action:
     ~~~
 
     ~~~
-    4a58f86e3ced        cockroachdb/cockroach:{{page.release_info.version}}   "/cockroach/cockroach"   7 seconds ago       Up 1 seconds        8080/tcp, 26257/tcp   cockroachdb-0.1.cph86kmhhcp8xzq6a1nxtk9ng
+    4a58f86e3ced        cockroachdb/cockroach:{{page.release_info.[version](cluster-settings.html#setting-version)}}   "/cockroach/cockroach"   7 seconds ago       Up 1 seconds        8080/tcp, 26257/tcp   cockroachdb-0.1.cph86kmhhcp8xzq6a1nxtk9ng
     ~~~
 
 4. Back in the Admin UI, click **View nodes list** on the right and verify that all 3 nodes are live.

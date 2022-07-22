@@ -7,7 +7,7 @@ docs_area: reference.sql
 
 The `CREATE DATABASE` [statement](sql-statements.html) creates a new CockroachDB database.
 
-{% include {{ page.version.version }}/misc/schema-change-stmt-note.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-stmt-note.md %}
 
 ## Required privileges
 
@@ -16,7 +16,7 @@ To create a database, the user must be a member of the `admin` role or must have
 ## Synopsis
 
 <div>
-{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.version.version | replace: "v", "" }}/grammar_svg/create_database.html %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/grammar_svg/create_database.html %}
 </div>
 
 ## Parameters
@@ -32,7 +32,7 @@ Parameter | Description
 `SURVIVE ZONE FAILURE` (*Default*)<br>`SURVIVE REGION FAILURE` |  Create a [multi-region database](multiregion-overview.html) with regional failure or zone failure [survival goals](multiregion-overview.html#survival-goals).<br>To set the regional failure survival goal, the database must have at least 3 [database regions](multiregion-overview.html#database-regions).<br>Surviving zone failures is the default setting for multi-region databases.
 
 <a name="connlimit-note">*</a>
-{% include {{page.version.version}}/sql/server-side-connection-limit.md %} This setting may be useful until the `CONNECTION LIMIT` syntax is fully supported.
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/server-side-connection-limit.md %} This setting may be useful until the `CONNECTION LIMIT` syntax is fully supported.
 
 ## Example
 

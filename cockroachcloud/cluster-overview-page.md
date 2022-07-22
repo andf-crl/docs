@@ -55,4 +55,4 @@ The **Request Units** graph displays the CPU and I/O resources being used by que
 
 ### SQL Statements
 
-The **SQL Statements** graph displays an average of the number of [`SELECT`](../{{site.versions["stable"]}}/select-clause.html), [`INSERT`](../{{site.versions["stable"]}}/insert.html), [`UPDATE`](../{{site.versions["stable"]}}/update.html), and [`DELETE`](../{{site.versions["stable"]}}/delete.html) statements successfully executed per second.
+The **SQL Statements** graph displays an average of the number of [`SELECT`](../{{site.[version](cluster-settings.html#setting-version)s["stable"]}}/select-clause.html), [`INSERT`](../{{site.[version](cluster-settings.html#setting-version)s["stable"]}}/insert.html), [`UPDATE`](../{{site.[version](cluster-settings.html#setting-version)s["stable"]}}/update.html), and [`DELETE`](../{{site.[version](cluster-settings.html#setting-version)s["stable"]}}/delete.html) statements successfully executed per second.

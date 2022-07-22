@@ -33,7 +33,7 @@ The special IEEE754 values for positive infinity, negative infinity
 and [NaN (Not-a-Number)](https://en.wikipedia.org/wiki/NaN) cannot be
 entered using numeric literals directly and must be converted using an
 [interpreted literal](sql-constants.html#interpreted-literals) or an
-[explicit conversion](scalar-expressions.html#explicit-type-coercions)
+[explicit con[version](cluster-settings.html#setting-version)](scalar-expressions.html#explicit-type-coercions)
 from a string literal instead.
 
 The following values are recognized:
@@ -94,9 +94,9 @@ The size of a `DECIMAL` value is variable, starting at 9 bytes. It's recommended
 
 The value in column `a` matches what was inserted exactly. The value in column `b` has been rounded to the column's scale. The value in column `c` is handled like the value in column `a` because `NUMERIC` is an alias for `DECIMAL`.
 
-## Supported casting and conversion
+## Supported casting and con[version](cluster-settings.html#setting-version)
 
-`DECIMAL` values can be [cast](data-types.html#data-type-conversions-and-casts) to any of the following data types:
+`DECIMAL` values can be [cast](data-types.html#data-type-con[version](cluster-settings.html#setting-version)s-and-casts) to any of the following data types:
 
 Type | Details
 -----|--------

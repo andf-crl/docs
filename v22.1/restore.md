@@ -15,11 +15,11 @@ You can restore:
 - [Databases](#databases)
 - [Tables](#tables)
 
-{% include {{ page.version.version }}/backups/backup-to-deprec.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/backups/backup-to-deprec.md %}
 
 ## Considerations
 
-- `RESTORE` cannot restore backups made by newer versions of CockroachDB.
+- `RESTORE` cannot restore backups made by newer [version](cluster-settings.html#setting-version)s of CockroachDB.
 - `RESTORE` is a blocking statement. To run a restore job asynchronously, use the `DETACHED` option. See [Options](#options) for more usage detail.
 - `RESTORE` no longer requires an Enterprise license, regardless of the options passed to it or to the backup it is restoring.
 - [Zone configurations](configure-zone.html) present on the destination cluster prior to a restore will be **overwritten** during a [cluster restore](restore.html#full-cluster) with the zone configurations from the [backed up cluster](backup.html#backup-a-cluster). If there were no customized zone configurations on the cluster when the backup was taken, then after the restore the destination cluster will use the zone configuration from the [`RANGE DEFAULT` configuration](configure-replication-zones.html#view-the-default-replication-zone).
@@ -33,12 +33,12 @@ You can restore:
 
 ### Source privileges
 
-{% include {{ page.version.version }}/misc/non-http-source-privileges.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/non-http-source-privileges.md %}
 
 ## Synopsis
 
 <div>
-{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.version.version | replace: "v", "" }}/grammar_svg/restore.html %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/grammar_svg/restore.html %}
 </div>
 
 ## Parameters
@@ -118,7 +118,7 @@ Restoring a database will create a new database and restore all of its tables an
 RESTORE DATABASE backup_database_name FROM LATEST in 'your_backup_collection_URI';
 ~~~
 
-{% include_cached new-in.html version="v22.1" %} To restore a database that already exists in a cluster, use the `new_db_name` option with `RESTORE` to provide a new name for the database. See the [Rename a database on restore](#rename-a-database-on-restore) example.
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v22.1" %} To restore a database that already exists in a cluster, use the `new_db_name` option with `RESTORE` to provide a new name for the database. See the [Rename a database on restore](#rename-a-database-on-restore) example.
 
 {{site.data.alerts.callout_success}}
 If [dropping](drop-database.html) or [renaming](rename-database.html) an existing database is not an option, you can use [_table_ restore](#restore-a-table) to restore all tables into the existing database by using the [`WITH into_db` option](#options).
@@ -192,7 +192,7 @@ CockroachDB does **not** support incremental-only restores.
 
 - A [cluster's regions](multiregion-overview.html#cluster-regions) will be checked before a restore. Mismatched regions between backup and restore clusters will be flagged before the restore begins, which allows for a decision between updating the [cluster localities](cockroach-start.html#locality) or restoring with the [`skip_localities_check`](#skip-localities-check) option to continue with the restore regardless.
 
-- A database that is restored with the `sql.defaults.primary_region` [cluster setting](cluster-settings.html) will have the [`PRIMARY REGION`](set-primary-region.html) from this cluster setting assigned to the target database.
+- A database that is restored with the `[sql.defaults.primary_region](cluster-settings.html#setting-sql-defaults-primary_region)` [cluster setting](cluster-settings.html) will have the [`PRIMARY REGION`](set-primary-region.html) from this cluster setting assigned to the target database.
 
 - `RESTORE` supports restoring **non**-multi-region tables into a multi-region database and sets the table locality as [`REGIONAL BY TABLE`](multiregion-overview.html#regional-tables) to the primary region of the target database.
 
@@ -202,7 +202,7 @@ CockroachDB does **not** support incremental-only restores.
 
 - Restoring a [partition](partitioning.html) of a `REGIONAL BY ROW` table is not supported.
 
-- {% include {{ page.version.version }}/known-limitations/restore-multiregion-match.md %}
+- {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/restore-multiregion-match.md %}
 
 The ordering of regions and how region matching is determined is a known limitation. See the [Known Limitations](#known-limitations) section for the tracking issues on limitations around `RESTORE` and multi-region support.
 
@@ -220,7 +220,7 @@ If initiated correctly, the statement returns when the restore is finished or if
 
 ## Examples
 
-{% include {{ page.version.version }}/backups/bulk-auth-options.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/backups/bulk-auth-options.md %}
 
 <div class="filters clearfix">
   <button class="filter-button" data-scope="s3">Amazon S3</button>
@@ -263,7 +263,7 @@ When you want to [restore a specific backup](#restore-a-specific-backup), add th
 
 ### Restore the most recent backup
 
-{% include_cached new-in.html version="v22.1" %} To restore from the most recent backup in the collection's location, use the `LATEST` syntax:
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v22.1" %} To restore from the most recent backup in the collection's location, use the `LATEST` syntax:
 
 {% include_cached copy-clipboard.html %}
 ~~~ sql
@@ -334,10 +334,10 @@ To restore the most recent [incremental backup](take-full-and-incremental-backup
 RESTORE DATABASE bank FROM LATEST IN 's3://{bucket_name}?AWS_ACCESS_KEY_ID={key_id}&AWS_SECRET_ACCESS_KEY={access_key}';
 ~~~
 
-{% include {{ page.version.version }}/backups/no-incremental-restore.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/backups/no-incremental-restore.md %}
 
 {{site.data.alerts.callout_info}}
- `RESTORE` will re-validate [indexes](indexes.html) when [incremental backups](take-full-and-incremental-backups.html) are created from an older version (v20.2.2 and earlier or v20.1.4 and earlier), but restored by a newer version (v21.1.0+). These earlier releases may have included incomplete data for indexes that were in the process of being created.
+ `RESTORE` will re-validate [indexes](indexes.html) when [incremental backups](take-full-and-incremental-backups.html) are created from an older [version](cluster-settings.html#setting-version) (v20.2.2 and earlier or v20.1.4 and earlier), but restored by a newer [version](cluster-settings.html#setting-version) (v21.1.0+). These earlier releases may have included incomplete data for indexes that were in the process of being created.
 {{site.data.alerts.end}}
 
 ### Restore a backup asynchronously
@@ -382,7 +382,7 @@ WITH into_db = 'newdb';
 
 #### Rename a database on restore
 
-{% include_cached new-in.html version="v22.1" %} To rename a database on restore, use the [`new_db_name`](#new-db-name) option:
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v22.1" %} To rename a database on restore, use the [`new_db_name`](#new-db-name) option:
 
 {% include_cached copy-clipboard.html %}
 ~~~ sql
@@ -445,7 +445,7 @@ After the restore completes, add the `users` to the existing `system.users` tabl
 
 #### Restore from incremental backups in a different location
 
-{% include_cached new-in.html version="v22.1" %} To restore an incremental backup that was taken using the [`incremental_location` option](backup.html#incr-location), you must run the `RESTORE` statement with both:
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v22.1" %} To restore an incremental backup that was taken using the [`incremental_location` option](backup.html#incr-location), you must run the `RESTORE` statement with both:
 
 - the collection URI of the full backup
 - the `incremental_location` option referencing the incremental backup's collection URI, as passed in the original `BACKUP` statement
@@ -483,7 +483,7 @@ When you want restore a specific backup, add the backup's subdirectory path (e.g
 
 ### Restore from the most recent backup
 
-{% include_cached new-in.html version="v22.1" %} To restore from the most recent backup in the collection's location, use the `LATEST` syntax:
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v22.1" %} To restore from the most recent backup in the collection's location, use the `LATEST` syntax:
 
 {% include_cached copy-clipboard.html %}
 ~~~ sql
@@ -555,7 +555,7 @@ RESTORE DATABASE bank FROM LATEST IN 'azure://{container name}?AZURE_ACCOUNT_NAM
 ~~~
 
 {{site.data.alerts.callout_info}}
- `RESTORE` will re-validate [indexes](indexes.html) when [incremental backups](take-full-and-incremental-backups.html) are created from an older version (v20.2.2 and earlier or v20.1.4 and earlier), but restored by a newer version (v21.1.0+). These earlier releases may have included incomplete data for indexes that were in the process of being created.
+ `RESTORE` will re-validate [indexes](indexes.html) when [incremental backups](take-full-and-incremental-backups.html) are created from an older [version](cluster-settings.html#setting-version) (v20.2.2 and earlier or v20.1.4 and earlier), but restored by a newer [version](cluster-settings.html#setting-version) (v21.1.0+). These earlier releases may have included incomplete data for indexes that were in the process of being created.
 {{site.data.alerts.end}}
 
 ### Restore a backup asynchronously
@@ -598,7 +598,7 @@ By default, tables and views are restored to the database they originally belong
 
 #### Rename a database on restore
 
-{% include_cached new-in.html version="v22.1" %} To rename a database on restore, use the [`new_db_name`](#new-db-name) option:
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v22.1" %} To rename a database on restore, use the [`new_db_name`](#new-db-name) option:
 
 {% include_cached copy-clipboard.html %}
 ~~~ sql
@@ -659,7 +659,7 @@ After the restore completes, add the `users` to the existing `system.users` tabl
 
 #### Restore from incremental backups in a different location
 
-{% include_cached new-in.html version="v22.1" %} To restore an incremental backup that was taken using the [`incremental_location` option](backup.html#incr-location), you must run the `RESTORE` statement with both:
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v22.1" %} To restore an incremental backup that was taken using the [`incremental_location` option](backup.html#incr-location), you must run the `RESTORE` statement with both:
 
 - the collection URI of the full backup
 - the `incremental_location` option referencing the incremental backup's collection URI, as passed in the original `BACKUP` statement
@@ -701,7 +701,7 @@ When you want restore a specific backup, add the backup's subdirectory path (e.g
 
 ### Restore from the most recent backup
 
-{% include_cached new-in.html version="v22.1" %} To restore from the most recent backup in the collection's location, use the `LATEST` syntax:
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v22.1" %} To restore from the most recent backup in the collection's location, use the `LATEST` syntax:
 
 {% include_cached copy-clipboard.html %}
 ~~~ sql
@@ -773,7 +773,7 @@ RESTORE DATABASE bank FROM LATEST IN 'gs://{bucket name}?AUTH=specified&CREDENTI
 ~~~
 
 {{site.data.alerts.callout_info}}
- `RESTORE` will re-validate [indexes](indexes.html) when [incremental backups](take-full-and-incremental-backups.html) are created from an older version (v20.2.2 and earlier or v20.1.4 and earlier), but restored by a newer version (v21.1.0+). These earlier releases may have included incomplete data for indexes that were in the process of being created.
+ `RESTORE` will re-validate [indexes](indexes.html) when [incremental backups](take-full-and-incremental-backups.html) are created from an older [version](cluster-settings.html#setting-version) (v20.2.2 and earlier or v20.1.4 and earlier), but restored by a newer [version](cluster-settings.html#setting-version) (v21.1.0+). These earlier releases may have included incomplete data for indexes that were in the process of being created.
 {{site.data.alerts.end}}
 
 ### Restore a backup asynchronously
@@ -816,7 +816,7 @@ By default, tables and views are restored to the database they originally belong
 
 #### Rename a database on restore
 
-{% include_cached new-in.html version="v22.1" %} To rename a database on restore, use the [`new_db_name`](#new-db-name) option:
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v22.1" %} To rename a database on restore, use the [`new_db_name`](#new-db-name) option:
 
 {% include_cached copy-clipboard.html %}
 ~~~ sql
@@ -877,7 +877,7 @@ After the restore completes, add the `users` to the existing `system.users` tabl
 
 #### Restore from incremental backups in a different location
 
-{% include_cached new-in.html version="v22.1" %} To restore an incremental backup that was taken using the [`incremental_location` option](backup.html#incr-location), you must run the `RESTORE` statement with both:
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v22.1" %} To restore an incremental backup that was taken using the [`incremental_location` option](backup.html#incr-location), you must run the `RESTORE` statement with both:
 
 - the collection URI of the full backup
 - the `incremental_location` option referencing the incremental backup's collection URI, as passed in the original `BACKUP` statement
@@ -893,9 +893,9 @@ For more detail on using this option with `BACKUP`, see [Incremental backups wit
 
 ## Known limitations
 
-- {% include {{ page.version.version }}/known-limitations/restore-aost.md %} [Tracking GitHub Issue](https://github.com/cockroachdb/cockroach/issues/53044)
+- {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/restore-aost.md %} [Tracking GitHub Issue](https://github.com/cockroachdb/cockroach/issues/53044)
 - To successfully [restore a table into a multi-region database](#restoring-to-multi-region-databases), it is necessary for the order and regions to match between the source and destination database. See the [Known Limitations](known-limitations.html#using-restore-with-multi-region-table-localities) page for detail on ordering and matching regions. [Tracking GitHub Issue](https://github.com/cockroachdb/cockroach/issues/71071)
-- {% include {{ page.version.version }}/known-limitations/restore-tables-non-multi-reg.md %}
+- {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/restore-tables-non-multi-reg.md %}
 
 ## See also
 

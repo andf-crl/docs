@@ -33,7 +33,7 @@ The user must have the `CREATE` [privilege](authorization.html#assign-privileges
 
 ## Synopsis
 
-<section> {% include {{ page.version.version }}/sql/diagrams/create_table_as.html %} </section>
+<section> {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/create_table_as.html %} </section>
 
 ## Parameters
 

@@ -74,19 +74,19 @@ Otherwise, it returns an HTTP `200 OK` status response code with an empty body:
 }
 ~~~
 
-<span class="version-tag">Changed in v20.1:</span> The `/health` endpoint no longer returns details about the node such as its private IP address. These details could be considered privileged information in some deployments. If you need to retrieve node details, you can use the `/_status/details` endpoint along with a valid authentication cookie.
+<span class="[version](cluster-settings.html#setting-version)-tag">Changed in v20.1:</span> The `/health` endpoint no longer returns details about the node such as its private IP address. These details could be considered privileged information in some deployments. If you need to retrieve node details, you can use the `/_status/details` endpoint along with a valid authentication cookie.
 
 #### /health?ready=1
 
 The `http://<node-host>:<http-port>/health?ready=1` endpoint returns an HTTP `503 Service Unavailable` status response code with an error in the following scenarios:
 
-- The node is draining open SQL connections and rejecting new SQL connections because it is in the process of shutting down (e.g., after being [decommissioned](remove-nodes.html#how-it-works)). This is especially useful for making sure load balancers do not direct traffic to nodes that are live but not "ready", which is a necessary check during [rolling upgrades](upgrade-cockroach-version.html).
+- The node is draining open SQL connections and rejecting new SQL connections because it is in the process of shutting down (e.g., after being [decommissioned](remove-nodes.html#how-it-works)). This is especially useful for making sure load balancers do not direct traffic to nodes that are live but not "ready", which is a necessary check during [rolling upgrades](upgrade-cockroach-[version](cluster-settings.html#setting-version).html).
 
     {{site.data.alerts.callout_success}}
-    If you find that your load balancer's health check is not always recognizing a node as unready before the node shuts down, you can increase the `server.shutdown.drain_wait` [cluster setting](cluster-settings.html) to cause a node to return `503 Service Unavailable` even before it has started shutting down.
+    If you find that your load balancer's health check is not always recognizing a node as unready before the node shuts down, you can increase the `[server.shutdown.drain_wait](cluster-settings.html#setting-server-shutdown-drain_wait)` [cluster setting](cluster-settings.html) to cause a node to return `503 Service Unavailable` even before it has started shutting down.
     {{site.data.alerts.end}}
 
-    <span class="version-tag">Changed in v20.1:</span> In previous releases, [decommissioning](remove-nodes.html#how-it-works) nodes would erroneously be considered unready and return `503 Service Unavailable`. This is no longer the case. Although decommissioned nodes no longer store replicas, they can still function as gateways to route SQL connections to relevant data until they are shut down.
+    <span class="[version](cluster-settings.html#setting-version)-tag">Changed in v20.1:</span> In previous releases, [decommissioning](remove-nodes.html#how-it-works) nodes would erroneously be considered unready and return `503 Service Unavailable`. This is no longer the case. Although decommissioned nodes no longer store replicas, they can still function as gateways to route SQL connections to relevant data until they are shut down.
 
 - The node is unable to communicate with a majority of the other nodes in the cluster, likely because the cluster is unavailable due to too many nodes being down.
 

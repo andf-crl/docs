@@ -8,12 +8,12 @@ The `RENAME INDEX` [statement](sql-statements.html) changes the name of an index
 
 {{site.data.alerts.callout_info}}It is not possible to rename an index referenced by a view. For more details, see <a href="views.html#view-dependencies">View Dependencies</a>.{{site.data.alerts.end}}
 
-{% include {{ page.version.version }}/misc/schema-change-view-job.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-view-job.md %}
 
 ## Synopsis
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/rename_index.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/rename_index.html %}
 </div>
 
 ## Required privileges

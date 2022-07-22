@@ -84,7 +84,7 @@ Disabled by | `--log-dir=""`<sup>1</sup> | Default
 {{site.data.alerts.end}}
 
 {{site.data.alerts.callout_success}}
-{% include {{ page.version.version }}/ui/ui-log-files.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/ui/ui-log-files.md %}
 {{site.data.alerts.end}}
 
 #### Print to `stderr`
@@ -110,13 +110,13 @@ By default, commands besides `cockroach start` discard messages with the `INFO` 
 
 These logging flags are used with [`cockroach` commands](cockroach-commands.html).
 
-{% include {{ page.version.version }}/misc/logging-flags.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/logging-flags.md %}
 
 ## Redacted logs
 
 If you contact CockroachDB Support for troubleshooting help, you might be asked to run [`cockroach debug zip`](cockroach-debug-zip.html) and share the resulting file with the CockroachDB team. The log files created by `cockroach debug zip` may contain highly sensitive, identifiable information, such as usernames, hashed passwords, and possibly your table's data.
 
-<span class="version-tag">New in v20.2</span> You can run `cockroach debug zip` with the [`redact-logs` flag](cockroach-debug-zip.html#redact-sensitive-information-from-the-logs) to redact the sensitive data out of log files and crash reports before sharing them with Cockroach Labs. Redactable sensitive data includes but is not limited to:
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2</span> You can run `cockroach debug zip` with the [`redact-logs` flag](cockroach-debug-zip.html#redact-sensitive-information-from-the-logs) to redact the sensitive data out of log files and crash reports before sharing them with Cockroach Labs. Redactable sensitive data includes but is not limited to:
 
 - Stored values
 - Text of SQL statements, especially the values embedded therein

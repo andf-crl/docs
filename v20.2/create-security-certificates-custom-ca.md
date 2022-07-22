@@ -132,20 +132,20 @@ File name | File usage
 
 ## Certificate revocation with OCSP
 
-<span class="version-tag">New in v20.2</span> CockroachDB now supports certificate revocation for custom CA certificate setups running an [OCSP](https://en.wikipedia.org/wiki/Online_Certificate_Status_Protocol) server.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2</span> CockroachDB now supports certificate revocation for custom CA certificate setups running an [OCSP](https://en.wikipedia.org/wiki/Online_Certificate_Status_Protocol) server.
 
 To enable certificate revocation:
 
 1. Ensure that your Certificate Authority sets the OCSP server address in the `authorityInfoAccess` field in the certificate.
-2. [Set the cluster setting](set-cluster-setting.html) `security.ocsp.mode` to `lax` (by default, the cluster setting is set to `off`).
+2. [Set the cluster setting](set-cluster-setting.html) `[security.ocsp.mode](cluster-settings.html#setting-security-ocsp-mode)` to `lax` (by default, the cluster setting is set to `off`).
 
       {% include copy-clipboard.html %}
       ~~~ sql
-      > SHOW CLUSTER SETTING security.ocsp.mode;
+      > SHOW CLUSTER SETTING [security.ocsp.mode](cluster-settings.html#setting-security-ocsp-mode);
       ~~~
 
       ~~~
-      security.ocsp.mode
+      [security.ocsp.mode](cluster-settings.html#setting-security-ocsp-mode)
       ----------------------
       off
       (1 row)
@@ -156,13 +156,13 @@ To enable certificate revocation:
 
       {% include copy-clipboard.html %}
       ~~~ sql
-      > SET CLUSTER SETTING security.ocsp.mode = lax;
+      > SET CLUSTER SETTING [security.ocsp.mode](cluster-settings.html#setting-security-ocsp-mode) = lax;
       ~~~
 
       For production clusters, you might want to set the setting to `strict`.
 
       {{site.data.alerts.callout_info}}
-      In the `strict` mode, all certificates are presumed to be invalid if the OCSP server is not reachable. Setting the cluster setting `security.ocsp.mode` to `strict` will lock you out of your CockroachDB database if your OCSP server goes down.
+      In the `strict` mode, all certificates are presumed to be invalid if the OCSP server is not reachable. Setting the cluster setting `[security.ocsp.mode](cluster-settings.html#setting-security-ocsp-mode)` to `strict` will lock you out of your CockroachDB database if your OCSP server goes down.
       {{site.data.alerts.end}}
 
 

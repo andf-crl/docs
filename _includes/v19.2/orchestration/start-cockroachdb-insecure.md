@@ -34,7 +34,7 @@
 
     Alternatively, if you'd rather start with a configuration file that has been customized for performance:
 
-    1. Download our [performance version of `cockroachdb-statefulset-insecure.yaml`](https://github.com/cockroachdb/cockroach/blob/master/cloud/kubernetes/performance/cockroachdb-statefulset-insecure.yaml):
+    1. Download our [performance [version](cluster-settings.html#setting-version) of `cockroachdb-statefulset-insecure.yaml`](https://github.com/cockroachdb/cockroach/blob/master/cloud/kubernetes/performance/cockroachdb-statefulset-insecure.yaml):
 
         {% include copy-clipboard.html %}
         ~~~ shell

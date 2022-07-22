@@ -2,14 +2,14 @@
 
 We’ve partnered with open-source projects, vendors, and individuals to offer the following levels of support with third-party tools.
 
-- **Full support** indicates that the vast majority of the tool's features should work without issue with CockroachDB. CockroachDB is regularly tested against the recommended version documented here.
+- **Full support** indicates that the vast majority of the tool's features should work without issue with CockroachDB. CockroachDB is regularly tested against the recommended [version](cluster-settings.html#setting-version) documented here.
 - **Beta support** indicates that the tool has been tried with CockroachDB, but its integration might require additional steps, lack support for all features, or exhibit unexpected behavior.
 
 If you encounter problems, please [open an issue](https://github.com/cockroachdb/cockroach/issues/new) with details to help us make progress toward better support.
 
 ## Drivers
 
-| Language | Driver | Recommended version | Support level |
+| Language | Driver | Recommended [version](cluster-settings.html#setting-version) | Support level |
 |----------+--------+---------------------+---------------|
 | C | [libpq](http://www.postgresql.org/docs/9.5/static/libpq.html) | [PostgreSQL 9.5](http://www.postgresql.org/docs/9.5/static/libpq.html) | Beta |
 | C++ | [libpqxx](build-a-c++-app-with-cockroachdb.html) | [7.1.1](https://github.com/jtv/libpqxx/releases) (Windows)<br>[4.0.1](https://github.com/jtv/libpqxx/releases) or higher (macOS) | Beta |
@@ -25,24 +25,24 @@ If you encounter problems, please [open an issue](https://github.com/cockroachdb
 
 ## Data access frameworks (e.g., ORMs)
 
-| Language | ORM | Recommended version | Support level |
+| Language | ORM | Recommended [version](cluster-settings.html#setting-version) | Support level |
 |----------+-----+---------------------+---------------|
 | Go | [GORM](build-a-go-app-with-cockroachdb-gorm.html)<hr>[upper/db](build-a-go-app-with-cockroachdb-upperdb.html) | [1.9.11](https://github.com/jinzhu/gorm/releases)<hr>[v4](https://github.com/upper/db/releases) | Full<hr>Full |
-| Java | [Hibernate](build-a-java-app-with-cockroachdb-hibernate.html)<hr>[jOOQ](build-a-java-app-with-cockroachdb-jooq.html)<hr>[MyBatis](build-a-spring-app-with-cockroachdb-mybatis.html) | [5.4.19](https://hibernate.org/orm/releases/)<hr>[3.13.2](https://www.jooq.org/download/versions) (must be 3.13.0 or higher)<hr>[3.5.5 and higher](https://mybatis.org/mybatis-3/) | Full<hr>Full |
+| Java | [Hibernate](build-a-java-app-with-cockroachdb-hibernate.html)<hr>[jOOQ](build-a-java-app-with-cockroachdb-jooq.html)<hr>[MyBatis](build-a-spring-app-with-cockroachdb-mybatis.html) | [5.4.19](https://hibernate.org/orm/releases/)<hr>[3.13.2](https://www.jooq.org/download/[version](cluster-settings.html#setting-version)s) (must be 3.13.0 or higher)<hr>[3.5.5 and higher](https://mybatis.org/mybatis-3/) | Full<hr>Full |
 | Node.js | [Sequelize](build-a-nodejs-app-with-cockroachdb-sequelize.html) | [sequelize 5.21.9](https://www.npmjs.com/package/sequelize)<br>[sequelize-cockroachdb 1.1.0](https://www.npmjs.com/package/sequelize-cockroachdb) | Beta |
-| Ruby | [ActiveRecord](build-a-ruby-app-with-cockroachdb-activerecord.html) | [activerecord 5.2](https://rubygems.org/gems/activerecord/versions)<br>[activerecord-cockroachdb-adpater 5.2.2](https://rubygems.org/gems/activerecord-cockroachdb-adapter/versions)<hr>[activerecord 6.0](https://rubygems.org/gems/activerecord/versions)<br>[activerecord-cockroachdb-adpater 6.0.0beta3](https://rubygems.org/gems/activerecord-cockroachdb-adapter/versions) | Full<br><br><hr>Beta |
+| Ruby | [ActiveRecord](build-a-ruby-app-with-cockroachdb-activerecord.html) | [activerecord 5.2](https://rubygems.org/gems/activerecord/[version](cluster-settings.html#setting-version)s)<br>[activerecord-cockroachdb-adpater 5.2.2](https://rubygems.org/gems/activerecord-cockroachdb-adapter/[version](cluster-settings.html#setting-version)s)<hr>[activerecord 6.0](https://rubygems.org/gems/activerecord/[version](cluster-settings.html#setting-version)s)<br>[activerecord-cockroachdb-adpater 6.0.0beta3](https://rubygems.org/gems/activerecord-cockroachdb-adapter/[version](cluster-settings.html#setting-version)s) | Full<br><br><hr>Beta |
 | Python | [Django](build-a-python-app-with-cockroachdb-django.html)<br><br><hr>[peewee](http://docs.peewee-orm.com/en/latest/peewee/playhouse.html#cockroach-database)<hr>[PonyORM](build-a-python-app-with-cockroachdb-pony.html)<hr>[SQLAlchemy](build-a-python-app-with-cockroachdb-sqlalchemy.html) | [Django 3.0.6](https://pypi.org/project/Django/)<br>[django-cockroachdb 3.0.1](https://pypi.org/project/django-cockroachdb/)<hr>[3.13.3](https://pypi.org/project/peewee/)<hr>[0.7.13](https://pypi.org/project/pony/)<hr>[SQLAlchemy 1.3.17](https://pypi.org/project/SQLAlchemy/)<br>[sqlalchemy-cockroachdb 1.3.0](https://pypi.org/project/sqlalchemy-cockroachdb/) | Full<br><br> <hr>Full<hr>Full<hr>Full |
 | Typescript | [TypeORM](https://typeorm.io/#/) | [0.2.24](https://www.npmjs.com/package/typeorm) | Full |
 
 ## Application frameworks
 
-| Framework | Data access | Recommended version | Support level |
+| Framework | Data access | Recommended [version](cluster-settings.html#setting-version) | Support level |
 |-----------+-------------+---------------------+---------------|
-| Spring | [JDBC](build-a-spring-app-with-cockroachdb-jdbc.html)<hr>[JPA (Hibernate)](build-a-spring-app-with-cockroachdb-jpa.html)<hr>jOOQ<hr>[MyBatis](build-a-spring-app-with-cockroachdb-mybatis.html) | See individual Java ORM or [driver](#drivers) for data access version support. | See individual Java ORM or [driver](#drivers) for data access support level. |
+| Spring | [JDBC](build-a-spring-app-with-cockroachdb-jdbc.html)<hr>[JPA (Hibernate)](build-a-spring-app-with-cockroachdb-jpa.html)<hr>jOOQ<hr>[MyBatis](build-a-spring-app-with-cockroachdb-mybatis.html) | See individual Java ORM or [driver](#drivers) for data access [version](cluster-settings.html#setting-version) support. | See individual Java ORM or [driver](#drivers) for data access support level. |
 
 ## Graphical user interfaces (GUIs)
 
-| GUI | Recommended version | Support level |
+| GUI | Recommended [version](cluster-settings.html#setting-version) | Support level |
 |-----+---------------------+---------------|
 | [Beekeeper Studio](https://beekeeperstudio.io) | [1.6.10 or higher](https://www.beekeeperstudio.io/get) | Full |
 | [DBeaver](https://dbeaver.com/) | [5.2.3 or higher](https://dbeaver.com/download/) | Full |
@@ -55,19 +55,19 @@ If you encounter problems, please [open an issue](https://github.com/cockroachdb
 
 ## Integrated development environments (IDEs)
 
-| IDE | Recommended version | Support level |
+| IDE | Recommended [version](cluster-settings.html#setting-version) | Support level |
 |-----+---------------------+---------------|
 | [DataGrip](https://www.jetbrains.com/datagrip/) | [2021.1 or higher](https://www.jetbrains.com/datagrip/download) | Full |
 | [IntelliJ IDEA](https://www.jetbrains.com/idea/) | [2021.1 or higher](https://www.jetbrains.com/idea/download) | Beta |
 
 ## Schema migration tools
 
-| Tool | Recommended version | Support level |
+| Tool | Recommended [version](cluster-settings.html#setting-version) | Support level |
 |-----+---------------------+---------------|
 | [Flyway](flyway.html) | [6.4.2](https://flywaydb.org/documentation/commandline/#download-and-installation) or higher | Full |
 
 ## Other tools
 
-| Tool | Recommended version | Support level |
+| Tool | Recommended [version](cluster-settings.html#setting-version) | Support level |
 |-----+---------------------+---------------|
 | [Flowable](https://blog.flowable.org/2019/07/11/getting-started-with-flowable-and-cockroachdb/) | [6.4.2](https://github.com/flowable/flowable-engine/releases/tag/flowable-6.4.2) or higher | Full |

@@ -7,16 +7,16 @@ docs_area: reference.sql
 
 The `SHOW JOBS` [statement](sql-statements.html) lists all of the types of long-running tasks your cluster has performed in the last 12 hours, including:
 
-{% include {{ page.version.version }}/sql/schema-changes.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/schema-changes.md %}
 - [`IMPORT`](import.html).
 - Enterprise [`BACKUP`](backup.html) and [`RESTORE`](restore.html).
 - [Scheduled backups](manage-a-backup-schedule.html).
 - [User-created table statistics](create-statistics.html) created for use by the [cost-based optimizer](cost-based-optimizer.html). To view [automatic table statistics](cost-based-optimizer.html#table-statistics), use [`SHOW AUTOMATIC JOBS`](#show-automatic-jobs).
-- {% include_cached new-in.html version="v21.2" %} `SHOW JOBS` now displays newly added columns from `crdb_internal.jobs` (`last_run`, `next_run`, `num_runs`, and `execution_errors`). The columns capture state related to retries, failures, and exponential backoff.
+- {% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.2" %} `SHOW JOBS` now displays newly added columns from `crdb_internal.jobs` (`last_run`, `next_run`, `num_runs`, and `execution_errors`). The columns capture state related to retries, failures, and exponential backoff.
 
     These details can help you understand the status of crucial tasks that can impact the performance of your cluster, as well as help you control them.
 
-{% include_cached new-in.html version="v21.2" %} Details for [enterprise changefeeds](create-changefeed.html), including the [sink URI](create-changefeed.html#sink-uri) and full table name, are not displayed on running the `SHOW JOBS` statement. For details about [enterprise changefeeds](create-changefeed.html), including the [sink URI](create-changefeed.html#sink-uri) and the full table name, use [`SHOW CHANGEFEED JOBS`](#show-changefeed-jobs).
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.2" %} Details for [enterprise changefeeds](create-changefeed.html), including the [sink URI](create-changefeed.html#sink-uri) and full table name, are not displayed on running the `SHOW JOBS` statement. For details about [enterprise changefeeds](create-changefeed.html), including the [sink URI](create-changefeed.html#sink-uri) and the full table name, use [`SHOW CHANGEFEED JOBS`](#show-changefeed-jobs).
 
 To block a call to `SHOW JOBS` that returns after all specified job ID(s) have a terminal state, use [`SHOW JOBS WHEN COMPLETE`](#show-job-when-complete). The statement will return a row per job ID, which provides details of the job execution. Note that while this statement is blocking, it will time out after 24 hours.
 
@@ -24,10 +24,10 @@ To block a call to `SHOW JOBS` that returns after all specified job ID(s) have a
 
 - The `SHOW JOBS` statement shows only long-running tasks.
 - For jobs older than 12 hours, query the `crdb_internal.jobs` table.
-- Jobs are deleted after 14 days. This interval can be changed via the `jobs.retention_time` [cluster setting](cluster-settings.html).
+- Jobs are deleted after 14 days. This interval can be changed via the `[jobs.retention_time](cluster-settings.html#setting-jobs-retention_time)` [cluster setting](cluster-settings.html).
 - While the `SHOW JOBS WHEN COMPLETE` statement is blocking, it will time out after 24 hours.
 - Garbage collection jobs are created for [dropped tables](drop-table.html) and [dropped indexes](drop-index.html), and will execute after the [GC TTL](configure-replication-zones.html#replication-zone-variables) has elapsed (default is 25 hours). These jobs cannot be canceled.
-- {% include_cached new-in.html version="v21.2" %} CockroachDB automatically retries jobs that fail due to [retry errors](transaction-retry-error-reference.html) or job coordination failures, with [exponential backoff](https://en.wikipedia.org/wiki/Exponential_backoff). The `jobs.registry.retry.initial_delay` [cluster setting](cluster-settings.html) sets the initial delay between retries and `jobs.registry.retry.max_delay` sets the maximum delay.
+- {% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.2" %} CockroachDB automatically retries jobs that fail due to [retry errors](transaction-retry-error-reference.html) or job coordination failures, with [exponential backoff](https://en.wikipedia.org/wiki/Exponential_backoff). The `jobs.registry.retry.initial_delay` [cluster setting](cluster-settings.html) sets the initial delay between retries and `jobs.registry.retry.max_delay` sets the maximum delay.
 
 ## Required privileges
 
@@ -36,7 +36,7 @@ By default, only the `root` user can execute `SHOW JOBS`.
 ## Synopsis
 
 <div>
-{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.version.version | replace: "v", "" }}/grammar_svg/show_jobs.html %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/grammar_svg/show_jobs.html %}
 </div>
 
 ## Parameters
@@ -143,7 +143,7 @@ You can filter jobs by using `SHOW AUTOMATIC JOBS` as the data source for a [`SE
 
 ### Show changefeed jobs
 
-{% include_cached new-in.html version="v21.2" %} You can display specific fields relating to changefeed jobs by running `SHOW CHANGEFEED JOBS`. These fields include:
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.2" %} You can display specific fields relating to changefeed jobs by running `SHOW CHANGEFEED JOBS`. These fields include:
 
 * [`high_water_timestamp`](monitor-and-debug-changefeeds.html#monitor-a-changefeed): Guarantees all changes before or at this time have been emitted.
 * [`sink_uri`](create-changefeed.html#sink-uri): The destination URI of the configured sink for a changefeed.

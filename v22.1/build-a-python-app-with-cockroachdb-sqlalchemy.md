@@ -18,7 +18,7 @@ This tutorial shows you how build a simple CRUD Python application with Cockroac
 
 ## Step 1. Start CockroachDB
 
-{% include {{ page.version.version }}/setup/sample-setup-certs.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/setup/sample-setup-certs.md %}
 
 ## Step 2. Get the code
 
@@ -101,7 +101,7 @@ This tutorial uses [`virtualenv`](https://virtualenv.pypa.io) for dependency man
 
 ## Step 4. Initialize the database
 
-{% include {{ page.version.version }}/setup/init-bank-sample.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/setup/init-bank-sample.md %}
 
 ## Step 5. Run the code
 
@@ -185,12 +185,12 @@ In keeping with the above recommendations from the official docs, we **strongly 
 
 ### Break up large transactions into smaller units of work
 
-If you see an error message like `transaction is too large to complete; try splitting into pieces`, you are trying to commit too much data in a single transaction. As described in our [Cluster Settings](cluster-settings.html) docs, the size limit for transactions is defined by the `kv.transaction.max_intents_bytes` setting, which defaults to 256 KiB. Although this setting can be changed by an admin, we strongly recommend against it in most cases.
+If you see an error message like `transaction is too large to complete; try splitting into pieces`, you are trying to commit too much data in a single transaction. As described in our [Cluster Settings](cluster-settings.html) docs, the size limit for transactions is defined by the `[kv.transaction.max_intents_bytes](cluster-settings.html#setting-kv-transaction-max_intents_bytes)` setting, which defaults to 256 KiB. Although this setting can be changed by an admin, we strongly recommend against it in most cases.
 
 Instead, we recommend breaking your transaction into smaller units of work (or "chunks"). A pattern that works for inserting large numbers of objects using `run_transaction` to handle retries automatically for you is shown below.
 
 ~~~ python
-{% include {{page.version.version}}/app/python/sqlalchemy/sqlalchemy-large-txns.py %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/python/sqlalchemy/sqlalchemy-large-txns.py %}
 ~~~
 
 ### Use `IMPORT` to read in large data sets
@@ -217,7 +217,7 @@ SQLAlchemy relies on the existence of [foreign keys](foreign-key.html) to genera
 - The [SQLAlchemy](https://docs.sqlalchemy.org/en/latest/) docs
 - [Transactions](transactions.html)
 
-{% include {{page.version.version}}/app/see-also-links.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/see-also-links.md %}
 
 <!-- Reference Links -->
 

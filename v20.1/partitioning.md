@@ -22,7 +22,7 @@ Table partitioning helps you reduce latency and cost:
 Table partitioning involves a combination of CockroachDB features:
 
 - [Node Attributes](#node-attributes)
-- [Enterprise License](#enterprise-license)
+- [Enterprise License](#[enterprise.license](cluster-settings.html#setting-enterprise-license))
 - [Table Creation](#table-creation)
 - [Replication Zones](#replication-zones)
 
@@ -38,7 +38,7 @@ For more details about these flags, see the [`cockroach start`](cockroach-start.
 
 ### Enterprise license
 
-You must have a valid enterprise license to use table partitioning features. For details about requesting and setting a trial or full enterprise license, see [Enterprise Licensing](enterprise-licensing.html).
+You must have a valid [enterprise.license](cluster-settings.html#setting-enterprise-license) to use table partitioning features. For details about requesting and setting a trial or full [enterprise.license](cluster-settings.html#setting-enterprise-license), see [Enterprise Licensing](enterprise-licensing.html).
 
 Note that the following features do not work with an **expired license**:
 
@@ -46,7 +46,7 @@ Note that the following features do not work with an **expired license**:
 - Changing the partitioning scheme on any table or index
 - Changing the zone config for a partition
 
-However, the following features continue to work even with an expired enterprise license:
+However, the following features continue to work even with an expired [enterprise.license](cluster-settings.html#setting-enterprise-license):
 
 - Querying a partitioned table (for example, `SELECT foo PARTITION`)
 - Inserting or updating data in a partitioned table
@@ -113,7 +113,7 @@ To ensure uniqueness or fast lookups, create a [secondary index](indexes.html) o
 
 Indexes are not required to be partitioned, but creating a non-partitioned index on a partitioned table may not perform well.
 
-<span class="version-tag">New in v20.1:</span> When you create a non-partitioned index on a partitioned table, CockroachDB sends a [`NOTICE` message](https://www.postgresql.org/docs/current/plpgsql-errors-and-messages.html) to the client stating that creating a non-partitioned index on a partitioned table may not perform well.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> When you create a non-partitioned index on a partitioned table, CockroachDB sends a [`NOTICE` message](https://www.postgresql.org/docs/current/plpgsql-errors-and-messages.html) to the client stating that creating a non-partitioned index on a partitioned table may not perform well.
 
 #### Define partitions on interleaved tables
 
@@ -126,7 +126,7 @@ On their own, partitions are inert and simply apply a label to the rows of the t
 CockroachDB uses the most granular zone config available. Zone configs that target a partition are considered more granular than those that target a table or index, which in turn are considered more granular than those that target a database.
 
 
-{% include {{page.version.version}}/sql/querying-partitions.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/querying-partitions.md %}
 
 ## Examples
 
@@ -277,7 +277,7 @@ We want to geo-partition the table to keep the students' data closer to their lo
     ~~~
 
 
-#### Step 3. Request and set a trial enterprise license
+#### Step 3. Request and set a trial [enterprise.license](cluster-settings.html#setting-enterprise-license)
 
 See [Set the Trial or Enterprise License Key](licensing-faqs.html#set-a-license).
 
@@ -446,7 +446,7 @@ To retrieve table partitions, you can use the [`SHOW PARTITIONS`](show-partition
 
 You can also view partitions by [database](show-partitions.html#show-partitions-by-database) and [index](show-partitions.html#show-partitions-by-index).
 
-{% include {{page.version.version}}/sql/crdb-internal-partitions.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/crdb-internal-partitions.md %}
 
 ### Define table partitions by range
 
@@ -456,9 +456,9 @@ Suppose we want to store the data of current students on fast and expensive stor
 
 We want to archival-partition the table to keep newer data on faster devices and older data on slower devices. We can achieve this by partitioning the table by date and using the `PARTITION BY RANGE` syntax.
 
-#### Step 2. Set the enterprise license
+#### Step 2. Set the [enterprise.license](cluster-settings.html#setting-enterprise-license)
 
-To set the enterprise license, see [Set the Trial or Enterprise License Key](licensing-faqs.html#set-a-license).
+To set the [enterprise.license](cluster-settings.html#setting-enterprise-license), see [Set the Trial or Enterprise License Key](licensing-faqs.html#set-a-license).
 
 #### Step 3. Start each node with the appropriate storage device specified in the `--store` flag
 
@@ -591,9 +591,9 @@ Initialize the cluster:
 $ cockroach init --insecure --host=<address of any node>
 ~~~
 
-#### Step 3. Set the enterprise license
+#### Step 3. Set the [enterprise.license](cluster-settings.html#setting-enterprise-license)
 
-To set the enterprise license, see [Set the Trial or Enterprise License Key](licensing-faqs.html#set-a-license).
+To set the [enterprise.license](cluster-settings.html#setting-enterprise-license), see [Set the Trial or Enterprise License Key](licensing-faqs.html#set-a-license).
 
 #### Step 4. Create a table with the appropriate partitions
 
@@ -716,7 +716,7 @@ Other databases use partitioning for three additional use cases: secondary index
 
 ## Known limitations
 
-- {% include {{ page.version.version }}/known-limitations/partitioning-with-placeholders.md %}
+- {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/partitioning-with-placeholders.md %}
 
 - CockroachDB does not support partitioning [inverted indexes](inverted-indexes.html). See [tracking issue](https://github.com/cockroachdb/cockroach/issues/43643).
 

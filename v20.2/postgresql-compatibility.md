@@ -16,7 +16,7 @@ This document currently only covers unsupported SQL and how to rewrite SQL expre
 
 ## Unsupported Features
 
-{% include {{page.version.version}}/sql/unsupported-postgres-features.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/unsupported-postgres-features.md %}
 
 ## Features that differ from PostgreSQL
 

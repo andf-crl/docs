@@ -4,7 +4,7 @@ summary: Learn about newly identified limitations in CockroachDB as well as unre
 toc: true
 ---
 
-This page describes newly identified limitations in the CockroachDB {{page.release_info.version}} release as well as unresolved limitations identified in earlier releases.
+This page describes newly identified limitations in the CockroachDB {{page.release_info.[version](cluster-settings.html#setting-version)}} release as well as unresolved limitations identified in earlier releases.
 
 ## New limitations
 
@@ -60,7 +60,7 @@ As a workaround, pass the correct date into the query as a parameter to a prepar
 
 ### Adding stores to a node
 
-{% include {{ page.version.version }}/known-limitations/adding-stores-to-node.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/adding-stores-to-node.md %}
 
 ### Cold starts of large clusters may require manual intervention
 
@@ -82,11 +82,11 @@ Once in a stable state, the risk of this issue recurring can be mitigated by inc
 
 When a node is offline, the [Raft logs](architecture/replication-layer.html#raft-logs) for the ranges on the node get truncated. When the node comes back online, it therefore often needs [Raft snapshots](architecture/replication-layer.html#snapshots) to get many of its ranges back up-to-date. While in this state, requests to a range will hang until its snapshot has been applied, which can take a long time.  
 
-To work around this limitation, you can adjust the `kv.snapshot_recovery.max_rate` [cluster setting](cluster-settings.html) to temporarily relax the throughput rate limiting applied to snapshots. For example, changing the rate limiting from the default 8 MB/s, at which 1 GB of snapshots takes at least 2 minutes, to 64 MB/s can result in an 8x speedup in snapshot transfers and, therefore, a much shorter interruption of requests to an impacted node:
+To work around this limitation, you can adjust the `[kv.snapshot_recovery.max_rate](cluster-settings.html#setting-kv-snapshot_recovery-max_rate)` [cluster setting](cluster-settings.html) to temporarily relax the throughput rate limiting applied to snapshots. For example, changing the rate limiting from the default 8 MB/s, at which 1 GB of snapshots takes at least 2 minutes, to 64 MB/s can result in an 8x speedup in snapshot transfers and, therefore, a much shorter interruption of requests to an impacted node:
 
 {% include copy-clipboard.html %}
 ~~~ sql
-> SET CLUSTER SETTING kv.snapshot_recovery.max_rate = '64mb';
+> SET CLUSTER SETTING [kv.snapshot_recovery.max_rate](cluster-settings.html#setting-kv-snapshot_recovery-max_rate) = '64mb';
 ~~~
 
 Before increasing this value, however, verify that you will not end up saturating your network interfaces, and once the problem has resolved, be sure to reset to the original value.
@@ -115,7 +115,7 @@ Specifically, when run inside a [`BEGIN`](begin-transaction.html) ... [`COMMIT`]
 
 Change data capture (CDC) provides efficient, distributed, row-level change feeds into Apache Kafka for downstream processing such as reporting, caching, or full-text indexing.
 
-{% include {{ page.version.version }}/known-limitations/cdc.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/cdc.md %}
 
 ### Admin UI may become inaccessible for secure clusters
 
@@ -221,11 +221,11 @@ As a workaround, set `default_int_size` via your database driver, or ensure that
 
 [Tracking GitHub Issue](https://github.com/cockroachdb/cockroach/issues/32846)
 
-### Conversion of integers to date/time values
+### Con[version](cluster-settings.html#setting-version) of integers to date/time values
 
 CockroachDB supports an experimental extension to the SQL standard where an integer value can be converted to a `DATE`/`TIME`/`TIMESTAMP` value, taking the number as a number of seconds since the Unix epoch.
 
-This conversion is currently only well defined for a small range of integers, i.e., large absolute values are not properly converted. For example, `(-9223372036854775808):::int64::date` converts to `1970-01-01 00:00:00+00:00`.
+This con[version](cluster-settings.html#setting-version) is currently only well defined for a small range of integers, i.e., large absolute values are not properly converted. For example, `(-9223372036854775808):::int64::date` converts to `1970-01-01 00:00:00+00:00`.
 
 [Tracking GitHub Issue](https://github.com/cockroachdb/cockroach/issues/20136)
 
@@ -237,34 +237,34 @@ Currently, the built-in SQL shell provided with CockroachDB (`cockroach sql` / `
 
 ### Dumping a table with no user-visible columns
 
-{% include {{page.version.version}}/known-limitations/dump-table-with-no-columns.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/known-limitations/dump-table-with-no-columns.md %}
 
 ### Importing an interleaved table from a `cockroach dump` output
 
-{% include {{page.version.version}}/known-limitations/import-interleaved-table.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/known-limitations/import-interleaved-table.md %}
 
 ### Import with a high amount of disk contention
 
-[`IMPORT`](import.html) can sometimes fail with a "context canceled" error, or can restart itself many times without ever finishing. If this is happening, it is likely due to a high amount of disk contention. This can be mitigated by setting the `kv.bulk_io_write.max_rate` [cluster setting](cluster-settings.html) to a value below your max disk write speed. For example, to set it to 10MB/s, execute:
+[`IMPORT`](import.html) can sometimes fail with a "context canceled" error, or can restart itself many times without ever finishing. If this is happening, it is likely due to a high amount of disk contention. This can be mitigated by setting the `[kv.bulk_io_write.max_rate](cluster-settings.html#setting-kv-bulk_io_write-max_rate)` [cluster setting](cluster-settings.html) to a value below your max disk write speed. For example, to set it to 10MB/s, execute:
 
 {% include copy-clipboard.html %}
 ~~~ sql
-> SET CLUSTER SETTING kv.bulk_io_write.max_rate = '10MB';
+> SET CLUSTER SETTING [kv.bulk_io_write.max_rate](cluster-settings.html#setting-kv-bulk_io_write-max_rate) = '10MB';
 ~~~
 
 ### Referring to a CTE by name more than once
 
-{% include {{ page.version.version }}/known-limitations/cte-by-name.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/cte-by-name.md %}
 
 [Tracking GitHub Issue](https://github.com/cockroachdb/cockroach/issues/31095)
 
 ### Assigning latitude/longitude for the Node Map
 
-{% include {{ page.version.version }}/known-limitations/node-map.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/node-map.md %}
 
 ### Placeholders in `PARTITION BY`
 
-{% include {{ page.version.version }}/known-limitations/partitioning-with-placeholders.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/partitioning-with-placeholders.md %}
 
 ### Adding a column with sequence-based `DEFAULT` values
 
@@ -299,19 +299,19 @@ SQLSTATE: 0A000
 
 ### Available capacity metric in the Admin UI
 
-{% include {{ page.version.version }}/misc/available-capacity-metric.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/available-capacity-metric.md %}
 
 ### Schema changes within transactions
 
-{% include {{ page.version.version }}/known-limitations/schema-changes-within-transactions.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/schema-changes-within-transactions.md %}
 
 ### Schema change DDL statements inside a multi-statement transaction can fail while other statements succeed
 
-{% include {{ page.version.version }}/known-limitations/schema-change-ddl-inside-multi-statement-transactions.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/schema-change-ddl-inside-multi-statement-transactions.md %}
 
 ### Schema changes between executions of prepared statements
 
-{% include {{ page.version.version }}/known-limitations/schema-changes-between-prepared-statements.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/schema-changes-between-prepared-statements.md %}
 
 ### `INSERT ON CONFLICT` vs. `UPSERT`
 
@@ -413,4 +413,4 @@ Every [`DELETE`](delete.html) or [`UPDATE`](update.html) statement constructs a 
 
 {{site.data.alerts.callout_info}}Resolved as of <a href="../releases/v2.1.0-alpha.20180507.html">v2.1.0-alpha.20180507</a>. See <a href="https://github.com/cockroachdb/cockroach/pull/24716">#24716</a>.{{site.data.alerts.end}}
 
-{% include {{ page.version.version }}/known-limitations/dump-cyclic-foreign-keys.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/dump-cyclic-foreign-keys.md %}

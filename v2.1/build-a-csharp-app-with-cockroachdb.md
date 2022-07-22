@@ -11,7 +11,7 @@ We have tested the [.NET Npgsql driver](http://www.npgsql.org/) enough to claim 
 
 ## Before you begin
 
-{% include {{page.version.version}}/app/before-you-begin.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/before-you-begin.md %}
 
 ## Step 1. Create a .NET project
 
@@ -29,7 +29,7 @@ The `dotnet` command creates a new app of type `console`. The `-o` parameter cre
 
 ## Step 2. Install the Npgsql driver
 
-Install the latest version of the [Npgsql driver](https://www.nuget.org/packages/Npgsql/) into the .NET project using the built-in nuget package manager:
+Install the latest [version](cluster-settings.html#setting-version) of the [Npgsql driver](https://www.nuget.org/packages/Npgsql/) into the .NET project using the built-in nuget package manager:
 
 {% include copy-clipboard.html %}
 ~~~ shell
@@ -40,7 +40,7 @@ $ dotnet add package Npgsql
 
 ## Step 3. Create the `maxroach` user and `bank` database
 
-{% include {{page.version.version}}/app/create-maxroach-user-and-bank-database.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/create-maxroach-user-and-bank-database.md %}
 
 ## Step 4. Generate a certificate for the `maxroach` user
 
@@ -77,7 +77,7 @@ Replace the contents of `cockroachdb-test-app/Program.cs` with the following cod
 
 {% include copy-clipboard.html %}
 ~~~ csharp
-{% include {{ page.version.version }}/app/basic-sample.cs %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/app/basic-sample.cs %}
 ~~~
 
 Then, run the code to again connect as the `maxroach` user.  This time, execute a batch of statements as an atomic transaction to transfer funds from one account to another, where all included statements are either committed or aborted:
@@ -99,11 +99,11 @@ Initial balances:
 
 Open `cockroachdb-test-app/Program.cs` again and replace the contents with the code shown below.
 
-{% include {{page.version.version}}/client-transaction-retry.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/client-transaction-retry.md %}
 
 {% include copy-clipboard.html %}
 ~~~ csharp
-{% include {{ page.version.version }}/app/txn-sample.cs %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/app/txn-sample.cs %}
 ~~~
 
 Then, run the code to connect as the `maxroach` user.  This time, execute a batch of statements as an atomic transaction to transfer funds from one account to another, where all included statements are either committed or aborted:
@@ -145,7 +145,7 @@ $ cockroach sql --certs-dir=certs --database=bank -e 'SELECT id, balance FROM ac
 
 ## Step 3. Create the `maxroach` user and `bank` database
 
-{% include {{page.version.version}}/app/insecure/create-maxroach-user-and-bank-database.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/insecure/create-maxroach-user-and-bank-database.md %}
 
 ## Step 4. Run the C# code
 
@@ -162,7 +162,7 @@ Replace the contents of `cockroachdb-test-app/Program.cs` with the following cod
 
 {% include copy-clipboard.html %}
 ~~~ csharp
-{% include {{ page.version.version }}/app/insecure/basic-sample.cs %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/app/insecure/basic-sample.cs %}
 ~~~
 
 Then, run the code to connect as the `maxroach` user and execute some basic SQL statements: creating a table, inserting rows, and reading and printing the rows.
@@ -186,11 +186,11 @@ Initial balances:
 
 Open `cockroachdb-test-app/Program.cs` again and replace the contents with the code shown below.
 
-{% include {{page.version.version}}/client-transaction-retry.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/client-transaction-retry.md %}
 
 {% include copy-clipboard.html %}
 ~~~ csharp
-{% include {{ page.version.version }}/app/insecure/txn-sample.cs %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/app/insecure/txn-sample.cs %}
 ~~~
 
 Then, run the code to connect as the `maxroach` user.  This time, execute a batch of statements as an atomic transaction to transfer funds from one account to another, where all included statements are either committed or aborted:
@@ -232,4 +232,4 @@ $ cockroach sql --insecure  --database=bank -e 'SELECT id, balance FROM accounts
 
 Read more about using the [.NET Npgsql driver](http://www.npgsql.org/).
 
-{% include {{ page.version.version }}/app/see-also-links.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/app/see-also-links.md %}

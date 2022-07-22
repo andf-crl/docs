@@ -25,7 +25,7 @@ The user must have the `INSERT` and `UPDATE` [privileges](privileges.html) on th
 
 ## Synopsis
 
-<section>{% include {{ page.version.version }}/sql/diagrams/create_user.html %}</section>
+<section>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/create_user.html %}</section>
 
 ## Parameters
 
@@ -38,7 +38,7 @@ table td:first-child {
 | Parameter | Description |
 |-----------|-------------|
 |`user_name` | The name of the user you want to create.<br><br>Usernames are case-insensitive; must start with either a letter or underscore; must contain only letters, numbers, or underscores; and must be between 1 and 63 characters.|
-|`password` | Let the user [authenticate their access to a secure cluster](#user-authentication) using this password. Passwords must be entered as [string](string.html) values surrounded by single quotes (`'`).<br><br><span class="version-tag">Changed in v2.0:</span> Password creation is supported only in secure clusters for non-`root` users. The `root` user must authenticate with a client certificate and key.|
+|`password` | Let the user [authenticate their access to a secure cluster](#user-authentication) using this password. Passwords must be entered as [string](string.html) values surrounded by single quotes (`'`).<br><br><span class="[version](cluster-settings.html#setting-version)-tag">Changed in v2.0:</span> Password creation is supported only in secure clusters for non-`root` users. The `root` user must authenticate with a client certificate and key.|
 
 ## User Authentication
 
@@ -50,7 +50,7 @@ Secure clusters require users to authenticate their access to databases and tabl
 
     Users can use passwords to authenticate without supplying client certificates and keys; however, we recommend using certificate-based authentication whenever possible.
 
-    <span class="version-tag">Changed in v2.0:</span> Password creation is supported only in secure clusters.
+    <span class="[version](cluster-settings.html#setting-version)-tag">Changed in v2.0:</span> Password creation is supported only in secure clusters.
 
 ## Examples
 
@@ -73,7 +73,7 @@ After creating users, you must:
 > CREATE USER jpointsman WITH PASSWORD 'Q7gc8rEdS';
 ~~~
 
-<span class="version-tag">Changed in v2.0:</span> Password creation is supported only in secure clusters for non-`root` users. The `root` user must authenticate with a client certificate and key.
+<span class="[version](cluster-settings.html#setting-version)-tag">Changed in v2.0:</span> Password creation is supported only in secure clusters for non-`root` users. The `root` user must authenticate with a client certificate and key.
 
 ### Manage Users
 

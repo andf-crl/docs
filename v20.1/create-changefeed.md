@@ -5,7 +5,7 @@ toc: true
 ---
 
 {{site.data.alerts.callout_info}}
-`CREATE CHANGEFEED` is an [enterprise-only](enterprise-licensing.html) feature. For the core version, see [`EXPERIMENTAL CHANGEFEED FOR`](changefeed-for.html).
+`CREATE CHANGEFEED` is an [enterprise-only](enterprise-licensing.html) feature. For the core [version](cluster-settings.html#setting-version), see [`EXPERIMENTAL CHANGEFEED FOR`](changefeed-for.html).
 {{site.data.alerts.end}}
 
 The `CREATE CHANGEFEED` [statement](sql-statements.html) creates a new enterprise changefeed, which targets an allowlist of tables, called "watched rows".  Every change to a watched row is emitted as a record in a configurable format (`JSON` or Avro) to a configurable sink ([Kafka](https://kafka.apache.org/) or a [cloud storage sink](#cloud-storage-sink)). You can [create](#create-a-changefeed-connected-to-kafka), [pause](#pause-a-changefeed), [resume](#resume-a-paused-changefeed), or [cancel](#cancel-a-changefeed) an enterprise changefeed.
@@ -18,12 +18,12 @@ Changefeeds can only be created by superusers, i.e., [members of the `admin` rol
 
 ## Considerations
 
-- In most cases, each version of a row will be emitted once. However, some infrequent conditions (e.g., node failures, network partitions) will cause them to be repeated. This gives our changefeeds an at-least-once delivery guarantee. For more information, see [Change Data Capture - Ordering Guarantees](change-data-capture.html#ordering-guarantees).
+- In most cases, each [version](cluster-settings.html#setting-version) of a row will be emitted once. However, some infrequent conditions (e.g., node failures, network partitions) will cause them to be repeated. This gives our changefeeds an at-least-once delivery guarantee. For more information, see [Change Data Capture - Ordering Guarantees](change-data-capture.html#ordering-guarantees).
 
 ## Synopsis
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/create_changefeed.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/create_changefeed.html %}
 </div>
 
 ## Parameters
@@ -74,11 +74,11 @@ Any of the cloud storages below can be used as a sink:
 The `scheme` for a cloud storage sink should be prepended with `experimental-`.
 {{site.data.alerts.end}}
 
-{% include {{ page.version.version }}/cdc/external-urls.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/cdc/external-urls.md %}
 
 #### Query parameters
 
-{% include {{ page.version.version }}/cdc/url-encoding.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/cdc/url-encoding.md %}
 
 Query parameters include:
 
@@ -105,15 +105,15 @@ Option | Value | Description
 `format` | `json` / `experimental_avro` | Format of the emitted record. Currently, support for [Avro is limited and experimental](#avro-limitations). For mappings of CockroachDB types to Avro types, [see the table below](#avro-types). <br><br>Default: `format=json`.
 `confluent_schema_registry` | Schema Registry address | The [Schema Registry](https://docs.confluent.io/current/schema-registry/docs/index.html#sr) address is required to use `experimental_avro`.
 `key_in_value` | N/A | Make the [primary key](primary-key.html) of a deleted row recoverable in sinks where each message has a value but not a key (most have a key and value in each message). `key_in_value` is automatically used for these sinks (currently only [cloud storage sinks](#cloud-storage-sink)).
-`diff` | N/A | <span class="version-tag">New in v20.1:</span> Publish a `before` field with each message, which includes the value of the row before the update was applied.
-`compression` | `gzip` | <span class="version-tag">New in v20.1:</span> Compress changefeed data files written to a [cloud storage sink](#cloud-storage-sink). Currently, only [Gzip](https://www.gnu.org/software/gzip/) is supported for compression.
-`protect_data_from_gc_on_pause` | N/A | <span class="version-tag">New in v20.1:</span> When a [changefeed is paused](pause-job.html), ensure that the data needed to [resume the changefeed](resume-job.html) is not garbage collected.<br><br>Note: If you use this option, changefeeds left paused can prevent garbage collection for long periods of time.
-`schema_change_events` | `default` / `column_changes` | <span class="version-tag">New in v20.1:</span> The type of schema change event that triggers the behavior specified by the `schema_change_policy` option:<ul><li>`default`: Include all [`ADD COLUMN`](add-column.html) events for columns that have a non-`NULL` [`DEFAULT` value](default-value.html) or are [computed](computed-columns.html), and all [`DROP COLUMN`](drop-column.html) events.</li><li>`column_changes`: Include all schema change events that add or remove any column.</li></ul><br>Default: `schema_change_events=default`
+`diff` | N/A | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> Publish a `before` field with each message, which includes the value of the row before the update was applied.
+`compression` | `gzip` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> Compress changefeed data files written to a [cloud storage sink](#cloud-storage-sink). Currently, only [Gzip](https://www.gnu.org/software/gzip/) is supported for compression.
+`protect_data_from_gc_on_pause` | N/A | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> When a [changefeed is paused](pause-job.html), ensure that the data needed to [resume the changefeed](resume-job.html) is not garbage collected.<br><br>Note: If you use this option, changefeeds left paused can prevent garbage collection for long periods of time.
+`schema_change_events` | `default` / `column_changes` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> The type of schema change event that triggers the behavior specified by the `schema_change_policy` option:<ul><li>`default`: Include all [`ADD COLUMN`](add-column.html) events for columns that have a non-`NULL` [`DEFAULT` value](default-value.html) or are [computed](computed-columns.html), and all [`DROP COLUMN`](drop-column.html) events.</li><li>`column_changes`: Include all schema change events that add or remove any column.</li></ul><br>Default: `schema_change_events=default`
 <a name="schema-policy"></a>`schema_change_policy` | `backfill` / `nobackfill` / `stop` |  The behavior to take when an event specified by the `schema_change_events` option occurs:<ul><li>`backfill`: When [schema changes with column backfill](change-data-capture.html#schema-changes-with-column-backfill) are finished, output all watched rows using the new schema.</li><li>`nobackfill`: For [schema changes with column backfill](change-data-capture.html#schema-changes-with-column-backfill), perform no logical backfills. The changefeed will still emit any duplicate records for the table being altered, but will not emit the new schema records.</li><li>`stop`: [schema changes with column backfill](change-data-capture.html#schema-changes-with-column-backfill), wait for all data preceding the schema change to be resolved before exiting with an error indicating the timestamp at which the schema change occurred. An `error: schema change occurred at <timestamp>` will display in the `cockroach.log` file.</li></ul><br>Default: `schema_change_policy=backfill`
-`initial_scan` / `no_initial_scan` | N/A | <span class="version-tag">New in v20.1:</span> Control whether or not an initial scan will occur at the start time of a changefeed. `initial_scan` and `no_initial_scan` cannot be used simultaneously. If neither `initial_scan` nor `no_initial_scan` is specified, an initial scan will occur if there is no `cursor`, and will not occur if there is one. This preserves the behavior from previous releases.<br><br>Default: `initial_scan` <br>If used in conjunction with `cursor`, an initial scan will be performed at the cursor timestamp. If no `cursor` is specified, the initial scan is performed at `now()`.
+`initial_scan` / `no_initial_scan` | N/A | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> Control whether or not an initial scan will occur at the start time of a changefeed. `initial_scan` and `no_initial_scan` cannot be used simultaneously. If neither `initial_scan` nor `no_initial_scan` is specified, an initial scan will occur if there is no `cursor`, and will not occur if there is one. This preserves the behavior from previous releases.<br><br>Default: `initial_scan` <br>If used in conjunction with `cursor`, an initial scan will be performed at the cursor timestamp. If no `cursor` is specified, the initial scan is performed at `now()`.
 
 {{site.data.alerts.callout_info}}
-<span class="version-tag">New in v20.1:</span> Using the `format=experimental_avro`, `envelope=key_only`, and `updated` options together is rejected. `envelope=key_only` prevents any rows with updated fields from being emitted, which makes the `updated` option meaningless.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> Using the `format=experimental_avro`, `envelope=key_only`, and `updated` options together is rejected. `envelope=key_only` prevents any rows with updated fields from being emitted, which makes the `updated` option meaningless.
 {{site.data.alerts.end}}
 
 #### Avro limitations

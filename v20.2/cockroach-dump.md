@@ -62,7 +62,7 @@ Dump just the data of all tables in a database to stdout:
 $ cockroach dump <database> --dump-mode=data <other flags>
 ~~~
 
-<span class="version-tag">New in v20.2:</span> Dump all non-system databases:
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> Dump all non-system databases:
 
 ~~~ shell
 $ cockroach dump --dump-all
@@ -89,13 +89,13 @@ The `dump` command supports the following [general-use](#general) and [logging](
 Flag | Description
 -----|------------
 `--as-of` | Dump table schema and/or data as they appear at the specified [timestamp](timestamp.html). See this [example](#dump-table-data-as-of-a-specific-time) for a demonstration.<br><br>Note that historical data is available only within the garbage collection window, which is determined by the [`ttlseconds`](configure-replication-zones.html) replication setting for the table (25 hours by default). If this timestamp is earlier than that window, the dump will fail.<br><br>**Default:** Current time
-`--dump-all` | <span class="version-tag">New in v20.2:</span> [Dump all non-system databases](#dump-all-databases), their table schemas, and data.
+`--dump-all` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> [Dump all non-system databases](#dump-all-databases), their table schemas, and data.
 `--dump-mode` | Whether to dump table and view schemas, table data, or both.<br><br>To dump just table and view schemas, set this to `schema`. To dump just table data, set this to `data`. To dump both table and view schemas and table data, leave this flag out or set it to `both`.<br><br>Table and view schemas are dumped in the order in which they can successfully be recreated. For example, if a database includes a table, a second table with a foreign key dependency on the first, and a view that depends on the second table, the dump will list the schema for the first table, then the schema for the second table, and then the schema for the view.<br><br>**Default:** `both`
 `--echo-sql` | Reveal the SQL statements sent implicitly by the command-line utility.
 
 ### Client connection
 
-{% include {{ page.version.version }}/sql/connection-parameters.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/connection-parameters.md %}
 
 See [Client Connection Parameters](connection-parameters.html) for more details.
 
@@ -266,7 +266,7 @@ INSERT INTO quotes (quote, characters, stardate, episode) VALUES
 
 ## Dump all databases
 
-<span class="version-tag">New in v20.2:</span> To dump all non-system databases, their table schemas, and data:
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> To dump all non-system databases, their table schemas, and data:
 
 ~~~ shell
 $ cockroach dump --dump-all

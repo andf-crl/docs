@@ -6,7 +6,7 @@ The [Cost-based Optimizer](cost-based-optimizer.html) can take advantage of repl
 This is an [enterprise-only](enterprise-licensing.html) feature.
 {{site.data.alerts.end}}
 
-The [secondary indexes](indexes.html) on a table will automatically use the replication zone for the table. However, with an enterprise license, you can add distinct replication zones for secondary indexes.
+The [secondary indexes](indexes.html) on a table will automatically use the replication zone for the table. However, with an [enterprise.license](cluster-settings.html#setting-enterprise-license), you can add distinct replication zones for secondary indexes.
 
 To control replication for a specific secondary index, use the `ALTER INDEX ... CONFIGURE ZONE` statement to define the relevant values (other values will be inherited from the parent zone).
 

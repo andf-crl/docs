@@ -5,7 +5,7 @@ toc: true
 ---
 
 {{site.data.alerts.callout_info}}
-`CREATE CHANGEFEED` is an [Enterprise-only](enterprise-licensing.html) feature. For the core version, see [`EXPERIMENTAL CHANGEFEED FOR`](changefeed-for.html).
+`CREATE CHANGEFEED` is an [Enterprise-only](enterprise-licensing.html) feature. For the core [version](cluster-settings.html#setting-version), see [`EXPERIMENTAL CHANGEFEED FOR`](changefeed-for.html).
 {{site.data.alerts.end}}
 
 The `CREATE CHANGEFEED` [statement](sql-statements.html) creates a new Enterprise changefeed, which targets an allowlist of tables, called "watched rows".  Every change to a watched row is emitted as a record in a configurable format (`JSON` or Avro) to a configurable sink ([Kafka](https://kafka.apache.org/) or a [cloud storage sink](#cloud-storage-sink)). You can [create](#create-a-changefeed-connected-to-kafka), [pause](#pause-a-changefeed), [resume](#resume-a-paused-changefeed), or [cancel](#cancel-a-changefeed) an Enterprise changefeed.
@@ -19,7 +19,7 @@ To create a changefeed, the user must be a member of the `admin` role or have th
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/create_changefeed.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/create_changefeed.html %}
 </div>
 
 ## Parameters
@@ -74,7 +74,7 @@ Cloud storage sink URIs must be prepended with `experimental-` when working with
 
 #### Query parameters
 
-{% include {{ page.version.version }}/cdc/url-encoding.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/cdc/url-encoding.md %}
 
 Query parameters include:
 
@@ -89,7 +89,7 @@ Parameter          | <div style="width:100px">Sink Type</div>      | <div style=
 `sasl_user`        | [Kafka](#kafka)                               | [`STRING`](string.html)             | Your SASL username.
 `sasl_password`    | [Kafka](#kafka)                               | [`STRING`](string.html)             | Your SASL password.
 `file_size`        | [cloud](#cloud-storage-sink)                  | [`STRING`](string.html)             | The file will be flushed (i.e., written to the sink) when it exceeds the specified file size. This can be used with the [`WITH resolved` option](#options), which flushes on a specified cadence. <br><br>**Default:** `16MB`
-`insecure_tls_skip_verify` |  [Kafka](#kafka)                      | [`BOOL`](bool.html)                 | <span class="version-tag">New in v20.2:</span> If `true`, disable client-side validation of responses. **Warning:** Use this query parameter with caution, as it creates [MITM](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) vulnerabilities unless combined with another method of authentication. <br><br>**Default:** `false`
+`insecure_tls_skip_verify` |  [Kafka](#kafka)                      | [`BOOL`](bool.html)                 | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> If `true`, disable client-side validation of responses. **Warning:** Use this query parameter with caution, as it creates [MITM](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) vulnerabilities unless combined with another method of authentication. <br><br>**Default:** `false`
 
 ### Options
 
@@ -315,7 +315,7 @@ For more information, see [`CANCEL JOB`](cancel-job.html).
 
 #### Configuring all changefeeds
 
-{% include {{ page.version.version }}/cdc/configure-all-changefeed.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/cdc/configure-all-changefeed.md %}
 
 ### Start a new changefeed where another ended
 

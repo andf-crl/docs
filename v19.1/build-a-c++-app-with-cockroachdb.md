@@ -12,21 +12,21 @@ We have tested the [C++ libpqxx driver](https://github.com/jtv/libpqxx) enough t
 
 ## Before you begin
 
-{% include {{page.version.version}}/app/before-you-begin.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/before-you-begin.md %}
 
 ## Step 1. Install the libpqxx driver
 
 Install the C++ libpqxx driver as described in the [official documentation](https://github.com/jtv/libpqxx).
 
 {{site.data.alerts.callout_info}}
-If you are running macOS, you need to install version 4.0.1 or higher of the libpqxx driver.
+If you are running macOS, you need to install [version](cluster-settings.html#setting-version) 4.0.1 or higher of the libpqxx driver.
 {{site.data.alerts.end}}
 
 <section class="filter-content" markdown="1" data-scope="secure">
 
 ## Step 2. Create the `maxroach` user and `bank` database
 
-{% include {{page.version.version}}/app/create-maxroach-user-and-bank-database.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/create-maxroach-user-and-bank-database.md %}
 
 ## Step 3. Generate a certificate for the `maxroach` user
 
@@ -45,11 +45,11 @@ Now that you have a database and a user, you'll run code to create a table and i
 
 First, use the following code to connect as the `maxroach` user and execute some basic SQL statements, creating a table, inserting rows, and reading and printing the rows.
 
-Download the <a href="https://raw.githubusercontent.com/cockroachdb/docs/master/_includes/{{ page.version.version }}/app/basic-sample.cpp" download><code>basic-sample.cpp</code></a> file, or create the file yourself and copy the code into it.
+Download the <a href="https://raw.githubusercontent.com/cockroachdb/docs/master/_includes/{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/app/basic-sample.cpp" download><code>basic-sample.cpp</code></a> file, or create the file yourself and copy the code into it.
 
 {% include copy-clipboard.html %}
 ~~~ cpp
-{% include {{ page.version.version }}/app/basic-sample.cpp %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/app/basic-sample.cpp %}
 ~~~
 
 To build the `basic-sample.cpp` source code to an executable file named `basic-sample`, run the following command from the directory that contains the code:
@@ -74,11 +74,11 @@ Next, use the following code to again connect as the `maxroach` user but this ti
 CockroachDB may require the [client to retry a transaction](transactions.html#transaction-retries) in case of read/write contention. CockroachDB provides a generic **retry function** that runs inside a transaction and retries it as needed. You can copy and paste the retry function from here into your code.
 {{site.data.alerts.end}}
 
-Download the <a href="https://raw.githubusercontent.com/cockroachdb/docs/master/_includes/{{ page.version.version }}/app/txn-sample.cpp" download><code>txn-sample.cpp</code></a> file, or create the file yourself and copy the code into it.
+Download the <a href="https://raw.githubusercontent.com/cockroachdb/docs/master/_includes/{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/app/txn-sample.cpp" download><code>txn-sample.cpp</code></a> file, or create the file yourself and copy the code into it.
 
 {% include copy-clipboard.html %}
 ~~~ cpp
-{% include {{ page.version.version }}/app/txn-sample.cpp %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/app/txn-sample.cpp %}
 ~~~
 
 To build the `txn-sample.cpp` source code to an executable file named `txn-sample`, run the following command from the  directory that contains the code:
@@ -117,7 +117,7 @@ id | balance
 
 ## Step 2. Create the `maxroach` user and `bank` database
 
-{% include {{page.version.version}}/app/insecure/create-maxroach-user-and-bank-database.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/insecure/create-maxroach-user-and-bank-database.md %}
 
 ## Step 3. Run the C++ code
 
@@ -127,11 +127,11 @@ Now that you have a database and a user, you'll run code to create a table and i
 
 First, use the following code to connect as the `maxroach` user and execute some basic SQL statements, creating a table, inserting rows, and reading and printing the rows.
 
-Download the <a href="https://raw.githubusercontent.com/cockroachdb/docs/master/_includes/{{ page.version.version }}/app/insecure/basic-sample.cpp" download><code>basic-sample.cpp</code></a> file, or create the file yourself and copy the code into it.
+Download the <a href="https://raw.githubusercontent.com/cockroachdb/docs/master/_includes/{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/app/insecure/basic-sample.cpp" download><code>basic-sample.cpp</code></a> file, or create the file yourself and copy the code into it.
 
 {% include copy-clipboard.html %}
 ~~~ cpp
-{% include {{ page.version.version }}/app/insecure/basic-sample.cpp %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/app/insecure/basic-sample.cpp %}
 ~~~
 
 To build the `basic-sample.cpp` source code to an executable file named `basic-sample`, run the following command from the directory that contains the code:
@@ -156,11 +156,11 @@ Next, use the following code to again connect as the `maxroach` user but this ti
 CockroachDB may require the [client to retry a transaction](transactions.html#transaction-retries) in case of read/write contention. CockroachDB provides a generic **retry function** that runs inside a transaction and retries it as needed. You can copy and paste the retry function from here into your code.
 {{site.data.alerts.end}}
 
-Download the <a href="https://raw.githubusercontent.com/cockroachdb/docs/master/_includes/{{ page.version.version }}/app/insecure/txn-sample.cpp" download><code>txn-sample.cpp</code></a> file, or create the file yourself and copy the code into it.
+Download the <a href="https://raw.githubusercontent.com/cockroachdb/docs/master/_includes/{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/app/insecure/txn-sample.cpp" download><code>txn-sample.cpp</code></a> file, or create the file yourself and copy the code into it.
 
 {% include copy-clipboard.html %}
 ~~~ cpp
-{% include {{ page.version.version }}/app/insecure/txn-sample.cpp %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/app/insecure/txn-sample.cpp %}
 ~~~
 
 To build the `txn-sample.cpp` source code to an executable file named `txn-sample`, run the following command from the  directory that contains the code:
@@ -198,4 +198,4 @@ id | balance
 
 Read more about using the [C++ libpqxx driver](https://github.com/jtv/libpqxx).
 
-{% include {{ page.version.version }}/app/see-also-links.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/app/see-also-links.md %}

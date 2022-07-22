@@ -8,7 +8,7 @@ The `CHECK` [constraint](constraints.html) specifies that values for the column 
 
 ## Details
 
-- If you add a `CHECK` constraint to an existing table, CockroachDB will run a background job to validate existing table data in the process of adding the constraint. If a row is found that violates the constraint during the validation step, the [`ADD CONSTRAINT`](add-constraint.html) statement will fail. This differs from previous versions of CockroachDB, which allowed you to add a check constraint that was enforced for writes but could be violated by rows that existed prior to adding the constraint.
+- If you add a `CHECK` constraint to an existing table, CockroachDB will run a background job to validate existing table data in the process of adding the constraint. If a row is found that violates the constraint during the validation step, the [`ADD CONSTRAINT`](add-constraint.html) statement will fail. This differs from previous [version](cluster-settings.html#setting-version)s of CockroachDB, which allowed you to add a check constraint that was enforced for writes but could be violated by rows that existed prior to adding the constraint.
 - Check constraints can be added to columns that were created earlier in the same transaction. For an example, see [Add the `CHECK` constraint](add-constraint.html#add-the-check-constraint).
 - `CHECK` constraints may be specified at the column or table level and can reference other columns within the table. Internally, all column-level `CHECK` constraints are converted to table-level constraints so they can be handled consistently.
 - You can have multiple `CHECK` constraints on a single column but ideally, for performance optimization, these should be combined using the logical operators. For example:
@@ -33,7 +33,7 @@ The `CHECK` [constraint](constraints.html) specifies that values for the column 
 ### Column level
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/check_column_level.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/check_column_level.html %}
 </div>
 
  Parameter | Description
@@ -60,7 +60,7 @@ The `CHECK` [constraint](constraints.html) specifies that values for the column 
 ### Table level
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/check_table_level.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/check_table_level.html %}
 </div>
 
  Parameter | Description

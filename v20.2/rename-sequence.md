@@ -16,7 +16,7 @@ You cannot rename a sequence that's being used in a table. To rename the sequenc
 Note that, in a future release, `ALTER SEQUENCE ... RENAME TO` will be limited to changing the name of a sequence, and will not have to the ability to change a sequence's database.
 {{site.data.alerts.end}}
 
-{% include {{{ page.version.version }}/misc/schema-change-stmt-note.md %}
+{% include {{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-stmt-note.md %}
 
 ## Required privileges
 
@@ -24,7 +24,7 @@ The user must have the `CREATE` [privilege](authorization.html#assign-privileges
 
 ## Synopsis
 
-<div>{% include {{ page.version.version }}/sql/diagrams/rename_sequence.html %}</div>
+<div>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/rename_sequence.html %}</div>
 
 ## Parameters
 

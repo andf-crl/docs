@@ -18,13 +18,13 @@ After the export has been initiated, you can cancel it with [`CANCEL QUERY`](can
 
 ## Synopsis
 
-<div>{% include {{ page.version.version }}/sql/generated/diagrams/export.html %}</div>
+<div>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/export.html %}</div>
 
 {{site.data.alerts.callout_info}}The <code>EXPORT</code> statement cannot be used within a <a href=transactions.html>transaction</a>.{{site.data.alerts.end}}
 
 ## Required privileges
 
-{% include_cached new-in.html version="v21.1" %} The user must have the `SELECT` [privilege](authorization.html#assign-privileges) on the table being exported, unless the [destination URI requires `admin` privileges](import.html#source-privileges).
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.1" %} The user must have the `SELECT` [privilege](authorization.html#assign-privileges) on the table being exported, unless the [destination URI requires `admin` privileges](import.html#source-privileges).
 
 ## Parameters
 
@@ -84,7 +84,7 @@ The following provide connection examples to cloud storage providers. For more i
 
 <section class="filter-content" markdown="1" data-scope="s3">
 
-{% include {{ page.version.version }}/backups/aws-auth-note.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/backups/aws-auth-note.md %}
 
 Each of these examples use the `bank` database and the `customers` table; `customer-export-data` is the demonstration path to which we're exporting our customers' data in this example.
 
@@ -188,7 +188,7 @@ export16808a04292505c80000000000000001-n1.0.csv.gz |   17 |   824
 
 <section class="filter-content" markdown="1" data-scope="gcs">
 
-{% include {{ page.version.version }}/backups/gcs-auth-note.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/backups/gcs-auth-note.md %}
 
 Each of these examples use the `bank` database and the `customers` table; `customer-export-data` is the demonstration path to which we're exporting our customers' data in this example.
 

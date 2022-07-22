@@ -224,7 +224,7 @@ This page shows you how key features of CockroachDB stack up against other datab
   <tr>
     <td class="comparison-chart__feature">
       Commercial Version
-      <a href="#" data-toggle="tooltip" title="Enterprise or expanded version of the database available to paying customers.">
+      <a href="#" data-toggle="tooltip" title="Enterprise or expanded [version](cluster-settings.html#setting-version) of the database available to paying customers.">
         <img src="{{ 'images/v2.1/icon_info.svg' | relative_url }}" alt="tooltip icon">
       </a>
     </td>

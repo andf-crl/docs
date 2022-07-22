@@ -1,6 +1,6 @@
 ---
 title: Upgrade to CockroachDB v2.1
-summary: Learn how to upgrade your CockroachDB cluster to a new version.
+summary: Learn how to upgrade your CockroachDB cluster to a new [version](cluster-settings.html#setting-version).
 toc: true
 toc_not_nested: true
 ---
@@ -8,14 +8,14 @@ toc_not_nested: true
 Because of CockroachDB's [multi-active availability](multi-active-availability.html) design, you can perform a "rolling upgrade" of your CockroachDB cluster. This means that you can upgrade nodes one at a time without interrupting the cluster's overall health and operations.
 
 {{site.data.alerts.callout_info}}
-This page shows you how to upgrade to the latest v2.1 release ({{page.release_info.version}}) from v2.0.x, or from any patch release in the v2.1.x series. To upgrade within the v2.0.x series, see [the v2.0 version of this page](https://www.cockroachlabs.com/docs/v2.0/upgrade-cockroach-version.html).
+This page shows you how to upgrade to the latest v2.1 release ({{page.release_info.[version](cluster-settings.html#setting-version)}}) from v2.0.x, or from any patch release in the v2.1.x series. To upgrade within the v2.0.x series, see [the v2.0 [version](cluster-settings.html#setting-version) of this page](https://www.cockroachlabs.com/docs/v2.0/upgrade-cockroach-[version](cluster-settings.html#setting-version).html).
 {{site.data.alerts.end}}
 
 ## Step 1. Verify that you can upgrade
 
 If you are upgrading from v2.0.5 or later to v2.1, you do not have to go through intermediate releases; continue to step 2. However, if you are upgrading from 2.0.4 or earlier to v2.1, complete the following steps first:
 
-1. [Upgrade to v2.0.5 or any later patch release in the 2.0.x series](../v2.0/upgrade-cockroach-version.html). If upgrading from v1.1.x, be sure to complete all the steps, including the [finalization step](../v2.0/upgrade-cockroach-version.html#finalize-the-upgrade).
+1. [Upgrade to v2.0.5 or any later patch release in the 2.0.x series](../v2.0/upgrade-cockroach-[version](cluster-settings.html#setting-version).html). If upgrading from v1.1.x, be sure to complete all the steps, including the [finalization step](../v2.0/upgrade-cockroach-[version](cluster-settings.html#setting-version).html#finalize-the-upgrade).
 
 2. Return to this page and perform a second rolling upgrade to v2.1.
 
@@ -29,8 +29,8 @@ Before starting the upgrade, complete the following steps.
     - Under **Node Status**, make sure all nodes that should be live are listed as such. If any nodes are unexpectedly listed as suspect or dead, identify why the nodes are offline and either restart them or [decommission](remove-nodes.html) them before beginning your upgrade. If there are dead and non-decommissioned nodes in your cluster, it will not be possible to finalize the upgrade (either automatically or manually).
     - Under **Replication Status**, make sure there are 0 under-replicated and unavailable ranges. Otherwise, performing a rolling upgrade increases the risk that ranges will lose a majority of their replicas and cause cluster unavailability. Therefore, it's important to identify and resolve the cause of range under-replication and/or unavailability before beginning your upgrade.
     - In the **Node List**:
-        - Make sure all nodes are on the same version. If any nodes are behind, upgrade them to the cluster's current version first, and then start this process over.
-        - Make sure capacity and memory usage are reasonable for each node. Nodes must be able to tolerate some increase in case the new version uses more resources for your workload. Also go to **Metrics > Dashboard: Hardware** and make sure CPU percent is reasonable across the cluster. If there's not enough headroom on any of these metrics, consider [adding nodes](start-a-node.html) to your cluster before beginning your upgrade.
+        - Make sure all nodes are on the same [version](cluster-settings.html#setting-version). If any nodes are behind, upgrade them to the cluster's current [version](cluster-settings.html#setting-version) first, and then start this process over.
+        - Make sure capacity and memory usage are reasonable for each node. Nodes must be able to tolerate some increase in case the new [version](cluster-settings.html#setting-version) uses more resources for your workload. Also go to **Metrics > Dashboard: Hardware** and make sure CPU percent is reasonable across the cluster. If there's not enough headroom on any of these metrics, consider [adding nodes](start-a-node.html) to your cluster before beginning your upgrade.
 
 3. Capture the cluster's current state by running the [`cockroach debug zip`](debug-zip.html) command against any node in the cluster. If the upgrade does not go according to plan, the captured details will help you and Cockroach Labs troubleshoot issues.
 
@@ -42,22 +42,22 @@ Before starting the upgrade, complete the following steps.
 This step is relevant only when upgrading from v2.0.x to v2.1. For upgrades within the v2.1.x series, skip this step.
 {{site.data.alerts.end}}
 
-By default, after all nodes are running the new version, the upgrade process will be **auto-finalized**. This will enable certain performance improvements and bug fixes introduced in v2.1. After finalization, however, it will no longer be possible to perform a downgrade to v2.0. In the event of a catastrophic failure or corruption, the only option will be to start a new cluster using the old binary and then restore from one of the backups created prior to performing the upgrade.
+By default, after all nodes are running the new [version](cluster-settings.html#setting-version), the upgrade process will be **auto-finalized**. This will enable certain performance improvements and bug fixes introduced in v2.1. After finalization, however, it will no longer be possible to perform a downgrade to v2.0. In the event of a catastrophic failure or corruption, the only option will be to start a new cluster using the old binary and then restore from one of the backups created prior to performing the upgrade.
 
 We recommend disabling auto-finalization so you can monitor the stability and performance of the upgraded cluster before finalizing the upgrade, but note that you will need to follow all of the subsequent directions, including the manual finalization in step 5:
 
-1. [Upgrade to v2.0](../v2.0/upgrade-cockroach-version.html), if you haven't already. The `cluster.preserve_downgrade_option` setting mentioned below is available only as of v2.0.3.
+1. [Upgrade to v2.0](../v2.0/upgrade-cockroach-[version](cluster-settings.html#setting-version).html), if you haven't already. The `[cluster.preserve_downgrade_option](cluster-settings.html#setting-cluster-preserve_downgrade_option)` setting mentioned below is available only as of v2.0.3.
 
 2. Start the [`cockroach sql`](use-the-built-in-sql-client.html) shell against any node in the cluster.
 
-3. Set the `cluster.preserve_downgrade_option` [cluster setting](cluster-settings.html):
+3. Set the `[cluster.preserve_downgrade_option](cluster-settings.html#setting-cluster-preserve_downgrade_option)` [cluster setting](cluster-settings.html):
 
     {% include copy-clipboard.html %}
     ~~~ sql
-    > SET CLUSTER SETTING cluster.preserve_downgrade_option = '2.0';
+    > SET CLUSTER SETTING [cluster.preserve_downgrade_option](cluster-settings.html#setting-cluster-preserve_downgrade_option) = '2.0';
     ~~~
 
-    It is only possible to set this setting to the current cluster version.
+    It is only possible to set this setting to the current cluster [version](cluster-settings.html#setting-version).
 
 ## Step 4. Perform the rolling upgrade
 
@@ -109,24 +109,24 @@ Upgrade only one node at a time, and wait at least one minute after a node rejoi
     <div class="filter-content" markdown="1" data-scope="mac">
     {% include copy-clipboard.html %}
     ~~~ shell
-    $ curl https://binaries.cockroachdb.com/cockroach-{{page.release_info.version}}.darwin-10.9-amd64.tgz
+    $ curl https://binaries.cockroachdb.com/cockroach-{{page.release_info.[version](cluster-settings.html#setting-version)}}.darwin-10.9-amd64.tgz
     ~~~
 
     {% include copy-clipboard.html %}
     ~~~ shell
-    $ tar -xzf cockroach-{{page.release_info.version}}.darwin-10.9-amd64.tgz
+    $ tar -xzf cockroach-{{page.release_info.[version](cluster-settings.html#setting-version)}}.darwin-10.9-amd64.tgz
     ~~~
     </div>
 
     <div class="filter-content" markdown="1" data-scope="linux">
     {% include copy-clipboard.html %}
     ~~~ shell
-    $ curl https://binaries.cockroachdb.com/cockroach-{{page.release_info.version}}.linux-amd64.tgz
+    $ curl https://binaries.cockroachdb.com/cockroach-{{page.release_info.[version](cluster-settings.html#setting-version)}}.linux-amd64.tgz
     ~~~
 
     {% include copy-clipboard.html %}
     ~~~ shell
-    $ tar -xzf cockroach-{{page.release_info.version}}.linux-amd64.tgz
+    $ tar -xzf cockroach-{{page.release_info.[version](cluster-settings.html#setting-version)}}.linux-amd64.tgz
     ~~~
     </div>
 
@@ -146,7 +146,7 @@ Upgrade only one node at a time, and wait at least one minute after a node rejoi
 
     {% include copy-clipboard.html %}
     ~~~ shell
-    $ cp -i cockroach-{{page.release_info.version}}.darwin-10.9-amd64/cockroach /usr/local/bin/cockroach
+    $ cp -i cockroach-{{page.release_info.[version](cluster-settings.html#setting-version)}}.darwin-10.9-amd64/cockroach /usr/local/bin/cockroach
     ~~~
     </div>
 
@@ -158,7 +158,7 @@ Upgrade only one node at a time, and wait at least one minute after a node rejoi
 
     {% include copy-clipboard.html %}
     ~~~ shell
-    $ cp -i cockroach-{{page.release_info.version}}.linux-amd64/cockroach /usr/local/bin/cockroach
+    $ cp -i cockroach-{{page.release_info.[version](cluster-settings.html#setting-version)}}.linux-amd64/cockroach /usr/local/bin/cockroach
     ~~~
     </div>
 
@@ -194,7 +194,7 @@ Upgrade only one node at a time, and wait at least one minute after a node rejoi
     $ rm /usr/local/bin/cockroach_old
     ~~~
 
-    If you leave versioned binaries on your servers, you do not need to do anything.
+    If you leave [version](cluster-settings.html#setting-version)ed binaries on your servers, you do not need to do anything.
 
 8. Wait at least one minute after the node has rejoined the cluster, and then repeat these steps for the next node.
 
@@ -206,14 +206,14 @@ This step is relevant only when upgrading from v2.0.x to v2.1. For upgrades with
 
 If you disabled auto-finalization in step 3 above, monitor the stability and performance of your cluster for as long as you require to feel comfortable with the upgrade (generally at least a day). If during this time you decide to roll back the upgrade, repeat the rolling restart procedure with the old binary.
 
-Once you are satisfied with the new version, re-enable auto-finalization:
+Once you are satisfied with the new [version](cluster-settings.html#setting-version), re-enable auto-finalization:
 
 1. Start the [`cockroach sql`](use-the-built-in-sql-client.html) shell against any node in the cluster.
 2. Re-enable auto-finalization:
 
     {% include copy-clipboard.html %}
     ~~~ sql
-    > RESET CLUSTER SETTING cluster.preserve_downgrade_option;
+    > RESET CLUSTER SETTING [cluster.preserve_downgrade_option](cluster-settings.html#setting-cluster-preserve_downgrade_option);
     ~~~
 
 ## Step 6. Troubleshooting
@@ -229,5 +229,5 @@ In the event of catastrophic failure or corruption, the only option will be to s
 
 - [View Node Details](view-node-details.html)
 - [Collect Debug Information](debug-zip.html)
-- [View Version Details](view-version-details.html)
-- [Release notes for our latest version](../releases/{{page.release_info.version}}.html)
+- [View Version Details](view-[version](cluster-settings.html#setting-version)-details.html)
+- [Release notes for our latest [version](cluster-settings.html#setting-version)](../releases/{{page.release_info.[version](cluster-settings.html#setting-version)}}.html)

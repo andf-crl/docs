@@ -16,7 +16,7 @@ This tutorial shows you how run a simple application built with [TypeORM](https:
 
 ## Step 1. Start CockroachDB
 
-{% include {{ page.version.version }}/setup/sample-setup-parameters.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/setup/sample-setup-parameters.md %}
 
 ## Step 2. Get the code
 
@@ -140,4 +140,4 @@ Printing balances from account 4e26653a-3821-48c8-a481-47eb73b3e4cc.
 
 Read more about using the [TypeORM](https://typeorm.io/#/).
 
-{% include {{page.version.version}}/app/see-also-links.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/see-also-links.md %}

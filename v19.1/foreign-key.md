@@ -28,7 +28,7 @@ For example, given an `orders` table and a `customers` table, if you create a co
 
       - You can create indexes explicitly using the [`INDEX`](create-table.html#create-a-table-with-secondary-and-inverted-indexes) clause of `CREATE TABLE`.
       - You can rely on indexes created by the [`PRIMARY KEY`](primary-key.html) or [`UNIQUE`](unique.html) constraints.
-      - <span class="version-tag">New in v19.1</span>: If you add a foreign key constraint to an empty table, and an index on the referencing columns does not already exist, CockroachDB automatically creates one. For an example, see [Add the foreign key constraint with `CASCADE`](add-constraint.html#add-the-foreign-key-constraint-with-cascade). It's important to note that if you later remove the `FOREIGN KEY` constraint, this automatically created index _is not_ removed.
+      - <span class="[version](cluster-settings.html#setting-version)-tag">New in v19.1</span>: If you add a foreign key constraint to an empty table, and an index on the referencing columns does not already exist, CockroachDB automatically creates one. For an example, see [Add the foreign key constraint with `CASCADE`](add-constraint.html#add-the-foreign-key-constraint-with-cascade). It's important to note that if you later remove the `FOREIGN KEY` constraint, this automatically created index _is not_ removed.
 
       {{site.data.alerts.callout_success}}
       Using the foreign key columns as the prefix of an index's columns also satisfies the requirement for an index. For example, if you create foreign key columns `(A, B)`, an index of columns `(A, B, C)` satisfies the requirement for an index.
@@ -42,7 +42,7 @@ For example, given an `orders` table and a `customers` table, if you create a co
 
     - You can create indexes explicitly using the [`INDEX`](create-table.html#create-a-table-with-secondary-and-inverted-indexes) clause of `CREATE TABLE`.
     - You can rely on indexes created by the [`PRIMARY KEY`](primary-key.html) or [`UNIQUE`](unique.html) constraints.
-    - <span class="version-tag">New in v19.1</span>: If an index on the referenced column does not already exist, CockroachDB automatically creates one. It's important to note that if you later remove the `FOREIGN KEY` constraint, this automatically created index _is not_ removed.
+    - <span class="[version](cluster-settings.html#setting-version)-tag">New in v19.1</span>: If an index on the referenced column does not already exist, CockroachDB automatically creates one. It's important to note that if you later remove the `FOREIGN KEY` constraint, this automatically created index _is not_ removed.
 
     {{site.data.alerts.callout_success}}
     Using the referenced columns as the prefix of an index's columns also satisfies the requirement for an index. For example, if you create foreign key that references the columns `(A, B)`, an index of columns `(A, B, C)` satisfies the requirement for an index.
@@ -67,14 +67,14 @@ A `NOT NULL` constraint cannot be added to existing tables.
 
 ### Composite foreign key matching
 
-<span class="version-tag">New in v19.1</span>: By default, composite foreign keys are matched using the `MATCH SIMPLE` algorithm (which is the same default as Postgres). `MATCH FULL` is available if specified.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v19.1</span>: By default, composite foreign keys are matched using the `MATCH SIMPLE` algorithm (which is the same default as Postgres). `MATCH FULL` is available if specified.
 
-In versions 2.1 and earlier, the only option for composite foreign key matching was an incorrect implementation of `MATCH FULL`. This allowed null values in the referencing key columns to correspond to null values in the referenced key columns. This was incorrect in two ways:
+In [version](cluster-settings.html#setting-version)s 2.1 and earlier, the only option for composite foreign key matching was an incorrect implementation of `MATCH FULL`. This allowed null values in the referencing key columns to correspond to null values in the referenced key columns. This was incorrect in two ways:
 
 1. `MATCH FULL` should not allow mixed null and non-null values. See below for more details on the differences between comparison methods.
 2. Null values cannot ever be compared to each other.
 
-To correct these issues, all composite key matches defined prior to version 19.1 will now use the `MATCH SIMPLE` comparison method. We have also added the ability to specify both `MATCH FULL` and `MATCH SIMPLE`. If you had a composite foreign key constraint and have just upgraded to version 19.1, then please check that `MATCH SIMPLE` works for your schema and consider replacing that foreign key constraint with a `MATCH FULL` one.
+To correct these issues, all composite key matches defined prior to [version](cluster-settings.html#setting-version) 19.1 will now use the `MATCH SIMPLE` comparison method. We have also added the ability to specify both `MATCH FULL` and `MATCH SIMPLE`. If you had a composite foreign key constraint and have just upgraded to [version](cluster-settings.html#setting-version) 19.1, then please check that `MATCH SIMPLE` works for your schema and consider replacing that foreign key constraint with a `MATCH FULL` one.
 
 #### How it works
 
@@ -137,7 +137,7 @@ You can also add the `FOREIGN KEY` constraint to existing tables through [`ADD C
 
 ### Column level
 
-<section>{% include {{ page.version.version }}/sql/diagrams/foreign_key_column_level.html %}</section>
+<section>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/foreign_key_column_level.html %}</section>
 
 | Parameter | Description |
 |-----------|-------------|
@@ -167,7 +167,7 @@ You can also add the `FOREIGN KEY` constraint to existing tables through [`ADD C
 
 ### Table level
 
-<section>{% include {{ page.version.version }}/sql/diagrams/foreign_key_table_level.html %}</section>
+<section>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/foreign_key_table_level.html %}</section>
 
 | Parameter | Description |
 |-----------|-------------|

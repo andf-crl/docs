@@ -20,7 +20,7 @@ Roles can only be dropped by super users, i.e., members of the `admin` role.
 
 ## Synopsis
 
-<section>{% include {{ page.version.version }}/sql/diagrams/drop_role.html %}</section>
+<section>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/drop_role.html %}</section>
 
 
 ## Parameters

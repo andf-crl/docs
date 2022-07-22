@@ -6,10 +6,10 @@ toc: true
 
 A view is a stored and named [selection query](selection-queries.html). By default, CockroachDB's views are **dematerialized**: they do not store the results of the underlying queries. Instead, the underlying query is executed anew every time the view is used.
 
-<span class="version-tag">New in v20.2:</span> CockroachDB also supports [**materialized views**](#materialized-views). Materialized views are views that store their selection query results.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> CockroachDB also supports [**materialized views**](#materialized-views). Materialized views are views that store their selection query results.
 
 {{site.data.alerts.callout_info}}
-<span class="version-tag">New in v20.2:</span> By default, views created in a database cannot reference objects in a different database. To enable cross-database references for views, set the `sql.cross_db_views.enabled` [cluster setting](cluster-settings.html) to `true`.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> By default, views created in a database cannot reference objects in a different database. To enable cross-database references for views, set the `[sql.cross_db_views.enabled](cluster-settings.html#setting-sql-cross_db_views-enabled)` [cluster setting](cluster-settings.html) to `true`.
 {{site.data.alerts.end}}
 
 ## Why use views?
@@ -306,7 +306,7 @@ SQLSTATE: 2BP01
 HINT: you can drop quotes_per_season instead.
 ~~~
 
-<span class="version-tag">New in v20.2:</span> You can [drop](drop-column.html) or [rename columns](rename-column.html) from a table on which a view is dependent, as long as the view does not depend on that column of the table. For example, because there is no view that depends on the `num` column of the `episodes` table, you can rename it to `number`:
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> You can [drop](drop-column.html) or [rename columns](rename-column.html) from a table on which a view is dependent, as long as the view does not depend on that column of the table. For example, because there is no view that depends on the `num` column of the `episodes` table, you can rename it to `number`:
 
 {% include copy-clipboard.html %}
 ~~~ sql
@@ -372,7 +372,7 @@ It is not possible to change the stored query executed by the view. Instead, you
 
 ### Replacing views
 
-<span class="version-tag">New in v20.2:</span> To replace a view, use [`CREATE OR REPLACE VIEW`](create-view.html):
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> To replace a view, use [`CREATE OR REPLACE VIEW`](create-view.html):
 
 {% include copy-clipboard.html %}
 ~~~ sql
@@ -420,7 +420,7 @@ DROP VIEW
 
 ## Materialized views
 
-<span class="version-tag">New in v20.2:</span> CockroachDB supports [materialized views](https://en.wikipedia.org/wiki/Materialized_view). Materialized views are views that store the results of their underlying queries.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> CockroachDB supports [materialized views](https://en.wikipedia.org/wiki/Materialized_view). Materialized views are views that store the results of their underlying queries.
 
 When you [select](selection-queries.html) from a materialized view, the stored query data that is returned might be out-of-date. This contrasts with a standard (i.e., "dematerialized") view, which runs its underlying query every time it is used, returning the latest results. In order to get the latest results from a materialized view, you must [refresh the view](refresh.html), and then select from it.
 

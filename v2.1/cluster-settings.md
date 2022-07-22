@@ -32,7 +32,7 @@ Before changing a cluster setting, please note the following:
 
 - 	Changing a cluster setting is not instantaneous, as the change must be propagated to other nodes in the cluster.
 
-- 	Do not change cluster settings while [upgrading to a new version of CockroachDB](upgrade-cockroach-version.html). Wait until all nodes have been upgraded before you make the change.
+- 	Do not change cluster settings while [upgrading to a new [version](cluster-settings.html#setting-version) of CockroachDB](upgrade-cockroach-[version](cluster-settings.html#setting-version).html). Wait until all nodes have been upgraded before you make the change.
 
 ## See also
 

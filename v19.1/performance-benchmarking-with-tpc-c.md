@@ -37,17 +37,17 @@ This configuration is intended for performance benchmarking only. For production
 
 1. SSH to the first `n1-highcpu-16` instance.
 
-2. Download the [CockroachDB archive](https://binaries.cockroachdb.com/cockroach-{{ page.release_info.version }}.linux-amd64.tgz) for Linux, extract the binary, and copy it into the `PATH`:
+2. Download the [CockroachDB archive](https://binaries.cockroachdb.com/cockroach-{{ page.release_info.[version](cluster-settings.html#setting-version) }}.linux-amd64.tgz) for Linux, extract the binary, and copy it into the `PATH`:
 
     {% include copy-clipboard.html %}
     ~~~ shell
-    $ curl https://binaries.cockroachdb.com/cockroach-{{ page.release_info.version }}.linux-amd64.tgz \
+    $ curl https://binaries.cockroachdb.com/cockroach-{{ page.release_info.[version](cluster-settings.html#setting-version) }}.linux-amd64.tgz \
     | tar -xz
     ~~~
 
     {% include copy-clipboard.html %}
     ~~~ shell
-    $ cp -i cockroach-{{ page.release_info.version }}.linux-amd64/cockroach /usr/local/bin/
+    $ cp -i cockroach-{{ page.release_info.[version](cluster-settings.html#setting-version) }}.linux-amd64/cockroach /usr/local/bin/
     ~~~
 
     If you get a permissions error, prefix the command with `sudo`.
@@ -74,11 +74,11 @@ This configuration is intended for performance benchmarking only. For production
     $ cockroach init --insecure --host=<address of any node>
     ~~~
 
-    Each node then prints helpful details to the [standard output](start-a-node.html#standard-output), such as the CockroachDB version, the URL for the Web UI, and the SQL URL for clients.
+    Each node then prints helpful details to the [standard output](start-a-node.html#standard-output), such as the CockroachDB [version](cluster-settings.html#setting-version), the URL for the Web UI, and the SQL URL for clients.
 
 ### Step 3. Load data for the benchmark
 
-CockroachDB offers a pre-built `workload` binary for Linux that includes several load generators for simulating client traffic against your cluster. This step features CockroachDB's version of the TPC-C workload.
+CockroachDB offers a pre-built `workload` binary for Linux that includes several load generators for simulating client traffic against your cluster. This step features CockroachDB's [version](cluster-settings.html#setting-version) of the TPC-C workload.
 
 1. SSH to the fourth instance (the one not running a CockroachDB node), download `workload`, and make it executable:
 
@@ -139,7 +139,7 @@ _elapsed_______tpmC____efc__avg(ms)__p50(ms)__p90(ms)__p95(ms)__p99(ms)_pMax(ms)
 
 You will also see some audit checks and latency statistics for each individual query. For this run, some of those checks might indicate that they were `SKIPPED` due to insufficient data. For a more comprehensive test, run `workload` for a longer duration (e.g., two hours). The `tpmC` (new order transactions/minute) number is the headline number and `efc` ("efficiency") tells you how close CockroachDB gets to theoretical maximum `tpmC`.
 
-The [TPC-C specification](http://www.tpc.org/tpc_documents_current_versions/pdf/tpc-c_v5.11.0.pdf) has p90 latency requirements in the order of seconds, but as you see here, CockroachDB far surpasses that requirement with p90 latencies in the hundreds of milliseconds.
+The [TPC-C specification](http://www.tpc.org/tpc_documents_current_[version](cluster-settings.html#setting-version)s/pdf/tpc-c_v5.11.0.pdf) has p90 latency requirements in the order of seconds, but as you see here, CockroachDB far surpasses that requirement with p90 latencies in the hundreds of milliseconds.
 
 ## Benchmark a large cluster
 
@@ -147,7 +147,7 @@ The methodology for reproducing CockroachDB's 30-node, 10,000 warehouse TPC-C re
 
 ### Before you start
 
-Benchmarking a large cluster uses [partitioning](partitioning.html). You must have a valid enterprise license to use partitioning features. For details about requesting and setting a trial or full enterprise license, see [Enterprise Licensing](enterprise-licensing.html).
+Benchmarking a large cluster uses [partitioning](partitioning.html). You must have a valid [enterprise.license](cluster-settings.html#setting-enterprise-license) to use partitioning features. For details about requesting and setting a trial or full [enterprise.license](cluster-settings.html#setting-enterprise-license), see [Enterprise Licensing](enterprise-licensing.html).
 
 ### Step 1. Create 30 Google Cloud Platform GCE instances
 
@@ -173,17 +173,17 @@ This configuration is intended for performance benchmarking only. For production
 
 1. SSH to the first `n1-highcpu-16` instance.
 
-2. Download the [CockroachDB archive](https://binaries.cockroachdb.com/cockroach-{{ page.release_info.version }}.linux-amd64.tgz) for Linux, extract the binary, and copy it into the `PATH`:
+2. Download the [CockroachDB archive](https://binaries.cockroachdb.com/cockroach-{{ page.release_info.[version](cluster-settings.html#setting-version) }}.linux-amd64.tgz) for Linux, extract the binary, and copy it into the `PATH`:
 
     {% include copy-clipboard.html %}
     ~~~ shell
-    $ curl https://binaries.cockroachdb.com/cockroach-{{ page.release_info.version }}.linux-amd64.tgz \
+    $ curl https://binaries.cockroachdb.com/cockroach-{{ page.release_info.[version](cluster-settings.html#setting-version) }}.linux-amd64.tgz \
     | tar -xz
     ~~~
 
     {% include copy-clipboard.html %}
     ~~~ shell
-    $ cp -i cockroach-{{ page.release_info.version }}.linux-amd64/cockroach /usr/local/bin/
+    $ cp -i cockroach-{{ page.release_info.[version](cluster-settings.html#setting-version) }}.linux-amd64/cockroach /usr/local/bin/
     ~~~
 
     If you get a permissions error, prefix the command with `sudo`.
@@ -213,13 +213,13 @@ This configuration is intended for performance benchmarking only. For production
     $ cockroach init --insecure --host=<address of any node>
     ~~~
 
-    Each node then prints helpful details to the [standard output](start-a-node.html#standard-output), such as the CockroachDB version, the URL for the Web UI, and the SQL URL for clients.
+    Each node then prints helpful details to the [standard output](start-a-node.html#standard-output), such as the CockroachDB [version](cluster-settings.html#setting-version), the URL for the Web UI, and the SQL URL for clients.
 
-### Step 3. Add an enterprise license
+### Step 3. Add an [enterprise.license](cluster-settings.html#setting-enterprise-license)
 
-For this benchmark, you will use partitioning, which is an enterprise feature. For details about requesting and setting a trial or full enterprise license, see [Enterprise Licensing](enterprise-licensing.html).
+For this benchmark, you will use partitioning, which is an enterprise feature. For details about requesting and setting a trial or full [enterprise.license](cluster-settings.html#setting-enterprise-license), see [Enterprise Licensing](enterprise-licensing.html).
 
-To add an enterprise license to your cluster once it is started, [use the built-in SQL client](use-the-built-in-sql-client.html) as follows:
+To add an [enterprise.license](cluster-settings.html#setting-enterprise-license) to your cluster once it is started, [use the built-in SQL client](use-the-built-in-sql-client.html) as follows:
 
 1. SSH to the 31st instance (the one not running a CockroachDB node) and launch the built-in SQL client:
 
@@ -228,18 +228,18 @@ To add an enterprise license to your cluster once it is started, [use the built-
     $ cockroach sql --insecure --host=localhost
     ~~~
 
-2. Add your enterprise license:
+2. Add your [enterprise.license](cluster-settings.html#setting-enterprise-license):
 
     {% include copy-clipboard.html %}
     ~~~ shell
-    > SET CLUSTER SETTING enterprise.license = '<secret>';
+    > SET CLUSTER SETTING [enterprise.license](cluster-settings.html#setting-enterprise-license) = '<secret>';
     ~~~
 
 3. Exit the interactive shell, using `\q` or `ctrl-d`.
 
 ### Step 4. Load data for the benchmark
 
-CockroachDB offers a pre-built `workload` binary for Linux that includes several load generators for simulating client traffic against your cluster. This step features CockroachDB's version of the [TPC-C](http://www.tpc.org/tpcc/) workload.
+CockroachDB offers a pre-built `workload` binary for Linux that includes several load generators for simulating client traffic against your cluster. This step features CockroachDB's [version](cluster-settings.html#setting-version) of the [TPC-C](http://www.tpc.org/tpcc/) workload.
 
 1. Still on the 31st instance (the one not running a CockroachDB node), download `workload`, and make it executable:
 
@@ -289,7 +289,7 @@ To [increase the snapshot rate](cluster-settings.html), which helps speed up thi
 
     {% include copy-clipboard.html %}
     ~~~ sql
-    > SET CLUSTER SETTING kv.snapshot_rebalance.max_rate='64MiB';
+    > SET CLUSTER SETTING [kv.snapshot_rebalance.max_rate](cluster-settings.html#setting-kv-snapshot_rebalance-max_rate)='64MiB';
     ~~~
 
 3. Exit the interactive shell, using `\q` or `ctrl-d`.
@@ -346,17 +346,17 @@ _elapsed_______tpmC____efc__avg(ms)__p50(ms)__p90(ms)__p95(ms)__p99(ms)_pMax(ms)
 
 You will also see some audit checks and latency statistics for each individual query. For this run, some of those checks might indicate that they were `SKIPPED` due to insufficient data. For a more comprehensive test, run `workload` for a longer duration (e.g., two hours). The `tpmC` (new order transactions/minute) number is the headline number and `efc` ("efficiency") tells you how close CockroachDB gets to theoretical maximum `tpmC`.
 
-The [TPC-C specification](http://www.tpc.org/tpc_documents_current_versions/pdf/tpc-c_v5.11.0.pdf) has p90 latency requirements in the order of seconds, but as you see here, CockroachDB far surpasses that requirement with p90 latencies in the hundreds of milliseconds.
+The [TPC-C specification](http://www.tpc.org/tpc_documents_current_[version](cluster-settings.html#setting-version)s/pdf/tpc-c_v5.11.0.pdf) has p90 latency requirements in the order of seconds, but as you see here, CockroachDB far surpasses that requirement with p90 latencies in the hundreds of milliseconds.
 
 <!-- ## Roachprod directions for performance benchmarking a small cluster
 
 Use roachprod to create cluster: `roachprod create lauren-tpcc --gce-machine-type "n1-highcpu-16" --local-ssd --nodes 4`
 
-Download latest version of CockroachDB:
+Download latest [version](cluster-settings.html#setting-version) of CockroachDB:
 
-- `roachprod run lauren-tpcc 'curl https://binaries.cockroachdb.com/cockroach-{{ page.release_info.version }}.linux-amd64.tgz'`
+- `roachprod run lauren-tpcc 'curl https://binaries.cockroachdb.com/cockroach-{{ page.release_info.[version](cluster-settings.html#setting-version) }}.linux-amd64.tgz'`
 
-- `roachprod run lauren-tpcc "curl https://binaries.cockroachdb.com/cockroach-{{ page.release_info.version }}.linux-amd64.tgz | tar -xvz; mv cockroach-v2.0.4.linux-amd64/cockroach cockroach"`
+- `roachprod run lauren-tpcc "curl https://binaries.cockroachdb.com/cockroach-{{ page.release_info.[version](cluster-settings.html#setting-version) }}.linux-amd64.tgz | tar -xvz; mv cockroach-v2.0.4.linux-amd64/cockroach cockroach"`
 
 Configure SSD to be more performant: `roachprod run lauren-tpcc -- 'sudo umount /mnt/data1; sudo mount -o discard,defaults,nobarrier /dev/disk/by-id/google-local-ssd-0 /mnt/data1/; mount | grep /mnt/data1'`
 
@@ -365,7 +365,7 @@ Start the 3 nodes: `roachprod start lauren-tpcc:1-3`
 Add license:
 
 - `roachprod sql lauren-tpcc:1`
-- Set CLUSTER SETTING enterprise.license = '<secret>'
+- Set CLUSTER SETTING [enterprise.license](cluster-settings.html#setting-enterprise-license) = '<secret>'
 
 Run sample workload and RESTORE TPC-C data: `roachprod run lauren-tpcc:4 "wget https://edge-binaries.cockroachdb.com/cockroach/workload.LATEST && chmod a+x workload.LATEST"`
 
@@ -388,11 +388,11 @@ Use roachprod to create cluster: `roachprod create lauren-tpcc --gce-machine-typ
 
 Note: Since partitioning will take ~12hrs, you should extend your test cluster's lifetime (if you're using roachprod): `roachprod extend lauren-tpcc --lifetime=30h`
 
-Download latest version of CockroachDB:
+Download latest [version](cluster-settings.html#setting-version) of CockroachDB:
 
-- `roachprod run lauren-tpcc 'curl https://binaries.cockroachdb.com/cockroach-{{ page.release_info.version }}.linux-amd64.tgz'`
+- `roachprod run lauren-tpcc 'curl https://binaries.cockroachdb.com/cockroach-{{ page.release_info.[version](cluster-settings.html#setting-version) }}.linux-amd64.tgz'`
 
-- `roachprod run lauren-tpcc "curl https://binaries.cockroachdb.com/cockroach-{{ page.release_info.version }}.linux-amd64.tgz | tar -xvz; mv cockroach-v2.0.4.linux-amd64/cockroach cockroach"`
+- `roachprod run lauren-tpcc "curl https://binaries.cockroachdb.com/cockroach-{{ page.release_info.[version](cluster-settings.html#setting-version) }}.linux-amd64.tgz | tar -xvz; mv cockroach-v2.0.4.linux-amd64/cockroach cockroach"`
 
 Configure SSD to be more performant: `roachprod run lauren-tpcc -- 'sudo umount /mnt/data1; sudo mount -o discard,defaults,nobarrier /dev/disk/by-id/google-local-ssd-0 /mnt/data1/; mount | grep /mnt/data1'`
 
@@ -400,7 +400,7 @@ Start the 30 nodes: `roachprod start lauren-tpcc:1-30 --racks 10`
 
 Add license:
 
-- `roachprod sql lauren-tpcc:1 -- -e "SET CLUSTER SETTING enterprise.license = '<secret>';"`
+- `roachprod sql lauren-tpcc:1 -- -e "SET CLUSTER SETTING [enterprise.license](cluster-settings.html#setting-enterprise-license) = '<secret>';"`
 
 Run sample workload and RESTORE TPC-C data: `roachprod run lauren-tpcc:31 "wget https://edge-binaries.cockroachdb.com/cockroach/workload.LATEST && chmod a+x workload.LATEST"`
 
@@ -408,7 +408,7 @@ Tell workload to load dataset to cluster: `roachprod run lauren-tpcc:31 "./workl
 
 Check on progress by navigating to the Admin UI > Jobs dashboard: `roachprod adminurl lauren-tpcc:1`
 
-Once RESTORE is complete, set the snapshot cluster setting: `roachprod sql lauren-tpcc:1 -- -e "SET CLUSTER SETTING kv.snapshot_rebalance.max_rate='64MiB';"`
+Once RESTORE is complete, set the snapshot cluster setting: `roachprod sql lauren-tpcc:1 -- -e "SET CLUSTER SETTING [kv.snapshot_rebalance.max_rate](cluster-settings.html#setting-kv-snapshot_rebalance-max_rate)='64MiB';"`
 
 Partition the database: `roachprod ssh lauren-tpcc:31 "ulimit -n 10000 && ./workload.LATEST run tpcc --partitions=10 --split --scatter --warehouses=10000 --duration=1s {pgurl:1-30}"`
 

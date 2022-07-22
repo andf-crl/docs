@@ -114,11 +114,11 @@ The [`--also-generate-pkcs8-key` flag](cockroach-cert.html#flag-pkcs8) generates
 
 ## Step 3. Install JDK
 
-Download and install a Java Development Kit. Spring Boot supports Java versions 8, 11, and 14. In this tutorial, we use [JDK 8 from OpenJDK](https://openjdk.java.net/install/).
+Download and install a Java Development Kit. Spring Boot supports Java [version](cluster-settings.html#setting-version)s 8, 11, and 14. In this tutorial, we use [JDK 8 from OpenJDK](https://openjdk.java.net/install/).
 
 ## Step 4. Install Maven
 
-This example application uses [Maven](http://maven.apache.org/) to manage all application dependencies. Spring supports Maven versions 3.2 and later.
+This example application uses [Maven](http://maven.apache.org/) to manage all application dependencies. Spring supports Maven [version](cluster-settings.html#setting-version)s 3.2 and later.
 
 To install Maven on macOS, run the following command:
 
@@ -218,7 +218,7 @@ datasource:
 ...
 ~~~
 
-{% include {{page.version.version}}/app/cc-free-tier-params.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/cc-free-tier-params.md %}
 
 </section>
 

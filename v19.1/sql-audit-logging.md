@@ -14,7 +14,7 @@ This page has an example showing:
 
 For reference material, including a detailed description of the audit log file format, see [`ALTER TABLE ... EXPERIMENTAL_AUDIT`](experimental-audit.html).
 
-{% include {{ page.version.version }}/misc/experimental-warning.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/experimental-warning.md %}
 
 
 ## Step 1. Create sample tables

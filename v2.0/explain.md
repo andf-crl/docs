@@ -50,7 +50,7 @@ For more information, see [Find the Indexes and Key Ranges a Query Uses](#find-t
 
 ## Synopsis
 
-<section>{% include {{ page.version.version }}/sql/diagrams/explain.html %}</section>
+<section>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/explain.html %}</section>
 
 ## Required Privileges
 

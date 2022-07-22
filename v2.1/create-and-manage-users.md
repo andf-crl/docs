@@ -15,7 +15,7 @@ To create, manage, and remove your cluster's users (which lets you control SQL-l
 - After creating users, you must [grant them privileges to databases and tables](grant.html).
 - All users belong to the `public` role, to which you can [grant](grant.html) and [revoke](revoke.html) privileges.
 - On secure clusters, you must [create client certificates for users](create-security-certificates.html#create-the-certificate-and-key-pair-for-a-client) and users must [authenticate their access to the cluster](authentication.html#client-authentication).
-- {% include {{ page.version.version }}/misc/remove-user-callout.html %}
+- {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/remove-user-callout.html %}
 
 ## Subcommands
 
@@ -60,7 +60,7 @@ Flag | Description
 
 ### Client connection
 
-{% include {{ page.version.version }}/sql/connection-parameters.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/connection-parameters.md %}
 
 See [Client Connection Parameters](connection-parameters.html) for more details.
 
@@ -199,7 +199,7 @@ $ cockroach user get jpointsman --insecure
 
 ### Remove a user
 
-{{site.data.alerts.callout_danger}}{% include {{ page.version.version }}/misc/remove-user-callout.html %}{{site.data.alerts.end}}
+{{site.data.alerts.callout_danger}}{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/remove-user-callout.html %}{{site.data.alerts.end}}
 
 {% include copy-clipboard.html %}
 ~~~ shell

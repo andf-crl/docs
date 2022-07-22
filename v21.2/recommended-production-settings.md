@@ -14,15 +14,15 @@ When planning your deployment, it's important to carefully review and choose the
 
 Also keep in mind some basic topology recommendations:
 
-{% include {{ page.version.version }}/prod-deployment/topology-recommendations.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/topology-recommendations.md %}
 
 ## Software
 
-We recommend running a [glibc](https://www.gnu.org/software/libc/)-based Linux distribution and Linux kernel version from the last 5 years, such as [Ubuntu](https://ubuntu.com/), [Red Hat Enterprise Linux (RHEL)](https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux), [CentOS](https://www.centos.org/), or [Container-Optimized OS](https://cloud.google.com/container-optimized-os/docs).
+We recommend running a [glibc](https://www.gnu.org/software/libc/)-based Linux distribution and Linux kernel [version](cluster-settings.html#setting-version) from the last 5 years, such as [Ubuntu](https://ubuntu.com/), [Red Hat Enterprise Linux (RHEL)](https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux), [CentOS](https://www.centos.org/), or [Container-Optimized OS](https://cloud.google.com/container-optimized-os/docs).
 
 ## Hardware
 
-{% include {{ page.version.version }}/prod-deployment/terminology-vcpu.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/terminology-vcpu.md %}
 
 ### Sizing
 
@@ -46,7 +46,7 @@ Carefully consider the following tradeoffs:
 
 In general, distribute your total vCPUs into the **largest possible nodes and smallest possible cluster** that meets your fault tolerance goals.
 
-- Each node should have {% include {{ page.version.version }}/prod-deployment/provision-cpu.md %}. For greater stability, we recommend at least 8 vCPUs per node.
+- Each node should have {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/provision-cpu.md %}. For greater stability, we recommend at least 8 vCPUs per node.
 
 - Avoid "burstable" or "shared-core" virtual machines that limit the load on CPU resources.
 
@@ -75,7 +75,7 @@ Before deploying to production, test and tune your hardware setup for your appli
 
 #### Memory
 
-Provision at least {% include {{ page.version.version }}/prod-deployment/provision-memory.md %} for consistency across a variety of workload complexities. The minimum acceptable ratio is 2 GiB of RAM per vCPU, which is only suitable for testing.
+Provision at least {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/provision-memory.md %} for consistency across a variety of workload complexities. The minimum acceptable ratio is 2 GiB of RAM per vCPU, which is only suitable for testing.
 
 {{site.data.alerts.callout_info}}
 The benefits to having more RAM decrease as the [number of vCPUs](#sizing) increases.
@@ -85,9 +85,9 @@ The benefits to having more RAM decrease as the [number of vCPUs](#sizing) incre
 
 - To ensure consistent SQL performance, make sure all nodes have a uniform configuration.
 
-- {% include {{ page.version.version }}/prod-deployment/prod-guidance-disable-swap.md %}
+- {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/prod-guidance-disable-swap.md %}
 
-- {% include {{ page.version.version }}/prod-deployment/prod-guidance-cache-max-sql-memory.md %} For more details, see [Cache and SQL memory size](#cache-and-sql-memory-size).
+- {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/prod-guidance-cache-max-sql-memory.md %} For more details, see [Cache and SQL memory size](#cache-and-sql-memory-size).
 
 - Monitor [CPU](common-issues-to-monitor.html#cpu-usage) and [memory](common-issues-to-monitor.html#database-memory-usage) usage. Ensure that they remain within acceptable limits.
 
@@ -97,13 +97,13 @@ Under-provisioning RAM results in reduced performance (due to reduced caching an
 
 #### Storage
 
-We recommend provisioning volumes with {% include {{ page.version.version }}/prod-deployment/provision-storage.md %}. It's fine to have less storage per vCPU if your workload does not have significant capacity needs.
+We recommend provisioning volumes with {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/provision-storage.md %}. It's fine to have less storage per vCPU if your workload does not have significant capacity needs.
 
 - The maximum recommended storage capacity per node is 2.5 TiB, regardless of the number of vCPUs.
 
-- {% include {{ page.version.version }}/prod-deployment/prod-guidance-store-volume.md %}
+- {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/prod-guidance-store-volume.md %}
 
-- {% include {{ page.version.version }}/prod-deployment/prod-guidance-log-volume.md %}
+- {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/prod-guidance-log-volume.md %}
 
 - The recommended Linux filesystems are [ext4](https://ext4.wiki.kernel.org/index.php/Main_Page) and [XFS](https://xfs.wiki.kernel.org/).
 
@@ -111,7 +111,7 @@ We recommend provisioning volumes with {% include {{ page.version.version }}/pro
 
 - [Monitor your storage utilization](common-issues-to-monitor.html#storage-capacity) and rate of growth, and take action to add capacity well before you hit the limit.
 
-- {% include_cached new-in.html version="v21.2" %} CockroachDB will [automatically provision an emergency ballast file](cluster-setup-troubleshooting.html#automatic-ballast-files) at [node startup](cockroach-start.html). In the unlikely case that a node runs out of disk space and shuts down, you can delete the ballast file to free up enough space to be able to restart the node.
+- {% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.2" %} CockroachDB will [automatically provision an emergency ballast file](cluster-setup-troubleshooting.html#automatic-ballast-files) at [node startup](cockroach-start.html). In the unlikely case that a node runs out of disk space and shuts down, you can delete the ballast file to free up enough space to be able to restart the node.
 
 - Use [zone configs](configure-replication-zones.html) to increase the replication factor from 3 (the default) to 5 (across at least 5 nodes).
 
@@ -123,13 +123,13 @@ Under-provisioning storage leads to node crashes when the disks fill up. Once th
 
 ##### Disk I/O
 
-Disks must be able to achieve {% include {{ page.version.version }}/prod-deployment/provision-disk-io.md %}.
+Disks must be able to achieve {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/provision-disk-io.md %}.
 
 - [Monitor IOPS](common-issues-to-monitor.html#disk-iops) using the DB Console and `iostat`. Ensure that they remain within acceptable values.
 
 - Use [sysbench](https://github.com/akopytov/sysbench) to benchmark IOPS on your cluster. If IOPS decrease, add more nodes to your cluster to increase IOPS.
 
-- {% include {{ page.version.version }}/prod-deployment/prod-guidance-lvm.md %}
+- {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/prod-guidance-lvm.md %}
 
 - The optimal configuration for striping more than one device is [RAID 10](https://en.wikipedia.org/wiki/Nested_RAID_levels#RAID_10_(RAID_1+0)). RAID 0 and 1 are also acceptable from a performance perspective.
 
@@ -155,7 +155,7 @@ Results:
 
 ### Cloud-specific recommendations
 
-{% include {{ page.version.version }}/prod-deployment/cloud-report.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/cloud-report.md %}
 
 Based on our internal testing, we recommend the following cloud-specific configurations. Before using configurations not recommended here, be sure to test them exhaustively. Also consider the following workload-specific observations:
 
@@ -166,7 +166,7 @@ Based on our internal testing, we recommend the following cloud-specific configu
 
 #### AWS
 
-{% include {{ page.version.version }}/prod-deployment/recommended-instances-aws.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/recommended-instances-aws.md %}
 
 - [General Purpose SSD `gp3` volumes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html#gp3-ebs-volume-type) are the most cost-effective storage option. `gp3` volumes provide 3,000 IOPS and 125 MiB/s throughput by default. If your deployment requires more IOPS or throughput, per our [hardware recommendations](#disk-i-o), you must provision these separately. [Provisioned IOPS SSD-backed (`io2`) EBS volumes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html#EBSVolumeTypes_piops) also need to have IOPS provisioned, which can be very expensive.
 
@@ -174,7 +174,7 @@ Based on our internal testing, we recommend the following cloud-specific configu
 
 #### Azure
 
-{% include {{ page.version.version }}/prod-deployment/recommended-instances-azure.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/recommended-instances-azure.md %}
 
 - Use [Premium Storage](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-types#premium-ssds) or local SSD storage with a Linux filesystem such as `ext4` (not the Windows `ntfs` filesystem). Note that [the size of a Premium Storage disk affects its IOPS](https://docs.microsoft.com/en-us/azure/virtual-machines/premium-storage-performance#iops).
 
@@ -186,7 +186,7 @@ Based on our internal testing, we recommend the following cloud-specific configu
 
 #### GCP
 
-{% include {{ page.version.version }}/prod-deployment/recommended-instances-gcp.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/recommended-instances-gcp.md %}
 
 - Use [`pd-ssd` SSD persistent disks](https://cloud.google.com/compute/docs/disks/#pdspecs) or [local SSDs](https://cloud.google.com/compute/docs/disks/#localssds). Note that [the IOPS of SSD persistent disks depends both on the disk size and number of vCPUs on the machine](https://cloud.google.com/compute/docs/disks/performance#optimizessdperformance).
 - `nobarrier` can be used with SSDs, but only if it has battery-backed write cache. Without one, data can be corrupted in the event of a crash.
@@ -275,17 +275,17 @@ Environment | Featured Approach
 
 Creating the appropriate size pool of connections is critical to gaining maximum performance in an application. Too few connections in the pool will result in high latency as each operation waits for a connection to open up. But adding too many connections to the pool can also result in high latency as each connection thread is being run in parallel by the system. The time it takes for many threads to complete in parallel is typically higher than the time it takes a smaller number of threads to run sequentially.
 
-{% include {{ page.version.version }}/prod-deployment/prod-guidance-connection-pooling.md %}.
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/prod-guidance-connection-pooling.md %}.
 
 For guidance on sizing, validating, and using connection pools with CockroachDB, see [Use Connection Pools](connection-pooling.html).
 
 ## Monitoring and alerting
 
-{% include {{ page.version.version }}/prod-deployment/monitor-cluster.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/monitor-cluster.md %}
 
 ## Clock synchronization
 
-{% include {{ page.version.version }}/faq/clock-synchronization-effects.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/faq/clock-synchronization-effects.md %}
 
 ## Cache and SQL memory size
 
@@ -310,7 +310,7 @@ $ cockroach start --cache=.35 --max-sql-memory=.35 {other start flags}
 ~~~
 
 {{site.data.alerts.callout_success}}
-{% include {{ page.version.version }}/prod-deployment/prod-guidance-cache-max-sql-memory.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/prod-guidance-cache-max-sql-memory.md %}
 
 Because CockroachDB manages its own memory caches, disable Linux memory swapping to avoid over-allocating memory.
 {{site.data.alerts.end}}
@@ -325,7 +325,7 @@ Library | Description
 `libncurses` | Required by the [built-in SQL shell](cockroach-sql.html).
 [`tzdata`](https://www.iana.org/time-zones) | Required by certain features of CockroachDB that use time zone data, for example, to support using location-based names as time zone identifiers. This library is sometimes called `tz` or `zoneinfo`.<br><br> The CockroachDB binary now includes Go's copy of the `tzdata` library. If CockroachDB cannot find the `tzdata` library externally, it will use this built-in copy.
 
-These libraries are found by default on nearly all Linux distributions, with Alpine as the notable exception, but it's nevertheless important to confirm that they are installed and kept up-to-date. For the time zone data in particular, it's important for all nodes to have the same version; when updating the library, do so as quickly as possible across all nodes.
+These libraries are found by default on nearly all Linux distributions, with Alpine as the notable exception, but it's nevertheless important to confirm that they are installed and kept up-to-date. For the time zone data in particular, it's important for all nodes to have the same [version](cluster-settings.html#setting-version); when updating the library, do so as quickly as possible across all nodes.
 
 {{site.data.alerts.callout_info}}
 In Docker-based deployments of CockroachDB, these dependencies do not need to be manually addressed. The Docker image for CockroachDB includes them and keeps them up to date with each release of CockroachDB.
@@ -418,7 +418,7 @@ $(document).ready(function(){
 <section id="macinstall" markdown="1">
 
 - [Yosemite and later](#yosemite-and-later)
-- [Older versions](#older-versions)
+- [Older [version](cluster-settings.html#setting-version)s](#older-[version](cluster-settings.html#setting-version)s)
 
 #### Yosemite and later
 
@@ -441,9 +441,9 @@ For example, for a node with 3 stores, we would set the hard limit to at least 3
 2.  Create `/Library/LaunchDaemons/limit.maxfiles.plist` and add the following contents, with the final strings in the `ProgramArguments` array set to 35000:
 
     ~~~ xml
-    <?xml version="1.0" encoding="UTF-8"?>
+    <?xml [version](cluster-settings.html#setting-version)="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
+      <plist [version](cluster-settings.html#setting-version)="1.0">
         <dict>
           <key>Label</key>
             <string>limit.maxfiles</string>
@@ -477,9 +477,9 @@ For example, for a node with 3 stores, we would set the hard limit to at least 3
     maxfiles    35000          35000
     ~~~
 
-#### Older versions
+#### Older [version](cluster-settings.html#setting-version)s
 
-To adjust the file descriptors limit for a single process in OS X versions earlier than Yosemite, edit `/etc/launchd.conf` and increase the hard limit to the recommendation mentioned [above](#file-descriptors-limit). Note that CockroachDB always uses the hard limit, so it's not technically necessary to adjust the soft limit, although we do so in the steps below.
+To adjust the file descriptors limit for a single process in OS X [version](cluster-settings.html#setting-version)s earlier than Yosemite, edit `/etc/launchd.conf` and increase the hard limit to the recommendation mentioned [above](#file-descriptors-limit). Note that CockroachDB always uses the hard limit, so it's not technically necessary to adjust the soft limit, although we do so in the steps below.
 
 For example, for a node with 3 stores, we would set the hard limit to at least 35000 (10000 per store and 5000 for networking) as follows:
 

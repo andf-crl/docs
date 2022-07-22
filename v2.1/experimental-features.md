@@ -49,7 +49,7 @@ For example, to distribute leases and ranges for N primary keys across N stores 
 > ALTER TABLE t EXPERIMENTAL_RELOCATE SELECT ARRAY[<storeid1>, <storeid2>, ..., <storeidN>], <primarykeycol1>, <primarykeycol2>, ..., <primarykeycolN>;
 ~~~
 
-<span class="version-tag">New in v2.1:</span> To relocate just the lease without moving the replicas, run a statement like the one shown below, which moves the lease for the range containing primary key 'foo' to store 1.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v2.1:</span> To relocate just the lease without moving the replicas, run a statement like the one shown below, which moves the lease for the range containing primary key 'foo' to store 1.
 
 {% include copy-clipboard.html %}
 ~~~ sql

@@ -1,4 +1,4 @@
-We recommend starting backups from a time at least 10 seconds in the past using [`AS OF SYSTEM TIME`](../{{site.versions["stable"]}}/as-of-system-time.html). Read our guidance in the [Performance](../{{site.versions["stable"]}}/backup.html#performance) section on the [`BACKUP`](../{{site.versions["stable"]}}/backup.html) page.
+We recommend starting backups from a time at least 10 seconds in the past using [`AS OF SYSTEM TIME`](../{{site.[version](cluster-settings.html#setting-version)s["stable"]}}/as-of-system-time.html). Read our guidance in the [Performance](../{{site.[version](cluster-settings.html#setting-version)s["stable"]}}/backup.html#performance) section on the [`BACKUP`](../{{site.[version](cluster-settings.html#setting-version)s["stable"]}}/backup.html) page.
 
 {{site.data.alerts.callout_info}}
 Only database and table-level backups are possible when using `userfile` as storage. Restoring cluster-level backups will not work because `userfile` data is stored in the `defaultdb` database, and you cannot restore a cluster with existing table data.

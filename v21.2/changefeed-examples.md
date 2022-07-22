@@ -29,7 +29,7 @@ Use the following filters to show usage examples for either **Enterprise** or **
 ## Create a changefeed connected to Kafka
 
 {{site.data.alerts.callout_info}}
-[`CREATE CHANGEFEED`](create-changefeed.html) is an [{{ site.data.products.enterprise }}-only](enterprise-licensing.html) feature. For the Core version, see [the `CHANGEFEED FOR` example](#create-a-core-changefeed).
+[`CREATE CHANGEFEED`](create-changefeed.html) is an [{{ site.data.products.enterprise }}-only](enterprise-licensing.html) feature. For the Core [version](cluster-settings.html#setting-version), see [the `CHANGEFEED FOR` example](#create-a-core-changefeed).
 {{site.data.alerts.end}}
 
 In this example, you'll set up a changefeed for a single-node cluster that is connected to a Kafka sink. The changefeed will watch two tables.
@@ -45,7 +45,7 @@ In this example, you'll set up a changefeed for a single-node cluster that is co
 
 1. Download and extract the [Confluent Open Source platform](https://www.confluent.io/download/) (which includes Kafka).
 
-1. Move into the extracted `confluent-<version>` directory and start Confluent:
+1. Move into the extracted `confluent-<[version](cluster-settings.html#setting-version)>` directory and start Confluent:
 
     {% include_cached copy-clipboard.html %}
     ~~~ shell
@@ -80,9 +80,9 @@ In this example, you'll set up a changefeed for a single-node cluster that is co
     You are expected to create any Kafka topics with the necessary number of replications and partitions. [Topics can be created manually](https://kafka.apache.org/documentation/#basic_ops_add_topic) or [Kafka brokers can be configured to automatically create topics](https://kafka.apache.org/documentation/#topicconfigs) with a default partition count and replication factor.
     {{site.data.alerts.end}}
 
-{% include {{ page.version.version }}/cdc/sql-cluster-settings-example.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/cdc/sql-cluster-settings-example.md %}
 
-{% include {{ page.version.version }}/cdc/create-example-db-cdc.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/cdc/create-example-db-cdc.md %}
 
 1. Start the changefeed:
 
@@ -100,7 +100,7 @@ In this example, you'll set up a changefeed for a single-node cluster that is co
 
     This will start up the changefeed in the background and return the `job_id`. The changefeed writes to Kafka.
 
-1. In a new terminal, move into the extracted `confluent-<version>` directory and start watching the Kafka topics:
+1. In a new terminal, move into the extracted `confluent-<[version](cluster-settings.html#setting-version)>` directory and start watching the Kafka topics:
 
     {% include_cached copy-clipboard.html %}
     ~~~ shell
@@ -119,7 +119,7 @@ In this example, you'll set up a changefeed for a single-node cluster that is co
 
     The initial scan displays the state of the tables as of when the changefeed started (therefore, the initial value of `"Petee"` is omitted).
 
-    {% include {{ page.version.version }}/cdc/print-key.md %}
+    {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/cdc/print-key.md %}
 
 1. Back in the SQL client, insert more data:
 
@@ -161,7 +161,7 @@ In this example, you'll set up a changefeed for a single-node cluster that is co
     server drained and shutdown completed
     ~~~
 
-1. To stop Kafka, move into the extracted `confluent-<version>` directory and stop Confluent:
+1. To stop Kafka, move into the extracted `confluent-<[version](cluster-settings.html#setting-version)>` directory and stop Confluent:
 
     {% include_cached copy-clipboard.html %}
     ~~~ shell
@@ -171,7 +171,7 @@ In this example, you'll set up a changefeed for a single-node cluster that is co
 ## Create a changefeed connected to Kafka using Avro
 
 {{site.data.alerts.callout_info}}
-[`CREATE CHANGEFEED`](create-changefeed.html) is an [Enterprise-only](enterprise-licensing.html) feature. For the Core version, see [the `CHANGEFEED FOR` example](#create-a-core-changefeed-using-avro).
+[`CREATE CHANGEFEED`](create-changefeed.html) is an [Enterprise-only](enterprise-licensing.html) feature. For the Core [version](cluster-settings.html#setting-version), see [the `CHANGEFEED FOR` example](#create-a-core-changefeed-using-avro).
 {{site.data.alerts.end}}
 
 In this example, you'll set up a changefeed for a single-node cluster that is connected to a Kafka sink and emits [Avro](https://avro.apache.org/docs/1.8.2/spec.html) records. The changefeed will watch two tables.
@@ -187,7 +187,7 @@ In this example, you'll set up a changefeed for a single-node cluster that is co
 
 1. Download and extract the [Confluent Open Source platform](https://www.confluent.io/download/) (which includes Kafka).
 
-1. Move into the extracted `confluent-<version>` directory and start Confluent:
+1. Move into the extracted `confluent-<[version](cluster-settings.html#setting-version)>` directory and start Confluent:
 
     {% include_cached copy-clipboard.html %}
     ~~~ shell
@@ -222,9 +222,9 @@ In this example, you'll set up a changefeed for a single-node cluster that is co
     You are expected to create any Kafka topics with the necessary number of replications and partitions. [Topics can be created manually](https://kafka.apache.org/documentation/#basic_ops_add_topic) or [Kafka brokers can be configured to automatically create topics](https://kafka.apache.org/documentation/#topicconfigs) with a default partition count and replication factor.
     {{site.data.alerts.end}}
 
-{% include {{ page.version.version }}/cdc/sql-cluster-settings-example.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/cdc/sql-cluster-settings-example.md %}
 
-{% include {{ page.version.version }}/cdc/create-example-db-cdc.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/cdc/create-example-db-cdc.md %}
 
 1. Start the changefeed:
 
@@ -242,7 +242,7 @@ In this example, you'll set up a changefeed for a single-node cluster that is co
 
     This will start up the changefeed in the background and return the `job_id`. The changefeed writes to Kafka.
 
-1. In a new terminal, move into the extracted `confluent-<version>` directory and start watching the Kafka topics:
+1. In a new terminal, move into the extracted `confluent-<[version](cluster-settings.html#setting-version)>` directory and start watching the Kafka topics:
 
     {% include_cached copy-clipboard.html %}
     ~~~ shell
@@ -261,7 +261,7 @@ In this example, you'll set up a changefeed for a single-node cluster that is co
 
     The initial scan displays the state of the table as of when the changefeed started (therefore, the initial value of `"Petee"` is omitted).
 
-    {% include {{ page.version.version }}/cdc/print-key.md %}
+    {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/cdc/print-key.md %}
 
 1. Back in the SQL client, insert more data:
 
@@ -303,7 +303,7 @@ In this example, you'll set up a changefeed for a single-node cluster that is co
     server drained and shutdown completed
     ~~~
 
-1. To stop Kafka, move into the extracted `confluent-<version>` directory and stop Confluent:
+1. To stop Kafka, move into the extracted `confluent-<[version](cluster-settings.html#setting-version)>` directory and stop Confluent:
 
     {% include_cached copy-clipboard.html %}
     ~~~ shell
@@ -313,7 +313,7 @@ In this example, you'll set up a changefeed for a single-node cluster that is co
 ## Create a changefeed connected to a cloud storage sink
 
 {{site.data.alerts.callout_info}}
-[`CREATE CHANGEFEED`](create-changefeed.html) is an [Enterprise-only](enterprise-licensing.html) feature. For the Core version, see [the `CHANGEFEED FOR` example above](#create-a-core-changefeed).
+[`CREATE CHANGEFEED`](create-changefeed.html) is an [Enterprise-only](enterprise-licensing.html) feature. For the Core [version](cluster-settings.html#setting-version), see [the `CHANGEFEED FOR` example above](#create-a-core-changefeed).
 {{site.data.alerts.end}}
 
 In this example, you'll set up a changefeed for a single-node cluster that is connected to an AWS S3 sink. The changefeed watches two tables. Note that you can set up changefeeds for any of [these cloud storage providers](changefeed-sinks.html#cloud-storage-sink).
@@ -327,9 +327,9 @@ In this example, you'll set up a changefeed for a single-node cluster that is co
     $ cockroach start-single-node --insecure --listen-addr=localhost --background
     ~~~
 
-{% include {{ page.version.version }}/cdc/sql-cluster-settings-example.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/cdc/sql-cluster-settings-example.md %}
 
-{% include {{ page.version.version }}/cdc/create-example-db-cdc.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/cdc/create-example-db-cdc.md %}
 
 1. Start the changefeed:
 
@@ -379,12 +379,12 @@ In this example, you'll set up a changefeed for a single-node cluster that is co
 ## Create a changefeed connected to a webhook sink
 
 {{site.data.alerts.callout_info}}
-[`CREATE CHANGEFEED`](create-changefeed.html) is an [enterprise-only](enterprise-licensing.html) feature. For the Core version, see [the `CHANGEFEED FOR` example above](#create-a-core-changefeed).
+[`CREATE CHANGEFEED`](create-changefeed.html) is an [enterprise-only](enterprise-licensing.html) feature. For the Core [version](cluster-settings.html#setting-version), see [the `CHANGEFEED FOR` example above](#create-a-core-changefeed).
 {{site.data.alerts.end}}
 
-{% include {{ page.version.version }}/cdc/webhook-beta.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/cdc/webhook-beta.md %}
 
-{% include_cached new-in.html version="v21.2" %} In this example, you'll set up a changefeed for a single-node cluster that is connected to a local HTTP server via a webhook. For this example, you'll use an [example HTTP server](https://github.com/cockroachlabs/cdc-webhook-sink-test-server/tree/master/go-https-server) to test out the webhook sink.
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.2" %} In this example, you'll set up a changefeed for a single-node cluster that is connected to a local HTTP server via a webhook. For this example, you'll use an [example HTTP server](https://github.com/cockroachlabs/cdc-webhook-sink-test-server/tree/master/go-https-server) to test out the webhook sink.
 
 1. If you do not already have one, [request a trial {{ site.data.products.enterprise }} license](enterprise-licensing.html).
 
@@ -411,7 +411,7 @@ In this example, you'll set up a changefeed for a single-node cluster that is co
      cockroach workload run movr --duration=1m "postgresql://root@127.0.0.1:26257?sslmode=disable"
      ~~~
 
-{% include {{ page.version.version }}/cdc/sql-cluster-settings-example.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/cdc/sql-cluster-settings-example.md %}
 
 1. In a separate terminal window, set up your HTTP server. Clone the test repository:
 
@@ -477,11 +477,11 @@ Only Core changefeeds are available on {{ site.data.products.serverless-plan }}.
 
 ## Create a Core changefeed
 
-{% include {{ page.version.version }}/cdc/create-core-changefeed.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/cdc/create-core-changefeed.md %}
 
 ## Create a Core changefeed using Avro
 
-{% include {{ page.version.version }}/cdc/create-core-changefeed-avro.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/cdc/create-core-changefeed-avro.md %}
 
 For further information on Core changefeeds, see [`EXPERIMENTAL CHANGEFEED FOR`](changefeed-for.html).
 

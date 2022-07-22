@@ -50,7 +50,7 @@ Because this log is treated as serializable, it can be replayed to bring a node 
 
 #### Non-voting replicas
 
-In versions prior to v21.1, CockroachDB only supported _voting_ replicas: that is, [replicas](overview.html#architecture-replica) that participate as voters in the [Raft consensus protocol](#raft). However, the need for all replicas to participate in the consensus algorithm meant that increasing the [replication factor](../configure-replication-zones.html#num_replicas) came at a cost of increased write latency, since the additional replicas needed to participate in Raft [quorum](overview.html#architecture-overview-consensus).
+In [version](cluster-settings.html#setting-version)s prior to v21.1, CockroachDB only supported _voting_ replicas: that is, [replicas](overview.html#architecture-replica) that participate as voters in the [Raft consensus protocol](#raft). However, the need for all replicas to participate in the consensus algorithm meant that increasing the [replication factor](../configure-replication-zones.html#num_replicas) came at a cost of increased write latency, since the additional replicas needed to participate in Raft [quorum](overview.html#architecture-overview-consensus).
 
  In order to provide [better support for multi-region clusters](../multiregion-overview.html) (including the features that make [fast multi-region reads](../multiregion-overview.html#global-tables) and [surviving region failures](../multiregion-overview.html#surviving-region-failures) possible), a new type of replica is introduced: the _non-voting_ replica.
 
@@ -70,7 +70,7 @@ Non-voting replicas can be configured via [zone configurations through `num_vote
 
 ##### Overview
 
-{% include_cached new-in.html version="v22.1" %} When individual [ranges](overview.html#architecture-range) become temporarily unavailable, requests to those ranges are refused by a per-replica "circuit breaker" mechanism instead of hanging indefinitely. 
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v22.1" %} When individual [ranges](overview.html#architecture-range) become temporarily unavailable, requests to those ranges are refused by a per-replica "circuit breaker" mechanism instead of hanging indefinitely. 
 
 From a user's perspective, this means that if a [SQL query](sql-layer.html) is going to ultimately fail due to accessing a temporarily unavailable range, a [replica](overview.html#architecture-replica) in that range will trip its circuit breaker (after 60 seconds [by default](#per-replica-circuit-breaker-timeout)) and bubble a `ReplicaUnavailableError` error back up through the system to inform the user why their query did not succeed. These (hopefully transient) errors are also signalled as events in the DB Console's [Replication Dashboard](../ui-replication-dashboard.html) and as "circuit breaker errors" in its [**Problem Ranges** and **Range Status** pages](../ui-debug-pages.html). Meanwhile, CockroachDB continues asynchronously probing the range's availability. If the replica becomes available again, the breaker is reset so that it can go back to serving requests normally.
 
@@ -89,7 +89,7 @@ Per-replica circuit breakers are enabled by default. Most users will not have to
 
 <a name="per-replica-circuit-breaker-timeout"></a>
 
-The circuit breaker timeout value is controlled by the `kv.replica_circuit_breaker.slow_replication_threshold` [cluster setting](../cluster-settings.html), which defaults to an [interval](../interval.html) of `1m0s` (1 minute).
+The circuit breaker timeout value is controlled by the `[kv.replica_circuit_breaker.slow_replication_threshold](cluster-settings.html#setting-kv-replica_circuit_breaker-slow_replication_threshold)` [cluster setting](../cluster-settings.html), which defaults to an [interval](../interval.html) of `1m0s` (1 minute).
 
 <a name="per-replica-circuit-breaker-limitations"></a>
 
@@ -191,7 +191,7 @@ When checking for leaseholder rebalancing opportunities, the current leaseholder
 
 ##### Controlling leaseholder rebalancing
 
-You can control leaseholder rebalancing through the `kv.allocator.load_based_lease_rebalancing.enabled` and `kv.allocator.lease_rebalancing_aggressiveness` [cluster settings](../cluster-settings.html). Note that depending on the needs of your deployment, you can exercise additional control over the location of leases and replicas by [configuring replication zones](../configure-replication-zones.html).
+You can control leaseholder rebalancing through the `[kv.allocator.load_based_lease_rebalancing.enabled](cluster-settings.html#setting-kv-allocator-load_based_lease_rebalancing-enabled)` and `kv.allocator.lease_rebalancing_aggressiveness` [cluster settings](../cluster-settings.html). Note that depending on the needs of your deployment, you can exercise additional control over the location of leases and replicas by [configuring replication zones](../configure-replication-zones.html).
 
 ### Membership changes: rebalance/repair
 
@@ -205,7 +205,7 @@ Rebalancing is achieved by using a snapshot of a replica from the leaseholder, a
 
 #### Load-based replica rebalancing
 
-In addition to the rebalancing that occurs when nodes join or leave a cluster, replicas are also rebalanced automatically based on the relative load across the nodes within a cluster. For more information, see the `kv.allocator.load_based_rebalancing` and `kv.allocator.qps_rebalance_threshold` [cluster settings](../cluster-settings.html). Note that depending on the needs of your deployment, you can exercise additional control over the location of leases and replicas by [configuring replication zones](../configure-replication-zones.html).
+In addition to the rebalancing that occurs when nodes join or leave a cluster, replicas are also rebalanced automatically based on the relative load across the nodes within a cluster. For more information, see the `[kv.allocator.load_based_rebalancing](cluster-settings.html#setting-kv-allocator-load_based_rebalancing)` and `[kv.allocator.qps_rebalance_threshold](cluster-settings.html#setting-kv-allocator-qps_rebalance_threshold)` [cluster settings](../cluster-settings.html). Note that depending on the needs of your deployment, you can exercise additional control over the location of leases and replicas by [configuring replication zones](../configure-replication-zones.html).
 
 ## Interactions with other layers
 

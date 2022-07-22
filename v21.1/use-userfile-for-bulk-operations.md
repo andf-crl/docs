@@ -13,7 +13,7 @@ toc: true
 
 Once a userfile is uploaded, you can run [`IMPORT`](#import-from-userfile).
 
-{% include_cached new-in.html version="v21.1" %} For `PGDUMP` and `MYSQLDUMP` formats, you can use [`cockroach import`](#upload-and-import-from-a-dump-file) to upload a userfile, import its data, and delete the userfile in one command.
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.1" %} For `PGDUMP` and `MYSQLDUMP` formats, you can use [`cockroach import`](#upload-and-import-from-a-dump-file) to upload a userfile, import its data, and delete the userfile in one command.
 
 ## Upload a file
 
@@ -87,11 +87,11 @@ For more information, see [`cockroach import`](cockroach-import.html).
 
 ## Import from `userfile`
 
-{% include {{ page.version.version }}/userfile-examples/import-into-userfile.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/userfile-examples/import-into-userfile.md %}
 
 ## Backup and restore with `userfile`
 
-{% include {{ page.version.version }}/userfile-examples/backup-userfile.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/userfile-examples/backup-userfile.md %}
 
 ## See also
 

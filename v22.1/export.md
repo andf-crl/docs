@@ -24,7 +24,7 @@ After the export has been initiated, you can cancel it with [`CANCEL QUERY`](can
 
 ## Synopsis
 
-<div>{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.version.version | replace: "v", "" }}/grammar_svg/export.html %}</div>
+<div>{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/grammar_svg/export.html %}</div>
 
 {{site.data.alerts.callout_info}}
 The `EXPORT` statement cannot be used within a [transaction](transactions.html).
@@ -100,9 +100,9 @@ CockroachDB types map to [Parquet types](https://github.com/apache/parquet-forma
 | [`BYTES`](bytes.html) | byte array | `nil` |
 | [`BIT`](bit.html) | byte array | `nil` |
 | [`ENUM`](enum.html) | byte array | `ENUM` |
-| [`Box2D`](data-types.html#data-type-conversions-and-casts) | byte array | `STRING` |
-| [`GEOGRAPHY`](data-types.html#data-type-conversions-and-casts) | byte array | `nil` |
-| [`GEOMETRY`](data-types.html#data-type-conversions-and-casts) | byte array | `nil` |
+| [`Box2D`](data-types.html#data-type-con[version](cluster-settings.html#setting-version)s-and-casts) | byte array | `STRING` |
+| [`GEOGRAPHY`](data-types.html#data-type-con[version](cluster-settings.html#setting-version)s-and-casts) | byte array | `nil` |
+| [`GEOMETRY`](data-types.html#data-type-con[version](cluster-settings.html#setting-version)s-and-casts) | byte array | `nil` |
 | [`DATE`](date.html) | byte array | `STRING` |
 | [`TIME`](time.html) | `INT64` | `TIME` <br>Note: microseconds after midnight; <br>exporting to microsecond precision. |
 | [`TIMETZ`](time.html) | byte array | `STRING` <br>Note: exporting to microsecond precision. |
@@ -123,7 +123,7 @@ The following provide connection examples to cloud storage providers. For more i
 
 <section class="filter-content" markdown="1" data-scope="s3">
 
-{% include {{ page.version.version }}/backups/aws-auth-note.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/backups/aws-auth-note.md %}
 
 Each of these examples use the `bank` database and the `customers` table; `customer-export-data` is the demonstration path to which we're exporting our customers' data in this example.
 
@@ -211,7 +211,7 @@ export16808a04292505c80000000000000001-n1.0.parquet.snappy |   17 |   824
 
 ### Export tabular data with an S3 storage class
 
-{% include_cached new-in.html version="v22.1" %} To associate your export objects with a [specific storage class](use-cloud-storage-for-bulk-operations.html#amazon-s3-storage-classes) in your Amazon S3 bucket, use the `S3_STORAGE_CLASS` parameter with the class. For example, the following S3 connection URI specifies the `INTELLIGENT_TIERING` storage class:
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v22.1" %} To associate your export objects with a [specific storage class](use-cloud-storage-for-bulk-operations.html#amazon-s3-storage-classes) in your Amazon S3 bucket, use the `S3_STORAGE_CLASS` parameter with the class. For example, the following S3 connection URI specifies the `INTELLIGENT_TIERING` storage class:
 
 {% include_cached copy-clipboard.html %}
 ~~~ sql
@@ -220,7 +220,7 @@ export16808a04292505c80000000000000001-n1.0.parquet.snappy |   17 |   824
   WITH delimiter = '|' FROM TABLE bank.customers;
 ~~~
 
-{% include {{ page.version.version }}/misc/storage-classes.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/storage-classes.md %}
 
 </section>
 
@@ -314,7 +314,7 @@ export16808a04292505c80000000000000001-n1.0.parquet.snappy |   17 |   824
 
 <section class="filter-content" markdown="1" data-scope="gcs">
 
-{% include {{ page.version.version }}/backups/gcs-auth-note.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/backups/gcs-auth-note.md %}
 
 Each of these examples use the `bank` database and the `customers` table; `customer-export-data` is the demonstration path to which we're exporting our customers' data in this example.
 

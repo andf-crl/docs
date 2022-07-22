@@ -5,13 +5,13 @@ toc: true
 docs_area: reference.sql
 ---
 
-{% include_cached new-in.html version="v22.1" %} The `ALTER RANGE ... RELOCATE` statement is a subcommand of [`ALTER RANGE`](alter-range.html). It is used to move a lease or [replica](architecture/overview.html#architecture-replica) between [stores](cockroach-start.html#store). This is helpful in an emergency situation to relocate data in the cluster.
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v22.1" %} The `ALTER RANGE ... RELOCATE` statement is a subcommand of [`ALTER RANGE`](alter-range.html). It is used to move a lease or [replica](architecture/overview.html#architecture-replica) between [stores](cockroach-start.html#store). This is helpful in an emergency situation to relocate data in the cluster.
 
 {{site.data.alerts.callout_danger}}
 Most users should not need to use this statement; it is for use in emergency situations. If you are in an emergency situation where you think using this statement may help, Cockroach Labs recommends contacting [support](support-resources.html).
 {{site.data.alerts.end}}
 
-{% include {{ page.version.version }}/misc/schema-change-stmt-note.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-stmt-note.md %}
 
 {{site.data.alerts.callout_info}}
 If you prefer to use a key based approach to relocating replicas and leases, see the experimental [`ALTER TABLE ... EXPERIMENTAL_RELOCATE`](experimental-features.html#relocate-leases-and-replicas) statement.
@@ -20,7 +20,7 @@ If you prefer to use a key based approach to relocating replicas and leases, see
 ## Synopsis
 
 <div>
-{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.version.version | replace: "v", "" }}/grammar_svg/alter_range_relocate.html %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/grammar_svg/alter_range_relocate.html %}
 </div>
 
 ## Required privileges

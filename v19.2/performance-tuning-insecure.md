@@ -17,7 +17,7 @@ For a comprehensive list of tuning recommendations, only some of which are demon
 
 ## Overview
 
-{% include {{ page.version.version }}/performance/overview.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/performance/overview.md %}
 
 ## Single-region deployment
 
@@ -40,7 +40,7 @@ For a comprehensive list of tuning recommendations, only some of which are demon
 
 ### Step 1. Configure your network
 
-{% include {{ page.version.version }}/performance/configure-network.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/performance/configure-network.md %}
 
 ### Step 2. Create instances
 
@@ -59,11 +59,11 @@ You'll start with a 3-node CockroachDB cluster in the `us-east1-b` GCE zone, wit
 
 ### Step 3. Start a 3-node cluster
 
-{% include {{ page.version.version }}/performance/start-cluster.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/performance/start-cluster.md %}
 
 ### Step 4. Import the Movr dataset
 
-{% include {{ page.version.version }}/performance/import-movr.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/performance/import-movr.md %}
 
 ### Step 5. Install the Python client
 
@@ -87,7 +87,7 @@ When measuring SQL performance, it's best to run a given statement multiple time
 
     {% include copy-clipboard.html %}
     ~~~ shell
-    $ wget https://raw.githubusercontent.com/cockroachdb/docs/master/_includes/{{ page.version.version }}/performance/tuning.py \
+    $ wget https://raw.githubusercontent.com/cockroachdb/docs/master/_includes/{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/performance/tuning.py \
     && chmod +x tuning.py
     ~~~
 
@@ -678,7 +678,7 @@ GROUP BY vehicle_id;"
 (20 rows)
 ~~~
 
-This is a complex query plan, but the important thing to note is the full table scan of `rides@primary` above the `subquery`. This shows you that, after the subquery returns the IDs of the top 5 vehicles, CockroachDB scans the entire primary index to find the rows with `max(end_time)` for each `vehicle_id`, although you might expect CockroachDB to more efficiently use the secondary index on `vehicle_id` (CockroachDB is working to remove this limitation in a future version).
+This is a complex query plan, but the important thing to note is the full table scan of `rides@primary` above the `subquery`. This shows you that, after the subquery returns the IDs of the top 5 vehicles, CockroachDB scans the entire primary index to find the rows with `max(end_time)` for each `vehicle_id`, although you might expect CockroachDB to more efficiently use the secondary index on `vehicle_id` (CockroachDB is working to remove this limitation in a future [version](cluster-settings.html#setting-version)).
 
 #### Using `IN (list)` with explicit values
 
@@ -818,7 +818,7 @@ Cumulative time (milliseconds):
 As you can see, this multi-row `INSERT` technique reduced the total time for 100 inserts from 910.98ms to 15.40ms. It's useful to note that this technique is equally effective for [`UPSERT`](upsert.html) and [`DELETE`](delete.html) statements as well.
 
 {{site.data.alerts.callout_info}}
-<span class="version-tag">New in v19.2:</span> You can also use the [`IMPORT INTO`](import-into.html) statement to bulk-insert CSV data into an existing table.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v19.2:</span> You can also use the [`IMPORT INTO`](import-into.html) statement to bulk-insert CSV data into an existing table.
 {{site.data.alerts.end}}
 
 #### Minimizing unused indexes
@@ -1019,7 +1019,7 @@ Given that Movr is active on both US coasts, you'll now scale the cluster into t
 
 ### Step 9. Scale the cluster
 
-{% include {{ page.version.version }}/performance/scale-cluster.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/performance/scale-cluster.md %}
 
 ### Step 10. Install the Python client
 
@@ -1027,23 +1027,23 @@ In each of the new zones, SSH to the instance not running a CockroachDB node, an
 
 ### Step 11. Check rebalancing
 
-{% include {{ page.version.version }}/performance/check-rebalancing.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/performance/check-rebalancing.md %}
 
 ### Step 12. Test performance
 
-{% include {{ page.version.version }}/performance/test-performance.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/performance/test-performance.md %}
 
 ### Step 13. Partition data by city
 
-{% include {{ page.version.version }}/performance/partition-by-city.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/performance/partition-by-city.md %}
 
 ### Step 14. Check rebalancing after partitioning
 
-{% include {{ page.version.version }}/performance/check-rebalancing-after-partitioning.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/performance/check-rebalancing-after-partitioning.md %}
 
 ### Step 15. Test performance after partitioning
 
-{% include {{ page.version.version }}/performance/test-performance-after-partitioning.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/performance/test-performance-after-partitioning.md %}
 
 ## See also
 

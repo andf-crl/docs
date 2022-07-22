@@ -48,7 +48,7 @@ Diagnostics |  Option to activate [diagnostics](#diagnostics) for this fingerpri
 
 ### Time interval
 
-By default, the Statements page displays all SQL statements executed within a one-hour time interval. The display is cleared at the end of each interval. You can change the interval with the [`diagnostics.reporting.interval`](cluster-settings.html#settings) cluster setting.
+By default, the Statements page displays all SQL statements executed within a one-hour time interval. The display is cleared at the end of each interval. You can change the interval with the [`[diagnostics.reporting.interval](cluster-settings.html#setting-diagnostics-reporting-interval)`](cluster-settings.html#settings) cluster setting.
 
 ### SQL statement fingerprints
 
@@ -125,7 +125,7 @@ When you activate diagnostics for a fingerprint, CockroachDB waits for the next 
 Diagnostics will be collected a maximum of *N* times for a given activated fingerprint where *N* is the number of nodes in your cluster.
 {{site.data.alerts.end}}
 
-{% include {{ page.version.version }}/sql/statement-bundle-warning.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/statement-bundle-warning.md %}
 
 <img src="{{ 'images/v20.2/ui_statements_diagnostics.png' | relative_url }}" alt="DB Console Statements Page" style="border:1px solid #eee;max-width:100%" />
 
@@ -145,11 +145,11 @@ The **Logical Plan** section displays CockroachDB's query plan for an [explainab
 
 <img src="{{ 'images/v20.2/ui_statements_logical_plan.png' | relative_url }}" alt="DB Console Statements Page" style="border:1px solid #eee;max-width:100%" />
 
-By default, the logical plan for each fingerprint is sampled every 5 minutes. You can change the interval with the [`sql.metrics.statement_details.plan_collection.period`](cluster-settings.html#settings) cluster setting. For example, to change the interval to 2 minutes, run the following [`SET CLUSTER SETTING`](set-cluster-setting.html) command:
+By default, the logical plan for each fingerprint is sampled every 5 minutes. You can change the interval with the [`[sql.metrics.statement_details.plan_collection.period](cluster-settings.html#setting-sql-metrics-statement_details-plan_collection-period)`](cluster-settings.html#settings) cluster setting. For example, to change the interval to 2 minutes, run the following [`SET CLUSTER SETTING`](set-cluster-setting.html) command:
 
 {% include copy-clipboard.html %}
 ~~~ sql
-> SET CLUSTER SETTING sql.metrics.statement_details.plan_collection.period  = '2m0s';
+> SET CLUSTER SETTING [sql.metrics.statement_details.plan_collection.period](cluster-settings.html#setting-sql-metrics-statement_details-plan_collection-period)  = '2m0s';
 ~~~
 
 ### Execution Stats

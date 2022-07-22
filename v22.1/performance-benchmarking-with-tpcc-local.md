@@ -30,7 +30,7 @@ This page shows you how to reproduce [CockroachDB TPC-C performance benchmarking
 
 ## Step 1. Start CockroachDB
 
-{% include {{ page.version.version }}/prod-deployment/insecure-flag.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/insecure-flag.md %}
 
 1. Use the [`cockroach start`](cockroach-start.html) command to start 3 nodes:
 
@@ -78,7 +78,7 @@ This page shows you how to reproduce [CockroachDB TPC-C performance benchmarking
 
 ## Step 2. Import the TPC-C dataset
 
-CockroachDB comes with a number of [built-in workloads](cockroach-workload.html) for simulating client traffic. This step features CockroachDB's version of the [TPC-C](http://www.tpc.org/tpcc/) workload.
+CockroachDB comes with a number of [built-in workloads](cockroach-workload.html) for simulating client traffic. This step features CockroachDB's [version](cluster-settings.html#setting-version) of the [TPC-C](http://www.tpc.org/tpcc/) workload.
 
 Use [`cockroach workload`](cockroach-workload.html) to load the initial schema and data:
 
@@ -136,7 +136,7 @@ _elapsed_______tpmC____efc__avg(ms)__p50(ms)__p90(ms)__p95(ms)__p99(ms)_pMax(ms)
 
 You will also see some audit checks and latency statistics for each individual query. For this run, some of those checks might indicate that they were `SKIPPED` due to insufficient data. For a more comprehensive test, run `workload` for a longer duration (e.g., two hours). The `tpmC` (new order transactions/minute) number is the headline number and `efc` ("efficiency") tells you how close CockroachDB gets to theoretical maximum `tpmC`.
 
-The [TPC-C specification](http://www.tpc.org/tpc_documents_current_versions/pdf/tpc-c_v5.11.0.pdf) has p90 latency requirements in the order of seconds, but as you see here, CockroachDB far surpasses that requirement with p90 latencies in the tens of milliseconds.
+The [TPC-C specification](http://www.tpc.org/tpc_documents_current_[version](cluster-settings.html#setting-version)s/pdf/tpc-c_v5.11.0.pdf) has p90 latency requirements in the order of seconds, but as you see here, CockroachDB far surpasses that requirement with p90 latencies in the tens of milliseconds.
 
 ## Step 5. Clean up
 

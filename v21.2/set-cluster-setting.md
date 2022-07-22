@@ -17,7 +17,7 @@ Only members of the `admin` role can modify cluster settings. By default, the `r
 ## Synopsis
 
 <div>
-{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.version.version | replace: "v", "" }}/grammar_svg/set_cluster_setting.html %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/grammar_svg/set_cluster_setting.html %}
 </div>
 
 {{site.data.alerts.callout_info}}The <code>SET CLUSTER SETTING</code> statement is unrelated to the other <a href="set-transaction.html"><code>SET TRANSACTION</code></a> and <a href="set-vars.html"><code>SET {session variable}</code></a> statements.{{site.data.alerts.end}}
@@ -38,14 +38,14 @@ To configure a cluster so that new sessions automatically try to run queries [in
 
 {% include_cached copy-clipboard.html %}
 ~~~ sql
-> SET CLUSTER SETTING sql.defaults.distsql = 1;
+> SET CLUSTER SETTING [sql.defaults.distsql](cluster-settings.html#setting-sql-defaults-distsql) = 1;
 ~~~
 
 To disable distributed execution for all new sessions:
 
 {% include_cached copy-clipboard.html %}
 ~~~ sql
-> SET CLUSTER SETTING sql.defaults.distsql = 0;
+> SET CLUSTER SETTING [sql.defaults.distsql](cluster-settings.html#setting-sql-defaults-distsql) = 0;
 ~~~
 
 ### Disable automatic diagnostic reporting
@@ -54,16 +54,16 @@ To opt out of [automatic diagnostic reporting](diagnostics-reporting.html) of us
 
 {% include_cached copy-clipboard.html %}
 ~~~ sql
-> SET CLUSTER SETTING diagnostics.reporting.enabled = false;
+> SET CLUSTER SETTING [diagnostics.reporting.enabled](cluster-settings.html#setting-diagnostics-reporting-enabled) = false;
 ~~~
 
 {% include_cached copy-clipboard.html %}
 ~~~ sql
-> SHOW CLUSTER SETTING diagnostics.reporting.enabled;
+> SHOW CLUSTER SETTING [diagnostics.reporting.enabled](cluster-settings.html#setting-diagnostics-reporting-enabled);
 ~~~
 
 ~~~
-  diagnostics.reporting.enabled
+  [diagnostics.reporting.enabled](cluster-settings.html#setting-diagnostics-reporting-enabled)
 ---------------------------------
               false
 (1 row)
@@ -75,16 +75,16 @@ To opt out of [automatic diagnostic reporting](diagnostics-reporting.html) of us
 
 {% include_cached copy-clipboard.html %}
 ~~~ sql
-> SET CLUSTER SETTING sql.metrics.statement_details.enabled = false;
+> SET CLUSTER SETTING [sql.metrics.statement_details.enabled](cluster-settings.html#setting-sql-metrics-statement_details-enabled) = false;
 ~~~
 
 {% include_cached copy-clipboard.html %}
 ~~~ sql
-> SHOW CLUSTER SETTING sql.metrics.statement_details.enabled;
+> SHOW CLUSTER SETTING [sql.metrics.statement_details.enabled](cluster-settings.html#setting-sql-metrics-statement_details-enabled);
 ~~~
 
 ~~~
-  sql.metrics.statement_details.enabled
+  [sql.metrics.statement_details.enabled](cluster-settings.html#setting-sql-metrics-statement_details-enabled)
 -----------------------------------------
                   false
 (1 row)
@@ -92,16 +92,16 @@ To opt out of [automatic diagnostic reporting](diagnostics-reporting.html) of us
 
 {% include_cached copy-clipboard.html %}
 ~~~ sql
-> SET CLUSTER SETTING sql.metrics.statement_details.enabled = DEFAULT;
+> SET CLUSTER SETTING [sql.metrics.statement_details.enabled](cluster-settings.html#setting-sql-metrics-statement_details-enabled) = DEFAULT;
 ~~~
 
 {% include_cached copy-clipboard.html %}
 ~~~ sql
-> SHOW CLUSTER SETTING sql.metrics.statement_details.enabled;
+> SHOW CLUSTER SETTING [sql.metrics.statement_details.enabled](cluster-settings.html#setting-sql-metrics-statement_details-enabled);
 ~~~
 
 ~~~
-  sql.metrics.statement_details.enabled
+  [sql.metrics.statement_details.enabled](cluster-settings.html#setting-sql-metrics-statement_details-enabled)
 -----------------------------------------
                   true
 (1 row)

@@ -15,7 +15,7 @@ The user must have the `DROP` [privilege](privileges.html) on the view and the `
 
 ## Synopsis
 
-{% include {{ page.version.version }}/sql/diagrams/alter_view.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/alter_view.html %}
 
 ## Parameters
 

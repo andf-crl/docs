@@ -2,4 +2,4 @@ Cockroach Labs has discovered a bug relating to incremental backups, for Cockroa
 
 Users are advised to upgrade to v20.1.15 or v20.2.8 or later, which includes resolutions.
 
-For more information, including other affected versions, see [Technical Advisory 63162](../advisories/a63162.html).
+For more information, including other affected [version](cluster-settings.html#setting-version)s, see [Technical Advisory 63162](../advisories/a63162.html).

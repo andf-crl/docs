@@ -6,7 +6,7 @@ keywords: gin, gin index, gin indexes, inverted index, inverted indexes, acceler
 docs_area: develop
 ---
 
-{% include_cached new-in.html version="v21.2" %}
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.2" %}
 
 An _expression index_ is an index created by applying an [expression](scalar-expressions.html) to a column. For example, to facilitate fast, case insensitive lookups of user names you could create an index by applying the function `lower` to the `name` column: `CREATE INDEX users_name_idx ON users (lower(name))`. The value of the expression is stored only in the expression index, not in the primary family index.
 
@@ -81,7 +81,7 @@ You can use an expression in an index definition to index a field in a JSON colu
 Normally an index is used only if the cost of using the index is less than the cost of a full table scan. To disable that optimization, turn off statistics collection:
 
 ~~~sql
-> SET CLUSTER SETTING sql.stats.automatic_collection.enabled = false;
+> SET CLUSTER SETTING [sql.stats.automatic_collection.enabled](cluster-settings.html#setting-sql-stats-automatic_collection-enabled) = false;
 ~~~
 
 Create a table of three users with a JSON object in the `user_profile` column:
@@ -173,8 +173,8 @@ Expression indexes have the following limitations:
 
 - The expression cannot reference columns outside the index's table.
 - Functional expression output must be determined by the input arguments. For example, you can't use the function `now()` to create an index because its output depends on more than just the function arguments.
-- {% include {{page.version.version}}/sql/expression-indexes-cannot-reference-computed-columns.md %}
-- {% include {{page.version.version}}/sql/expressions-as-on-conflict-targets.md %}
+- {% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/expression-indexes-cannot-reference-computed-columns.md %}
+- {% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/expressions-as-on-conflict-targets.md %}
 
 ## See also
 

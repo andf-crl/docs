@@ -12,7 +12,7 @@ key: install-cockroachdb.html
     <button id="windows" class="current" data-eventcategory="buttonClick-doc-os" data-eventaction="windows">Windows</button>
 </div>
 
-<p>See <a href="../releases/{{page.version.version}}.html" class="mac-releasenotes-download" id="mac-releasenotes-download-{{page.version.version}}" data-eventcategory="mac-releasenotes-download">Release Notes</a> for what's new in the latest release, {{ page.release_info.version }}. To upgrade to this release from an older version, see <a href="upgrade-cockroach-version.html">Cluster Upgrade</a>.</p>
+<p>See <a href="../releases/{{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}.html" class="mac-releasenotes-download" id="mac-releasenotes-download-{{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}" data-eventcategory="mac-releasenotes-download">Release Notes</a> for what's new in the latest release, {{ page.release_info.[version](cluster-settings.html#setting-version) }}. To upgrade to this release from an older [version](cluster-settings.html#setting-version), see <a href="upgrade-cockroach-[version](cluster-settings.html#setting-version).html">Cluster Upgrade</a>.</p>
 
 {% include cockroachcloud/use-cockroachcloud-instead.md %}
 
@@ -27,7 +27,7 @@ Use one of the options below to install CockroachDB.
 
   <ol>
     <li>
-      <p>Download and extract the <a href="https://binaries.cockroachdb.com/cockroach-{{ page.release_info.version }}.windows-6.2-amd64.zip" class="windows-binary-download" id="windows-binary-download-{{page.version.version}}" data-eventcategory="windows-binary-download">CockroachDB {{ page.release_info.version }} archive for Windows</a>.</p>
+      <p>Download and extract the <a href="https://binaries.cockroachdb.com/cockroach-{{ page.release_info.[version](cluster-settings.html#setting-version) }}.windows-6.2-amd64.zip" class="windows-binary-download" id="windows-binary-download-{{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}" data-eventcategory="windows-binary-download">CockroachDB {{ page.release_info.[version](cluster-settings.html#setting-version) }} archive for Windows</a>.</p>
     </li>
     <li>
       <p>To ensure that CockroachDB can use location-based names as time zone identifiers, download Go's official <a href="https://github.com/golang/go/raw/master/lib/time/zoneinfo.zip">zoneinfo.zip</a> and <a href="https://www.techjunkie.com/environment-variables-windows-10/">set the <code>ZONEINFO</code> environment variable</a> to point to the zip file.</p>
@@ -38,7 +38,7 @@ Use one of the options below to install CockroachDB.
         <svg data-eventcategory="windows-binary-button" id="copy-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><style>.st0{fill:#A2A2A2;}</style><title>icon/buttons/copy</title><g id="Mask"><path id="path-1_1_" class="st0" d="M4.9 4.9v6h6v-6h-6zM3.8 3.8H12V12H3.8V3.8zM2.7 7.1v1.1H.1S0 5.5 0 0h8.2v2.7H7.1V1.1h-6v6h1.6z"/></g></svg>
         <svg id="copy-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 10"><style>.st1{fill:#54B30E;}</style><path id="path-1_2_" class="st1" d="M3.8 9.1c-.3 0-.5-.1-.6-.2L.3 6C0 5.7-.1 5.2.2 4.8c.3-.4.9-.4 1.3-.1L3.8 7 10.6.2c.3-.3.9-.4 1.2 0 .3.3.3.9 0 1.2L4.4 8.9c-.2.1-.4.2-.6.2z"/></svg>
       </div>
-      <div class="highlight"><pre class="highlight"><code><span class="nb">PS </span>C:\cockroach-{{ page.release_info.version }}.windows-6.2-amd64> .\cockroach.exe version</code></pre></div>
+      <div class="highlight"><pre class="highlight"><code><span class="nb">PS </span>C:\cockroach-{{ page.release_info.[version](cluster-settings.html#setting-version) }}.windows-6.2-amd64> .\cockroach.exe [version](cluster-settings.html#setting-version)</code></pre></div>
     </li>
     <li>
       <p>Keep up-to-date with CockroachDB releases and best practices:</p>
@@ -70,7 +70,7 @@ Use one of the options below to install CockroachDB.
         <svg data-eventcategory="windows-docker-button" id="copy-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><style>.st0{fill:#A2A2A2;}</style><title>icon/buttons/copy</title><g id="Mask"><path id="path-1_1_" class="st0" d="M4.9 4.9v6h6v-6h-6zM3.8 3.8H12V12H3.8V3.8zM2.7 7.1v1.1H.1S0 5.5 0 0h8.2v2.7H7.1V1.1h-6v6h1.6z"/></g></svg>
         <svg id="copy-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 10"><style>.st1{fill:#54B30E;}</style><path id="path-1_2_" class="st1" d="M3.8 9.1c-.3 0-.5-.1-.6-.2L.3 6C0 5.7-.1 5.2.2 4.8c.3-.4.9-.4 1.3-.1L3.8 7 10.6.2c.3-.3.9-.4 1.2 0 .3.3.3.9 0 1.2L4.4 8.9c-.2.1-.4.2-.6.2z"/></svg>
       </div>
-      <div class="highlight"><pre class="highlight"><code><span class="nb">PS </span>C:\Users\username&gt; docker version</code></pre></div>
+      <div class="highlight"><pre class="highlight"><code><span class="nb">PS </span>C:\Users\username&gt; docker [version](cluster-settings.html#setting-version)</code></pre></div>
 
       <p>If you do not see the server listed, start <strong>Docker for Windows</strong>.</p>
     </li>
@@ -78,13 +78,13 @@ Use one of the options below to install CockroachDB.
       <p><a href="https://docs.docker.com/docker-for-windows/#/shared-drives">Share your local drives</a>. This makes it possible to mount local directories as data volumes to persist node data after containers are stopped or deleted.</p>
     </li>
     <li>
-      <p>Pull the image for the {{page.release_info.version}} release of CockroachDB from <a href="https://hub.docker.com/r/{{page.release_info.docker_image}}/" class="win-docker-step3" id="win-docker-step3-{{page.version.version}}" data-eventcategory="win-docker-step3">Docker Hub</a>:</p>
+      <p>Pull the image for the {{page.release_info.[version](cluster-settings.html#setting-version)}} release of CockroachDB from <a href="https://hub.docker.com/r/{{page.release_info.docker_image}}/" class="win-docker-step3" id="win-docker-step3-{{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}" data-eventcategory="win-docker-step3">Docker Hub</a>:</p>
 
       <div class="copy-clipboard">
         <svg data-eventcategory="windows-docker-button" id="copy-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><style>.st0{fill:#A2A2A2;}</style><title>icon/buttons/copy</title><g id="Mask"><path id="path-1_1_" class="st0" d="M4.9 4.9v6h6v-6h-6zM3.8 3.8H12V12H3.8V3.8zM2.7 7.1v1.1H.1S0 5.5 0 0h8.2v2.7H7.1V1.1h-6v6h1.6z"/></g></svg>
         <svg id="copy-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 10"><style>.st1{fill:#54B30E;}</style><path id="path-1_2_" class="st1" d="M3.8 9.1c-.3 0-.5-.1-.6-.2L.3 6C0 5.7-.1 5.2.2 4.8c.3-.4.9-.4 1.3-.1L3.8 7 10.6.2c.3-.3.9-.4 1.2 0 .3.3.3.9 0 1.2L4.4 8.9c-.2.1-.4.2-.6.2z"/></svg>
       </div>
-      <div class="highlight"><pre class="highlight"><code data-eventcategory="win-docker-step3"><span class="nb win-docker-step3" id="win-docker-step3-{{ page.version.version }}" data-eventcategory="win-docker-step3">PS </span>C:\Users\username&gt; docker pull {{page.release_info.docker_image}}:{{page.release_info.version}}</code></pre></div>
+      <div class="highlight"><pre class="highlight"><code data-eventcategory="win-docker-step3"><span class="nb win-docker-step3" id="win-docker-step3-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}" data-eventcategory="win-docker-step3">PS </span>C:\Users\username&gt; docker pull {{page.release_info.docker_image}}:{{page.release_info.[version](cluster-settings.html#setting-version)}}</code></pre></div>
     </li>
     <li>
       <p>Keep up-to-date with CockroachDB releases and best practices:</p>
@@ -95,6 +95,6 @@ Use one of the options below to install CockroachDB.
 
 <h2 id="whats-next">What&#39;s next?</h2>
 
-{% include {{ page.version.version }}/misc/install-next-steps.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/install-next-steps.html %}
 
-{% include {{ page.version.version }}/misc/diagnostics-callout.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/diagnostics-callout.html %}

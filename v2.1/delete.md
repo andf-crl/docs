@@ -17,7 +17,7 @@ The user must have the `DELETE` and `SELECT` [privileges](authorization.html#ass
 ## Synopsis
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/delete.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/delete.html %}
 </div>
 
 ## Parameters

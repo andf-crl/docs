@@ -23,7 +23,7 @@ CockroachDB also supports using uninterpreted
 where a `DATE` value is otherwise expected.
 
 {{site.data.alerts.callout_info}}
-<span class="version-tag">New in v19.2:</span> `DATE` values in CockroachDB are fully [PostgreSQL-compatible](https://www.postgresql.org/docs/current/datatype-datetime.html), including support for special values (e.g., `+/- infinity`). Existing dates outside of the PostgreSQL date range (`4714-11-24 BC` to `5874897-12-31`) are converted to `+/- infinity` dates.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v19.2:</span> `DATE` values in CockroachDB are fully [PostgreSQL-compatible](https://www.postgresql.org/docs/current/datatype-datetime.html), including support for special values (e.g., `+/- infinity`). Existing dates outside of the PostgreSQL date range (`4714-11-24 BC` to `5874897-12-31`) are converted to `+/- infinity` dates.
 {{site.data.alerts.end}}
 
 ## Size
@@ -78,9 +78,9 @@ String literal implicitly typed as `DATE`:
 +---------------------------+-------+
 ~~~
 
-## Supported casting and conversion
+## Supported casting and con[version](cluster-settings.html#setting-version)
 
-`DATE` values can be [cast](data-types.html#data-type-conversions-and-casts) to any of the following data types:
+`DATE` values can be [cast](data-types.html#data-type-con[version](cluster-settings.html#setting-version)s-and-casts) to any of the following data types:
 
 Type | Details
 -----|--------

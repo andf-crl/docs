@@ -9,7 +9,7 @@ The `EXPORT` [statement](sql-statements.html) exports tabular data or the result
 Using the [CockroachDB distributed execution engine](architecture/sql-layer.html#distsql), `EXPORT` parallelizes CSV creation across all nodes in the cluster, making it possible to quickly get large sets of data out of CockroachDB in a format that can be ingested by downstream systems. If you do not need distributed exports, you can [export tabular data in CSV format](#non-distributed-export-using-the-sql-client).
 
 {{site.data.alerts.callout_info}}
-<span class="version-tag">New in v20.2:</span>
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span>
 `EXPORT` no longer requires an Enterprise license.
 {{site.data.alerts.end}}
 
@@ -19,7 +19,7 @@ After the export has been initiated, you can cancel it with [`CANCEL QUERY`](can
 
 ## Synopsis
 
-<div>{% include {{ page.version.version }}/sql/diagrams/export.html %}</div>
+<div>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/export.html %}</div>
 
 {{site.data.alerts.callout_info}}The <code>EXPORT</code> statement cannot be used within a <a href=transactions.html>transaction</a>.{{site.data.alerts.end}}
 
@@ -43,7 +43,7 @@ You can specify the base directory where you want to store the exported .csv fil
 The `EXPORT` command [returns](#success-responses) the list of files to which the data was exported. You may wish to record these for use in subsequent imports.
 
 {{site.data.alerts.callout_info}}
-<span class="version-tag">New in v20.2:</span>
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span>
 A hexadecimal hash code (`abc123...` in the file names above) uniquely identifies each export _run_; files sharing the same hash are part of the same export. If you see multiple hash codes within a single destination directory, then the directory contains multiple exports, which will likely cause confusion (duplication) on import. We recommend that you manually clean up the directory, to ensure that it contains only a single export run.
 {{site.data.alerts.end}}
 
@@ -85,7 +85,7 @@ The following provide connection examples to cloud storage providers. For more i
 
 <section class="filter-content" markdown="1" data-scope="s3">
 
-{% include {{ page.version.version }}/backups/aws-auth-note.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/backups/aws-auth-note.md %}
 
 Each of these examples use the `bank` database and the `customers` table; `customer-export-data` is the demonstration path to which we're exporting our customers' data in this example.
 
@@ -189,7 +189,7 @@ export16808a04292505c80000000000000001-n1.0.csv.gz |   17 |   824
 
 <section class="filter-content" markdown="1" data-scope="gcs">
 
-{% include {{ page.version.version }}/backups/gcs-auth-note.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/backups/gcs-auth-note.md %}
 
 Each of these examples use the `bank` database and the `customers` table; `customer-export-data` is the demonstration path to which we're exporting our customers' data in this example.
 

@@ -99,7 +99,7 @@ You can use either [`cockroach cert`](cockroach-cert.html) commands or [`openssl
     - The `--store` flag indicates the location where the node's data and logs are stored.
     - The `--join` flag specifies the addresses and ports of the nodes that will initially comprise your cluster. You'll use this exact `--join` flag when starting other nodes as well.
 
-        {% include {{ page.version.version }}/prod-deployment/join-flag-single-region.md %}
+        {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/join-flag-single-region.md %}
     - The `--background` flag starts the `cockroach` process in the background so you can continue using the same terminal for other operations.
 
 3. Start two more nodes:
@@ -152,7 +152,7 @@ You can use either [`cockroach cert`](cockroach-cert.html) commands or [`openssl
 
     ~~~
     CockroachDB node starting at {{ now | date: "%Y-%m-%d %H:%M:%S.%6 +0000 UTC" }}
-    build:               CCL {{page.release_info.version}} @ {{page.release_info.build_time}} (go1.12.6)
+    build:               CCL {{page.release_info.[version](cluster-settings.html#setting-version)}} @ {{page.release_info.build_time}} (go1.12.6)
     webui:               https://localhost:8080
     sql:                 postgresql://root@localhost:26257?sslcert=certs%2Fclient.root.crt&sslkey=certs%2Fclient.root.key&sslmode=verify-full&sslrootcert=certs%2Fca.crt
     RPC client flags:    cockroach <client cmd> --host=localhost:26257 --certs-dir=certs
@@ -309,7 +309,7 @@ The CockroachDB [DB Console](ui-overview.html) gives you insight into the overal
 
 4. Go to <a href="https://localhost:8080" data-proofer-ignore>https://localhost:8080</a>. Note that your browser will consider the CockroachDB-created certificate invalid; you'll need to click through a warning message to get to the UI.
 
-    {% include {{ page.version.version }}/misc/chrome-localhost.md %}
+    {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/chrome-localhost.md %}
 
 5. Log in with the username and password you created earlier (`max`/`roach`).
 

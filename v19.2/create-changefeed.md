@@ -5,7 +5,7 @@ toc: true
 ---
 
 {{site.data.alerts.callout_info}}
-`CREATE CHANGEFEED` is an [enterprise-only](enterprise-licensing.html) feature. For the core version, see [`EXPERIMENTAL CHANGEFEED FOR`](changefeed-for.html).
+`CREATE CHANGEFEED` is an [enterprise-only](enterprise-licensing.html) feature. For the core [version](cluster-settings.html#setting-version), see [`EXPERIMENTAL CHANGEFEED FOR`](changefeed-for.html).
 {{site.data.alerts.end}}
 
 The `CREATE CHANGEFEED` [statement](sql-statements.html) creates a new enterprise changefeed, which targets an allowlist of tables, called "watched rows".  Every change to a watched row is emitted as a record in a configurable format (`JSON` or Avro) to a configurable sink ([Kafka](https://kafka.apache.org/) or a [cloud storage sink](#cloud-storage-sink)). You can [create](#create-a-changefeed-connected-to-kafka), [pause](#pause-a-changefeed), [resume](#resume-a-paused-changefeed), or [cancel](#cancel-a-changefeed) an enterprise changefeed.
@@ -18,12 +18,12 @@ Changefeeds can only be created by superusers, i.e., [members of the `admin` rol
 
 ## Considerations
 
-- In most cases, each version of a row will be emitted once. However, some infrequent conditions (e.g., node failures, network partitions) will cause them to be repeated. This gives our changefeeds an at-least-once delivery guarantee. For more information, see [Change Data Capture - Ordering Guarantees](change-data-capture.html#ordering-guarantees).
+- In most cases, each [version](cluster-settings.html#setting-version) of a row will be emitted once. However, some infrequent conditions (e.g., node failures, network partitions) will cause them to be repeated. This gives our changefeeds an at-least-once delivery guarantee. For more information, see [Change Data Capture - Ordering Guarantees](change-data-capture.html#ordering-guarantees).
 
 ## Synopsis
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/create_changefeed.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/create_changefeed.html %}
 </div>
 
 ## Parameters
@@ -88,7 +88,7 @@ The `scheme` for a cloud storage sink should be prepended with `experimental-`.
 
 Any of the cloud storages below can be used as a sink:
 
-{% include {{ page.version.version }}/misc/external-urls.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/external-urls.md %}
 
 ### Options
 
@@ -196,7 +196,7 @@ For more information on how to create a changefeed that emits an [Avro](https://
 
 ### Create a changefeed connected to a cloud storage sink
 
-{% include {{ page.version.version }}/misc/experimental-warning.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/experimental-warning.md %}
 
 {% include copy-clipboard.html %}
 ~~~ sql

@@ -11,7 +11,7 @@ The `RENAME COLUMN` [statement](sql-statements.html) changes the name of a colum
 
 ## Synopsis
 
-{% include {{ page.version.version }}/sql/diagrams/rename_column.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/rename_column.html %}
 
 ## Required Privileges
 
@@ -26,8 +26,8 @@ The user must have the `CREATE` [privilege](privileges.html) on the table.
 | `current_name` | The current name of the column. |
 | `name` | The [`name`](sql-grammar.html#name) you want to use for the column, which must be unique to its table and follow these [identifier rules](keywords-and-identifiers.html#identifiers). |
 
-## Viewing Schema Changes <span class="version-tag">New in v1.1</span>
-{% include {{ page.version.version }}/misc/schema-change-view-job.md %}
+## Viewing Schema Changes <span class="[version](cluster-settings.html#setting-version)-tag">New in v1.1</span>
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-view-job.md %}
 
 ## Example
 

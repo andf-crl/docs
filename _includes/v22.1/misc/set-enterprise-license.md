@@ -7,10 +7,10 @@ $ cockroach sql --insecure
 
 {% include_cached copy-clipboard.html %}
 ~~~ sql
->  SET CLUSTER SETTING cluster.organization = 'Acme Company';
+>  SET CLUSTER SETTING [cluster.organization](cluster-settings.html#setting-cluster-organization) = 'Acme Company';
 ~~~
 
 {% include_cached copy-clipboard.html %}
 ~~~ sql
->  SET CLUSTER SETTING enterprise.license = 'xxxxxxxxxxxx';
+>  SET CLUSTER SETTING [enterprise.license](cluster-settings.html#setting-enterprise-license) = 'xxxxxxxxxxxx';
 ~~~

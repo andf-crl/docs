@@ -24,7 +24,7 @@ The `TIMESTAMP` and `TIMESTAMPTZ` [data types](data-types.html) stores a date an
 
 The difference between these two variants is that `TIMESTAMPTZ` uses the client's session time zone, while the other simply does not. This behavior extends to functions like `now()` and `extract()` on `TIMESTAMPTZ` values.
 
-<span class="version-tag">New in v19.2:</span> You can use the [`timezone()`](functions-and-operators.html#date-and-time-functions) and [`AT TIME ZONE`](functions-and-operators.html#special-syntax-forms) functions to convert a `TIMESTAMPTZ` into a `TIMESTAMP` at a specified timezone, or to convert a `TIMESTAMP` into a `TIMESTAMPTZ` at a specified timezone.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v19.2:</span> You can use the [`timezone()`](functions-and-operators.html#date-and-time-functions) and [`AT TIME ZONE`](functions-and-operators.html#special-syntax-forms) functions to convert a `TIMESTAMPTZ` into a `TIMESTAMP` at a specified timezone, or to convert a `TIMESTAMP` into a `TIMESTAMPTZ` at a specified timezone.
 
 ## Best practices
 
@@ -108,9 +108,9 @@ A `TIMESTAMP`/`TIMESTAMPTZ` column supports values up to 12 bytes in width, but 
 (2 rows)
 ~~~
 
-## Supported casting and conversion
+## Supported casting and con[version](cluster-settings.html#setting-version)
 
-`TIMESTAMP` values can be [cast](data-types.html#data-type-conversions-and-casts) to any of the following data types:
+`TIMESTAMP` values can be [cast](data-types.html#data-type-con[version](cluster-settings.html#setting-version)s-and-casts) to any of the following data types:
 
 Type | Details
 -----|--------

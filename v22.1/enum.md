@@ -117,9 +117,9 @@ To drop the type, use [`DROP TYPE`](drop-type.html):
 ~~~
 
 
-## Supported casting and conversion
+## Supported casting and con[version](cluster-settings.html#setting-version)
 
-`ENUM` data type values can be [cast](data-types.html#data-type-conversions-and-casts) to [`STRING`s](string.html).
+`ENUM` data type values can be [cast](data-types.html#data-type-con[version](cluster-settings.html#setting-version)s-and-casts) to [`STRING`s](string.html).
 
 Values can be cast explicitly or implicitly. For example, the following [`SELECT`](select-clause.html) statements are equivalent:
 

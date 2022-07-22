@@ -10,11 +10,11 @@ The `DROP CONSTRAINT` [statement](sql-statements.html) is part of `ALTER TABLE` 
 For information about removing other constraints, see [Constraints: Remove Constraints](constraints.html#remove-constraints).
 {{site.data.alerts.end}}
 
-{% include {{ page.version.version }}/sql/combine-alter-table-commands.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/combine-alter-table-commands.md %}
 
 ## Synopsis
 
-<section>{% include {{ page.version.version }}/sql/diagrams/drop_constraint.html %} </section>
+<section>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/drop_constraint.html %} </section>
 
 ## Required privileges
 
@@ -29,7 +29,7 @@ The user must have the `CREATE` [privilege](authorization.html#assign-privileges
 
 ## Viewing schema changes
 
-{% include {{ page.version.version }}/misc/schema-change-view-job.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-view-job.md %}
 
 ## Example
 

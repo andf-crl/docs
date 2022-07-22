@@ -6,7 +6,7 @@ toc: true
 
 The `DROP VIEW` [statement](sql-statements.html) removes a [view](views.html) from a database.
 
-{% include {{{ page.version.version }}/misc/schema-change-stmt-note.md %}
+{% include {{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-stmt-note.md %}
 
 ## Required privileges
 
@@ -14,7 +14,7 @@ The user must have the `DROP` [privilege](authorization.html#assign-privileges) 
 
 ## Synopsis
 
-<div>{% include {{ page.version.version }}/sql/generated/diagrams/drop_view.html %}</div>
+<div>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/drop_view.html %}</div>
 
 ## Parameters
 

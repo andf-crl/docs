@@ -4,7 +4,7 @@ summary: The cockroach nodelocal upload command uploads a file to the external I
 toc: true
 ---
 
-<span class="version-tag">New in v20.1:</span> The `cockroach nodelocal upload` [command](cockroach-commands.html) uploads a file to the external IO directory on a node's (the gateway node, by default) local file system.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> The `cockroach nodelocal upload` [command](cockroach-commands.html) uploads a file to the external IO directory on a node's (the gateway node, by default) local file system.
 
 This command takes in a source file to upload and a destination filename. It will then use a SQL connection to upload the file to the node's local file system, at `externalIODir/destination/filename`.
 

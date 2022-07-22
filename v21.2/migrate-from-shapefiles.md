@@ -14,7 +14,7 @@ We are using `shp2pgsql` in the example below, but [`ogr2ogr`](https://gdal.org/
 `ogr2ogr -f PGDUMP file.sql -lco LAUNDER=NO -lco DROP_TABLE=OFF file.shp`
 {{site.data.alerts.end}}
 
-{% include {{page.version.version}}/spatial/ogr2ogr-supported-version.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/spatial/ogr2ogr-supported-[version](cluster-settings.html#setting-version).md %}
 
 In the example below we will import a [tornadoes data set](http://web.archive.org/web/20201018170120/https://www.spc.noaa.gov/gis/svrgis/zipped/1950-2018-torn-initpoint.zip) that is [available from the US National Weather Service](https://www.spc.noaa.gov/gis/svrgis/) (NWS).
 

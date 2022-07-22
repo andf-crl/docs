@@ -91,13 +91,13 @@ Flag | Description
 
 ### Client connection
 
-{% include {{ page.version.version }}/sql/connection-parameters.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/connection-parameters.md %}
 
 See [Client Connection Parameters](connection-parameters.html) for more details.
 
 ### Logging
 
-{% include {{ page.version.version }}/misc/logging-defaults.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/logging-defaults.md %}
 
 ## Session and output types
 
@@ -118,7 +118,7 @@ When a session is both interactive and outputs on a terminal, `cockroach sql` al
 
 ### Welcome message
 
-When the SQL shell connects (or reconnects) to a CockroachDB node, it prints a welcome text with some tips and CockroachDB version and cluster details:
+When the SQL shell connects (or reconnects) to a CockroachDB node, it prints a welcome text with some tips and CockroachDB [version](cluster-settings.html#setting-version) and cluster details:
 
 ~~~ shell
 #
@@ -126,7 +126,7 @@ When the SQL shell connects (or reconnects) to a CockroachDB node, it prints a w
 # All statements must be terminated by a semicolon.
 # To exit, type: \q.
 #
-# Server version: CockroachDB CCL {{page.release_info.version}} (x86_64-apple-darwin17.7.0, built 2019/09/13 00:07:19, go1.12.6) (same version as client)
+# Server [version](cluster-settings.html#setting-version): CockroachDB CCL {{page.release_info.[version](cluster-settings.html#setting-version)}} (x86_64-apple-darwin17.7.0, built 2019/09/13 00:07:19, go1.12.6) (same [version](cluster-settings.html#setting-version) as client)
 # Cluster ID: 7fb9f5b4-a801-4851-92e9-c0db292d03f1
 #
 # Enter \? for a brief introduction.
@@ -136,25 +136,25 @@ When the SQL shell connects (or reconnects) to a CockroachDB node, it prints a w
 
 The **Version** and **Cluster ID** details are particularly noteworthy:
 
-- When the client and server versions of CockroachDB are the same, the shell prints the `Server version` followed by `(same version as client)`.
-- When the client and server versions are different, the shell prints both the `Client version` and `Server version`. In this case, you may want to [plan an upgrade](upgrade-cockroach-version.html) of older client or server versions.
+- When the client and server [version](cluster-settings.html#setting-version)s of CockroachDB are the same, the shell prints the `Server [version](cluster-settings.html#setting-version)` followed by `(same [version](cluster-settings.html#setting-version) as client)`.
+- When the client and server [version](cluster-settings.html#setting-version)s are different, the shell prints both the `Client [version](cluster-settings.html#setting-version)` and `Server [version](cluster-settings.html#setting-version)`. In this case, you may want to [plan an upgrade](upgrade-cockroach-[version](cluster-settings.html#setting-version).html) of older client or server [version](cluster-settings.html#setting-version)s.
 - Since every CockroachDB cluster has a unique ID, you can use the `Cluster ID` field to verify that your client is always connecting to the correct cluster.
 
 ### Commands
 
-{% include {{ page.version.version }}/sql/shell-commands.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/shell-commands.md %}
 
 ### Client-side options
 
-{% include {{ page.version.version }}/sql/shell-options.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/shell-options.md %}
 
 ### Help
 
-{% include {{ page.version.version }}/sql/shell-help.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/shell-help.md %}
 
 ### Shortcuts
 
-{% include {{ page.version.version }}/sql/shell-shortcuts.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/shell-shortcuts.md %}
 
 ### Error messages and `SQLSTATE` codes
 
@@ -608,7 +608,7 @@ This tells libedit to translate `C-x C-e` into the following commands:
 4. Pass the edited file back to the SQL client when `vipe` exits.
 
 {{site.data.alerts.callout_info}}
-Future versions of the SQL client may opt to use a different back-end for reading input, in which case please refer to this page for additional updates.
+Future [version](cluster-settings.html#setting-version)s of the SQL client may opt to use a different back-end for reading input, in which case please refer to this page for additional updates.
 {{site.data.alerts.end}}
 
 ### Allow potentially unsafe SQL statements
@@ -676,7 +676,7 @@ $ cockroach sql --insecure \
 ~~~
 
 ~~~
-# Server version: CockroachDB CCL f8f3c9317 (darwin amd64, built 2017/09/13 15:05:35, go1.8) (same version as client)
+# Server [version](cluster-settings.html#setting-version): CockroachDB CCL f8f3c9317 (darwin amd64, built 2017/09/13 15:05:35, go1.8) (same [version](cluster-settings.html#setting-version) as client)
 # Cluster ID: 847a4ba5-c78a-465a-b1a0-59fae3aab520
 > SET sql_safe_updates = TRUE
 > CREATE TABLE t1 (id INT PRIMARY KEY, name STRING)

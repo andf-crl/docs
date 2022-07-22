@@ -94,7 +94,7 @@ $ cockroach init --insecure --host=<address of any node>
 
 <img src="{{ 'images/v2.1/admin-ui-node-map-before-license.png' | relative_url }}" alt="CockroachDB Admin UI" style="border:1px solid #eee;max-width:100%" />
 
-### Step 2. [Set the enterprise license](enterprise-licensing.html) and refresh the Admin UI
+### Step 2. [Set the [enterprise.license](cluster-settings.html#setting-enterprise-license)](enterprise-licensing.html) and refresh the Admin UI
 
 The following page should be displayed:
 
@@ -166,7 +166,7 @@ The **Node Map** is displayed only for the locality levels that have latitude/lo
 
 ### Unable to assign latitude/longitude coordinates to localities
 
-{% include {{ page.version.version }}/known-limitations/node-map.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/node-map.md %}
 
 ### **Capacity Used** value displayed is more than configured Capacity
 
@@ -176,12 +176,12 @@ The **Node Map** is displayed only for the locality levels that have latitude/lo
 
 ### AWS locations
 
-{% include {{ page.version.version }}/misc/aws-locations.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/aws-locations.md %}
 
 ### Azure locations
 
-{% include {{ page.version.version }}/misc/azure-locations.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/azure-locations.md %}
 
 ### Google Cloud locations
 
-{% include {{ page.version.version }}/misc/gce-locations.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/gce-locations.md %}

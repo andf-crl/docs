@@ -28,7 +28,7 @@ Window frames are defined in [`OVER` clauses](sql-grammar.html#over_clause) or [
 <div class="filter-content" markdown="1" data-scope="basic">
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/window_definition.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/window_definition.html %}
 </div>
 
 ### Parameters
@@ -46,13 +46,13 @@ Parameter | Description
 <div class="filter-content" markdown="1" data-scope="expanded">
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/window_definition.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/window_definition.html %}
 </div>
 
 **opt_frame_clause ::=**
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/opt_frame_clause.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/opt_frame_clause.html %}
 </div>
 
 ### Parameters
@@ -115,7 +115,7 @@ If you are running separate window functions over the same window frame, you can
 
 ## Examples
 
-{% include {{page.version.version}}/sql/movr-statements-geo-partitioned-replicas.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/movr-statements-geo-partitioned-replicas.md %}
 
 ### Customers taking the most rides
 

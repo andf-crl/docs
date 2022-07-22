@@ -7,14 +7,14 @@ docs_area: reference.sql
 
 `ADD COLUMN` is a subcommand of [`ALTER TABLE`](alter-table.html). Use `ADD COLUMN` to add columns to existing tables.
 
-{% include {{ page.version.version }}/misc/schema-change-stmt-note.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-stmt-note.md %}
 
-{% include {{ page.version.version }}/sql/combine-alter-table-commands.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/combine-alter-table-commands.md %}
 
 ## Synopsis
 
 <div>
-{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.version.version | replace: "v", "" }}/grammar_svg/add_column.html %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/grammar_svg/add_column.html %}
 </div>
 
 
@@ -33,7 +33,7 @@ The user must have the `CREATE` [privilege](security-reference/authorization.htm
 
 ## Viewing schema changes
 
-{% include {{ page.version.version }}/misc/schema-change-view-job.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-view-job.md %}
 
 ## Examples
 
@@ -331,7 +331,7 @@ $ cockroach demo bank
 
 ### Add a column with an `ON UPDATE` expression
 
-{% include_cached new-in.html version="v21.2" %} `ON UPDATE` expressions set the value for a column when other values in a row are updated.
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.2" %} `ON UPDATE` expressions set the value for a column when other values in a row are updated.
 
 For example, suppose you add a new column to the `bank` table:
 

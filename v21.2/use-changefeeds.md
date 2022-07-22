@@ -30,7 +30,7 @@ Changefeeds connect to a long-lived request (i.e., a rangefeed), which pushes ch
 
 {% include_cached copy-clipboard.html %}
 ~~~ sql
-> SET CLUSTER SETTING kv.rangefeed.enabled = true;
+> SET CLUSTER SETTING [kv.rangefeed.enabled](cluster-settings.html#setting-kv-rangefeed-enabled) = true;
 ~~~
 
 Any created changefeed will error until this setting is enabled. Note that enabling rangefeeds currently has a small performance cost (about a 5-10% increase in latencies), whether or not the rangefeed is being used in a changefeed.
@@ -39,9 +39,9 @@ The `kv.closed_timestamp.target_duration` [cluster setting](cluster-settings.htm
 
 ## Ordering guarantees
 
-- In most cases, each version of a row will be emitted once. However, some infrequent conditions (e.g., node failures, network partitions) will cause them to be repeated. This gives our changefeeds an **at-least-once delivery guarantee**.
+- In most cases, each [version](cluster-settings.html#setting-version) of a row will be emitted once. However, some infrequent conditions (e.g., node failures, network partitions) will cause them to be repeated. This gives our changefeeds an **at-least-once delivery guarantee**.
 
-- Once a row has been emitted with some timestamp, no previously unseen versions of that row will be emitted with a lower timestamp. That is, you will never see a _new_ change for that row at an earlier timestamp.
+- Once a row has been emitted with some timestamp, no previously unseen [version](cluster-settings.html#setting-version)s of that row will be emitted with a lower timestamp. That is, you will never see a _new_ change for that row at an earlier timestamp.
 
     For example, if you ran the following:
 
@@ -200,7 +200,7 @@ Below are clarifications for particular SQL types and values for Avro changefeed
 - [Decimals](decimal.html) must have precision specified.
 - [`BIT`](bit.html) and [`VARBIT`](bit.html) types are encoded as arrays of 64-bit integers.
 
-  {% include {{ page.version.version }}/cdc/avro-bit-varbit.md %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/cdc/avro-bit-varbit.md %}
 
 ### Avro types
 

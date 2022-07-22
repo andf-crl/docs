@@ -14,7 +14,7 @@ No [privileges](security-reference/authorization.html#managing-privileges) are r
 ## Synopsis
 
 <div>
-{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.version.version | replace: "v", "" }}/grammar_svg/show_session.html %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/grammar_svg/show_session.html %}
 </div>
 
 {{site.data.alerts.callout_info}}
@@ -29,7 +29,7 @@ The `SHOW` statement for session variables is unrelated to the other `SHOW` stat
 
 ### Supported variables
 
-{% include {{ page.version.version }}/misc/session-vars.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/session-vars.md %}
 
 For session variables on experimental features, see [Experimental Features](experimental-features.html).
 

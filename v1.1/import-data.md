@@ -6,7 +6,7 @@ toc: true
 
 CockroachDB supports importing data from CSV/TSV or SQL dump files.
 
-{{site.data.alerts.callout_info}}To import/restore data from CockroachDB-generated <a href="backup.html">enterprise license backups</a>, see <a href="restore.html"><code>RESTORE</code></a>.{{site.data.alerts.end}}
+{{site.data.alerts.callout_info}}To import/restore data from CockroachDB-generated <a href="backup.html">[enterprise.license](cluster-settings.html#setting-enterprise-license) backups</a>, see <a href="restore.html"><code>RESTORE</code></a>.{{site.data.alerts.end}}
 
 
 ## Import from Tabular Data (CSV)

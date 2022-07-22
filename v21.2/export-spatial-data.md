@@ -9,7 +9,7 @@ docs_area: migrate
 
 This page has instructions for exporting spatial data from CockroachDB and converting it to other spatial formats using the [`ogr2ogr`](https://gdal.org/programs/ogr2ogr.html) command.
 
-{% include {{page.version.version}}/spatial/ogr2ogr-supported-version.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/spatial/ogr2ogr-supported-[version](cluster-settings.html#setting-version).md %}
 
 ## Step 1. Export data to CSV
 
@@ -82,9 +82,9 @@ Note that the options `-oo GEOM_POSSIBLE_NAMES=<geom_column_name> -oo KEEP_GEOM_
 
 For more information about the formats supported by `ogr2ogr`, see the [`ogr2ogr` documentation](https://gdal.org/programs/ogr2ogr.html).
 
-{% include {{page.version.version}}/spatial/ogr2ogr-supported-version.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/spatial/ogr2ogr-supported-[version](cluster-settings.html#setting-version).md %}
 
-Finally, note that SQL type information is lost in the conversion to CSV, such that the `tornadoes.sql` file output by the `ogr2ogr` command above lists every non-geometry field as a [`VARCHAR`](string.html).
+Finally, note that SQL type information is lost in the con[version](cluster-settings.html#setting-version) to CSV, such that the `tornadoes.sql` file output by the `ogr2ogr` command above lists every non-geometry field as a [`VARCHAR`](string.html).
 
 This can be addressed in one of the following ways:
 

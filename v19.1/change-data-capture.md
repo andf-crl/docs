@@ -17,9 +17,9 @@ The main feature of CDC is the changefeed, which targets an allowlist of tables,
 
 ## Ordering guarantees
 
-- In most cases, each version of a row will be emitted once. However, some infrequent conditions (e.g., node failures, network partitions) will cause them to be repeated. This gives our changefeeds an **at-least-once delivery guarantee**.
+- In most cases, each [version](cluster-settings.html#setting-version) of a row will be emitted once. However, some infrequent conditions (e.g., node failures, network partitions) will cause them to be repeated. This gives our changefeeds an **at-least-once delivery guarantee**.
 
-- Once a row has been emitted with some timestamp, no previously unseen versions of that row will be emitted with a lower timestamp. That is, you will never see a _new_ change for that row at an earlier timestamp.
+- Once a row has been emitted with some timestamp, no previously unseen [version](cluster-settings.html#setting-version)s of that row will be emitted with a lower timestamp. That is, you will never see a _new_ change for that row at an earlier timestamp.
 
     For example, if you ran the following:
 
@@ -121,9 +121,9 @@ The changefeed emits duplicate records 1, 2, and 3 before outputting the records
 
 ## Enable rangefeeds to reduce latency
 
-<span class="version-tag">New in v19.1:</span> Previously created changefeeds collect changes by periodically sending a request for any recent changes. Newly created changefeeds now behave differently: they connect a long-lived request (i.e., a rangefeed), which pushes changes as they happen. This reduces the latency of row changes, as well as reduces transaction restarts on tables being watched by a changefeed for some workloads.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v19.1:</span> Previously created changefeeds collect changes by periodically sending a request for any recent changes. Newly created changefeeds now behave differently: they connect a long-lived request (i.e., a rangefeed), which pushes changes as they happen. This reduces the latency of row changes, as well as reduces transaction restarts on tables being watched by a changefeed for some workloads.
 
-To enable rangefeeds, set the `kv.rangefeed.enabled` [cluster setting](cluster-settings.html) to `true`. Any created changefeed will error until this setting is enabled. Note that enabling rangefeeds currently has a small performance cost (about a 5-10% increase in latencies), whether or not the rangefeed is being used in a changefeed.
+To enable rangefeeds, set the `[kv.rangefeed.enabled](cluster-settings.html#setting-kv-rangefeed-enabled)` [cluster setting](cluster-settings.html) to `true`. Any created changefeed will error until this setting is enabled. Note that enabling rangefeeds currently has a small performance cost (about a 5-10% increase in latencies), whether or not the rangefeed is being used in a changefeed.
 
 If you are experiencing an issue, you can revert back to the previous behavior by setting `changefeed.push.enabled` to `false`. Note that this setting will be removed in a future release; if you have to use the fallback, please [file a Github issue](file-an-issue.html).
 
@@ -135,7 +135,7 @@ The `kv.closed_timestamp.target_duration` [cluster setting](cluster-settings.htm
 
 ## Create a changefeed (Core)
 
-<span class="version-tag">New in v19.1:</span> To create a core changefeed:
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v19.1:</span> To create a core changefeed:
 
 {% include copy-clipboard.html %}
 ~~~ sql
@@ -237,21 +237,21 @@ I190312 18:56:53.537686 585 vendor/github.com/Shopify/sarama/client.go:170  [kaf
 
 ### Create a core changefeed
 
-<span class="version-tag">New in v19.1:</span> {% include {{ page.version.version }}/cdc/create-core-changefeed.md %}
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v19.1:</span> {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/cdc/create-core-changefeed.md %}
 
 ### Create a core changefeed using Avro
 
-<span class="version-tag">New in v19.1:</span> {% include {{ page.version.version }}/cdc/create-core-changefeed-avro.md %}
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v19.1:</span> {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/cdc/create-core-changefeed-avro.md %}
 
 ### Create a changefeed connected to Kafka
 
 {{site.data.alerts.callout_info}}
-[`CREATE CHANGEFEED`](create-changefeed.html) is an [enterprise-only](enterprise-licensing.html) feature. For the core version, see [the `CHANGEFEED FOR` example above](#create-a-core-changefeed).
+[`CREATE CHANGEFEED`](create-changefeed.html) is an [enterprise-only](enterprise-licensing.html) feature. For the core [version](cluster-settings.html#setting-version), see [the `CHANGEFEED FOR` example above](#create-a-core-changefeed).
 {{site.data.alerts.end}}
 
 In this example, you'll set up a changefeed for a single-node cluster that is connected to a Kafka sink.
 
-1. If you do not already have one, [request a trial enterprise license](enterprise-licensing.html).
+1. If you do not already have one, [request a trial [enterprise.license](cluster-settings.html#setting-enterprise-license)](enterprise-licensing.html).
 
 2. In a terminal window, start `cockroach`:
 
@@ -262,7 +262,7 @@ In this example, you'll set up a changefeed for a single-node cluster that is co
 
 3. Download and extract the [Confluent Open Source platform](https://www.confluent.io/download/) (which includes Kafka).
 
-4. Move into the extracted `confluent-<version>` directory and start Confluent:
+4. Move into the extracted `confluent-<[version](cluster-settings.html#setting-version)>` directory and start Confluent:
 
     {% include copy-clipboard.html %}
     ~~~ shell
@@ -294,23 +294,23 @@ In this example, you'll set up a changefeed for a single-node cluster that is co
     $ cockroach sql --insecure
     ~~~
 
-7. Set your organization name and [enterprise license](enterprise-licensing.html) key that you received via email:
+7. Set your organization name and [[enterprise.license](cluster-settings.html#setting-enterprise-license)](enterprise-licensing.html) key that you received via email:
 
     {% include copy-clipboard.html %}
     ~~~ sql
-    > SET CLUSTER SETTING cluster.organization = '<organization name>';
+    > SET CLUSTER SETTING [cluster.organization](cluster-settings.html#setting-cluster-organization) = '<organization name>';
     ~~~
 
     {% include copy-clipboard.html %}
     ~~~ sql
-    > SET CLUSTER SETTING enterprise.license = '<secret>';
+    > SET CLUSTER SETTING [enterprise.license](cluster-settings.html#setting-enterprise-license) = '<secret>';
     ~~~
 
-8. Enable the `kv.rangefeed.enabled` [cluster setting](cluster-settings.html):
+8. Enable the `[kv.rangefeed.enabled](cluster-settings.html#setting-kv-rangefeed-enabled)` [cluster setting](cluster-settings.html):
 
     {% include copy-clipboard.html %}
     ~~~ sql
-    > SET CLUSTER SETTING kv.rangefeed.enabled = true;
+    > SET CLUSTER SETTING [kv.rangefeed.enabled](cluster-settings.html#setting-kv-rangefeed-enabled) = true;
     ~~~
 
 9. Create a database called `cdc_demo`:
@@ -364,7 +364,7 @@ In this example, you'll set up a changefeed for a single-node cluster that is co
 
     This will start up the changefeed in the background and return the `job_id`. The changefeed writes to Kafka.
 
-13. In a new terminal, move into the extracted `confluent-<version>` directory and start watching the Kafka topic:
+13. In a new terminal, move into the extracted `confluent-<[version](cluster-settings.html#setting-version)>` directory and start watching the Kafka topic:
 
     {% include copy-clipboard.html %}
     ~~~ shell
@@ -404,7 +404,7 @@ In this example, you'll set up a changefeed for a single-node cluster that is co
     $ cockroach quit --insecure
     ~~~
 
-18. To stop Kafka, move into the extracted `confluent-<version>` directory and stop Confluent:
+18. To stop Kafka, move into the extracted `confluent-<[version](cluster-settings.html#setting-version)>` directory and stop Confluent:
 
     {% include copy-clipboard.html %}
     ~~~ shell
@@ -414,12 +414,12 @@ In this example, you'll set up a changefeed for a single-node cluster that is co
 ### Create a changefeed connected to Kafka using Avro
 
 {{site.data.alerts.callout_info}}
-[`CREATE CHANGEFEED`](create-changefeed.html) is an [enterprise-only](enterprise-licensing.html) feature. For the core version, see [the `CHANGEFEED FOR` example above](#create-a-core-changefeed-using-avro).
+[`CREATE CHANGEFEED`](create-changefeed.html) is an [enterprise-only](enterprise-licensing.html) feature. For the core [version](cluster-settings.html#setting-version), see [the `CHANGEFEED FOR` example above](#create-a-core-changefeed-using-avro).
 {{site.data.alerts.end}}
 
 In this example, you'll set up a changefeed for a single-node cluster that is connected to a Kafka sink and emits [Avro](https://avro.apache.org/docs/1.8.2/spec.html) records.
 
-1. If you do not already have one, [request a trial enterprise license](enterprise-licensing.html).
+1. If you do not already have one, [request a trial [enterprise.license](cluster-settings.html#setting-enterprise-license)](enterprise-licensing.html).
 
 2. In a terminal window, start `cockroach`:
 
@@ -430,7 +430,7 @@ In this example, you'll set up a changefeed for a single-node cluster that is co
 
 3. Download and extract the [Confluent Open Source platform](https://www.confluent.io/download/) (which includes Kafka).
 
-4. Move into the extracted `confluent-<version>` directory and start Confluent:
+4. Move into the extracted `confluent-<[version](cluster-settings.html#setting-version)>` directory and start Confluent:
 
     {% include copy-clipboard.html %}
     ~~~ shell
@@ -462,23 +462,23 @@ In this example, you'll set up a changefeed for a single-node cluster that is co
     $ cockroach sql --insecure
     ~~~
 
-7. Set your organization name and [enterprise license](enterprise-licensing.html) key that you received via email:
+7. Set your organization name and [[enterprise.license](cluster-settings.html#setting-enterprise-license)](enterprise-licensing.html) key that you received via email:
 
     {% include copy-clipboard.html %}
     ~~~ shell
-    > SET CLUSTER SETTING cluster.organization = '<organization name>';
+    > SET CLUSTER SETTING [cluster.organization](cluster-settings.html#setting-cluster-organization) = '<organization name>';
     ~~~
 
     {% include copy-clipboard.html %}
     ~~~ shell
-    > SET CLUSTER SETTING enterprise.license = '<secret>';
+    > SET CLUSTER SETTING [enterprise.license](cluster-settings.html#setting-enterprise-license) = '<secret>';
     ~~~
 
-8. Enable the `kv.rangefeed.enabled` [cluster setting](cluster-settings.html):
+8. Enable the `[kv.rangefeed.enabled](cluster-settings.html#setting-kv-rangefeed-enabled)` [cluster setting](cluster-settings.html):
 
     {% include copy-clipboard.html %}
     ~~~ sql
-    > SET CLUSTER SETTING kv.rangefeed.enabled = true;
+    > SET CLUSTER SETTING [kv.rangefeed.enabled](cluster-settings.html#setting-kv-rangefeed-enabled) = true;
     ~~~
 
 9. Create a database called `cdc_demo`:
@@ -532,7 +532,7 @@ In this example, you'll set up a changefeed for a single-node cluster that is co
 
     This will start up the changefeed in the background and return the `job_id`. The changefeed writes to Kafka.
 
-13. In a new terminal, move into the extracted `confluent-<version>` directory and start watching the Kafka topic:
+13. In a new terminal, move into the extracted `confluent-<[version](cluster-settings.html#setting-version)>` directory and start watching the Kafka topic:
 
     {% include copy-clipboard.html %}
     ~~~ shell
@@ -572,7 +572,7 @@ In this example, you'll set up a changefeed for a single-node cluster that is co
     $ cockroach quit --insecure
     ~~~
 
-18. To stop Kafka, move into the extracted `confluent-<version>` directory and stop Confluent:
+18. To stop Kafka, move into the extracted `confluent-<[version](cluster-settings.html#setting-version)>` directory and stop Confluent:
 
     {% include copy-clipboard.html %}
     ~~~ shell
@@ -582,14 +582,14 @@ In this example, you'll set up a changefeed for a single-node cluster that is co
 ### Create a changefeed connected to a cloud storage sink
 
 {{site.data.alerts.callout_info}}
-[`CREATE CHANGEFEED`](create-changefeed.html) is an [enterprise-only](enterprise-licensing.html) feature. For the core version, see [the `CHANGEFEED FOR` example above](#create-a-core-changefeed).
+[`CREATE CHANGEFEED`](create-changefeed.html) is an [enterprise-only](enterprise-licensing.html) feature. For the core [version](cluster-settings.html#setting-version), see [the `CHANGEFEED FOR` example above](#create-a-core-changefeed).
 {{site.data.alerts.end}}
 
-{% include {{ page.version.version }}/cdc/correctness-warning.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/cdc/correctness-warning.md %}
 
-<span class="version-tag">New in v19.1:</span> In this example, you'll set up a changefeed for a single-node cluster that is connected to an AWS S3 sink. Note that you can set up changefeeds for any of [these cloud storage providers](create-changefeed.html#cloud-storage-sink).
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v19.1:</span> In this example, you'll set up a changefeed for a single-node cluster that is connected to an AWS S3 sink. Note that you can set up changefeeds for any of [these cloud storage providers](create-changefeed.html#cloud-storage-sink).
 
-1. If you do not already have one, [request a trial enterprise license](enterprise-licensing.html).
+1. If you do not already have one, [request a trial [enterprise.license](cluster-settings.html#setting-enterprise-license)](enterprise-licensing.html).
 
 2. In a terminal window, start `cockroach`:
 
@@ -605,23 +605,23 @@ In this example, you'll set up a changefeed for a single-node cluster that is co
     $ cockroach sql --insecure
     ~~~
 
-4. Set your organization name and [enterprise license](enterprise-licensing.html) key that you received via email:
+4. Set your organization name and [[enterprise.license](cluster-settings.html#setting-enterprise-license)](enterprise-licensing.html) key that you received via email:
 
     {% include copy-clipboard.html %}
     ~~~ sql
-    > SET CLUSTER SETTING cluster.organization = '<organization name>';
+    > SET CLUSTER SETTING [cluster.organization](cluster-settings.html#setting-cluster-organization) = '<organization name>';
     ~~~
 
     {% include copy-clipboard.html %}
     ~~~ sql
-    > SET CLUSTER SETTING enterprise.license = '<secret>';
+    > SET CLUSTER SETTING [enterprise.license](cluster-settings.html#setting-enterprise-license) = '<secret>';
     ~~~
 
-5. Enable the `kv.rangefeed.enabled` [cluster setting](cluster-settings.html):
+5. Enable the `[kv.rangefeed.enabled](cluster-settings.html#setting-kv-rangefeed-enabled)` [cluster setting](cluster-settings.html):
 
     {% include copy-clipboard.html %}
     ~~~ sql
-    > SET CLUSTER SETTING kv.rangefeed.enabled = true;
+    > SET CLUSTER SETTING [kv.rangefeed.enabled](cluster-settings.html#setting-kv-rangefeed-enabled) = true;
     ~~~
 
 6. Create a database called `cdc_demo`:
@@ -688,7 +688,7 @@ In this example, you'll set up a changefeed for a single-node cluster that is co
 
 ## Known limitations
 
-{% include {{ page.version.version }}/known-limitations/cdc.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/cdc.md %}
 
 ## See also
 

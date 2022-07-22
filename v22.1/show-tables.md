@@ -15,7 +15,7 @@ While a table or view is being [dropped](drop-table.html), `SHOW TABLES` will li
 ## Synopsis
 
 <div>
-{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.version.version | replace: "v", "" }}/grammar_svg/show_tables.html %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/grammar_svg/show_tables.html %}
 </div>
 
 ## Required privileges
@@ -42,7 +42,7 @@ To optimize the performance of the `SHOW TABLES` statement, you can do the follo
 
 ## Examples
 
-{% include {{page.version.version}}/sql/movr-statements-nodes.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/movr-statements-nodes.md %}
 
 ### Show tables in the current database
 
@@ -206,18 +206,18 @@ To view virtual tables with comments and documentation links, use `SHOW TABLES F
      schema_name     |              table_name               | type  | owner | estimated_row_count | locality |                                                              comment
 ---------------------+---------------------------------------+-------+-------+---------------------+----------+-------------------------------------------------------------------------------------------------------------------------------------
   information_schema | administrable_role_authorizations     | table | NULL  |                NULL | NULL     | roles for which the current user has admin option
-                     |                                       |       |       |                     |          | https://www.cockroachlabs.com/docs/{{ page.version.version }}/information-schema.html#administrable_role_authorizations
+                     |                                       |       |       |                     |          | https://www.cockroachlabs.com/docs/{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/information-schema.html#administrable_role_authorizations
                      |                                       |       |       |                     |          | https://www.postgresql.org/docs/9.5/infoschema-administrable-role-authorizations.html
   information_schema | applicable_roles                      | table | NULL  |                NULL | NULL     | roles available to the current user
-                     |                                       |       |       |                     |          | https://www.cockroachlabs.com/docs/{{ page.version.version }}/information-schema.html#applicable_roles
+                     |                                       |       |       |                     |          | https://www.cockroachlabs.com/docs/{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/information-schema.html#applicable_roles
                      |                                       |       |       |                     |          | https://www.postgresql.org/docs/9.5/infoschema-applicable-roles.html
   information_schema | attributes                            | table | NULL  |                NULL | NULL     | attributes was created for compatibility and is currently unimplemented
   information_schema | character_sets                        | table | NULL  |                NULL | NULL     | character sets available in the current database
-                     |                                       |       |       |                     |          | https://www.cockroachlabs.com/docs/{{ page.version.version }}/information-schema.html#character_sets
+                     |                                       |       |       |                     |          | https://www.cockroachlabs.com/docs/{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/information-schema.html#character_sets
                      |                                       |       |       |                     |          | https://www.postgresql.org/docs/9.5/infoschema-character-sets.html
   information_schema | check_constraint_routine_usage        | table | NULL  |                NULL | NULL     | check_constraint_routine_usage was created for compatibility and is currently unimplemented
   information_schema | check_constraints                     | table | NULL  |                NULL | NULL     | check constraints
-                     |                                       |       |       |                     |          | https://www.cockroachlabs.com/docs/{{ page.version.version }}/information-schema.html#check_constraints
+                     |                                       |       |       |                     |          | https://www.cockroachlabs.com/docs/{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/information-schema.html#check_constraints
                      |                                       |       |       |                     |          | https://www.postgresql.org/docs/9.5/infoschema-check-constraints.html
   ...
 (86 rows)

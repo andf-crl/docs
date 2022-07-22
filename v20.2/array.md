@@ -240,9 +240,9 @@ You can use the [operators](functions-and-operators.html#supported-operations) `
 (2 rows)
 ~~~
 
-## Supported casting and conversion
+## Supported casting and con[version](cluster-settings.html#setting-version)
 
-[Casting](data-types.html#data-type-conversions-and-casts) between `ARRAY` values is supported when the data types of the arrays support casting. For example, it is possible to cast from a `BOOL` array to an `INT` array but not from a `BOOL` array to a `TIMESTAMP` array:
+[Casting](data-types.html#data-type-con[version](cluster-settings.html#setting-version)s-and-casts) between `ARRAY` values is supported when the data types of the arrays support casting. For example, it is possible to cast from a `BOOL` array to an `INT` array but not from a `BOOL` array to a `TIMESTAMP` array:
 
 {% include copy-clipboard.html %}
 ~~~ sql

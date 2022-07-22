@@ -218,7 +218,7 @@ Example usage:
 
 <!-- Notes
 
-These instructions were prepared with the following versions:
+These instructions were prepared with the following [version](cluster-settings.html#setting-version)s:
 
 - Postgres 10.5
 

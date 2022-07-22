@@ -65,7 +65,7 @@ table tr td:nth-child(2) {
  `BEGIN` | ✓ | Standard | [`BEGIN` documentation](begin-transaction.html)
  `COMMIT` | ✓ | Standard | [`COMMIT` documentation](commit-transaction.html)
  `ROLLBACK` | ✓ | Standard | [`ROLLBACK` documentation](rollback-transaction.html)
- `SAVEPOINT` | ✓ | Standard with CockroachDB extensions | <span class="version-tag">New in v20.1:</span> CockroachDB supports nested transactions using [`SAVEPOINT`](savepoint.html)
+ `SAVEPOINT` | ✓ | Standard with CockroachDB extensions | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> CockroachDB supports nested transactions using [`SAVEPOINT`](savepoint.html)
 
 ### Indexes
 
@@ -97,7 +97,7 @@ table tr td:nth-child(2) {
  Index renames | ✓ | Standard | [`RENAME INDEX` documentation](rename-index.html)
  Adding indexes | ✓ | Standard | [`CREATE INDEX` documentation](create-index.html)
  Removing indexes | ✓ | Standard | [`DROP INDEX` documentation](drop-index.html)
- Altering a primary key | ✓ | Standard | <span class="version-tag">New in v20.1:</span> [`ALTER PRIMARY KEY` documentation](alter-primary-key.html)
+ Altering a primary key | ✓ | Standard | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> [`ALTER PRIMARY KEY` documentation](alter-primary-key.html)
 
 ### Statements
 
@@ -107,7 +107,7 @@ table tr td:nth-child(2) {
  `UPSERT` | ✓ | PostgreSQL, MSSQL Extension | [`UPSERT` documentation](upsert.html)
  `EXPLAIN` | ✓ | Common Extension | [`EXPLAIN` documentation](explain.html)
  `SELECT INTO` | Alternative | Common Extension | You can replicate similar functionality using [`CREATE TABLE`](create-table.html) and then `INSERT INTO ... SELECT ...`.
- `SELECT FOR UPDATE` | ✓ | Common Extension | <span class="version-tag">New in v20.1:</span> [`SELECT FOR UPDATE` documentation](select-for-update.html)
+ `SELECT FOR UPDATE` | ✓ | Common Extension | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> [`SELECT FOR UPDATE` documentation](select-for-update.html)
 
 ### Clauses
 

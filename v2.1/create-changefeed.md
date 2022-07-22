@@ -4,7 +4,7 @@ summary: The CREATE CHANGEFEED statement creates a new changefeed, which provide
 toc: true
 ---
 
-<span class="version-tag">New in v2.1:</span> The `CREATE CHANGEFEED` [statement](sql-statements.html) creates a new changefeed, which provides row-level change subscriptions.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v2.1:</span> The `CREATE CHANGEFEED` [statement](sql-statements.html) creates a new changefeed, which provides row-level change subscriptions.
 
 Changefeeds target an allowlist of tables, called the "watched rows." Every change to a watched row is emitted as a record in a configurable format (`JSON`) to a configurable sink ([Kafka](https://kafka.apache.org/)).
 
@@ -15,7 +15,7 @@ For more information, see [Change Data Capture](change-data-capture.html).
 {{site.data.alerts.end}}
 
 {{site.data.alerts.callout_info}}
-`CREATE CHANGEFEED` is an [enterprise-only](enterprise-licensing.html). There will be a core version in a future version.
+`CREATE CHANGEFEED` is an [enterprise-only](enterprise-licensing.html). There will be a core [version](cluster-settings.html#setting-version) in a future [version](cluster-settings.html#setting-version).
 {{site.data.alerts.end}}
 
 ## Required privileges
@@ -25,7 +25,7 @@ Changefeeds can only be created by superusers, i.e., [members of the `admin` rol
 ## Synopsis
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/create_changefeed.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/create_changefeed.html %}
 </div>
 
 ## Parameters

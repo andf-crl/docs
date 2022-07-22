@@ -8,7 +8,7 @@ This page has instructions for migrating data from MySQL to CockroachDB using [`
 
 The examples below use the [employees data set](https://github.com/datacharmer/test_db) that is also used in the [MySQL docs](https://dev.mysql.com/doc/employee/en/).
 
-{% include {{ page.version.version }}/misc/import-perf.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/import-perf.md %}
 
 ## Considerations
 
@@ -93,7 +93,7 @@ You can choose from several variants of the [`IMPORT`][import] statement, depend
 
 All of the [`IMPORT`][import] statements in this section pull real data from [Amazon S3](https://aws.amazon.com/s3/) and will kick off background import jobs that you can monitor with [`SHOW JOBS`](show-jobs.html).
 
-{% include {{ page.version.version }}/sql/use-import-into.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/use-import-into.md %}
 
 ### Import a full database dump
 
@@ -176,12 +176,12 @@ If you need to specify the table's columns for some reason, you can use an [`IMP
 
 The following options are available to `IMPORT ... MYSQLDUMP`:
 
-+ {% include_cached new-in.html version="v21.1" %} [Row limit](#row-limit)
++ {% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.1" %} [Row limit](#row-limit)
 + [Skip foreign keys](#skip-foreign-keys)
 
 ### Row limit
 
-{% include_cached new-in.html version="v21.1" %} The `row_limit` option determines the number of rows to import. If you are importing one table, setting `row_limit = 'n'` will import the first *n* rows of the table. If you are importing an entire database, this option will import the first *n* rows from each table in the dump file. It is useful for finding errors quickly before executing a more time- and resource-consuming import.
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.1" %} The `row_limit` option determines the number of rows to import. If you are importing one table, setting `row_limit = 'n'` will import the first *n* rows of the table. If you are importing an entire database, this option will import the first *n* rows from each table in the dump file. It is useful for finding errors quickly before executing a more time- and resource-consuming import.
 
 Example usage:
 

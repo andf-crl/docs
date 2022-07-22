@@ -12,7 +12,7 @@ In this example, you'll set up a core changefeed for a single-node cluster that 
 
 2. Download and extract the [Confluent Open Source platform](https://www.confluent.io/download/).
 
-3. Move into the extracted `confluent-<version>` directory and start Confluent:
+3. Move into the extracted `confluent-<[version](cluster-settings.html#setting-version)>` directory and start Confluent:
 
     {% include_cached copy-clipboard.html %}
     ~~~ shell
@@ -28,15 +28,15 @@ In this example, you'll set up a core changefeed for a single-node cluster that 
     $ cockroach sql --url="postgresql://root@127.0.0.1:26257?sslmode=disable" --format=csv
     ~~~
 
-    {% include {{ page.version.version }}/cdc/core-url.md %}
+    {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/cdc/core-url.md %}
 
-    {% include {{ page.version.version }}/cdc/core-csv.md %}
+    {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/cdc/core-csv.md %}
 
-5. Enable the `kv.rangefeed.enabled` [cluster setting](cluster-settings.html):
+5. Enable the `[kv.rangefeed.enabled](cluster-settings.html#setting-kv-rangefeed-enabled)` [cluster setting](cluster-settings.html):
 
     {% include_cached copy-clipboard.html %}
     ~~~ sql
-    > SET CLUSTER SETTING kv.rangefeed.enabled = true;
+    > SET CLUSTER SETTING [kv.rangefeed.enabled](cluster-settings.html#setting-kv-rangefeed-enabled) = true;
     ~~~
 
 6. Create table `bar`:
@@ -89,7 +89,7 @@ In this example, you'll set up a core changefeed for a single-node cluster that 
     $ cockroach quit --insecure
     ~~~
 
-13. To stop Confluent, move into the extracted `confluent-<version>` directory and stop Confluent:
+13. To stop Confluent, move into the extracted `confluent-<[version](cluster-settings.html#setting-version)>` directory and stop Confluent:
 
     {% include_cached copy-clipboard.html %}
     ~~~ shell

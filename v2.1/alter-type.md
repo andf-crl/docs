@@ -4,7 +4,7 @@ summary: Use the ALTER TYPE statement to change a column's data type.
 toc: true
 ---
 
-<span class="version-tag">New in v2.1:</span> The `ALTER TYPE` [statement](sql-statements.html) is part of [`ALTER TABLE`](alter-table.html) and changes a column's [data type](data-types.html).
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v2.1:</span> The `ALTER TYPE` [statement](sql-statements.html) is part of [`ALTER TABLE`](alter-table.html) and changes a column's [data type](data-types.html).
 
 ## Considerations
 
@@ -16,7 +16,7 @@ You can use the `ALTER TYPE` subcommand if the following conditions are met:
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/alter_type.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/alter_type.html %}
 </div>
 
 ## Required privileges
@@ -58,7 +58,7 @@ Changing a column data type from `DECIMAL` to `INT` would change the on-disk rep
 ~~~
 
 ~~~
-pq: type conversion not yet implemented
+pq: type con[version](cluster-settings.html#setting-version) not yet implemented
 ~~~
 
 Changing a column data type from `DECIMAL(12,2)` to `DECIMAL (8,2)` would invalidate the existing data. Therefore, attempting to do so results in an error:
@@ -69,7 +69,7 @@ Changing a column data type from `DECIMAL(12,2)` to `DECIMAL (8,2)` would invali
 ~~~
 
 ~~~
-pq: type conversion not yet implemented
+pq: type con[version](cluster-settings.html#setting-version) not yet implemented
 ~~~
 
 ## See also

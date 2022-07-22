@@ -6,7 +6,7 @@ toc: true
 docs_area: reference.sql 
 ---
 
-{% include_cached new-in.html version="v21.2" %} The `ALTER DEFAULT PRIVILEGES` [statement](sql-statements.html) changes the [default privileges](security-reference/authorization.html#default-privileges) on objects created by [users/roles](security-reference/authorization.html#roles) in the current database.
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.2" %} The `ALTER DEFAULT PRIVILEGES` [statement](sql-statements.html) changes the [default privileges](security-reference/authorization.html#default-privileges) on objects created by [users/roles](security-reference/authorization.html#roles) in the current database.
 
 {{site.data.alerts.callout_info}}
 The creator of an object is also the object's [owner](security-reference/authorization.html#object-ownership). Any roles that are members of the owner role have `ALL` privileges on the object. Altering the default privileges of objects created by a role does not affect that role's privileges as the object's owner. The default privileges granted to other users/roles are always in addition to the ownership (i.e., `ALL`) privileges given to the creator of the object.
@@ -21,7 +21,7 @@ For an example, see [Grant default privileges to a specific role](#grant-default
 ## Synopsis
 
 <div>
-{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.version.version | replace: "v", "" }}/grammar_svg/alter_default_privileges.html %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/grammar_svg/alter_default_privileges.html %}
 </div>
 
 ### Parameters

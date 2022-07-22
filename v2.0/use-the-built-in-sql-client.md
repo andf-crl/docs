@@ -41,14 +41,14 @@ The `sql` command supports the following types of flags:
 Flag | Description
 -----|------------
 `--database`<br>`-d` | A database name to use as [current database](sql-name-resolution.html#current-database) in the newly created session.
-`--echo-sql` | <span class="version-tag">New in v1.1:</span> Reveal the SQL statements sent implicitly by the command-line utility. For a demonstration, see the [example](#reveal-the-sql-statements-sent-implicitly-by-the-command-line-utility) below.<br><br>This can also be enabled within the interactive SQL shell via the `\set echo` [shell command](#sql-shell-commands).
+`--echo-sql` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v1.1:</span> Reveal the SQL statements sent implicitly by the command-line utility. For a demonstration, see the [example](#reveal-the-sql-statements-sent-implicitly-by-the-command-line-utility) below.<br><br>This can also be enabled within the interactive SQL shell via the `\set echo` [shell command](#sql-shell-commands).
 <a name="sql-flag-execute"></a> `--execute`<br />`-e` | Execute SQL statements directly from the command line, without opening a shell. This flag can be set multiple times, and each instance can contain one or more statements separated by semi-colons. If an error occurs in any statement, the command exits with a non-zero status code and further statements are not executed. The results of each statement are printed to the standard output (see `--format` for formatting options).<br><br>For a demonstration of this and other ways to execute SQL from the command line, see the [example](#execute-sql-statements-from-the-command-line) below.
 <a name="sql-flag-format"></a> `--format` | How to display table rows printed to the standard output. Possible values: `tsv`, `csv`, `pretty`, `raw`, `records`, `sql`, `html`.<br><br>**Default:** `pretty` for [interactive sessions](#interactive-sessions), `tsv` for non-interactive sessions<br /><br />Corresponds to the [`display_format`](#sql-option-display-format) SQL shell option for use in interactive sessions.
-`--safe-updates` | <span class="version-tag">Changed in v2.0:</span> Disallow potentially unsafe SQL statements, including `DELETE` without a `WHERE` clause, `UPDATE` without a `WHERE` clause, and `ALTER TABLE ... DROP COLUMN`.<br><br>**Default:** `true` for [interactive sessions](#interactive-sessions), `false` otherwise.<br /><br />Potentially unsafe SQL statements can also be allowed/disallowed for an entire session via the `sql_safe_updates` [session variable](set-vars.html).
+`--safe-updates` | <span class="[version](cluster-settings.html#setting-version)-tag">Changed in v2.0:</span> Disallow potentially unsafe SQL statements, including `DELETE` without a `WHERE` clause, `UPDATE` without a `WHERE` clause, and `ALTER TABLE ... DROP COLUMN`.<br><br>**Default:** `true` for [interactive sessions](#interactive-sessions), `false` otherwise.<br /><br />Potentially unsafe SQL statements can also be allowed/disallowed for an entire session via the `sql_safe_updates` [session variable](set-vars.html).
 
 ### Client Connection
 
-{% include {{ page.version.version }}/sql/connection-parameters-with-url.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/connection-parameters-with-url.md %}
 
 See [Client Connection Parameters](connection-parameters.html) for more details.
 
@@ -60,14 +60,14 @@ If you need to troubleshoot this command's behavior, you can change its [logging
 
 ## SQL Shell Welcome
 
-When the SQL shell connects (or reconnects) to a CockroachDB node, it prints a welcome text with some tips and CockroachDB version and cluster details:
+When the SQL shell connects (or reconnects) to a CockroachDB node, it prints a welcome text with some tips and CockroachDB [version](cluster-settings.html#setting-version) and cluster details:
 
 ~~~ shell
 # Welcome to the cockroach SQL interface.
 # All statements must be terminated by a semicolon.
 # To exit: CTRL + D.
 #
-# Server version: CCL {{page.release_info.version}} (darwin amd64, built 2017/07/13 11:43:06, go1.8) (same version as client)
+# Server [version](cluster-settings.html#setting-version): CCL {{page.release_info.[version](cluster-settings.html#setting-version)}} (darwin amd64, built 2017/07/13 11:43:06, go1.8) (same [version](cluster-settings.html#setting-version) as client)
 # Cluster ID: 7fb9f5b4-a801-4851-92e9-c0db292d03f1
 #
 # Enter \? for a brief introduction.
@@ -75,10 +75,10 @@ When the SQL shell connects (or reconnects) to a CockroachDB node, it prints a w
 >
 ~~~
 
-<span class="version-tag">New in v1.1:</span> The **Version** and **Cluster ID** details are particularly noteworthy:
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v1.1:</span> The **Version** and **Cluster ID** details are particularly noteworthy:
 
-- When the client and server versions of CockroachDB are the same, the shell prints the `Server version` followed by `(same version as client)`.
-- When the client and server versions are different, the shell prints both the `Client version` and `Server version`. In this case, you may want to [plan an upgrade](upgrade-cockroach-version.html) of older client or server versions.
+- When the client and server [version](cluster-settings.html#setting-version)s of CockroachDB are the same, the shell prints the `Server [version](cluster-settings.html#setting-version)` followed by `(same [version](cluster-settings.html#setting-version) as client)`.
+- When the client and server [version](cluster-settings.html#setting-version)s are different, the shell prints both the `Client [version](cluster-settings.html#setting-version)` and `Server [version](cluster-settings.html#setting-version)`. In this case, you may want to [plan an upgrade](upgrade-cockroach-[version](cluster-settings.html#setting-version).html) of older client or server [version](cluster-settings.html#setting-version)s.
 - Since every CockroachDB cluster has a unique ID, you can use the `Cluster ID` field to verify that your client is always connecting to the correct cluster.
 
 ## Interactive Sessions
@@ -108,7 +108,7 @@ Command | Usage
 `\set <option>` | Enable a client-side option. For available options, see [SQL Shell Options](#sql-shell-options).<br><br>To view help and the current settings, use `\set` without any options.
 `\unset <option>` | Disable a client-side option. For available options, see [SQL Shell Options](#sql-shell-options).
 `\?`<br>`help` | View this help within the shell.
-`\h <statement>`<br>`\hf <function>` | <span class="version-tag">New in v1.1:</span> View help for specific SQL statements or functions. See [SQL Shell Help](#sql-shell-help) for more details.
+`\h <statement>`<br>`\hf <function>` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v1.1:</span> View help for specific SQL statements or functions. See [SQL Shell Help](#sql-shell-help) for more details.
 
 ### SQL Shell Options
 
@@ -116,12 +116,12 @@ To view help and the current settings, use `\set` without any options. To enable
 
 Client Options | Description
 ---------------|------------
-<a name="sql-option-display-format"></a> `display_format` | <span class="version-tag">Updated in v2.0:</span> How to display table rows printed within the interactive SQL shell. Possible values: `tsv`, `csv`, `pretty`, `raw`, `records`, `sql`, `html`.<br><br>**Default:** `pretty` when the output goes to a terminal and the [`--format` flag](#sql-flag-format) is not passed at startup, `tsv` otherwise.<br /><br />To change this option, run `\set display_format <format>`. For a demonstration, see the [example](#make-the-output-of-show-statements-selectable) below.
-`echo` | <span class="version-tag">New in v1.1:</span> Reveal the SQL statements sent implicitly by the SQL shell.<br><br>**Default:** `false`. To enable it, run `\set echo`. For a demonstration, see the [example](#reveal-the-sql-statements-sent-implicitly-by-the-command-line-utility) below.
-<a name="sql-option-errexit"></a> `errexit` | <span class="version-tag">Updated in v2.0:</span> Exit the SQL shell upon encountering an error.<br /><br />**Default:** `false` for [interactive sessions](#interactive-sessions), `true` otherwise. To enable it, run `\set errexit`.
+<a name="sql-option-display-format"></a> `display_format` | <span class="[version](cluster-settings.html#setting-version)-tag">Updated in v2.0:</span> How to display table rows printed within the interactive SQL shell. Possible values: `tsv`, `csv`, `pretty`, `raw`, `records`, `sql`, `html`.<br><br>**Default:** `pretty` when the output goes to a terminal and the [`--format` flag](#sql-flag-format) is not passed at startup, `tsv` otherwise.<br /><br />To change this option, run `\set display_format <format>`. For a demonstration, see the [example](#make-the-output-of-show-statements-selectable) below.
+`echo` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v1.1:</span> Reveal the SQL statements sent implicitly by the SQL shell.<br><br>**Default:** `false`. To enable it, run `\set echo`. For a demonstration, see the [example](#reveal-the-sql-statements-sent-implicitly-by-the-command-line-utility) below.
+<a name="sql-option-errexit"></a> `errexit` | <span class="[version](cluster-settings.html#setting-version)-tag">Updated in v2.0:</span> Exit the SQL shell upon encountering an error.<br /><br />**Default:** `false` for [interactive sessions](#interactive-sessions), `true` otherwise. To enable it, run `\set errexit`.
 <a name="sql-option-check-syntax"></a> `check_syntax` | Validate SQL syntax. This ensures that a typo or mistake during user entry does not inconveniently abort an ongoing transaction previously started from the interactive shell.<br /><br />**Default:** `true` for [interactive sessions](#interactive-sessions), `false` otherwise. To disable it, run `\unset check_syntax`.
-`show_times` | <span class="version-tag">New in v1.1:</span> Reveal the time a query takes to complete.<br><br>**Default:** `true`. To disable it, run `\unset show_times`.
-<a name="sql-option-smart-prompt"></a> `smart_prompt` | <span class="version-tag">New in v1.1:</span> Query the server for the current transaction status and return it to the prompt.<br /><br />**Default:** `true` for [interactive sessions](#interactive-sessions), `false` otherwise. However, it is respected only when `ECHO` is enabled as well. To disable this option, run `\unset smart_prompt`.
+`show_times` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v1.1:</span> Reveal the time a query takes to complete.<br><br>**Default:** `true`. To disable it, run `\unset show_times`.
+<a name="sql-option-smart-prompt"></a> `smart_prompt` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v1.1:</span> Query the server for the current transaction status and return it to the prompt.<br /><br />**Default:** `true` for [interactive sessions](#interactive-sessions), `false` otherwise. However, it is respected only when `ECHO` is enabled as well. To disable this option, run `\unset smart_prompt`.
 
 ### SQL Shell Help
 
@@ -648,7 +648,7 @@ $ cockroach sql --insecure \
 ~~~
 
 ~~~
-# Server version: CockroachDB CCL f8f3c9317 (darwin amd64, built 2017/09/13 15:05:35, go1.8) (same version as client)
+# Server [version](cluster-settings.html#setting-version): CockroachDB CCL f8f3c9317 (darwin amd64, built 2017/09/13 15:05:35, go1.8) (same [version](cluster-settings.html#setting-version) as client)
 # Cluster ID: 847a4ba5-c78a-465a-b1a0-59fae3aab520
 > SET sql_safe_updates = TRUE
 > CREATE TABLE t1 (id INT PRIMARY KEY, name STRING)

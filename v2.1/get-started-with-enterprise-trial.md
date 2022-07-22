@@ -28,14 +28,14 @@ Now, use the `SET CLUSTER SETTING` command to set the name of your organization 
 
 {% include copy-clipboard.html %}
 ~~~ sql
->  SET CLUSTER SETTING cluster.organization = 'Acme Company'; SET CLUSTER SETTING enterprise.license = 'xxxxxxxxxxxx';
+>  SET CLUSTER SETTING [cluster.organization](cluster-settings.html#setting-cluster-organization) = 'Acme Company'; SET CLUSTER SETTING [enterprise.license](cluster-settings.html#setting-enterprise-license) = 'xxxxxxxxxxxx';
 ~~~
 
 Then verify your organization in response to the following query:
 
 {% include copy-clipboard.html %}
 ~~~ sql
->  SHOW CLUSTER SETTING cluster.organization;
+>  SHOW CLUSTER SETTING [cluster.organization](cluster-settings.html#setting-cluster-organization);
 ~~~
 
 ## Use Enterprise features

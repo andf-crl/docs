@@ -3,7 +3,7 @@ title: Statements Page
 toc: true
 ---
 
-<span class="version-tag">New in v2.1:</span> The **Statements** page helps you identify frequently executed or high latency [SQL statements](sql-statements.html). The **Statements** page also allows you to view the details of an individual SQL statement by clicking on the statement to view the **Statement Details** page.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v2.1:</span> The **Statements** page helps you identify frequently executed or high latency [SQL statements](sql-statements.html). The **Statements** page also allows you to view the details of an individual SQL statement by clicking on the statement to view the **Statement Details** page.
 
 To view the **Statements** page, [access the Admin UI](admin-ui-access-and-navigate.html#access-the-admin-ui) and then click **Statements** on the left.
 
@@ -11,7 +11,7 @@ To view the **Statements** page, [access the Admin UI](admin-ui-access-and-navig
 
 ## Limitation
 
-The **Statements** page displays the details of the SQL statements executed within a specified time interval. At the end of the interval, the display is wiped clean, and you'll not see any statements on the page until the next set of statements is executed. By default, the time interval is set to one hour; however, you can customize the interval using the [`diagnostics.reporting.interval`](cluster-settings.html#settings) cluster setting.
+The **Statements** page displays the details of the SQL statements executed within a specified time interval. At the end of the interval, the display is wiped clean, and you'll not see any statements on the page until the next set of statements is executed. By default, the time interval is set to one hour; however, you can customize the interval using the [`[diagnostics.reporting.interval](cluster-settings.html#setting-diagnostics-reporting-interval)`](cluster-settings.html#settings) cluster setting.
 
 ## Selecting an application
 

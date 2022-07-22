@@ -6,7 +6,7 @@ docs_area: reference.sql
 ---
 
 {{site.data.alerts.callout_info}}
-`CREATE CHANGEFEED` is an [Enterprise-only](enterprise-licensing.html) feature. For the core version, see [`EXPERIMENTAL CHANGEFEED FOR`](changefeed-for.html).
+`CREATE CHANGEFEED` is an [Enterprise-only](enterprise-licensing.html) feature. For the core [version](cluster-settings.html#setting-version), see [`EXPERIMENTAL CHANGEFEED FOR`](changefeed-for.html).
 {{site.data.alerts.end}}
 
 The `CREATE CHANGEFEED` [statement](sql-statements.html) creates a new Enterprise changefeed, which targets an allowlist of tables called "watched rows".  Every change to a watched row is emitted as a record in a configurable format (`JSON` or Avro) to a configurable sink ([Kafka](https://kafka.apache.org/), [Google Cloud Pub/Sub](https://cloud.google.com/pubsub), a [cloud storage sink](changefeed-sinks.html#cloud-storage-sink), or a [webhook sink](changefeed-sinks.html#webhook-sink)). You can [create](#create-a-changefeed-connected-to-kafka), [pause](#pause-a-changefeed), [resume](#resume-a-paused-changefeed), [alter](alter-changefeed.html), or [cancel](#cancel-a-changefeed) an Enterprise changefeed.
@@ -20,7 +20,7 @@ To create a changefeed, the user must be a member of the `admin` role or have th
 ## Synopsis
 
 <div>
-{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.version.version | replace: "v", "" }}/grammar_svg/create_changefeed.html %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/grammar_svg/create_changefeed.html %}
 </div>
 
 ## Parameters
@@ -64,7 +64,7 @@ Example of a Kafka sink URI:
 The Google Cloud Pub/Sub sink is currently in **beta**.
 {{site.data.alerts.end}}
 
-{% include_cached new-in.html version="v22.1" %} Example of a Google Cloud Pub/Sub sink URI:
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v22.1" %} Example of a Google Cloud Pub/Sub sink URI:
 
 ~~~
 'gcpubsub://{project name}?region={region}&topic_name={topic name}&AUTH=specified&CREDENTIALS={base64-encoded key}'
@@ -98,7 +98,7 @@ See [Changefeed Sinks](changefeed-sinks.html#webhook-sink) for specifics on webh
 
 ### Query parameters
 
-{% include {{ page.version.version }}/cdc/url-encoding.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/cdc/url-encoding.md %}
 
 Query parameters include:
 
@@ -139,7 +139,7 @@ Option | Value | Description
 <a name="schema-events"></a>`schema_change_events` | `default` / `column_changes` |  The type of schema change event that triggers the behavior specified by the `schema_change_policy` option:<ul><li>`default`: Include all [`ADD COLUMN`](add-column.html) events for columns that have a non-`NULL` [`DEFAULT` value](default-value.html) or are [computed](computed-columns.html), and all [`DROP COLUMN`](drop-column.html) events.</li><li>`column_changes`: Include all schema change events that add or remove any column.</li></ul><br>Default: `schema_change_events=default`
 <a name="schema-policy"></a>`schema_change_policy` | `backfill` / `nobackfill` / `stop` |  The behavior to take when an event specified by the `schema_change_events` option occurs:<ul><li>`backfill`: When [schema changes with column backfill](use-changefeeds.html#schema-changes-with-column-backfill) are finished, output all watched rows using the new schema.</li><li>`nobackfill`: For [schema changes with column backfill](use-changefeeds.html#schema-changes-with-column-backfill), perform no logical backfills. The changefeed will still emit any duplicate records for the table being altered, but will not emit the new schema records. </li><li>`stop`: [schema changes with column backfill](use-changefeeds.html#schema-changes-with-column-backfill), wait for all data preceding the schema change to be resolved before exiting with an error indicating the timestamp at which the schema change occurred. An `error: schema change occurred at <timestamp>` will display in the `cockroach.log` file.</li></ul><br>Default: `schema_change_policy=backfill`
 <a name="initial-scan"></a>`initial_scan` / `no_initial_scan` / `initial_scan_only` | N/A | Control whether or not an initial scan will occur at the start time of a changefeed. `initial_scan_only` will perform an initial scan and then the changefeed job will complete with a `successful` status. You cannot use [`end_time`](#end-time) and `initial_scan_only` simultaneously.<br><br>If none of these options are specified, an initial scan will occur if there is no [`cursor`](#cursor-option), and will not occur if there is one. This preserves the behavior from previous releases. <br><br>You cannot specify `initial_scan` and `no_initial_scan` or `no_initial_scan and` `initial_scan_only` simultaneously.<br><br>Default: `initial_scan` <br>If used in conjunction with `cursor`, an initial scan will be performed at the cursor timestamp. If no `cursor` is specified, the initial scan is performed at `now()`.
-`kafka_sink_config` | [`STRING`](string.html) |  Set fields to configure the required level of message acknowledgement from the Kafka server, the version of the server, and batching parameters for Kafka sinks. See [Kafka sink configuration](changefeed-sinks.html#kafka-sink-configuration) for more detail on configuring all the available fields for this option. <br><br>Example: `CREATE CHANGEFEED FOR table INTO 'kafka://localhost:9092' WITH kafka_sink_config='{"Flush": {"MaxMessages": 1, "Frequency": "1s"}, "RequiredAcks": "ONE"}'`
+`kafka_sink_config` | [`STRING`](string.html) |  Set fields to configure the required level of message acknowledgement from the Kafka server, the [version](cluster-settings.html#setting-version) of the server, and batching parameters for Kafka sinks. See [Kafka sink configuration](changefeed-sinks.html#kafka-sink-configuration) for more detail on configuring all the available fields for this option. <br><br>Example: `CREATE CHANGEFEED FOR table INTO 'kafka://localhost:9092' WITH kafka_sink_config='{"Flush": {"MaxMessages": 1, "Frequency": "1s"}, "RequiredAcks": "ONE"}'`
 <a name="full-table-option"></a>`full_table_name` | N/A | Use fully-qualified table name in topics, subjects, schemas, and record output instead of the default table name. This can prevent unintended behavior when the same table name is present in multiple databases. <br><br>Example: `CREATE CHANGEFEED FOR foo... WITH full_table_name` will create the topic name `defaultdb.public.foo` instead of `foo`.
 `avro_schema_prefix` | Schema prefix name | Provide a namespace for the schema of a table in addition to the default, the table name. This allows multiple databases or clusters to share the same schema registry when the same table name is present in multiple databases.<br><br>Example: `CREATE CHANGEFEED FOR foo WITH format=avro, confluent_schema_registry='registry_url', avro_schema_prefix='super'` will register subjects as `superfoo-key` and `superfoo-value` with the namespace `super`.
 `webhook_client_timeout` | [`INTERVAL`](interval.html) |  If a response is not recorded from the sink within this timeframe, it will error and retry to connect. Note this must be a positive value. <br><br>**Default:** `"3s"`
@@ -148,7 +148,7 @@ Option | Value | Description
 `webhook_sink_config` | [`STRING`](string.html) |  Set fields to configure sink batching and retries. The schema is as follows:<br><br> `{ "Flush": { "Messages": ..., "Bytes": ..., "Frequency": ..., }, "Retry": {"Max": ..., "Backoff": ..., } }`. <br><br>**Note** that if either `Messages` or `Bytes` are nonzero, then a non-zero value for `Frequency` must be provided. <br><br>See [Webhook sink configuration](changefeed-sinks.html#webhook-sink-configuration) for more details on using this option.
 `metrics_label` | [`STRING`](string.html) | This is an **experimental** feature. Define a metrics label to which the metrics for one or multiple changefeeds increment. All changefeeds also have their metrics aggregated.<br><br>The maximum length of a label is 128 bytes. There is a limit of 1024 unique labels.<br><br>`WITH metrics_label=label_name` <br><br>For more detail on usage and considerations, see [Using changefeed metrics labels](monitor-and-debug-changefeeds.html#using-changefeed-metrics-labels).
 <a name="split-column-families"></a>`split_column_families` | N/A | Use this option to create a changefeed on a table with multiple [column families](column-families.html). The changefeed will emit messages for each of the table's column families. See [Changefeeds on tables with column families](use-changefeeds.html#changefeeds-on-tables-with-column-families) for more usage detail.
-<a name="virtual-columns"></a>`virtual_columns` | `STRING` | **New in v22.1:** Changefeeds omit [virtual computed columns](computed-columns.html) from emitted [messages](use-changefeeds.html#messages) by default. To maintain the behavior of previous CockroachDB versions where the changefeed would emit [`NULL`](null-handling.html) values for virtual computed columns, set `virtual_columns = "null"` when you start a changefeed. <br><br>You may also define `virtual_columns = "omitted"`, though this is already the default behavior for v22.1+. If you do not set `"omitted"` on a table with virtual computed columns when you create a changefeed, you will receive a warning that changefeeds will filter out virtual computed values. <br><br>**Default:** `"omitted"`
+<a name="virtual-columns"></a>`virtual_columns` | `STRING` | **New in v22.1:** Changefeeds omit [virtual computed columns](computed-columns.html) from emitted [messages](use-changefeeds.html#messages) by default. To maintain the behavior of previous CockroachDB [version](cluster-settings.html#setting-version)s where the changefeed would emit [`NULL`](null-handling.html) values for virtual computed columns, set `virtual_columns = "null"` when you start a changefeed. <br><br>You may also define `virtual_columns = "omitted"`, though this is already the default behavior for v22.1+. If you do not set `"omitted"` on a table with virtual computed columns when you create a changefeed, you will receive a warning that changefeeds will filter out virtual computed values. <br><br>**Default:** `"omitted"`
 
 {{site.data.alerts.callout_info}}
  Using the `format=avro`, `envelope=key_only`, and `updated` options together is rejected. `envelope=key_only` prevents any rows with updated fields from being emitted, which makes the `updated` option meaningless.
@@ -177,7 +177,7 @@ For example:
 /2020-04-02/202004022058072107140000000000000-56087568dba1e6b8-1-72-00000000-test_table-1.ndjson
 ~~~
 
-{% include_cached new-in.html version="v22.1" %} When emitting changefeed messages to a [cloud storage sink](changefeed-sinks.html#cloud-storage-sink), you can specify a partition format for your files using the [`partition_format`](#partition-format) query parameter. This will result in the following file path formats:
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v22.1" %} When emitting changefeed messages to a [cloud storage sink](changefeed-sinks.html#cloud-storage-sink), you can specify a partition format for your files using the [`partition_format`](#partition-format) query parameter. This will result in the following file path formats:
 
 - `daily`: This is the default option and will follow the same pattern as the previous general file format.
 - `hourly`: This will partition into an hourly directory as the changefeed emits messages, like the following:
@@ -263,14 +263,14 @@ For step-by-step guidance on creating a changefeed connected to a cloud storage 
 
 ### Create a changefeed with an S3 storage class
 
-{% include_cached new-in.html version="v22.1" %} To associate the changefeed message files with a [specific storage class](use-cloud-storage-for-bulk-operations.html#amazon-s3-storage-classes) in your Amazon S3 bucket, use the `S3_STORAGE_CLASS` parameter with the class. For example, the following S3 connection URI specifies the `INTELLIGENT_TIERING` storage class:
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v22.1" %} To associate the changefeed message files with a [specific storage class](use-cloud-storage-for-bulk-operations.html#amazon-s3-storage-classes) in your Amazon S3 bucket, use the `S3_STORAGE_CLASS` parameter with the class. For example, the following S3 connection URI specifies the `INTELLIGENT_TIERING` storage class:
 
 {% include_cached copy-clipboard.html %}
 ~~~ sql
 CREATE CHANGEFEED FOR TABLE name INTO 's3://{BUCKET NAME}?AWS_ACCESS_KEY_ID={KEY ID}&AWS_SECRET_ACCESS_KEY={SECRET ACCESS KEY}&S3_STORAGE_CLASS=INTELLIGENT_TIERING' WITH resolved;
 ~~~
 
-{% include {{ page.version.version }}/misc/storage-classes.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/storage-classes.md %}
 
 ### Create a changefeed connected to a Google Cloud Pub/Sub
 
@@ -297,7 +297,7 @@ For step-by-step guidance on creating a changefeed connected to a Google Cloud P
 
 ### Create a changefeed connected to a webhook sink
 
-{% include {{ page.version.version }}/cdc/webhook-beta.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/cdc/webhook-beta.md %}
 
 {% include_cached copy-clipboard.html %}
 ~~~sql
@@ -357,11 +357,11 @@ For more information, see [`CANCEL JOB`](cancel-job.html).
 
 #### Modify a changefeed
 
-{% include {{ page.version.version }}/cdc/modify-changefeed.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/cdc/modify-changefeed.md %}
 
 #### Configuring all changefeeds
 
-{% include {{ page.version.version }}/cdc/configure-all-changefeed.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/cdc/configure-all-changefeed.md %}
 
 ### Start a new changefeed where another ended
 

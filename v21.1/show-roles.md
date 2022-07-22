@@ -13,7 +13,7 @@ The `SHOW ROLES` [statement](sql-statements.html) lists the roles for all databa
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/generated/diagrams/show_roles.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/show_roles.html %}
 </div>
 
 ## Required privileges

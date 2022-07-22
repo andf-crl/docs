@@ -88,7 +88,7 @@ By default, commands besides `cockroach start` discard messages with the `INFO` 
 
 ## Flags
 
-{% include {{ page.version.version }}/misc/logging-flags.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/logging-flags.md %}
 
 The `--log-backtrace-at`, `--verbosity`, and `--v` flags are intended for internal debugging by CockroachDB contributors.
 
@@ -103,7 +103,7 @@ To help troubleshoot [query performance issues](query-behavior-troubleshooting.h
 - **Long-running transactions**:
 
     ~~~ sql
-    > SET CLUSTER SETTING sql.trace.txn.enable_threshold = '[time]';
+    > SET CLUSTER SETTING [sql.trace.txn.enable_threshold](cluster-settings.html#setting-sql-trace-txn-enable_threshold) = '[time]';
     ~~~
 
     The `[time]` parameter accepts common time specifiers, such as `100ms` or `2s`.
@@ -111,7 +111,7 @@ To help troubleshoot [query performance issues](query-behavior-troubleshooting.h
 - **All queries**:
 
     ~~~ sql
-    > SET CLUSTER SETTING sql.trace.log_statement_execute = true;
+    > SET CLUSTER SETTING [sql.trace.log_statement_execute](cluster-settings.html#setting-sql-trace-log_statement_execute) = true;
     ~~~
 
 ### Details
@@ -133,13 +133,13 @@ Once you're done troubleshooting, you should disable query logging to prevent it
 - **Long-running transactions**:
 
     ~~~ sql
-    > SET CLUSTER SETTING sql.trace.txn.enable_threshold = '0s';
+    > SET CLUSTER SETTING [sql.trace.txn.enable_threshold](cluster-settings.html#setting-sql-trace-txn-enable_threshold) = '0s';
     ~~~
 
 - **All queries**:
 
     ~~~ sql
-    > SET CLUSTER SETTING sql.trace.log_statement_execute = false;
+    > SET CLUSTER SETTING [sql.trace.log_statement_execute](cluster-settings.html#setting-sql-trace-log_statement_execute) = false;
     ~~~
 
 ## See Also

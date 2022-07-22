@@ -22,11 +22,11 @@ If reads from a table must be exactly up-to-date, use [global tables](global-tab
 
 ### Fundamentals
 
-{% include {{ page.version.version }}/topology-patterns/fundamentals.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/topology-patterns/fundamentals.md %}
 
 ### Cluster setup
 
-{% include {{ page.version.version }}/topology-patterns/multi-region-cluster-setup.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/topology-patterns/multi-region-cluster-setup.md %}
 
 ## Configuration
 
@@ -59,7 +59,7 @@ To set `AS OF SYSTEM TIME follower_read_timestamp()` on all implicit and explici
     > INSERT INTO postal_codes (ID, code) VALUES (1, '10001'), (2, '10002'), (3, '10003'), (4,'60601'), (5,'60602'), (6,'60603'), (7,'90001'), (8,'90002'), (9,'90003');
     ~~~
 
-1. Decide which type of follower read to perform: exact staleness reads or {% include_cached new-in.html version="v21.2" %} bounded staleness reads. For more information about when to use each type of read, see [when to use exact staleness reads](follower-reads.html#when-to-use-exact-staleness-reads) and [when to use bounded staleness reads](follower-reads.html#when-to-use-bounded-staleness-reads).
+1. Decide which type of follower read to perform: exact staleness reads or {% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.2" %} bounded staleness reads. For more information about when to use each type of read, see [when to use exact staleness reads](follower-reads.html#when-to-use-exact-staleness-reads) and [when to use bounded staleness reads](follower-reads.html#when-to-use-bounded-staleness-reads).
     - To use [exact staleness follower reads](follower-reads.html#exact-staleness-reads), configure your app to use [`AS OF SYSTEM TIME`](as-of-system-time.html) with the [`follower_read_timestamp()` function](functions-and-operators.html) whenever reading from the table:
 
         {% include_cached copy-clipboard.html %}
@@ -138,4 +138,4 @@ Because this pattern balances the replicas for the table across regions, one ent
 
 ## See also
 
-{% include {{ page.version.version }}/topology-patterns/see-also.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/topology-patterns/see-also.md %}

@@ -4,7 +4,7 @@ summary: The PAUSE JOB statement lets you temporarily halt the process of potent
 toc: true
 ---
 
-<span class="version-tag">New in v1.1:</span> The `PAUSE JOB` [statement](sql-statements.html) lets you pause enterprise [`BACKUP`](backup.html) and [`RESTORE`](restore.html) jobs.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v1.1:</span> The `PAUSE JOB` [statement](sql-statements.html) lets you pause enterprise [`BACKUP`](backup.html) and [`RESTORE`](restore.html) jobs.
 
 After pausing jobs, you can resume them with [`RESUME JOB`](resume-job.html).
 
@@ -17,7 +17,7 @@ By default, only the `root` user can control a job.
 
 ## Synopsis
 
-{% include {{ page.version.version }}/sql/diagrams/pause_job.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/pause_job.html %}
 
 ## Parameters
 

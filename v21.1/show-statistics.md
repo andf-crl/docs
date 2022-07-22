@@ -14,7 +14,7 @@ The `SHOW STATISTICS` [statement](sql-statements.html) lists [table statistics](
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/generated/diagrams/show_stats.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/show_stats.html %}
 </div>
 
 ## Required Privileges
@@ -29,7 +29,7 @@ Parameter      | Description
 
 ## Examples
 
-{% include {{page.version.version}}/sql/movr-statements.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/movr-statements.md %}
 
 ### List table statistics
 
@@ -59,7 +59,7 @@ Parameter      | Description
 
 ### Delete statistics
 
-{% include {{ page.version.version }}/misc/delete-statistics.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/delete-statistics.md %}
 
 ## See Also
 

@@ -16,11 +16,11 @@ When you change a primary key with [`ALTER TABLE ... ALTER PRIMARY KEY`](alter-p
 For information about removing other constraints, see [Constraints: Remove Constraints](constraints.html#remove-constraints).
 {{site.data.alerts.end}}
 
-{% include {{ page.version.version }}/sql/combine-alter-table-commands.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/combine-alter-table-commands.md %}
 
 ## Synopsis
 
-<div>{% include {{ page.version.version }}/sql/diagrams/drop_constraint.html %}</div>
+<div>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/drop_constraint.html %}</div>
 
 ## Required privileges
 
@@ -35,11 +35,11 @@ The user must have the `CREATE` [privilege](authorization.html#assign-privileges
 
 ## Viewing schema changes
 
-{% include {{ page.version.version }}/misc/schema-change-view-job.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-view-job.md %}
 
 ## Examples
 
-{% include {{page.version.version}}/sql/movr-statements.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/movr-statements.md %}
 
 ### Drop a foreign key constraint
 

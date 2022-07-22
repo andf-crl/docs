@@ -1,6 +1,6 @@
 Within a single [transaction](transactions.html):
 
-- As of version v2.1, you can run schema changes inside the same transaction as a [`CREATE TABLE`](create-table.html) statement. For more information, [see this example](online-schema-changes.html#run-schema-changes-inside-a-transaction-with-create-table).
+- As of [version](cluster-settings.html#setting-version) v2.1, you can run schema changes inside the same transaction as a [`CREATE TABLE`](create-table.html) statement. For more information, [see this example](online-schema-changes.html#run-schema-changes-inside-a-transaction-with-create-table).
 - A `CREATE TABLE` statement containing [`FOREIGN KEY`](foreign-key.html) clauses cannot be followed by statements that reference the new table.
 - [Schema change DDL statements inside a multi-statement transaction can fail while other statements succeed](#schema-change-ddl-statements-inside-a-multi-statement-transaction-can-fail-while-other-statements-succeed).
 - As of v19.1, some schema changes can be used in combination in a single `ALTER TABLE` statement. For a list of commands that can be combined, see [`ALTER TABLE`](alter-table.html). For a demonstration, see [Add and rename columns atomically](rename-column.html#add-and-rename-columns-atomically).

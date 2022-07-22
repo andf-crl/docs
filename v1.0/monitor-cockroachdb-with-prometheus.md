@@ -22,14 +22,14 @@ Make sure you have already started a CockroachDB cluster, either [locally](start
 3. Make sure Prometheus installed successfully:
 
     ~~~ shell
-    $ prometheus --version
+    $ prometheus --[version](cluster-settings.html#setting-version)
     ~~~
 
     ~~~
-    prometheus, version 2.2.1 (branch: HEAD, revision: bc6058c81272a8d938c05e75607371284236aadc)
+    prometheus, [version](cluster-settings.html#setting-version) 2.2.1 (branch: HEAD, revision: bc6058c81272a8d938c05e75607371284236aadc)
       build user:       root@149e5b3f0829
       build date:       20180314-14:21:40
-      go version:       go1.10
+      go [version](cluster-settings.html#setting-version):       go1.10
     ~~~
 
 ## Step 2. Configure Prometheus
@@ -87,7 +87,7 @@ Make sure you have already started a CockroachDB cluster, either [locally](start
     ~~~
 
     ~~~
-    INFO[0000] Starting prometheus (version=1.4.1, branch=master, revision=2a89e8733f240d3cd57a6520b52c36ac4744ce12)  source=main.go:77
+    INFO[0000] Starting prometheus ([version](cluster-settings.html#setting-version)=1.4.1, branch=master, revision=2a89e8733f240d3cd57a6520b52c36ac4744ce12)  source=main.go:77
     INFO[0000] Build context (go=go1.7.3, user=root@e685d23d8809, date=20161128-10:02:41)  source=main.go:78
     INFO[0000] Loading configuration file prometheus.yml     source=main.go:250
     INFO[0000] Loading series map and head chunks...         source=storage.go:354
@@ -111,14 +111,14 @@ Active monitoring helps you spot problems early, but it is also essential to sen
 3. Make sure Alertmanager installed successfully:
 
     ~~~ shell
-    $ alertmanager --version
+    $ alertmanager --[version](cluster-settings.html#setting-version)
     ~~~
 
     ~~~
-    alertmanager, version 0.15.0-rc.1 (branch: HEAD, revision: acb111e812530bec1ac6d908bc14725793e07cf3)
+    alertmanager, [version](cluster-settings.html#setting-version) 0.15.0-rc.1 (branch: HEAD, revision: acb111e812530bec1ac6d908bc14725793e07cf3)
       build user:       root@f278953f13ef
       build date:       20180323-13:07:06
-      go version:       go1.10
+      go [version](cluster-settings.html#setting-version):       go1.10
     ~~~
 
 4. [Edit the Alertmanager configuration file](https://prometheus.io/docs/alerting/configuration/) that came with the binary, `simple.yml`, to specify the desired receivers for notifications.

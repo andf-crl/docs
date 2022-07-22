@@ -9,7 +9,7 @@ The `COLLATE` feature lets you sort [`STRING`](string.html) values according to 
 
 Collated strings are important because different languages have [different rules for alphabetic order](https://en.wikipedia.org/wiki/Alphabetical_order#Language-specific_conventions), especially with respect to accented letters. For example, in German accented letters are sorted with their unaccented counterparts, while in Swedish they are placed at the end of the alphabet. A collation is a set of rules used for ordering and usually corresponds to a language, though some languages have multiple collations with different rules for sorting; for example Portuguese has separate collations for Brazilian and European dialects (`pt-BR` and `pt-PT` respectively).
 
-{% include {{page.version.version}}/sql/vectorized-support.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/vectorized-support.md %}
 
 ## Details
 
@@ -63,9 +63,9 @@ To use a locale extension, append `-u-` to the base locale name, followed by the
 
 For more details on locale extensions, see the [Unicode Collation Algorithm](https://en.wikipedia.org/wiki/Unicode_collation_algorithm).
 
-## Collation versioning
+## Collation [version](cluster-settings.html#setting-version)ing
 
-While changes to collations are rare, they are possible, especially in languages with a large numbers of characters (e.g., Simplified and Traditional Chinese). CockroachDB updates its support with new versions of the Unicode standard every year, but there is currently no way to specify the version of Unicode to use. As a result, it is possible for a collation change to invalidate existing collated string data. To prevent collated data from being invalidated by Unicode changes, we recommend storing data in columns with an uncollated string type, and then using a [computed column](computed-columns.html) for the desired collation. In the event that a collation change produces undesired effects, the computed column can be dropped and recreated.
+While changes to collations are rare, they are possible, especially in languages with a large numbers of characters (e.g., Simplified and Traditional Chinese). CockroachDB updates its support with new [version](cluster-settings.html#setting-version)s of the Unicode standard every year, but there is currently no way to specify the [version](cluster-settings.html#setting-version) of Unicode to use. As a result, it is possible for a collation change to invalidate existing collated string data. To prevent collated data from being invalidated by Unicode changes, we recommend storing data in columns with an uncollated string type, and then using a [computed column](computed-columns.html) for the desired collation. In the event that a collation change produces undesired effects, the computed column can be dropped and recreated.
 
 ## SQL syntax
 
@@ -207,7 +207,7 @@ You can also use casting to remove collations from values.
 
 ### Show collation for strings
 
-<span class="version-tag">New in v19.2:</span> You can use the `pg_collation_for` [built-in function](functions-and-operators.html#string-and-byte-functions), or its alternative [syntax form](functions-and-operators.html#special-syntax-forms) `COLLATION FOR`, to return the locale name of a collated string.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v19.2:</span> You can use the `pg_collation_for` [built-in function](functions-and-operators.html#string-and-byte-functions), or its alternative [syntax form](functions-and-operators.html#special-syntax-forms) `COLLATION FOR`, to return the locale name of a collated string.
 
 For example:
 

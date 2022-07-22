@@ -94,7 +94,7 @@ When using the [`ALTER TABLE .. ADD COLUMN`](add-column.html) statement to add a
 
 ## Compatibility with past releases
 
-Using the [`beta-20160714`](../releases/beta-20160714.html) release makes your data incompatible with versions earlier than the [`beta-20160629`](../releases/beta-20160629.html) release.
+Using the [`beta-20160714`](../releases/beta-20160714.html) release makes your data incompatible with [version](cluster-settings.html#setting-version)s earlier than the [`beta-20160629`](../releases/beta-20160629.html) release.
 
 ## See also
 

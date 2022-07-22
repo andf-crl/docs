@@ -8,7 +8,7 @@ docs_area: releases
 
 Technical advisories report major issues with CockroachDB that may impact security or stability in production environments.
 
-Users are invited to evaluate advisories and consider the recommended mitigation actions independently from their version upgrade schedule.
+Users are invited to evaluate advisories and consider the recommended mitigation actions independently from their [version](cluster-settings.html#setting-version) upgrade schedule.
 
 {% assign advisories = site.pages | where_exp: "advisories", "advisories.path contains 'advisories'" | where_exp: "advisories", "advisories.url != page.url" | sort: "advisory_date" | reverse %}
 
@@ -23,7 +23,7 @@ Users are invited to evaluate advisories and consider the recommended mitigation
 <tr>
   <th>Advisory</th>
   <th>Summary</th>
-  <th>Affected versions</th>
+  <th>Affected [version](cluster-settings.html#setting-version)s</th>
   <th>Date</th>
 </tr>
 </thead>
@@ -35,7 +35,7 @@ Users are invited to evaluate advisories and consider the recommended mitigation
 		<a href="/docs{{ advisory.url }}">{{ advisory.advisory }}</a>
 	</td>
 	<td>{{ advisory.summary }}</td>
-	<td>{{ advisory.affected_versions }}</td>
+	<td>{{ advisory.affected_[version](cluster-settings.html#setting-version)s }}</td>
 	<td>{{ advisory.advisory_date | date: "%B %e, %Y" }}</td>
 </tr>
 {% endfor %}

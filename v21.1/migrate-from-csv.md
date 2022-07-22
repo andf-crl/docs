@@ -10,7 +10,7 @@ The examples below use the [employees data set](https://github.com/datacharmer/t
 
 The examples below pull real data from [Amazon S3](https://aws.amazon.com/s3/).  They use the [employees data set](https://github.com/datacharmer/test_db) that is also used in the [MySQL docs](https://dev.mysql.com/doc/employee/en/), dumped as a set of CSV files.
 
-{% include {{ page.version.version }}/misc/import-perf.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/import-perf.md %}
 
 ## Step 1. Export data to CSV
 
@@ -67,9 +67,9 @@ For example, to import the data from `employees.csv` into an `employees` table, 
 
 Repeat the above for each CSV file you want to import.
 
-{% include {{ page.version.version }}/sql/use-import-into.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/use-import-into.md %}
 
-{% include {{ page.version.version }}/misc/csv-import-callout.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/csv-import-callout.md %}
 
 {{site.data.alerts.callout_info}}
 You will need to run [`ALTER TABLE ... ADD CONSTRAINT`](add-constraint.html) to add any foreign key relationships.
@@ -82,7 +82,7 @@ The following options are available to [`IMPORT ... CSV`][import]:
 + [Column delimiter](#column-delimiter)
 + [Comment syntax](#comment-syntax)
 + [Skip header rows](#skip-header-rows)
-+ {% include_cached new-in.html version="v21.1" %} [Row limit](#row-limit)
++ {% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.1" %} [Row limit](#row-limit)
 + [Null strings](#null-strings)
 + [File compression](#file-compression)
 
@@ -148,7 +148,7 @@ Example usage:
 
 ### Row limit
 
-{% include_cached new-in.html version="v21.1" %} The `row_limit` option determines the number of rows to import from a table. It is useful for finding errors quickly before executing a more time- and resource-consuming import.
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.1" %} The `row_limit` option determines the number of rows to import from a table. It is useful for finding errors quickly before executing a more time- and resource-consuming import.
 
 Example usage:
 

@@ -7,7 +7,7 @@ keywords: gin, gin index, gin indexes, inverted index, inverted indexes, acceler
 
 The `CREATE TABLE` [statement](sql-statements.html) creates a new table in a database.
 
-{% include {{{ page.version.version }}/misc/schema-change-stmt-note.md %}
+{% include {{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-stmt-note.md %}
 
 ## Required privileges
 
@@ -21,62 +21,62 @@ The user must have the `CREATE` [privilege](authorization.html#assign-privileges
 </div><p></p>
 
 <div class="filter-content" markdown="1" data-scope="basic">
-{% include {{ page.version.version }}/sql/diagrams/create_table.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/create_table.html %}
 </div>
 
 <div class="filter-content" markdown="1" data-scope="expanded">
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/create_table.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/create_table.html %}
 </div>
 
 **opt_persistence_temp_table ::=**
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/opt_persistence_temp_table.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/opt_persistence_temp_table.html %}
 </div>
 
 **column_def ::=**
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/column_def.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/column_def.html %}
 </div>
 
 **col_qualification ::=**
 
 <div class="horizontal-scroll">
-{% include {{ page.version.version }}/sql/diagrams/col_qualification.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/col_qualification.html %}
 </div>
 
 **index_def ::=**
 
 <div class="horizontal-scroll">
-{% include {{ page.version.version }}/sql/diagrams/index_def.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/index_def.html %}
 </div>
 
 **family_def ::=**
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/family_def.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/family_def.html %}
 </div>
 
 **table_constraint ::=**
 
 <div class="horizontal-scroll">
-{% include {{ page.version.version }}/sql/diagrams/table_constraint.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/table_constraint.html %}
 </div>
 
 **like_table_option_list::=**
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/like_table_option_list.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/like_table_option_list.html %}
 </div>
 
 
 **opt_with_storage_parameter_list ::=**
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/opt_with_storage_parameter_list.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/opt_with_storage_parameter_list.html %}
 </div>
 
 </div>
@@ -95,12 +95,12 @@ Parameter | Description
 `index_def` | An optional, comma-separated list of [index definitions](indexes.html). For each index, the column(s) to index must be specified; optionally, a name can be specified. Index names must be unique within the table and follow these [identifier rules](keywords-and-identifiers.html#identifiers). See the [Create a Table with Secondary Indexes and GIN Indexes](#create-a-table-with-secondary-and-gin-indexes) example below.<br><br> To enable [hash-sharded indexes](hash-sharded-indexes.html), set the `experimental_enable_hash_sharded_indexes` [session variable](set-vars.html) to `on`. For examples, see [Create a table with hash-sharded indexes](#create-a-table-with-a-hash-sharded-primary-index) below.<br><br>The [`CREATE INDEX`](create-index.html) statement can be used to create an index separate from table creation.
 `family_def` | An optional, comma-separated list of [column family definitions](column-families.html). Column family names must be unique within the table but can have the same name as columns, constraints, or indexes.<br><br>A column family is a group of columns that are stored as a single key-value pair in the underlying key-value store. CockroachDB automatically groups columns into families to ensure efficient storage and performance. However, there are cases when you may want to manually assign columns to families. For more details, see [Column Families](column-families.html).
 `table_constraint` | An optional, comma-separated list of [table-level constraints](constraints.html). Constraint names must be unique within the table but can have the same name as columns, column families, or indexes.
-`LIKE table_name like_table_option_list` | <span class="version-tag">New in v20.2:</span> Create a new table based on the schema of an existing table, using supported specifiers. For details, see [Create a table like an existing table](#create-a-table-like-an-existing-table). For examples, see [Create a new table from an existing one](#create-a-new-table-from-an-existing-one).
+`LIKE table_name like_table_option_list` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> Create a new table based on the schema of an existing table, using supported specifiers. For details, see [Create a table like an existing table](#create-a-table-like-an-existing-table). For examples, see [Create a new table from an existing one](#create-a-new-table-from-an-existing-one).
 `opt_partition_by` | An [Enterprise-only](enterprise-licensing.html) option that lets you define table partitions at the row level. You can define table partitions by list or by range. See [Define Table Partitions](partitioning.html) for more information.
-`opt_where_clause` | <span class="version-tag">New in v20.2:</span> An optional `WHERE` clause that defines the predicate boolean expression of a [partial index](partial-indexes.html).
-`opt_with_storage_parameter_list` | <span class="version-tag">New in v20.2:</span> A comma-separated list of [spatial index tuning parameters](spatial-indexes.html#index-tuning-parameters). Supported parameters include `fillfactor`, `s2_max_level`, `s2_level_mod`, `s2_max_cells`, `geometry_min_x`, `geometry_max_x`, `geometry_min_y`, and `geometry_max_y`. The `fillfactor` parameter is a no-op, allowed for PostgreSQL-compatibility.<br><br>For details, see [Spatial index tuning parameters](spatial-indexes.html#index-tuning-parameters). For an example, see [Create a spatial index that uses all of the tuning parameters](spatial-indexes.html#create-a-spatial-index-that-uses-all-of-the-tuning-parameters).
+`opt_where_clause` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> An optional `WHERE` clause that defines the predicate boolean expression of a [partial index](partial-indexes.html).
+`opt_with_storage_parameter_list` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> A comma-separated list of [spatial index tuning parameters](spatial-indexes.html#index-tuning-parameters). Supported parameters include `fillfactor`, `s2_max_level`, `s2_level_mod`, `s2_max_cells`, `geometry_min_x`, `geometry_max_x`, `geometry_min_y`, and `geometry_max_y`. The `fillfactor` parameter is a no-op, allowed for PostgreSQL-compatibility.<br><br>For details, see [Spatial index tuning parameters](spatial-indexes.html#index-tuning-parameters). For an example, see [Create a spatial index that uses all of the tuning parameters](spatial-indexes.html#create-a-spatial-index-that-uses-all-of-the-tuning-parameters).
 `ON COMMIT PRESERVE ROWS` | This clause is a no-op, allowed by the parser for PostgresSQL compatibility. CockroachDB only supports session-scoped [temporary tables](temporary-tables.html), and does not support the clauses `ON COMMIT DELETE ROWS` and `ON COMMIT DROP`, which are used to define transaction-scoped temporary tables in PostgreSQL.
-`opt_interleave` | [Interleave table into parent table](interleave-in-parent.html).<br>{% include {{ page.version.version }}/misc/interleave-deprecation-note.md %}
+`opt_interleave` | [Interleave table into parent table](interleave-in-parent.html).<br>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/interleave-deprecation-note.md %}
 
 ## Table-level replication
 
@@ -114,7 +114,7 @@ CockroachDB allows [Enterprise users](enterprise-licensing.html) to [define tabl
 
 ## Create a table like an existing table
 
-<span class="version-tag">New in v20.2:</span> CockroachDB supports the `CREATE TABLE LIKE` syntax for creating a new table based on the schema of an existing table.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> CockroachDB supports the `CREATE TABLE LIKE` syntax for creating a new table based on the schema of an existing table.
 
 The following options are supported:
 
@@ -248,7 +248,7 @@ We also have other resources on indexes:
 
 ### Create a table with auto-generated unique row IDs
 
-{% include {{ page.version.version }}/faq/auto-generate-unique-ids.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/faq/auto-generate-unique-ids.html %}
 
 ### Create a table with a foreign key constraint
 
@@ -416,7 +416,7 @@ In this example, we create the `users` table, but with some column [constraints]
 
 ### Create a table that mirrors key-value storage
 
-{% include {{ page.version.version }}/faq/simulate-key-value-store.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/faq/simulate-key-value-store.html %}
 
 ### Create a table from a `SELECT` statement
 
@@ -461,7 +461,7 @@ You can use the [`CREATE TABLE AS`](create-table-as.html) statement to create a 
 
 ### Create a table with a computed column
 
-{% include {{ page.version.version }}/computed-columns/simple.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/computed-columns/simple.md %}
 
 ### Create a table with partitions
 
@@ -563,7 +563,7 @@ To show the definition of a table, use the [`SHOW CREATE`](show-create.html) sta
 
 ### Create a table with a hash-sharded primary index
 
-{% include {{page.version.version}}/performance/use-hash-sharded-indexes.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/performance/use-hash-sharded-indexes.md %}
 
 {% include copy-clipboard.html %}
 ~~~ sql

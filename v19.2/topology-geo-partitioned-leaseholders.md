@@ -19,11 +19,11 @@ In a multi-region deployment, the geo-partitioned [leaseholders](architecture/re
 
 ### Fundamentals
 
-{% include {{ page.version.version }}/topology-patterns/fundamentals.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/topology-patterns/fundamentals.md %}
 
 ### Cluster setup
 
-{% include {{ page.version.version }}/topology-patterns/multi-region-cluster-setup.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/topology-patterns/multi-region-cluster-setup.md %}
 
 ## Configuration
 
@@ -107,7 +107,7 @@ Assuming you have a [cluster deployed across three regions](#cluster-setup) and 
           lease_preferences = '[[+region=us-east]]';
       ~~~
 
-5. <span class="version-tag">New in v19.2:</span> To confirm that partitions are in effect, you can use the [`SHOW CREATE TABLE`](show-create.html) or [`SHOW PARTITIONS`](show-partitions.html) statement:
+5. <span class="[version](cluster-settings.html#setting-version)-tag">New in v19.2:</span> To confirm that partitions are in effect, you can use the [`SHOW CREATE TABLE`](show-create.html) or [`SHOW PARTITIONS`](show-partitions.html) statement:
 
     {% include copy-clipboard.html %}
     ~~~ sql
@@ -195,7 +195,7 @@ Assuming you have a [cluster deployed across three regions](#cluster-setup) and 
 As you scale and add more cities, you can repeat steps 2 and 3 with the new complete list of cities to re-partition the table and its secondary indexes, and then repeat step 4 to create replication zones for the new partitions.
 {{site.data.alerts.end}}
 
-{% include {{page.version.version}}/sql/crdb-internal-partitions.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/crdb-internal-partitions.md %}
 
 ## Characteristics
 
@@ -248,4 +248,4 @@ Because this pattern balances the replicas for each partition across regions, on
 
 ## See also
 
-{% include {{ page.version.version }}/topology-patterns/see-also.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/topology-patterns/see-also.md %}

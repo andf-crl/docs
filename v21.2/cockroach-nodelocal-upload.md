@@ -13,7 +13,7 @@ This command takes in a source file to upload and a destination filename. It wil
 The source file is only uploaded to one node, not all of the nodes.
 {{site.data.alerts.end}}
 
-{% include {{ page.version.version }}/misc/userfile.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/userfile.md %}
 
 ## Required privileges
 

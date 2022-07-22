@@ -4,12 +4,12 @@ summary: The SHOW ENUMS statement lists the enumerated data types in a database.
 toc: true
 ---
 
-<span class="version-tag">New in v20.2:</span> The `SHOW ENUMS` statement lists the [enumerated data types](enum.html) in the current database.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> The `SHOW ENUMS` statement lists the [enumerated data types](enum.html) in the current database.
 
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/show_enums.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/show_enums.html %}
 </div>
 
 ## Examples

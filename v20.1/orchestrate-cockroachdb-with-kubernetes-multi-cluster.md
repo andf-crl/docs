@@ -30,7 +30,7 @@ Feature | Description
 --------|------------
 [node](https://kubernetes.io/docs/concepts/architecture/nodes/) | A physical or virtual machine. In this tutorial, you'll run GKE or EKS instances and join them as worker nodes in three independent Kubernetes clusters, each in a different region.
 [pod](http://kubernetes.io/docs/user-guide/pods/) | A pod is a group of one or more Docker containers. In this tutorial, each pod will run on a separate GKE or EKS instance and include one Docker container running a single CockroachDB node. You'll start with 3 pods in each region and grow to 4.
-[StatefulSet](http://kubernetes.io/docs/concepts/abstractions/controllers/statefulsets/) | A group of pods treated as stateful units, where each pod has distinguishable network identity and always binds back to the same persistent storage on restart. StatefulSets are considered stable as of Kubernetes version 1.9 after reaching beta in version 1.5.
+[StatefulSet](http://kubernetes.io/docs/concepts/abstractions/controllers/statefulsets/) | A group of pods treated as stateful units, where each pod has distinguishable network identity and always binds back to the same persistent storage on restart. StatefulSets are considered stable as of Kubernetes [version](cluster-settings.html#setting-version) 1.9 after reaching beta in [version](cluster-settings.html#setting-version) 1.5.
 [persistent volume](http://kubernetes.io/docs/user-guide/persistent-volumes/) | A piece of networked storage (Persistent Disk on GCE, Elastic Block Store on AWS) mounted into a pod. The lifetime of a persistent volume is decoupled from the lifetime of the pod that's using it, ensuring that each CockroachDB node binds back to the same storage on restart.<br><br>This tutorial assumes that dynamic volume provisioning is available. When that is not the case, [persistent volume claims](http://kubernetes.io/docs/user-guide/persistent-volumes/#persistentvolumeclaims) need to be created manually.
 [CSR](https://kubernetes.io/docs/tasks/tls/managing-tls-in-a-cluster/) | A CSR, or certificate signing request, is a request to have a TLS certificate verified by a certificate authority (CA). A CSR is issued for the CockroachDB node running in each pod, as well as each client as it connects to the Kubernetes cluster.
 [RBAC](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) | RBAC, or role-based access control, is the system Kubernetes uses to manage permissions within the cluster. In order to take an action (e.g., `get` or `create`) on an API resource (e.g., a `pod`), the client must have a `Role` that allows it to do so.
@@ -54,7 +54,7 @@ To enable the pods to communicate across regions, we peer the VPCs in all 3 regi
 
 ### Limitations
 
-{% include {{ page.version.version }}/orchestration/kubernetes-limitations.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/orchestration/kubernetes-limitations.md %}
 
 <section class="filter-content" markdown="1" data-scope="gke">
 #### Exposing DNS servers
@@ -314,7 +314,7 @@ Source | The IP range of each region's VPC in CIDR notation (e.g., 10.12.0.0/16)
 
 This important rule enables node communication between Kubernetes clusters in different regions. You need to create a separate rule for each region in your deployment.
 
-{% include {{ page.version.version }}/prod-deployment/aws-inbound-rules.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/aws-inbound-rules.md %}
 
 ### Set up load balancing
 
@@ -683,7 +683,7 @@ Amazon EKS does not support certificates signed by Kubernetes' built-in CA. The 
 
 ### Create StatefulSets
 
-1. Download and open our [multi-region StatefulSet configuration](https://github.com/cockroachdb/cockroach/blob/master/cloud/kubernetes/multiregion/eks/cockroachdb-statefulset-secure-eks.yaml). You'll save three versions of this file locally, one for each set of 3 CockroachDB nodes per region.
+1. Download and open our [multi-region StatefulSet configuration](https://github.com/cockroachdb/cockroach/blob/master/cloud/kubernetes/multiregion/eks/cockroachdb-statefulset-secure-eks.yaml). You'll save three [version](cluster-settings.html#setting-version)s of this file locally, one for each set of 3 CockroachDB nodes per region.
 
     {% include copy-clipboard.html %}
     ~~~ shell
@@ -838,7 +838,7 @@ In each Kubernetes cluster, the StatefulSet configuration sets all CockroachDB n
     # All statements must be terminated by a semicolon.
     # To exit: CTRL + D.
     #
-    # Server version: CockroachDB CCL v2.0.5 (x86_64-unknown-linux-gnu, built 2018/08/13 17:59:42, go1.10) (same version as client)
+    # Server [version](cluster-settings.html#setting-version): CockroachDB CCL v2.0.5 (x86_64-unknown-linux-gnu, built 2018/08/13 17:59:42, go1.10) (same [version](cluster-settings.html#setting-version) as client)
     # Cluster ID: 99346e82-9817-4f62-b79b-fdd5d57f8bda
     #
     # Enter \? for a brief introduction.
@@ -1044,7 +1044,7 @@ Each of your Kubernetes clusters contains 3 instances that can run CockroachDB p
 
 ### Upgrade the cluster
 
-As new versions of CockroachDB are released, it's strongly recommended to upgrade to newer versions in order to pick up bug fixes, performance improvements, and new features. The [general CockroachDB upgrade documentation](upgrade-cockroach-version.html) provides best practices for how to prepare for and execute upgrades of CockroachDB clusters, but the mechanism of actually stopping and restarting processes in Kubernetes is somewhat special.
+As new [version](cluster-settings.html#setting-version)s of CockroachDB are released, it's strongly recommended to upgrade to newer [version](cluster-settings.html#setting-version)s in order to pick up bug fixes, performance improvements, and new features. The [general CockroachDB upgrade documentation](upgrade-cockroach-[version](cluster-settings.html#setting-version).html) provides best practices for how to prepare for and execute upgrades of CockroachDB clusters, but the mechanism of actually stopping and restarting processes in Kubernetes is somewhat special.
 
 Kubernetes knows how to carry out a safe rolling upgrade process of the CockroachDB nodes. When you tell it to change the Docker image used in the CockroachDB StatefulSet, Kubernetes will go one-by-one, stopping a node, restarting it with the new image, and waiting for it to be ready to receive client requests before moving on to the next one. For more information, see [the Kubernetes documentation](https://kubernetes.io/docs/tutorials/stateful-application/basic-stateful-set/#updating-statefulsets).
 
@@ -1052,7 +1052,7 @@ Kubernetes knows how to carry out a safe rolling upgrade process of the Cockroac
 
     {{site.data.alerts.callout_info}}This step is relevant only when upgrading from v19.2.x to v20.1. For upgrades within the v20.1.x series, skip this step.{{site.data.alerts.end}}
 
-    By default, after all nodes are running the new version, the upgrade process will be **auto-finalized**. This will enable certain performance improvements and bug fixes introduced in v20.1. After finalization, however, it will no longer be possible to perform a downgrade to v19.2. In the event of a catastrophic failure or corruption, the only option will be to start a new cluster using the old binary and then restore from one of the backups created prior to performing the upgrade.
+    By default, after all nodes are running the new [version](cluster-settings.html#setting-version), the upgrade process will be **auto-finalized**. This will enable certain performance improvements and bug fixes introduced in v20.1. After finalization, however, it will no longer be possible to perform a downgrade to v19.2. In the event of a catastrophic failure or corruption, the only option will be to start a new cluster using the old binary and then restore from one of the backups created prior to performing the upgrade.
 
     We recommend disabling auto-finalization so you can monitor the stability and performance of the upgraded cluster before finalizing the upgrade:
 
@@ -1063,14 +1063,14 @@ Kubernetes knows how to carry out a safe rolling upgrade process of the Cockroac
         $ kubectl exec -it cockroachdb-client-secure --context <cluster-context> --namespace <cluster-namespace> -- ./cockroach sql --certs-dir=/cockroach-certs --host=cockroachdb-public
         ~~~
 
-    2. Set the `cluster.preserve_downgrade_option` [cluster setting](cluster-settings.html):
+    2. Set the `[cluster.preserve_downgrade_option](cluster-settings.html#setting-cluster-preserve_downgrade_option)` [cluster setting](cluster-settings.html):
 
         {% include copy-clipboard.html %}
         ~~~ sql
-        > SET CLUSTER SETTING cluster.preserve_downgrade_option = '19.2';
+        > SET CLUSTER SETTING [cluster.preserve_downgrade_option](cluster-settings.html#setting-cluster-preserve_downgrade_option) = '19.2';
         ~~~
 
-2. For each Kubernetes cluster, kick off the upgrade process by changing the desired Docker image. To do so, pick the version that you want to upgrade to, then run the following command, replacing "VERSION" with your desired new version and specifying the relevant namespace and "context" name for the Kubernetes cluster:
+2. For each Kubernetes cluster, kick off the upgrade process by changing the desired Docker image. To do so, pick the [version](cluster-settings.html#setting-version) that you want to upgrade to, then run the following command, replacing "VERSION" with your desired new [version](cluster-settings.html#setting-version) and specifying the relevant namespace and "context" name for the Kubernetes cluster:
 
     {% include copy-clipboard.html %}
     ~~~ shell
@@ -1112,7 +1112,7 @@ Kubernetes knows how to carry out a safe rolling upgrade process of the Cockroac
 
     If you disabled auto-finalization in step 1 above, monitor the stability and performance of your cluster for as long as you require to feel comfortable with the upgrade (generally at least a day). If during this time you decide to roll back the upgrade, repeat the rolling restart procedure with the old binary.
 
-    Once you are satisfied with the new version, re-enable auto-finalization:
+    Once you are satisfied with the new [version](cluster-settings.html#setting-version), re-enable auto-finalization:
 
     1. Get a shell into the pod with the `cockroach` binary created earlier and start the CockroachDB [built-in SQL client](cockroach-sql.html):
 
@@ -1125,7 +1125,7 @@ Kubernetes knows how to carry out a safe rolling upgrade process of the Cockroac
 
         {% include copy-clipboard.html %}
         ~~~ sql
-        > RESET CLUSTER SETTING cluster.preserve_downgrade_option;
+        > RESET CLUSTER SETTING [cluster.preserve_downgrade_option](cluster-settings.html#setting-cluster-preserve_downgrade_option);
         ~~~
 
 ### Stop the cluster
@@ -1291,4 +1291,4 @@ If you stop Kubernetes without first deleting the persistent volumes, they will 
 
 - [Kubernetes Single-Cluster Deployment](orchestrate-cockroachdb-with-kubernetes.html)
 - [Kubernetes Performance Guide](kubernetes-performance.html)
-{% include {{ page.version.version }}/prod-deployment/prod-see-also.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/prod-see-also.md %}

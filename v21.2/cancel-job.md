@@ -18,7 +18,7 @@ The `CANCEL JOB` [statement](sql-statements.html) lets you stop long-running job
 ## Limitations
 
 - When an Enterprise [`RESTORE`](restore.html) is canceled, partially restored data is properly cleaned up. This can have a minor, temporary impact on cluster performance.
-- {% include_cached new-in.html version="v21.2" %} To avoid transaction states that cannot properly [roll back](rollback-transaction.html), `DROP` statements (e.g., [`DROP TABLE`](drop-table.html)), `ALTER ... RENAME` statements (e.g., [`ALTER TABLE ... RENAME TO`](rename-table.html)), and [`CREATE TABLE ... AS`](create-table-as.html) statements are no longer cancellable.
+- {% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.2" %} To avoid transaction states that cannot properly [roll back](rollback-transaction.html), `DROP` statements (e.g., [`DROP TABLE`](drop-table.html)), `ALTER ... RENAME` statements (e.g., [`ALTER TABLE ... RENAME TO`](rename-table.html)), and [`CREATE TABLE ... AS`](create-table-as.html) statements are no longer cancellable.
 
 ## Required privileges
 
@@ -27,7 +27,7 @@ To cancel a job, the user must be a member of the `admin` role or must have the 
 ## Synopsis
 
 <div>
-{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.version.version | replace: "v", "" }}/grammar_svg/cancel_job.html %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/grammar_svg/cancel_job.html %}
 </div>
 
 ## Parameters
@@ -70,11 +70,11 @@ All jobs created by `maxroach` will be cancelled.
 
 ### Cancel automatic table statistics jobs
 
-Canceling an automatic table statistics job is not useful since the system will automatically restart the job immediately. To permanently disable automatic table statistics jobs, disable the `sql.stats.automatic_collection.enabled` [cluster setting](cluster-settings.html):
+Canceling an automatic table statistics job is not useful since the system will automatically restart the job immediately. To permanently disable automatic table statistics jobs, disable the `[sql.stats.automatic_collection.enabled](cluster-settings.html#setting-sql-stats-automatic_collection-enabled)` [cluster setting](cluster-settings.html):
 
 {% include_cached copy-clipboard.html %}
 ~~~ sql
-> SET CLUSTER SETTING sql.stats.automatic_collection.enabled = false;
+> SET CLUSTER SETTING [sql.stats.automatic_collection.enabled](cluster-settings.html#setting-sql-stats-automatic_collection-enabled) = false;
 ~~~
 
 ### Cancel jobs for a schedule

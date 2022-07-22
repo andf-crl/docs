@@ -86,7 +86,7 @@ TPC-C measures the throughput and latency for processing sales through a custome
 
 TPC-C specifies restrictions on the maximum throughput achievable per warehouse. This is done to ensure that as a system becomes progressively more capable of throughput, it must also deal with progressively more data. This is how things work in the real world, and it makes little sense to say that your database can process a bazillion transactions per second if it’s processing the same data over and over again.
 
-Because TPC-C is constrained to a maximum amount of throughput per warehouse, we often discuss TPC-C performance as the **maximum number of warehouses for which a database can maintain the maximum throughput per minute.** For a full description of the benchmark, see [TPC BENCHMARK™ C Standard Specification Revision 5.11](http://www.tpc.org/tpc_documents_current_versions/pdf/tpc-c_v5.11.0.pdf).
+Because TPC-C is constrained to a maximum amount of throughput per warehouse, we often discuss TPC-C performance as the **maximum number of warehouses for which a database can maintain the maximum throughput per minute.** For a full description of the benchmark, see [TPC BENCHMARK™ C Standard Specification Revision 5.11](http://www.tpc.org/tpc_documents_current_[version](cluster-settings.html#setting-version)s/pdf/tpc-c_v5.11.0.pdf).
 
 ### Sysbench
 
@@ -102,7 +102,7 @@ CockroachDB has no theoretical limitations to scaling, throughput, latency, or c
 
     CockroachDB works well on commodity hardware in public cloud, private cloud, on-prem, and hybrid environments. For hardware recommendations, see our [Production Checklist](recommended-production-settings.html#hardware).
 
-    {% include {{ page.version.version }}/prod-deployment/cloud-report.md %}
+    {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/cloud-report.md %}
 
 - Performance tuning
 

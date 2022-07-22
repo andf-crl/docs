@@ -164,7 +164,7 @@ Not yet, but this is on our long-term roadmap.
 
 ## Can I use CockroachDB as a key-value store?
 
-{% include {{ page.version.version }}/faq/simulate-key-value-store.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/faq/simulate-key-value-store.html %}
 
 ## Have questions that weren’t answered?
 

@@ -16,7 +16,7 @@ For more information about the `movr` dataset and the MovR example application, 
 
 Do one of the following:
 
-{% include {{page.version.version}}/sql/movr-start.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/movr-start.md %}
 
 ## Show tables
 

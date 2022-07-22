@@ -28,7 +28,7 @@ The Not Null [constraint](constraints.html) specifies a column may not contain *
 
 You can only apply the Not Null constraint to individual columns.
 
-{% include {{ page.version.version }}/sql/diagrams/not_null_column_level.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/not_null_column_level.html %}
 
 | Parameter | Description |
 |-----------|-------------|

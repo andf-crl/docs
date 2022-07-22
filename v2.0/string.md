@@ -82,21 +82,21 @@ The size of a `STRING` value is variable, but it's recommended to keep values un
 +----------+------+--------+
 ~~~
 
-## Supported Casting & Conversion
+## Supported Casting & Con[version](cluster-settings.html#setting-version)
 
-`STRING` values can be [cast](data-types.html#data-type-conversions-casts) to any of the following data types:
+`STRING` values can be [cast](data-types.html#data-type-con[version](cluster-settings.html#setting-version)s-casts) to any of the following data types:
 
 Type | Details
 -----|--------
 `BOOL` | Requires supported [`BOOL`](bool.html) string format, e.g., `'true'`.
-`BYTES` | For more details, [see here](bytes.html#supported-conversions).
+`BYTES` | For more details, [see here](bytes.html#supported-con[version](cluster-settings.html#setting-version)s).
 `DATE` | Requires supported [`DATE`](date.html) string format, e.g., `'2016-01-25'`.
 `DECIMAL` | Requires supported [`DECIMAL`](decimal.html) string format, e.g., `'1.1'`.
 `FLOAT` | Requires supported [`FLOAT`](float.html) string format, e.g., `'1.1'`.
 `INET` | Requires supported [`INET`](inet.html) string format, e.g, `'192.168.0.1'`.
 `INT` | Requires supported [`INT`](int.html) string format, e.g., `'10'`.
 `INTERVAL` | Requires supported [`INTERVAL`](interval.html) string format, e.g., `'1h2m3s4ms5us6ns'`.
-`TIME` | <span class="version-tag">New in v2.0:</span> Requires supported [`TIME`](time.html) string format, e.g., `'01:22:12'` (microsecond precision).
+`TIME` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v2.0:</span> Requires supported [`TIME`](time.html) string format, e.g., `'01:22:12'` (microsecond precision).
 `TIMESTAMP` | Requires supported [`TIMESTAMP`](timestamp.html) string format, e.g., `'2016-01-25 10:10:10.555555'`.
 
 ## See Also

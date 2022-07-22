@@ -4,7 +4,7 @@ summary: Use the ALTER PRIMARY KEY statement to change the primary key of a tabl
 toc: true
 ---
 
- <span class="version-tag">New in v20.1:</span> The `ALTER PRIMARY KEY` [statement](sql-statements.html) is a subcommand of [`ALTER TABLE`](alter-table.html) that can be used to change the [primary key](primary-key.html) of a table.
+ <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> The `ALTER PRIMARY KEY` [statement](sql-statements.html) is a subcommand of [`ALTER TABLE`](alter-table.html) that can be used to change the [primary key](primary-key.html) of a table.
 
 ## Watch the demo
 
@@ -31,7 +31,7 @@ To change an existing primary key without creating a secondary index from that p
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/alter_primary_key.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/alter_primary_key.html %}
 </div>
 
 ## Parameters
@@ -49,7 +49,7 @@ The user must have the `CREATE` [privilege](authorization.html#assign-privileges
 
 ## Viewing schema changes
 
-{% include {{ page.version.version }}/misc/schema-change-view-job.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-view-job.md %}
 
 ## Examples
 

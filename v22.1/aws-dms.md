@@ -212,16 +212,16 @@ Run the following query from within the target CockroachDB cluster to identify c
                 is_hidden = 'YES'
                 AND table_name NOT LIKE 'awsdms_%'
         ),
-    invalid_version
+    invalid_[version](cluster-settings.html#setting-version)
         AS (
             SELECT
-                'This cluster is on a version of CockroachDB which does not support AWS DMS. CockroachDB v21.2.13+ or v22.1+ is required.'
+                'This cluster is on a [version](cluster-settings.html#setting-version) of CockroachDB which does not support AWS DMS. CockroachDB v21.2.13+ or v22.1+ is required.'
                     AS fix_me
             WHERE
                 split_part(
                     substr(
                         substring(
-                            version(),
+                            [version](cluster-settings.html#setting-version)(),
                             e'v\\d+\\.\\d+.\\d+'
                         ),
                         2
@@ -235,7 +235,7 @@ Run the following query from within the target CockroachDB cluster to identify c
                             split_part(
                                 substr(
                                     substring(
-                                        version(),
+                                        [version](cluster-settings.html#setting-version)(),
                                         e'v\\d+\\.\\d+.\\d+'
                                     ),
                                     2
@@ -247,7 +247,7 @@ Run the following query from within the target CockroachDB cluster to identify c
                             AND split_part(
                                     substr(
                                         substring(
-                                            version(),
+                                            [version](cluster-settings.html#setting-version)(),
                                             e'v\\d+\\.\\d+.\\d+'
                                         ),
                                         2
@@ -259,7 +259,7 @@ Run the following query from within the target CockroachDB cluster to identify c
                             AND split_part(
                                     substr(
                                         substring(
-                                            version(),
+                                            [version](cluster-settings.html#setting-version)(),
                                             e'v\\d+\\.\\d+.\\d+'
                                         ),
                                         2
@@ -294,7 +294,7 @@ Run the following query from within the target CockroachDB cluster to identify c
         )
 SELECT fix_me FROM has_no_pk
 UNION ALL SELECT fix_me FROM invalid_columns
-UNION ALL SELECT fix_me FROM invalid_version;
+UNION ALL SELECT fix_me FROM invalid_[version](cluster-settings.html#setting-version);
 ~~~
 
 ## See Also

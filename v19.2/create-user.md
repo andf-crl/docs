@@ -23,7 +23,7 @@ The user must have the `INSERT` and `UPDATE` [privileges](authorization.html#ass
 
 ## Synopsis
 
-<section>{% include {{ page.version.version }}/sql/diagrams/create_user.html %}</section>
+<section>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/create_user.html %}</section>
 
 ## Parameters
 

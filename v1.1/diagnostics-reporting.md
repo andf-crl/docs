@@ -84,8 +84,8 @@ This JSON example shows an excerpt of what table structure details look like whe
          "name":"_",
          "id":51,
          "parent_id":50,
-         "version":1,
-         "up_version":false,
+         "[version](cluster-settings.html#setting-version)":1,
+         "up_[version](cluster-settings.html#setting-version)":false,
          "modification_time":{
             "wall_time":0,
             "logical":0
@@ -210,9 +210,9 @@ The Admin UI shares the following anonymized information once per Admin UI sessi
 Detail | Description
 -------|------------
 User ID | The GUID of the cluster.
-Enterprise | Whether or not the user is an enterprise license user.
+Enterprise | Whether or not the user is an [enterprise.license](cluster-settings.html#setting-enterprise-license) user.
 User Agent | The browser used to access the Admin UI.
-Version | The CockroachDB cluster version.
+Version | The CockroachDB cluster [version](cluster-settings.html#setting-version).
 
 #### Page events
 
@@ -234,7 +234,7 @@ This JSON example shows what anonymized Admin UI identity information looks like
   "context": {
       "library": {
          "name": "analytics-node",
-         "version": "3.0.0"
+         "[version](cluster-settings.html#setting-version)": "3.0.0"
       }
    },
   "messageId": "node-jFua5Hxj5peINPk0rAOGkCKgls60CiHF",
@@ -242,7 +242,7 @@ This JSON example shows what anonymized Admin UI identity information looks like
   "traits": {
       "enterprise": true,
       "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.101 Safari/537.36",
-      "version": "v1.1-alpha.20170817-980-g3b098cd"
+      "[version](cluster-settings.html#setting-version)": "v1.1-alpha.20170817-980-g3b098cd"
    },
   "type": "identify",
   "userId": "55bcbd902-f912-4a3e-91a0-56ca9de17ab7",
@@ -262,7 +262,7 @@ This JSON example shows what anonymized Admin UI page views information looks li
   "context": {
       "library": {
          "name": "analytics-node",
-         "version": "3.0.0"
+         "[version](cluster-settings.html#setting-version)": "3.0.0"
       }
   },
   "messageId": "node-xuStnk7A2i30FDPdC51rpqxEU9gmym84",
@@ -289,10 +289,10 @@ To make sure that absolutely no diagnostic details are shared, you can set the e
 
 ### After Cluster Initialization
 
-To stop sending diagnostic details to Cockroach Labs once a cluster is running, [use the built-in SQL client](use-the-built-in-sql-client.html) to execute the following [`SET CLUSTER SETTING`](set-cluster-setting.html) statement, which switches the `diagnostics.reporting.enabled` [cluster setting](cluster-settings.html) to `false`:
+To stop sending diagnostic details to Cockroach Labs once a cluster is running, [use the built-in SQL client](use-the-built-in-sql-client.html) to execute the following [`SET CLUSTER SETTING`](set-cluster-setting.html) statement, which switches the `[diagnostics.reporting.enabled](cluster-settings.html#setting-diagnostics-reporting-enabled)` [cluster setting](cluster-settings.html) to `false`:
 
 ~~~ sql
-> SET CLUSTER SETTING diagnostics.reporting.enabled = false;
+> SET CLUSTER SETTING [diagnostics.reporting.enabled](cluster-settings.html#setting-diagnostics-reporting-enabled) = false;
 ~~~
 
 This change will not be instantaneous, as it must be propagated to other nodes in the cluster.
@@ -302,12 +302,12 @@ This change will not be instantaneous, as it must be propagated to other nodes i
 To check the state of diagnostics reporting, [use the built-in SQL client](use-the-built-in-sql-client.html) to execute the following [`SHOW CLUSTER SETTING`](show-cluster-setting.html) statement:
 
 ~~~ sql
-> SHOW CLUSTER SETTING diagnostics.reporting.enabled;
+> SHOW CLUSTER SETTING [diagnostics.reporting.enabled](cluster-settings.html#setting-diagnostics-reporting-enabled);
 ~~~
 
 ~~~
 +-------------------------------+
-| diagnostics.reporting.enabled |
+| [diagnostics.reporting.enabled](cluster-settings.html#setting-diagnostics-reporting-enabled) |
 +-------------------------------+
 | false                         |
 +-------------------------------+

@@ -13,7 +13,7 @@ The user must have any [privilege](authorization.html#assign-privileges) on the 
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/show_create.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/show_create.html %}
 </div>
 
 ## Parameters
@@ -31,7 +31,7 @@ Field | Description
 
 ## Example
 
-{% include {{page.version.version}}/sql/movr-statements.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/movr-statements.md %}
 
 ### Show the `CREATE TABLE` statement for a table
 

@@ -14,7 +14,7 @@ While a table or view is being [dropped](drop-table.html), `SHOW TABLES` will li
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/show_tables.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/show_tables.html %}
 </div>
 
 ## Required privileges
@@ -34,7 +34,7 @@ When a `database_name` and `schema_name` are omitted, the tables of the [current
 
 ## Examples
 
-{% include {{page.version.version}}/sql/movr-statements.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/movr-statements.md %}
 
 ### Show tables in the current database
 
@@ -57,7 +57,7 @@ When a `database_name` and `schema_name` are omitted, the tables of the [current
 (6 rows)
 ~~~
 
-<span class="version-tag">New in v19.2:</span> Alternatively, within the built-in SQL shell, you can use the `\dt` [shell command](cockroach-sql.html#commands):
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v19.2:</span> Alternatively, within the built-in SQL shell, you can use the `\dt` [shell command](cockroach-sql.html#commands):
 
 {% include copy-clipboard.html %}
 ~~~ sql
@@ -188,7 +188,7 @@ For more information, see [`COMMENT ON`](comment-on.html).
 
 ### Show virtual tables with comments
 
-<span class="version-tag">New in v19.2:</span> The virtual tables in the `pg_catalog`, `information_schema`, and `crdb_internal` schemas contain useful comments, often with links to further documentation.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v19.2:</span> The virtual tables in the `pg_catalog`, `information_schema`, and `crdb_internal` schemas contain useful comments, often with links to further documentation.
 
 To view virtual tables with comments and documentation links, use `SHOW TABLES FROM <virtual schema> WITH COMMENT`:
 

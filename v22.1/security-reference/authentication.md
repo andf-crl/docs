@@ -29,7 +29,7 @@ All options also support the following no-op 'authentication methods' (authentic
 
 CockroachDB's authentication behavior is configured using a domain-specific language (DSL), shared with PostgreSQL, called host-based authentication (HBA).
 
-A specific CockroachDB cluster's authentication behavior is configured by setting its `server.host_based_authentication.configuration` [cluster setting](../cluster-settings.html), using the [`SET CLUSTER SETTING` statement](../set-cluster-setting.html), which accepts a single text field that must be a correctly formatted HBA manifest. Inspect the current setting with [`SHOW CLUSTER SETTING`.](../show-cluster-setting.html)
+A specific CockroachDB cluster's authentication behavior is configured by setting its `[server.host_based_authentication.configuration](cluster-settings.html#setting-server-host_based_authentication-configuration)` [cluster setting](../cluster-settings.html), using the [`SET CLUSTER SETTING` statement](../set-cluster-setting.html), which accepts a single text field that must be a correctly formatted HBA manifest. Inspect the current setting with [`SHOW CLUSTER SETTING`.](../show-cluster-setting.html)
 
 ### HBA configuration syntax
 
@@ -61,7 +61,7 @@ Each rule definition contains up to 6 values.
   - `password`: user may authenticate with a plaintext password.
   - `scram-sha-256`: user may authenticate via [Salted Challenge-Response](scram-authentication.html)
   - `cert`: user may authenticate with a PKI certificate signed by a trusted certificate authority CA.
-  - `cert-password`: user may authenticate with either a certificate or a password. Additionally, the server may use a [SCRAM](scram-authentication.html) exchange, if the cluster setting `server.user_login.cert_password_method.auto_scram_promotion.enabled` is set to `true`.
+  - `cert-password`: user may authenticate with either a certificate or a password. Additionally, the server may use a [SCRAM](scram-authentication.html) exchange, if the cluster setting `[server.user_login.cert_password_method.auto_scram_promotion.enabled](cluster-settings.html#setting-server-user_login-cert_password_method-auto_scram_promotion-enabled)` is set to `true`.
   - `cert-scram-sha-25`: user may authenticate with either a certificate or a [SCRAM](scram-authentication.html) exchange.
   - `gss`: user may authenticate with a GSSAPI token.
   - `reject`: server rejects connection without performing authentication.

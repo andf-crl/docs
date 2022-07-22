@@ -8,13 +8,13 @@ The `ARRAY` data type stores one-dimensional, 1-indexed, homogeneous arrays of a
 
 The `ARRAY` data type is useful for ensuring compatibility with ORMs and other tools. However, if such compatibility is not a concern, it's more flexible to design your schema with normalized tables.
 
-<span class="version-tag">New in v20.1:</span> CockroachDB supports indexing array columns with [inverted indexes](inverted-indexes.html). This permits accelerating containment queries (`@>` and `<@`) on array columns by adding an index to them.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> CockroachDB supports indexing array columns with [inverted indexes](inverted-indexes.html). This permits accelerating containment queries (`@>` and `<@`) on array columns by adding an index to them.
 
 {{site.data.alerts.callout_info}}
 CockroachDB does not support nested arrays or ordering by arrays.
 {{site.data.alerts.end}}
 
-{% include {{page.version.version}}/sql/vectorized-support.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/vectorized-support.md %}
 
 ## Syntax
 
@@ -203,9 +203,9 @@ You can use the [operators](functions-and-operators.html#supported-operations) `
 (1 row)
 ~~~
 
-## Supported casting and conversion
+## Supported casting and con[version](cluster-settings.html#setting-version)
 
-[Casting](data-types.html#data-type-conversions-and-casts) between `ARRAY` values is supported when the data types of the arrays support casting. For example, it is possible to cast from a `BOOL` array to an `INT` array but not from a `BOOL` array to a `TIMESTAMP` array:
+[Casting](data-types.html#data-type-con[version](cluster-settings.html#setting-version)s-and-casts) between `ARRAY` values is supported when the data types of the arrays support casting. For example, it is possible to cast from a `BOOL` array to an `INT` array but not from a `BOOL` array to a `TIMESTAMP` array:
 
 {% include copy-clipboard.html %}
 ~~~ sql
@@ -256,7 +256,7 @@ You can cast an array to a `STRING` value, for compatibility with PostgreSQL:
 
 ### Implicit casting to `INT` and `DECIMAL` `ARRAY`s
 
-<span class="version-tag">New in v20.1:</span> CockroachDB supports implicit casting from string literals to [`INT`](int.html) and [`DECIMAL`](decimal.html) `ARRAY`s, where appropriate.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> CockroachDB supports implicit casting from string literals to [`INT`](int.html) and [`DECIMAL`](decimal.html) `ARRAY`s, where appropriate.
 
 For example, if you create a table with a column of type `INT[]`:
 

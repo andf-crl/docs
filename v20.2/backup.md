@@ -16,7 +16,7 @@ You can [backup a full cluster](#backup-a-cluster), which includes:
 - All [databases](create-database.html)
 - All [tables](create-table.html) (which automatically includes their [indexes](indexes.html))
 - All [views](views.html)
-- <span class="version-tag">New in v20.2:</span> All [scheduled jobs](manage-a-backup-schedule.html#view-and-control-a-backup-initiated-by-a-schedule)
+- <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> All [scheduled jobs](manage-a-backup-schedule.html#view-and-control-a-backup-initiated-by-a-schedule)
 
 You can also back up:
 
@@ -45,12 +45,12 @@ To view the contents of an Enterprise backup created with the `BACKUP` statement
 
 ### Destination privileges
 
-{% include {{ page.version.version }}/backups/destination-file-privileges.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/backups/destination-file-privileges.md %}
 
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/backup.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/backup.html %}
 </div>
 
 ## Parameters
@@ -67,7 +67,7 @@ To view the contents of an Enterprise backup created with the `BACKUP` statement
 
 ### Options
 
-{% include {{ page.version.version }}/backups/backup-options.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/backups/backup-options.md %}
 
 ### Backup file URLs
 
@@ -127,7 +127,7 @@ We recommend always starting backups with a specific [timestamp](timestamp.html)
 
 This improves performance by decreasing the likelihood that the `BACKUP` will be [retried because it contends with other statements/transactions](transactions.html#transaction-retries). However, because `AS OF SYSTEM TIME` returns historical data, your reads might be stale. Taking backups with `AS OF SYSTEM TIME '-10s'` is a good best practice to reduce the number of still-running transactions you may encounter, since the backup will take priority and will force still-running transactions to restart after the backup is finished.
 
-<span class="version-tag">New in v20.2:</span> `BACKUP` will initially ask individual ranges to backup but to skip if they encounter an intent. Any range that is skipped is placed at the end of the queue. When `BACKUP` has completed its initial pass and is revisiting ranges, it will ask any range that did not resolve within the given time limit (default 1 minute) to attempt to resolve any intents that it encounters and to _not_ skip. Additionally, the backup's transaction priority is then set to `high`, which causes other transactions to abort until the intents are resolved and the backup is finished.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> `BACKUP` will initially ask individual ranges to backup but to skip if they encounter an intent. Any range that is skipped is placed at the end of the queue. When `BACKUP` has completed its initial pass and is revisiting ranges, it will ask any range that did not resolve within the given time limit (default 1 minute) to attempt to resolve any intents that it encounters and to _not_ skip. Additionally, the backup's transaction priority is then set to `high`, which causes other transactions to abort until the intents are resolved and the backup is finished.
 
 ## Viewing and controlling backups jobs
 
@@ -218,7 +218,7 @@ This incremental backup syntax does not work for backups using HTTP storage; you
 
 ### Run a backup asynchronously
 
-<span class="version-tag">New in v20.2:</span> Use the `DETACHED` [option](#options) to execute the backup job asynchronously:
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> Use the `DETACHED` [option](#options) to execute the backup job asynchronously:
 
 {% include copy-clipboard.html %}
 ~~~ sql
@@ -248,13 +248,13 @@ job_id             |  status   | fraction_completed | rows | index_entries | byt
 
 ### Advanced examples
 
-{% include {{ page.version.version }}/backups/advanced-examples-list.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/backups/advanced-examples-list.md %}
 
 ## Known limitations
 
 ### Slow (or hung) backups and queries due to write intent buildup
 
-{% include {{ page.version.version }}/known-limitations/write-intent-buildup.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/write-intent-buildup.md %}
 
 ## See also
 

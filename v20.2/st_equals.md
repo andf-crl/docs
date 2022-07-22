@@ -21,7 +21,7 @@ Another way of describing `ST_Equals(A, B)` is that it will return `true` if bot
 
 ## Examples
 
-{% include {{page.version.version}}/misc/geojson_geometry_note.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/misc/geojson_geometry_note.md %}
 
 ### True
 

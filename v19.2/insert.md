@@ -12,7 +12,7 @@ The `INSERT` [statement](sql-statements.html) inserts one or more rows into a ta
 - To bulk-insert data into an existing table, batch multiple rows in one [multi-row `INSERT`](#insert-multiple-rows-into-an-existing-table) statement and do not include the `INSERT` statements within a transaction. Experimentally determine the optimal batch size for your application by monitoring the performance for different batch sizes (10 rows, 100 rows, 1000 rows).
 
     {{site.data.alerts.callout_info}}
-    <span class="version-tag">New in v19.2:</span> You can also use the [`IMPORT INTO`](import-into.html) statement to bulk-insert CSV data into an existing table.
+    <span class="[version](cluster-settings.html#setting-version)-tag">New in v19.2:</span> You can also use the [`IMPORT INTO`](import-into.html) statement to bulk-insert CSV data into an existing table.
     {{site.data.alerts.end}}
 - To bulk-insert data into a new table, the [`IMPORT`](import.html) statement performs better than `INSERT`.
 - In traditional SQL databases, generating and retrieving unique IDs involves using `INSERT` with `SELECT`. In CockroachDB, use `RETURNING` clause with `INSERT` instead. See [Insert and Return Values](#insert-and-return-values) for more details.
@@ -26,7 +26,7 @@ To use `ON CONFLICT DO UPDATE`, the user must additionally have the `UPDATE` pri
 ## Synopsis
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/insert.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/insert.html %}
 </div>
 
 ## Parameters
@@ -44,7 +44,7 @@ Parameter | Description
 ### `ON CONFLICT` clause
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/on_conflict.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/on_conflict.html %}
 </div>
 
 Normally, when inserted values
@@ -71,7 +71,7 @@ key. Using `ON CONFLICT` is therefore more flexible.
 
 ## Examples
 
-{% include {{page.version.version}}/sql/movr-statements.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/movr-statements.md %}
 
 ### Insert a single row
 
@@ -181,7 +181,7 @@ Multi-row inserts are faster than multiple single-row `INSERT` statements. As a 
 ~~~
 
 {{site.data.alerts.callout_info}}
-<span class="version-tag">New in v19.2:</span> You can also use the [`IMPORT INTO`](import-into.html) statement to bulk-insert CSV data into an existing table.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v19.2:</span> You can also use the [`IMPORT INTO`](import-into.html) statement to bulk-insert CSV data into an existing table.
 {{site.data.alerts.end}}
 
 ### Insert multiple rows into a new table
@@ -288,7 +288,7 @@ pq: null value in column "city" violates not-null constraint
 
 ### Insert and return values
 
-In this example, the `RETURNING` clause returns the `id` values of the rows inserted, which are generated server-side by the `gen_random_uuid()` function. The language-specific versions assume that you have installed the relevant [client drivers](install-client-drivers.html).
+In this example, the `RETURNING` clause returns the `id` values of the rows inserted, which are generated server-side by the `gen_random_uuid()` function. The language-specific [version](cluster-settings.html#setting-version)s assume that you have installed the relevant [client drivers](install-client-drivers.html).
 
 {{site.data.alerts.callout_success}}This use of <code>RETURNING</code> mirrors the behavior of MySQL's <code>last_insert_id()</code> function.{{site.data.alerts.end}}
 

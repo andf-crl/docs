@@ -30,7 +30,7 @@ Roles can only be created by superusers, i.e., members of the `admin` role. The 
 
 ## Synopsis
 
-<section>{% include {{ page.version.version }}/sql/diagrams/create_role.html %}</section>
+<section>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/create_role.html %}</section>
 
 ## Parameters
 

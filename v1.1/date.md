@@ -60,9 +60,9 @@ A `DATE` column supports values up to 8 bytes in width, but the total storage si
 +---------------------------+-------+
 ~~~
 
-## Supported Casting & Conversion
+## Supported Casting & Con[version](cluster-settings.html#setting-version)
 
-`DATE` values can be [cast](data-types.html#data-type-conversions-casts) to any of the following data types:
+`DATE` values can be [cast](data-types.html#data-type-con[version](cluster-settings.html#setting-version)s-casts) to any of the following data types:
 
 Type | Details
 -----|--------

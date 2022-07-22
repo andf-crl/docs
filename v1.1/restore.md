@@ -68,7 +68,7 @@ The `RESTORE` process minimizes its impact to the cluster's performance by distr
 
 {{site.data.alerts.callout_info}}When a <code>RESTORE</code> fails or is canceled, partially restored data is properly cleaned up. This can have a minor, temporary impact on cluster performance.{{site.data.alerts.end}}
 
-## Viewing and Controlling Restore Jobs <span class="version-tag">New in v1.1</span>
+## Viewing and Controlling Restore Jobs <span class="[version](cluster-settings.html#setting-version)-tag">New in v1.1</span>
 
 Whenever you initiate a restore, CockroachDB registers it as a job, which you can view with [`SHOW JOBS`](show-jobs.html).
 
@@ -76,7 +76,7 @@ After the restore has been initiated, you can control it with [`PAUSE JOB`](paus
 
 ## Synopsis
 
-{% include {{ page.version.version }}/sql/diagrams/restore.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/restore.html %}
 
 ## Required Privileges
 
@@ -95,7 +95,7 @@ Only the `root` user can run `RESTORE`.
 
 The URL for your backup's locations must use the following format:
 
-{% include {{ page.version.version }}/misc/external-urls.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/external-urls.md %}
 
 ### Restore Option List
 

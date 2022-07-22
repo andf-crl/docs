@@ -158,11 +158,11 @@ Add 6 more nodes, 3 in the `us-west1` region and 3 in the `us-west2` region, wit
     --background
     ~~~~
 
-## Step 3. Enable a trial enterprise license
+## Step 3. Enable a trial [enterprise.license](cluster-settings.html#setting-enterprise-license)
 
-The table partitioning feature requires an [enterprise license](https://www.cockroachlabs.com/get-cockroachdb/).
+The table partitioning feature requires an [[enterprise.license](cluster-settings.html#setting-enterprise-license)](https://www.cockroachlabs.com/get-cockroachdb/).
 
-1. [Request a trial enterprise license](https://www.cockroachlabs.com/get-cockroachdb/). You should receive your trial license via email within a few minutes.
+1. [Request a trial [enterprise.license](cluster-settings.html#setting-enterprise-license)](https://www.cockroachlabs.com/get-cockroachdb/). You should receive your trial license via email within a few minutes.
 
 2. Enable your trial license:
 
@@ -171,7 +171,7 @@ The table partitioning feature requires an [enterprise license](https://www.cock
     $ cockroach sql \
     --insecure \
     --host=localhost:26257 \
-    --execute="SET CLUSTER SETTING cluster.organization = '<your org>';"
+    --execute="SET CLUSTER SETTING [cluster.organization](cluster-settings.html#setting-cluster-organization) = '<your org>';"
     ~~~
 
     {% include copy-clipboard.html %}
@@ -179,7 +179,7 @@ The table partitioning feature requires an [enterprise license](https://www.cock
     $ cockroach sql \
     --insecure \
     --host=localhost:26257 \
-    --execute="SET CLUSTER SETTING enterprise.license = '<key>';"
+    --execute="SET CLUSTER SETTING [enterprise.license](cluster-settings.html#setting-enterprise-license) = '<key>';"
     ~~~
 
 

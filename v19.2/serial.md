@@ -20,7 +20,7 @@ In most cases, we recommend using the [`UUID`](uuid.html) data type with the `ge
 See [this FAQ entry](sql-faqs.html#how-do-i-auto-generate-unique-row-ids-in-cockroachdb) for more details.
 {{site.data.alerts.end}}
 
-{% include {{page.version.version}}/sql/vectorized-support.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/vectorized-support.md %}
 
 ## Modes of operation
 
@@ -47,7 +47,7 @@ These modes can be configured with the experimental (unsupported) [session varia
 
 {{site.data.alerts.callout_info}}
 The particular choice of `DEFAULT` expression when clients use the
-`SERIAL` keyword is subject to change in future versions of
+`SERIAL` keyword is subject to change in future [version](cluster-settings.html#setting-version)s of
 CockroachDB. Applications that wish to use `unique_rowid()`
 specifically must use the full explicit syntax `INT DEFAULT
 unique_rowid()` and avoid `SERIAL` altogether.
@@ -81,7 +81,7 @@ database. However in both cases the `unique_rowid()` function is
 ultimately used to generate new values.
 
 This behavior of `virtual_sequence` is experimental and may be removed
-in a later version of CockroachDB.
+in a later [version](cluster-settings.html#setting-version) of CockroachDB.
 {{site.data.alerts.end}}
 
 ### Generated values for mode `sql_sequence`.
@@ -115,7 +115,7 @@ instead of sequences when possible.
 {{site.data.alerts.callout_info}}
 This mode `sql_sequence` is an experimental feature provided for testing compatibility with existing PostgreSQL clients.
 
-It is subject to change without notice and may be removed in later versions of CockroachDB.
+It is subject to change without notice and may be removed in later [version](cluster-settings.html#setting-version)s of CockroachDB.
 {{site.data.alerts.end}}
 
 ## Examples

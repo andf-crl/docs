@@ -10,12 +10,12 @@ The `RENAME COLUMN` [statement](sql-statements.html) changes the name of a colum
 It is not possible to rename a column referenced by a view. For more details, see [View Dependencies](views.html#view-dependencies).
 {{site.data.alerts.end}}
 
-{% include {{ page.version.version }}/sql/combine-alter-table-commands.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/combine-alter-table-commands.md %}
 
 ## Synopsis
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/rename_column.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/rename_column.html %}
 </div>
 
 ## Required privileges
@@ -33,7 +33,7 @@ The user must have the `CREATE` [privilege](authorization.html#assign-privileges
 
 ## Viewing schema changes
 
-{% include {{ page.version.version }}/misc/schema-change-view-job.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-view-job.md %}
 
 ## Examples
 

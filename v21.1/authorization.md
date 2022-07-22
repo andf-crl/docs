@@ -119,7 +119,7 @@ When a user connects to a database, either via the built-in SQL client or a clie
 
 Roles and users can be granted the following privileges:
 
-{% include {{ page.version.version }}/sql/privileges.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/privileges.md %}
 
 ### Assign privileges
 

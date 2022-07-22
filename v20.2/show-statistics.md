@@ -8,13 +8,13 @@ The `SHOW STATISTICS` [statement](sql-statements.html) lists [table statistics](
 {{site.data.alerts.callout_info}}
 [By default, CockroachDB automatically generates statistics](cost-based-optimizer.html#table-statistics) on all indexed columns, and up to 100 non-indexed columns.
 
-<span class="version-tag">New in v20.2:</span> CockroachDB also automatically collects [multi-column statistics](create-statistics.html#create-statistics-on-multiple-columns) on the columns that prefix each index.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> CockroachDB also automatically collects [multi-column statistics](create-statistics.html#create-statistics-on-multiple-columns) on the columns that prefix each index.
 {{site.data.alerts.end}}
 
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/show_stats.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/show_stats.html %}
 </div>
 
 ## Required Privileges
@@ -29,7 +29,7 @@ Parameter      | Description
 
 ## Examples
 
-{% include {{page.version.version}}/sql/movr-statements.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/movr-statements.md %}
 
 ### List table statistics
 
@@ -59,7 +59,7 @@ Parameter      | Description
 
 ### Delete statistics
 
-{% include {{ page.version.version }}/misc/delete-statistics.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/delete-statistics.md %}
 
 ## See Also
 

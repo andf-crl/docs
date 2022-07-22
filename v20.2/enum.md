@@ -4,7 +4,7 @@ summary: CockroachDB's CockroachDB's ENUM data types comprise a set of values.
 toc: true
 ---
 
-<span class="version-tag">New in v20.2:</span> User-defined `ENUM` [data types](data-types.html) consist of a set of enumerated, static values.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> User-defined `ENUM` [data types](data-types.html) consist of a set of enumerated, static values.
 
 {{site.data.alerts.callout_danger}}
 Clusters with `ENUM` types that are running alpha testing [releases](../releases/) of v20.2 will not be able to upgrade to beta testing releases or production releases of v20.2 due to internal representation changes.
@@ -125,9 +125,9 @@ To drop the type, use [`DROP TYPE`](drop-type.html):
 ~~~
 
 
-## Supported casting and conversion
+## Supported casting and con[version](cluster-settings.html#setting-version)
 
-`ENUM` data type values can be [cast](data-types.html#data-type-conversions-and-casts) to [`STRING`s](string.html).
+`ENUM` data type values can be [cast](data-types.html#data-type-con[version](cluster-settings.html#setting-version)s-and-casts) to [`STRING`s](string.html).
 
 Values can be cast explicitly or implicitly. For example, the following [`SELECT`](select-clause.html) statements are equivalent:
 

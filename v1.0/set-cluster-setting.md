@@ -11,7 +11,7 @@ The `SET CLUSTER SETTING` [statement](sql-statements.html) modifies a [cluster-w
 
 ## Synopsis
 
-{% include {{ page.version.version }}/sql/diagrams/set_cluster_setting.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/set_cluster_setting.html %}
 
 {{site.data.alerts.callout_info}}The <code>SET CLUSTER SETTING</code> statement is unrelated to the other <a href="set-transaction.html"><code>SET TRANSACTION</code></a> and <a href="set-vars.html"><code>SET (session variable)</code></a> statements.{{site.data.alerts.end}}
 
@@ -34,13 +34,13 @@ The variable name is case-insensitive.
 You can configure a cluster so that new sessions automatically try to run queries [in a distributed fashion](https://www.cockroachlabs.com/blog/local-and-distributed-processing-in-cockroachdb/):
 
 ~~~ sql
-> SET CLUSTER SETTING sql.defaults.distsql = 1;
+> SET CLUSTER SETTING [sql.defaults.distsql](cluster-settings.html#setting-sql-defaults-distsql) = 1;
 ~~~
 
 You can also disable distributed execution for all new sessions:
 
 ~~~ sql
-> SET CLUSTER SETTING sql.defaults.distsql = 0;
+> SET CLUSTER SETTING [sql.defaults.distsql](cluster-settings.html#setting-sql-defaults-distsql) = 0;
 ~~~
 
 ### Disable Automatic Diagnostic Reporting
@@ -50,14 +50,14 @@ You can opt out of
 data to Cockroach Labs using the following:
 
 ~~~ sql
-> SET CLUSTER SETTING diagnostics.reporting.enabled = false;
-> SHOW CLUSTER SETTING diagnostics.reporting.enabled;
+> SET CLUSTER SETTING [diagnostics.reporting.enabled](cluster-settings.html#setting-diagnostics-reporting-enabled) = false;
+> SHOW CLUSTER SETTING [diagnostics.reporting.enabled](cluster-settings.html#setting-diagnostics-reporting-enabled);
 ~~~
 
 
 ~~~
 +-------------------------------+
-| diagnostics.reporting.enabled |
+| [diagnostics.reporting.enabled](cluster-settings.html#setting-diagnostics-reporting-enabled) |
 +-------------------------------+
 | false                         |
 +-------------------------------+

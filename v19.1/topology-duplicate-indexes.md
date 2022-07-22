@@ -23,11 +23,11 @@ In general, this pattern is suited well for immutable/reference tables that are 
 
 ### Fundamentals
 
-{% include {{ page.version.version }}/topology-patterns/fundamentals.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/topology-patterns/fundamentals.md %}
 
 ### Cluster setup
 
-{% include {{ page.version.version }}/topology-patterns/multi-region-cluster-setup.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/topology-patterns/multi-region-cluster-setup.md %}
 
 ## Configuration
 
@@ -149,4 +149,4 @@ Because this pattern balances the replicas for the table and its secondary index
 
 ## See also
 
-{% include {{ page.version.version }}/topology-patterns/see-also.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/topology-patterns/see-also.md %}

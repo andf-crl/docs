@@ -70,18 +70,18 @@ Start and initialize an insecure cluster like you did in previous modules.
 
 Let's say you need to perform some maintenance on each of your nodes, e.g., upgrade system software. For each node, you expect the maintenance and restart process to take no more than 15 minutes, and you do not want the cluster to consider a node dead and rebalance its data during this process.
 
-1. In the same terminal, increase the `server.time_until_store_dead` cluster setting:
+1. In the same terminal, increase the `[server.time_until_store_dead](cluster-settings.html#setting-server-time_until_store_dead)` cluster setting:
 
     {% include copy-clipboard.html %}
     ~~~ shell
     $ cockroach sql \
     --insecure \
     --host=localhost:26257 \
-    --execute="SET CLUSTER SETTING server.time_until_store_dead = '15m0s';"
+    --execute="SET CLUSTER SETTING [server.time_until_store_dead](cluster-settings.html#setting-server-time_until_store_dead) = '15m0s';"
     ~~~
 
     {{site.data.alerts.callout_info}}
-    Use caution when changing the `server.time_until_store_dead` setting. Setting it too high creates some risk of unavailability since CockroachDB does not respond to down nodes as quickly. However, setting it too low causes increased network and disk I/O costs, as CockroachDB rebalances data around temporary outages.
+    Use caution when changing the `[server.time_until_store_dead](cluster-settings.html#setting-server-time_until_store_dead)` setting. Setting it too high creates some risk of unavailability since CockroachDB does not respond to down nodes as quickly. However, setting it too low causes increased network and disk I/O costs, as CockroachDB rebalances data around temporary outages.
     {{site.data.alerts.end}}
 
 2. Then verify the new setting:
@@ -91,11 +91,11 @@ Let's say you need to perform some maintenance on each of your nodes, e.g., upgr
     $ cockroach sql \
     --insecure \
     --host=localhost:26257 \
-    --execute="SHOW CLUSTER SETTING server.time_until_store_dead;"
+    --execute="SHOW CLUSTER SETTING [server.time_until_store_dead](cluster-settings.html#setting-server-time_until_store_dead);"
     ~~~
 
     ~~~
-      server.time_until_store_dead
+      [server.time_until_store_dead](cluster-settings.html#setting-server-time_until_store_dead)
     +------------------------------+
       15m
     (1 row)
@@ -163,14 +163,14 @@ Stop, maintain, and restart one node at a time. This ensures that, at any point,
 
  Now that all nodes have been maintained and restarted, you can reset the time until the cluster considers a node dead and rebalances its data.
 
-1. In a new terminal, change the `server.time_until_store_dead` cluster setting back to the default of `5m0s`:
+1. In a new terminal, change the `[server.time_until_store_dead](cluster-settings.html#setting-server-time_until_store_dead)` cluster setting back to the default of `5m0s`:
 
     {% include copy-clipboard.html %}
     ~~~ shell
     $ cockroach sql \
     --insecure \
     --host=localhost:26257 \
-    --execute="RESET CLUSTER SETTING server.time_until_store_dead;"
+    --execute="RESET CLUSTER SETTING [server.time_until_store_dead](cluster-settings.html#setting-server-time_until_store_dead);"
     ~~~
 
 2. Then verify the new setting:
@@ -180,11 +180,11 @@ Stop, maintain, and restart one node at a time. This ensures that, at any point,
     $ cockroach sql \
     --insecure \
     --host=localhost:26257 \
-    --execute="SHOW CLUSTER SETTING server.time_until_store_dead;"
+    --execute="SHOW CLUSTER SETTING [server.time_until_store_dead](cluster-settings.html#setting-server-time_until_store_dead);"
     ~~~
 
     ~~~
-      server.time_until_store_dead
+      [server.time_until_store_dead](cluster-settings.html#setting-server-time_until_store_dead)
     +------------------------------+
       5m
     (1 row)

@@ -51,11 +51,11 @@ Flag | Description
 <a name="sql-flag-execute"></a> `--execute`<br />`-e` | Execute SQL statements directly from the command line, without opening a shell. This flag can be set multiple times, and each instance can contain one or more statements separated by semi-colons. If an error occurs in any statement, the command exits with a non-zero status code and further statements are not executed. The results of each statement are printed to the standard output (see `--format` for formatting options).<br><br>For a demonstration of this and other ways to execute SQL from the command line, see the [example](#execute-sql-statements-from-the-command-line) below.
 <a name="sql-flag-format"></a> `--format` | How to display table rows printed to the standard output. Possible values: `tsv`, `csv`, `table`, `raw`, `records`, `sql`, `html`.<br><br>**Default:** `table` for sessions that [output on a terminal](#session-and-output-types); `tsv` otherwise<br /><br />This flag corresponds to the `display_format` [client-side option](#client-side-options).
 `--safe-updates` | Disallow potentially unsafe SQL statements, including `DELETE` without a `WHERE` clause, `UPDATE` without a `WHERE` clause, and `ALTER TABLE ... DROP COLUMN`.<br><br>**Default:** `true` for [interactive sessions](#session-and-output-types); `false` otherwise<br /><br />Potentially unsafe SQL statements can also be allowed/disallowed for an entire session via the `sql_safe_updates` [session variable](set-vars.html).
-`--set` | <span class="version-tag">New in v2.1:</span> Set a [client-side option](#client-side-options) before starting the SQL shell or executing SQL statements from the command line via `--execute`. This flag may be specified multiple times, once per option.<br><br>After starting the SQL shell, the `\set` and `unset` commands can be use to enable and disable client-side options as well.  
+`--set` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v2.1:</span> Set a [client-side option](#client-side-options) before starting the SQL shell or executing SQL statements from the command line via `--execute`. This flag may be specified multiple times, once per option.<br><br>After starting the SQL shell, the `\set` and `unset` commands can be use to enable and disable client-side options as well.  
 
 ### Client connection
 
-{% include {{ page.version.version }}/sql/connection-parameters.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/connection-parameters.md %}
 
 See [Client Connection Parameters](connection-parameters.html) for more details.
 
@@ -84,14 +84,14 @@ When a session is both interactive and outputs on a terminal, `cockroach sql` al
 
 ### Welcome message
 
-When the SQL shell connects (or reconnects) to a CockroachDB node, it prints a welcome text with some tips and CockroachDB version and cluster details:
+When the SQL shell connects (or reconnects) to a CockroachDB node, it prints a welcome text with some tips and CockroachDB [version](cluster-settings.html#setting-version) and cluster details:
 
 ~~~ shell
 # Welcome to the cockroach SQL interface.
 # All statements must be terminated by a semicolon.
 # To exit: CTRL + D.
 #
-# Server version: CCL {{page.release_info.version}} (darwin amd64, built 2017/07/13 11:43:06, go1.10.1) (same version as client)
+# Server [version](cluster-settings.html#setting-version): CCL {{page.release_info.[version](cluster-settings.html#setting-version)}} (darwin amd64, built 2017/07/13 11:43:06, go1.10.1) (same [version](cluster-settings.html#setting-version) as client)
 # Cluster ID: 7fb9f5b4-a801-4851-92e9-c0db292d03f1
 #
 # Enter \? for a brief introduction.
@@ -101,8 +101,8 @@ When the SQL shell connects (or reconnects) to a CockroachDB node, it prints a w
 
 The **Version** and **Cluster ID** details are particularly noteworthy:
 
-- When the client and server versions of CockroachDB are the same, the shell prints the `Server version` followed by `(same version as client)`.
-- When the client and server versions are different, the shell prints both the `Client version` and `Server version`. In this case, you may want to [plan an upgrade](upgrade-cockroach-version.html) of older client or server versions.
+- When the client and server [version](cluster-settings.html#setting-version)s of CockroachDB are the same, the shell prints the `Server [version](cluster-settings.html#setting-version)` followed by `(same [version](cluster-settings.html#setting-version) as client)`.
+- When the client and server [version](cluster-settings.html#setting-version)s are different, the shell prints both the `Client [version](cluster-settings.html#setting-version)` and `Server [version](cluster-settings.html#setting-version)`. In this case, you may want to [plan an upgrade](upgrade-cockroach-[version](cluster-settings.html#setting-version).html) of older client or server [version](cluster-settings.html#setting-version)s.
 - Since every CockroachDB cluster has a unique ID, you can use the `Cluster ID` field to verify that your client is always connecting to the correct cluster.
 
 ### Commands
@@ -128,7 +128,7 @@ Command | Usage
 
 Client Options | Description
 ---------------|------------
-<a name="sql-option-auto-trace"></a> `auto_trace` | <span class="version-tag">New in v2.1:</span> For every statement executed, the shell also produces the trace for that statement in a separate result below. A trace is also produced in case the statement produces a SQL error.<br><br>**Default:** `off`<br><br>To enable this option, run `\set auto_trace on`.
+<a name="sql-option-auto-trace"></a> `auto_trace` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v2.1:</span> For every statement executed, the shell also produces the trace for that statement in a separate result below. A trace is also produced in case the statement produces a SQL error.<br><br>**Default:** `off`<br><br>To enable this option, run `\set auto_trace on`.
 <a name="sql-option-display-format"></a> `display_format` | How to display table rows printed within the interactive SQL shell. Possible values: `tsv`, `csv`, `table`, `raw`, `records`, `sql`, `html`.<br><br>**Default:** `table` for sessions that [output on a terminal](#session-and-output-types); `tsv` otherwise<br /><br />To change this option, run `\set display_format <format>`. For a demonstration, see the [example](#make-the-output-of-show-statements-selectable) below.
 `echo` | Reveal the SQL statements sent implicitly by the SQL shell.<br><br>**Default:** `false`<br><br>To enable this option, run `\set echo`. For a demonstration, see the [example](#reveal-the-sql-statements-sent-implicitly-by-the-command-line-utility) below.
 <a name="sql-option-errexit"></a> `errexit` | Exit the SQL shell upon encountering an error.<br /><br />**Default:** `false` for [interactive sessions](#session-and-output-types); `true` otherwise<br><br>To enable this option, run `\set errexit`.
@@ -604,7 +604,7 @@ This tells libedit to translate `C-x C-e` into the following commands:
 4. Pass the edited file back to the SQL client when `vipe` exits.
 
 {{site.data.alerts.callout_info}}
-Future versions of the SQL client may opt to use a different back-end for reading input, in which case please refer to this page for additional updates.
+Future [version](cluster-settings.html#setting-version)s of the SQL client may opt to use a different back-end for reading input, in which case please refer to this page for additional updates.
 {{site.data.alerts.end}}
 
 ### Allow potentially unsafe SQL statements
@@ -673,7 +673,7 @@ $ cockroach sql --insecure \
 ~~~
 
 ~~~
-# Server version: CockroachDB CCL f8f3c9317 (darwin amd64, built 2017/09/13 15:05:35, go1.8) (same version as client)
+# Server [version](cluster-settings.html#setting-version): CockroachDB CCL f8f3c9317 (darwin amd64, built 2017/09/13 15:05:35, go1.8) (same [version](cluster-settings.html#setting-version) as client)
 # Cluster ID: 847a4ba5-c78a-465a-b1a0-59fae3aab520
 > SET sql_safe_updates = TRUE
 > CREATE TABLE t1 (id INT PRIMARY KEY, name STRING)

@@ -6,7 +6,7 @@ toc: true
 
 To view details for each node in the cluster, use the `cockroach node` [command](cockroach-commands.html) with the appropriate subcommands and flags.
 
-<span class="version-tag">New in v1.1:</span> The `cockroach node` command is also used in the process of decommissioning nodes for permanent removal. See [Remove Nodes](remove-nodes.html) for more details.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v1.1:</span> The `cockroach node` command is also used in the process of decommissioning nodes for permanent removal. See [Remove Nodes](remove-nodes.html) for more details.
 
 
 ## Subcommands
@@ -15,8 +15,8 @@ Subcommand | Usage
 -----------|------
 `ls` | List the ID of each node in the cluster, excluding those that have been decommissioned and are offline.
 `status` | View the status of one or all nodes, excluding nodes that have been decommissioned and taken offline. Depending on flags used, this can include details about range/replicas, disk usage, and decommissioning progress.
-`decommission` | <span class="version-tag">New in v1.1:</span> Decommission nodes for permanent removal. See [Remove Nodes](remove-nodes.html) for more details.
-`recommission` | <span class="version-tag">New in v1.1:</span> Recommission nodes that were accidentally decommissioned. See [Recommission Nodes](remove-nodes.html#recommission-nodes) for more details.
+`decommission` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v1.1:</span> Decommission nodes for permanent removal. See [Remove Nodes](remove-nodes.html) for more details.
+`recommission` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v1.1:</span> Recommission nodes that were accidentally decommissioned. See [Recommission Nodes](remove-nodes.html#recommission-nodes) for more details.
 
 ## Synopsis
 
@@ -70,7 +70,7 @@ The `node ls` subcommand also supports the following general flags:
 
 Flag | Description
 -----|------------
-`--timeout` | <span class="version-tag">New in v2.0:</span> Set the duration of time that the subcommand is allowed to run before it returns an error and prints partial information. The timeout is specified with a suffix of `s` for seconds, `m` for minutes, and `h` for hours. If this flag is not set, the subcommand may hang.
+`--timeout` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v2.0:</span> Set the duration of time that the subcommand is allowed to run before it returns an error and prints partial information. The timeout is specified with a suffix of `s` for seconds, `m` for minutes, and `h` for hours. If this flag is not set, the subcommand may hang.
 
 The `node status` subcommand also supports the following general flags:
 
@@ -80,7 +80,7 @@ Flag | Description
 `--decommission` | Show node decommissioning details.
 `--ranges` | Show node details for ranges and replicas.
 `--stats` | Show node disk usage details.
-`--timeout` | <span class="version-tag">New in v2.0:</span> Set the duration of time that the subcommand is allowed to run before it returns an error and prints partial information. The timeout is specified with a suffix of `s` for seconds, `m` for minutes, and `h` for hours. If this flag is not set, the subcommand may hang.
+`--timeout` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v2.0:</span> Set the duration of time that the subcommand is allowed to run before it returns an error and prints partial information. The timeout is specified with a suffix of `s` for seconds, `m` for minutes, and `h` for hours. If this flag is not set, the subcommand may hang.
 
 The `node decommission` subcommand also supports the following general flag:
 
@@ -90,7 +90,7 @@ Flag | Description
 
 ### Client Connection
 
-{% include {{ page.version.version }}/sql/connection-parameters-with-url.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/connection-parameters-with-url.md %}
 
 See [Client Connection Parameters](connection-parameters.html) for more details.
 
@@ -116,7 +116,7 @@ Field | Description
 ------|------------
 `id` | The ID of the node.<br><br>**Required flag:** None
 `address` | The address of the node.<br><br>**Required flag:** None
-`build` | The version of CockroachDB running on the node. If the binary was built from source, this will be the SHA hash of the commit used.<br><br>**Required flag:** None
+`build` | The [version](cluster-settings.html#setting-version) of CockroachDB running on the node. If the binary was built from source, this will be the SHA hash of the commit used.<br><br>**Required flag:** None
 `updated_at` | The date and time when the node last recorded the information displayed in this command's output. When healthy, a new status should be recorded every 10 seconds or so, but when unhealthy this command's stats may be much older.<br><br>**Required flag:** None
 `started_at` | The date and time when the node was started.<br><br>**Required flag:** None
 `replicas_leaders` | The number of range replicas on the node that are the Raft leader for their range. See `replicas_leaseholders` below for more details.<br><br>**Required flag:** `--ranges` or `--all`

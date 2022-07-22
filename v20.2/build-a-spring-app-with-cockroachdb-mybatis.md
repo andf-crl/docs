@@ -16,15 +16,15 @@ This tutorial shows you how to build a simple [Spring Boot](https://spring.io/pr
 
 ## Before you begin
 
-{% include {{page.version.version}}/app/before-you-begin.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/before-you-begin.md %}
 
 ## Step 1. Install JDK
 
-Download and install a Java Development Kit. MyBatis-Spring supports Java versions 8+. In this tutorial, we use [JDK 11 from OpenJDK](https://openjdk.java.net/install/).
+Download and install a Java Development Kit. MyBatis-Spring supports Java [version](cluster-settings.html#setting-version)s 8+. In this tutorial, we use [JDK 11 from OpenJDK](https://openjdk.java.net/install/).
 
 ## Step 2. Install Gradle
 
-This example application uses [Gradle](https://gradle.org/) to manage all application dependencies. Spring supports Gradle versions 6+.
+This example application uses [Gradle](https://gradle.org/) to manage all application dependencies. Spring supports Gradle [version](cluster-settings.html#setting-version)s 6+.
 
 To install Gradle on macOS, run the following command:
 

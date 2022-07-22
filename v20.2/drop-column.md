@@ -11,14 +11,14 @@ When used in an explicit transaction combined with other schema changes to the s
 {{site.data.alerts.end}}
 
 {{site.data.alerts.callout_info}}
-<span class="version-tag">New in v20.2:</span> By default, `DROP COLUMN` drops any [indexes](indexes.html) on the column being dropped, and any indexes that reference the column, including [partial indexes](partial-indexes.html) with predicates that reference the column and indexes with [`STORING` clauses](create-index.html#store-columns) that reference the column.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> By default, `DROP COLUMN` drops any [indexes](indexes.html) on the column being dropped, and any indexes that reference the column, including [partial indexes](partial-indexes.html) with predicates that reference the column and indexes with [`STORING` clauses](create-index.html#store-columns) that reference the column.
 {{site.data.alerts.end}}
 
-{% include {{ page.version.version }}/sql/combine-alter-table-commands.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/combine-alter-table-commands.md %}
 
 ## Synopsis
 
-<div>{% include {{ page.version.version }}/sql/diagrams/drop_column.html %}</div>
+<div>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/drop_column.html %}</div>
 
 ## Required privileges
 
@@ -30,16 +30,16 @@ The user must have the `CREATE` [privilege](authorization.html#assign-privileges
 -----------|-------------
  `table_name` | The name of the table with the column you want to drop.
  `name` | The name of the column you want to drop.<br><br>When a column with a `CHECK` constraint is dropped, the `CHECK` constraint is also dropped.
- `CASCADE` | Drop the column even if objects (such as [views](views.html)) depend on it; drop the dependent objects, as well. `CASCADE` will drop a column with a foreign key constraint if it is the only column in the reference.<br><br>`CASCADE` does not list the objects it drops, so should be used cautiously.<br><br><span class="version-tag">New in v20.2:</span> `CASCADE` is not required to drop an indexed column, or a column that is referenced by an index. By default, `DROP COLUMN` drops any indexes [indexes](indexes.html) on the column being dropped, and any indexes that reference the column, including [partial indexes](partial-indexes.html) with predicates that reference the column and indexes with [`STORING` clauses](create-index.html#store-columns) that reference the column.
+ `CASCADE` | Drop the column even if objects (such as [views](views.html)) depend on it; drop the dependent objects, as well. `CASCADE` will drop a column with a foreign key constraint if it is the only column in the reference.<br><br>`CASCADE` does not list the objects it drops, so should be used cautiously.<br><br><span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> `CASCADE` is not required to drop an indexed column, or a column that is referenced by an index. By default, `DROP COLUMN` drops any indexes [indexes](indexes.html) on the column being dropped, and any indexes that reference the column, including [partial indexes](partial-indexes.html) with predicates that reference the column and indexes with [`STORING` clauses](create-index.html#store-columns) that reference the column.
  `RESTRICT` | *(Default)* Do not drop the column if any objects (such as [views](views.html)) depend on it.
 
 ## Viewing schema changes
 
-{% include {{ page.version.version }}/misc/schema-change-view-job.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-view-job.md %}
 
 ## Examples
 
-{% include {{page.version.version}}/sql/movr-statements.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/movr-statements.md %}
 
 ### Drop a column
 
@@ -155,7 +155,7 @@ SQLSTATE: 42P01
 
 ### Drop an indexed column
 
-<span class="version-tag">New in v20.2:</span> `DROP COLUMN` drops a column and any indexes on the column being dropped.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> `DROP COLUMN` drops a column and any indexes on the column being dropped.
 
 {% include copy-clipboard.html %}
 ~~~ sql

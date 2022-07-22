@@ -39,7 +39,7 @@ query only observes 1 row using [`LIMIT`](limit-offset.html).
 
 ## Correlated subqueries
 
-<span class="version-tag">New in v2.1:</span> CockroachDB's
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v2.1:</span> CockroachDB's
 [cost-based optimizer](cost-based-optimizer.html) supports several
 common types of correlated subqueries.
 

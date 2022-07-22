@@ -24,7 +24,7 @@ Level | Description
 Cluster | CockroachDB comes with a pre-configured `.default` replication zone that applies to all table data in the cluster not constrained by a database, table, or row-specific replication zone. This zone can be adjusted but not removed. See [View the Default Replication Zone](#view-the-default-replication-zone) and [Edit the Default Replication Zone](#edit-the-default-replication-zone) for more details.
 Database | You can add replication zones for specific databases. See [Create a Replication Zone for a Database](#create-a-replication-zone-for-a-database) for more details.
 Table | You can add replication zones for specific tables. See [Create a Replication Zone for a Table](#create-a-replication-zone-for-a-table).
-Index ([Enterprise-only](enterprise-licensing.html)) | The [secondary indexes](indexes.html) on a table will automatically use the replication zone for the table. However, with an enterprise license, you can add distinct replication zones for secondary indexes. See [Create a Replication Zone for a Secondary Index](#create-a-replication-zone-for-a-secondary-index) for more details.
+Index ([Enterprise-only](enterprise-licensing.html)) | The [secondary indexes](indexes.html) on a table will automatically use the replication zone for the table. However, with an [enterprise.license](cluster-settings.html#setting-enterprise-license), you can add distinct replication zones for secondary indexes. See [Create a Replication Zone for a Secondary Index](#create-a-replication-zone-for-a-secondary-index) for more details.
 Row ([Enterprise-only](enterprise-licensing.html)) | You can add replication zones for specific rows in a table or secondary index by [defining table partitions](partitioning.html). See [Create a Replication Zone for a Table Partition](#create-a-replication-zone-for-a-table-or-secondary-index-partition-new-in-v2-0) for more details.
 
 ### For System Data
@@ -47,7 +47,7 @@ When replicating data, whether table or system, CockroachDB always uses the most
 5. If there's no applicable database replication zone, CockroachDB uses the `.default` cluster-wide replication zone.
 
 {{site.data.alerts.callout_danger}}
-{% include {{page.version.version}}/known-limitations/system-range-replication.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/known-limitations/system-range-replication.md %}
 {{site.data.alerts.end}}
 
 ## Replication Zone Format
@@ -67,7 +67,7 @@ Field | Description
 ------|------------
 `range_min_bytes` | Not yet implemented.
 `range_max_bytes` | The maximum size, in bytes, for a range of data in the zone. When a range reaches this size, CockroachDB will split it into two ranges.<br><br>**Default:** `67108864` (64MiB)
-`ttlseconds` | The number of seconds overwritten values will be retained before garbage collection. Smaller values can save disk space if values are frequently overwritten; larger values increase the range allowed for `AS OF SYSTEM TIME` queries, also know as [Time Travel Queries](select-clause.html#select-historical-data-time-travel).<br><br>It is not recommended to set this below `600` (10 minutes); doing so will cause problems for long-running queries. Also, since all versions of a row are stored in a single range that never splits, it is not recommended to set this so high that all the changes to a row in that time period could add up to more than 64MiB; such oversized ranges could contribute to the server running out of memory or other problems.<br><br>**Default:** `90000` (25 hours)
+`ttlseconds` | The number of seconds overwritten values will be retained before garbage collection. Smaller values can save disk space if values are frequently overwritten; larger values increase the range allowed for `AS OF SYSTEM TIME` queries, also know as [Time Travel Queries](select-clause.html#select-historical-data-time-travel).<br><br>It is not recommended to set this below `600` (10 minutes); doing so will cause problems for long-running queries. Also, since all [version](cluster-settings.html#setting-version)s of a row are stored in a single range that never splits, it is not recommended to set this so high that all the changes to a row in that time period could add up to more than 64MiB; such oversized ranges could contribute to the server running out of memory or other problems.<br><br>**Default:** `90000` (25 hours)
 `num_replicas` | The number of replicas in the zone.<br><br>**Default:** `3`
 `constraints` | A JSON object or array of required and/or prohibited constraints influencing the location of replicas. See [Types of Constraints](#types-of-constraints) and [Scope of Constraints](#scope-of-constraints) for more details.<br><br>**Default:** No constraints, with CockroachDB locating each replica on a unique node and attempting to spread replicas evenly across localities.
 
@@ -186,12 +186,12 @@ The `zone` command and subcommands support the following [general-use](#general)
 Flag | Description
 -----|------------
 `--disable-replication` | Disable replication in the zone by setting the zone's replica count to 1. This is equivalent to setting `num_replicas: 1`.
-`--echo-sql` | <span class="version-tag">New in v1.1:</span> Reveal the SQL statements sent implicitly by the command-line utility. For a demonstration, see the [example](#reveal-the-sql-statements-sent-implicitly-by-the-command-line-utility) below.
+`--echo-sql` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v1.1:</span> Reveal the SQL statements sent implicitly by the command-line utility. For a demonstration, see the [example](#reveal-the-sql-statements-sent-implicitly-by-the-command-line-utility) below.
 `--file`<br>`-f` | The path to the [YAML file](#replication-zone-format) defining the zone configuration. To pass the zone configuration via the standard input, set this flag to `-`.<br><br>This flag is relevant only for the `set` subcommand.
 
 ### Client Connection
 
-{% include {{ page.version.version }}/sql/connection-parameters-with-url.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/connection-parameters-with-url.md %}
 
 See [Client Connection Parameters](connection-parameters.html) for more details.
 
@@ -209,7 +209,7 @@ These examples focus on the basic approach and syntax for working with zone conf
 
 ###  List the Pre-Configured Replication Zones
 
-<span class="version-tag">New in v2.0:</span> Newly created CockroachDB clusters start with some special pre-configured replication zones:
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v2.0:</span> Newly created CockroachDB clusters start with some special pre-configured replication zones:
 
 {% include copy-clipboard.html %}
 ~~~ shell
@@ -247,7 +247,7 @@ constraints: []
 ### Edit the Default Replication Zone
 
 {{site.data.alerts.callout_danger}}
-{% include {{page.version.version}}/known-limitations/system-range-replication.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/known-limitations/system-range-replication.md %}
 {{site.data.alerts.end}}
 
 To edit the default replication zone, create a YAML file defining only the values you want to change (other values will be copied from the `.default` zone), and use the `cockroach zone set .default -f <file.yaml>` command with appropriate flags:
@@ -356,7 +356,7 @@ $ echo 'num_replicas: 7' | cockroach zone set db1.t1 --insecure -f -
 This is an [enterprise-only](enterprise-licensing.html) feature.
 {{site.data.alerts.end}}
 
-The [secondary indexes](indexes.html) on a table will automatically use the replication zone for the table. However, with an enterprise license, you can add distinct replication zones for secondary indexes.
+The [secondary indexes](indexes.html) on a table will automatically use the replication zone for the table. However, with an [enterprise.license](cluster-settings.html#setting-enterprise-license), you can add distinct replication zones for secondary indexes.
 
 To control replication for a specific secondary index, create a YAML file defining only the values you want to change (other values will not be affected), and use the `cockroach zone set <database.table@index> -f <file.yaml>` command with appropriate flags:
 
@@ -400,7 +400,7 @@ $ echo 'num_replicas: 7' | cockroach zone set db1.table@idx1 \
 -f -
 ~~~
 
-### Create a Replication Zone for a Table or Secondary Index Partition <span class="version-tag">New in v2.0</span>
+### Create a Replication Zone for a Table or Secondary Index Partition <span class="[version](cluster-settings.html#setting-version)-tag">New in v2.0</span>
 
 {{site.data.alerts.callout_info}}
 This is an [enterprise-only](enterprise-licensing.html) feature.
@@ -438,7 +438,7 @@ In addition to the databases and tables that are visible via the SQL interface, 
 Zone Name | Description
 ----------|-----------------|------------
 `.meta` | The "meta" ranges contain the authoritative information about the location of all data in the cluster.<br><br>Because historical queries are never run on meta ranges and it is advantageous to keep these ranges smaller for reliable performance, CockroachDB comes with a **pre-configured** `.meta` replication zone giving these ranges a lower-than-default `ttlseconds`.<br><br>If your cluster is running in multiple datacenters, it's a best practice to configure the meta ranges to have a copy in each datacenter.
-`.liveness` | <span class="version-tag">New in v2.0:</span> The "liveness" range contains the authoritative information about which nodes are live at any given time.<br><br>Just as for "meta" ranges, historical queries are never run on the liveness range, so CockroachDB comes with a **pre-configured** `.liveness` replication zone giving this range a lower-than-default `ttlseconds`.<br><br>If this range is unavailable, the entire cluster will be unavailable, so giving it a high replication factor is strongly recommended.
+`.liveness` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v2.0:</span> The "liveness" range contains the authoritative information about which nodes are live at any given time.<br><br>Just as for "meta" ranges, historical queries are never run on the liveness range, so CockroachDB comes with a **pre-configured** `.liveness` replication zone giving this range a lower-than-default `ttlseconds`.<br><br>If this range is unavailable, the entire cluster will be unavailable, so giving it a high replication factor is strongly recommended.
 `.timeseries` | The "timeseries" ranges contain monitoring data about the cluster that powers the graphs in CockroachDB's admin UI. If necessary, you can add a `.timeseries` replication zone to control the replication of this data.
 `.system` | There are system ranges for a variety of other important internal data, including information needed to allocate new table IDs and track the status of a cluster's nodes. If necessary, you can add a `.system` replication zone to control the replication of this data.
 
@@ -532,7 +532,7 @@ $ cockroach start --insecure --host=<node6 hostname> --locality=datacenter=us-3 
 
 There's no need to make zone configuration changes; by default, the cluster is configured to replicate data three times, and even without explicit constraints, the cluster will aim to diversify replicas across node localities.
 
-### Per-Replica Constraints to Specific Datacenters <span class="version-tag">New in v2.0</span>
+### Per-Replica Constraints to Specific Datacenters <span class="[version](cluster-settings.html#setting-version)-tag">New in v2.0</span>
 
 **Scenario:**
 

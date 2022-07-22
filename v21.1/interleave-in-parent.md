@@ -23,7 +23,7 @@ In CockroachDB v21.1, interleaving is disabled with the `sql.defaults.interleave
 
 For more details, see the [GitHub tracking issue](https://github.com/cockroachdb/cockroach/issues/52009).
 
-After [upgrading to v21.1](upgrade-cockroach-version.html), we recommend that you do the following:
+After [upgrading to v21.1](upgrade-cockroach-[version](cluster-settings.html#setting-version).html), we recommend that you do the following:
 
 - [Convert any existing interleaved tables to non-interleaved tables](#convert-interleaved-tables).
 - [Replace any existing interleaved secondary indexes with non-interleaved indexes](#replace-interleaved-indexes).

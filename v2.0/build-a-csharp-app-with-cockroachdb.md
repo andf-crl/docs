@@ -30,7 +30,7 @@ The `dotnet` command creates a new app of type `console`. The `-o` parameter cre
 
 ## Step 2. Install the Npgsql driver
 
-Install the latest version of the [Npgsql driver](https://www.nuget.org/packages/Npgsql/) into the .NET project using the built-in nuget package manager:
+Install the latest [version](cluster-settings.html#setting-version) of the [Npgsql driver](https://www.nuget.org/packages/Npgsql/) into the .NET project using the built-in nuget package manager:
 
 {% include copy-clipboard.html %}
 ~~~ shell
@@ -84,7 +84,7 @@ Replace the contents of `cockraochdb-test-app/Program.cs` with the following cod
 
 {% include copy-clipboard.html %}
 ~~~ csharp
-{% include {{ page.version.version }}/app/basic-sample.cs %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/app/basic-sample.cs %}
 ~~~
 
 Then run the code to connect as the `maxroach` user and execute some basic SQL statements, creating a table, inserting rows, and reading and printing the rows:
@@ -108,7 +108,7 @@ Open `cockraochdb-test-app/Program.cs` again and replace the contents with the f
 
 {% include copy-clipboard.html %}
 ~~~ csharp
-{% include {{ page.version.version }}/app/txn-sample.cs %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/app/txn-sample.cs %}
 ~~~
 
 Then run the code to again connect as the `maxroach` user but this time execute a batch of statements as an atomic transaction to transfer funds from one account to another, where all included statements are either committed or aborted:
@@ -152,4 +152,4 @@ $ cockroach sql --insecure -e 'SELECT id, balance FROM accounts' --database=bank
 
 Read more about using the [.NET Npgsql driver](http://www.npgsql.org/).
 
-{% include {{ page.version.version }}/app/see-also-links.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/app/see-also-links.md %}

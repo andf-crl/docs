@@ -25,7 +25,7 @@ In addition to the information listed below, see the following pages for specifi
 - [Migrate from CSV][csv]
 - [Migrate from Avro][avro]
 
-{% include {{ page.version.version }}/misc/import-perf.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/import-perf.md %}
 
 ## File storage during import
 
@@ -46,7 +46,7 @@ Above a certain size, many data types such as [`STRING`](string.html)s, [`DECIMA
 
 CockroachDB does not provide `ENUM` or `SET` data types.
 
-In Postgres, you can emulate an `ENUM` type using a [`CHECK` constraint](check.html) as shown below.  For MySQL, we perform this conversion automatically during the import.
+In Postgres, you can emulate an `ENUM` type using a [`CHECK` constraint](check.html) as shown below.  For MySQL, we perform this con[version](cluster-settings.html#setting-version) automatically during the import.
 
 {% include copy-clipboard.html %}
 ~~~ sql

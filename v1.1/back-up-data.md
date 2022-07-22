@@ -7,7 +7,7 @@ toc: false
 CockroachDB offers the following methods to back up your cluster's data:
 
 - [`cockroach dump`](sql-dump.html), which is a CLI command to dump/export your database's schema and table data.
-- [`BACKUP`](backup.html) (*[enterprise license](https://www.cockroachlabs.com/pricing/) only*), which is a SQL statement that backs up your cluster to cloud or network file storage.
+- [`BACKUP`](backup.html) (*[[enterprise.license](cluster-settings.html#setting-enterprise-license)](https://www.cockroachlabs.com/pricing/) only*), which is a SQL statement that backs up your cluster to cloud or network file storage.
 
 ### Details
 

@@ -95,9 +95,9 @@ Here are some best practices for creating indexes:
 
 - Do not create indexes as the `root` user. Instead, create indexes as a [different user](schema-design-overview.html#controlling-access-to-objects), with fewer privileges, following [authorization best practices](authorization.html#authorization-best-practices). This will likely be the same user that created the table to which the index belongs.
 
-- {% include {{page.version.version}}/sql/dev-schema-changes.md %}
+- {% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/dev-schema-changes.md %}
 
-- {% include {{page.version.version}}/sql/dev-schema-change-limits.md %}
+- {% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/dev-schema-change-limits.md %}
 
 ### Example
 

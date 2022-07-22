@@ -29,7 +29,7 @@ $ cockroach start --insecure \
 
 ~~~
 CockroachDB node starting at {{page.release_info.start_time}}
-build:      CCL {{page.release_info.version}} @ {{page.release_info.build_time}}
+build:      CCL {{page.release_info.[version](cluster-settings.html#setting-version)}} @ {{page.release_info.build_time}}
 admin:      http://localhost:8080
 sql:        postgresql://root@localhost:26257?sslmode=disable
 logs:       cockroach-data/logs
@@ -44,7 +44,7 @@ This command starts a node in insecure mode, accepting most [`cockroach start`](
 - The `--insecure` flag makes communication unencrypted.
 - Since this is a purely local cluster, `--host=localhost` tells the node to listens only on `localhost`, with default ports used for internal and client traffic (`26257`) and for HTTP requests from the Admin UI (`8080`).
 - Node data is stored in the `cockroach-data` directory.
-- The [standard output](start-a-node.html#standard-output) gives you helpful details such as the CockroachDB version, the URL for the admin UI, and the SQL URL for clients.
+- The [standard output](start-a-node.html#standard-output) gives you helpful details such as the CockroachDB [version](cluster-settings.html#setting-version), the URL for the admin UI, and the SQL URL for clients.
 
 ## Step 2. Add nodes to the cluster
 

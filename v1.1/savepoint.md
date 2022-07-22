@@ -11,7 +11,7 @@ The `SAVEPOINT cockroach_restart` statement defines the intent to retry [transac
 
 ## Synopsis
 
-{% include {{ page.version.version }}/sql/diagrams/savepoint.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/savepoint.html %}
 
 ## Required Privileges
 

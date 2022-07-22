@@ -23,7 +23,7 @@ To pause a job, the user must be a member of the `admin` role or must have the [
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/generated/diagrams/pause_job.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/pause_job.html %}
 </div>
 
 ## Parameters
@@ -85,11 +85,11 @@ All jobs created by `maxroach` will be paused.
 > PAUSE JOB 438235476849557505;
 ~~~
 
-To permanently disable automatic table statistics jobs, disable the `sql.stats.automatic_collection.enabled` [cluster setting](cluster-settings.html):
+To permanently disable automatic table statistics jobs, disable the `[sql.stats.automatic_collection.enabled](cluster-settings.html#setting-sql-stats-automatic_collection-enabled)` [cluster setting](cluster-settings.html):
 
 {% include_cached copy-clipboard.html %}
 ~~~ sql
-> SET CLUSTER SETTING sql.stats.automatic_collection.enabled = false;
+> SET CLUSTER SETTING [sql.stats.automatic_collection.enabled](cluster-settings.html#setting-sql-stats-automatic_collection-enabled) = false;
 ~~~
 
 ### Pause jobs for a schedule

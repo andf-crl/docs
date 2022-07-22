@@ -26,7 +26,7 @@ Dependent objects must be backed up at the same time as the objects they depend 
 Object | Depends On
 -------|-----------
 Table with [foreign key](foreign-key.html) constraints | The table it `REFERENCES`; however, this dependency can be [removed during the restore](restore.html#skip_missing_foreign_keys).
-Table with a [sequence](create-sequence.html) | <span class="version-tag">New in v2.0:</span> The sequence it uses; however, this dependency can be [removed during the restore](restore.html#skip_missing_sequences).
+Table with a [sequence](create-sequence.html) | <span class="[version](cluster-settings.html#setting-version)-tag">New in v2.0:</span> The sequence it uses; however, this dependency can be [removed during the restore](restore.html#skip_missing_sequences).
 [Views](views.html) | The tables used in the view's `SELECT` statement.
 [Interleaved tables](interleave-in-parent.html) | The parent table in the [interleaved hierarchy](interleave-in-parent.html#interleaved-hierarchy).
 
@@ -58,9 +58,9 @@ Note the following restrictions:
 
 - It is not possible to create an incremental backup if one or more tables were [created](create-table.html), [dropped](drop-table.html), or [truncated](truncate.html) after the full backup. In this case, you must create a new [full backup](#full-backups).
 
-### Backups with Revision History <span class="version-tag">New in v2.0</span>
+### Backups with Revision History <span class="[version](cluster-settings.html#setting-version)-tag">New in v2.0</span>
 
-{% include {{ page.version.version }}/misc/beta-warning.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/beta-warning.md %}
 
 You can create full or incremental backups with revision history:
 
@@ -99,7 +99,7 @@ After the backup has been initiated, you can control it with [`PAUSE JOB`](pause
 ## Synopsis
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/backup.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/backup.html %}
 </div>
 
 {{site.data.alerts.callout_info}}The <code>BACKUP</code> statement cannot be used within a <a href=transactions.html>transaction</a>.{{site.data.alerts.end}}
@@ -116,7 +116,7 @@ Only the `root` user can run `BACKUP`.
 | `name` | The name of the database you want to back up (i.e., create backups of all tables and views in the database).|
 | `destination` | The URL where you want to store the backup.<br/><br/>For information about this URL structure, see [Backup File URLs](#backup-file-urls). |
 | `AS OF SYSTEM TIME timestamp` | Back up data as it existed as of [`timestamp`](as-of-system-time.html). The `timestamp` must be more recent than your cluster's last garbage collection (which defaults to occur every 25 hours, but is [configurable per table](configure-replication-zones.html#replication-zone-format)). |
-| `WITH revision_history` | <span class="version-tag">New in v2.0:</span> Create a backup with full [revision history](backup.html#backups-with-revision-history-new-in-v2-0) that records every change made to the cluster within the garbage collection period leading up to and including the given timestamp. |
+| `WITH revision_history` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v2.0:</span> Create a backup with full [revision history](backup.html#backups-with-revision-history-new-in-v2-0) that records every change made to the cluster within the garbage collection period leading up to and including the given timestamp. |
 | `INCREMENTAL FROM full_backup_location` | Create an incremental backup using the full backup stored at the URL `full_backup_location` as its base. For information about this URL structure, see [Backup File URLs](#backup-file-urls).<br><br>**Note:** It is not possible to create an incremental backup if one or more tables were [created](create-table.html), [dropped](drop-table.html), or [truncated](truncate.html) after the full backup. In this case, you must create a new [full backup](#full-backups). |
 | `incremental_backup_location` | Create an incremental backup that includes all backups listed at the provided URLs. <br/><br/>Lists of incremental backups must be sorted from oldest to newest. The newest incremental backup's timestamp must be within the table's garbage collection period. <br/><br/>For information about this URL structure, see [Backup File URLs](#backup-file-urls). <br/><br/>For more information about garbage collection, see [Configure Replication Zones](configure-replication-zones.html#replication-zone-format). |
 
@@ -124,7 +124,7 @@ Only the `root` user can run `BACKUP`.
 
 We will use the URL provided to construct a secure API call to the service you specify. The path to each backup must be unique, and the URL for your backup's destination/locations must use the following format:
 
-{% include {{ page.version.version }}/misc/external-urls.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/external-urls.md %}
 
 ## Examples
 
@@ -157,7 +157,7 @@ TO 'gs://acme-co-backup/database-bank-2017-03-27-weekly' \
 AS OF SYSTEM TIME '2017-03-26 23:59:00';
 ~~~
 
-### Backup with Revision History<span class="version-tag">New in v2.0</span>
+### Backup with Revision History<span class="[version](cluster-settings.html#setting-version)-tag">New in v2.0</span>
 
 {% include copy-clipboard.html %}
 ~~~ sql
@@ -178,7 +178,7 @@ AS OF SYSTEM TIME '2017-03-28 23:59:00' \
 INCREMENTAL FROM 'gs://acme-co-backup/database-bank-2017-03-27-weekly', 'gs://acme-co-backup/database-bank-2017-03-28-nightly';
 ~~~
 
-### Create Incremental Backups with Revision History<span class="version-tag">New in v2.0</span>
+### Create Incremental Backups with Revision History<span class="[version](cluster-settings.html#setting-version)-tag">New in v2.0</span>
 
 {% include copy-clipboard.html %}
 ~~~ sql

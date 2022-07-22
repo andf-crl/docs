@@ -4,7 +4,7 @@ summary: This page shows you how to use the cockroach quit command to temporaril
 toc: true
 ---
 
-This page shows you how to use the `cockroach quit` [command](cockroach-commands.html) to temporarily stop a node that you plan to restart, for example, during the process of [upgrading your cluster's version of CockroachDB](upgrade-cockroach-version.html).
+This page shows you how to use the `cockroach quit` [command](cockroach-commands.html) to temporarily stop a node that you plan to restart, for example, during the process of [upgrading your cluster's [version](cluster-settings.html#setting-version) of CockroachDB](upgrade-cockroach-[version](cluster-settings.html#setting-version).html).
 
 For information about permanently removing nodes to downsize a cluster or react to hardware failures, see [Remove Nodes](remove-nodes.html).
 
@@ -30,18 +30,18 @@ Basic terms:
 
 ### Considerations
 
-As mentioned above, by default, if a node stays offline for more than 5 minutes, the cluster will consider it dead and will rebalance its data to other nodes. Therefore, before temporarily stopping nodes, if you expect any node to be offline for longer than 5 minutes, you should first set the `server.time_until_store_dead` [cluster setting](cluster-settings.html) to higher than the `5m0s` default.
+As mentioned above, by default, if a node stays offline for more than 5 minutes, the cluster will consider it dead and will rebalance its data to other nodes. Therefore, before temporarily stopping nodes, if you expect any node to be offline for longer than 5 minutes, you should first set the `[server.time_until_store_dead](cluster-settings.html#setting-server-time_until_store_dead)` [cluster setting](cluster-settings.html) to higher than the `5m0s` default.
 
-For example, let's say you're upgrading system software on a group of servers, and the nodes running on the servers may be offline for up to 15 minutes as a result. Before shutting down the nodes, you would change the `server.time_until_store_dead` cluster setting as follows:
+For example, let's say you're upgrading system software on a group of servers, and the nodes running on the servers may be offline for up to 15 minutes as a result. Before shutting down the nodes, you would change the `[server.time_until_store_dead](cluster-settings.html#setting-server-time_until_store_dead)` cluster setting as follows:
 
 ~~~ sql
-> SET CLUSTER SETTING server.time_until_store_dead = '15m0s';
+> SET CLUSTER SETTING [server.time_until_store_dead](cluster-settings.html#setting-server-time_until_store_dead) = '15m0s';
 ~~~
 
 After completing the system upgrades and restarting the nodes, you would then change the setting back to its default:
 
 ~~~ sql
-> SET CLUSTER SETTING server.time_until_store_dead = '5m0s';
+> SET CLUSTER SETTING [server.time_until_store_dead](cluster-settings.html#setting-server-time_until_store_dead) = '5m0s';
 ~~~
 
 ## Synopsis
@@ -66,7 +66,7 @@ Flag | Description
 
 ### Client Connection
 
-{% include {{ page.version.version }}/sql/connection-parameters.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/connection-parameters.md %}
 
 See [Client Connection Parameters](connection-parameters.html) for more details.
 
@@ -133,4 +133,4 @@ If you need to troubleshoot this command's behavior, you can change its [logging
 
 - [Other Cockroach Commands](cockroach-commands.html)
 - [Permanently Remove Nodes from a Cluster](remove-nodes.html)
-- [Upgrade a Cluster's Version](upgrade-cockroach-version.html)
+- [Upgrade a Cluster's Version](upgrade-cockroach-[version](cluster-settings.html#setting-version).html)

@@ -41,7 +41,7 @@ For this example, we have 2 replicas (**A**, **B**) in an active-active high ava
 
 ## What is Multi-Active Availability?
 
-Multi-active availability is CockroachDB's version of high availability (keeping your application online in the face of partial failures), which we've designed to avoid the downsides of both active-passive and traditional active-active systems.
+Multi-active availability is CockroachDB's [version](cluster-settings.html#setting-version) of high availability (keeping your application online in the face of partial failures), which we've designed to avoid the downsides of both active-passive and traditional active-active systems.
 
 Like active-active designs, all replicas can handle traffic, including both reads and writes. However, CockroachDB improves upon that design by also ensuring that data remains consistent across them, which we achieve by using "consensus replication." In this design, replication requests are sent to at least 3 replicas, and are only considered committed when a majority of replicas acknowledge that they've received it. This means that you can still have failures without compromising availability.
 
@@ -61,6 +61,6 @@ For this example, we have 3 CockroachDB nodes (**A**, **B**, **C**) in a multi-a
 
 ## What's next?
 
-To get a greater understanding of how CockroachDB is a survivable system that enforces strong consistency, check out our [architecture documentation](../{{site.versions["stable"]}}/architecture/overview.html).
+To get a greater understanding of how CockroachDB is a survivable system that enforces strong consistency, check out our [architecture documentation](../{{site.[version](cluster-settings.html#setting-version)s["stable"]}}/architecture/overview.html).
 
 To see Multi-Active Availability in action, see this [availability demo](demo-fault-tolerance-and-recovery.html).

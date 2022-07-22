@@ -3,7 +3,7 @@ title: Custom Chart Debug Page
 toc: true
 ---
 
-<span class="version-tag">New in v2.0:</span> The **Custom Chart** debug page in the Admin UI can be used to create a custom chart showing any combination of over [200 available metrics](#available-metrics).
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v2.0:</span> The **Custom Chart** debug page in the Admin UI can be used to create a custom chart showing any combination of over [200 available metrics](#available-metrics).
 
 The definition of the customized dashboard is encoded in the URL. To share the dashboard with someone, send them the URL. Just like any other URL, it can be bookmarked, sit in a pinned tab in your browser, etc.
 
@@ -29,7 +29,7 @@ The table below the chart shows which metrics are being queried, and how they'll
 
 Options include:
 
-{% include {{page.version.version}}/admin-ui-custom-chart-debug-page-00.html %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/admin-ui-custom-chart-debug-page-00.html %}
 
 ## Examples
 
@@ -52,7 +52,7 @@ Checking **Per Node** displays statistics for each node, which could show whethe
 This list is taken directly from the source code and is subject to change. Some of the metrics listed below are already visible in other areas of the [Admin UI](admin-ui-overview.html).
 {{site.data.alerts.end}}
 
-{% include {{page.version.version}}/metric-names.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/metric-names.md %}
 
 ## See Also
 

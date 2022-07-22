@@ -4,7 +4,7 @@ summary: The ARRAY data type stores one-dimensional, 1-indexed, homogeneous arra
 toc: true
 ---
 
-<span class="version-tag">New in v1.1:</span>The `ARRAY` data type stores one-dimensional, 1-indexed, homogeneous arrays of any non-array [data type](data-types.html).
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v1.1:</span>The `ARRAY` data type stores one-dimensional, 1-indexed, homogeneous arrays of any non-array [data type](data-types.html).
 
 The `ARRAY` data type is useful for ensuring compatibility with ORMs and other tools. However, if such compatibility is not a concern, it's more flexible to design your schema with normalized tables.
 
@@ -184,9 +184,9 @@ For a complete list of array functions built into CockroachDB, see the [document
 (1 row)
 ~~~
 
-## Supported Casting & Conversion<span class="version-tag">New in v2.0</span>
+## Supported Casting & Con[version](cluster-settings.html#setting-version)<span class="[version](cluster-settings.html#setting-version)-tag">New in v2.0</span>
 
-[Casting](data-types.html#data-type-conversions-casts) between `ARRAY` values is supported when the data types of the arrays support casting. For example, it is possible to cast from a `BOOL` array to an `INT` array but not from a `BOOL` array to a `TIMESTAMP` array:
+[Casting](data-types.html#data-type-con[version](cluster-settings.html#setting-version)s-casts) between `ARRAY` values is supported when the data types of the arrays support casting. For example, it is possible to cast from a `BOOL` array to an `INT` array but not from a `BOOL` array to a `TIMESTAMP` array:
 
 {% include copy-clipboard.html %}
 ~~~ sql

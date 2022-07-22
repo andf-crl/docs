@@ -8,7 +8,7 @@ Follower reads are a mechanism that CockroachDB uses to provide faster reads in 
 
 A follower read is a read taken from the closest [replica](architecture/overview.html#architecture-replica), regardless of the replica's leaseholder status. This can result in much better latency in [geo-distributed, multi-region deployments](topology-patterns.html#multi-region-patterns).
 
-<span class="version-tag">New in v20.1:</span> The shortest interval at which [`AS OF SYSTEM TIME`](as-of-system-time.html) can serve follower reads is 4.8 seconds. In prior versions of CockroachDB, the interval was 48 seconds.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> The shortest interval at which [`AS OF SYSTEM TIME`](as-of-system-time.html) can serve follower reads is 4.8 seconds. In prior [version](cluster-settings.html#setting-version)s of CockroachDB, the interval was 48 seconds.
 
 For instructions showing how to use follower reads to get low latency, historical reads in multi-region deployments, see the [Follower Reads Topology Pattern](topology-follower-reads.html).
 
@@ -40,14 +40,14 @@ In addition, follower reads are "read-only" operations; they cannot be used in a
 
 ### Enable/disable follower reads
 
-Use [`SET CLUSTER SETTING`](set-cluster-setting.html) to set `kv.closed_timestamp.follower_reads_enabled` to:
+Use [`SET CLUSTER SETTING`](set-cluster-setting.html) to set `[kv.closed_timestamp.follower_reads_enabled](cluster-settings.html#setting-kv-closed_timestamp-follower_reads_enabled)` to:
 
 - `true` to enable follower reads _(default)_
 - `false` to disable follower reads
 
 {% include copy-clipboard.html %}
 ~~~ sql
-> SET CLUSTER SETTING kv.closed_timestamp.follower_reads_enabled = false;
+> SET CLUSTER SETTING [kv.closed_timestamp.follower_reads_enabled](cluster-settings.html#setting-kv-closed_timestamp-follower_reads_enabled) = false;
 ~~~
 
 If you have follower reads enabled, you may want to [verify that follower reads are happening](#verify-that-follower-reads-are-happening).

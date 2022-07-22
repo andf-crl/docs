@@ -20,7 +20,7 @@ For a more realistic use of SQLAlchemy with CockroachDB, see our [`examples-orms
 
 ## Before you begin
 
-{% include {{page.version.version}}/app/before-you-begin.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/before-you-begin.md %}
 
 ## Step 1. Install the SQLAlchemy ORM
 
@@ -41,7 +41,7 @@ For other ways to install SQLAlchemy, see the [official documentation](http://do
 
 ## Step 2. Create the `maxroach` user and `bank` database
 
-{% include {{page.version.version}}/app/create-maxroach-user-and-bank-database.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/create-maxroach-user-and-bank-database.md %}
 
 ## Step 3. Generate a certificate for the `maxroach` user
 
@@ -66,7 +66,7 @@ Copy the code or
 
 {% include copy-clipboard.html %}
 ~~~ python
-{% include {{page.version.version}}/app/sqlalchemy-basic-sample.py %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/sqlalchemy-basic-sample.py %}
 ~~~
 
 Then run the code:
@@ -113,7 +113,7 @@ Then, issue the following statement:
 
 ## Step 2. Create the `maxroach` user and `bank` database
 
-{% include {{page.version.version}}/app/insecure/create-maxroach-user-and-bank-database.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/insecure/create-maxroach-user-and-bank-database.md %}
 
 ## Step 3. Run the Python code
 
@@ -129,7 +129,7 @@ Copy the code or
 
 {% include copy-clipboard.html %}
 ~~~ python
-{% include {{page.version.version}}/app/insecure/sqlalchemy-basic-sample.py %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/insecure/sqlalchemy-basic-sample.py %}
 ~~~
 
 Then run the code:
@@ -176,4 +176,4 @@ Then, issue the following statement:
 
 Read more about using the [SQLAlchemy ORM](https://docs.sqlalchemy.org/en/latest/), or check out a more realistic implementation of SQLAlchemy with CockroachDB in our [`examples-orms`](https://github.com/cockroachdb/examples-orms) repository.
 
-{% include {{page.version.version}}/app/see-also-links.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/see-also-links.md %}

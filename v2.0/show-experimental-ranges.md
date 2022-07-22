@@ -16,13 +16,13 @@ This information is useful for verifying that:
 - The ["follow-the-workload"](demo-follow-the-workload.html) feature is operating as expected.
 - Range splits specified by the [`SPLIT AT`](split-at.html) statement were created as expected.
 
-{% include {{ page.version.version }}/misc/experimental-warning.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/experimental-warning.md %}
 
 
 ## Synopsis
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/show_ranges.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/show_ranges.html %}
 </div>
 
 ## Required Privileges

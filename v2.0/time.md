@@ -3,7 +3,7 @@ title: TIME
 summary: The TIME data type stores a time of day without a time zone.
 toc: true
 ---
-<span class="version-tag">New in v2.0:</span> The `TIME` [data type](data-types.html) stores the time of day without a time zone.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v2.0:</span> The `TIME` [data type](data-types.html) stores the time of day without a time zone.
 
 
 ## Aliases
@@ -72,9 +72,9 @@ A `TIME` column supports values up to 8 bytes in width, but the total storage si
 ~~~
 {{site.data.alerts.callout_info}}The <code>cockroach sql</code> shell displays the date and timezone due to the Go SQL driver it uses. Other client drivers may behave similarly. In such cases, however, the date and timezone are not relevant and are not stored in the database.{{site.data.alerts.end}}
 
-## Supported Casting & Conversion
+## Supported Casting & Con[version](cluster-settings.html#setting-version)
 
-`TIME` values can be [cast](data-types.html#data-type-conversions-casts) to any of the following data types:
+`TIME` values can be [cast](data-types.html#data-type-con[version](cluster-settings.html#setting-version)s-casts) to any of the following data types:
 
 Type | Details
 -----|--------

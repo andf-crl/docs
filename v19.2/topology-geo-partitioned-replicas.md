@@ -18,11 +18,11 @@ In a multi-region deployment, the geo-partitioned replicas topology is a good ch
 
 ### Fundamentals
 
-{% include {{ page.version.version }}/topology-patterns/fundamentals.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/topology-patterns/fundamentals.md %}
 
 ### Cluster setup
 
-{% include {{ page.version.version }}/topology-patterns/multi-region-cluster-setup.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/topology-patterns/multi-region-cluster-setup.md %}
 
 ## Configuration
 
@@ -92,7 +92,7 @@ A geo-partitioned table does not require a secondary index. However, if the tabl
 4. For each partition of the table and its secondary index, [create a replication zone](configure-zone.html) that constrains the partition's replicas to nodes in the relevant region:
 
     {{site.data.alerts.callout_success}}
-    <span class="version-tag">New in v19.2:</span> The `<table>@*` syntax lets you create zone configurations for all identically named partitions of a table, saving you multiple steps.
+    <span class="[version](cluster-settings.html#setting-version)-tag">New in v19.2:</span> The `<table>@*` syntax lets you create zone configurations for all identically named partitions of a table, saving you multiple steps.
     {{site.data.alerts.end}}
 
     {% include copy-clipboard.html %}
@@ -105,7 +105,7 @@ A geo-partitioned table does not require a secondary index. However, if the tabl
         CONFIGURE ZONE USING constraints = '[+region=us-east]';
       ~~~
 
-5. <span class="version-tag">New in v19.2:</span> To confirm that partitions are in effect, you can use the [`SHOW CREATE TABLE`](show-create.html) or [`SHOW PARTITIONS`](show-partitions.html) statement:
+5. <span class="[version](cluster-settings.html#setting-version)-tag">New in v19.2:</span> To confirm that partitions are in effect, you can use the [`SHOW CREATE TABLE`](show-create.html) or [`SHOW PARTITIONS`](show-partitions.html) statement:
 
     {% include copy-clipboard.html %}
     ~~~ sql
@@ -169,7 +169,7 @@ A geo-partitioned table does not require a secondary index. However, if the tabl
 As you scale and add more cities, you can repeat steps 2 and 3 with the new complete list of cities to re-partition the table and its secondary indexes, and then repeat step 4 to create replication zones for the new partitions.
 {{site.data.alerts.end}}
 
-{% include {{page.version.version}}/sql/crdb-internal-partitions.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/crdb-internal-partitions.md %}
 
 ## Characteristics
 
@@ -221,4 +221,4 @@ For a step-by-step demonstration of how this pattern gets you low-latency reads 
 
 ## See also
 
-{% include {{ page.version.version }}/topology-patterns/see-also.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/topology-patterns/see-also.md %}

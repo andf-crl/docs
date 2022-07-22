@@ -12,19 +12,19 @@ Currently, you can bulk insert data with batches of [`INSERT`](insert.html) stat
 
 ## How do I auto-generate unique row IDs in CockroachDB?
 
-{% include {{ page.version.version }}/faq/auto-generate-unique-ids.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/faq/auto-generate-unique-ids.html %}
 
 ## How do I generate unique, slowly increasing sequential numbers in CockroachDB?
 
-{% include {{ page.version.version }}/faq/sequential-numbers.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/faq/sequential-numbers.md %}
 
 ## What are the differences between `UUID`, sequences, and `unique_rowid()`?
 
-{% include {{ page.version.version }}/faq/differences-between-numberings.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/faq/differences-between-numberings.md %}
 
 ## How do I order writes to a table to closely follow time in CockroachDB?
 
-{% include {{ page.version.version }}/faq/sequential-transactions.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/faq/sequential-transactions.md %}
 
 ## How do I get the last ID/SERIAL value inserted into a table?
 
@@ -61,7 +61,7 @@ not yet supported.
 
 [Interleaving tables](interleave-in-parent.html) improves query performance by optimizing the key-value structure of closely related tables, attempting to keep data on the same key-value range if it's likely to be read and written together.
 
-{% include {{ page.version.version }}/faq/when-to-interleave-tables.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/faq/when-to-interleave-tables.html %}
 
 ## Does CockroachDB support JSON or Protobuf datatypes?
 
@@ -83,7 +83,7 @@ If you'd like to tell the query planner which index to use, you can do so via so
 
 ## How do I log SQL queries?
 
-{% include {{ page.version.version }}/faq/sql-query-logging.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/faq/sql-query-logging.md %}
 
 ## Does CockroachDB support a UUID type?
 
@@ -128,13 +128,13 @@ require('long').fromString(idString).add(1).toString(); // GOOD: returns '235191
 
 ## Can I use CockroachDB as a key-value store?
 
-{% include {{ page.version.version }}/faq/simulate-key-value-store.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/faq/simulate-key-value-store.html %}
 
 ## Why are my deletes getting slower over time?
 
 > I need to delete a large amount of data. I'm iteratively deleting a certain number of rows using a [`DELETE`](delete.html) statement with a [`LIMIT`](limit-offset.html) clause, but it's getting slower over time. Why?
 
-CockroachDB relies on [multi-version concurrency control (MVCC)](architecture/storage-layer.html#mvcc) to process concurrent requests while guaranteeing [strong consistency](strong-consistency.html). As such, when you delete a row it is not immediately removed from disk. The MVCC values for the row will remain until the garbage collection period defined by the [`gc.ttlseconds`](configure-replication-zones.html#gc-ttlseconds) [zone configuration](show-zone-configurations.html) has passed.  By default, this period is 25 hours.
+CockroachDB relies on [multi-[version](cluster-settings.html#setting-version) concurrency control (MVCC)](architecture/storage-layer.html#mvcc) to process concurrent requests while guaranteeing [strong consistency](strong-consistency.html). As such, when you delete a row it is not immediately removed from disk. The MVCC values for the row will remain until the garbage collection period defined by the [`gc.ttlseconds`](configure-replication-zones.html#gc-ttlseconds) [zone configuration](show-zone-configurations.html) has passed.  By default, this period is 25 hours.
 
 This means that with the default settings, each iteration of your `DELETE` statement must scan over all of the rows previously marked for deletion within the last 25 hours. This means that if you try to delete 10,000 rows 10 times within the same 25 hour period, the 10th command will have to scan over the 90,000 rows previously marked for deletion.
 

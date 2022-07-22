@@ -10,7 +10,7 @@ The `SET TRANSACTION` [statement](sql-statements.html) sets the transaction prio
 ## Synopsis
 
 <div>
-{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.version.version | replace: "v", "" }}/grammar_svg/set_transaction.html %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/grammar_svg/set_transaction.html %}
 </div>
 
 ## Required privileges
@@ -26,7 +26,7 @@ Parameter | Description
 `AS OF SYSTEM TIME` | Execute the transaction using the database contents "as of" a specified time in the past.<br/><br/> The `AS OF SYSTEM TIME` clause can be used only when the transaction is read-only. If the transaction contains any writes, or if the `READ WRITE` mode is specified, an error will be returned.<br/><br/>For more information, see [AS OF SYSTEM TIME](as-of-system-time.html).
 `NOT DEFERRABLE`<br>`DEFERRABLE` |  This clause is supported for compatibility with PostgreSQL. `NOT DEFERRABLE` is a no-op and the default behavior for CockroachDB. `DEFERRABLE` returns an `unimplemented` error.
 
-CockroachDB now only supports `SERIALIZABLE` isolation, so transactions can no longer be meaningfully set to any other `ISOLATION LEVEL`. In previous versions of CockroachDB, you could set transactions to `SNAPSHOT` isolation, but that feature has been removed.
+CockroachDB now only supports `SERIALIZABLE` isolation, so transactions can no longer be meaningfully set to any other `ISOLATION LEVEL`. In previous [version](cluster-settings.html#setting-version)s of CockroachDB, you could set transactions to `SNAPSHOT` isolation, but that feature has been removed.
 
 ## Examples
 
@@ -73,7 +73,7 @@ CockroachDB now only supports `SERIALIZABLE` isolation, so transactions can no l
 
 You can execute the transaction using the database contents "as of" a specified time in the past.
 
-{% include {{ page.version.version }}/sql/set-transaction-as-of-system-time-example.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/set-transaction-as-of-system-time-example.md %}
 
 ### Set the default transaction priority for a session
 

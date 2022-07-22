@@ -65,7 +65,7 @@ However, `MYSQLDUMP` and `PGDUMP` run a single thread to parse their data, and t
 - [Provide the table schema in-line](#provide-the-table-schema-in-line)
 - [Import the schema separately from the data](#import-the-schema-separately-from-the-data)
 
-{% include {{ page.version.version }}/import-table-deprecate.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/import-table-deprecate.md %}
 
 ### Provide the table schema in-line
 

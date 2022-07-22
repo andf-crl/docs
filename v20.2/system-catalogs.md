@@ -11,7 +11,7 @@ The following system catalogs are available as schemas preloaded to every databa
 - [`information_schema`](information-schema.html), a schema provided for compatibility with the SQL standard.
 - [`crdb_internal`](crdb-internal.html), a schema with information about CockroachDB internals.
 - [`pg_catalog`](pg-catalog.html),  a schema provided for compatibility with PostgreSQL.
-- <span class="version-tag">New in v20.2</span>: [`pg_extension`](pg-extension.html), a schema with information about CockroachDB extensions.
+- <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2</span>: [`pg_extension`](pg-extension.html), a schema with information about CockroachDB extensions.
 
 {{site.data.alerts.callout_danger}}
 Tables in the system catalogs have varying levels of stability. Not all system catalog tables are meant for programmatic purposes.

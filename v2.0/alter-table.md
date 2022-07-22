@@ -21,7 +21,7 @@ Subcommand | Description
 [`DROP COLUMN`](drop-column.html) | Remove columns from tables.
 [`DROP CONSTRAINT`](drop-constraint.html) | Remove constraints from columns.
 [`EXPERIMENTAL_AUDIT`](experimental-audit.html) | Enable per-table audit logs.
-[`PARTITION BY`](partition-by.html)  | <span class="version-tag">New in v2.0</span>: Repartition or unpartition a table with partitions ([Enterprise-only](enterprise-licensing.html)).
+[`PARTITION BY`](partition-by.html)  | <span class="[version](cluster-settings.html#setting-version)-tag">New in v2.0</span>: Repartition or unpartition a table with partitions ([Enterprise-only](enterprise-licensing.html)).
 [`RENAME COLUMN`](rename-column.html) | Change the names of columns.
 [`RENAME TABLE`](rename-table.html) | Change the names of tables.
 [`SPLIT AT`](split-at.html) | Force a key-value layer range split at the specified row in the table.
@@ -29,4 +29,4 @@ Subcommand | Description
 
 ## Viewing Schema Changes
 
-{% include {{ page.version.version }}/misc/schema-change-view-job.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-view-job.md %}

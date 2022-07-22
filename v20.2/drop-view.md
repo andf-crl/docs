@@ -6,7 +6,7 @@ toc: true
 
 The `DROP VIEW` [statement](sql-statements.html) removes a [view](views.html) from a database.
 
-{% include {{{ page.version.version }}/misc/schema-change-stmt-note.md %}
+{% include {{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-stmt-note.md %}
 
 ## Required privileges
 
@@ -14,13 +14,13 @@ The user must have the `DROP` [privilege](authorization.html#assign-privileges) 
 
 ## Synopsis
 
-<div>{% include {{ page.version.version }}/sql/diagrams/drop_view.html %}</div>
+<div>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/drop_view.html %}</div>
 
 ## Parameters
 
  Parameter | Description
 ----------|-------------
-`MATERIALIZED` | <span class="version-tag">New in v20.2:</span> Drop a [materialized view](views.html#materialized-views).
+`MATERIALIZED` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> Drop a [materialized view](views.html#materialized-views).
  `IF EXISTS`   | Drop the view if it exists; if it does not exist, do not return an error.
  `table_name`  | A comma-separated list of view names. To find view names, use:<br><br>`SELECT * FROM information_schema.tables WHERE table_type = 'VIEW';`
  `CASCADE` | Drop other views that depend on the view being dropped.<br><br>`CASCADE` does not list views it drops, so should be used cautiously.

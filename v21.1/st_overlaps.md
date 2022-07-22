@@ -24,7 +24,7 @@ In other words, `ST_Overlaps` returns `true` if the shapes intersect (in the [`S
 
 ## Examples
 
-{% include {{page.version.version}}/misc/geojson_geometry_note.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/misc/geojson_geometry_note.md %}
 
 ### True
 

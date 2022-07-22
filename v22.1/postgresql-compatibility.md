@@ -7,7 +7,7 @@ docs_area: reference.sql
 
 CockroachDB supports the [PostgreSQL wire protocol](https://www.postgresql.org/docs/current/protocol.html) and the majority of PostgreSQL syntax. This means that existing applications built on PostgreSQL can often be migrated to CockroachDB without changing application code.
 
-CockroachDB is compatible with version 3.0 of the PostgreSQL wire protocol (pgwire) and works with the majority of PostgreSQL database tools such as [DBeaver](dbeaver.html), [Intellij](intellij-idea.html), and so on. Consult this link for a full list of supported [third-party database tools](third-party-database-tools.html). CockroachDB also works with most [PostgreSQL drivers and ORMs](example-apps.html).
+CockroachDB is compatible with [version](cluster-settings.html#setting-version) 3.0 of the PostgreSQL wire protocol (pgwire) and works with the majority of PostgreSQL database tools such as [DBeaver](dbeaver.html), [Intellij](intellij-idea.html), and so on. Consult this link for a full list of supported [third-party database tools](third-party-database-tools.html). CockroachDB also works with most [PostgreSQL drivers and ORMs](example-apps.html).
 
 However, CockroachDB does not support some of the PostgreSQL features or behaves differently from PostgreSQL because not all features can be easily implemented in a distributed system. This page documents the known list of differences between PostgreSQL and CockroachDB for identical input. That is, a SQL statement of the type listed here will behave differently than in PostgreSQL. Porting an existing application to CockroachDB will require changing these expressions.
 
@@ -19,13 +19,13 @@ This document currently only covers unsupported SQL and how to rewrite SQL expre
 
 ### Unsupported PostgreSQL features
 
-The following PostgreSQL features are not supported in CockroachDB {{ page.version.version }}:
+The following PostgreSQL features are not supported in CockroachDB {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}:
 
-{% include {{page.version.version}}/sql/unsupported-postgres-features.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/unsupported-postgres-features.md %}
 
 ### Unsupported PostgreSQL wire protocol features
 
-The following features of the PostgreSQL wire protocol are not supported in CockroachDB {{ page.version.version }}:
+The following features of the PostgreSQL wire protocol are not supported in CockroachDB {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}:
 
 - [Multiple active portals](https://github.com/cockroachdb/cockroach/issues/40195)
 

@@ -1,13 +1,13 @@
 ---
 title: Upgrade a Cluster's Version
-summary: Learn how to upgrade your CockroachDB cluster to a new version.
+summary: Learn how to upgrade your CockroachDB cluster to a new [version](cluster-settings.html#setting-version).
 toc: true
 toc_not_nested: true
 ---
 
 Because of CockroachDB's [multi-active availability](multi-active-availability.html) design, you can perform a "rolling upgrade" of your CockroachDB cluster. This means that you can upgrade nodes one at a time without interrupting the cluster's overall health and operations.
 
-{{site.data.alerts.callout_info}}This page shows you how to upgrade from v1.0 to a patch release in the 1.0.x series. To upgrade from v1.0.x to v1.1, see <a href="https://www.cockroachlabs.com/docs/v1.1/upgrade-cockroach-version.html">the 1.1 version of this page</a>.{{site.data.alerts.end}}
+{{site.data.alerts.callout_info}}This page shows you how to upgrade from v1.0 to a patch release in the 1.0.x series. To upgrade from v1.0.x to v1.1, see <a href="https://www.cockroachlabs.com/docs/v1.1/upgrade-cockroach-[version](cluster-settings.html#setting-version).html">the 1.1 [version](cluster-settings.html#setting-version) of this page</a>.{{site.data.alerts.end}}
 
 
 ## Step 1. Prepare to upgrade
@@ -20,7 +20,7 @@ Before starting the upgrade, complete the following steps.
 
     In the response:
     - If any nodes that should be live are not listed, identify why the nodes are offline and restart them before begining your upgrade.
-    - Make sure the `build` field shows the same version of CockroachDB for all nodes. If any nodes are behind, upgrade them to the cluster's current version first, and then start this process over.
+    - Make sure the `build` field shows the same [version](cluster-settings.html#setting-version) of CockroachDB for all nodes. If any nodes are behind, upgrade them to the cluster's current [version](cluster-settings.html#setting-version) first, and then start this process over.
     - Make sure `ranges_unavailable` and `ranges_underreplicated` show `0` for all nodes. If there are unavailable or underreplicated ranges in your cluster, performing a rolling upgrade increases the risk that ranges will lose a majority of their replicas and cause cluster unavailability. Therefore, it's important to identify and resolve the cause of range unavailability and underreplication before beginning your upgrade.
 
 3. Capture the cluster's current state by running the [`cockroach debug zip`](debug-zip.html) command against any node in the cluster. If the upgrade does not go according to plan, the captured details will help you and Cockroach Labs troubleshoot issues.
@@ -66,24 +66,24 @@ For each node in your cluster, complete the following steps.
     <div class="filter-content" markdown="1" data-scope="mac">
     {% include copy-clipboard.html %}
     ~~~ shell
-    $ curl https://binaries.cockroachdb.com/cockroach-{{page.release_info.version}}.darwin-10.9-amd64.tgz
+    $ curl https://binaries.cockroachdb.com/cockroach-{{page.release_info.[version](cluster-settings.html#setting-version)}}.darwin-10.9-amd64.tgz
     ~~~
 
     {% include copy-clipboard.html %}
     ~~~ shell
-    $ tar -xzf cockroach-{{page.release_info.version}}.darwin-10.9-amd64.tgz
+    $ tar -xzf cockroach-{{page.release_info.[version](cluster-settings.html#setting-version)}}.darwin-10.9-amd64.tgz
     ~~~
     </div>
 
     <div class="filter-content" markdown="1" data-scope="linux">
     {% include copy-clipboard.html %}
     ~~~ shell
-    $ curl https://binaries.cockroachdb.com/cockroach-{{page.release_info.version}}.linux-amd64.tgz
+    $ curl https://binaries.cockroachdb.com/cockroach-{{page.release_info.[version](cluster-settings.html#setting-version)}}.linux-amd64.tgz
     ~~~
 
     {% include copy-clipboard.html %}
     ~~~ shell
-    $ tar -xzf cockroach-{{page.release_info.version}}.linux-amd64.tgz
+    $ tar -xzf cockroach-{{page.release_info.[version](cluster-settings.html#setting-version)}}.linux-amd64.tgz
     ~~~
     </div>
 
@@ -103,7 +103,7 @@ For each node in your cluster, complete the following steps.
 
     {% include copy-clipboard.html %}
     ~~~ shell
-    $ cp -i cockroach-{{page.release_info.version}}.darwin-10.9-amd64/cockroach /usr/local/bin/cockroach
+    $ cp -i cockroach-{{page.release_info.[version](cluster-settings.html#setting-version)}}.darwin-10.9-amd64/cockroach /usr/local/bin/cockroach
     ~~~
     </div>
 
@@ -115,7 +115,7 @@ For each node in your cluster, complete the following steps.
 
     {% include copy-clipboard.html %}
     ~~~ shell
-    $ cp -i cockroach-{{page.release_info.version}}.linux-amd64/cockroach /usr/local/bin/cockroach
+    $ cp -i cockroach-{{page.release_info.[version](cluster-settings.html#setting-version)}}.linux-amd64/cockroach /usr/local/bin/cockroach
     ~~~
     </div>
 
@@ -138,7 +138,7 @@ For each node in your cluster, complete the following steps.
     $ rm /usr/local/bin/cockroach_old
     ~~~
 
-    If you leave versioned binaries on your servers, you do not need to do anything.
+    If you leave [version](cluster-settings.html#setting-version)ed binaries on your servers, you do not need to do anything.
 
 8. Wait at least one minute after the node has rejoined the cluster, and then repeat these steps for the next node.
 
@@ -152,11 +152,11 @@ If you experience any problems, follow these steps to troubleshoot and, if neces
 
 2. [Reach out for support](support-resources.html) from Cockroach Labs, sharing your debug zip.
 
-3. If necessary, downgrade the cluster by repeating the [rolling upgrade process](#step-2-perform-the-rolling-upgrade), but this time switching each node back to the previous version in the 1.0.x series.
+3. If necessary, downgrade the cluster by repeating the [rolling upgrade process](#step-2-perform-the-rolling-upgrade), but this time switching each node back to the previous [version](cluster-settings.html#setting-version) in the 1.0.x series.
 
 ## See Also
 
 - [View Node Details](view-node-details.html)
 - [Collect Debug Information](debug-zip.html)
-- [View Version Details](view-version-details.html)
-- [Release notes for our latest version](../releases/{{page.release_info.version}}.html)
+- [View Version Details](view-[version](cluster-settings.html#setting-version)-details.html)
+- [Release notes for our latest [version](cluster-settings.html#setting-version)](../releases/{{page.release_info.[version](cluster-settings.html#setting-version)}}.html)

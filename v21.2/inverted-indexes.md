@@ -162,7 +162,7 @@ CREATE TABLE test (
 
 ## GIN indexes on `REGIONAL BY ROW` tables in multi-region databases
 
-{% include {{page.version.version}}/sql/indexes-regional-by-row.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/indexes-regional-by-row.md %}
 
 For an example that uses unique indexes but applies to all indexes on `REGIONAL BY ROW` tables, see [Add a unique index to a `REGIONAL BY ROW` table](add-constraint.html#add-a-unique-index-to-a-regional-by-row-table).
 
@@ -364,7 +364,7 @@ Time: 2ms total (execution 2ms / network 0ms)
 
 ### Inverted join examples
 
-{% include {{ page.version.version }}/sql/inverted-joins.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/inverted-joins.md %}
 
 ## See also
 

@@ -12,7 +12,7 @@ The `ALTER PARTITION` [statement](sql-statements.html) is used to configure repl
 ## Synopsis
 
 <div>
-{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.version.version | replace: "v", "" }}/grammar_svg/alter_zone_partition.html %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/grammar_svg/alter_zone_partition.html %}
 </div>
 
 ## Required privileges
@@ -31,12 +31,12 @@ The user must have the [`CREATE`](grant.html#supported-privileges) privilege on 
 
 ### Variables
 
-{% include {{ page.version.version }}/zone-configs/variables.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/zone-configs/variables.md %}
 
 ## Examples
 
-{% include {{ page.version.version }}/sql/movr-statements-geo-partitioned-replicas.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/movr-statements-geo-partitioned-replicas.md %}
 
 ### Create a replication zone for a partition
 
-{% include {{ page.version.version }}/zone-configs/create-a-replication-zone-for-a-table-partition.md hide-enterprise-warning="true" %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/zone-configs/create-a-replication-zone-for-a-table-partition.md hide-enterprise-warning="true" %}

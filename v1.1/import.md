@@ -74,7 +74,7 @@ Because of [`IMPORT`](import.html)'s current implementation, the entire task is 
 
 It's important to note, though, that after the single machine creates the CockroachDB-compatible key-value data, the process of importing the data is distributed among nodes in the cluster.
 
-{{site.data.alerts.callout_info}}Future versions of <code>IMPORT</code> will let you distribute the entire process among many nodes.{{site.data.alerts.end}}
+{{site.data.alerts.callout_info}}Future [version](cluster-settings.html#setting-version)s of <code>IMPORT</code> will let you distribute the entire process among many nodes.{{site.data.alerts.end}}
 
 #### Available Storage Requirements
 
@@ -134,7 +134,7 @@ Later steps of the import process distribute work among many nodes and have less
 
 ## Synopsis
 
-{% include {{ page.version.version }}/sql/diagrams/import.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/import.html %}
 
 ## Required Privileges
 
@@ -154,7 +154,7 @@ Only the `root` user can run [`IMPORT`](import.html).
 
 URLs for the file you want to import and your temp directory must use the following format:
 
-{% include {{ page.version.version }}/misc/external-urls.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/external-urls.md %}
 
 #### Notes
 

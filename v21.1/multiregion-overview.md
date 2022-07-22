@@ -7,7 +7,7 @@ keywords: gin, gin index, gin indexes, inverted index, inverted indexes, acceler
 
 ## Overview
 
-{% include_cached new-in.html version="v21.1" %} CockroachDB has improved multi-region capabilities that make it easier to run global applications.
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.1" %} CockroachDB has improved multi-region capabilities that make it easier to run global applications.
 
 To take advantage of these improved capabilities, you will need to understand the following concepts:
 
@@ -30,7 +30,7 @@ The steps above describe the simplest case, where you accept all of the default 
 For more information about CockroachDB's multi-region capabilities and the customization options that are available, see below.
 
 {{site.data.alerts.callout_success}}
-{% include {{page.version.version}}/misc/multiregion-max-offset.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/misc/multiregion-max-offset.md %}
 {{site.data.alerts.end}}
 
 {% include enterprise-feature.md %}
@@ -139,15 +139,15 @@ Table locality settings are used for optimizing latency under different read/wri
 
 ### Regional tables
 
-{% include {{page.version.version}}/sql/regional-table-description.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/regional-table-description.md %}
 
 ### Regional by row tables
 
-{% include {{page.version.version}}/sql/regional-by-row-table-description.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/regional-by-row-table-description.md %}
 
 ### Global tables
 
-{% include {{page.version.version}}/sql/global-table-description.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/global-table-description.md %}
 
 ## Additional Features
 
@@ -155,7 +155,7 @@ The features listed in this section are designed to make working with multi-regi
 
 ### Indexes on `REGIONAL BY ROW` tables
 
-{% include {{page.version.version}}/sql/indexes-regional-by-row.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/indexes-regional-by-row.md %}
 
 Note that the behavior described above also applies to [GIN indexes](inverted-indexes.html).
 
@@ -163,7 +163,7 @@ For an example that uses unique indexes but applies to all indexes on `REGIONAL 
 
 ## Schema changes in multi-region clusters
 
-{% include {{ page.version.version }}/performance/lease-preference-system-database.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/performance/lease-preference-system-database.md %}
 
 ## Next steps
 

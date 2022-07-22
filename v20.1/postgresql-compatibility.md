@@ -14,7 +14,7 @@ However, CockroachDB does not support some of the PostgreSQL features or behaves
 
 ## Unsupported Features
 
-{% include {{page.version.version}}/sql/unsupported-postgres-features.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/unsupported-postgres-features.md %}
 
 ## Features that differ from PostgreSQL
 
@@ -113,7 +113,7 @@ SELECT 1::int << (x % 64)
 
 ### Locking and `FOR UPDATE`
 
-<span class="version-tag">New in v20.1:</span>: CockroachDB supports the `SELECT FOR UPDATE` statement, which is used to order transactions by controlling concurrent access to one or more rows of a table.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span>: CockroachDB supports the `SELECT FOR UPDATE` statement, which is used to order transactions by controlling concurrent access to one or more rows of a table.
 
 For more information, see [`SELECT FOR UPDATE`](select-for-update.html).
 
@@ -121,7 +121,7 @@ For more information, see [`SELECT FOR UPDATE`](select-for-update.html).
 
 For compatibility with PostgreSQL, CockroachDB supports a [three-level structure for names](sql-name-resolution.html#naming-hierarchy): databases, schemas, and objects.
 
-However, in CockroachDB versions < v20.2, user-defined schemas are not supported, and the only schema available for stored objects is the preloaded `public` schema. As a result, CockroachDB effectively supports a two-level storage structure: databases and objects. To provide a multi-level structure for stored objects, we recommend using database namespaces in the same way as [schema namespaces are used in PostgreSQL](https://www.postgresql.org/docs/current/ddl-schemas.html).
+However, in CockroachDB [version](cluster-settings.html#setting-version)s < v20.2, user-defined schemas are not supported, and the only schema available for stored objects is the preloaded `public` schema. As a result, CockroachDB effectively supports a two-level storage structure: databases and objects. To provide a multi-level structure for stored objects, we recommend using database namespaces in the same way as [schema namespaces are used in PostgreSQL](https://www.postgresql.org/docs/current/ddl-schemas.html).
 
 For more details, see [Name Resolution](sql-name-resolution.html).
 

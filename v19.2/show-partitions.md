@@ -4,18 +4,18 @@ summary: Use the SHOW PARTITIONS statement to list details about existing partit
 toc: true
 ---
 
-<span class="version-tag">New in v19.2:</span> Use the `SHOW PARTITIONS` [statement](sql-statements.html) to view details about existing [partitions](partitioning.html).
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v19.2:</span> Use the `SHOW PARTITIONS` [statement](sql-statements.html) to view details about existing [partitions](partitioning.html).
 
 {{site.data.alerts.callout_info}}
 [Partitioning](partitioning.html) is an [enterprise-only](enterprise-licensing.html) feature.
 {{site.data.alerts.end}}
 
-{% include {{page.version.version}}/sql/crdb-internal-partitions.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/crdb-internal-partitions.md %}
 
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/show_partitions.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/show_partitions.html %}
 </div>
 
 ## Required privileges
@@ -47,7 +47,7 @@ Field | Description
 
 ## Examples
 
-{% include {{page.version.version}}/sql/movr-statements-geo-partitioned-replicas.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/movr-statements-geo-partitioned-replicas.md %}
 
 The `movr` database in this example is pre-partitioned. For information about partitioning tables, see [Define Table Partitions](partitioning.html) or [`PARTITION BY`](partition-by.html).
 
@@ -230,7 +230,7 @@ If a partitioned table has no zones configured, the `SHOW CREATE TABLE` output i
 (24 rows)
 ~~~
 
-{% include {{page.version.version}}/sql/crdb-internal-partitions-example.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/crdb-internal-partitions-example.md %}
 
 ## See also
 

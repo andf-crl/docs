@@ -10,7 +10,7 @@ toc_not_nested: true
 - To bulk-insert data into an existing table, batch multiple rows in one [multi-row `INSERT`](insert.html#insert-multiple-rows-into-an-existing-table) statement and do not include the `INSERT` statements within a transaction. Experimentally determine the optimal batch size for your application by monitoring the performance for different batch sizes (10 rows, 100 rows, 1000 rows).
 
     {{site.data.alerts.callout_info}}
-    <span class="version-tag">New in v19.2:</span> You can also use the [`IMPORT INTO`](import-into.html) statement to bulk-insert CSV data into an existing table.
+    <span class="[version](cluster-settings.html#setting-version)-tag">New in v19.2:</span> You can also use the [`IMPORT INTO`](import-into.html) statement to bulk-insert CSV data into an existing table.
     {{site.data.alerts.end}}
 - To bulk-insert data into a new table, the [`IMPORT`](import.html) statement performs better than `INSERT`. `IMPORT` can also be used to [migrate data from other databases](migration-overview.html) like MySQL, Oracle, and Postgres.  
 
@@ -22,19 +22,19 @@ toc_not_nested: true
 
 ## How do I auto-generate unique row IDs in CockroachDB?
 
-{% include {{ page.version.version }}/faq/auto-generate-unique-ids.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/faq/auto-generate-unique-ids.html %}
 
 ## How do I generate unique, slowly increasing sequential numbers in CockroachDB?
 
-{% include {{ page.version.version }}/faq/sequential-numbers.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/faq/sequential-numbers.md %}
 
 ## What are the differences between `UUID`, sequences, and `unique_rowid()`?
 
-{% include {{ page.version.version }}/faq/differences-between-numberings.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/faq/differences-between-numberings.md %}
 
 ## How do I order writes to a table to closely follow time in CockroachDB?
 
-{% include {{ page.version.version }}/faq/sequential-transactions.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/faq/sequential-transactions.md %}
 
 ## How do I get the last ID/SERIAL value inserted into a table?
 
@@ -72,7 +72,7 @@ Contention](performance-best-practices-overview.html#understanding-and-avoiding-
 
 [Interleaving tables](interleave-in-parent.html) improve query performance by optimizing the key-value structure of closely related tables, attempting to keep data on the same key-value range if it's likely to be read and written together.
 
-{% include {{ page.version.version }}/faq/when-to-interleave-tables.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/faq/when-to-interleave-tables.html %}
 
 ## Does CockroachDB support JSON or Protobuf datatypes?
 
@@ -96,7 +96,7 @@ If you'd like to tell the query planner which index to use, you can do so via so
 
 ## How do I log SQL queries?
 
-{% include {{ page.version.version }}/faq/sql-query-logging.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/faq/sql-query-logging.md %}
 
 ## Does CockroachDB support a UUID type?
 
@@ -144,7 +144,7 @@ require('long').fromString(idString).add(1).toString(); // GOOD: returns '235191
 
 ## Can I use CockroachDB as a key-value store?
 
-{% include {{ page.version.version }}/faq/simulate-key-value-store.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/faq/simulate-key-value-store.html %}
 
 ## See also
 

@@ -4,7 +4,7 @@ summary:
 toc: true
 ---
 
-<span class="version-tag">New in v2.0:</span> The `DROP SEQUENCE` [statement](sql-statements.html) removes a sequence from a database.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v2.0:</span> The `DROP SEQUENCE` [statement](sql-statements.html) removes a sequence from a database.
 
 
 ## Required Privileges
@@ -13,7 +13,7 @@ The user must have the `DROP` [privilege](privileges.html) on the specified sequ
 
 ## Synopsis
 
-<section>{% include {{ page.version.version }}/sql/diagrams/drop_sequence.html %}</section>
+<section>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/drop_sequence.html %}</section>
 
 ## Parameters
 

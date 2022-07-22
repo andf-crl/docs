@@ -4,7 +4,7 @@ summary: The SHOW QUERIES statement lists all currently active queries across th
 toc: true
 ---
 
-<span class="version-tag">New in v1.1:</span> The `SHOW QUERIES` [statement](sql-statements.html) lists details about currently active SQL queries, including:
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v1.1:</span> The `SHOW QUERIES` [statement](sql-statements.html) lists details about currently active SQL queries, including:
 
 - The internal ID of the query
 - The node executing the query
@@ -23,7 +23,7 @@ No [privileges](privileges.html) are required to execute this statement. However
 
 ## Synopsis
 
-<section>{% include {{ page.version.version }}/sql/diagrams/show_queries.html %}</section>
+<section>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/show_queries.html %}</section>
 
 - To list the active queries across all nodes of the cluster, use `SHOW QUERIES` or `SHOW CLUSTER QUERIES`.
 - To list the active queries just on the local node, use `SHOW LOCAL QUERIES`.

@@ -19,7 +19,7 @@ The user must have the `SELECT` and `UPDATE` [privileges](security-reference/aut
 ## Synopsis
 
 <div>
-{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.version.version | replace: "v", "" }}/grammar_svg/update.html %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/grammar_svg/update.html %}
 </div>
 
 ## Parameters
@@ -81,7 +81,7 @@ For guidance and an example, see [Bulk-update Data](bulk-update-data.html).
 
 ## Examples
 
-{% include {{page.version.version}}/sql/movr-statements.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/movr-statements.md %}
 
 ### Update a single column in a single row
 
@@ -295,7 +295,7 @@ You can use a [`SET`](set-vars.html) statement to set session variables.
 
 ### Update and return values
 
-In this example, the `RETURNING` clause returns the `id` value of the row updated. The language-specific versions assume that you have installed the relevant [client drivers](install-client-drivers.html).
+In this example, the `RETURNING` clause returns the `id` value of the row updated. The language-specific [version](cluster-settings.html#setting-version)s assume that you have installed the relevant [client drivers](install-client-drivers.html).
 
 {{site.data.alerts.callout_success}}This use of <code>RETURNING</code> mirrors the behavior of MySQL's <code>last_insert_id()</code> function.{{site.data.alerts.end}}
 
@@ -593,7 +593,7 @@ Although `users_name_city_idx` is likely the most efficient index for the table 
 (9 rows)
 ~~~
 
-{% include {{page.version.version}}/sql/limit-row-size.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/limit-row-size.md %}
 
 ## See also
 

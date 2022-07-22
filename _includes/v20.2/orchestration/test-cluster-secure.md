@@ -13,7 +13,7 @@
     # All statements must be terminated by a semicolon.
     # To exit, type: \q.
     #
-    # Server version: CockroachDB CCL v20.2.0 (x86_64-unknown-linux-gnu, built 2020/07/29 22:56:36, go1.13.9) (same version as client)
+    # Server [version](cluster-settings.html#setting-version): CockroachDB CCL v20.2.0 (x86_64-unknown-linux-gnu, built 2020/07/29 22:56:36, go1.13.9) (same [version](cluster-settings.html#setting-version) as client)
     # Cluster ID: f82abd88-5d44-4493-9558-d6c75a3b80cc
     #
     # Enter \? for a brief introduction.
@@ -21,7 +21,7 @@
     root@:26257/defaultdb>
     ~~~
 
-{% include {{ page.version.version }}/orchestration/kubernetes-basic-sql.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/orchestration/kubernetes-basic-sql.md %}
 </section>
 
 <section class="filter-content" markdown="1" data-scope="manual">
@@ -52,7 +52,7 @@ To use the built-in SQL client, you need to launch a pod that runs indefinitely 
     # All statements must be terminated by a semicolon.
     # To exit, type: \q.
     #
-    # Server version: CockroachDB CCL v20.2.0 (x86_64-unknown-linux-gnu, built 2020/07/29 22:56:36, go1.13.9) (same version as client)
+    # Server [version](cluster-settings.html#setting-version): CockroachDB CCL v20.2.0 (x86_64-unknown-linux-gnu, built 2020/07/29 22:56:36, go1.13.9) (same [version](cluster-settings.html#setting-version) as client)
     # Cluster ID: f82abd88-5d44-4493-9558-d6c75a3b80cc
     #
     # Enter \? for a brief introduction.
@@ -66,7 +66,7 @@ To use the built-in SQL client, you need to launch a pod that runs indefinitely 
     If you'd prefer to delete the pod and recreate it when needed, run `kubectl delete pod cockroachdb-client-secure`.
     {{site.data.alerts.end}}
 
-{% include {{ page.version.version }}/orchestration/kubernetes-basic-sql.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/orchestration/kubernetes-basic-sql.md %}
 </section>
 
 <section class="filter-content" markdown="1" data-scope="helm">
@@ -110,7 +110,7 @@ To use the built-in SQL client, you need to launch a pod that runs indefinitely 
     # All statements must be terminated by a semicolon.
     # To exit, type: \q.
     #
-    # Server version: CockroachDB CCL v20.2.0 (x86_64-unknown-linux-gnu, built 2020/07/29 22:56:36, go1.13.9) (same version as client)
+    # Server [version](cluster-settings.html#setting-version): CockroachDB CCL v20.2.0 (x86_64-unknown-linux-gnu, built 2020/07/29 22:56:36, go1.13.9) (same [version](cluster-settings.html#setting-version) as client)
     # Cluster ID: f82abd88-5d44-4493-9558-d6c75a3b80cc
     #
     # Enter \? for a brief introduction.
@@ -124,5 +124,5 @@ To use the built-in SQL client, you need to launch a pod that runs indefinitely 
     If you'd prefer to delete the pod and recreate it when needed, run `kubectl delete pod cockroachdb-client-secure`.
     {{site.data.alerts.end}}
 
-{% include {{ page.version.version }}/orchestration/kubernetes-basic-sql.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/orchestration/kubernetes-basic-sql.md %}
 </section>

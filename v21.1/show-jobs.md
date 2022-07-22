@@ -6,7 +6,7 @@ toc: true
 
 The `SHOW JOBS` [statement](sql-statements.html) lists all of the types of long-running tasks your cluster has performed in the last 12 hours, including:
 
-{% include {{ page.version.version }}/sql/schema-changes.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/schema-changes.md %}
 - [`IMPORT`](import.html)
 - Enterprise [`BACKUP`](backup.html) and [`RESTORE`](restore.html)
 - [User-created table statistics](create-statistics.html) created for use by the [cost-based optimizer](cost-based-optimizer.html)
@@ -22,7 +22,7 @@ To block a call to `SHOW JOBS` that returns after all specified job ID(s) have a
 
 - The `SHOW JOBS` statement shows only long-running tasks.
 - For jobs older than 12 hours, query the `crdb_internal.jobs` table.
-- Jobs are deleted after 14 days. This interval can be changed via the `jobs.retention_time` [cluster setting](cluster-settings.html).
+- Jobs are deleted after 14 days. This interval can be changed via the `[jobs.retention_time](cluster-settings.html#setting-jobs-retention_time)` [cluster setting](cluster-settings.html).
 - While the `SHOW JOBS WHEN COMPLETE` statement is blocking, it will time out after 24 hours.
 - Garbage collection jobs are created for [dropped tables](drop-table.html) and [dropped indexes](drop-index.html), and will execute after the [GC TTL](configure-replication-zones.html#replication-zone-variables) has elapsed (default is 25 hours). These jobs cannot be canceled.
 
@@ -33,7 +33,7 @@ By default, only the `root` user can execute `SHOW JOBS`.
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/generated/diagrams/show_jobs.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/show_jobs.html %}
 </div>
 
 ## Parameters

@@ -114,7 +114,7 @@ Flag | Description
 
 ### Logging
 
-{% include {{ page.version.version }}/misc/logging-defaults.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/logging-defaults.md %}
 
 ### Client Connection
 

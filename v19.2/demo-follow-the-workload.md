@@ -48,8 +48,8 @@ However, if the nodes were started with the [`--locality`](cockroach-start.html#
 
 In this tutorial, you'll use CockroachDB, the `comcast` network tool to simulate network latency on your local workstation, and the `tpcc` workload built into CockroachDB to simulate client workloads. Before you begin, make sure these applications are installed:
 
-- Install the latest version of [CockroachDB](install-cockroachdb.html).
-- Install [Go](https://golang.org/doc/install) version 1.9 or higher. If you're on a Mac and using Homebrew, use `brew install go`. You can check your local version by running `go version`.
+- Install the latest [version](cluster-settings.html#setting-version) of [CockroachDB](install-cockroachdb.html).
+- Install [Go](https://golang.org/doc/install) [version](cluster-settings.html#setting-version) 1.9 or higher. If you're on a Mac and using Homebrew, use `brew install go`. You can check your local [version](cluster-settings.html#setting-version) by running `go [version](cluster-settings.html#setting-version)`.
 - Install the [`comcast`](https://github.com/tylertreat/comcast) network simulation tool: `go get github.com/tylertreat/comcast`
 
 Also, to keep track of the data files and logs for your cluster, you may want to create a new directory (e.g., `mkdir follow-workload`) and start all your nodes in that directory.
@@ -130,7 +130,7 @@ Use the [`cockroach start`](cockroach-start.html) command to start 3 nodes on yo
 
 ## Step 4. Simulate traffic in the US East
 
-Now that the cluster is live, use CockroachDB's [built-in version the `tpcc` benchmark](cockroach-workload.html) to simulate multiple client connections to the node in the "US East".
+Now that the cluster is live, use CockroachDB's [built-in [version](cluster-settings.html#setting-version) the `tpcc` benchmark](cockroach-workload.html) to simulate multiple client connections to the node in the "US East".
 
 1. Load the initial schema and data, pointing it at port `26259`, which is the port of the node with the `us-east` locality:
 
@@ -283,4 +283,4 @@ Verify that the range lease for the `customer` table moved to the node in the "U
 
 Explore other core CockroachDB benefits and features:
 
-{% include {{ page.version.version }}/misc/explore-benefits-see-also.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/explore-benefits-see-also.md %}

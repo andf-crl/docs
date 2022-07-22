@@ -17,7 +17,7 @@ clauses](select-clause.html) and [`INSERT`](insert.html),
 
 ## Synopsis
 
-<div>{% include {{ page.version.version }}/sql/diagrams/with_clause.html %}</div>
+<div>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/with_clause.html %}</div>
 
 <div markdown="1"></div>
 
@@ -151,7 +151,7 @@ Writes in Subqueries</a> for details.
 
 ## Reusing common table expressions
 
-<span class="version-tag">New in v19.2:</span> You can reference a CTE multiple times in a single query, using a `WITH` operator.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v19.2:</span> You can reference a CTE multiple times in a single query, using a `WITH` operator.
 
 For example:
 

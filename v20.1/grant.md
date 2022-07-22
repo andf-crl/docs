@@ -10,11 +10,11 @@ For privileges required by specific statements, see the documentation for the re
 
 ## Synopsis
 
-<section>{% include {{ page.version.version }}/sql/diagrams/grant_privileges.html %}</section>
+<section>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/grant_privileges.html %}</section>
 
 ## Required privileges
 
-<span class="version-tag">New in v20.1</span> The user granting privileges must also have the privilege being granted on the target database or tables. For example, a user granting the `SELECT` privilege on a table to another user must have the `GRANT` and `SELECT` privileges on that table.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1</span> The user granting privileges must also have the privilege being granted on the target database or tables. For example, a user granting the `SELECT` privilege on a table to another user must have the `GRANT` and `SELECT` privileges on that table.
 
 ## Supported privileges
 
@@ -40,7 +40,7 @@ Privilege | Levels
 `INSERT` | Table
 `DELETE` | Table
 `UPDATE` | Table
-<span class="version-tag">New in v20.1</span> `ZONECONFIG` | Database, Table
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1</span> `ZONECONFIG` | Database, Table
 
 ## Parameters
 

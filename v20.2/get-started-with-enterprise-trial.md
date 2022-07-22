@@ -28,21 +28,21 @@ Now, use the `SET CLUSTER SETTING` command to set the name of your organization 
 
 {% include copy-clipboard.html %}
 ~~~ sql
->  SET CLUSTER SETTING cluster.organization = 'Acme Company'; SET CLUSTER SETTING enterprise.license = 'xxxxxxxxxxxx';
+>  SET CLUSTER SETTING [cluster.organization](cluster-settings.html#setting-cluster-organization) = 'Acme Company'; SET CLUSTER SETTING [enterprise.license](cluster-settings.html#setting-enterprise-license) = 'xxxxxxxxxxxx';
 ~~~
 
 Then verify your organization in response to the following query:
 
 {% include copy-clipboard.html %}
 ~~~ sql
->  SHOW CLUSTER SETTING cluster.organization;
+>  SHOW CLUSTER SETTING [cluster.organization](cluster-settings.html#setting-cluster-organization);
 ~~~
 
 ## Use Enterprise features
 
 Your cluster now has access to all of CockroachDB's Enterprise features for the length of the trial:
 
-{% include {{ page.version.version }}/misc/enterprise-features.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/enterprise-features.md %}
 
 ## Getting help
 

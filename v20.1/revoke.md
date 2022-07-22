@@ -11,14 +11,14 @@ For the list of privileges that can be granted to and revoked from users and rol
 ## Synopsis
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/revoke_privileges.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/revoke_privileges.html %}
 </div>
 
 ## Required privileges
 
 The user revoking privileges must have the `GRANT` privilege on the target databases or tables.
 
-<span class="version-tag">New in v20.1</span> In addition to the `GRANT` privilege, the user revoking privileges must have the privilege being revoked on the target database or tables. For example, a user revoking the `SELECT` privilege on a table to another user must have the `GRANT` and `SELECT` privileges on that table.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1</span> In addition to the `GRANT` privilege, the user revoking privileges must have the privilege being revoked on the target database or tables. For example, a user revoking the `SELECT` privilege on a table to another user must have the `GRANT` and `SELECT` privileges on that table.
 
 ## Parameters
 

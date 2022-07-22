@@ -14,7 +14,7 @@ CockroachDB currently only supports `COPY FROM` statements issued from third-par
 ## Syntax
 
 <div>
-{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.version.version | replace: "v", "" }}/grammar_svg/copy_from.html %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/grammar_svg/copy_from.html %}
 </div>
 
 ### Parameters
@@ -42,11 +42,11 @@ Only members of the `admin` role can run `COPY` statements. By default, the `roo
 
 ### `COPY FROM` statements are not supported in the CockroachDB SQL shell
 
-{% include {{ page.version.version }}/known-limitations/copy-from-clients.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/copy-from-clients.md %}
 
 ### `COPY` syntax not supported by CockroachDB
 
-{% include {{ page.version.version }}/known-limitations/copy-syntax.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/copy-syntax.md %}
 
 ## Example
 

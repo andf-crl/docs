@@ -72,7 +72,7 @@ A `TIMESTAMP`/`TIMESTAMPTZ` column supports values up to 12 bytes in width, but 
 
 ## Precision
 
-<span class="version-tag">New in v20.1:</span> CockroachDB supports precision levels from 0 (seconds) to 6 (microseconds) for `TIMESTAMP`/`TIMESTAMPTZ` values. Precision in time values specifies the number of fractional digits retained in the seconds field. For example, specifying a `TIMESTAMPTZ` value as `TIMESTAMPTZ(3)` truncates the time component to milliseconds. By default, `TIMESTAMP`/`TIMESTAMPTZ` values have a precision of 6 (microseconds).
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> CockroachDB supports precision levels from 0 (seconds) to 6 (microseconds) for `TIMESTAMP`/`TIMESTAMPTZ` values. Precision in time values specifies the number of fractional digits retained in the seconds field. For example, specifying a `TIMESTAMPTZ` value as `TIMESTAMPTZ(3)` truncates the time component to milliseconds. By default, `TIMESTAMP`/`TIMESTAMPTZ` values have a precision of 6 (microseconds).
 
 You can use an [`ALTER COLUMN ... SET DATA TYPE`](alter-column.html) statement to change the precision level of a `TIMESTAMP`/`TIMESTAMPTZ`-typed column. If there is already a non-default precision level specified for the column, the precision level can only be changed to an equal or greater precision level. For an example, see [Create a table with a `TIMESTAMP`-typed column, with precision](#create-a-table-with-a-timestamp-typed-column-with-precision).
 
@@ -214,13 +214,13 @@ In this case, the `b` column, which is of type `TIMESTAMPTZ(5)`, cannot be chang
 ~~~
 
 ~~~
-ERROR: unimplemented: type conversion from TIMESTAMPTZ(5) to TIMESTAMPTZ(3) requires overwriting existing values which is not yet implemented
+ERROR: unimplemented: type con[version](cluster-settings.html#setting-version) from TIMESTAMPTZ(5) to TIMESTAMPTZ(3) requires overwriting existing values which is not yet implemented
 SQLSTATE: 0A000
 ~~~
 
-## Supported casting and conversion
+## Supported casting and con[version](cluster-settings.html#setting-version)
 
-`TIMESTAMP` values can be [cast](data-types.html#data-type-conversions-and-casts) to any of the following data types:
+`TIMESTAMP` values can be [cast](data-types.html#data-type-con[version](cluster-settings.html#setting-version)s-and-casts) to any of the following data types:
 
 Type | Details
 -----|--------

@@ -132,7 +132,7 @@ When a node fails, the cluster waits for the node to remain offline for 5 minute
     $ cockroach sql \
     --insecure \
     --host=localhost:26000 \
-    --execute="SET CLUSTER SETTING server.time_until_store_dead = '1m15s';"
+    --execute="SET CLUSTER SETTING [server.time_until_store_dead](cluster-settings.html#setting-server-time_until_store_dead) = '1m15s';"
     ~~~
 
 2. Then use the [`cockroach quit`](../cockroach-quit.html) command to stop node 5:
@@ -162,7 +162,7 @@ Because you reduced the time it takes for the cluster to consider the down node 
 
 ## Step 7. Prepare for two simultaneous node failures
 
-At this point, the cluster has recovered and is ready to handle another failure. However, the cluster cannot handle two _near-simultaneous_ failures in this configuration. Failures are "near-simultaneous" if they are closer together than the `server.time_until_store_dead` setting plus the time taken for the number of replicas on the dead node to drop to zero. If two failures occurred in this configuration, some ranges would become unavailable until one of the nodes recovers.
+At this point, the cluster has recovered and is ready to handle another failure. However, the cluster cannot handle two _near-simultaneous_ failures in this configuration. Failures are "near-simultaneous" if they are closer together than the `[server.time_until_store_dead](cluster-settings.html#setting-server-time_until_store_dead)` setting plus the time taken for the number of replicas on the dead node to drop to zero. If two failures occurred in this configuration, some ranges would become unavailable until one of the nodes recovers.
 
 To be able to tolerate 2 of 5 nodes failing simultaneously without any service interruption, ranges must be replicated 5 times.
 

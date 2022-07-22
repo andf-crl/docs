@@ -13,7 +13,7 @@ No [privileges](authorization.html#assign-privileges) are required to create or 
 ## Synopsis
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/show_savepoint_status.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/show_savepoint_status.html %}
 </div>
 
 ## Response

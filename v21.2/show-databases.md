@@ -11,7 +11,7 @@ The `SHOW DATABASES` [statement](sql-statements.html) lists all databases in the
 ## Synopsis
 
 <div>
-{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.version.version | replace: "v", "" }}/grammar_svg/show_databases.html %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/grammar_svg/show_databases.html %}
 </div>
 
 ## Required privileges
@@ -87,7 +87,7 @@ For more information, see [`COMMENT ON`](comment-on.html).
 
 ## Preloaded databases
 
-{% include {{ page.version.version }}/sql/preloaded-databases.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/preloaded-databases.md %}
 
 ## See also
 

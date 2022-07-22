@@ -82,7 +82,7 @@ Before you begin the tutorial, [install CockroachDB](install-cockroachdb.html).
     Creating directory /path/example-app-python-
     sqlalchemy/alembic ...  done
     Creating directory /path/example-app-python-
-    sqlalchemy/alembic/versions ...  done
+    sqlalchemy/alembic/[version](cluster-settings.html#setting-version)s ...  done
     Generating /path/example-app-python-
     sqlalchemy/alembic/script.py.mako ...  done
     Generating /path/example-app-python-
@@ -122,10 +122,10 @@ Before you begin the tutorial, [install CockroachDB](install-cockroachdb.html).
     ~~~
 
     ~~~
-    Generating /path/example-app-python-sqlalchemy/alembic/versions/ad72c7ec8b22_create_accounts_table.py ...  done
+    Generating /path/example-app-python-sqlalchemy/alembic/[version](cluster-settings.html#setting-version)s/ad72c7ec8b22_create_accounts_table.py ...  done
     ~~~
 
-1. Open the newly-created migration file (`alembic/versions/ad72c7ec8b22_create_accounts_table.py`, in this case), and edit the `upgrade()` and `downgrade()` functions to read as follows:
+1. Open the newly-created migration file (`alembic/[version](cluster-settings.html#setting-version)s/ad72c7ec8b22_create_accounts_table.py`, in this case), and edit the `upgrade()` and `downgrade()` functions to read as follows:
 
     {% include_cached copy-clipboard.html %}
     ~~~ python
@@ -158,7 +158,7 @@ Before you begin the tutorial, [install CockroachDB](install-cockroachdb.html).
     INFO  [alembic.runtime.migration] Running upgrade  -> ad72c7ec8b22, create accounts table
     ~~~
 
-    Specifying `head` runs the latest migration. This migration will create the `accounts` table. It will also create a table called `alembic_version`, which tracks the current migration version of the database.
+    Specifying `head` runs the latest migration. This migration will create the `accounts` table. It will also create a table called `alembic_[version](cluster-settings.html#setting-version)`, which tracks the current migration [version](cluster-settings.html#setting-version) of the database.
 
 ## Step 5. Verify the migration
 
@@ -178,17 +178,17 @@ Before you begin the tutorial, [install CockroachDB](install-cockroachdb.html).
       schema_name |   table_name    | type  | owner | estimated_row_count | locality
     --------------+-----------------+-------+-------+---------------------+-----------
       public      | accounts        | table | demo  |                   0 | NULL
-      public      | alembic_version | table | demo  |                   1 | NULL
+      public      | alembic_[version](cluster-settings.html#setting-version) | table | demo  |                   1 | NULL
     (2 rows)
     ~~~
 
     {% include_cached copy-clipboard.html %}
     ~~~ sql
-    > SELECT * FROM alembic_version;
+    > SELECT * FROM alembic_[version](cluster-settings.html#setting-version);
     ~~~
 
     ~~~
-      version_num
+      [version](cluster-settings.html#setting-version)_num
     ----------------
       ad72c7ec8b22
     (1 row)
@@ -258,10 +258,10 @@ Suppose you want to add a new [computed column](computed-columns.html) to the `a
     ~~~
 
     ~~~
-    Generating /path/example-app-python-sqlalchemy/alembic/versions/fd88c68af7b5_add_overdrawn_column.py ...  done
+    Generating /path/example-app-python-sqlalchemy/alembic/[version](cluster-settings.html#setting-version)s/fd88c68af7b5_add_overdrawn_column.py ...  done
     ~~~
 
-1. Open the migration file (`alembic/versions/fd88c68af7b5_add_overdrawn_column.py`), update the imports, and edit the `upgrade()` and `downgrade()` functions:
+1. Open the migration file (`alembic/[version](cluster-settings.html#setting-version)s/fd88c68af7b5_add_overdrawn_column.py`), update the imports, and edit the `upgrade()` and `downgrade()` functions:
 
     ~~~ python
     from alembic import op
@@ -324,15 +324,15 @@ Suppose you want to add a new [computed column](computed-columns.html) to the `a
       ...
     ~~~
 
-    The changes will also be reflected in the `alembic_version` table.
+    The changes will also be reflected in the `alembic_[version](cluster-settings.html#setting-version)` table.
 
     {% include_cached copy-clipboard.html %}
     ~~~ sql
-    > SELECT * FROM alembic_version;
+    > SELECT * FROM alembic_[version](cluster-settings.html#setting-version);
     ~~~
 
     ~~~
-      version_num
+      [version](cluster-settings.html#setting-version)_num
     ----------------
       fd88c68af7b5
     (1 row)
@@ -357,7 +357,7 @@ ALTER TABLE accounts ADD COLUMN overdrawn BOOLEAN AS (
 ) STORED;
 ~~~
 
-To make the second migration use raw SQL instead of Alembic operations, open `alembic/versions/fd88c68af7b5_add_overdrawn_column.py`, and edit the `upgrade()` function to use `execute()` instead of the operation-specific function:
+To make the second migration use raw SQL instead of Alembic operations, open `alembic/[version](cluster-settings.html#setting-version)s/fd88c68af7b5_add_overdrawn_column.py`, and edit the `upgrade()` function to use `execute()` instead of the operation-specific function:
 
 ~~~ python
 def upgrade():
@@ -461,7 +461,7 @@ INFO  [alembic.runtime.migration] Running downgrade fd88c68af7b5 -> ad72c7ec8b22
 Delete the old migration file:
 {% include_cached copy-clipboard.html %}
 ~~~ shell
-rm alembic/versions/fd88c68af7b5_add_overdrawn_column.py
+rm alembic/[version](cluster-settings.html#setting-version)s/fd88c68af7b5_add_overdrawn_column.py
 ~~~
 
 Open the `models.py` file in the app's project, and add the `overdrawn` column to the `Account` class definition:
@@ -505,7 +505,7 @@ $ alembic revision --autogenerate -m "add overdrawn column"
 INFO  [alembic.runtime.migration] Context impl CockroachDBImpl.
 INFO  [alembic.runtime.migration] Will assume non-transactional DDL.
 INFO  [alembic.autogenerate.compare] Detected added column 'accounts.overdrawn'
-  Generating /path/example-app-python-sqlalchemy/alembic/versions/44fa7043e441_add_overdrawn_column.py ...  done
+  Generating /path/example-app-python-sqlalchemy/alembic/[version](cluster-settings.html#setting-version)s/44fa7043e441_add_overdrawn_column.py ...  done
 ~~~
 
 Alembic creates a new migration file (`44fa7043e441_add_overdrawn_column.py`, in this case).
@@ -560,8 +560,8 @@ Verify that the new column exists in the `accounts` table:
 
 If you run into problems, please file an issue in the [`alembic` repository](https://github.com/sqlalchemy/alembic/issues), including the following details about the environment where you encountered the issue:
 
-- CockroachDB version ([`cockroach version`](cockroach-version.html))
-- Alembic version
+- CockroachDB [version](cluster-settings.html#setting-version) ([`cockroach [version](cluster-settings.html#setting-version)`](cockroach-[version](cluster-settings.html#setting-version).html))
+- Alembic [version](cluster-settings.html#setting-version)
 - Operating system
 - Steps to reproduce the behavior
 

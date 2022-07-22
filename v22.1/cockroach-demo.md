@@ -177,7 +177,7 @@ When the SQL shell connects to the demo cluster at startup, it prints a welcome 
 #   - Username: "demo", password: "demo55826"
 #   - Directory with certificate files (for certain SQL drivers/tools): /var/folders/8c/915dtgrx5_57bvc5tq4kpvqr0000gn/T/demo699845497
 #
-# Server version: CockroachDB CCL {{ page.release_info.version }} (x86_64-apple-darwin20.5.0, built {{ page.release_info.build_time }}) (same version as client)
+# Server [version](cluster-settings.html#setting-version): CockroachDB CCL {{ page.release_info.[version](cluster-settings.html#setting-version) }} (x86_64-apple-darwin20.5.0, built {{ page.release_info.build_time }}) (same [version](cluster-settings.html#setting-version) as client)
 # Cluster ID: f78b7feb-b6cf-4396-9d7f-494982d7d81e
 # Organization: Cockroach Demo
 #
@@ -238,7 +238,7 @@ node 3:
 
 #### General
 
-{% include {{ page.version.version }}/sql/shell-commands.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/shell-commands.md %}
 
 #### Demo-specific
 
@@ -255,19 +255,19 @@ Command | Usage
 
 ### Client-side options
 
-{% include {{ page.version.version }}/sql/shell-options.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/shell-options.md %}
 
 ### Help
 
-{% include {{ page.version.version }}/sql/shell-help.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/shell-help.md %}
 
 ### Shortcuts
 
-{% include {{ page.version.version }}/sql/shell-shortcuts.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/shell-shortcuts.md %}
 
 ## Diagnostics reporting
 
-By default, `cockroach demo` shares anonymous usage details with Cockroach Labs. To opt out, set the [`diagnostics.reporting.enabled`](diagnostics-reporting.html#after-cluster-initialization) [cluster setting](cluster-settings.html) to `false`. You can also opt out by setting the [`COCKROACH_SKIP_ENABLING_DIAGNOSTIC_REPORTING`](diagnostics-reporting.html#at-cluster-initialization) environment variable to `false` before running `cockroach demo`.
+By default, `cockroach demo` shares anonymous usage details with Cockroach Labs. To opt out, set the [`[diagnostics.reporting.enabled](cluster-settings.html#setting-diagnostics-reporting-enabled)`](diagnostics-reporting.html#after-cluster-initialization) [cluster setting](cluster-settings.html) to `false`. You can also opt out by setting the [`COCKROACH_SKIP_ENABLING_DIAGNOSTIC_REPORTING`](diagnostics-reporting.html#at-cluster-initialization) environment variable to `false` before running `cockroach demo`.
 
 ## Examples
 

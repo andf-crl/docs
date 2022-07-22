@@ -32,7 +32,7 @@ When the cluster starts, you'll see a message like the one shown below, followed
 #
 # The user "demo" with password "demo76950" has been created. Use it to access the Web UI!
 #
-# Server version: CockroachDB CCL v21.1.2 (x86_64-apple-darwin19, built 2021/06/07 18:13:04, go1.15.11) (same version as client)
+# Server [version](cluster-settings.html#setting-version): CockroachDB CCL v21.1.2 (x86_64-apple-darwin19, built 2021/06/07 18:13:04, go1.15.11) (same [version](cluster-settings.html#setting-version) as client)
 # Cluster ID: bfd9fc91-69bd-4417-a2f7-66e556bf2cfd
 # Organization: Cockroach Demo
 #

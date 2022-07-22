@@ -13,7 +13,7 @@ Only members of the `admin` role can run `SHOW BACKUP`. By default, the `root` u
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/show_backup.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/show_backup.html %}
 </div>
 
 ## Parameters
@@ -22,8 +22,8 @@ Parameter | Description
 ----------|------------
 `SHOW BACKUP location` | Show the details of the backup in the given [`location`](backup.html#backup-file-urls). [See the example below](#show-a-backup).
 `SHOW BACKUP SCHEMAS location` | Show the schema details of the backup in the given [`location`](backup.html#backup-file-urls). [See the example below](#show-a-backup-with-schemas).
-`SHOW BACKUPS IN location` | <span class="version-tag">New in v20.2:</span> List the full backup's subdirectories in the given [`location`](backup.html#backup-file-urls). [See the example below](#show-details-for-scheduled-backups).
-`SHOW BACKUP subdirectory IN location` | <span class="version-tag">New in v20.2:</span> List the full and incremental backups that are stored in the given full backup's `subdirectory` within a [`location`](backup.html#backup-file-urls). [See the example below](#show-details-for-scheduled-backups).
+`SHOW BACKUPS IN location` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> List the full backup's subdirectories in the given [`location`](backup.html#backup-file-urls). [See the example below](#show-details-for-scheduled-backups).
+`SHOW BACKUP subdirectory IN location` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> List the full and incremental backups that are stored in the given full backup's `subdirectory` within a [`location`](backup.html#backup-file-urls). [See the example below](#show-details-for-scheduled-backups).
 `kv_option_list` | Control the behavior of `SHOW BACKUP` with a comma-separated list of [these options](#options).
 
 ### Options
@@ -40,15 +40,15 @@ The following fields are returned:
 Field | Description
 ------|------------
 `database_name` | The database name.
-`parent_schema_name` | <span class="version-tag">New in v20.2:</span> The name of the parent schema.
-`object_name` | <span class="version-tag">New in v20.2:</span> The name of the [database](create-database.html), [table](create-table.html), [type](create-type.html), or schema. Note: This column was called `table_name` in previous versions of CockroachDB. **Note: This is a breaking change.**
-`object_type` | <span class="version-tag">New in v20.2:</span> The type of object: [database](create-database.html), [table](create-table.html), [type](create-type.html), or schema.
+`parent_schema_name` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> The name of the parent schema.
+`object_name` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> The name of the [database](create-database.html), [table](create-table.html), [type](create-type.html), or schema. Note: This column was called `table_name` in previous [version](cluster-settings.html#setting-version)s of CockroachDB. **Note: This is a breaking change.**
+`object_type` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> The type of object: [database](create-database.html), [table](create-table.html), [type](create-type.html), or schema.
 `start_time` | The time of the earliest data encapsulated in the backup. Note that this only displays for incremental backups. For a full backup, this is `NULL`.
 `end_time` | The time to which data can be restored. This is equivalent to the [`AS OF SYSTEM TIME`](as-of-system-time.html) of the backup. If the backup was _not_ taken with [revision history](take-backups-with-revision-history-and-restore-from-a-point-in-time.html), the `end_time` is the _only_ time the data can be restored to. If the backup was taken with revision history, the `end_time` is the latest time the data can be restored to.
 `size_bytes` | The size of the backup, in bytes.
 `create_statement` | The `CREATE` statement used to create [table(s)](create-table.html), [view(s)](create-view.html), or [sequence(s)](create-sequence.html) that are stored within the backup. This displays when `SHOW BACKUP SCHEMAS` is used. Note that tables with references to [foreign keys](foreign-key.html) will only display foreign key constraints if the table to which the constraint relates to is also included in the backup.
 `is_full_cluster` |  Whether the backup is of a full cluster or not.
-`path` | <span class="version-tag">New in v20.2:</span> The list of the full backup's subdirectories. This field is returned for `SHOW BACKUPS IN LOCATION` only. The path format is `<year>/<month>/<day>-<timestamp>`.
+`path` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> The list of the full backup's subdirectories. This field is returned for `SHOW BACKUPS IN LOCATION` only. The path format is `<year>/<month>/<day>-<timestamp>`.
 
 ## Example
 
@@ -171,12 +171,12 @@ To view a list of which users and roles had which privileges on each database an
 
 ### Show details for scheduled backups
 
-<span class="version-tag">New in v20.2:</span> When a [backup is created by a schedule](create-schedule-for-backup.html), it is stored within a collection of backups in the given location. To view details for a backup created by a schedule, you can use the following:
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> When a [backup is created by a schedule](create-schedule-for-backup.html), it is stored within a collection of backups in the given location. To view details for a backup created by a schedule, you can use the following:
 
 - `SHOW BACKUPS IN y` statement to [view a list of the full backup's subdirectories](#view-a-list-of-the-full-backups-subdirectories).
 - `SHOW BACKUP x IN y` statement to [view a list of the full and incremental backups that are stored in a specific full backup's subdirectory](#view-a-list-of-the-full-and-incremental-backups-in-a-specific-full-backup-subdirectory).
 
-{% include {{ page.version.version }}/backups/show-scheduled-backups.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/backups/show-scheduled-backups.md %}
 
 ### Show an encrypted backup
 

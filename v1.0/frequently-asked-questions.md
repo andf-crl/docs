@@ -151,7 +151,7 @@ For more insight, see [CockroachDB in Comparison](cockroachdb-in-comparison.html
 
 ## Can a MySQL or PostgreSQL application be migrated to CockroachDB?
 
-The current version of CockroachDB is intended for use with new applications. The initial subset of SQL we support is small relative to the extensive standard, and every popular database implements its own set of extensions and exhibits a unique set of idiosyncrasies. This makes porting an existing application non-trivial unless it is only a very lightweight consumer of SQL functionality.
+The current [version](cluster-settings.html#setting-version) of CockroachDB is intended for use with new applications. The initial subset of SQL we support is small relative to the extensive standard, and every popular database implements its own set of extensions and exhibits a unique set of idiosyncrasies. This makes porting an existing application non-trivial unless it is only a very lightweight consumer of SQL functionality.
 
 ## Does Cockroach Labs offer a cloud database as a service?
 
@@ -159,7 +159,7 @@ Not yet, but this is on our long-term roadmap.
 
 ## Can I use CockroachDB as a key-value store?
 
-{% include {{ page.version.version }}/faq/simulate-key-value-store.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/faq/simulate-key-value-store.html %}
 
 ## Have questions that weren’t answered?
 

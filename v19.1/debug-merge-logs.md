@@ -12,7 +12,7 @@ The file produced by `cockroach debug merge-log` can contain highly sensitive, u
 
 ## Subcommands
 
-{% include {{ page.version.version }}/misc/debug-subcommands.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/debug-subcommands.md %}
 
 ## Synopsis
 

@@ -61,7 +61,7 @@ For example, to import the data from `employees.csv` into a new `employees` tabl
 
 Repeat the above for each CSV file you want to import.
 
-{% include {{ page.version.version }}/sql/use-import-into.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/use-import-into.md %}
 
 {{site.data.alerts.callout_info}}
 You will need to run [`ALTER TABLE ... ADD CONSTRAINT`](add-constraint.html) to add any foreign key relationships.

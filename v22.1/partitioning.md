@@ -11,7 +11,7 @@ CockroachDB allows you to define table partitions, giving you row-level control 
 
 ## Why use table partitioning
 
-{% include {{page.version.version}}/sql/use-multiregion-instead-of-partitioning.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/use-multiregion-instead-of-partitioning.md %}
 
 Table partitioning helps you reduce latency and cost:
 
@@ -23,7 +23,7 @@ Table partitioning helps you reduce latency and cost:
 Table partitioning involves a combination of CockroachDB features:
 
 - [Node attributes](#node-attributes)
-- [Enterprise license](#enterprise-license)
+- [Enterprise license](#[enterprise.license](cluster-settings.html#setting-enterprise-license))
 - [Table creation](#table-creation)
 - [Replication zones](#replication-zones)
 
@@ -129,7 +129,7 @@ On their own, partitions are inert and simply apply a label to the rows of the t
 CockroachDB uses the most granular zone config available. Zone configs that target a partition are considered more granular than those that target a table or index, which in turn are considered more granular than those that target a database.
 
 
-{% include {{page.version.version}}/sql/querying-partitions.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/querying-partitions.md %}
 
 ## Examples
 
@@ -449,7 +449,7 @@ To retrieve table partitions, you can use the [`SHOW PARTITIONS`](show-partition
 
 You can also view partitions by [database](show-partitions.html#show-partitions-by-database) and [index](show-partitions.html#show-partitions-by-index).
 
-{% include {{page.version.version}}/sql/crdb-internal-partitions.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/crdb-internal-partitions.md %}
 
 ### Define table partitions by range
 
@@ -719,7 +719,7 @@ Other databases use partitioning for three additional use cases: secondary index
 
 ## Known limitations
 
-- {% include {{ page.version.version }}/known-limitations/partitioning-with-placeholders.md %}
+- {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/partitioning-with-placeholders.md %}
 
 ## See also
 

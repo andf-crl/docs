@@ -19,7 +19,7 @@ The user must have the `DROP` [privilege](authorization.html#assign-privileges) 
 ## Synopsis
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/rename_table.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/rename_table.html %}
 </div>
 
 ## Parameters
@@ -44,7 +44,7 @@ This is a [known limitation](known-limitations.html#database-and-table-renames-a
 
 ## Viewing schema changes
 
-{% include {{ page.version.version }}/misc/schema-change-view-job.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-view-job.md %}
 
 ## Examples
 

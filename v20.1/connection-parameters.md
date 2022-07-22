@@ -43,7 +43,7 @@ A connection URL has the following format:
 postgres://<username>:<password>@<host>:<port>/<database>?<parameters>
 ~~~
 
-<span class="version-tag">New in v20.1:</span> `cockroach` client commands also support [UNIX domain socket URIs](https://en.wikipedia.org/wiki/Unix_domain_socket) of the following form:
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> `cockroach` client commands also support [UNIX domain socket URIs](https://en.wikipedia.org/wiki/Unix_domain_socket) of the following form:
 
 ~~~
 postgres://<username>:<password>@?host=<directory-path>&port=<port>&<parameters>
@@ -56,7 +56,7 @@ postgres://<username>:<password>@?host=<directory-path>&port=<port>&<parameters>
  `<host>`       | The host name or address of a CockroachDB node or load balancer.                                                                                                                                          | Required by most client drivers.
  `<port>`       | The port number of the SQL interface of the CockroachDB node or load balancer. The default port number for CockroachDB is 26257. Use this value when in doubt.                                           | Required by most client drivers.
  `<database>`   | A database name to use as [current database](sql-name-resolution.html#current-database). Defaults to `defaultdb`.                                                                                         | ✗
- `<directory-path>` | <span class="version-tag">New in v20.1:</span> The directory path to the client listening for a socket connection.                                                                                             | Required when specifying a Unix domain socket URI.
+ `<directory-path>` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> The directory path to the client listening for a socket connection.                                                                                             | Required when specifying a Unix domain socket URI.
  `<parameters>` | [Additional connection parameters](#additional-connection-parameters), including SSL/TLS certificate settings.                                                                                            | ✗
 
 
@@ -74,7 +74,7 @@ The `<database>` part is not used for [`cockroach`
 commands](cockroach-commands.html) other than [`cockroach
 sql`](cockroach-sql.html). A warning
 is currently printed if it is mistakenly specified, and
-future versions of CockroachDB may return an error in that case.
+future [version](cluster-settings.html#setting-version)s of CockroachDB may return an error in that case.
 {{site.data.alerts.end}}
 
 ### Additional connection parameters
@@ -144,7 +144,7 @@ For details about how to create and manage SSL/TLS certificates, see
 
 ### Example URI for a Unix domain socket
 
-<span class="version-tag">New in v20.1:</span> The following URI is suitable to connect to a CockroachDB cluster listening for Unix domain socket connections at `/path/to/client`:
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> The following URI is suitable to connect to a CockroachDB cluster listening for Unix domain socket connections at `/path/to/client`:
 
 ~~~
 postgres://root@?host=/path/to/client&port=26257
@@ -163,7 +163,7 @@ For each command-line flag that directs a connection parameter,
 CockroachDB also recognizes an environment variable. The environment
 variable is used when the command-line flag is not specified.
 
-{% include {{ page.version.version }}/sql/connection-parameters.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/connection-parameters.md %}
 
 ### Example command-line flags for an insecure connection
 

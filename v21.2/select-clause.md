@@ -18,7 +18,7 @@ with other constructs to form more complex [selection queries](selection-queries
 ## Synopsis
 
 <div>
-{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.version.version | replace: "v", "" }}/grammar_svg/simple_select_clause.html %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/grammar_svg/simple_select_clause.html %}
 </div>
 
 
@@ -60,7 +60,7 @@ using the [scalar expressions](scalar-expressions.html) listed with `ON`. When t
 
 ## Examples
 
-{% include {{page.version.version}}/sql/movr-statements.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/movr-statements.md %}
 
 ### Choose columns
 
@@ -513,7 +513,7 @@ If you include multiple aggregate functions in a single `SELECT` clause, you can
 
 ### Select from a specific index
 
-{% include {{page.version.version}}/misc/force-index-selection.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/misc/force-index-selection.md %}
 
 ### Select historical data (time-travel)
 
@@ -554,7 +554,7 @@ Results from two or more queries can be combined together as follows:
 
 ### Row-level locking for concurrency control with `SELECT FOR UPDATE`
 
-{% include {{page.version.version}}/sql/select-for-update-overview.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/select-for-update-overview.md %}
 
 For an example showing how to use it, see  [`SELECT FOR UPDATE`](select-for-update.html).
 

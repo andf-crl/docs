@@ -20,7 +20,7 @@ This page explains how to add and remove CockroachDB nodes on Kubernetes.
 </div>
 
 <section class="filter-content" markdown="1" data-scope="operator">
-{% include {{ page.version.version }}/orchestration/operator-check-namespace.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/orchestration/operator-check-namespace.md %}
 
 {{site.data.alerts.callout_success}}
 If you [deployed CockroachDB on Red Hat OpenShift](deploy-cockroachdb-with-kubernetes-openshift.html), substitute `kubectl` with `oc` in the following commands.
@@ -142,11 +142,11 @@ If your cluster has 3 CockroachDB nodes distributed across 3 availability zones 
 </section>
 
 <section class="filter-content" markdown="1" data-scope="manual">
-{% include {{ page.version.version }}/orchestration/kubernetes-scale-cluster-manual.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/orchestration/kubernetes-scale-cluster-manual.md %}
 </section>
 
 <section class="filter-content" markdown="1" data-scope="helm">
-{% include {{ page.version.version }}/orchestration/kubernetes-scale-cluster-helm.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/orchestration/kubernetes-scale-cluster-helm.md %}
 </section>
 
 ## Remove nodes
@@ -218,7 +218,7 @@ This workflow is unsupported and should be enabled at your own risk.
 
     {% include_cached copy-clipboard.html %}
     ~~~ shell
-    $ curl -0 https://raw.githubusercontent.com/cockroachdb/cockroach-operator/{{site.operator_version}}/install/operator.yaml
+    $ curl -0 https://raw.githubusercontent.com/cockroachdb/cockroach-operator/{{site.operator_[version](cluster-settings.html#setting-version)}}/install/operator.yaml
     ~~~
 
 1. Uncomment the following lines in the Operator manifest:
@@ -250,9 +250,9 @@ This workflow is unsupported and should be enabled at your own risk.
 </section>
 
 <section class="filter-content" markdown="1" data-scope="manual">
-{% include {{ page.version.version }}/orchestration/kubernetes-remove-nodes-manual.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/orchestration/kubernetes-remove-nodes-manual.md %}
 </section>
 
 <section class="filter-content" markdown="1" data-scope="helm">
-{% include {{ page.version.version }}/orchestration/kubernetes-remove-nodes-helm.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/orchestration/kubernetes-remove-nodes-helm.md %}
 </section>

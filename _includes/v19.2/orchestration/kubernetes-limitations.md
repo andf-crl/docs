@@ -1,8 +1,8 @@
-#### Kubernetes version
+#### Kubernetes [version](cluster-settings.html#setting-version)
 
-Kubernetes 1.18 or higher is required in order to use our most up-to-date configuration files. Earlier Kubernetes releases do not support some of the options used in our configuration files. If you need to run on an older version of Kubernetes, we have kept around configuration files that work on older Kubernetes releases in the versioned subdirectories of [https://github.com/cockroachdb/cockroach/tree/master/cloud/kubernetes](https://github.com/cockroachdb/cockroach/tree/master/cloud/kubernetes) (e.g., [v1.7](https://github.com/cockroachdb/cockroach/tree/master/cloud/kubernetes/v1.7)).
+Kubernetes 1.18 or higher is required in order to use our most up-to-date configuration files. Earlier Kubernetes releases do not support some of the options used in our configuration files. If you need to run on an older [version](cluster-settings.html#setting-version) of Kubernetes, we have kept around configuration files that work on older Kubernetes releases in the [version](cluster-settings.html#setting-version)ed subdirectories of [https://github.com/cockroachdb/cockroach/tree/master/cloud/kubernetes](https://github.com/cockroachdb/cockroach/tree/master/cloud/kubernetes) (e.g., [v1.7](https://github.com/cockroachdb/cockroach/tree/master/cloud/kubernetes/v1.7)).
 
-#### Helm version
+#### Helm [version](cluster-settings.html#setting-version)
 
 Helm 3.0 or higher is required when using our instructions to [deploy via Helm](orchestrate-cockroachdb-with-kubernetes.html#step-2-start-cockroachdb).
 

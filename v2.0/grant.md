@@ -11,7 +11,7 @@ For privileges required by specific statements, see the documentation for the re
 
 ## Synopsis
 
-<section>{% include {{ page.version.version }}/sql/diagrams/grant_privileges.html %}</section>
+<section>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/grant_privileges.html %}</section>
 
 ## Required Privileges
 

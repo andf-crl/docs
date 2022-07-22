@@ -7,16 +7,16 @@ docs_area: reference.sql
 
 Use the `SHOW PARTITIONS` [statement](sql-statements.html) to view details about existing [partitions](partitioning.html).
 
-{% include {{page.version.version}}/sql/use-multiregion-instead-of-partitioning.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/use-multiregion-instead-of-partitioning.md %}
 
 {% include enterprise-feature.md %}
 
-{% include {{page.version.version}}/sql/crdb-internal-partitions.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/crdb-internal-partitions.md %}
 
 ## Synopsis
 
 <div>
-{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.version.version | replace: "v", "" }}/grammar_svg/show_partitions.html %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/grammar_svg/show_partitions.html %}
 </div>
 
 ## Required privileges
@@ -48,7 +48,7 @@ Field | Description
 
 ## Examples
 
-{% include {{page.version.version}}/sql/movr-statements-geo-partitioned-replicas.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/movr-statements-geo-partitioned-replicas.md %}
 
 The `movr` database in this example is pre-partitioned. For information about partitioning tables, see [Define Table Partitions](partitioning.html) or [`PARTITION BY`](partition-by.html).
 
@@ -231,7 +231,7 @@ If a partitioned table has no zones configured, the `SHOW CREATE TABLE` output i
 (24 rows)
 ~~~
 
-{% include {{page.version.version}}/sql/crdb-internal-partitions-example.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/crdb-internal-partitions-example.md %}
 
 ## See also
 

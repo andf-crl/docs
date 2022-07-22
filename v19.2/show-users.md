@@ -9,7 +9,7 @@ The `SHOW USERS` [statement](sql-statements.html) lists the users for all databa
 ## Synopsis
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/show_users.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/show_users.html %}
 </div>
 
 ## Required privileges
@@ -32,7 +32,7 @@ The user must have the [`SELECT`](select-clause.html) [privilege](authorization.
 (3 rows)
 ~~~
 
-<span class="version-tag">New in v19.2:</span> Alternatively, within the built-in SQL shell, you can use the `\du` [shell command](cockroach-sql.html#commands):
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v19.2:</span> Alternatively, within the built-in SQL shell, you can use the `\du` [shell command](cockroach-sql.html#commands):
 
 {% include copy-clipboard.html %}
 ~~~ sql

@@ -4,14 +4,14 @@ summary: The REVOKE <roles> statement revokes privileges from users and/or roles
 toc: true
 ---
 
-<span class="version-tag">New in v2.0:</span> The `REVOKE <roles>` [statement](sql-statements.html) lets you revoke a [role](roles.html) or [user's](create-and-manage-users.html) membership to a role.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v2.0:</span> The `REVOKE <roles>` [statement](sql-statements.html) lets you revoke a [role](roles.html) or [user's](create-and-manage-users.html) membership to a role.
 
 {{site.data.alerts.callout_info}}<code>REVOKE &lt;roles&gt;</code> is an <a href="enterprise-licensing.html">enterprise-only</a> feature.{{site.data.alerts.end}}
 
 
 ## Synopsis
 
-<section>{% include {{ page.version.version }}/sql/diagrams/revoke_roles.html %}</section>
+<section>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/revoke_roles.html %}</section>
 
 ## Required Privileges
 

@@ -14,7 +14,7 @@ Once you've [installed the official CockroachDB Docker image](install-cockroachd
 
 {% include cockroachcloud/use-cockroachcloud-instead.md %}
 
-{% include {{ page.version.version }}/prod-deployment/insecure-flag.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/insecure-flag.md %}
 
 ## Before you begin
 
@@ -22,7 +22,7 @@ Once you've [installed the official CockroachDB Docker image](install-cockroachd
 - For quick SQL testing or app development, consider [running a single-node cluster](cockroach-start-single-node.html) instead.
 - Note that running multiple nodes on a single host is useful for testing CockroachDB, but it's not suitable for production. To run a physically distributed cluster in containers, use an orchestration tool like Kubernetes. See [Orchestration](orchestration.html) for more details, and review the [Production Checklist](recommended-production-settings.html).
 
-{% include {{ page.version.version }}/start-in-docker/mac-linux-steps.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/start-in-docker/mac-linux-steps.md %}
 
 ## What's next?
 

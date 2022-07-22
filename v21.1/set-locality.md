@@ -4,7 +4,7 @@ summary: The SET LOCALITY statement changes the locality of a table.
 toc: true
 ---
 
-{% include_cached new-in.html version="v21.1" %} The `ALTER TABLE .. SET LOCALITY` [statement](sql-statements.html) changes the [table locality](multiregion-overview.html#table-locality) of a [table](create-table.html) in a [multi-region database](multiregion-overview.html).
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.1" %} The `ALTER TABLE .. SET LOCALITY` [statement](sql-statements.html) changes the [table locality](multiregion-overview.html#table-locality) of a [table](create-table.html) in a [multi-region database](multiregion-overview.html).
 
 While CockroachDB is processing an `ALTER TABLE .. SET LOCALITY` statement that enables or disables `REGIONAL BY ROW` on a table within a database, any [`ADD REGION`](add-region.html) and [`DROP REGION`](drop-region.html) statements on that database will fail.
 
@@ -15,7 +15,7 @@ While CockroachDB is processing an `ALTER TABLE .. SET LOCALITY` statement that 
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/generated/diagrams/alter_table_locality.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/alter_table_locality.html %}
 </div>
 
 ## Parameters
@@ -134,7 +134,7 @@ ALTER TABLE rides ADD COLUMN region crdb_internal_region AS (
 ) STORED;
 ~~~
 
-{% include {{page.version.version}}/sql/locality-optimized-search.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/locality-optimized-search.md %}
 
 <a name="global"></a>
 

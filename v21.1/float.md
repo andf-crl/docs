@@ -26,7 +26,7 @@ The special IEEE754 values for positive infinity, negative infinity
 and [NaN (Not-a-Number)](https://en.wikipedia.org/wiki/NaN) cannot be
 entered using numeric literals directly and must be converted using an
 [interpreted literal](sql-constants.html#interpreted-literals) or an
-[explicit conversion](scalar-expressions.html#explicit-type-coercions)
+[explicit con[version](cluster-settings.html#setting-version)](scalar-expressions.html#explicit-type-coercions)
 from a string literal instead.
 
 The following values are recognized:
@@ -90,9 +90,9 @@ A `FLOAT` column supports values up to 8 bytes in width, but the total storage s
 # Note that the value in "b" has been limited to 17 digits.
 ~~~
 
-## Supported casting and conversion
+## Supported casting and con[version](cluster-settings.html#setting-version)
 
-`FLOAT` values can be [cast](data-types.html#data-type-conversions-and-casts) to any of the following data types:
+`FLOAT` values can be [cast](data-types.html#data-type-con[version](cluster-settings.html#setting-version)s-and-casts) to any of the following data types:
 
 Type | Details
 -----|--------

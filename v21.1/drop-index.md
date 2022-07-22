@@ -6,11 +6,11 @@ toc: true
 
 The `DROP INDEX` [statement](sql-statements.html) removes indexes from tables.
 
-{% include {{{ page.version.version }}/misc/schema-change-stmt-note.md %}
+{% include {{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-stmt-note.md %}
 
 ## Synopsis
 
-<div>{% include {{ page.version.version }}/sql/generated/diagrams/drop_index.html %}</div>
+<div>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/drop_index.html %}</div>
 
 ## Required privileges
 
@@ -29,16 +29,16 @@ The user must have the `CREATE` [privilege](authorization.html#assign-privileges
 
 ## Viewing schema changes
 
-{% include {{ page.version.version }}/misc/schema-change-view-job.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-view-job.md %}
 
 ## Examples
 
-{% include {{page.version.version}}/sql/movr-statements.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/movr-statements.md %}
 
 ### Remove an index with no dependencies
 
 {{site.data.alerts.callout_danger}}
-{% include {{ page.version.version }}/known-limitations/drop-unique-index-from-create-table.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/drop-unique-index-from-create-table.md %}
 {{site.data.alerts.end}}
 
 Suppose you create an index on the `name` and `city` columns of the `users` table:

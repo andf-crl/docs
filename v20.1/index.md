@@ -92,7 +92,7 @@ cta: false
         <li><a href="../cockroachcloud/create-your-cluster.html">CockroachCloud Deployment</a></li>
         <li><a href="orchestration.html">Self-Managed Deployment</a></li>
         <li><a href="performance.html">Performance Profiles</a></li>
-        <li><a href="upgrade-cockroach-version.html">Cluster Maintenance</a></li>
+        <li><a href="upgrade-cockroach-[version](cluster-settings.html#setting-version).html">Cluster Maintenance</a></li>
       </ul>
     </div>
     <div class="col-xs-12 col-sm-6 col-lg-3">
@@ -138,7 +138,7 @@ cta: false
     <div class="col-xs-12 col-sm-6 col-lg-3">
       <p class="landing-column-title">Releases</p>
       <ul>
-        <li><a href="../releases/{{page.release_info.version}}.html">Latest Stable Release</a></li>
+        <li><a href="../releases/{{page.release_info.[version](cluster-settings.html#setting-version)}}.html">Latest Stable Release</a></li>
         <li><a href="../releases/#production-releases">All Stable Releases</a></li>
         <li><a href="../releases/#testing-releases">All Testing Releases</a></li>
         <li><a href="../releases/release-support-policy.html">Release Support Policy</a></li>

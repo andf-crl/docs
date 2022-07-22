@@ -93,7 +93,7 @@ docs_area:
         <li><a href="../cockroachcloud/create-your-cluster.html">CockroachDB Cloud Deployment</a></li>
         <li><a href="orchestration.html">Self-Managed Deployment</a></li>
         <li><a href="performance.html">Performance Profiles</a></li>
-        <li><a href="upgrade-cockroach-version.html">Cluster Maintenance</a></li>
+        <li><a href="upgrade-cockroach-[version](cluster-settings.html#setting-version).html">Cluster Maintenance</a></li>
       </ul>
     </div>
     <div class="col-xs-12 col-sm-6 col-lg-3">
@@ -139,7 +139,7 @@ docs_area:
     <div class="col-xs-12 col-sm-6 col-lg-3">
       <p class="landing-column-title">Releases</p>
       <ul>
-        <li><a href="../releases/{{page.version.version}}.html">{{page.version.version}} Release</a></li>
+        <li><a href="../releases/{{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}.html">{{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}} Release</a></li>
         <li><a href="../releases/index.html">All Releases</a></li>
         <li><a href="../releases/release-support-policy.html">Release Support Policy</a></li>
         <li><a href="known-limitations.html">Known Limitations</a></li>

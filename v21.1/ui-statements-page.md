@@ -36,12 +36,12 @@ If you haven't yet executed any queries in the cluster as a user, this page will
 
 Columns | Description
 -----|------------
-{% include {{ page.version.version }}/ui/statement_table.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/ui/statement_table.md %}
 Diagnostics | Option to activate [diagnostics](#diagnostics) for this fingerprint. If activated, this displays the status of diagnostics collection (`WAITING FOR QUERY`, `READY`, OR `ERROR`). When `READY`, the most recent diagnostics bundle can be downloaded here. Access the full history of diagnostics for the fingerprint in the [**Statement Details**](#statement-details-page) page.
 
 ### Time interval
 
-By default, the Statements page displays all SQL statements executed within a one-hour time interval. The display is cleared at the end of each interval. You can change the interval with the [`diagnostics.reporting.interval`](cluster-settings.html#settings) cluster setting.
+By default, the Statements page displays all SQL statements executed within a one-hour time interval. The display is cleared at the end of each interval. You can change the interval with the [`[diagnostics.reporting.interval](cluster-settings.html#setting-diagnostics-reporting-interval)`](cluster-settings.html#settings) cluster setting.
 
 ### SQL statement fingerprints
 
@@ -124,7 +124,7 @@ When you activate diagnostics for a fingerprint, CockroachDB waits for the next 
 Diagnostics will be collected a maximum of *N* times for a given activated fingerprint where *N* is the number of nodes in your cluster.
 {{site.data.alerts.end}}
 
-{% include {{ page.version.version }}/sql/statement-bundle-warning.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/statement-bundle-warning.md %}
 
 <img src="{{ 'images/v21.1/ui_statements_diagnostics.png' | relative_url }}" alt="DB Console Statements Page" style="border:1px solid #eee;max-width:100%" />
 
@@ -142,11 +142,11 @@ Click **All statement diagnostics** to view a complete history of your collected
 
 The **Logical Plan** section displays CockroachDB's query plan for an [explainable statement](sql-grammar.html#preparable_stmt). You can use this information to optimize the query. For more information about logical plans, see [`EXPLAIN`](explain.html).
 
-By default, the logical plan for each fingerprint is sampled every 5 minutes. You can change the interval with the [`sql.metrics.statement_details.plan_collection.period`](cluster-settings.html#settings) cluster setting. For example, to change the interval to 2 minutes, run the following [`SET CLUSTER SETTING`](set-cluster-setting.html) command:
+By default, the logical plan for each fingerprint is sampled every 5 minutes. You can change the interval with the [`[sql.metrics.statement_details.plan_collection.period](cluster-settings.html#setting-sql-metrics-statement_details-plan_collection-period)`](cluster-settings.html#settings) cluster setting. For example, to change the interval to 2 minutes, run the following [`SET CLUSTER SETTING`](set-cluster-setting.html) command:
 
 {% include_cached copy-clipboard.html %}
 ~~~ sql
-> SET CLUSTER SETTING sql.metrics.statement_details.plan_collection.period  = '2m0s';
+> SET CLUSTER SETTING [sql.metrics.statement_details.plan_collection.period](cluster-settings.html#setting-sql-metrics-statement_details-plan_collection-period)  = '2m0s';
 ~~~
 
 ### Execution Stats

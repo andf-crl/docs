@@ -20,7 +20,7 @@ For compatibility with PostgreSQL, CockroachDB supports the `ANALYZE`/`ANALYSE` 
 ## Syntax
 
 <div>
-{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.version.version | replace: "v", "" }}/grammar_svg/create_stats.html %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/grammar_svg/create_stats.html %}
 </div>
 
 ## Parameters
@@ -43,7 +43,7 @@ The user must have the `CREATE` [privilege](security-reference/authorization.htm
 ### Alias syntax
 
 <div>
-{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.version.version | replace: "v", "" }}/grammar_svg/analyze.html %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/grammar_svg/analyze.html %}
 </div>
 
 ### Alias parameters
@@ -54,7 +54,7 @@ Parameter | Description
 
 ## Examples
 
-{% include {{page.version.version}}/sql/movr-statements.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/movr-statements.md %}
 
 ### Create statistics on a single column
 
@@ -172,7 +172,7 @@ For more information about how the `AS OF SYSTEM TIME` clause works, including s
 
 ### Delete statistics
 
-{% include {{ page.version.version }}/misc/delete-statistics.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/delete-statistics.md %}
 
 ### View statistics jobs
 

@@ -9,7 +9,7 @@ The `ADD COLUMN` [statement](sql-statements.html) is part of `ALTER TABLE` and a
 
 ## Synopsis
 
-{% include {{ page.version.version }}/sql/diagrams/add_column.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/add_column.html %}
 
 ## Required Privileges
 
@@ -24,8 +24,8 @@ The user must have the `CREATE` [privilege](privileges.html) on the table.
 | `typename` | The [data type](data-types.html) of the new column. |
 | `col_qualification` | A list of column definitions, which may include [column-level constraints](constraints.html), [collation](collate.html), or [column family assignments](column-families.html).<br><br>Note that it is not possible to add a column with the [Foreign Key](foreign-key.html) constraint. As a workaround, you can add the column without the constraint, then use [`CREATE INDEX`](create-index.html) to index the column, and then use [`ADD CONSTRAINT`](add-constraint.html) to add the Foreign Key constraint to the column. |
 
-## Viewing Schema Changes <span class="version-tag">New in v1.1</span>
-{% include {{ page.version.version }}/misc/schema-change-view-job.md %}
+## Viewing Schema Changes <span class="[version](cluster-settings.html#setting-version)-tag">New in v1.1</span>
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-view-job.md %}
 
 ## Examples
 

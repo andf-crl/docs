@@ -5,4 +5,4 @@ On your local machine, run the [`cockroach init`](initialize-a-cluster.html) com
 $ cockroach init --certs-dir=certs --host=<address of any node>
 ~~~
 
-After running this command, each node prints helpful details to the [standard output](start-a-node.html#standard-output), such as the CockroachDB version, the URL for the admin UI, and the SQL URL for clients.
+After running this command, each node prints helpful details to the [standard output](start-a-node.html#standard-output), such as the CockroachDB [version](cluster-settings.html#setting-version), the URL for the admin UI, and the SQL URL for clients.

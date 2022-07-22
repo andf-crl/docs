@@ -6,12 +6,12 @@ docs_area: reference.sql
 ---
 
 {{site.data.alerts.callout_info}}
-`EXPERIMENTAL CHANGEFEED FOR` is the core implementation of changefeeds. For the [Enterprise-only](enterprise-licensing.html) version, see [`CREATE CHANGEFEED`](create-changefeed.html).
+`EXPERIMENTAL CHANGEFEED FOR` is the core implementation of changefeeds. For the [Enterprise-only](enterprise-licensing.html) [version](cluster-settings.html#setting-version), see [`CREATE CHANGEFEED`](create-changefeed.html).
 {{site.data.alerts.end}}
 
 The `EXPERIMENTAL CHANGEFEED FOR` [statement](sql-statements.html) creates a new core changefeed, which streams row-level changes to the client indefinitely until the underlying connection is closed or the changefeed is canceled. A core changefeed can watch one table or multiple tables in a comma-separated list.
 
-{% include {{ page.version.version }}/cdc/core-url.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/cdc/core-url.md %}
 
 For more information, see [Stream Data Out of CockroachDB Using Changefeeds](change-data-capture-overview.html).
 
@@ -27,7 +27,7 @@ Changefeeds can only be created by superusers, i.e., [members of the `admin` rol
 
     This cancellation behavior (i.e., close the underlying connection to cancel the changefeed) also extends to client driver usage; in particular, when a client driver calls `Rows.Close()` after encountering errors for a stream of rows. The pgwire protocol requires that the rows be consumed before the connection is again usable, but in the case of a core changefeed, the rows are never consumed. It is therefore critical that you close the connection, otherwise the application will be blocked forever on `Rows.Close()`.
 
-- In most cases, each version of a row will be emitted once. However, some infrequent conditions (e.g., node failures, network partitions) will cause them to be repeated. This gives our changefeeds an at-least-once delivery guarantee. For more information, see [Change Data Capture - Ordering Guarantees](use-changefeeds.html#ordering-guarantees).
+- In most cases, each [version](cluster-settings.html#setting-version) of a row will be emitted once. However, some infrequent conditions (e.g., node failures, network partitions) will cause them to be repeated. This gives our changefeeds an at-least-once delivery guarantee. For more information, see [Change Data Capture - Ordering Guarantees](use-changefeeds.html#ordering-guarantees).
 
 ## Synopsis
 
@@ -64,17 +64,17 @@ Below are clarifications for particular SQL types and values for Avro changefeed
 - [Decimals](decimal.html) must have precision specified.
 - [`BIT`](bit.html) and [`VARBIT`](bit.html) types are encoded as arrays of 64-bit integers.
 
-  {% include {{ page.version.version }}/cdc/avro-bit-varbit.md %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/cdc/avro-bit-varbit.md %}
 
 ## Examples
 
 ### Create a changefeed
 
-{% include {{ page.version.version }}/cdc/create-core-changefeed.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/cdc/create-core-changefeed.md %}
 
 ### Create a changefeed with Avro
 
-{% include {{ page.version.version }}/cdc/create-core-changefeed-avro.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/cdc/create-core-changefeed-avro.md %}
 
 <!-- ### Pause and resume a changefeed
 

@@ -11,7 +11,7 @@ The `RENAME DATABASE` [statement](sql-statements.html) changes the name of a dat
 
 ## Synopsis
 
-{% include {{ page.version.version }}/sql/diagrams/rename_database.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/rename_database.html %}
 
 ## Required Privileges
 

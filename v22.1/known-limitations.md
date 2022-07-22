@@ -6,7 +6,7 @@ keywords: gin, gin index, gin indexes, inverted index, inverted indexes, acceler
 docs_area: releases
 ---
 
-This page describes newly identified limitations in the CockroachDB {{page.release_info.version}} release as well as unresolved limitations identified in earlier releases.
+This page describes newly identified limitations in the CockroachDB {{page.release_info.[version](cluster-settings.html#setting-version)}} release as well as unresolved limitations identified in earlier releases.
 
 ## New limitations
 
@@ -20,7 +20,7 @@ You cannot [restore](restore.html) a multi-region table into a non-multi-region 
 
 Statements containing multiple modification subqueries mutating the same row could cause corruption. These statements are disallowed by default, but you can enable multiple modification subqueries with one the following:
 
-- Set the `sql.multiple_modifications_of_table.enabled` [cluster setting](cluster-settings.html) to `true`.
+- Set the `[sql.multiple_modifications_of_table.enabled](cluster-settings.html#setting-sql-multiple_modifications_of_table-enabled)` [cluster setting](cluster-settings.html) to `true`.
 - Use the `enable_multiple_modifications_of_table` [session variable](set-vars.html).
 
 Note that if multiple mutations inside the same statement affect different tables with [`FOREIGN KEY`](foreign-key.html) relations and `ON CASCADE` clauses between them, the results will be different from what is expected in PostgreSQL.
@@ -33,9 +33,9 @@ The `transaction_rows_read_err` and `transaction_rows_written_err` [session sett
 
 [Tracking GitHub Issue](https://github.com/cockroachdb/cockroach/issues/70473)
 
-### `sql.guardrails.max_row_size_err` misses indexed virtual computed columns
+### `[sql.guardrails.max_row_size_err](cluster-settings.html#setting-sql-guardrails-max_row_size_err)` misses indexed virtual computed columns
 
-The `sql.guardrails.max_row_size_err` [cluster setting](cluster-settings.html) misses large rows caused by indexed virtual computed columns. This is because the guardrail only checks the size of primary key rows, not secondary index rows.
+The `[sql.guardrails.max_row_size_err](cluster-settings.html#setting-sql-guardrails-max_row_size_err)` [cluster setting](cluster-settings.html) misses large rows caused by indexed virtual computed columns. This is because the guardrail only checks the size of primary key rows, not secondary index rows.
 
 [Tracking GitHub Issue](https://github.com/cockroachdb/cockroach/issues/69540)
 
@@ -46,13 +46,13 @@ The `sql.guardrails.max_row_size_err` [cluster setting](cluster-settings.html) m
 
 ### Row-Level TTL limitations
 
-{% include {{page.version.version}}/known-limitations/row-level-ttl-limitations.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/known-limitations/row-level-ttl-limitations.md %}
 
 ### Change data capture limitations
 
 Change data capture (CDC) provides efficient, distributed, row-level changefeeds into Apache Kafka for downstream processing such as reporting, caching, or full-text indexing. It has the following known limitations:
 
-{% include {{ page.version.version }}/known-limitations/cdc.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/cdc.md %}
 
 ## Unresolved limitations
 
@@ -209,51 +209,51 @@ UNION ALL SELECT * FROM t1 LEFT JOIN t2 ON st_contains(t1.geom, t2.geom) AND t2.
 
 ### Using `RESTORE` with multi-region table localities
 
-- {% include {{ page.version.version }}/known-limitations/restore-tables-non-multi-reg.md %}
+- {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/restore-tables-non-multi-reg.md %}
 
-- {% include {{ page.version.version }}/known-limitations/restore-multiregion-match.md %}
+- {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/restore-multiregion-match.md %}
 
 [Tracking GitHub Issue](https://github.com/cockroachdb/cockroach/issues/71071)
 
 ### `SET` does not `ROLLBACK` in a transaction
 
-{% include {{page.version.version}}/known-limitations/set-transaction-no-rollback.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/known-limitations/set-transaction-no-rollback.md %}
 
 ### `JSONB`/`JSON` comparison operators are not implemented
 
-{% include {{page.version.version}}/sql/jsonb-comparison.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/jsonb-comparison.md %}
 
 ### Locality-optimized search works only for queries selecting a limited number of records
 
-{% include {{ page.version.version }}/sql/locality-optimized-search-limited-records.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/locality-optimized-search-limited-records.md %}
 
 ### Expression indexes cannot reference computed columns
 
-{% include {{page.version.version}}/sql/expression-indexes-cannot-reference-computed-columns.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/expression-indexes-cannot-reference-computed-columns.md %}
 
 ### Materialized view limitations
 
-{% include {{page.version.version}}/sql/materialized-views-no-stats.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/materialized-views-no-stats.md %}
 
-{% include {{page.version.version}}/sql/cannot-refresh-materialized-views-inside-transactions.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/cannot-refresh-materialized-views-inside-transactions.md %}
 
 ### CockroachDB cannot plan locality optimized searches that use partitioned unique indexes on virtual computed columns
 
-{% include {{page.version.version}}/sql/locality-optimized-search-virtual-computed-columns.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/locality-optimized-search-virtual-computed-columns.md %}
 
 ### Expressions as `ON CONFLICT` targets are not supported
 
-{% include {{page.version.version}}/sql/expressions-as-on-conflict-targets.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/expressions-as-on-conflict-targets.md %}
 
 ### Optimizer stale statistics deletion when columns are dropped
 
-- {% include {{page.version.version}}/known-limitations/old-multi-col-stats.md %}
+- {% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/known-limitations/old-multi-col-stats.md %}
 
-- {% include {{page.version.version}}/known-limitations/single-col-stats-deletion.md %}
+- {% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/known-limitations/single-col-stats-deletion.md %}
 
 ### Automatic statistics refresher may not refresh after upgrade
 
-{% include {{page.version.version}}/known-limitations/stats-refresh-upgrade.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/known-limitations/stats-refresh-upgrade.md %}
 
 ### Differences in syntax and behavior between CockroachDB and PostgreSQL
 
@@ -306,7 +306,7 @@ CockroachDB supports efficiently storing and querying [spatial data](spatial-dat
 
     [Tracking GitHub Issue](https://github.com/cockroachdb/cockroach/issues/56124)
 
-- CockroachDB does not yet support [`INSERT`](insert.html)s into the [`spatial_ref_sys` table](spatial-glossary.html#spatial-system-tables). This limitation also blocks the [`ogr2ogr -f PostgreSQL` file conversion command](https://gdal.org/programs/ogr2ogr.html#cmdoption-ogr2ogr-f).
+- CockroachDB does not yet support [`INSERT`](insert.html)s into the [`spatial_ref_sys` table](spatial-glossary.html#spatial-system-tables). This limitation also blocks the [`ogr2ogr -f PostgreSQL` file con[version](cluster-settings.html#setting-version) command](https://gdal.org/programs/ogr2ogr.html#cmdoption-ogr2ogr-f).
 
     [Tracking GitHub Issue](https://github.com/cockroachdb/cockroach/issues/55903)
 
@@ -399,15 +399,15 @@ As a workaround, set `default_int_size` via your database driver, or ensure that
 
 ### `COPY` syntax not supported by CockroachDB
 
-{% include {{ page.version.version }}/known-limitations/copy-syntax.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/copy-syntax.md %}
 
 ### Import with a high amount of disk contention
 
-{% include {{ page.version.version }}/known-limitations/import-high-disk-contention.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/import-high-disk-contention.md %}
 
 ### Placeholders in `PARTITION BY`
 
-{% include {{ page.version.version }}/known-limitations/partitioning-with-placeholders.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/partitioning-with-placeholders.md %}
 
 [Tracking GitHub Issue](https://github.com/cockroachdb/cockroach/issues/19464)
 
@@ -444,19 +444,19 @@ SQLSTATE: 0A000
 
 ### Available capacity metric in the DB Console
 
-{% include {{ page.version.version }}/misc/available-capacity-metric.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/available-capacity-metric.md %}
 
 ### Schema changes within transactions
 
-{% include {{ page.version.version }}/known-limitations/schema-changes-within-transactions.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/schema-changes-within-transactions.md %}
 
 ### Schema change DDL statements inside a multi-statement transaction can fail while other statements succeed
 
-{% include {{ page.version.version }}/known-limitations/schema-change-ddl-inside-multi-statement-transactions.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/schema-change-ddl-inside-multi-statement-transactions.md %}
 
 ### Schema changes between executions of prepared statements
 
-{% include {{ page.version.version }}/known-limitations/schema-changes-between-prepared-statements.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/schema-changes-between-prepared-statements.md %}
 
 ### Size limits on statement input from SQL clients
 
@@ -530,7 +530,7 @@ When a node has both a high number of client connections and running queries, th
 
 To prevent memory exhaustion, monitor each node's memory usage and ensure there is some margin between maximum CockroachDB memory usage and available system RAM. For more details about memory usage in CockroachDB, see [this blog post](https://www.cockroachlabs.com/blog/memory-usage-cockroachdb/).
 
-{% include {{page.version.version}}/sql/server-side-connection-limit.md %} This may be useful in addition to your memory monitoring.
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/server-side-connection-limit.md %} This may be useful in addition to your memory monitoring.
 
 ### Privileges for `DELETE` and `UPDATE`
 
@@ -589,10 +589,10 @@ If you think a rollback of a column-dropping schema change has occurred, check t
 
 ### Disk-spilling on joins with `JSON` columns
 
-If the execution of a [join](joins.html) query exceeds the limit set for memory-buffering operations (i.e., the value set for the `sql.distsql.temp_storage.workmem` [cluster setting](cluster-settings.html)), CockroachDB will spill the intermediate results of computation to disk. If the join operation spills to disk, and at least one of the equality columns is of type [`JSON`](jsonb.html), CockroachDB returns the error `unable to encode table key: *tree.DJSON`. If the memory limit is not reached, then the query will be processed without error.
+If the execution of a [join](joins.html) query exceeds the limit set for memory-buffering operations (i.e., the value set for the `[sql.distsql.temp_storage.workmem](cluster-settings.html#setting-sql-distsql-temp_storage-workmem)` [cluster setting](cluster-settings.html)), CockroachDB will spill the intermediate results of computation to disk. If the join operation spills to disk, and at least one of the equality columns is of type [`JSON`](jsonb.html), CockroachDB returns the error `unable to encode table key: *tree.DJSON`. If the memory limit is not reached, then the query will be processed without error.
 
 [Tracking GitHub Issue](https://github.com/cockroachdb/cockroach/issues/35706)
 
 ### Remove a `UNIQUE` index created as part of `CREATE TABLE`
 
-{% include {{ page.version.version }}/known-limitations/drop-unique-index-from-create-table.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/drop-unique-index-from-create-table.md %}

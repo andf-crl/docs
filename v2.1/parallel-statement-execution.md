@@ -7,7 +7,7 @@ toc: true
 CockroachDB supports parallel execution of [independent](parallel-statement-execution.html#when-to-use-parallel-statement-execution) [`INSERT`](insert.html), [`UPDATE`](update.html), [`UPSERT`](upsert.html), and [`DELETE`](delete.html) statements within a single [transaction](transactions.html). Executing statements in parallel helps reduce aggregate latency and improve performance. 
 
 {{site.data.alerts.callout_info}}
-<span class="version-tag">New in v2.1:</span> Built-in performance optimizations such as [transaction pipelining](architecture/transaction-layer.html#transaction-pipelining) provide the same performance benefits as parallel statement execution with better SQL semantics, and without limitations such as the [error message mismatch](#error-message-mismatch). Parallel statement execution may increase performance in a few very subtle cases, but it is not recommended for most users. If you believe you need to use this feature, please contact someone at CockroachDB first.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v2.1:</span> Built-in performance optimizations such as [transaction pipelining](architecture/transaction-layer.html#transaction-pipelining) provide the same performance benefits as parallel statement execution with better SQL semantics, and without limitations such as the [error message mismatch](#error-message-mismatch). Parallel statement execution may increase performance in a few very subtle cases, but it is not recommended for most users. If you believe you need to use this feature, please contact someone at CockroachDB first.
 {{site.data.alerts.end}}
 
 ## Why use parallel statement execution?

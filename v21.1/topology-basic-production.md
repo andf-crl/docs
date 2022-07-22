@@ -12,7 +12,7 @@ If you haven't already, [review the full range of topology patterns](topology-pa
 
 ## Prerequisites
 
-{% include {{ page.version.version }}/topology-patterns/fundamentals.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/topology-patterns/fundamentals.md %}
 
 ## Configuration
 
@@ -86,4 +86,4 @@ However, if an additional AZ fails at the same time, the ranges that lose consen
 
 ## See also
 
-{% include {{ page.version.version }}/topology-patterns/see-also.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/topology-patterns/see-also.md %}

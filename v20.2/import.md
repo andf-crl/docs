@@ -18,8 +18,8 @@ The `IMPORT` [statement](sql-statements.html) imports the following types of dat
 
 - `IMPORT` only works for creating new tables. For information on how to import into existing tables, see [`IMPORT INTO`](import-into.html). Also, for instructions and working examples on how to migrate data from other databases, see the [Migration Overview](migration-overview.html).
 - `IMPORT` is a blocking statement and cannot be used within a [transaction](transactions.html).
-- `IMPORT` cannot be used during a [rolling upgrade](upgrade-cockroach-version.html).
-- <span class="version-tag">New in v20.2:</span> `IMPORT` cannot be used with [user-defined types](create-type.html). Use [`IMPORT INTO`](import-into.html) instead.
+- `IMPORT` cannot be used during a [rolling upgrade](upgrade-cockroach-[version](cluster-settings.html#setting-version).html).
+- <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> `IMPORT` cannot be used with [user-defined types](create-type.html). Use [`IMPORT INTO`](import-into.html) instead.
 
 {{site.data.alerts.callout_info}}
 Optimize import operations in your applications by following our [Import Performance Best Practices](import-performance-best-practices.html).
@@ -33,20 +33,20 @@ The user must have the `CREATE` [privileges](authorization.html#assign-privilege
 
 #### Source privileges
 
-{% include {{ page.version.version }}/misc/source-privileges.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/source-privileges.md %}
 
 ## Synopsis
 
 **Import a table from CSV or Avro**
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/import_csv.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/import_csv.html %}
 </div>
 
 **Import a database or table from dump file**
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/import_dump.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/import_dump.html %}
 </div>
 
 ## Parameters
@@ -140,7 +140,7 @@ Your `IMPORT` statement must reference a `CREATE TABLE` statement representing t
 We also recommend [specifying all secondary indexes you want to use in the `CREATE TABLE` statement](create-table.html#create-a-table-with-secondary-and-gin-indexes). It is possible to [add secondary indexes later](create-index.html), but it is significantly faster to specify them during import.
 
 {{site.data.alerts.callout_info}}
-<span class="version-tag">New in v20.2:</span> `IMPORT` supports [computed columns](computed-columns.html) for Avro and Postgres dump files only. To import CSV data to a table with a computed column or `DEFAULT` expression, use [`IMPORT INTO`](import-into.html).
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> `IMPORT` supports [computed columns](computed-columns.html) for Avro and Postgres dump files only. To import CSV data to a table with a computed column or `DEFAULT` expression, use [`IMPORT INTO`](import-into.html).
 {{site.data.alerts.end}}
 
 {{site.data.alerts.callout_info}}
@@ -158,7 +158,7 @@ On [`cockroach start`](cockroach-start.html), if you set `--max-disk-temp-storag
 CockroachDB uses the URL provided to construct a secure API call to the service you specify. The URL structure depends on the type of file storage you are using. For more information, see the following:
 
 - [Use Cloud Storage for Bulk Operations](use-cloud-storage-for-bulk-operations.html)
-- <span class="version-tag">New in v20.2:</span> [Use `userfile` for Bulk Operations](use-userfile-for-bulk-operations.html)
+- <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> [Use `userfile` for Bulk Operations](use-userfile-for-bulk-operations.html)
 - [Use a Local File Server for Bulk Operations](use-a-local-file-server-for-bulk-operations.html)
 
 ### Table users and privileges
@@ -193,7 +193,7 @@ The following provide connection examples to cloud storage providers. For more i
 
 <section class="filter-content" markdown="1" data-scope="s3">
 
-{% include {{ page.version.version }}/backups/aws-auth-note.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/backups/aws-auth-note.md %}
 
 ### Import a table from a CSV file
 
@@ -220,7 +220,7 @@ CSV DATA ('s3://{BUCKET NAME}/{customers.csv}?AWS_ACCESS_KEY_ID={ACCESS KEY}&AWS
 ;
 ~~~
 
-{% include {{ page.version.version }}/misc/csv-import-callout.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/csv-import-callout.md %}
 
 ### Import a table from multiple CSV files
 
@@ -546,7 +546,7 @@ CSV DATA ('azure://{CONTAINER NAME}/{customer-import-data.csv}?AZURE_ACCOUNT_NAM
 ;
 ~~~
 
-{% include {{ page.version.version }}/misc/csv-import-callout.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/csv-import-callout.md %}
 
 ### Import a table from multiple CSV files
 
@@ -848,7 +848,7 @@ For more information about importing data from Avro, including examples, see [Mi
 
 <section class="filter-content" markdown="1" data-scope="gcs">
 
-{% include {{ page.version.version }}/backups/gcs-auth-note.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/backups/gcs-auth-note.md %}
 
 ### Import a table from a CSV file
 
@@ -875,7 +875,7 @@ CSV DATA ('gs://{BUCKET NAME}/{customers.csv}?AUTH=specified&CREDENTIALS={ENCODE
 ;
 ~~~
 
-{% include {{ page.version.version }}/misc/csv-import-callout.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/csv-import-callout.md %}
 
 ### Import a table from multiple CSV files
 
@@ -1176,7 +1176,7 @@ For more information about importing data from Avro, including examples, see [Mi
 
 ## Known limitation
 
-{% include {{ page.version.version }}/known-limitations/import-high-disk-contention.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/import-high-disk-contention.md %}
 
 ## See also
 

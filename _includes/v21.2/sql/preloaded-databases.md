@@ -1,4 +1,4 @@
-New clusters and existing clusters [upgraded](upgrade-cockroach-version.html) to {{ page.version.version }} or later will include auto-generated databases, with the following purposes:
+New clusters and existing clusters [upgraded](upgrade-cockroach-[version](cluster-settings.html#setting-version).html) to {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }} or later will include auto-generated databases, with the following purposes:
 
 - The empty `defaultdb` database is used if a client does not specify a database in the [connection parameters](connection-parameters.html).
 - The `movr` database contains data about users, vehicles, and rides for the vehicle-sharing app [MovR](movr.html).

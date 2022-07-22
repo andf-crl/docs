@@ -31,14 +31,14 @@ Note that this lab involves running a cluster in Docker so that you can use it t
     <div class="filter-content" markdown="1" data-scope="mac">
     {% include copy-clipboard.html %}
     ~~~ shell
-    $ curl -O {{site.url}}/docs/{{ page.version.version }}/training/resources/docker-compose.yaml
+    $ curl -O {{site.url}}/docs/{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/training/resources/docker-compose.yaml
     ~~~
     </div>
 
     <div class="filter-content" markdown="1" data-scope="linux">
     {% include copy-clipboard.html %}
     ~~~ shell
-    $ wget {{site.url}}/docs/{{ page.version.version }}/training/resources/docker-compose.yaml
+    $ wget {{site.url}}/docs/{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/training/resources/docker-compose.yaml
     ~~~
     </div>
 
@@ -46,7 +46,7 @@ Note that this lab involves running a cluster in Docker so that you can use it t
 
     {% include copy-clipboard.html %}
     ~~~ shell
-    $ COCKROACH_VERSION={{ page.release_info.version }} docker-compose up
+    $ COCKROACH_VERSION={{ page.release_info.[version](cluster-settings.html#setting-version) }} docker-compose up
     ~~~~
 
 3. In a new terminal, initialize the cluster:

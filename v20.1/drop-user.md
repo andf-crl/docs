@@ -7,16 +7,16 @@ toc: true
 The `DROP USER` [statement](sql-statements.html) removes one or more SQL users.
 
 {{site.data.alerts.callout_info}}
-<span class="version-tag">New in v20.1</span>: Since the keywords `ROLE` and `USER` can now be used interchangeably in SQL statements for enhanced Postgres compatibility, `DROP USER` is now an alias for [`DROP ROLE`](drop-role.html).
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1</span>: Since the keywords `ROLE` and `USER` can now be used interchangeably in SQL statements for enhanced Postgres compatibility, `DROP USER` is now an alias for [`DROP ROLE`](drop-role.html).
 {{site.data.alerts.end}}
 
 ## Required privileges
 
-<span class="version-tag">New in v20.1:</span> To drop other non-admin users, the user must have the [`CREATEROLE`](create-user.html#allow-the-user-to-create-other-users) parameter set.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> To drop other non-admin users, the user must have the [`CREATEROLE`](create-user.html#allow-the-user-to-create-other-users) parameter set.
 
 ## Synopsis
 
-<section>{% include {{ page.version.version }}/sql/diagrams/drop_user.html %}</section>
+<section>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/drop_user.html %}</section>
 
 ## Parameters
 

@@ -9,11 +9,11 @@ The `SPLIT AT` [statement](sql-statements.html) forces a range split at the spec
 ## Synopsis
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/split_table_at.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/split_table_at.html %}
 </div>
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/split_index_at.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/split_index_at.html %}
 </div>
 
 ## Required privileges
@@ -54,13 +54,13 @@ the ranges that store tables or indexes:
   workload performance that results when automatic splits are unable to keep up
   with write traffic.
 
-Note that when a table is [truncated](truncate.html), it is essentially re-created in a single new empty range, and the old ranges that used to constitute the table are garbage collected. Any pre-splitting you have performed on the old version of the table will not carry over to the new version. The new table will need to be pre-split again.
+Note that when a table is [truncated](truncate.html), it is essentially re-created in a single new empty range, and the old ranges that used to constitute the table are garbage collected. Any pre-splitting you have performed on the old [version](cluster-settings.html#setting-version) of the table will not carry over to the new [version](cluster-settings.html#setting-version). The new table will need to be pre-split again.
 
 ## Examples
 
 ### Setup
 
-{% include {{page.version.version}}/sql/movr-statements-partitioning.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/movr-statements-partitioning.md %}
 
 ### Split a table
 
@@ -261,4 +261,4 @@ You can see the split's expiration date in the `split_enforced_until` column. Th
 - [Distribution Layer](architecture/distribution-layer.html)
 - [Replication Layer](architecture/replication-layer.html)
 - [`SHOW JOBS`](show-jobs.html)
-- <span class="version-tag">New in v19.2:</span> [`UNSPLIT AT`](unsplit-at.html)
+- <span class="[version](cluster-settings.html#setting-version)-tag">New in v19.2:</span> [`UNSPLIT AT`](unsplit-at.html)

@@ -12,7 +12,7 @@ The `SHOW TABLES` [statement](sql-statements.html) lists the tables or [views](v
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/show_tables.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/show_tables.html %}
 </div>
 
 ## Required privileges

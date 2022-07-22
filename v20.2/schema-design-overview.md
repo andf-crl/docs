@@ -23,7 +23,7 @@ All CockroachDB clusters include a preloaded database named `defaultdb`. Rather 
 
 For guidance on creating databases, see [Create a Database](schema-design-database.html).
 
-{% include {{page.version.version}}/sql/db-terms.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/db-terms.md %}
 
 ### Schemas
 
@@ -33,7 +33,7 @@ All CockroachDB clusters include a preloaded schema named `public`. CockroachDB 
 
 For guidance on creating user-defined schemas, see [Create a User-defined Schema](schema-design-schema.html).
 
-{% include {{page.version.version}}/sql/schema-terms.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/schema-terms.md %}
 
 ### Tables
 
@@ -114,7 +114,7 @@ The following table lists specific limits imposed by CockroachDB.
 | ------ | ----- | -------- |
 | Role names | 63 bytes | Other [restrictions](create-role.html#role-name-limitations) apply. |
 | User names | 63 bytes | These are [equivalent](create-user.html) to role names. |
-| Identifier length | 128 bytes | This limit is specified in the `max_identifier_length` variable for compatibility with other databases, but is not currently enforced. It may be enforced in future versions of CockroachDB, so we recommended remaining within this limit. |
+| Identifier length | 128 bytes | This limit is specified in the `max_identifier_length` variable for compatibility with other databases, but is not currently enforced. It may be enforced in future [version](cluster-settings.html#setting-version)s of CockroachDB, so we recommended remaining within this limit. |
 
 ### Quantity of tables and other schema objects
 

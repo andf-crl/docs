@@ -4,12 +4,12 @@ summary: Use the SHOW ZONE CONFIGURATIONS statement to list details about existi
 toc: true
 ---
 
-<span class="version-tag">New in {{ page.version.version }}:</span> Use the `SHOW ZONE CONFIGURATIONS` [statement](sql-statements.html) to view details about existing [replication zones](configure-replication-zones.html).
+<span class="[version](cluster-settings.html#setting-version)-tag">New in {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}:</span> Use the `SHOW ZONE CONFIGURATIONS` [statement](sql-statements.html) to view details about existing [replication zones](configure-replication-zones.html).
 
 ## Synopsis
 
 <div class="horizontal-scroll">
-{% include {{ page.version.version }}/sql/diagrams/show_zone.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/show_zone.html %}
 </div>
 
 ## Required privileges
@@ -30,27 +30,27 @@ Parameter | Description
 
 ### View all replication zones
 
-{% include {{ page.version.version }}/zone-configs/view-all-replication-zones.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/zone-configs/view-all-replication-zones.md %}
 
 ### View the default replication zone for the cluster
 
-{% include {{ page.version.version }}/zone-configs/view-the-default-replication-zone.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/zone-configs/view-the-default-replication-zone.md %}
 
 ### View the replication zone for a database
 
-{% include {{ page.version.version }}/zone-configs/view-the-replication-zone-for-a-database.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/zone-configs/view-the-replication-zone-for-a-database.md %}
 
 ### View the replication zone for a table
 
-{% include {{ page.version.version }}/zone-configs/view-the-replication-zone-for-a-table.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/zone-configs/view-the-replication-zone-for-a-table.md %}
 
 ### View the replication zone for an index
 
-{% include {{ page.version.version }}/zone-configs/view-the-replication-zone-for-an-index.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/zone-configs/view-the-replication-zone-for-an-index.md %}
 
 ### View the replication zone for a table partition
 
-{% include {{ page.version.version }}/zone-configs/view-the-replication-zone-for-a-partition.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/zone-configs/view-the-replication-zone-for-a-partition.md %}
 
 ## See also
 

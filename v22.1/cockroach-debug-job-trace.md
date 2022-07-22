@@ -23,7 +23,7 @@ See [`SHOW JOBS`](show-jobs.html#show-jobs) for details on capturing a `job_id`.
 
 ## Subcommands
 
-{% include {{ page.version.version }}/misc/debug-subcommands.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/debug-subcommands.md %}
 
 ## Flags
 

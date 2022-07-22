@@ -15,7 +15,7 @@ Only members of the `admin` role can modify cluster settings. By default, the `r
 ## Synopsis
 
 <div>
-{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.version.version | replace: "v", "" }}/grammar_svg/reset_csetting.html %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/grammar_svg/reset_csetting.html %}
 </div>
 
 ## Parameters
@@ -30,16 +30,16 @@ Only members of the `admin` role can modify cluster settings. By default, the `r
 
 {% include_cached copy-clipboard.html %}
 ~~~ sql
-> SET CLUSTER SETTING sql.metrics.statement_details.enabled = false;
+> SET CLUSTER SETTING [sql.metrics.statement_details.enabled](cluster-settings.html#setting-sql-metrics-statement_details-enabled) = false;
 ~~~
 
 {% include_cached copy-clipboard.html %}
 ~~~ sql
-> SHOW CLUSTER SETTING sql.metrics.statement_details.enabled;
+> SHOW CLUSTER SETTING [sql.metrics.statement_details.enabled](cluster-settings.html#setting-sql-metrics-statement_details-enabled);
 ~~~
 
 ~~~
-  sql.metrics.statement_details.enabled
+  [sql.metrics.statement_details.enabled](cluster-settings.html#setting-sql-metrics-statement_details-enabled)
 -----------------------------------------
                   false
 (1 row)
@@ -47,16 +47,16 @@ Only members of the `admin` role can modify cluster settings. By default, the `r
 
 {% include_cached copy-clipboard.html %}
 ~~~ sql
-> RESET CLUSTER SETTING sql.metrics.statement_details.enabled;
+> RESET CLUSTER SETTING [sql.metrics.statement_details.enabled](cluster-settings.html#setting-sql-metrics-statement_details-enabled);
 ~~~
 
 {% include_cached copy-clipboard.html %}
 ~~~ sql
-> SHOW CLUSTER SETTING sql.metrics.statement_details.enabled;
+> SHOW CLUSTER SETTING [sql.metrics.statement_details.enabled](cluster-settings.html#setting-sql-metrics-statement_details-enabled);
 ~~~
 
 ~~~
-  sql.metrics.statement_details.enabled
+  [sql.metrics.statement_details.enabled](cluster-settings.html#setting-sql-metrics-statement_details-enabled)
 -----------------------------------------
                   true
 (1 row)

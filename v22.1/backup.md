@@ -24,7 +24,7 @@ You can also backup:
 
 Because CockroachDB is designed with high fault tolerance, these backups are designed primarily for disaster recovery (i.e., if your cluster loses a majority of its nodes) through [`RESTORE`](restore.html). Isolated issues (such as small-scale node outages) do not require any intervention.
 
-{% include {{ page.version.version }}/backups/backup-to-deprec.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/backups/backup-to-deprec.md %}
 
 ## Considerations
 
@@ -46,16 +46,16 @@ To view the contents of an Enterprise backup created with the `BACKUP` statement
 - [Full cluster backups](take-full-and-incremental-backups.html#full-backups) can only be run by members of the [`admin` role](security-reference/authorization.html#admin-role). By default, the `root` user belongs to the `admin` role.
 - For all other backups, the user must have [read access](security-reference/authorization.html#managing-privileges) on all objects being backed up. Database backups require `CONNECT` privileges, and table backups require `SELECT` privileges. Backups of user-defined schemas, or backups containing user-defined types, require `USAGE` privileges.
 - `BACKUP` requires full read and write permissions to its target destination.
-- {% include_cached new-in.html version="v22.1" %}`BACKUP` does **not** require delete or overwrite permissions to its target destination. This allows `BACKUP` to write to cloud storage buckets that have [object locking](use-cloud-storage-for-bulk-operations.html#object-locking) configured. We recommend enabling object locking in cloud storage buckets to protect the validity of a backup.
+- {% include_cached new-in.html [version](cluster-settings.html#setting-version)="v22.1" %}`BACKUP` does **not** require delete or overwrite permissions to its target destination. This allows `BACKUP` to write to cloud storage buckets that have [object locking](use-cloud-storage-for-bulk-operations.html#object-locking) configured. We recommend enabling object locking in cloud storage buckets to protect the validity of a backup.
 
 ### Destination privileges
 
-{% include {{ page.version.version }}/backups/destination-file-privileges.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/backups/destination-file-privileges.md %}
 
 ## Synopsis
 
 <div>
-{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.version.version | replace: "v", "" }}/grammar_svg/backup.html %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/grammar_svg/backup.html %}
 </div>
 
 ## Parameters
@@ -82,7 +82,7 @@ N/A                                | Backup the cluster. For an example of a ful
 
 ### Options
 
-{% include {{ page.version.version }}/backups/backup-options.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/backups/backup-options.md %}
 
 ### Backup file URLs
 
@@ -134,7 +134,7 @@ This improves performance by decreasing the likelihood that the `BACKUP` will be
 
 `BACKUP` will initially ask individual ranges to backup but to skip if they encounter an intent. Any range that is skipped is placed at the end of the queue. When `BACKUP` has completed its initial pass and is revisiting ranges, it will ask any range that did not resolve within the given time limit (default 1 minute) to attempt to resolve any intents that it encounters and to _not_ skip. Additionally, the backup's transaction priority is then set to `high`, which causes other transactions to abort until the intents are resolved and the backup is finished.
 
-{% include {{ page.version.version }}/backups/file-size-setting.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/backups/file-size-setting.md %}
 
 ## Viewing and controlling backups jobs
 
@@ -157,7 +157,7 @@ The presence of the `BACKUP MANIFEST` file in the backup subdirectory is an indi
 
 Per our guidance in the [Performance](#performance) section, we recommend starting backups from a time at least 10 seconds in the past using [`AS OF SYSTEM TIME`](as-of-system-time.html). Each example below follows this guidance.
 
-{% include {{ page.version.version }}/backups/bulk-auth-options.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/backups/bulk-auth-options.md %}
 
 <div class="filters clearfix">
   <button class="filter-button" data-scope="s3">Amazon S3</button>
@@ -304,14 +304,14 @@ job_id             |  status   | fraction_completed | rows | index_entries | byt
 
 ### Backup with an S3 storage class
 
-{% include_cached new-in.html version="v22.1" %} To associate your backup objects with a [specific storage class](use-cloud-storage-for-bulk-operations.html#amazon-s3-storage-classes) in your Amazon S3 bucket, use the `S3_STORAGE_CLASS` parameter with the class. For example, the following S3 connection URI specifies the `INTELLIGENT_TIERING` storage class:
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v22.1" %} To associate your backup objects with a [specific storage class](use-cloud-storage-for-bulk-operations.html#amazon-s3-storage-classes) in your Amazon S3 bucket, use the `S3_STORAGE_CLASS` parameter with the class. For example, the following S3 connection URI specifies the `INTELLIGENT_TIERING` storage class:
 
 {% include_cached copy-clipboard.html %}
 ~~~ sql
 BACKUP DATABASE movr INTO 's3://{BUCKET NAME}?AWS_ACCESS_KEY_ID={KEY ID}&AWS_SECRET_ACCESS_KEY={SECRET ACCESS KEY}&S3_STORAGE_CLASS=INTELLIGENT_TIERING' AS OF SYSTEM TIME '-10s';
 ~~~
 
-{% include {{ page.version.version }}/misc/storage-classes.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/storage-classes.md %}
 
 </section>
 
@@ -593,7 +593,7 @@ job_id             |  status   | fraction_completed | rows | index_entries | byt
 
 ### Advanced examples
 
-{% include {{ page.version.version }}/backups/advanced-examples-list.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/backups/advanced-examples-list.md %}
 
 ## See also
 

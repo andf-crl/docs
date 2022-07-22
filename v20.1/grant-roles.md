@@ -7,12 +7,12 @@ toc: true
 The `GRANT <roles>` [statement](sql-statements.html) lets you add a [role](authorization.html#create-and-manage-roles) or [user](authorization.html#create-and-manage-users) as a member to a role.
 
 {{site.data.alerts.callout_info}}
-<span class="version-tag">New in v20.1</span> <code>GRANT &lt;roles&gt;</code> is no longer an enterprise feature and is now freely available in the core version of CockroachDB.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1</span> <code>GRANT &lt;roles&gt;</code> is no longer an enterprise feature and is now freely available in the core [version](cluster-settings.html#setting-version) of CockroachDB.
 {{site.data.alerts.end}}
 
 ## Synopsis
 
-<section>{% include {{ page.version.version }}/sql/diagrams/grant_roles.html %}</section>
+<section>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/grant_roles.html %}</section>
 
 ## Required privileges
 

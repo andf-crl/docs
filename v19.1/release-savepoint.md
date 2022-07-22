@@ -10,12 +10,12 @@ If statements in the transaction [generated any non-retry errors](transactions.h
 
 Note that although issuing this statement commits the transaction, you must also issue a subsequent [`COMMIT`](commit-transaction.html) statement to prepare the connection for the next transaction.
 
-{% include {{ page.version.version }}/misc/savepoint-limitations.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/savepoint-limitations.md %}
 
 ## Synopsis
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/release_savepoint.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/release_savepoint.html %}
 </div>
 
 ## Required privileges
@@ -30,7 +30,7 @@ name      | The name of the savepoint.  Defaults to `cockroach_restart`, but may
 
 ## Customizing the savepoint name
 
-{% include {{ page.version.version }}/misc/customizing-the-savepoint-name.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/customizing-the-savepoint-name.md %}
 
 ## Examples
 

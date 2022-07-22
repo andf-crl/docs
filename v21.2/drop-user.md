@@ -7,7 +7,7 @@ docs_area: reference.sql
 
 The `DROP USER` [statement](sql-statements.html) removes one or more SQL users.
 
-{% include {{ page.version.version }}/misc/schema-change-stmt-note.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-stmt-note.md %}
 
 {{site.data.alerts.callout_info}}
  Since the keywords `ROLE` and `USER` can now be used interchangeably in SQL statements for enhanced PostgreSQL compatibility, `DROP USER` is now an alias for [`DROP ROLE`](drop-role.html).
@@ -23,7 +23,7 @@ Non-admin users cannot drop admin users. To drop non-admin users, the user must 
 
 ## Synopsis
 
-<div>{% include {{ page.version.version }}/sql/generated/diagrams/drop_user.html %}</div>
+<div>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/drop_user.html %}</div>
 
 ## Parameters
 

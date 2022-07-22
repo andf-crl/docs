@@ -26,7 +26,7 @@ To use the built-in SQL client, you need to launch a pod that runs indefinitely 
     # All statements must be terminated by a semicolon.
     # To exit: CTRL + D.
     #
-    # Server version: CockroachDB CCL v1.1.2 (linux amd64, built 2017/11/02 19:32:03, go1.8.3) (same version as client)
+    # Server [version](cluster-settings.html#setting-version): CockroachDB CCL v1.1.2 (linux amd64, built 2017/11/02 19:32:03, go1.8.3) (same [version](cluster-settings.html#setting-version) as client)
     # Cluster ID: 3292fe08-939f-4638-b8dd-848074611dba
     #
     # Enter \? for a brief introduction.
@@ -120,7 +120,7 @@ To use the built-in SQL client, you need to launch a pod that runs indefinitely 
     # All statements must be terminated by a semicolon.
     # To exit: CTRL + D.
     #
-    # Server version: CockroachDB CCL v1.1.2 (linux amd64, built 2017/11/02 19:32:03, go1.8.3) (same version as client)
+    # Server [version](cluster-settings.html#setting-version): CockroachDB CCL v1.1.2 (linux amd64, built 2017/11/02 19:32:03, go1.8.3) (same [version](cluster-settings.html#setting-version) as client)
     # Cluster ID: 3292fe08-939f-4638-b8dd-848074611dba
     #
     # Enter \? for a brief introduction.

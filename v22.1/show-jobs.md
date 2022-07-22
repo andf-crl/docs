@@ -7,7 +7,7 @@ docs_area: reference.sql
 
 The `SHOW JOBS` [statement](sql-statements.html) lists all of the types of long-running tasks your cluster has performed in the last 12 hours, including:
 
-{% include {{ page.version.version }}/sql/schema-changes.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/schema-changes.md %}
 - [`IMPORT`](import.html).
 - Enterprise [`BACKUP`](backup.html) and [`RESTORE`](restore.html).
 - [Scheduled backups](manage-a-backup-schedule.html).
@@ -24,7 +24,7 @@ To block a call to `SHOW JOBS` that returns after all specified job ID(s) have a
 
 - The `SHOW JOBS` statement shows only long-running tasks.
 - For jobs older than 12 hours, query the `crdb_internal.jobs` table.
-- Jobs are deleted after 14 days. This interval can be changed via the `jobs.retention_time` [cluster setting](cluster-settings.html).
+- Jobs are deleted after 14 days. This interval can be changed via the `[jobs.retention_time](cluster-settings.html#setting-jobs-retention_time)` [cluster setting](cluster-settings.html).
 - While the `SHOW JOBS WHEN COMPLETE` statement is blocking, it will time out after 24 hours.
 - Garbage collection jobs are created for [dropped tables](drop-table.html) and [dropped indexes](drop-index.html), and will execute after the [GC TTL](configure-replication-zones.html#replication-zone-variables) has elapsed (default is 25 hours). These jobs cannot be canceled.
 -  CockroachDB automatically retries jobs that fail due to [retry errors](transaction-retry-error-reference.html) or job coordination failures, with [exponential backoff](https://en.wikipedia.org/wiki/Exponential_backoff). The `jobs.registry.retry.initial_delay` [cluster setting](cluster-settings.html) sets the initial delay between retries and `jobs.registry.retry.max_delay` sets the maximum delay.
@@ -36,7 +36,7 @@ By default, only the `root` user can execute `SHOW JOBS`.
 ## Synopsis
 
 <div>
-{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.version.version | replace: "v", "" }}/grammar_svg/show_jobs.html %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/grammar_svg/show_jobs.html %}
 </div>
 
 ## Parameters

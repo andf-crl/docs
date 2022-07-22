@@ -13,7 +13,7 @@ However, CockroachDB does not support some of the PostgreSQL features or behaves
 
 ## Unsupported Features
 
-{% include {{page.version.version}}/sql/unsupported-postgres-features.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/unsupported-postgres-features.md %}
 
 ## Features that differ from PostgreSQL
 
@@ -112,7 +112,7 @@ SELECT 1::int << (x % 64)
 
 ### Locking and `FOR UPDATE`
 
-<span class="version-tag">New in v19.2:</span> Because CockroachDB only supports [`SERIALIZABLE` isolation](architecture/transaction-layer.html#isolation-levels), locking is not required to order concurrent transactions relative to each other. The `FOR UPDATE` [locking clause](sql-grammar.html#locking_clause) is supported in [selection queries](selection-queries.html#parameters) for database migration compatibility only. As a no-op clause, `FOR UPDATE` does not provide stronger, PostgreSQL-compatible locking guarantees for uses unrelated to performance, such as applications that require locks to protect data from concurrent access altogether.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v19.2:</span> Because CockroachDB only supports [`SERIALIZABLE` isolation](architecture/transaction-layer.html#isolation-levels), locking is not required to order concurrent transactions relative to each other. The `FOR UPDATE` [locking clause](sql-grammar.html#locking_clause) is supported in [selection queries](selection-queries.html#parameters) for database migration compatibility only. As a no-op clause, `FOR UPDATE` does not provide stronger, PostgreSQL-compatible locking guarantees for uses unrelated to performance, such as applications that require locks to protect data from concurrent access altogether.
 
 CockroachDB uses a [lightweight latch](architecture/transaction-layer.html#latch-manager) to serialize access to common keys across concurrent transactions. As CockroachDB does not allow serializable anomalies, [transactions](begin-transaction.html) may experience deadlocks or [read/write contention](performance-best-practices-overview.html#understanding-and-avoiding-transaction-contention). This is expected during concurrency on the same keys. These can be addressed with either [automatic retries](transactions.html#automatic-retries) or [client-side intervention techniques](transactions.html#client-side-intervention).
 
@@ -120,7 +120,7 @@ CockroachDB uses a [lightweight latch](architecture/transaction-layer.html#latch
 
 For compatibility with PostgreSQL, CockroachDB supports a [three-level structure for names](sql-name-resolution.html#naming-hierarchy): databases, schemas, and objects.
 
-However, in CockroachDB versions < v20.2, user-defined schemas are not supported, and the only schema available for stored objects is the preloaded `public` schema. As a result, CockroachDB effectively supports a two-level storage structure: databases and objects. To provide a multi-level structure for stored objects, we recommend using database namespaces in the same way as [schema namespaces are used in PostgreSQL](https://www.postgresql.org/docs/current/ddl-schemas.html).
+However, in CockroachDB [version](cluster-settings.html#setting-version)s < v20.2, user-defined schemas are not supported, and the only schema available for stored objects is the preloaded `public` schema. As a result, CockroachDB effectively supports a two-level storage structure: databases and objects. To provide a multi-level structure for stored objects, we recommend using database namespaces in the same way as [schema namespaces are used in PostgreSQL](https://www.postgresql.org/docs/current/ddl-schemas.html).
 
 For more details, see [Name Resolution](sql-name-resolution.html).
 

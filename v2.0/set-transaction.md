@@ -11,7 +11,7 @@ The `SET TRANSACTION` [statement](sql-statements.html) sets the transaction isol
 
 ## Synopsis
 
-<section>{% include {{ page.version.version }}/sql/diagrams/set_transaction.html %}</section>
+<section>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/set_transaction.html %}</section>
 
 ## Required Privileges
 
@@ -21,9 +21,9 @@ No [privileges](privileges.html) are required to set the transaction isolation l
 
 | Parameter | Description |
 |-----------|-------------|
-| `ISOLATION LEVEL` | By default, transactions in CockroachDB implement the strongest ANSI isolation level: `SERIALIZABLE`. At this isolation level, transactions will never result in anomalies. The `SNAPSHOT` isolation level is still supported as well for backwards compatibility, but you should avoid using it. It provides little benefit in terms of performance and can result in inconsistent state under certain complex workloads. For more information, see [Transactions: Isolation Levels](transactions.html#isolation-levels).<br><br><span class="version-tag">New in v2.0:</span> The current isolation level is also exposed as the [session variable](show-vars.html) `transaction_isolation`.<br><br>**Default**: `SERIALIZABLE` |
+| `ISOLATION LEVEL` | By default, transactions in CockroachDB implement the strongest ANSI isolation level: `SERIALIZABLE`. At this isolation level, transactions will never result in anomalies. The `SNAPSHOT` isolation level is still supported as well for backwards compatibility, but you should avoid using it. It provides little benefit in terms of performance and can result in inconsistent state under certain complex workloads. For more information, see [Transactions: Isolation Levels](transactions.html#isolation-levels).<br><br><span class="[version](cluster-settings.html#setting-version)-tag">New in v2.0:</span> The current isolation level is also exposed as the [session variable](show-vars.html) `transaction_isolation`.<br><br>**Default**: `SERIALIZABLE` |
 | `PRIORITY` | If you do not want the transaction to run with `NORMAL` priority, you can set it to `LOW` or `HIGH`.<br><br>Transactions with higher priority are less likely to need to be retried.<br><br>For more information, see [Transactions: Priorities](transactions.html#transaction-priorities).<br><br>The current priority is also exposed as the [session variable](show-vars.html) `transaction_priority`.<br><br>**Default**: `NORMAL` |
-| `READ` | <span class="version-tag">New in v2.0:</span> Set the transaction access mode to `READ ONLY` or `READ WRITE`. The current transaction access mode is also exposed as the [session variable](show-vars.html) `transaction_read_only`.<br><br>**Default**: `READ WRITE`|
+| `READ` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v2.0:</span> Set the transaction access mode to `READ ONLY` or `READ WRITE`. The current transaction access mode is also exposed as the [session variable](show-vars.html) `transaction_read_only`.<br><br>**Default**: `READ WRITE`|
 
 ## Examples
 

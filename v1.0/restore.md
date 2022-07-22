@@ -4,9 +4,9 @@ summary: Restore your CockroachDB cluster to a cloud storage services such as AW
 toc: true
 ---
 
-{{site.data.alerts.callout_danger}}The <code>RESTORE</code> feature is only available to our <a href="https://www.cockroachlabs.com/pricing/">enterprise license</a> only users. For non-enterprise restores, see <a href="restore-data.html">Restore Data</a>.{{site.data.alerts.end}}
+{{site.data.alerts.callout_danger}}The <code>RESTORE</code> feature is only available to our <a href="https://www.cockroachlabs.com/pricing/">[enterprise.license](cluster-settings.html#setting-enterprise-license)</a> only users. For non-enterprise restores, see <a href="restore-data.html">Restore Data</a>.{{site.data.alerts.end}}
 
-The `RESTORE` [statement](sql-statements.html) restores your cluster's schemas and data from [an enterprise license-generated backup](backup.html) stored on a services such as AWS S3, Google Cloud Storage, NFS, or HTTP storage.
+The `RESTORE` [statement](sql-statements.html) restores your cluster's schemas and data from [an [enterprise.license](cluster-settings.html#setting-enterprise-license)-generated backup](backup.html) stored on a services such as AWS S3, Google Cloud Storage, NFS, or HTTP storage.
 
 Because CockroachDB is designed with high fault tolerance, restores are designed primarily for disaster recovery, i.e., restarting your cluster if it loses a majority of its nodes. Isolated issues (such as small-scale node outages) do not require any intervention.
 
@@ -68,7 +68,7 @@ The `RESTORE` process minimizes its impact to the cluster's performance by distr
 
 ## Synopsis
 
-{% include {{ page.version.version }}/sql/diagrams/restore.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/restore.html %}
 
 ## Required Privileges
 
@@ -87,7 +87,7 @@ Only the `root` user can run `RESTORE`.
 
 The URL for your backup's locations must use the following format:
 
-{% include {{ page.version.version }}/misc/external-urls.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/external-urls.md %}
 
 ### Restore Option List
 

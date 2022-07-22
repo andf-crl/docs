@@ -7,9 +7,9 @@ docs_area: migrate
 
 This page has instructions for migrating data from Avro files into CockroachDB using [`IMPORT INTO`](import-into.html).
 
-{% include {{ page.version.version }}/misc/import-perf.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/import-perf.md %}
 
-{% include {{ page.version.version }}/import-table-deprecate.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/import-table-deprecate.md %}
 
 ## Step 1. Export data to Avro
 

@@ -14,7 +14,7 @@ The `IMPORT` [statement](sql-statements.html) imports the following types of dat
 To import CSV, Avro, or delimited data files, see [`IMPORT INTO`](import-into.html).
 
 {{site.data.alerts.callout_danger}}
-Certain `IMPORT TABLE` statements that defined the table schema inline are **not** supported in v22.1 and later versions. These include running `IMPORT TABLE ... CREATE USING` and `IMPORT TABLE` with any non-bundle format (`CSV`, `DELIMITED`, `PGCOPY`, or `AVRO`) data types.
+Certain `IMPORT TABLE` statements that defined the table schema inline are **not** supported in v22.1 and later [version](cluster-settings.html#setting-version)s. These include running `IMPORT TABLE ... CREATE USING` and `IMPORT TABLE` with any non-bundle format (`CSV`, `DELIMITED`, `PGCOPY`, or `AVRO`) data types.
 
 To import data into a new table, use [`CREATE TABLE`](create-table.html) followed by [`IMPORT INTO`](import-into.html).
 
@@ -24,8 +24,8 @@ To import data into a new table, use [`CREATE TABLE`](create-table.html) followe
 ## Considerations
 
 - `IMPORT` is a blocking statement. To run an import job asynchronously, use the [`DETACHED`](#options-detached) option.
-- `IMPORT` cannot be used within a [rolling upgrade](upgrade-cockroach-version.html).
-- Certain `IMPORT TABLE` statements that defined the table schema inline are **not** supported in v22.1 and later versions. These include running `IMPORT TABLE ... CREATE USING` and `IMPORT TABLE` with any non-bundle format (`CSV`, `DELIMITED`, `PGCOPY`, or `AVRO`) data types. Instead, use `CREATE TABLE` and `IMPORT INTO`; see this [example](import-into.html#import-into-a-new-table-from-a-csv-file) for more detail.
+- `IMPORT` cannot be used within a [rolling upgrade](upgrade-cockroach-[version](cluster-settings.html#setting-version).html).
+- Certain `IMPORT TABLE` statements that defined the table schema inline are **not** supported in v22.1 and later [version](cluster-settings.html#setting-version)s. These include running `IMPORT TABLE ... CREATE USING` and `IMPORT TABLE` with any non-bundle format (`CSV`, `DELIMITED`, `PGCOPY`, or `AVRO`) data types. Instead, use `CREATE TABLE` and `IMPORT INTO`; see this [example](import-into.html#import-into-a-new-table-from-a-csv-file) for more detail.
 - For instructions and working examples on how to migrate data from other databases, see the [Migration Overview](migration-overview.html).
 - `IMPORT` cannot directly import data to `REGIONAL BY ROW` tables that are part of [multi-region databases](multiregion-overview.html). Instead, use [`IMPORT INTO`](import-into.html) which supports importing into `REGIONAL BY ROW` tables.
 
@@ -41,12 +41,12 @@ The user must have the `CREATE` [privileges](security-reference/authorization.ht
 
 #### Source privileges
 
-{% include {{ page.version.version }}/misc/source-privileges.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/source-privileges.md %}
 
 ## Synopsis
 
 <div>
-{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.version.version | replace: "v", "" }}/grammar_svg/import_dump.html %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/grammar_svg/import_dump.html %}
 </div>
 
 ## Parameters
@@ -161,7 +161,7 @@ The following provide connection examples to cloud storage providers. For more i
 
 <section class="filter-content" markdown="1" data-scope="s3">
 
-{% include {{ page.version.version }}/backups/aws-auth-note.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/backups/aws-auth-note.md %}
 
 ### Import a PostgreSQL database dump
 
@@ -394,7 +394,7 @@ job_id             |  status   | fraction_completed | rows | index_entries | byt
 
 <section class="filter-content" markdown="1" data-scope="gcs">
 
-{% include {{ page.version.version }}/backups/gcs-auth-note.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/backups/gcs-auth-note.md %}
 
 ### Import a PostgreSQL database dump
 
@@ -555,7 +555,7 @@ You can also use the [`cockroach nodelocal upload`](cockroach-nodelocal-upload.h
 
 ## Known limitation
 
-{% include {{ page.version.version }}/known-limitations/import-high-disk-contention.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/import-high-disk-contention.md %}
 
 ## See also
 

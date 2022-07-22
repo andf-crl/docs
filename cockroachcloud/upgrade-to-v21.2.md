@@ -8,7 +8,7 @@ docs_area: manage
 Now that [CockroachDB v21.2](../releases/v21.2.html) is available, a [Console Admin](console-access-management.html#console-admin) can upgrade your {{ site.data.products.dedicated }} cluster from the {{ site.data.products.db }} Console. This page guides you through the process for an Admin.
 
 {{site.data.alerts.callout_success}}
-Upgrading a {{ site.data.products.dedicated }} cluster to a new major version is opt-in. Before proceeding, review the {{ site.data.products.db }} [upgrade policy](upgrade-policy.html).
+Upgrading a {{ site.data.products.dedicated }} cluster to a new major [version](cluster-settings.html#setting-version) is opt-in. Before proceeding, review the {{ site.data.products.db }} [upgrade policy](upgrade-policy.html).
 {{site.data.alerts.end}}
 
 ## Step 1. Verify that you can upgrade
@@ -27,7 +27,7 @@ The upgrade process depends on the number of nodes in your cluster. Select wheth
 ## Step 3. Understand the upgrade process
 
 <section class="filter-content" markdown="1" data-scope="multi-node">
-In a multi-node cluster, the upgrade does not interrupt the cluster's overall health and availability. One node is stopped and restarted with the new version, then the next, and so on, pausing for a few minutes between each node. This "rolling upgrade" takes approximately 4-5 minutes per node and is enabled by CockroachDB's [multi-active availability](../{{site.versions["stable"]}}/multi-active-availability.html) design.
+In a multi-node cluster, the upgrade does not interrupt the cluster's overall health and availability. One node is stopped and restarted with the new [version](cluster-settings.html#setting-version), then the next, and so on, pausing for a few minutes between each node. This "rolling upgrade" takes approximately 4-5 minutes per node and is enabled by CockroachDB's [multi-active availability](../{{site.[version](cluster-settings.html#setting-version)s["stable"]}}/multi-active-availability.html) design.
 
 Approximately 72 hours after all nodes are running v21.2, the upgrade will be automatically finalized. This enables certain [features and performance improvements introduced in v21.2](#respect-temporary-limitations). Finalization also removes the ability to roll back to v21.1, so it's important to monitor your application during this 72-hour window and, if you see unexpected behavior, [roll back the upgrade](#roll-back-the-upgrade) from the {{ site.data.products.db }} Console.
 </section>
@@ -64,7 +64,7 @@ To start the upgrade process:
 
 2. In the **Clusters** list, select the cluster you want to upgrade.
 
-3. Select **Actions > Upgrade major version**.
+3. Select **Actions > Upgrade major [version](cluster-settings.html#setting-version)**.
 
 4. In the **Upgrade your cluster** dialog, review the pre-upgrade message and then click **Start Upgrade**.
 

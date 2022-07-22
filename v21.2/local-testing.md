@@ -30,9 +30,9 @@ We recommend the following additional [cluster settings](cluster-settings.html) 
 | `kv.range_merge.queue_interval`                              | `50ms`    | Frequent [`CREATE TABLE`](create-table.html) or [`DROP TABLE`](drop-table.html) creates extra ranges, which we want to merge more quickly. In real usage, range merges are rate limited because they require rebalancing. |
 | `jobs.registry.interval.gc`                                  | `30s`     | CockroachDB executes internal queries that scan the [jobs](show-jobs.html) table. More schema changes create more jobs, which we can delete faster to make internal job queries faster.                                   |
 | `jobs.registry.interval.cancel`                              | `180s`    | Timing of an internal task that queries the [jobs](show-jobs.html) table. For testing, the default is too fast.                                                                                                           |
-| `jobs.retention_time`                                        | `15s`     | More [schema changes](online-schema-changes.html) create more [jobs](show-jobs.html), which affects job query performance. We don’t need to retain jobs during testing and can set a more aggressive delete policy.       |
+| `[jobs.retention_time](cluster-settings.html#setting-jobs-retention_time)`                                        | `15s`     | More [schema changes](online-schema-changes.html) create more [jobs](show-jobs.html), which affects job query performance. We don’t need to retain jobs during testing and can set a more aggressive delete policy.       |
 | `schemachanger.backfiller.buffer_increment`                  | `128 KiB` | During table backfills, we fill up buffers which have a large default. A lower setting reduces memory usage.                                                                                                              |
-| `sql.stats.automatic_collection.enabled`                     | `false`   | Turn off [statistics](show-statistics.html) collection, since automatic statistics contribute to table contention alongside schema changes. Each schema change triggers an asynchronous auto statistics job.              |
+| `[sql.stats.automatic_collection.enabled](cluster-settings.html#setting-sql-stats-automatic_collection-enabled)`                     | `false`   | Turn off [statistics](show-statistics.html) collection, since automatic statistics contribute to table contention alongside schema changes. Each schema change triggers an asynchronous auto statistics job.              |
 | `ALTER RANGE default CONFIGURE ZONE USING "gc.ttlseconds"`   | `5`       | Faster descriptor cleanup. For more information, see [`ALTER RANGE`](alter-range.html).                                                                                                                                   |
 | `ALTER DATABASE system CONFIGURE ZONE USING "gc.ttlseconds"` | `5`       | Faster jobs table cleanup. For more information, see [`ALTER DATABASE`](alter-database.html).                                                                                                                             |
 
@@ -44,9 +44,9 @@ SET CLUSTER SETTING kv.raft_log.disable_synchronization_unsafe = true;
 SET CLUSTER SETTING kv.range_merge.queue_interval = '50ms';
 SET CLUSTER SETTING jobs.registry.interval.gc = '30s';
 SET CLUSTER SETTING jobs.registry.interval.cancel = '180s';
-SET CLUSTER SETTING jobs.retention_time = '15s';
+SET CLUSTER SETTING [jobs.retention_time](cluster-settings.html#setting-jobs-retention_time) = '15s';
 SET CLUSTER SETTING schemachanger.backfiller.buffer_increment = '128 KiB';
-SET CLUSTER SETTING sql.stats.automatic_collection.enabled = false;
+SET CLUSTER SETTING [sql.stats.automatic_collection.enabled](cluster-settings.html#setting-sql-stats-automatic_collection-enabled) = false;
 SET CLUSTER SETTING kv.range_split.by_load_merge_delay = '5s';
 ALTER RANGE default CONFIGURE ZONE USING "gc.ttlseconds" = 5;
 ALTER DATABASE system CONFIGURE ZONE USING "gc.ttlseconds" = 5;

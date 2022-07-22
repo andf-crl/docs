@@ -17,7 +17,7 @@ The user must have the `DELETE` and `SELECT` [privileges](authorization.html#ass
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/delete.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/delete.html %}
 </div>
 
 ## Parameters
@@ -37,7 +37,7 @@ table td:first-child {
  `sort_clause` | An `ORDER BY` clause. <br /><br />See [Ordering of rows in DML statements](order-by.html#ordering-rows-in-dml-statements) for more details.
  `limit_clause` | A `LIMIT` clause. See [Limiting Query Results](limit-offset.html) for more details.
  `RETURNING target_list` | Return values based on rows deleted, where `target_list` can be specific column names from the table, `*` for all columns, or computations using [scalar expressions](scalar-expressions.html). <br><br>To return nothing in the response, not even the number of rows updated, use `RETURNING NOTHING`.
- `ONLY ... *` | <span class="version-tag">New in v20.2:</span> Supported for compatibility with PostgreSQL table inheritance syntax. This clause is a no-op, as CockroachDB does not currently support table inheritance.
+ `ONLY ... *` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> Supported for compatibility with PostgreSQL table inheritance syntax. This clause is a no-op, as CockroachDB does not currently support table inheritance.
 
 ## Success responses
 
@@ -71,7 +71,7 @@ deleted rows more frequently.
 
 ## Sorting the output of deletes
 
-{% include {{page.version.version}}/misc/sorting-delete-output.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/misc/sorting-delete-output.md %}
 
 For more information about ordering query results in general, see
 [Ordering Query Results](order-by.html) and [Ordering of rows in
@@ -105,7 +105,7 @@ For examples, see [Delete with index hints](#delete-with-index-hints).
 
 ### Preserving `DELETE` performance over time
 
-CockroachDB relies on [multi-version concurrency control (MVCC)](architecture/storage-layer.html#mvcc) to process concurrent requests while guaranteeing [strong consistency](frequently-asked-questions.html#how-is-cockroachdb-strongly-consistent). As such, when you delete a row, it is not immediately removed from disk. The MVCC values for the row will remain until the garbage collection period defined by the [`gc.ttlseconds`](configure-replication-zones.html#gc-ttlseconds) variable in the applicable [zone configuration](show-zone-configurations.html) has passed. By default, this period is 25 hours.
+CockroachDB relies on [multi-[version](cluster-settings.html#setting-version) concurrency control (MVCC)](architecture/storage-layer.html#mvcc) to process concurrent requests while guaranteeing [strong consistency](frequently-asked-questions.html#how-is-cockroachdb-strongly-consistent). As such, when you delete a row, it is not immediately removed from disk. The MVCC values for the row will remain until the garbage collection period defined by the [`gc.ttlseconds`](configure-replication-zones.html#gc-ttlseconds) variable in the applicable [zone configuration](show-zone-configurations.html) has passed. By default, this period is 25 hours.
 
 This means that with the default settings, each iteration of your `DELETE` statement must scan over all of the rows previously marked for deletion within the last 25 hours. If you try to delete 10,000 rows 10 times within the same 25 hour period, the 10th command will have to scan over the 90,000 rows previously marked for deletion.
 
@@ -117,7 +117,7 @@ To preserve performance over iterative `DELETE` queries, we recommend taking one
 
 ## Examples
 
-{% include {{page.version.version}}/sql/movr-statements.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/movr-statements.md %}
 
 ### Delete rows using Primary Key/unique columns
 

@@ -13,7 +13,7 @@ For non-retryable transactions, if statements in the transaction [generated any 
 
 ## Synopsis
 
-{% include {{ page.version.version }}/sql/diagrams/commit_transaction.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/commit_transaction.html %}
 
 ## Required Privileges
 

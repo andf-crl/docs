@@ -1,8 +1,8 @@
-As new versions of CockroachDB are released, it's strongly recommended to upgrade to newer versions in order to pick up bug fixes, performance improvements, and new features. The [general CockroachDB upgrade documentation](upgrade-cockroach-version.html) provides best practices for how to prepare for and execute upgrades of CockroachDB clusters, but the mechanism of actually stopping and restarting processes in Kubernetes is somewhat special.
+As new [version](cluster-settings.html#setting-version)s of CockroachDB are released, it's strongly recommended to upgrade to newer [version](cluster-settings.html#setting-version)s in order to pick up bug fixes, performance improvements, and new features. The [general CockroachDB upgrade documentation](upgrade-cockroach-[version](cluster-settings.html#setting-version).html) provides best practices for how to prepare for and execute upgrades of CockroachDB clusters, but the mechanism of actually stopping and restarting processes in Kubernetes is somewhat special.
 
 Kubernetes knows how to carry out a safe rolling upgrade process of the CockroachDB nodes. When you tell it to change the Docker image used in the CockroachDB StatefulSet, Kubernetes will go one-by-one, stopping a node, restarting it with the new image, and waiting for it to be ready to receive client requests before moving on to the next one. For more information, see [the Kubernetes documentation](https://kubernetes.io/docs/tutorials/stateful-application/basic-stateful-set/#updating-statefulsets).
 
-1. All that it takes to kick off this process is changing the desired Docker image. To do so, pick the version that you want to upgrade to, then run the following command, replacing "VERSION" with your desired new version:
+1. All that it takes to kick off this process is changing the desired Docker image. To do so, pick the [version](cluster-settings.html#setting-version) that you want to upgrade to, then run the following command, replacing "VERSION" with your desired new [version](cluster-settings.html#setting-version):
 
     {% include copy-clipboard.html %}
     ~~~ shell
@@ -36,8 +36,8 @@ Kubernetes knows how to carry out a safe rolling upgrade process of the Cockroac
     ~~~
 
     ~~~
-    cockroachdb-0	cockroachdb/cockroach:{{page.release_info.version}}
-    cockroachdb-1	cockroachdb/cockroach:{{page.release_info.version}}
-    cockroachdb-2	cockroachdb/cockroach:{{page.release_info.version}}
-    cockroachdb-3	cockroachdb/cockroach:{{page.release_info.version}}
+    cockroachdb-0	cockroachdb/cockroach:{{page.release_info.[version](cluster-settings.html#setting-version)}}
+    cockroachdb-1	cockroachdb/cockroach:{{page.release_info.[version](cluster-settings.html#setting-version)}}
+    cockroachdb-2	cockroachdb/cockroach:{{page.release_info.[version](cluster-settings.html#setting-version)}}
+    cockroachdb-3	cockroachdb/cockroach:{{page.release_info.[version](cluster-settings.html#setting-version)}}
     ~~~

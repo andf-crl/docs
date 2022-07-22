@@ -115,11 +115,11 @@ The [`--also-generate-pkcs8-key` flag](cockroach-cert.html#flag-pkcs8) generates
 
 ## Step 3. Install JDK
 
-Download and install a Java Development Kit on your machine. Spring Boot supports Java versions 8, 11, and 14. In this tutorial, we use [JDK 8 from OpenJDK](https://openjdk.java.net/install/).
+Download and install a Java Development Kit on your machine. Spring Boot supports Java [version](cluster-settings.html#setting-version)s 8, 11, and 14. In this tutorial, we use [JDK 8 from OpenJDK](https://openjdk.java.net/install/).
 
 ## Step 4. Install Maven
 
-This example application uses [Maven](http://maven.apache.org/) to manage all application dependencies. Spring supports Maven versions 3.2 and later.
+This example application uses [Maven](http://maven.apache.org/) to manage all application dependencies. Spring supports Maven [version](cluster-settings.html#setting-version)s 3.2 and later.
 
 To install Maven on macOS, run the following command:
 
@@ -179,13 +179,13 @@ To get the application code, download or clone the [`roach-data` repository](htt
 - Liquibase Migration
 - PostgreSQL Driver
 
-The [Hibernate CockroachDB dialect](https://in.relation.to/2020/07/27/hibernate-orm-5419-final-release/) is supported in Hibernate v5.4.19+. At the time of writing this tutorial, Spring Data JPA used Hibernate v5.4.15 as its default JPA provider. To specify a different version of Hibernate than the default, add an additional entry to your application's `pom.xml` file, as shown in [the `roach-data` GitHub repo](https://github.com/cockroachlabs/roach-data/blob/master/roach-data-jpa/pom.xml):
+The [Hibernate CockroachDB dialect](https://in.relation.to/2020/07/27/hibernate-orm-5419-final-release/) is supported in Hibernate v5.4.19+. At the time of writing this tutorial, Spring Data JPA used Hibernate v5.4.15 as its default JPA provider. To specify a different [version](cluster-settings.html#setting-version) of Hibernate than the default, add an additional entry to your application's `pom.xml` file, as shown in [the `roach-data` GitHub repo](https://github.com/cockroachlabs/roach-data/blob/master/roach-data-jpa/pom.xml):
 
 ~~~ xml
 <dependency>
     <groupId>org.hibernate</groupId>
     <artifactId>hibernate-core</artifactId>
-    <version>5.4.19.Final</version>
+    <[version](cluster-settings.html#setting-version)>5.4.19.Final</[version](cluster-settings.html#setting-version)>
 </dependency>
 ~~~
 
@@ -227,7 +227,7 @@ datasource:
 ...
 ~~~
 
-{% include {{page.version.version}}/app/cc-free-tier-params.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/cc-free-tier-params.md %}
 
 </section>
 
@@ -320,7 +320,7 @@ The output should look like the following:
 2020-06-22 11:54:50.609  INFO 81343 --- [           main] liquibase.executor.jvm.JdbcExecutor      : INSERT INTO public.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('2', 'root', 'classpath:db/changelog-master.xml', NOW(), 2, '8:c2945f2a445cf60b4b203e1a91d14a89', 'insert tableName=account; insert tableName=account; insert tableName=account; insert tableName=account', '', 'EXECUTED', 'crdb', NULL, '3.8.9', '2852090551')
 2020-06-22 11:54:50.615  INFO 81343 --- [           main] l.lockservice.StandardLockService        : Successfully released change log lock
 2020-06-22 11:54:50.727  INFO 81343 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2020-06-22 11:54:50.817  INFO 81343 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.19.Final
+2020-06-22 11:54:50.817  INFO 81343 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core [version](cluster-settings.html#setting-version) 5.4.19.Final
 2020-06-22 11:54:50.993  INFO 81343 --- [           main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
 2020-06-22 11:54:51.154  INFO 81343 --- [           main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.CockroachDB201Dialect
 2020-06-22 11:54:51.875  INFO 81343 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]

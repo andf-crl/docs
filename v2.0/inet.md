@@ -3,7 +3,7 @@ title: INET
 summary: The INET data type stores an IPv4 or IPv6 address.
 toc: true
 ---
-<span class="version-tag">New in v2.0:</span> The `INET` [data type](data-types.html) stores an IPv4 or IPv6 address.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v2.0:</span> The `INET` [data type](data-types.html) stores an IPv4 or IPv6 address.
 
 
 ## Syntax
@@ -77,9 +77,9 @@ An `INET` value is 32 bits for IPv4 or 128 bits for IPv6.
 +--------------------------------------+--------------------------+---------------------------+
 ~~~
 
-## Supported Casting & Conversion
+## Supported Casting & Con[version](cluster-settings.html#setting-version)
 
-`INET` values can be [cast](data-types.html#data-type-conversions-casts) to the following data type:
+`INET` values can be [cast](data-types.html#data-type-con[version](cluster-settings.html#setting-version)s-casts) to the following data type:
 
 - `STRING` - Converts to format `'Address/subnet'`.
 

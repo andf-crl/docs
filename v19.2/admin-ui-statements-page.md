@@ -15,7 +15,7 @@ To view the **Statements** page, [access the Admin UI](admin-ui-access-and-navig
 
 ## Limitation
 
-The **Statements** page displays the details of the SQL statements executed within a specified time interval. At the end of the interval, the display is wiped clean, and you'll not see any statements on the page until the next set of statements is executed. By default, the time interval is set to one hour; however, you can customize the interval using the [`diagnostics.reporting.interval`](cluster-settings.html#settings) cluster setting.
+The **Statements** page displays the details of the SQL statements executed within a specified time interval. At the end of the interval, the display is wiped clean, and you'll not see any statements on the page until the next set of statements is executed. By default, the time interval is set to one hour; however, you can customize the interval using the [`[diagnostics.reporting.interval](cluster-settings.html#setting-diagnostics-reporting-interval)`](cluster-settings.html#settings) cluster setting.
 
 ## Filtering by application
 
@@ -56,7 +56,7 @@ The following details are provided for each statement fingerprint:
 Parameter | Description
 -----|------------
 Statement | The SQL statement or the fingerprint of similar SQL statements.<br><br>To view additional details of a statement fingerprint, click on the statement fingerprint in the **Statement** column to see the [**Statement Details** page](#statement-details-page).
-TXN Type | <span class="version-tag">New in v19.2:</span> The type of transaction (implicit or explicit). Explicit transactions refer to the statements that are wrapped by [`BEGIN`](https://www.cockroachlabs.com/docs/dev/begin-transaction.html) and [`COMMIT`](https://www.cockroachlabs.com/docs/v19.2/commit-transaction.html) statements by the client. For statements not in explicit transactions, CockroachDB wraps each statement in individual implicit transactions. Explicit transactions employ [transactional pipelining](architecture/transaction-layer.html#transaction-pipelining) and therefore report latencies that do not account for replication.
+TXN Type | <span class="[version](cluster-settings.html#setting-version)-tag">New in v19.2:</span> The type of transaction (implicit or explicit). Explicit transactions refer to the statements that are wrapped by [`BEGIN`](https://www.cockroachlabs.com/docs/dev/begin-transaction.html) and [`COMMIT`](https://www.cockroachlabs.com/docs/v19.2/commit-transaction.html) statements by the client. For statements not in explicit transactions, CockroachDB wraps each statement in individual implicit transactions. Explicit transactions employ [transactional pipelining](architecture/transaction-layer.html#transaction-pipelining) and therefore report latencies that do not account for replication.
 Time | The cumulative time taken to execute the SQL statement (or multiple statements having the same fingerprint) within the last hour or the [specified time interval](#limitation).
 Execution Count | The total number of times the SQL statement (or multiple statements having the same fingerprint) is executed within the last hour or the [specified time interval](#limitation). <br><br>The execution count is displayed in numerical value as well as in the form of a horizontal bar. The bar is color-coded to indicate the ratio of runtime success (indicated by blue) to runtime failure (indicated by red) of the execution count for the fingerprint. The bar also helps you compare the execution count across all SQL fingerprints in the table. <br><br>You can sort the table by count.
 Retries | The cumulative number of retries to execute the SQL statement (or multiple statements having the same fingerprint) within the last hour or the [specified time interval](#limitation).
@@ -73,11 +73,11 @@ The **Statement Details** page displays the logical plan as well as the details 
 
 The **Logical Plan** section displays CockroachDB's query plan for an [explainable statement](sql-grammar.html#preparable_stmt). You can then use this information to optimize the query. For more information about logical plans, see [`EXPLAIN`](explain.html).
 
-By default, the logical plan for each fingerprint is sampled every 5 minutes. You can use the `sql.metrics.statement_details.plan_collection.period` [cluster setting](cluster-settings.html) to change this time interval. For example, to change the interval to 2 minutes, run the following [`SET CLUSTER SETTING`](set-cluster-setting.html) command:
+By default, the logical plan for each fingerprint is sampled every 5 minutes. You can use the `[sql.metrics.statement_details.plan_collection.period](cluster-settings.html#setting-sql-metrics-statement_details-plan_collection-period)` [cluster setting](cluster-settings.html) to change this time interval. For example, to change the interval to 2 minutes, run the following [`SET CLUSTER SETTING`](set-cluster-setting.html) command:
 
 {% include copy-clipboard.html %}
 ~~~ sql
-> SET CLUSTER SETTING sql.metrics.statement_details.plan_collection.period  = '2m0s';
+> SET CLUSTER SETTING [sql.metrics.statement_details.plan_collection.period](cluster-settings.html#setting-sql-metrics-statement_details-plan_collection-period)  = '2m0s';
 ~~~
 
 ### Latency by Phase
@@ -129,7 +129,7 @@ The table below the statistics box provides the following details:
 Parameter | Description
 -----|------------
 App | Name of the application specified by the [`application_name`](https://www.cockroachlabs.com/docs/dev/show-vars.html#supported-variables) session setting. The **Statements Details** page shows the details for this application.
-Transaction Type | <span class="version-tag">New in v19.2:</span> The type of transaction (implicit or explicit). Explicit transactions refer to the statements that are wrapped by `BEGIN` and `COMMIT` statements by the client. For statements not in explicit transactions, CockroachDB wraps each statement in individual implicit transactions. Explicit transactions employ [transactional pipelining](architecture/transaction-layer.html#transaction-pipelining) and therefore report latencies that do not account for replication.
+Transaction Type | <span class="[version](cluster-settings.html#setting-version)-tag">New in v19.2:</span> The type of transaction (implicit or explicit). Explicit transactions refer to the statements that are wrapped by `BEGIN` and `COMMIT` statements by the client. For statements not in explicit transactions, CockroachDB wraps each statement in individual implicit transactions. Explicit transactions employ [transactional pipelining](architecture/transaction-layer.html#transaction-pipelining) and therefore report latencies that do not account for replication.
 Distributed execution? | Indicates whether the statement execution was distributed.
 Used cost-based optimizer? | Indicates whether the statement (or multiple statements having the same fingerprint) were executed using the [cost-based optimizer](cost-based-optimizer.html).
 Failed? | Indicate if the statement (or multiple statements having the same fingerprint) were executed successfully.

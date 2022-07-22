@@ -7,7 +7,7 @@ docs_area: reference.sql
 
 The `CREATE USER` [statement](sql-statements.html) creates SQL users, which let you control [privileges](security-reference/authorization.html#managing-privileges) on your databases and tables.
 
-{% include {{ page.version.version }}/misc/schema-change-stmt-note.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-stmt-note.md %}
 
 {{site.data.alerts.callout_info}}
 The keywords `ROLE` and `USER` can be used interchangeably in SQL statements for enhanced PostgreSQL compatibility.
@@ -22,8 +22,8 @@ The keywords `ROLE` and `USER` can be used interchangeably in SQL statements for
     - Must start with a letter, number, or underscore
     - Must contain only letters, numbers, periods, or underscores
     - Must be between 1 and 63 characters.
-    - {% include_cached new-in.html version="v21.2" %} Cannot be `none`.
-    - {% include_cached new-in.html version="v21.2" %} Cannot start with `pg_` or `crdb_internal`. Object names with these prefixes are reserved for [system catalogs](system-catalogs.html).
+    - {% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.2" %} Cannot be `none`.
+    - {% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.2" %} Cannot start with `pg_` or `crdb_internal`. Object names with these prefixes are reserved for [system catalogs](system-catalogs.html).
 - After creating users, you must [grant them privileges to databases and tables](grant.html).
 - All users belong to the `public` role, to which you can [grant](grant.html) and [revoke](revoke.html) privileges.
 - On secure clusters, you must [create client certificates for users](cockroach-cert.html#create-the-certificate-and-key-pair-for-a-client) and users must [authenticate their access to the cluster](#user-authentication).
@@ -34,7 +34,7 @@ The keywords `ROLE` and `USER` can be used interchangeably in SQL statements for
 
 ## Synopsis
 
-<section>{% include {{ page.version.version }}/sql/generated/diagrams/create_user.html %}</section>
+<section>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/create_user.html %}</section>
 
 ## Parameters
 

@@ -9,13 +9,13 @@ Join expressions, also called "joins", combine the results of two or more table 
 Join expressions define a data source in the `FROM` sub-clause of [simple `SELECT` clauses](select-clause.html), or as parameter to [`TABLE`](selection-queries.html#table-clause). Joins are a particular kind of [table expression](table-expressions.html).
 
 {{site.data.alerts.callout_success}}
-<span class="version-tag">New in v19.1</span>: The [cost-based optimizer](cost-based-optimizer.html) supports hint syntax to force the use of a specific join algorithm.  For more information, see [Join hints](cost-based-optimizer.html#join-hints).
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v19.1</span>: The [cost-based optimizer](cost-based-optimizer.html) supports hint syntax to force the use of a specific join algorithm.  For more information, see [Join hints](cost-based-optimizer.html#join-hints).
 {{site.data.alerts.end}}
 
 ## Synopsis
 
 <div class="horizontal-scroll">
-  {% include {{ page.version.version }}/sql/diagrams/joined_table.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/joined_table.html %}
 </div>
 
 <div markdown="1"></div>

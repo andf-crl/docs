@@ -15,7 +15,7 @@ To view the **Statements** page, [access the Admin UI](admin-ui-access-and-navig
 
 ## Limitation
 
-The **Statements** page displays the details of the SQL statements executed within a specified time interval. At the end of the interval, the display is wiped clean, and you'll not see any statements on the page until the next set of statements is executed. By default, the time interval is set to one hour; however, you can customize the interval using the [`diagnostics.reporting.interval`](cluster-settings.html#settings) cluster setting.
+The **Statements** page displays the details of the SQL statements executed within a specified time interval. At the end of the interval, the display is wiped clean, and you'll not see any statements on the page until the next set of statements is executed. By default, the time interval is set to one hour; however, you can customize the interval using the [`[diagnostics.reporting.interval](cluster-settings.html#setting-diagnostics-reporting-interval)`](cluster-settings.html#settings) cluster setting.
 
 ## Filtering by application
 
@@ -70,13 +70,13 @@ The **Statement Details** page displays the logical plan as well as the details 
 
 ### Logical plan
 
-<span class="version-tag">New in v19.1</span> The **Logical Plan** section displays CockroachDB's query plan for an [explainable statement](sql-grammar.html#preparable_stmt). You can then use this information to optimize the query. For more information about logical plans, see [`EXPLAIN`](explain.html).
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v19.1</span> The **Logical Plan** section displays CockroachDB's query plan for an [explainable statement](sql-grammar.html#preparable_stmt). You can then use this information to optimize the query. For more information about logical plans, see [`EXPLAIN`](explain.html).
 
-By default, the logical plan for each fingerprint is sampled every 5 minutes. You can use the `sql.metrics.statement_details.plan_collection.period` [cluster setting](cluster-settings.html) to change this time interval. For example, to change the interval to 2 minutes, run the following [`SET CLUSTER SETTING`](set-cluster-setting.html) command:
+By default, the logical plan for each fingerprint is sampled every 5 minutes. You can use the `[sql.metrics.statement_details.plan_collection.period](cluster-settings.html#setting-sql-metrics-statement_details-plan_collection-period)` [cluster setting](cluster-settings.html) to change this time interval. For example, to change the interval to 2 minutes, run the following [`SET CLUSTER SETTING`](set-cluster-setting.html) command:
 
 {% include copy-clipboard.html %}
 ~~~ sql
-> SET CLUSTER SETTING sql.metrics.statement_details.plan_collection.period  = '2m0s';
+> SET CLUSTER SETTING [sql.metrics.statement_details.plan_collection.period](cluster-settings.html#setting-sql-metrics-statement_details-plan_collection-period)  = '2m0s';
 ~~~
 
 ### Latency by Phase

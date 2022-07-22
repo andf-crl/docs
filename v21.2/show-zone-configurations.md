@@ -10,7 +10,7 @@ Use the `SHOW ZONE CONFIGURATIONS` [statement](sql-statements.html) to view deta
 ## Synopsis
 
 <div>
-{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.version.version | replace: "v", "" }}/grammar_svg/show_zone.html %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/grammar_svg/show_zone.html %}
 </div>
 
 ## Required privileges
@@ -29,23 +29,23 @@ Parameter | Description
 
 ## Examples
 
-{% include {{ page.version.version }}/sql/movr-statements-geo-partitioned-replicas.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/movr-statements-geo-partitioned-replicas.md %}
 
 ### View all replication zones
 
-{% include {{ page.version.version }}/zone-configs/view-all-replication-zones.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/zone-configs/view-all-replication-zones.md %}
 
 ### View the default replication zone for the cluster
 
-{% include {{ page.version.version }}/zone-configs/view-the-default-replication-zone.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/zone-configs/view-the-default-replication-zone.md %}
 
 ### View the replication zone for a database
 
-{% include {{ page.version.version }}/zone-configs/create-a-replication-zone-for-a-database.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/zone-configs/create-a-replication-zone-for-a-database.md %}
 
 ### View the replication zone for a table
 
-{% include {{ page.version.version }}/zone-configs/create-a-replication-zone-for-a-table.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/zone-configs/create-a-replication-zone-for-a-table.md %}
 
 You can also use [`SHOW CREATE TABLE`](show-create.html) to view zone configurations for a table. If a table is partitioned, but no zones are configured, the `SHOW CREATE TABLE` output includes a warning.
 
@@ -82,9 +82,9 @@ CONFIGURE ZONE 1
 
 ### View the replication zone for a partition
 
-{% include {{page.version.version}}/sql/use-multiregion-instead-of-partitioning.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/use-multiregion-instead-of-partitioning.md %}
 
-{% include {{ page.version.version }}/zone-configs/create-a-replication-zone-for-a-table-partition.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/zone-configs/create-a-replication-zone-for-a-table-partition.md %}
 
 ## See also
 

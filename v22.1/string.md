@@ -120,16 +120,16 @@ The size of a `STRING` value is variable, but it's recommended to keep values un
 (3 rows)
 ~~~
 
-## Supported casting and conversion
+## Supported casting and con[version](cluster-settings.html#setting-version)
 
-`STRING` values can be [cast](data-types.html#data-type-conversions-and-casts) to any of the following data types:
+`STRING` values can be [cast](data-types.html#data-type-con[version](cluster-settings.html#setting-version)s-and-casts) to any of the following data types:
 
 Type | Details
 -----|--------
 `ARRAY` | Requires supported [`ARRAY`](array.html) string format, e.g., `'{1,2,3}'`.<br>Note that string literals can be implicitly cast to any supported `ARRAY` data type except [`BYTES`](bytes.html), [`ENUM`](enum.html), [`JSONB`](jsonb.html), [`SERIAL`](serial.html), and the [spatial data types](spatial-glossary.html#data-types) `Box2D`, `GEOGRAPHY`, and `GEOMETRY`.
 `BIT` | Requires supported [`BIT`](bit.html) string format, e.g., `'101001'` or `'xAB'`.
 `BOOL` | Requires supported [`BOOL`](bool.html) string format, e.g., `'true'`.
-`BYTES` | For more details, [see here](bytes.html#supported-conversions).
+`BYTES` | For more details, [see here](bytes.html#supported-con[version](cluster-settings.html#setting-version)s).
 `DATE` | Requires supported [`DATE`](date.html) string format, e.g., `'2016-01-25'`.
 `DECIMAL` | Requires supported [`DECIMAL`](decimal.html) string format, e.g., `'1.1'`.
 `FLOAT` | Requires supported [`FLOAT`](float.html) string format, e.g., `'1.1'`.

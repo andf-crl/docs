@@ -37,7 +37,7 @@ Like most databases, CockroachDB caches the most recently accessed data in memor
 
 The timeseries data used to power the graphs in the admin UI is stored within the cluster and accumulates for 30 days before it starts getting truncated. As a result, for the first 30 days or so of a cluster's life, you will see a steady increase in disk usage and the number of ranges even if you aren't writing data to the cluster yourself.
 
-## Can I reduce or disable the storage of timeseries data? <span class="version-tag">New in v2.0</span>
+## Can I reduce or disable the storage of timeseries data? <span class="[version](cluster-settings.html#setting-version)-tag">New in v2.0</span>
 
 Yes. By default, CockroachDB stores timeseries data for the last 30 days for display in the Admin UI, but you can [reduce the interval for timeseries storage](#reduce-the-interval-for-timeseries-storage) or [disable timeseries storage entirely](#disable-timeseries-storage-entirely).
 
@@ -74,17 +74,17 @@ To disable the storage of timeseries data entirely, run the following command:
 
 {% include copy-clipboard.html %}
 ~~~ sql
-> SET CLUSTER SETTING timeseries.storage.enabled = false;
+> SET CLUSTER SETTING [timeseries.storage.enabled](cluster-settings.html#setting-timeseries-storage-enabled) = false;
 ~~~
 
 {% include copy-clipboard.html %}
 ~~~ sql
-> SHOW CLUSTER SETTING timeseries.storage.enabled;
+> SHOW CLUSTER SETTING [timeseries.storage.enabled](cluster-settings.html#setting-timeseries-storage-enabled);
 ~~~
 
 ~~~
 +----------------------------+
-| timeseries.storage.enabled |
+| [timeseries.storage.enabled](cluster-settings.html#setting-timeseries-storage-enabled) |
 +----------------------------+
 | false                      |
 +----------------------------+
@@ -115,17 +115,17 @@ Collecting information about CockroachDB's real world usage helps us prioritize 
 
 ## What happens when node clocks are not properly synchronized?
 
-{% include {{ page.version.version }}/faq/clock-synchronization-effects.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/faq/clock-synchronization-effects.md %}
 
 ## How can I tell how well node clocks are synchronized?
 
-{% include {{ page.version.version }}/faq/clock-synchronization-monitoring.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/faq/clock-synchronization-monitoring.html %}
 
 You can also see these metrics in [the Clock Offset graph](admin-ui-runtime-dashboard.html#clock-offset) on the Admin UI's Runtime dashboard as of the v2.0 release.
 
 ## How do I prepare for planned node maintenance?
 
-{% include {{ page.version.version }}/faq/planned-maintenance.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/faq/planned-maintenance.md %}
 
 ## See Also
 

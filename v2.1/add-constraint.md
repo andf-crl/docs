@@ -18,7 +18,7 @@ The [`PRIMARY KEY`](primary-key.html) and [`NOT NULL`](not-null.html) constraint
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/add_constraint.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/add_constraint.html %}
 </div>
 
 ## Required privileges
@@ -35,7 +35,7 @@ The user must have the `CREATE` [privilege](authorization.html#assign-privileges
 
 ## Viewing schema changes
 
-{% include {{ page.version.version }}/misc/schema-change-view-job.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-view-job.md %}
 
 ## Examples
 

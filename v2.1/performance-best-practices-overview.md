@@ -83,7 +83,7 @@ For example, consider a social media website. Social media posts are written by 
 
 ### Use `UUID` to generate unique IDs
 
-{% include {{ page.version.version }}/faq/auto-generate-unique-ids.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/faq/auto-generate-unique-ids.html %}
 
 ### Use `INSERT` with the `RETURNING` clause to generate unique IDs
 

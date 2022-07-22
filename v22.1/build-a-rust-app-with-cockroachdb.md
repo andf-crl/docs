@@ -12,7 +12,7 @@ We have tested the Rust-Postgres driver enough to claim **beta-level** support. 
 
 ## Before you begin
 
-{% include {{page.version.version}}/app/before-you-begin.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/before-you-begin.md %}
 
 ## Step 1. Specify the Rust-Postgres driver as a dependency
 
@@ -22,7 +22,7 @@ Additionally, include the <a href="https://crates.io/crates/openssl" data-proofe
 
 ## Step 2. Create the `maxroach` users and `bank` database
 
-{% include {{page.version.version}}/app/create-maxroach-user-and-bank-database.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/create-maxroach-user-and-bank-database.md %}
 
 ## Step 3. Generate a certificate for the `maxroach` user
 
@@ -89,4 +89,4 @@ $ cockroach sql --certs-dir=certs -e 'SELECT id, balance FROM accounts' --databa
 
 Read more about using the <a href="https://crates.io/crates/postgres/" data-proofer-ignore>Rust-Postgres driver</a>.
 
-{% include {{ page.version.version }}/app/see-also-links.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/app/see-also-links.md %}

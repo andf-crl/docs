@@ -92,7 +92,7 @@ This article assumes you have already installed the OpenShift Container Platform
 
 	<img src="{{ 'images/v21.1/cockroachdb-operator-instance-openshift.png' | relative_url }}" alt="OpenShift OperatorHub" style="border:1px solid #eee;max-width:100%" />
 
-1. Make sure **CockroachDB Version** is set to a valid CockroachDB version. For a list of compatible image names, see `spec.containers.env` in the [Operator manifest](https://github.com/cockroachdb/cockroach-operator/blob/{{site.operator_version}}/install/operator.yaml) on GitHub.
+1. Make sure **CockroachDB Version** is set to a valid CockroachDB [version](cluster-settings.html#setting-version). For a list of compatible image names, see `spec.containers.env` in the [Operator manifest](https://github.com/cockroachdb/cockroach-operator/blob/{{site.operator_[version](cluster-settings.html#setting-version)}}/install/operator.yaml) on GitHub.
 
 1. This will open the **Create CrdbCluster** page. By default, this deploys a 3-node secure cluster. Leave the other fields unchanged and click **Create**.
 
@@ -202,7 +202,7 @@ spec:
 	# All statements must be terminated by a semicolon.
 	# To exit, type: \q.
 	#
-	# Server version: CockroachDB CCL v20.2.8 	(x86_64-unknown-linux-gnu, built 2021/04/23 13:54:57, go1.13.14) (same version as client)
+	# Server [version](cluster-settings.html#setting-version): CockroachDB CCL v20.2.8 	(x86_64-unknown-linux-gnu, built 2021/04/23 13:54:57, go1.13.14) (same [version](cluster-settings.html#setting-version) as client)
 	# Cluster ID: 0813c343-c86b-4be8-9ad0-477cdb5db749
 	#
 	# Enter \? for a brief introduction.
@@ -212,7 +212,7 @@ spec:
 
 	Now you can run SQL commands against the cluster.
 
-{% include {{ page.version.version }}/orchestration/kubernetes-basic-sql.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/orchestration/kubernetes-basic-sql.md %}
 
 **Note:** If you cannot access the SQL client, this may be related to your `--certs-dir` or `--host` flags. 
 
@@ -292,7 +292,7 @@ To access the CockroachDB cluster's [DB Console](ui-overview.html):
 
 1. Go to <a href="https://localhost:8080/" data-proofer-ignore>https://localhost:8080</a> and log in with the username and password you created earlier.
 
-    {% include {{ page.version.version }}/misc/chrome-localhost.md %}
+    {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/chrome-localhost.md %}
 
 ## Step 7. Run a sample workload
 

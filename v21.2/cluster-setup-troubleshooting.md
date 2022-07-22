@@ -332,7 +332,7 @@ Like any database system, if you run out of disk space the system will no longer
 
 ###### Automatic ballast files
 
-{% include_cached new-in.html version="v21.2" %} CockroachDB automatically creates an emergency ballast file at [node startup](cockroach-start.html). This feature is **on** by default. Note that the [`cockroach debug ballast`](cockroach-debug-ballast.html) command is still available but deprecated.
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.2" %} CockroachDB automatically creates an emergency ballast file at [node startup](cockroach-start.html). This feature is **on** by default. Note that the [`cockroach debug ballast`](cockroach-debug-ballast.html) command is still available but deprecated.
 
 The ballast file defaults to 1% of total disk capacity or 1 GiB, whichever is smaller. The size of the ballast file may be configured using [the `--store` flag to `cockroach start`](cockroach-start.html#flags-store) with a [`ballast-size` field](cockroach-start.html#fields-ballast-size); this field accepts the same value formats as the `size` field.
 
@@ -391,7 +391,7 @@ CockroachDB's built-in disk stall detection works as follows:
 
 Issues with CPU most commonly arise when there is insufficient CPU to support the scale of the workload. If the concurrency of your workload significantly exceeds your provisioned CPU, you will encounter a [degradation in SQL response time](common-issues-to-monitor.html#service-latency). This is the most common symptom of CPU starvation.
 
-Because compaction requires significant CPU to run concurrent worker threads, a lack of CPU resources will eventually cause compaction to fall behind. This leads to [read amplification](architecture/storage-layer.html#read-amplification) and inversion of the log-structured merge (LSM) trees on the [storage layer](architecture/storage-layer.html).
+Because compaction requires significant CPU to run concurrent worker threads, a lack of CPU resources will eventually cause compaction to fall behind. This leads to [read amplification](architecture/storage-layer.html#read-amplification) and in[version](cluster-settings.html#setting-version) of the log-structured merge (LSM) trees on the [storage layer](architecture/storage-layer.html).
 
 If these issues remain unresolved, affected nodes will miss their liveness heartbeats, causing the cluster to lose nodes and eventually become unresponsive.
 
@@ -401,11 +401,11 @@ If these issues remain unresolved, affected nodes will miss their liveness heart
 
 - [Check your workload concurrency](common-issues-to-monitor.html#workload-concurrency) and compare it to your provisioned CPU.
 
-  - {% include {{ page.version.version }}/prod-deployment/resolution-excessive-concurrency.md %}
+  - {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/resolution-excessive-concurrency.md %}
 
 - [Check LSM health](common-issues-to-monitor.html#lsm-health), which can be affected over time by CPU starvation.
 
-  - {% include {{ page.version.version }}/prod-deployment/resolution-inverted-lsm.md %}
+  - {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/resolution-inverted-lsm.md %}
 
 ## Memory issues
 
@@ -437,7 +437,7 @@ If Go allocated memory is larger than a few hundred megabytes, you might have en
     CGo Allocated | Memory allocated by the C layer.
     CGo Total | Total memory managed by the C layer.
 
-    {% include {{ page.version.version }}/prod-deployment/healthy-crdb-memory.md %}
+    {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/healthy-crdb-memory.md %}
 
     If you observe any of the following, [file an issue](file-an-issue.html):
       - CGo Allocated is larger than the configured `--cache` size.
@@ -454,7 +454,7 @@ CockroachDB attempts to restart nodes after they crash. Nodes that frequently re
 
 - [Confirm that the node restarts are caused by OOM crashes.](common-issues-to-monitor.html#verify-oom-errors)
 
-  - {% include {{ page.version.version }}/prod-deployment/resolution-oom-crash.md %}
+  - {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/resolution-oom-crash.md %}
 
 - [Check whether SQL queries may be responsible.](common-issues-to-monitor.html#sql-memory-usage)
 
@@ -526,7 +526,7 @@ For more information about how node liveness works, see [Replication Layer](arch
 
 When the cluster needs to access a range on a leaseholder node that is dead, that range's [lease must be transferred to a healthy node](architecture/replication-layer.html#how-leases-are-transferred-from-a-dead-node). In theory, this process should take no more than 9 seconds for liveness expiration plus the cost of several network roundtrips.
 
-In production, lease transfer upon node failure can take longer than expected. In {{ page.version.version }}, this is observed in the following scenarios:
+In production, lease transfer upon node failure can take longer than expected. In {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}, this is observed in the following scenarios:
 
 - **The leaseholder node for the liveness range fails.** The liveness range is a system range that [stores the liveness record](architecture/replication-layer.html#epoch-based-leases-table-data) for each node on the cluster. If a node fails and is also the leaseholder for the liveness range, operations cannot proceed until the liveness range is transferred to a new leaseholder and the liveness record is made available to other nodes. This can cause momentary cluster unavailability.
 
@@ -540,13 +540,13 @@ In production, lease transfer upon node failure can take longer than expected. I
 
 If a node has become unresponsive without returning an error, [shut down the node](node-shutdown.html) so that network requests immediately become hard errors rather than stalling.
 
-If you are running a version of CockroachDB that is affected by an issue described here, [upgrade to a version](upgrade-cockroach-version.html) that contains the fix for the issue, as described in the preceding list.
+If you are running a [version](cluster-settings.html#setting-version) of CockroachDB that is affected by an issue described here, [upgrade to a [version](cluster-settings.html#setting-version)](upgrade-cockroach-[version](cluster-settings.html#setting-version).html) that contains the fix for the issue, as described in the preceding list.
 
 ## Partial availability issues
 
-If your cluster is in a partially-available state due to a recent node or network failure, the internal logging table `system.eventlog` might be unavailable. This can cause the logging of [notable events](eventlog.html) (e.g., the execution of SQL statements) to the `system.eventlog` table to fail to complete, contributing to cluster unavailability. If this occurs, you can set the [cluster setting](cluster-settings.html) `server.eventlog.enabled` to `false` to disable writing notable log events to this table, which may help to recover your cluster.
+If your cluster is in a partially-available state due to a recent node or network failure, the internal logging table `system.eventlog` might be unavailable. This can cause the logging of [notable events](eventlog.html) (e.g., the execution of SQL statements) to the `system.eventlog` table to fail to complete, contributing to cluster unavailability. If this occurs, you can set the [cluster setting](cluster-settings.html) `[server.eventlog.enabled](cluster-settings.html#setting-server-eventlog-enabled)` to `false` to disable writing notable log events to this table, which may help to recover your cluster.
 
-Even with `server.eventlog.enabled` set to `false`, notable log events are still sent to configured [log sinks](configure-logs.html#configure-log-sinks) as usual.
+Even with `[server.eventlog.enabled](cluster-settings.html#setting-server-eventlog-enabled)` set to `false`, notable log events are still sent to configured [log sinks](configure-logs.html#configure-log-sinks) as usual.
 
 ## Check for under-replicated or unavailable data
 

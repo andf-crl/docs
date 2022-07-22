@@ -20,7 +20,7 @@ For a more realistic use of ActiveRecord with CockroachDB in a Rails app, see ou
 
 ## Step 1. Start CockroachDB
 
-{% include {{ page.version.version }}/setup/sample-setup-certs.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/setup/sample-setup-certs.md %}
 
 ## Step 2. Get the code
 
@@ -106,4 +106,4 @@ git clone https://github.com/cockroachlabs/example-app-ruby-activerecord
 
 Read more about using [ActiveRecord](http://guides.rubyonrails.org/active_record_basics.html), or check out a more realistic implementation of ActiveRecord with CockroachDB in a Rails app in our [`examples-orms`](https://github.com/cockroachdb/examples-orms) repository.
 
-{% include {{page.version.version}}/app/see-also-links.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/see-also-links.md %}

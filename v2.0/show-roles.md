@@ -4,12 +4,12 @@ summary: The SHOW ROLES statement lists the roles for all databases.
 toc: true
 ---
 
-<span class="version-tag">New in v2.0:</span> The `SHOW ROLES` [statement](sql-statements.html) lists the roles for all databases.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v2.0:</span> The `SHOW ROLES` [statement](sql-statements.html) lists the roles for all databases.
 
 
 ## Synopsis
 
-<section>{% include {{ page.version.version }}/sql/diagrams/show_roles.html %}</section>
+<section>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/show_roles.html %}</section>
 
 ## Required Privileges
 

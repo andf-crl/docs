@@ -6,11 +6,11 @@ cloud: true
 docs_area: manage
 ---
 
-{% capture version_prefix %}{{site.versions["stable"]}}/{% endcapture %}
+{% capture [version](cluster-settings.html#setting-version)_prefix %}{{site.[version](cluster-settings.html#setting-version)s["stable"]}}/{% endcapture %}
 
 The **Statements** page helps you:
 
-- Identify frequently executed or high latency [SQL statements](../{{site.versions["stable"]}}/sql-statements.html).
+- Identify frequently executed or high latency [SQL statements](../{{site.[version](cluster-settings.html#setting-version)s["stable"]}}/sql-statements.html).
 - View SQL statement fingerprint [details](#statement-details-page).
 - Download SQL statement [diagnostics](#diagnostics) for troubleshooting.
 
@@ -34,14 +34,14 @@ You can search for statements using the search field or the date range selector.
 
 To search using the search field, type a string over `Search Statements` and press `Enter`. The list of statements is filtered by the string.
 
-{% include {{version_prefix}}ui/statements-filter.md %}
+{% include {{[version](cluster-settings.html#setting-version)_prefix}}ui/statements-filter.md %}
 
 ## Statement statistics
 
-{% include {{version_prefix}}ui/statistics.md %}
+{% include {{[version](cluster-settings.html#setting-version)_prefix}}ui/statistics.md %}
 
 {% include common/ui/statements-page.md %}
 
-{% include {{version_prefix}}ui/statements-table.md %}
+{% include {{[version](cluster-settings.html#setting-version)_prefix}}ui/statements-table.md %}
 
-{% include {{version_prefix}}ui/statement-details.md %}
+{% include {{[version](cluster-settings.html#setting-version)_prefix}}ui/statement-details.md %}

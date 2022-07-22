@@ -44,7 +44,7 @@ By writing data in this way, related data is more likely to remain on the same k
 
 ## When to interleave tables
 
-{% include {{ page.version.version }}/faq/when-to-interleave-tables.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/faq/when-to-interleave-tables.html %}
 
 ### Interleaved hierarchy
 
@@ -91,7 +91,7 @@ For an example showing how to create tables that meet these criteria, see [Inter
 ## Syntax
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/interleave.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/interleave.html %}
 </div>
 
 ## Parameters

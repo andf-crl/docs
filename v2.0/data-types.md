@@ -17,19 +17,19 @@ Type | Description | Example
 [`DATE`](date.html) | A date. | `DATE '2016-01-25'`
 [`DECIMAL`](decimal.html) | An exact, fixed-point number. | `1.2345`
 [`FLOAT`](float.html) | A 64-bit, inexact, floating-point number. | `1.2345`
-[`INET`](inet.html) | <span class="version-tag">New in v2.0:</span> An IPv4 or IPv6 address. | `192.168.0.1`
+[`INET`](inet.html) | <span class="[version](cluster-settings.html#setting-version)-tag">New in v2.0:</span> An IPv4 or IPv6 address. | `192.168.0.1`
 [`INT`](int.html) | A signed integer, up to 64 bits. | `12345`
 [`INTERVAL`](interval.html) | A span of time. | `INTERVAL '2h30m30s'`
-[`JSONB`](jsonb.html) | <span class="version-tag">New in v2.0:</span> JSON (JavaScript Object Notation) data. | `'{"first_name": "Lola", "last_name": "Dog", "location": "NYC", "online" : true, "friends" : 547}'`
+[`JSONB`](jsonb.html) | <span class="[version](cluster-settings.html#setting-version)-tag">New in v2.0:</span> JSON (JavaScript Object Notation) data. | `'{"first_name": "Lola", "last_name": "Dog", "location": "NYC", "online" : true, "friends" : 547}'`
 [`SERIAL`](serial.html) | A pseudo-type that combines an [integer type](int.html) with a [`DEFAULT` expression](default-value.html). | `148591304110702593 `
 [`STRING`](string.html) | A string of Unicode characters. | `'a1b2c3'`
-[`TIME`](time.html) | <span class="version-tag">New in v2.0:</span> A time of day with no time zone. | `TIME '01:23:45.123456'`
+[`TIME`](time.html) | <span class="[version](cluster-settings.html#setting-version)-tag">New in v2.0:</span> A time of day with no time zone. | `TIME '01:23:45.123456'`
 [`TIMESTAMP`<br>`TIMESTAMPTZ`](timestamp.html) | A date and time pairing in UTC. | `TIMESTAMP '2016-01-25 10:10:10'`<br>`TIMESTAMPTZ '2016-01-25 10:10:10-05:00'`
 [`UUID`](uuid.html) | A 128-bit hexadecimal value. | `7f9c24e8-3b12-4fef-91e0-56a2d5a246ec`
 
-## Data Type Conversions & Casts
+## Data Type Con[version](cluster-settings.html#setting-version)s & Casts
 
-CockroachDB supports explicit type conversions using the following methods:
+CockroachDB supports explicit type con[version](cluster-settings.html#setting-version)s using the following methods:
 
 - `<type> 'string literal'`, to convert from the literal representation of a value to a value of that type. For example:
   `DATE '2008-12-21'`, `INT '123'`, or `BOOL 'true'`.
@@ -43,8 +43,8 @@ CockroachDB supports explicit type conversions using the following methods:
     instead of a cast, as it provides more predictable results.
     {{site.data.alerts.end}}
 
-- Other [built-in conversion functions](functions-and-operators.html) when the type is not a SQL type, for example `from_ip()`, `to_ip()` to convert IP addresses between `STRING` and `BYTES` values.
+- Other [built-in con[version](cluster-settings.html#setting-version) functions](functions-and-operators.html) when the type is not a SQL type, for example `from_ip()`, `to_ip()` to convert IP addresses between `STRING` and `BYTES` values.
 
 
-You can find each data type's supported conversion and casting on its
-respective page in its section **Supported Casting & Conversion**.
+You can find each data type's supported con[version](cluster-settings.html#setting-version) and casting on its
+respective page in its section **Supported Casting & Con[version](cluster-settings.html#setting-version)**.

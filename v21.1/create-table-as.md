@@ -38,31 +38,31 @@ The user must have the `CREATE` [privilege](authorization.html#assign-privileges
 </div><p></p>
 
 <div class="filter-content" markdown="1" data-scope="basic">
-{% include {{ page.version.version }}/sql/generated/diagrams/create_table_as.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/create_table_as.html %}
 </div>
 
 <div class="filter-content" markdown="1" data-scope="expanded">
 
 <div>
-{% include {{ page.version.version }}/sql/generated/diagrams/create_table_as.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/create_table_as.html %}
 </div>
 
 **create_as_col_qual_list ::=**
 
 <div>
-{% include {{ page.version.version }}/sql/generated/diagrams/create_as_col_qual_list.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/create_as_col_qual_list.html %}
 </div>
 
 **create_as_constraint_def ::=**
 
 <div>
-{% include {{ page.version.version }}/sql/generated/diagrams/create_as_constraint_def.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/create_as_constraint_def.html %}
 </div>
 
 **opt_with_storage_parameter_list ::=**
 
 <div>
-{% include {{ page.version.version }}/sql/generated/diagrams/opt_with_storage_parameter_list.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/opt_with_storage_parameter_list.html %}
 </div>
 
 </div>
@@ -96,7 +96,7 @@ The [primary key](primary-key.html) of tables created with `CREATE TABLE ... AS`
 
 ## Examples
 
-{% include {{page.version.version}}/sql/movr-statements.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/movr-statements.md %}
 
 ### Create a table from a `SELECT` query
 

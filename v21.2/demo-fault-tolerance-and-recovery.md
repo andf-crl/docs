@@ -146,7 +146,7 @@ In this module, you'll run a sample workload to simulate multiple client connect
 
 ## Step 3. Run a sample workload
 
-Now that you have a load balancer running in front of your cluster, use the [`cockroach workload`](cockroach-workload.html) command to run CockroachDB's built-in version of the YCSB benchmark, simulating multiple client connections, each performing mixed read/write operations.
+Now that you have a load balancer running in front of your cluster, use the [`cockroach workload`](cockroach-workload.html) command to run CockroachDB's built-in [version](cluster-settings.html#setting-version) of the YCSB benchmark, simulating multiple client connections, each performing mixed read/write operations.
 
 1. Load the initial `ycsb` schema and data, pointing it at HAProxy's port:
 
@@ -230,7 +230,7 @@ When a node fails, the cluster waits for the node to remain offline for 5 minute
     $ cockroach sql \
     --insecure \
     --host=localhost:26000 \
-    --execute="SET CLUSTER SETTING server.time_until_store_dead = '1m15s';"
+    --execute="SET CLUSTER SETTING [server.time_until_store_dead](cluster-settings.html#setting-server-time_until_store_dead) = '1m15s';"
     ~~~
 
 1. Get the process IDs of the nodes:
@@ -274,7 +274,7 @@ Because you reduced the time it takes for the cluster to consider the down node 
 
 ## Step 8. Prepare for two simultaneous node failures
 
-At this point, the cluster has recovered and is ready to handle another failure. However, the cluster cannot handle two _near-simultaneous_ failures in this configuration. Failures are "near-simultaneous" if they are closer together than the `server.time_until_store_dead` [cluster setting](cluster-settings.html) plus the time taken for the number of replicas on the dead node to drop to zero. If two failures occurred in this configuration, some ranges would become unavailable until one of the nodes recovers.
+At this point, the cluster has recovered and is ready to handle another failure. However, the cluster cannot handle two _near-simultaneous_ failures in this configuration. Failures are "near-simultaneous" if they are closer together than the `[server.time_until_store_dead](cluster-settings.html#setting-server-time_until_store_dead)` [cluster setting](cluster-settings.html) plus the time taken for the number of replicas on the dead node to drop to zero. If two failures occurred in this configuration, some ranges would become unavailable until one of the nodes recovers.
 
 To be able to tolerate 2 of 5 nodes failing simultaneously without any service interruption, ranges must be replicated 5 times.
 
@@ -418,4 +418,4 @@ kill -TERM 4622
 
 Explore other core CockroachDB benefits and features:
 
-{% include {{ page.version.version }}/misc/explore-benefits-see-also.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/explore-benefits-see-also.md %}

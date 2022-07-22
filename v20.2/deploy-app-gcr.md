@@ -336,4 +336,4 @@ After testing, we recommend that you update the [`ALLOWED_HOSTS` property in `se
 
 - [Build a Simple Django App with CockroachDB](build-a-python-app-with-cockroachdb-django.html)
 
-{% include {{page.version.version}}/app/see-also-links.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/see-also-links.md %}

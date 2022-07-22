@@ -18,7 +18,7 @@ This tutorial shows you how build a simple Python application with CockroachDB a
 
 ## Step 1. Start CockroachDB
 
-{% include {{ page.version.version }}/setup/sample-setup-certs.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/setup/sample-setup-certs.md %}
 
 ## Step 2. Get the sample code
 
@@ -104,4 +104,4 @@ For other ways to install psycopg2, see the [official documentation](http://init
 
 Read more about using the [Python psycopg2 driver](http://initd.org/psycopg/docs/).
 
-{% include {{page.version.version}}/app/see-also-links.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/see-also-links.md %}

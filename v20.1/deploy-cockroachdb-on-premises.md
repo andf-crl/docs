@@ -21,31 +21,31 @@ If you are only testing CockroachDB, or you are not concerned with protecting ne
 
 ### Requirements
 
-{% include {{ page.version.version }}/prod-deployment/secure-requirements.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/secure-requirements.md %}
 
 ### Recommendations
 
-{% include {{ page.version.version }}/prod-deployment/secure-recommendations.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/secure-recommendations.md %}
 
 ## Step 1. Synchronize clocks
 
-{% include {{ page.version.version }}/prod-deployment/synchronize-clocks.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/synchronize-clocks.md %}
 
 ## Step 2. Generate certificates
 
-{% include {{ page.version.version }}/prod-deployment/secure-generate-certificates.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/secure-generate-certificates.md %}
 
 ## Step 3. Start nodes
 
-{% include {{ page.version.version }}/prod-deployment/secure-start-nodes.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/secure-start-nodes.md %}
 
 ## Step 4. Initialize the cluster
 
-{% include {{ page.version.version }}/prod-deployment/secure-initialize-cluster.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/secure-initialize-cluster.md %}
 
 ## Step 5. Test the cluster
 
-{% include {{ page.version.version }}/prod-deployment/secure-test-cluster.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/secure-test-cluster.md %}
 
 ## Step 6. Set up load balancing
 
@@ -67,7 +67,7 @@ Each CockroachDB node is an equally suitable SQL gateway to your cluster, but to
     --host=<address of any node>
     ~~~
 
-      {% include {{ page.version.version }}/misc/haproxy.md %}
+      {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/haproxy.md %}
 
 2. Upload the `haproxy.cfg` file to the machine where you want to run HAProxy:
 
@@ -96,20 +96,20 @@ Each CockroachDB node is an equally suitable SQL gateway to your cluster, but to
 
 ## Step 7. Run a sample workload
 
-{% include {{ page.version.version }}/prod-deployment/secure-test-load-balancing.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/secure-test-load-balancing.md %}
 
 ## Step 8. Monitor the cluster
 
-{% include {{ page.version.version }}/prod-deployment/monitor-cluster.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/monitor-cluster.md %}
 
 ## Step 9. Scale the cluster
 
-{% include {{ page.version.version }}/prod-deployment/secure-scale-cluster.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/secure-scale-cluster.md %}
 
 ## Step 10. Use the cluster
 
-{% include {{ page.version.version }}/prod-deployment/use-cluster.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/use-cluster.md %}
 
 ## See also
 
-{% include {{ page.version.version }}/prod-deployment/prod-see-also.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/prod-see-also.md %}

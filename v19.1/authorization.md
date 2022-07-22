@@ -84,10 +84,10 @@ To revoke privileges from roles or users, use the [`REVOKE`](revoke.html) statem
 {{site.data.alerts.callout_info}}
 The [`CREATE ROLE`](create-role.html) command used in this example is an enterprise-only feature. To request a 30-day trial license, see [Get CockroachDB](https://www.cockroachlabs.com/get-cockroachdb/enterprise). 
 
-Note that [`GRANT <roles>`](grant-roles.html) does not require an enterprise license.
+Note that [`GRANT <roles>`](grant-roles.html) does not require an [enterprise.license](cluster-settings.html#setting-enterprise-license).
 {{site.data.alerts.end}}
 
-For the purpose of this example, you need an [enterprise license](enterprise-licensing.html) and one CockroachDB node running in insecure mode:
+For the purpose of this example, you need an [[enterprise.license](cluster-settings.html#setting-enterprise-license)](enterprise-licensing.html) and one CockroachDB node running in insecure mode:
 
 {% include copy-clipboard.html %}
 ~~~ shell

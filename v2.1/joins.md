@@ -12,7 +12,7 @@ Join expressions define a data source in the `FROM` sub-clause of [simple `SELEC
 ## Synopsis
 
 <div class="horizontal-scroll">
-  {% include {{ page.version.version }}/sql/diagrams/joined_table.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/joined_table.html %}
 </div>
 
 <div markdown="1"></div>
@@ -130,9 +130,9 @@ Hash joins are performed on two tables as follows:
 
 ### Lookup joins
 
-{% include {{ page.version.version }}/misc/experimental-warning.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/experimental-warning.md %}
 
-<span class="version-tag">New in v2.1:</span> A lookup join is beneficial to use when there is a large imbalance in size between the two tables, as it only reads the smaller table and then looks up matches in the larger table. A lookup join requires that the right-hand (i.e., larger) table is indexed on the equality column.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v2.1:</span> A lookup join is beneficial to use when there is a large imbalance in size between the two tables, as it only reads the smaller table and then looks up matches in the larger table. A lookup join requires that the right-hand (i.e., larger) table is indexed on the equality column.
 
 {{site.data.alerts.callout_info}}Lookup joins are only valid on inner joins and left outer joins.{{site.data.alerts.end}}
 

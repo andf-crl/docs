@@ -9,7 +9,7 @@ This page walks you through a simple demonstration of how CockroachDB automatica
 
 ## Before You Begin
 
-In this tutorial, you'll use an example Go program to quickly insert data into a CockroachDB cluster. To run the example program, you must have a [Go environment](http://golang.org/doc/code.html) with a 64-bit version of Go 1.7.1.
+In this tutorial, you'll use an example Go program to quickly insert data into a CockroachDB cluster. To run the example program, you must have a [Go environment](http://golang.org/doc/code.html) with a 64-bit [version](cluster-settings.html#setting-version) of Go 1.7.1.
 
 - You can download the [Go binary](http://golang.org/doc/code.html) directly from the official site.
 - Be sure to set the `$GOPATH` and `$PATH` environment variables as described [here](https://golang.org/doc/code.html#GOPATH).

@@ -14,7 +14,7 @@ There are two main types of backups:
 
 You can use the [`BACKUP`](backup.html) statement to efficiently back up your cluster's schemas and data to popular cloud services such as AWS S3, Google Cloud Storage, or NFS, and the [`RESTORE`](restore.html) statement to efficiently restore schema and data as necessary. For more information, see [Use Cloud Storage for Bulk Operations](use-cloud-storage-for-bulk-operations.html).
 
-{% include {{ page.version.version }}/backups/backup-to-deprec.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/backups/backup-to-deprec.md %}
 
 {{site.data.alerts.callout_success}}
  You can create [schedules for periodic backups](manage-a-backup-schedule.html) in CockroachDB. We recommend using scheduled backups to automate daily backups of your cluster.
@@ -96,7 +96,7 @@ In most cases, **it's recommended to take nightly full backups of your cluster**
 
 Backups will export [Enterprise license keys](enterprise-licensing.html) during a [full cluster backup](backup.html#backup-a-cluster). When you [restore](restore.html) a full cluster with an Enterprise license, it will restore the Enterprise license of the cluster you are restoring from.
 
-{% include {{ page.version.version }}/backups/file-size-setting.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/backups/file-size-setting.md %}
 
 ### Take a full backup
 
@@ -179,7 +179,7 @@ Then, create nightly incremental backups based off of the full backups you've al
 > BACKUP INTO LATEST IN '{collectionURI}';
 ~~~
 
-{% include_cached new-in.html version="v22.1" %} This will add the incremental backup to the default `/incrementals` directory at the root of the backup collection's directory. With incremental backups in the `/incrementals` directory, you can apply different lifecycle/retention policies from cloud storage providers to the `/incrementals` directory as needed.
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v22.1" %} This will add the incremental backup to the default `/incrementals` directory at the root of the backup collection's directory. With incremental backups in the `/incrementals` directory, you can apply different lifecycle/retention policies from cloud storage providers to the `/incrementals` directory as needed.
 
 {{site.data.alerts.callout_info}}
 In v21.2 and earlier, incremental backups were stored in the same directory as their full backup (i.e., `collectionURI/subdirectory`). If an incremental backup command points to a subdirectory with incremental backups created in v21.2 and earlier, v22.1 will write the incremental backup to the v21.2 default location. To use the prior behavior on a backup that does not already contain incremental backups in the full backup subdirectory, use the `incremental_location` option, as shown in this [example](#backup-earlier-behavior).
@@ -201,15 +201,15 @@ To restore from a specific backup in the collection:
 > RESTORE FROM '{subdirectory}' IN '{collectionURI}';
 ~~~
 
-{% include {{ page.version.version }}/backups/no-incremental-restore.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/backups/no-incremental-restore.md %}
 
 {{site.data.alerts.callout_info}}
-`RESTORE` will re-validate [indexes](indexes.html) when [incremental backups](take-full-and-incremental-backups.html) are created from an older version (v20.2.2 and earlier or v20.1.4 and earlier), but restored by a newer version (v21.1.0+). These earlier releases may have included incomplete data for indexes that were in the process of being created.
+`RESTORE` will re-validate [indexes](indexes.html) when [incremental backups](take-full-and-incremental-backups.html) are created from an older [version](cluster-settings.html#setting-version) (v20.2.2 and earlier or v20.1.4 and earlier), but restored by a newer [version](cluster-settings.html#setting-version) (v21.1.0+). These earlier releases may have included incomplete data for indexes that were in the process of being created.
 {{site.data.alerts.end}}
 
 ## Incremental backups with explicitly specified destinations
 
-{% include_cached new-in.html version="v22.1" %} To explicitly control where your incremental backups go, use the [`incremental_location`](backup.html#options) option. By default, incremental backups are stored in the `/incrementals` subdirectory at the root of the collection. However, there are some advanced cases where you may want to store incremental backups in a different storage location.
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v22.1" %} To explicitly control where your incremental backups go, use the [`incremental_location`](backup.html#options) option. By default, incremental backups are stored in the `/incrementals` subdirectory at the root of the collection. However, there are some advanced cases where you may want to store incremental backups in a different storage location.
 
 In the following examples, the `{collectionURI}` specifies the storage location containing the full backup. The `{explicit_incrementalsURI}` is the alternative location that you can store an incremental backup:
 
@@ -248,7 +248,7 @@ For details on cloud storage URLs, see [Use Cloud Storage for Bulk Operations](u
   <button class="filter-button" data-scope="gcs">Google Cloud Storage</button>
 </div>
 
-{% include {{ page.version.version }}/backups/bulk-auth-options.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/backups/bulk-auth-options.md %}
 
 <section class="filter-content" markdown="1" data-scope="s3">
 
@@ -275,7 +275,7 @@ For more examples on how to schedule backups that take full and incremental back
 
 ### Exclude a table's data from backups
 
-{% include_cached new-in.html version="v22.1" %} In some situations, you may want to exclude a table's row data from a [backup](backup.html). For example, you have a table that contains high-churn data that you would like to [garbage collect](architecture/storage-layer.html#garbage-collection) more quickly than the [incremental backup](#incremental-backups) schedule for the database or cluster holding the table. You can use the `exclude_data_from_backup = true` parameter with a [`CREATE TABLE`](create-table.html#create-a-table-with-data-excluded-from-backup) or [`ALTER TABLE`](set-storage-parameter.html#exclude-a-tables-data-from-backups) statement to mark a table's row data for exclusion from a backup.
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v22.1" %} In some situations, you may want to exclude a table's row data from a [backup](backup.html). For example, you have a table that contains high-churn data that you would like to [garbage collect](architecture/storage-layer.html#garbage-collection) more quickly than the [incremental backup](#incremental-backups) schedule for the database or cluster holding the table. You can use the `exclude_data_from_backup = true` parameter with a [`CREATE TABLE`](create-table.html#create-a-table-with-data-excluded-from-backup) or [`ALTER TABLE`](set-storage-parameter.html#exclude-a-tables-data-from-backups) statement to mark a table's row data for exclusion from a backup.
 
 It is important to note that the backup will still contain the table, but it will be empty. Setting this parameter prevents the cluster or database backup from delaying [GC TTL](configure-replication-zones.html#gc-ttlseconds) on the key span for this table, and it also respects the configured GC TTL. This is useful when you want to set a shorter garbage collection window for tables containing high-churn data to avoid an accumulation of unnecessary data.
 
@@ -385,7 +385,7 @@ For more examples on how to schedule backups that take full and incremental back
 
 ### Exclude a table's data from backups
 
-{% include_cached new-in.html version="v22.1" %} In some situations, you may want to exclude a table's row data from a [backup](backup.html). For example, you have a table that contains high-churn data that you would like to [garbage collect](architecture/storage-layer.html#garbage-collection) more quickly than the [incremental backup](#incremental-backups) schedule for the database or cluster holding the table. You can use the `exclude_data_from_backup = true` parameter with a [`CREATE TABLE`](create-table.html#create-a-table-with-data-excluded-from-backup) or [`ALTER TABLE`](set-storage-parameter.html#exclude-a-tables-data-from-backups) statement to mark a table's row data for exclusion from a backup.
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v22.1" %} In some situations, you may want to exclude a table's row data from a [backup](backup.html). For example, you have a table that contains high-churn data that you would like to [garbage collect](architecture/storage-layer.html#garbage-collection) more quickly than the [incremental backup](#incremental-backups) schedule for the database or cluster holding the table. You can use the `exclude_data_from_backup = true` parameter with a [`CREATE TABLE`](create-table.html#create-a-table-with-data-excluded-from-backup) or [`ALTER TABLE`](set-storage-parameter.html#exclude-a-tables-data-from-backups) statement to mark a table's row data for exclusion from a backup.
 
 It is important to note that the backup will still contain the table, but it will be empty. Setting this parameter prevents the cluster or database backup from delaying [GC TTL](configure-replication-zones.html#gc-ttlseconds) on the key span for this table, and it also respects the configured GC TTL. This is useful when you want to set a shorter garbage collection window for tables containing high-churn data to avoid an accumulation of unnecessary data.
 
@@ -495,7 +495,7 @@ For more examples on how to schedule backups that take full and incremental back
 
 ### Exclude a table's data from backups
 
-{% include_cached new-in.html version="v22.1" %} In some situations, you may want to exclude a table's row data from a [backup](backup.html). For example, you have a table that contains high-churn data that you would like to [garbage collect](architecture/storage-layer.html#garbage-collection) more quickly than the [incremental backup](#incremental-backups) schedule for the database or cluster holding the table. You can use the `exclude_data_from_backup = true` parameter with a [`CREATE TABLE`](create-table.html#create-a-table-with-data-excluded-from-backup) or [`ALTER TABLE`](set-storage-parameter.html#exclude-a-tables-data-from-backups) statement to mark a table's row data for exclusion from a backup.
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v22.1" %} In some situations, you may want to exclude a table's row data from a [backup](backup.html). For example, you have a table that contains high-churn data that you would like to [garbage collect](architecture/storage-layer.html#garbage-collection) more quickly than the [incremental backup](#incremental-backups) schedule for the database or cluster holding the table. You can use the `exclude_data_from_backup = true` parameter with a [`CREATE TABLE`](create-table.html#create-a-table-with-data-excluded-from-backup) or [`ALTER TABLE`](set-storage-parameter.html#exclude-a-tables-data-from-backups) statement to mark a table's row data for exclusion from a backup.
 
 It is important to note that the backup will still contain the table, but it will be empty. Setting this parameter prevents the cluster or database backup from delaying [GC TTL](configure-replication-zones.html#gc-ttlseconds) on the key span for this table, and it also respects the configured GC TTL. This is useful when you want to set a shorter garbage collection window for tables containing high-churn data to avoid an accumulation of unnecessary data.
 
@@ -582,7 +582,7 @@ To create a table with `exclude_data_from_backup`, see [Create a table with data
 
 ### Advanced examples
 
-{% include {{ page.version.version }}/backups/advanced-examples-list.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/backups/advanced-examples-list.md %}
 
 {{site.data.alerts.callout_info}}
 To take incremental backups, backups with revision history, locality-aware backups, and encrypted backups, you need an [Enterprise license](enterprise-licensing.html).

@@ -27,18 +27,18 @@ Feature | Description
 --------|------------
 instance | A physical or virtual machine. In this tutorial, you'll create GCE or AWS instances and join them into a single Kubernetes cluster from your local workstation.
 [pod](http://kubernetes.io/docs/user-guide/pods/) | A pod is a group of one or more Docker containers. In this tutorial, each pod will run on a separate instance and include one Docker container running a single CockroachDB node. You'll start with 3 pods and grow to 4.
-[StatefulSet](http://kubernetes.io/docs/concepts/abstractions/controllers/statefulsets/) | A StatefulSet is a group of pods treated as stateful units, where each pod has distinguishable network identity and always binds back to the same persistent storage on restart. StatefulSets are considered stable as of Kubernetes version 1.9 after reaching beta in version 1.5.
+[StatefulSet](http://kubernetes.io/docs/concepts/abstractions/controllers/statefulsets/) | A StatefulSet is a group of pods treated as stateful units, where each pod has distinguishable network identity and always binds back to the same persistent storage on restart. StatefulSets are considered stable as of Kubernetes [version](cluster-settings.html#setting-version) 1.9 after reaching beta in [version](cluster-settings.html#setting-version) 1.5.
 [persistent volume](http://kubernetes.io/docs/user-guide/persistent-volumes/) | A persistent volume is a piece of networked storage (Persistent Disk on GCE, Elastic Block Store on AWS) mounted into a pod. The lifetime of a persistent volume is decoupled from the lifetime of the pod that's using it, ensuring that each CockroachDB node binds back to the same storage on restart.<br><br>This tutorial assumes that dynamic volume provisioning is available. When that is not the case, [persistent volume claims](http://kubernetes.io/docs/user-guide/persistent-volumes/#persistentvolumeclaims) need to be created manually.
 [CSR](https://kubernetes.io/docs/tasks/tls/managing-tls-in-a-cluster/) | A CSR, or Certificate Signing Request, is a request to have a TLS certificate signed by the Kubernetes cluster's built-in CA. As each pod is created, it issues a CSR for the CockroachDB node running in the pod, which must be manually checked and approved. The same is true for clients as they connect to the cluster.
 [RBAC](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) | RBAC, or Role-Based Access Control, is the system Kubernetes uses to manage permissions within the cluster. In order to take an action (e.g., `get` or `create`) on an API resource (e.g., a `pod` or `CSR`), the client must have a `Role` that allows it to do so. This tutorial creates the RBAC resources necessary for CockroachDB to create and access certificates.
 
-{% include {{ page.version.version }}/orchestration/kubernetes-limitations.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/orchestration/kubernetes-limitations.md %}
 
-{% include {{ page.version.version }}/orchestration/start-kubernetes.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/orchestration/start-kubernetes.md %}
 
 ## Step 3. Start CockroachDB nodes
 
-{% include {{ page.version.version }}/orchestration/start-cluster.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/orchestration/start-cluster.md %}
 
 ## Step 4. Approve node certificates
 
@@ -198,7 +198,7 @@ To use the built-in SQL client, you need to launch a pod that runs indefinitely 
     # All statements must be terminated by a semicolon.
     # To exit: CTRL + D.
     #
-    # Server version: CockroachDB CCL v1.1.2 (linux amd64, built 2017/11/02 19:32:03, go1.8.3) (same version as client)
+    # Server [version](cluster-settings.html#setting-version): CockroachDB CCL v1.1.2 (linux amd64, built 2017/11/02 19:32:03, go1.8.3) (same [version](cluster-settings.html#setting-version) as client)
     # Cluster ID: 3292fe08-939f-4638-b8dd-848074611dba
     #
     # Enter \? for a brief introduction.
@@ -248,15 +248,15 @@ To use the built-in SQL client, you need to launch a pod that runs indefinitely 
 
 ## Step 7. Monitor the cluster
 
-{% include {{ page.version.version }}/orchestration/monitor-cluster.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/orchestration/monitor-cluster.md %}
 
 ## Step 8. Simulate node failure
 
-{% include {{ page.version.version }}/orchestration/kubernetes-simulate-failure.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/orchestration/kubernetes-simulate-failure.md %}
 
 ## Step 9. Scale the cluster
 
-{% include {{ page.version.version }}/orchestration/kubernetes-scale-cluster.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/orchestration/kubernetes-scale-cluster.md %}
 
 3. Get the name of the `Pending` CSR for the new pod:
 
@@ -337,13 +337,13 @@ To use the built-in SQL client, you need to launch a pod that runs indefinitely 
 
 ## Step 10. Upgrade the cluster
 
-{% include {{ page.version.version }}/orchestration/kubernetes-upgrade-cluster.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/orchestration/kubernetes-upgrade-cluster.md %}
 
-4. If this was an upgrade between minor or major versions (e.g., between v1.0.x and v1.1.y or between v1.1.y and v2.0.z), then you'll want to [finalize the upgrade](upgrade-cockroach-version.html#finalize-the-upgrade) if you're happy with the new version. Assuming you upgraded to the v1.1 minor version, you'd run:
+4. If this was an upgrade between minor or major [version](cluster-settings.html#setting-version)s (e.g., between v1.0.x and v1.1.y or between v1.1.y and v2.0.z), then you'll want to [finalize the upgrade](upgrade-cockroach-[version](cluster-settings.html#setting-version).html#finalize-the-upgrade) if you're happy with the new [version](cluster-settings.html#setting-version). Assuming you upgraded to the v1.1 minor [version](cluster-settings.html#setting-version), you'd run:
 
     {% include copy-clipboard.html %}
     ~~~ shell
-    $ kubectl exec -it cockroachdb-client-secure -- ./cockroach sql --certs-dir=/cockroach-certs --host=cockroachdb-public -e "SET CLUSTER SETTING version = '1.1';"
+    $ kubectl exec -it cockroachdb-client-secure -- ./cockroach sql --certs-dir=/cockroach-certs --host=cockroachdb-public -e "SET CLUSTER SETTING [version](cluster-settings.html#setting-version) = '1.1';"
     ~~~
 
     ~~~
@@ -461,9 +461,9 @@ To shut down the CockroachDB cluster:
 
 7. Stop Kubernetes:
 
-{% include {{ page.version.version }}/orchestration/stop-kubernetes.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/orchestration/stop-kubernetes.md %}
 
 ## See Also
 
 - [Kubernetes Performance Guide](kubernetes-performance.html)
-{% include {{ page.version.version }}/prod-deployment/prod-see-also.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/prod-see-also.md %}

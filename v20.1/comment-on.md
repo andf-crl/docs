@@ -12,7 +12,7 @@ The user must have the `CREATE` [privilege](authorization.html#assign-privileges
 
 ## Synopsis
 
-<section>{% include {{ page.version.version }}/sql/diagrams/comment.html %}</section>
+<section>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/comment.html %}</section>
 
 ## Parameters
 
@@ -26,7 +26,7 @@ The user must have the `CREATE` [privilege](authorization.html#assign-privileges
 
 ## Examples
 
-{% include {{page.version.version}}/sql/movr-statements.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/movr-statements.md %}
 
 ### Add a comment to a database
 
@@ -82,7 +82,7 @@ To view table comments, use [`SHOW TABLES`](show-tables.html):
 (6 rows)
 ~~~
 
-<span class="version-tag">New in v20.1:</span> You can also view comments on a table with [`SHOW CREATE`](show-create.html):
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> You can also view comments on a table with [`SHOW CREATE`](show-create.html):
 
 {% include copy-clipboard.html %}
 ~~~ sql

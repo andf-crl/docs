@@ -16,7 +16,7 @@ We have tested the [Python psycopg2 driver](http://initd.org/psycopg/docs/) and 
 
 ## Before you begin
 
-{% include {{page.version.version}}/app/before-you-begin.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/before-you-begin.md %}
 
 ## Step 1. Install the psycopg2 driver
 
@@ -33,7 +33,7 @@ For other ways to install psycopg2, see the [official documentation](http://init
 
 ## Step 2. Create the `maxroach` user and `bank` database
 
-{% include {{page.version.version}}/app/create-maxroach-user-and-bank-database.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/create-maxroach-user-and-bank-database.md %}
 
 ## Step 3. Generate a certificate for the `maxroach` user
 
@@ -59,7 +59,7 @@ Download the <a href="https://raw.githubusercontent.com/cockroachdb/docs/master/
 
 {% include copy-clipboard.html %}
 ~~~ python
-{% include {{page.version.version}}/app/basic-sample.py %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/basic-sample.py %}
 ~~~
 
 Then run the code:
@@ -87,7 +87,7 @@ Download the <a href="https://raw.githubusercontent.com/cockroachdb/docs/master/
 
 {% include copy-clipboard.html %}
 ~~~ python
-{% include {{page.version.version}}/app/txn-sample.py %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/txn-sample.py %}
 ~~~
 
 Then run the code:
@@ -135,7 +135,7 @@ To check the account balances, issue the following statement:
 
 ## Step 2. Create the `maxroach` user and `bank` database
 
-{% include {{page.version.version}}/app/insecure/create-maxroach-user-and-bank-database.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/insecure/create-maxroach-user-and-bank-database.md %}
 
 ## Step 3. Run the Python code
 
@@ -152,7 +152,7 @@ Download the <a href="https://raw.githubusercontent.com/cockroachdb/docs/master/
 
 {% include copy-clipboard.html %}
 ~~~ python
-{% include {{page.version.version}}/app/insecure/basic-sample.py %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/insecure/basic-sample.py %}
 ~~~
 
 Then run the code:
@@ -180,7 +180,7 @@ Download the <a href="https://raw.githubusercontent.com/cockroachdb/docs/master/
 
 {% include copy-clipboard.html %}
 ~~~ python
-{% include {{page.version.version}}/app/insecure/txn-sample.py %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/insecure/txn-sample.py %}
 ~~~
 
 Then run the code:
@@ -228,4 +228,4 @@ To check the account balances, issue the following statement:
 
 Read more about using the [Python psycopg2 driver](http://initd.org/psycopg/docs/).
 
-{% include {{page.version.version}}/app/see-also-links.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/see-also-links.md %}

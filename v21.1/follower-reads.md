@@ -8,7 +8,7 @@ Follower reads are a mechanism that CockroachDB uses to provide faster reads in 
 
 A follower read is a read taken from the closest [replica](architecture/overview.html#architecture-replica), regardless of the replica's leaseholder status. This can result in much better latency in [geo-distributed, multi-region deployments](topology-patterns.html#multi-region).
 
- The shortest interval at which [`AS OF SYSTEM TIME`](as-of-system-time.html) can serve follower reads is 4.8 seconds. In prior versions of CockroachDB, the interval was 48 seconds.
+ The shortest interval at which [`AS OF SYSTEM TIME`](as-of-system-time.html) can serve follower reads is 4.8 seconds. In prior [version](cluster-settings.html#setting-version)s of CockroachDB, the interval was 48 seconds.
 
 For instructions showing how to use follower reads to get low latency, historical reads in multi-region deployments, see the [Follower Reads Topology Pattern](topology-follower-reads.html).
 
@@ -40,14 +40,14 @@ In addition, follower reads are "read-only" operations; they cannot be used in a
 
 ### Enable/disable follower reads
 
-Use [`SET CLUSTER SETTING`](set-cluster-setting.html) to set `kv.closed_timestamp.follower_reads_enabled` to:
+Use [`SET CLUSTER SETTING`](set-cluster-setting.html) to set `[kv.closed_timestamp.follower_reads_enabled](cluster-settings.html#setting-kv-closed_timestamp-follower_reads_enabled)` to:
 
 - `true` to enable follower reads _(default)_
 - `false` to disable follower reads
 
 {% include_cached copy-clipboard.html %}
 ~~~ sql
-> SET CLUSTER SETTING kv.closed_timestamp.follower_reads_enabled = false;
+> SET CLUSTER SETTING [kv.closed_timestamp.follower_reads_enabled](cluster-settings.html#setting-kv-closed_timestamp-follower_reads_enabled) = false;
 ~~~
 
 If you have follower reads enabled, you may want to [verify that follower reads are happening](#verify-that-follower-reads-are-happening).
@@ -92,7 +92,7 @@ Note that follower reads are "read-only" operations; they cannot be used in any 
 {{site.data.alerts.callout_success}}
 Using the [`SET TRANSACTION`](set-transaction.html#use-the-as-of-system-time-option) statement as shown in the example above will make it easier to use the follower reads feature from [drivers and ORMs](install-client-drivers.html).
 
-{% include_cached new-in.html version="v21.1" %} To set `AS OF SYSTEM TIME follower_read_timestamp()` on all implicit and explicit read-only transactions by default, set the `default_transaction_use_follower_reads` [session variable](set-vars.html) to `on`. When `default_transaction_use_follower_reads=on` and follower reads are enabled, all read-only transactions use follower reads.
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.1" %} To set `AS OF SYSTEM TIME follower_read_timestamp()` on all implicit and explicit read-only transactions by default, set the `default_transaction_use_follower_reads` [session variable](set-vars.html) to `on`. When `default_transaction_use_follower_reads=on` and follower reads are enabled, all read-only transactions use follower reads.
 {{site.data.alerts.end}}
 
 ## Follower reads and long-running writes

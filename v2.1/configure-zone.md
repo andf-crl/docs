@@ -4,7 +4,7 @@ summary: Use the CONFIGURE ZONE statement to add, modify, reset, and remove repl
 toc: true
 ---
 
-<span class="version-tag">New in v2.1:</span> Use `CONFIGURE ZONE` to add, modify, reset, and remove [replication zones](configure-replication-zones.html). To view details about existing replication zones, see [`SHOW ZONE CONFIGURATIONS`](show-zone-configurations.html).
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v2.1:</span> Use `CONFIGURE ZONE` to add, modify, reset, and remove [replication zones](configure-replication-zones.html). To view details about existing replication zones, see [`SHOW ZONE CONFIGURATIONS`](show-zone-configurations.html).
 
 In CockroachDB, you can use **replication zones** to control the number and location of replicas for specific sets of data, both when replicas are first added and when they are rebalanced to maintain cluster equilibrium.
 
@@ -17,25 +17,25 @@ Adding replication zones for rows and secondary indexes is an [enterprise-only](
 **alter_zone_range_stmt ::=**
 
 <div class="horizontal-scroll">
-  {% include {{ page.version.version }}/sql/diagrams/alter_zone_range.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/alter_zone_range.html %}
 </div>
 
 **alter_zone_database_stmt ::=**
 
 <div class="horizontal-scroll">
-  {% include {{ page.version.version }}/sql/diagrams/alter_zone_database.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/alter_zone_database.html %}
 </div>
 
 **alter_zone_table_stmt ::=**
 
 <div class="horizontal-scroll">
-  {% include {{ page.version.version }}/sql/diagrams/alter_zone_table.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/alter_zone_table.html %}
 </div>
 
 **alter_zone_index_stmt ::=**
 
 <div class="horizontal-scroll">
-  {% include {{ page.version.version }}/sql/diagrams/alter_zone_index.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/alter_zone_index.html %}
 </div>
 
 ## Required privileges

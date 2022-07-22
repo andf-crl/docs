@@ -10,7 +10,7 @@ The in-memory cluster persists only as long as the SQL shell is open. As soon as
 
 By default, `cockroach demo` starts in secure mode using TLS certificates to encrypt network communication. It also serves a local [Admin UI](#admin-ui) that does not use TLS encryption. 
 
-Each instance of `cockroach demo` loads a temporary [enterprise license](https://www.cockroachlabs.com/get-cockroachdb) that expires after an hour. To prevent the loading of a temporary license, set the `--disable-demo-license` flag.
+Each instance of `cockroach demo` loads a temporary [[enterprise.license](cluster-settings.html#setting-enterprise-license)](https://www.cockroachlabs.com/get-cockroachdb) that expires after an hour. To prevent the loading of a temporary license, set the `--disable-demo-license` flag.
 
 ## Synopsis
 
@@ -75,7 +75,7 @@ Flag | Description
 -----|------------
 `--cache` | For each demo node, the total size for caches. This can be a percentage (notated as a decimal or with `%`) or any bytes-based unit, for example: <br><br>`--cache=.25`<br>`--cache=25%`<br>`--cache=1000000000 ----> 1000000000 bytes`<br>`--cache=1GB ----> 1000000000 bytes`<br>`--cache=1GiB ----> 1073741824 bytes` <br><br>**Default:** `64MiB`
 `--demo-locality` | Specify [locality](cockroach-start.html#locality) information for each demo node. The input is a colon-separated list of key-value pairs, where the i<sup>th</sup> pair is the locality setting for the i<sup>th</sup> demo cockroach node.<br><br>For example, the following option assigns node 1's region to `us-east1` and availability zone to `1`, node 2's region to `us-east2` and availability zone to `2`, and node 3's region to `us-east3` and availability zone to `3`:<br><br>`--demo-locality=region=us-east1,az=1:region=us-east1,az=2:region=us-east1,az=3`<br><br>By default, `cockroach demo` uses sample region (`region`) and availability zone (`az`) replica localities for each node specified with the `--nodes` flag.
-`--disable-demo-license` | <span class="version-tag">New in v20.1:</span> Start the demo cluster without loading a temporary [enterprise license](https://www.cockroachlabs.com/get-cockroachdb) that expires after an hour.<br><br>Setting the `COCKROACH_SKIP_ENABLING_DIAGNOSTIC_REPORTING` environment variable will also prevent the loading of a temporary license, along with preventing the sharing of anonymized [diagnostic details](diagnostics-reporting.html) with Cockroach Labs.
+`--disable-demo-license` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> Start the demo cluster without loading a temporary [[enterprise.license](cluster-settings.html#setting-enterprise-license)](https://www.cockroachlabs.com/get-cockroachdb) that expires after an hour.<br><br>Setting the `COCKROACH_SKIP_ENABLING_DIAGNOSTIC_REPORTING` environment variable will also prevent the loading of a temporary license, along with preventing the sharing of anonymized [diagnostic details](diagnostics-reporting.html) with Cockroach Labs.
 `--echo-sql` | Reveal the SQL statements sent implicitly by the command-line utility. This can also be enabled within the interactive SQL shell via the `\set echo` [shell command](cockroach-sql.html#commands).
 `--empty` | Start the demo cluster without a pre-loaded dataset.
 `--execute`<br>`-e` | Execute SQL statements directly from the command line, without opening a shell. This flag can be set multiple times, and each instance can contain one or more statements separated by semi-colons.<br><br>If an error occurs in any statement, the command exits with a non-zero status code and further statements are not executed. The results of each statement are printed to the standard output (see `--format` for formatting options).
@@ -86,7 +86,7 @@ Flag | Description
 `--nodes` | Specify the number of in-memory nodes to create for the demo.<br><br>**Default:** 1
 `--safe-updates` | Disallow potentially unsafe SQL statements, including `DELETE` without a `WHERE` clause, `UPDATE` without a `WHERE` clause, and `ALTER TABLE ... DROP COLUMN`.<br><br>**Default:** `true` for [interactive sessions](cockroach-sql.html#session-and-output-types); `false` otherwise<br><br>Potentially unsafe SQL statements can also be allowed/disallowed for an entire session via the `sql_safe_updates` [session variable](set-vars.html).
 `--set` | Set a [client-side option](cockroach-sql.html#client-side-options) before starting the SQL shell or executing SQL statements from the command line via `--execute`. This flag may be specified multiple times, once per option.<br><br>After starting the SQL shell, the `\set` and `unset` commands can be use to enable and disable client-side options as well.
-`--with-load` |  Run a demo [`movr`](movr.html) workload against the preloaded `movr` database.<br><br><span class="version-tag">New in v20.1:</span> When running a multi-node demo cluster, load is balanced across all nodes.
+`--with-load` |  Run a demo [`movr`](movr.html) workload against the preloaded `movr` database.<br><br><span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> When running a multi-node demo cluster, load is balanced across all nodes.
 
 ## Logging
 
@@ -115,7 +115,7 @@ When the SQL shell connects to the demo cluster at startup, it prints a welcome 
 ...
 ~~~
 
-<span class="version-tag">New in v20.1:</span> To return the client connection URLs for all nodes in a demo cluster from within the SQL shell, use the client-side `\demo ls` command:
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> To return the client connection URLs for all nodes in a demo cluster from within the SQL shell, use the client-side `\demo ls` command:
 
 {% include copy-clipboard.html %}
 ~~~ sql
@@ -159,13 +159,13 @@ You do not need to create or specify node and client certificates in the connect
 
 ## Diagnostics reporting
 
-By default, `cockroach demo` shares anonymous usage details with Cockroach Labs. To opt out, set the [`diagnostics.reporting.enabled`](diagnostics-reporting.html#after-cluster-initialization) [cluster setting](cluster-settings.html) to `false`. You can also opt out by setting the [`COCKROACH_SKIP_ENABLING_DIAGNOSTIC_REPORTING`](diagnostics-reporting.html#at-cluster-initialization) environment variable to `false` before running `cockroach demo`.
+By default, `cockroach demo` shares anonymous usage details with Cockroach Labs. To opt out, set the [`[diagnostics.reporting.enabled](cluster-settings.html#setting-diagnostics-reporting-enabled)`](diagnostics-reporting.html#after-cluster-initialization) [cluster setting](cluster-settings.html) to `false`. You can also opt out by setting the [`COCKROACH_SKIP_ENABLING_DIAGNOSTIC_REPORTING`](diagnostics-reporting.html#at-cluster-initialization) environment variable to `false` before running `cockroach demo`.
 
 ## Shutting down and restarting nodes
 
-<span class="version-tag">New in v20.1:</span> You can shut down and restart individual nodes in a multi-node demo cluster with the `\demo` SQL shell command.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> You can shut down and restart individual nodes in a multi-node demo cluster with the `\demo` SQL shell command.
 
-{% include {{ page.version.version }}/misc/experimental-warning.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/experimental-warning.md %}
 
 Command | Description
 ----------------|------------
@@ -301,7 +301,7 @@ $ cockroach demo --nodes=3 --with-load
 
 This command starts a demo cluster with the `movr` database preloaded and then inserts rows into each table in the `movr` database. You can monitor the workload progress on the [Admin UI](admin-ui-overview-dashboard.html#sql-queries).
 
-<span class="version-tag">New in v20.1:</span> When running a multi-node demo cluster, load is balanced across all nodes.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> When running a multi-node demo cluster, load is balanced across all nodes.
 
 ### Start a multi-region demo cluster with automatic geo-partitioning
 
@@ -316,7 +316,7 @@ This command starts a 9-node demo cluster with the `movr` database preloaded, an
 
 If you start a demo cluster with multiple nodes, you can use the [`\demo`](cockroach-demo.html#shutting-down-and-restarting-nodes) shell command to shut down and restart individual nodes in the demo cluster.
 
-{% include {{ page.version.version }}/misc/experimental-warning.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/experimental-warning.md %}
 
 For example, if you start a demo cluster with the following command:
 

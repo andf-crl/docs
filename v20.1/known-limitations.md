@@ -4,7 +4,7 @@ summary: Learn about newly identified limitations in CockroachDB as well as unre
 toc: true
 ---
 
-This page describes newly identified limitations in the CockroachDB {{page.release_info.version}} release as well as unresolved limitations identified in earlier releases.
+This page describes newly identified limitations in the CockroachDB {{page.release_info.[version](cluster-settings.html#setting-version)}} release as well as unresolved limitations identified in earlier releases.
 
 ## New limitations
 
@@ -18,7 +18,7 @@ This page describes newly identified limitations in the CockroachDB {{page.relea
 This limitation applies only for upgrades to v20.1.0. Upgrades to v20.1.1 and later are not susceptible to this issue.
 {{site.data.alerts.end}}
 
-{% include {{ page.version.version }}/known-limitations/dropping-renaming-during-upgrade.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/dropping-renaming-during-upgrade.md %}
 
 If your cluster gets into this state, rolling all nodes back to v19.2 will not resolve the issue. Instead, you must do the following:
 
@@ -63,7 +63,7 @@ If your cluster gets into this state, rolling all nodes back to v19.2 will not r
 
 [Tracking Github Issue](https://github.com/cockroachdb/cockroach/issues/49092)
 
-### Admin UI Data Distribution page not accessible after some version upgrades
+### Admin UI Data Distribution page not accessible after some [version](cluster-settings.html#setting-version) upgrades
 
 {{site.data.alerts.callout_info}}
 This limitation applies only for upgrades to v20.1.0, v20.1.1, and v20.1.2. Upgrades to v20.1.3 and later are not susceptible to this issue. First-time installations of v20.1.0, v20.1.1, and v20.1.2 are also unaffected.
@@ -80,7 +80,7 @@ An error was encountered while loading this data:
 No details available.
 ```
 
-To resolve the issue, [upgrade to v20.1.3](upgrade-cockroach-version.html) or any later version.
+To resolve the issue, [upgrade to v20.1.3](upgrade-cockroach-[version](cluster-settings.html#setting-version).html) or any later [version](cluster-settings.html#setting-version).
 
 [Tracking Github Issue](https://github.com/cockroachdb/cockroach/issues/49882)
 
@@ -255,7 +255,7 @@ As a workaround, alongside a `BACKUP`, run the [`cockroach dump`](cockroach-dump
 
 ### Adding stores to a node
 
-{% include {{ page.version.version }}/known-limitations/adding-stores-to-node.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/adding-stores-to-node.md %}
 
 ### `CHECK` constraint validation for `INSERT ON CONFLICT` differs from PostgreSQL
 
@@ -302,11 +302,11 @@ Once restarted, monitor the Replica Quiescence graph on the [**Replication Dashb
 
 When a node is offline, the [Raft logs](architecture/replication-layer.html#raft-logs) for the ranges on the node get truncated. When the node comes back online, it therefore often needs [Raft snapshots](architecture/replication-layer.html#snapshots) to get many of its ranges back up-to-date. While in this state, requests to a range will hang until its snapshot has been applied, which can take a long time.  
 
-To work around this limitation, you can adjust the `kv.snapshot_recovery.max_rate` [cluster setting](cluster-settings.html) to temporarily relax the throughput rate limiting applied to snapshots. For example, changing the rate limiting from the default 8 MB/s, at which 1 GB of snapshots takes at least 2 minutes, to 64 MB/s can result in an 8x speedup in snapshot transfers and, therefore, a much shorter interruption of requests to an impacted node:
+To work around this limitation, you can adjust the `[kv.snapshot_recovery.max_rate](cluster-settings.html#setting-kv-snapshot_recovery-max_rate)` [cluster setting](cluster-settings.html) to temporarily relax the throughput rate limiting applied to snapshots. For example, changing the rate limiting from the default 8 MB/s, at which 1 GB of snapshots takes at least 2 minutes, to 64 MB/s can result in an 8x speedup in snapshot transfers and, therefore, a much shorter interruption of requests to an impacted node:
 
 {% include copy-clipboard.html %}
 ~~~ sql
-> SET CLUSTER SETTING kv.snapshot_recovery.max_rate = '64mb';
+> SET CLUSTER SETTING [kv.snapshot_recovery.max_rate](cluster-settings.html#setting-kv-snapshot_recovery-max_rate) = '64mb';
 ~~~
 
 Before increasing this value, however, verify that you will not end up saturating your network interfaces, and once the problem has resolved, be sure to reset to the original value.
@@ -329,7 +329,7 @@ Make sure to do this across all nodes in the cluster and to keep this time zone 
 
 Change data capture (CDC) provides efficient, distributed, row-level change feeds into Apache Kafka for downstream processing such as reporting, caching, or full-text indexing.
 
-{% include {{ page.version.version }}/known-limitations/cdc.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/cdc.md %}
 
 ### Admin UI may become inaccessible for secure clusters
 
@@ -363,7 +363,7 @@ CockroachDB tries to optimize most comparisons operators in `WHERE` and `HAVING`
 
 ### Using SQLAlchemy with CockroachDB
 
-Users of the SQLAlchemy adapter provided by Cockroach Labs must [upgrade the adapter to the latest release](https://github.com/cockroachdb/sqlalchemy-cockroachdb) before upgrading to CockroachDB {{ page.version.version }}.
+Users of the SQLAlchemy adapter provided by Cockroach Labs must [upgrade the adapter to the latest release](https://github.com/cockroachdb/sqlalchemy-cockroachdb) before upgrading to CockroachDB {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}.
 
 ### Admin UI: CPU percentage calculation
 
@@ -411,23 +411,23 @@ Currently, the built-in SQL shell provided with CockroachDB (`cockroach sql` / `
 
 ### Dumping a table with no user-visible columns
 
-{% include {{page.version.version}}/known-limitations/dump-table-with-no-columns.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/known-limitations/dump-table-with-no-columns.md %}
 
 ### Dumping a table with collations
 
-{% include {{page.version.version}}/known-limitations/dump-table-with-collations.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/known-limitations/dump-table-with-collations.md %}
 
 ### Import with a high amount of disk contention
 
-{% include {{ page.version.version }}/known-limitations/import-high-disk-contention.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/import-high-disk-contention.md %}
 
 ### Assigning latitude/longitude for the Node Map
 
-{% include {{ page.version.version }}/known-limitations/node-map.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/node-map.md %}
 
 ### Placeholders in `PARTITION BY`
 
-{% include {{ page.version.version }}/known-limitations/partitioning-with-placeholders.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/partitioning-with-placeholders.md %}
 
 ### Adding a column with sequence-based `DEFAULT` values
 
@@ -462,19 +462,19 @@ SQLSTATE: 0A000
 
 ### Available capacity metric in the Admin UI
 
-{% include {{ page.version.version }}/misc/available-capacity-metric.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/available-capacity-metric.md %}
 
 ### Schema changes within transactions
 
-{% include {{ page.version.version }}/known-limitations/schema-changes-within-transactions.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/schema-changes-within-transactions.md %}
 
 ### Schema change DDL statements inside a multi-statement transaction can fail while other statements succeed
 
-{% include {{ page.version.version }}/known-limitations/schema-change-ddl-inside-multi-statement-transactions.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/schema-change-ddl-inside-multi-statement-transactions.md %}
 
 ### Schema changes between executions of prepared statements
 
-{% include {{ page.version.version }}/known-limitations/schema-changes-between-prepared-statements.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/schema-changes-between-prepared-statements.md %}
 
 ### `INSERT ON CONFLICT` vs. `UPSERT`
 
@@ -570,7 +570,7 @@ Every [`DELETE`](delete.html) or [`UPDATE`](update.html) statement constructs a 
 
 ### Correlated common table expressions
 
-{% include {{ page.version.version }}/known-limitations/correlated-ctes.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/correlated-ctes.md %}
 
 [Tracking GitHub Issue](https://github.com/cockroachdb/cockroach/issues/42540)
 
@@ -608,7 +608,7 @@ If you have performed a rollback of a column-dropping schema change, check the [
 
 ### Disk-spilling on joins with `JSON` columns
 
-If the execution of a [join](joins.html) query exceeds the limit set for [memory-buffering operations](vectorized-execution.html#disk-spilling-operations) (i.e., the value set for the `sql.distsql.temp_storage.workmem` [cluster setting](cluster-settings.html)), CockroachDB will spill the intermediate results of computation to disk. If the join operation spills to disk, and at least one of the columns is of type [`JSON`](jsonb.html), CockroachDB returns the error `unable to encode table key: *tree.DJSON`. If the memory limit is not reached, then the query will be processed without error.
+If the execution of a [join](joins.html) query exceeds the limit set for [memory-buffering operations](vectorized-execution.html#disk-spilling-operations) (i.e., the value set for the `[sql.distsql.temp_storage.workmem](cluster-settings.html#setting-sql-distsql-temp_storage-workmem)` [cluster setting](cluster-settings.html)), CockroachDB will spill the intermediate results of computation to disk. If the join operation spills to disk, and at least one of the columns is of type [`JSON`](jsonb.html), CockroachDB returns the error `unable to encode table key: *tree.DJSON`. If the memory limit is not reached, then the query will be processed without error.
 
 [Tracking GitHub Issue](https://github.com/cockroachdb/cockroach/issues/35706)
 

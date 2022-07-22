@@ -16,7 +16,7 @@ expression.
 ## Synopsis
 
 <div>
-{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.version.version | replace: "v", "" }}/grammar_svg/table_ref.html %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/grammar_svg/table_ref.html %}
 </div>
 
 ## Parameters
@@ -86,7 +86,7 @@ For example:
 
 #### Force index selection
 
-{% include {{page.version.version}}/misc/force-index-selection.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/misc/force-index-selection.md %}
 
 {{site.data.alerts.callout_info}}
 You can also force index selection for [`DELETE`](delete.html#force-index-selection-for-deletes) and [`UPDATE`](update.html#force-index-selection-for-updates) statements.

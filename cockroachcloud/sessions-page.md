@@ -6,7 +6,7 @@ cloud: true
 docs_area: manage
 ---
 
-{% capture version_prefix %}{{site.versions["stable"]}}/{% endcapture %}
+{% capture [version](cluster-settings.html#setting-version)_prefix %}{{site.[version](cluster-settings.html#setting-version)s["stable"]}}/{% endcapture %}
 
 The **Sessions** page of the {{ site.data.products.db }} Console provides details of all open sessions in the cluster.
 
@@ -14,4 +14,4 @@ To view this page, click **SQL Activity** in the left-hand navigation of the {{ 
 
 {% include common/ui/sessions-page.md %}
 
-{% include {{version_prefix}}ui/sessions.md %}
+{% include {{[version](cluster-settings.html#setting-version)_prefix}}ui/sessions.md %}

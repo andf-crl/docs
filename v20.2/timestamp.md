@@ -62,7 +62,7 @@ Note that the fractional portion is optional and is rounded to
 microseconds (6 digits after decimal) for compatibility with the
 PostgreSQL wire protocol.
 
-<span class="version-tag">New in v20.2:</span> For PostgreSQL compatibility, CockroachDB bounds `TIMESTAMP` values by the lowest and highest `TIMESTAMP` values supported by PostgreSQL. The minimum allowable `TIMESTAMP` value is `4714-11-24 00:00:00+00 BC`, and the highest allowable `TIMESTAMP` value is `294276-12-31 23:59:59.999999`.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> For PostgreSQL compatibility, CockroachDB bounds `TIMESTAMP` values by the lowest and highest `TIMESTAMP` values supported by PostgreSQL. The minimum allowable `TIMESTAMP` value is `4714-11-24 00:00:00+00 BC`, and the highest allowable `TIMESTAMP` value is `294276-12-31 23:59:59.999999`.
 
 {{site.data.alerts.callout_info}}
 A time zone offset of `+00:00` is displayed for all [`TIME`](time.html) and `TIMESTAMP` values, but is not stored in the database.
@@ -216,13 +216,13 @@ In this case, the `b` column, which is of type `TIMESTAMPTZ(5)`, cannot be chang
 ~~~
 
 ~~~
-ERROR: unimplemented: type conversion from TIMESTAMPTZ(5) to TIMESTAMPTZ(3) requires overwriting existing values which is not yet implemented
+ERROR: unimplemented: type con[version](cluster-settings.html#setting-version) from TIMESTAMPTZ(5) to TIMESTAMPTZ(3) requires overwriting existing values which is not yet implemented
 SQLSTATE: 0A000
 ~~~
 
-## Supported casting and conversion
+## Supported casting and con[version](cluster-settings.html#setting-version)
 
-`TIMESTAMP` values can be [cast](data-types.html#data-type-conversions-and-casts) to any of the following data types:
+`TIMESTAMP` values can be [cast](data-types.html#data-type-con[version](cluster-settings.html#setting-version)s-and-casts) to any of the following data types:
 
 Type | Details
 -----|--------
@@ -231,7 +231,7 @@ Type | Details
 `TIME` | Converts to the time portion (HH:MM:SS) of the timestamp.
 `INT` | Converts to number of seconds since the Unix epoch (Jan. 1, 1970).
 `DATE` | --
-`STRING` | <span class="version-tag">New in v20.2:</span> Converts to the date and time portion (YYYY-MM-DD HH:MM:SS) of the timestamp and omits the time zone offset.
+`STRING` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> Converts to the date and time portion (YYYY-MM-DD HH:MM:SS) of the timestamp and omits the time zone offset.
 
 ### Infinity `TIMESTAMP` casts
 

@@ -5,14 +5,14 @@ toc: true
 ---
 
 {{site.data.alerts.callout_info}}
-`EXPERIMENTAL CHANGEFEED FOR` is the core implementation of changefeeds. For the [enterprise-only](enterprise-licensing.html) version, see [`CREATE CHANGEFEED`](create-changefeed.html).
+`EXPERIMENTAL CHANGEFEED FOR` is the core implementation of changefeeds. For the [enterprise-only](enterprise-licensing.html) [version](cluster-settings.html#setting-version), see [`CREATE CHANGEFEED`](create-changefeed.html).
 {{site.data.alerts.end}}
 
-<span class="version-tag">New in v19.1:</span> The `EXPERIMENTAL CHANGEFEED FOR` [statement](sql-statements.html) creates a new core changefeed, which streams row-level changes to the client indefinitely until the underlying connection is closed or the changefeed is canceled.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v19.1:</span> The `EXPERIMENTAL CHANGEFEED FOR` [statement](sql-statements.html) creates a new core changefeed, which streams row-level changes to the client indefinitely until the underlying connection is closed or the changefeed is canceled.
 
 For more information, see [Change Data Capture](change-data-capture.html).
 
-{% include {{ page.version.version }}/misc/experimental-warning.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/experimental-warning.md %}
 
 ## Required privileges
 
@@ -68,11 +68,11 @@ Currently, support for Avro is limited and experimental. Below is a list of unsu
 
 ### Create a changefeed
 
-{% include {{ page.version.version }}/cdc/create-core-changefeed.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/cdc/create-core-changefeed.md %}
 
 ### Create a changefeed with Avro
 
-{% include {{ page.version.version }}/cdc/create-core-changefeed-avro.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/cdc/create-core-changefeed-avro.md %}
 
 <!-- ### Pause and resume a changefeed
 

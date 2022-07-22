@@ -20,14 +20,14 @@ ISO 8601 | `INTERVAL 'P1Y2M3DT4H5M6S'`
 Traditional PostgreSQL | `INTERVAL '1 year 2 months 3 days 4 hours 5 minutes 6 seconds'`
 Abbreviated PostgreSQL | `INTERVAL '1 yr 2 mons 3 d 4 hrs 5 mins 6 secs'`
 
-{% include_cached new-in.html version="v21.2" %} By default, CockroachDB displays `INTERVAL` values in the traditional PostgreSQL format (e.g., `INTERVAL '1 year 2 months 3 days 4 hours 5 minutes 6 seconds'`). To change the display format of `INTERVAL` values, set the `intervalstyle` [session variable](set-vars.html) or the `sql.defaults.intervalstyle` [cluster setting](cluster-settings.html) to a supported format (`iso_8601` for the ISO 8601 format; `sql_standard` for the SQL Standard format).
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.2" %} By default, CockroachDB displays `INTERVAL` values in the traditional PostgreSQL format (e.g., `INTERVAL '1 year 2 months 3 days 4 hours 5 minutes 6 seconds'`). To change the display format of `INTERVAL` values, set the `intervalstyle` [session variable](set-vars.html) or the `[sql.defaults.intervalstyle](cluster-settings.html#setting-sql-defaults-intervalstyle)` [cluster setting](cluster-settings.html) to a supported format (`iso_8601` for the ISO 8601 format; `sql_standard` for the SQL Standard format).
 
 The value of `intervalstyle` affects how CockroachDB parses certain `INTERVAL` values. Specifically, when `intervalstyle = 'sql_standard'`, and when the `INTERVAL` value begins with a negative symbol, CockroachDB parses all fields as negative values (e.g., `-3 years 1 day` is parsed as `-(3 years 1 day)`, or `-3 years, -1 day`). When `intervalstyle = 'postgres'` (the default format), and when the `INTERVAL` value begins with a negative symbol, CockroachDB only applies the negative symbol to the field that it directly precedes (e.g., `-3 years 1 day` is parsed as `-3 years, +1 day`).
 
-To set the `intervalstyle` session variable, the `intervalstyle_enabled` session variable must be set to `true`. At the beginning of each session, the `intervalstyle_enabled` variable is set to the value of the `sql.defaults.intervalstyle.enabled` cluster setting (`false`, by default).
+To set the `intervalstyle` session variable, the `intervalstyle_enabled` session variable must be set to `true`. At the beginning of each session, the `intervalstyle_enabled` variable is set to the value of the `[sql.defaults.intervalstyle](cluster-settings.html#setting-sql-defaults-intervalstyle).enabled` cluster setting (`false`, by default).
 
 {{site.data.alerts.callout_info}}
-When the `intervalstyle_enabled` [session variable](set-vars.html) is set to `true`, you cannot [cast values](#supported-casting-and-conversion) from `INTERVAL` to `STRING` or from `STRING` to `INTERVAL` if the value belongs to a [computed column](computed-columns.html), a [partially-indexed column](partial-indexes.html), or a [geo-partitioned column](partitioning.html). To work around this limitation, use the `to_char_with_style(interval, style)` or `parse_interval(interval, intervalstyle)` [built-in functions](functions-and-operators.html).
+When the `intervalstyle_enabled` [session variable](set-vars.html) is set to `true`, you cannot [cast values](#supported-casting-and-con[version](cluster-settings.html#setting-version)) from `INTERVAL` to `STRING` or from `STRING` to `INTERVAL` if the value belongs to a [computed column](computed-columns.html), a [partially-indexed column](partial-indexes.html), or a [geo-partitioned column](partitioning.html). To work around this limitation, use the `to_char_with_style(interval, style)` or `parse_interval(interval, intervalstyle)` [built-in functions](functions-and-operators.html).
 {{site.data.alerts.end}}
 
 ### Details on SQL Standard input
@@ -110,9 +110,9 @@ If the interval input is ambiguous, specifying two duration fields stores the in
 (3 rows)
 ~~~
 
-## Supported casting and conversion
+## Supported casting and con[version](cluster-settings.html#setting-version)
 
-You can [cast](data-types.html#data-type-conversions-and-casts) `INTERVAL` values to any of the following data types:
+You can [cast](data-types.html#data-type-con[version](cluster-settings.html#setting-version)s-and-casts) `INTERVAL` values to any of the following data types:
 
 Type | Details
 -----|--------

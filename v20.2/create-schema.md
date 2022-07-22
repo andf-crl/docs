@@ -4,7 +4,7 @@ summary: The CREATE SCHEMA statement creates a new user-defined schema.
 toc: true
 ---
 
-<span class="version-tag">New in v20.2</span>: The `CREATE SCHEMA` [statement](sql-statements.html) creates a user-defined [schema](sql-name-resolution.html#naming-hierarchy) in the current database.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2</span>: The `CREATE SCHEMA` [statement](sql-statements.html) creates a user-defined [schema](sql-name-resolution.html#naming-hierarchy) in the current database.
 
 {{site.data.alerts.callout_info}}
 You can also create a user-defined schema by converting an existing database to a schema using [`ALTER DATABASE ... CONVERT TO SCHEMA`](convert-to-schema.html).
@@ -19,7 +19,7 @@ You can also create a user-defined schema by converting an existing database to 
 ## Syntax
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/create_schema.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/create_schema.html %}
 </div>
 
 ### Parameters
@@ -32,7 +32,7 @@ Parameter | Description
 
 ## Example
 
-{% include {{page.version.version}}/sql/movr-statements.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/movr-statements.md %}
 
 ### Create a schema
 

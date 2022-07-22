@@ -23,10 +23,10 @@ Basic terms:
 
 ### Considerations
 
-Before temporarily stopping a node to [upgrade its version of CockroachDB](upgrade-cockroach-version.html), if you expect the node to be offline for longer than 5 minutes, you should first set the `server.time_until_store_dead` [cluster setting](cluster-settings.html) to higher than the `5m0s` default. For example, if you think the node might be offline for up to 8 minutes, you might change this setting as follows:
+Before temporarily stopping a node to [upgrade its [version](cluster-settings.html#setting-version) of CockroachDB](upgrade-cockroach-[version](cluster-settings.html#setting-version).html), if you expect the node to be offline for longer than 5 minutes, you should first set the `[server.time_until_store_dead](cluster-settings.html#setting-server-time_until_store_dead)` [cluster setting](cluster-settings.html) to higher than the `5m0s` default. For example, if you think the node might be offline for up to 8 minutes, you might change this setting as follows:
 
 ~~~ sql
-> SET CLUSTER SETTING server.time_until_store_dead = 10m0s;
+> SET CLUSTER SETTING [server.time_until_store_dead](cluster-settings.html#setting-server-time_until_store_dead) = 10m0s;
 ~~~
 
 ## Synopsis
@@ -113,5 +113,5 @@ If you need to troubleshoot this command's behavior, you can change its [logging
 
 ## See Also
 
-- [Upgrade a Cluster's Version](upgrade-cockroach-version.html)
+- [Upgrade a Cluster's Version](upgrade-cockroach-[version](cluster-settings.html#setting-version).html)
 - [Other Cockroach Commands](cockroach-commands.html)

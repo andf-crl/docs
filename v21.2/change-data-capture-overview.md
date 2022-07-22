@@ -45,4 +45,4 @@ See the following for more detail on changefeed setup and use:
 
 ## Known limitations
 
-{% include {{ page.version.version }}/known-limitations/cdc.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/cdc.md %}

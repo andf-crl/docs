@@ -44,8 +44,8 @@ Statistics are refreshed in the following cases:
 
 | Setting                                              | Default Value | Details                                                                              |
 |------------------------------------------------------+---------------+--------------------------------------------------------------------------------------|
-| `sql.stats.automatic_collection.fraction_stale_rows` |           0.2 | Target fraction of stale rows per table that will trigger a statistics refresh       |
-| `sql.stats.automatic_collection.min_stale_rows`      |           500 | Target minimum number of stale rows per table that will trigger a statistics refresh |
+| `[sql.stats.automatic_collection.fraction_stale_rows](cluster-settings.html#setting-sql-stats-automatic_collection-fraction_stale_rows)` |           0.2 | Target fraction of stale rows per table that will trigger a statistics refresh       |
+| `[sql.stats.automatic_collection.min_stale_rows](cluster-settings.html#setting-sql-stats-automatic_collection-min_stale_rows)`      |           500 | Target minimum number of stale rows per table that will trigger a statistics refresh |
 
 {{site.data.alerts.callout_info}}
 Because the formula for statistics refreshes is probabilistic, you should not expect to see statistics update immediately after changing these settings, or immediately after exactly 500 rows have been updated.
@@ -59,7 +59,7 @@ If you need to turn off automatic statistics collection, follow the steps below:
 
     {% include copy-clipboard.html %}
     ~~~ sql
-    > SET CLUSTER SETTING sql.stats.automatic_collection.enabled = false;
+    > SET CLUSTER SETTING [sql.stats.automatic_collection.enabled](cluster-settings.html#setting-sql-stats-automatic_collection-enabled) = false;
     ~~~
 
 2. Use the [`SHOW STATISTICS`](show-statistics.html) statement to view automatically generated statistics.
@@ -77,17 +77,17 @@ For instructions showing how to manually generate statistics, see the examples i
 
 #### Controlling histogram collection
 
-<span class="version-tag">New in v19.2:</span> By default, the optimizer collects histograms for all index columns (specifically the first column in each index) during automatic statistics collection. If a single column statistic is explicitly requested using manual invocation of [`CREATE STATISTICS`](create-statistics.html), a histogram will be collected, regardless of whether or not the column is part of an index.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v19.2:</span> By default, the optimizer collects histograms for all index columns (specifically the first column in each index) during automatic statistics collection. If a single column statistic is explicitly requested using manual invocation of [`CREATE STATISTICS`](create-statistics.html), a histogram will be collected, regardless of whether or not the column is part of an index.
 
-If you are an advanced user and need to disable histogram collection for troubleshooting or performance tuning reasons, change the [`sql.stats.histogram_collection.enabled` cluster setting](cluster-settings.html) by running [`SET CLUSTER SETTING`](set-cluster-setting.html) as follows:
+If you are an advanced user and need to disable histogram collection for troubleshooting or performance tuning reasons, change the [`[sql.stats.histogram_collection.enabled](cluster-settings.html#setting-sql-stats-histogram_collection-enabled)` cluster setting](cluster-settings.html) by running [`SET CLUSTER SETTING`](set-cluster-setting.html) as follows:
 
 {% include copy-clipboard.html %}
 ~~~ sql
-SET CLUSTER SETTING sql.stats.histogram_collection.enabled = false;
+SET CLUSTER SETTING [sql.stats.histogram_collection.enabled](cluster-settings.html#setting-sql-stats-histogram_collection-enabled) = false;
 ~~~
 
 {{site.data.alerts.callout_info}}
-When `sql.stats.histogram_collection.enabled` is set to `false`, histograms are never collected, either as part of automatic statistics collection or by manual invocation of [`CREATE STATISTICS`](create-statistics.html).
+When `[sql.stats.histogram_collection.enabled](cluster-settings.html#setting-sql-stats-histogram_collection-enabled)` is set to `false`, histograms are never collected, either as part of automatic statistics collection or by manual invocation of [`CREATE STATISTICS`](create-statistics.html).
 {{site.data.alerts.end}}
 
 ## Query plan cache
@@ -167,14 +167,14 @@ If it is not possible to use the algorithm specified in the hint, an error is si
 
    - `(a JOIN b) JOIN c` might be changed to `a JOIN (b JOIN c)`, but this does not happen if `a JOIN b` uses a hint; the hint forces that particular join to happen as written in the query.
 
-- Hint usage should be reconsidered with each new release of CockroachDB. Due to improvements in the optimizer, hints specified to work with an older version may cause decreased performance in a newer version.
+- Hint usage should be reconsidered with each new release of CockroachDB. Due to improvements in the optimizer, hints specified to work with an older [version](cluster-settings.html#setting-version) may cause decreased performance in a newer [version](cluster-settings.html#setting-version).
 
 ## Preferring the nearest index
 
 Given multiple identical [indexes](indexes.html) that have different locality constraints using [replication zones](configure-replication-zones.html), the optimizer will prefer the index that is closest to the gateway node that is planning the query. In a properly configured geo-distributed cluster, this can lead to performance improvements due to improved data locality and reduced network traffic.
 
 {{site.data.alerts.callout_info}}
-This feature is only available to users with an [enterprise license](enterprise-licensing.html). For insight into how to use this feature to get low latency, consistent reads in multi-region deployments, see the [Duplicate Indexes](topology-follower-reads.html) topology pattern.
+This feature is only available to users with an [[enterprise.license](cluster-settings.html#setting-enterprise-license)](enterprise-licensing.html). For insight into how to use this feature to get low latency, consistent reads in multi-region deployments, see the [Duplicate Indexes](topology-follower-reads.html) topology pattern.
 {{site.data.alerts.end}}
 
 This feature enables scenarios such as:
@@ -184,7 +184,7 @@ This feature enables scenarios such as:
 
 To take advantage of this feature, you need to:
 
-1. Have an [enterprise license](enterprise-licensing.html).
+1. Have an [[enterprise.license](cluster-settings.html#setting-enterprise-license)](enterprise-licensing.html).
 2. Determine which data consists of reference tables that are rarely updated (such as postal codes) and can therefore be easily replicated to different regions.
 3. Create multiple [secondary indexes](indexes.html) on the reference tables. **Note that these indexes must include (in key or using [`STORED`](create-index.html#store-columns)) *every* column that you wish to query**. For example, if you run `SELECT * from db.table` and not every column of `db.table` is in the set of secondary indexes you created, the optimizer will have no choice but to fall back to the primary index.
 4. Create [replication zones](configure-replication-zones.html) for each index.
@@ -230,7 +230,7 @@ $ cockroach start --locality=region=apac --insecure --store=/tmp/node2 --listen-
 $ cockroach init --insecure --host=localhost --port=26257
 ~~~
 
-Next, from the SQL client, add your organization name and enterprise license:
+Next, from the SQL client, add your organization name and [enterprise.license](cluster-settings.html#setting-enterprise-license):
 
 {% include copy-clipboard.html %}
 ~~~ sh
@@ -239,12 +239,12 @@ $ cockroach sql --insecure --host=localhost --port=26257
 
 {% include copy-clipboard.html %}
 ~~~ sql
-> SET CLUSTER SETTING cluster.organization = 'FooCorp - Local Testing';
+> SET CLUSTER SETTING [cluster.organization](cluster-settings.html#setting-cluster-organization) = 'FooCorp - Local Testing';
 ~~~
 
 {% include copy-clipboard.html %}
 ~~~ sql
-> SET CLUSTER SETTING enterprise.license = 'xxxxx';
+> SET CLUSTER SETTING [enterprise.license](cluster-settings.html#setting-enterprise-license) = 'xxxxx';
 ~~~
 
 Create a test database and table. The table will have 3 indexes into the same data. Later, we'll configure the cluster to associate each of these indexes with a different datacenter using replication zones.
@@ -393,7 +393,7 @@ $ cockroach start --locality=region=us-west --insecure --store=/tmp/node2 --list
 $ cockroach init --insecure --host=localhost --port=26257
 ~~~
 
-From the SQL client, add your organization name and enterprise license:
+From the SQL client, add your organization name and [enterprise.license](cluster-settings.html#setting-enterprise-license):
 
 {% include copy-clipboard.html %}
 ~~~ sh
@@ -402,12 +402,12 @@ $ cockroach sql --insecure --host=localhost --port=26257
 
 {% include copy-clipboard.html %}
 ~~~ sql
-> SET CLUSTER SETTING cluster.organization = 'FooCorp - Local Testing';
+> SET CLUSTER SETTING [cluster.organization](cluster-settings.html#setting-cluster-organization) = 'FooCorp - Local Testing';
 ~~~
 
 {% include copy-clipboard.html %}
 ~~~ sql
-> SET CLUSTER SETTING enterprise.license = 'xxxxx';
+> SET CLUSTER SETTING [enterprise.license](cluster-settings.html#setting-enterprise-license) = 'xxxxx';
 ~~~
 
 Create an authentication database and table:

@@ -5,7 +5,7 @@ toc: true
 docs_area: reference.db_console
 ---
 
-{% include {{ page.version.version }}/ui/admin-access.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/ui/admin-access.md %}
 
 The **Databases** page of the DB Console provides details of the following:
 

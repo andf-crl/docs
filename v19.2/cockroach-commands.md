@@ -15,7 +15,7 @@ Command | Usage
 --------|----
 [`cockroach start`](cockroach-start.html) | Start a node as part of a multi-node cluster.
 [`cockroach init`](cockroach-init.html) | Initialize a multi-node cluster.
-[`cockroach start-single-node`](cockroach-start-single-node.html) | <span class="version-tag">New in v19.2:</span> Start a single-node cluster.
+[`cockroach start-single-node`](cockroach-start-single-node.html) | <span class="[version](cluster-settings.html#setting-version)-tag">New in v19.2:</span> Start a single-node cluster.
 [`cockroach cert`](cockroach-cert.html) | Create CA, node, and client certificates.
 [`cockroach quit`](cockroach-quit.html) | Temporarily stop a node or permanently remove a node.
 [`cockroach sql`](cockroach-sql.html) | Use the built-in SQL client.
@@ -25,7 +25,7 @@ Command | Usage
 [`cockroach dump`](cockroach-dump.html) | Back up a table by outputting the SQL statements required to recreate the table and all its rows.
 [`cockroach demo`](cockroach-demo.html) | Start a temporary, in-memory CockroachDB cluster, and open an interactive SQL shell to it.
 [`cockroach gen`](cockroach-gen.html) | Generate manpages, a bash completion file, example SQL data, or an HAProxy configuration file for a running cluster.
-[`cockroach version`](cockroach-version.html) | Output CockroachDB version details.
+[`cockroach [version](cluster-settings.html#setting-version)`](cockroach-[version](cluster-settings.html#setting-version).html) | Output CockroachDB [version](cluster-settings.html#setting-version) details.
 [`cockroach debug ballast`](cockroach-debug-ballast.html) | Create a large, unused file in a node's storage directory that you can delete if the node runs out of disk space.
 [`cockroach debug encryption-active-key`](cockroach-debug-encryption-active-key.html) | View the encryption algorithm and store key.
 [`cockroach debug zip`](cockroach-debug-zip.html) | Generate a `.zip` file that can help Cockroach Labs troubleshoot issues with your cluster.

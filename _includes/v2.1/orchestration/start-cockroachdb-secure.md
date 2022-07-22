@@ -23,7 +23,7 @@ If you want to use a different certificate authority than the one Kubernetes use
 
     Alternatively, if you'd rather start with a configuration file that has been customized for performance:
 
-    1. Download our [performance version of `cockroachdb-statefulset-secure.yaml`](https://github.com/cockroachdb/cockroach/blob/master/cloud/kubernetes/performance/cockroachdb-statefulset-secure.yaml):
+    1. Download our [performance [version](cluster-settings.html#setting-version) of `cockroachdb-statefulset-secure.yaml`](https://github.com/cockroachdb/cockroach/blob/master/cloud/kubernetes/performance/cockroachdb-statefulset-secure.yaml):
 
         {% include copy-clipboard.html %}
         ~~~ shell

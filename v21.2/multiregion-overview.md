@@ -29,7 +29,7 @@ At a high level, the simplest process for running a multi-region cluster is:
 These steps describe the simplest case, where you accept all of the default settings. The latter two steps are optional, but table locality and survival goals have a significant impact on performance. Therefore Cockroach Labs recommends that you give these aspects some consideration [when you choose a multi-region configuration](choosing-a-multi-region-configuration.html).
 
 {{site.data.alerts.callout_success}}
-{% include {{page.version.version}}/misc/multiregion-max-offset.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/misc/multiregion-max-offset.md %}
 {{site.data.alerts.end}}
 
 ## Cluster regions
@@ -129,15 +129,15 @@ Table locality settings are used for optimizing latency under different read and
 
 ### Regional tables
 
-{% include {{page.version.version}}/sql/regional-table-description.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/regional-table-description.md %}
 
 ### Regional by row tables
 
-{% include {{page.version.version}}/sql/regional-by-row-table-description.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/regional-by-row-table-description.md %}
 
 ### Global tables
 
-{% include {{page.version.version}}/sql/global-table-description.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/global-table-description.md %}
 
 ## Additional features
 
@@ -145,7 +145,7 @@ The features listed in this section make working with multi-region clusters easi
 
 ### Indexes on `REGIONAL BY ROW` tables
 
-{% include {{page.version.version}}/sql/indexes-regional-by-row.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/indexes-regional-by-row.md %}
 
 This behavior also applies to [GIN indexes](inverted-indexes.html).
 
@@ -153,7 +153,7 @@ For an example that uses unique indexes but applies to all indexes on `REGIONAL 
 
 ## Schema changes in multi-region clusters
 
-{% include {{ page.version.version }}/performance/lease-preference-system-database.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/performance/lease-preference-system-database.md %}
 
 ## Next steps
 

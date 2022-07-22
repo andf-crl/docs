@@ -18,7 +18,7 @@ The following types cannot be included in an index key, but can be stored (and u
 
 To create an index on the schemaless data in a [`JSONB`](jsonb.html) column or on the data in an [`ARRAY`](array.html), use a [GIN index](inverted-indexes.html).
 
-{% include {{ page.version.version }}/misc/schema-change-stmt-note.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-stmt-note.md %}
 
 ## Required privileges
 
@@ -29,13 +29,13 @@ The user must have the `CREATE` [privilege](security-reference/authorization.htm
 ### Standard index
 
 <div>
-{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.version.version | replace: "v", "" }}/grammar_svg/create_index.html %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/grammar_svg/create_index.html %}
 </div>
 
 ### GIN index
 
 <div>
-{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.version.version | replace: "v", "" }}/grammar_svg/create_inverted_index.html %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/grammar_svg/create_inverted_index.html %}
 </div>
 
 ## Parameters
@@ -59,11 +59,11 @@ Parameter | Description
 
 ## Viewing schema changes
 
-{% include {{ page.version.version }}/misc/schema-change-view-job.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-view-job.md %}
 
 ## Examples
 
-{% include {{page.version.version}}/sql/movr-statements.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/movr-statements.md %}
 
 ### Create standard indexes
 
@@ -166,7 +166,7 @@ Storing a column improves the performance of queries that retrieve (but do not f
 However, to use stored columns, queries must filter another column in the same index. For example, SQL can retrieve `name` values from the above index only when a query's `WHERE` clause filters `city`.
 
 {{site.data.alerts.callout_info}}
-{% include {{page.version.version}}/sql/covering-index.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/covering-index.md %}
 {{site.data.alerts.end}}
 
 ### Change column sort order
@@ -224,9 +224,9 @@ You can use the `@primary` alias to use the table's primary key in your query if
 
 ### Create a hash-sharded secondary index
 
-{% include {{page.version.version}}/performance/use-hash-sharded-indexes.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/performance/use-hash-sharded-indexes.md %}
 
-{% include {{page.version.version}}/performance/create-index-hash-sharded-secondary-index.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/performance/create-index-hash-sharded-secondary-index.md %}
 
 ## See also
 

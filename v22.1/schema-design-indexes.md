@@ -75,7 +75,7 @@ The [`EXPLAIN`](explain.html#success-responses) command provides index recommend
 
 - Index all columns that you plan to use for [sorting](order-by.html) or [filtering](select-clause.html#filter-rows) data.
 
-    {% include {{page.version.version}}/sql/covering-index.md %}
+    {% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/covering-index.md %}
 
     CockroachDB [pushes filters](indexes.html#how-do-indexes-work) (i.e., values listed in a [`WHERE` clause](select-clause.html#parameters)) into an index, which allows it to perform a finite number of sequential scans. In a `WHERE` clause with `n` constrained columns you can filter the first `n-1` columns either on a single constant value using the operator `=` or a list of constant values using the operator `IN`. You can filter column `n` against a range of values using any of the operators `!=`, `<`, `>`, or `NOT IN`.
 
@@ -116,9 +116,9 @@ The [`EXPLAIN`](explain.html#success-responses) command provides index recommend
 
     To get more detailed information about the table and index names, run a join query against `crdb_internal.index_usage_statistics` and `crdb_internal.table_indexes`. For an example, see [Fix slow writes](performance-recipes.html#fix-slow-writes).
 
-- {% include {{page.version.version}}/sql/dev-schema-changes.md %}
+- {% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/dev-schema-changes.md %}
 
-- {% include {{page.version.version}}/sql/dev-schema-change-limits.md %}
+- {% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/dev-schema-change-limits.md %}
 
 ## Example
 

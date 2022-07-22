@@ -58,7 +58,7 @@ How you add constraints depends on the number of columns you want to constrain, 
     > ALTER TABLE baz ALTER COLUMN bool SET DEFAULT true;
     ~~~
 
-  - <span class="version-tag">New in v20.1:</span> [`PRIMARY KEY`](primary-key.html) constraints can be added with [`ADD CONSTRAINT`](add-constraint.html)/[`ADD PRIMARY KEY`](alter-table.html) in the following circumstances:
+  - <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> [`PRIMARY KEY`](primary-key.html) constraints can be added with [`ADD CONSTRAINT`](add-constraint.html)/[`ADD PRIMARY KEY`](alter-table.html) in the following circumstances:
 
       - A [`DROP CONSTRAINT`](drop-constraint.html) statement precedes the `ADD CONSTRAINT`/`ADD PRIMARY KEY` statement in the same transaction. For examples, see the [`ADD CONSTRAINT`](add-constraint.html#examples) and [`DROP CONSTRAINT`](drop-constraint.html#examples) pages.
       - The current [primary key is on `rowid`](indexes.html#creation), the default primary key created if none is explicitly defined at table creation.
@@ -96,7 +96,7 @@ Constraint Type | Procedure
 [`DEFAULT` value](default-value.html) | Use [`ALTER COLUMN`](alter-column.html#remove-default-constraint).
 [`FOREIGN KEY`](foreign-key.html) | Use [`DROP CONSTRAINT`](drop-constraint.html).
 [`NOT NULL`](not-null.html) | Use [`ALTER COLUMN`](alter-column.html#remove-not-null-constraint).
-[`PRIMARY KEY`](primary-key.html) |  <span class="version-tag">New in v20.1:</span> Primary key constraints can be dropped with [`DROP CONSTRAINT`](drop-constraint.html) if an [`ADD CONSTRAINT`](add-constraint.html) statement follows the `DROP CONSTRAINT` statement in the same transaction.
+[`PRIMARY KEY`](primary-key.html) |  <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> Primary key constraints can be dropped with [`DROP CONSTRAINT`](drop-constraint.html) if an [`ADD CONSTRAINT`](add-constraint.html) statement follows the `DROP CONSTRAINT` statement in the same transaction.
 [`UNIQUE`](unique.html) | The `UNIQUE` constraint cannot be dropped directly.  To remove the constraint, [drop the index](drop-index.html) that was created by the constraint, e.g., `DROP INDEX my_unique_constraint`.
 
 ### Change constraints
@@ -109,7 +109,7 @@ Constraint Type | Procedure
 [`DEFAULT` value](default-value.html) | The `DEFAULT` value can be changed through [`ALTER COLUMN`](alter-column.html).
 [`FOREIGN KEY`](foreign-key.html) | [Issue a transaction](transactions.html#syntax) that adds a new `FOREIGN KEY` constraint ([`ADD CONSTRAINT`](add-constraint.html)), and then remove the existing one ([`DROP CONSTRAINT`](drop-constraint.html)).
 [`NOT NULL`](not-null.html) | The `NOT NULL` constraint cannot be changed, only added and removed with [`ALTER COLUMN`](alter-column.html).
-[`PRIMARY KEY`](primary-key.html) |  <span class="version-tag">New in v20.1:</span> To change a primary key, use an [`ALTER TABLE ... ALTER PRIMARY KEY`](alter-primary-key.html) statement.<br><br>When you change a primary key with [`ALTER PRIMARY KEY`](alter-primary-key.html), the old primary key index becomes a secondary index. If you do not want the old primary key to become a secondary index, use [`DROP CONSTRAINT`](drop-constraint.html)/[`ADD CONSTRAINT`](add-constraint.html) to change the primary key.
+[`PRIMARY KEY`](primary-key.html) |  <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> To change a primary key, use an [`ALTER TABLE ... ALTER PRIMARY KEY`](alter-primary-key.html) statement.<br><br>When you change a primary key with [`ALTER PRIMARY KEY`](alter-primary-key.html), the old primary key index becomes a secondary index. If you do not want the old primary key to become a secondary index, use [`DROP CONSTRAINT`](drop-constraint.html)/[`ADD CONSTRAINT`](add-constraint.html) to change the primary key.
 [`UNIQUE`](unique.html) | [Issue a transaction](transactions.html#syntax) that adds a new `UNIQUE` constraint ([`ADD CONSTRAINT`](add-constraint.html)), and then remove the existing one ([`DROP CONSTRAINT`](drop-constraint.html)).
 
 

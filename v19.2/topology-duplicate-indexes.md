@@ -23,11 +23,11 @@ In general, this pattern is suited well for immutable/reference tables that are 
 
 ### Fundamentals
 
-{% include {{ page.version.version }}/topology-patterns/fundamentals.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/topology-patterns/fundamentals.md %}
 
 ### Cluster setup
 
-{% include {{ page.version.version }}/topology-patterns/multi-region-cluster-setup.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/topology-patterns/multi-region-cluster-setup.md %}
 
 ## Configuration
 
@@ -100,7 +100,7 @@ Assuming you have a [cluster deployed across three regions](#cluster-setup) and 
           lease_preferences = '[[+region=us-east]]';
     ~~~
 
-5. <span class="version-tag">New in v19.2:</span> To confirm that replication zones are in effect, you can use the [`SHOW CREATE TABLE`](show-create.html):
+5. <span class="[version](cluster-settings.html#setting-version)-tag">New in v19.2:</span> To confirm that replication zones are in effect, you can use the [`SHOW CREATE TABLE`](show-create.html):
 
     {% include copy-clipboard.html %}
     ~~~ sql
@@ -188,4 +188,4 @@ For a step-by-step demonstration of how this pattern gets you low-latency reads 
 
 ## See also
 
-{% include {{ page.version.version }}/topology-patterns/see-also.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/topology-patterns/see-also.md %}

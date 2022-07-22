@@ -17,7 +17,7 @@ We do not recommend using `crdb_internal` tables in production environments for 
 
 Each table in `crdb_internal` corresponds to an internal object, process, or metric, for a specific database. `crdb_internal` tables are read-only.
 
-In CockroachDB {{ page.version.version }}, `crdb_internal` includes the following tables:
+In CockroachDB {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}, `crdb_internal` includes the following tables:
 
 Table | Description
 -------|-------

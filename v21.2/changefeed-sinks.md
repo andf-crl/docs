@@ -52,7 +52,7 @@ URI Parameter      | Description
 `sasl_password`    | Your SASL password
 `insecure_tls_skip_verify` | If `true`, disable client-side validation of responses. Note that a CA certificate is still required; this parameter means that the client will not verify the certificate. **Warning:** Use this query parameter with caution, as it creates [MITM](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) vulnerabilities unless combined with another method of authentication. <br><br>**Default:** `false`
 
-{% include {{ page.version.version }}/cdc/options-table-note.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/cdc/options-table-note.md %}
 
 ### Topic naming
 
@@ -75,7 +75,7 @@ Kafka has the following topic limitations:
 
 ### Kafka sink configuration
 
-{% include_cached new-in.html version="v21.2" %} The `kafka_sink_config` option allows configuration of a changefeed's message delivery, Kafka server version, and batching parameters.
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.2" %} The `kafka_sink_config` option allows configuration of a changefeed's message delivery, Kafka server [version](cluster-settings.html#setting-version), and batching parameters.
 
 {{site.data.alerts.callout_danger}}
 Each of the following settings have significant impact on a changefeed's behavior, such as latency. For example, it is possible to configure batching parameters to be very high, which would negatively impact changefeed latency. As a result it would take a long time to see messages coming through to the sink. Also, large batches may be rejected by the Kafka server unless it's separately configured to accept a high [`max.message.bytes`](https://kafka.apache.org/documentation/#brokerconfigs_message.max.bytes).
@@ -97,7 +97,7 @@ Field              | Type                | Description      | Default
 `Flush.Messages`   | [`INT`](int.html)   | Configure the number of messages the changefeed should batch before flushing. | `0`
 `Flush.Bytes`      | [`INT`](int.html)   | When the total byte size of all the messages in the batch reaches this amount, it should be flushed. | `0`
 `Flush.Frequency`  | [`INTERVAL`](interval.html) | When this amount of time has passed since the **first** received message in the batch without it flushing, it should be flushed. | `"0s"`
-`"Version"`        | [`STRING`](string.html) | Sets the appropriate Kafka cluster version, which can be used to connect to [Kafka versions < v1.0](https://docs.confluent.io/platform/current/installation/versions-interoperability.html) (`kafka_sink_config='{"Version": "0.8.2.0"}'`). | `"1.0.0.0"`
+`"Version"`        | [`STRING`](string.html) | Sets the appropriate Kafka cluster [version](cluster-settings.html#setting-version), which can be used to connect to [Kafka [version](cluster-settings.html#setting-version)s < v1.0](https://docs.confluent.io/platform/current/installation/[version](cluster-settings.html#setting-version)s-interoperability.html) (`kafka_sink_config='{"Version": "0.8.2.0"}'`). | `"1.0.0.0"`
 <a name="kafka-required-acks"></a>`"RequiredAcks"`  | [`STRING`](string.html) | Specifies what a successful write to Kafka is. CockroachDB [guarantees at least once delivery of messages](use-changefeeds.html#ordering-guarantees) — this value defines the **delivery**. The possible values are: <br><br>`"ONE"`: a write to Kafka is successful once the leader node has committed and acknowledged the write. Note that this has the potential risk of dropped messages; if the leader node acknowledges before replicating to a quorum of other Kafka nodes, but then fails.<br><br>`"NONE"`: no Kafka brokers are required to acknowledge that they have committed the message. This will decrease latency and increase throughput, but comes at the cost of lower consistency.<br><br>`"ALL"`: a quorum must be reached (that is, most Kafka brokers have committed the message) before the leader can acknowledge. This is the highest consistency level. | `"ONE"`
 
 ## Cloud storage sink
@@ -137,7 +137,7 @@ URI Parameter      | Description
 `file_size`        | The file will be flushed (i.e., written to the sink) when it exceeds the specified file size. This can be used with the [`WITH resolved` option](create-changefeed.html#options), which flushes on a specified cadence. <br><br>**Default:** `16MB`
 `topic_prefix`     | Adds a prefix to all topic names.<br><br>For example, `CREATE CHANGEFEED FOR TABLE foo INTO 's3://...?topic_prefix=bar_'` would emit rows under the topic `bar_foo` instead of `foo`.
 
-{% include {{ page.version.version }}/cdc/options-table-note.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/cdc/options-table-note.md %}
 
 [Use Cloud Storage for Bulk Operations](use-cloud-storage-for-bulk-operations.html#authentication) provides more detail on authentication to cloud storage sinks.
 
@@ -147,7 +147,7 @@ URI Parameter      | Description
 The webhook sink is currently in **beta**. For more information, read about its usage considerations, available [parameters](create-changefeed.html#parameters), and [options](create-changefeed.html#options) below.
 {{site.data.alerts.end}}
 
-{% include_cached new-in.html version="v21.2" %} Use a webhook sink to deliver changefeed messages to an arbitrary HTTP endpoint.
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.2" %} Use a webhook sink to deliver changefeed messages to an arbitrary HTTP endpoint.
 
 Example of a webhook sink URL:
 
@@ -162,7 +162,7 @@ URI Parameter      | Description
 `ca_cert`          | The base64-encoded `ca_cert` file. Specify `ca_cert` for a webhook sink. <br><br>Note: To encode your `ca.cert`, run `base64 -w 0 ca.cert`.
 `insecure_tls_skip_verify` | If `true`, disable client-side validation of responses. Note that a CA certificate is still required; this parameter means that the client will not verify the certificate. **Warning:** Use this query parameter with caution, as it creates [MITM](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) vulnerabilities unless combined with another method of authentication. <br><br>**Default:** `false`
 
-{% include {{ page.version.version }}/cdc/options-table-note.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/cdc/options-table-note.md %}
 
 The following are considerations when using the webhook sink:
 
@@ -172,7 +172,7 @@ The following are considerations when using the webhook sink:
 
 ### Webhook sink configuration
 
-{% include_cached new-in.html version="v21.2" %} The `webhook_sink_config` option allows the changefeed flushing and retry behavior of your webhook sink to be configured.
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.2" %} The `webhook_sink_config` option allows the changefeed flushing and retry behavior of your webhook sink to be configured.
 
 The following details the configurable fields:
 

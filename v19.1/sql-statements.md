@@ -169,7 +169,7 @@ Statement | Usage
 
 ## Changefeed statements (Enterprise)
 
-[Change data capture](change-data-capture.html) (CDC) provides an enterprise and core version of row-level change subscriptions for downstream processing.
+[Change data capture](change-data-capture.html) (CDC) provides an enterprise and core [version](cluster-settings.html#setting-version) of row-level change subscriptions for downstream processing.
 
 Statement | Usage
 ----------|------------

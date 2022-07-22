@@ -37,7 +37,7 @@ The `cockroach init` command supports the following [client connection](#client-
 
 ### Client connection
 
-{% include {{ page.version.version }}/sql/connection-parameters.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/connection-parameters.md %}
 `--cluster-name` | The cluster name to use to verify the cluster's identity. If the cluster has a cluster name, you must include this flag. For more information, see [`cockroach start`](cockroach-start.html#general).
 `--disable-cluster-name-verification` | Disables the cluster name check for this command. This flag must be paired with `--cluster-name`. For more information, see [`cockroach start`](cockroach-start.html#general).
 
@@ -72,7 +72,7 @@ Usage of `cockroach init` assumes that nodes have already been started with [`co
     $ cockroach init --certs-dir=certs --host=<address of this node>
     ~~~
 
-    At this point, all the nodes complete startup and print helpful details to the [standard output](cockroach-start.html#standard-output), such as the CockroachDB version, the URL for the DB Console, and the SQL URL for clients.
+    At this point, all the nodes complete startup and print helpful details to the [standard output](cockroach-start.html#standard-output), such as the CockroachDB [version](cluster-settings.html#setting-version), the URL for the DB Console, and the SQL URL for clients.
 </section>
 
 <section class="filter-content" markdown="1" data-scope="insecure">
@@ -85,7 +85,7 @@ Usage of `cockroach init` assumes that nodes have already been started with [`co
     $ cockroach init --insecure --host=<address of this node>
     ~~~
 
-    At this point, all the nodes complete startup and print helpful details to the [standard output](cockroach-start.html#standard-output), such as the CockroachDB version, the URL for the DB Console, and the SQL URL for clients.
+    At this point, all the nodes complete startup and print helpful details to the [standard output](cockroach-start.html#standard-output), such as the CockroachDB [version](cluster-settings.html#setting-version), the URL for the DB Console, and the SQL URL for clients.
 </section>
 
 ### Initialize a cluster from another machine
@@ -107,7 +107,7 @@ Usage of `cockroach init` assumes that nodes have already been started with [`co
     $ cockroach init --certs-dir=certs --host=<address of any node on --join list>
     ~~~
 
-    At this point, all the nodes complete startup and print helpful details to the [standard output](cockroach-start.html#standard-output), such as the CockroachDB version, the URL for the DB Console, and the SQL URL for clients.
+    At this point, all the nodes complete startup and print helpful details to the [standard output](cockroach-start.html#standard-output), such as the CockroachDB [version](cluster-settings.html#setting-version), the URL for the DB Console, and the SQL URL for clients.
 </section>
 
 <section class="filter-content" markdown="1" data-scope="insecure">
@@ -120,7 +120,7 @@ Usage of `cockroach init` assumes that nodes have already been started with [`co
     $ cockroach init --insecure --host=<address of any node on --join list>
     ~~~
 
-    At this point, all the nodes complete startup and print helpful details to the [standard output](cockroach-start.html#standard-output), such as the CockroachDB version, the URL for the DB Console, and the SQL URL for clients.
+    At this point, all the nodes complete startup and print helpful details to the [standard output](cockroach-start.html#standard-output), such as the CockroachDB [version](cluster-settings.html#setting-version), the URL for the DB Console, and the SQL URL for clients.
 </section>
 
 ## See also

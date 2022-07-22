@@ -27,7 +27,7 @@ CockroachDB also supports [temporary views](views.html#temporary-views) and [tem
 - Temp tables cannot be converted to persistent tables.
 - For [PostgreSQL compatibility](https://www.postgresql.org/docs/current/sql-createtable.html), CockroachDB supports the clause `ON COMMIT PRESERVE ROWS` at the end of `CREATE TEMP TABLE` statements. CockroachDB only supports session-scoped temp tables, and does not support the clauses `ON COMMIT DELETE ROWS` and `ON COMMIT DROP`, which are used to define transaction-scoped temp tables in PostgreSQL.
 
-By default, every 30 minutes CockroachDB cleans up all temporary objects that are not tied to an active session. You can change how often the cleanup job runs with the `sql.temp_object_cleaner.cleanup_interval` [cluster setting](cluster-settings.html).
+By default, every 30 minutes CockroachDB cleans up all temporary objects that are not tied to an active session. You can change how often the cleanup job runs with the `[sql.temp_object_cleaner.cleanup_interval](cluster-settings.html#setting-sql-temp_object_cleaner-cleanup_interval)` [cluster setting](cluster-settings.html).
 
 ## Temporary schemas
 
@@ -169,7 +169,7 @@ For example, the [`information_schema.tables`](information-schema.html#tables) t
 ~~~
 
 ~~~
-   table_catalog |         table_schema          | table_name |   table_type    | is_insertable_into | version
+   table_catalog |         table_schema          | table_name |   table_type    | is_insertable_into | [version](cluster-settings.html#setting-version)
 -----------------+-------------------------------+------------+-----------------+--------------------+----------
   defaultdb      | pg_temp_1602087923187609000_1 | users      | LOCAL TEMPORARY | YES                |       2
   defaultdb      | pg_temp_1602087923187609000_1 | vehicles   | LOCAL TEMPORARY | YES                |       2

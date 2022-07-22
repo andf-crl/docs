@@ -6,12 +6,12 @@ toc: true
 
 The `RENAME TO` clause is part of [`ALTER DATABASE`](alter-database.html), and changes the name of a database.
 
-{% include {{ page.version.version }}/misc/schema-change-stmt-note.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-stmt-note.md %}
 
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/generated/diagrams/rename_database.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/rename_database.html %}
 </div>
 
 ## Required privileges
@@ -26,7 +26,7 @@ Parameter | Description
 
 ## Viewing schema changes
 
-{% include {{ page.version.version }}/misc/schema-change-view-job.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-view-job.md %}
 
 ## Limitations
 

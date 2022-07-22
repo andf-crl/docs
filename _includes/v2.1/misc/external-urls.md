@@ -19,11 +19,11 @@ The location parameters often contain special characters that need to be URI-enc
 
 - <sup>1</sup> If the `AUTH` parameter is `implicit`, all GCS connections use Google's [default authentication strategy](https://cloud.google.com/docs/authentication/production#providing_credentials_to_your_application). If the `AUTH` parameter is `default`, the `cloudstorage.gs.default.key` [cluster setting](cluster-settings.html) must be set to the contents of a [service account file](https://cloud.google.com/docs/authentication/production#obtaining_and_providing_service_account_credentials_manually) which will be used during authentication. If the `AUTH` parameter is not specified, the `cloudstorage.gs.default.key` setting will be used if it is non-empty, otherwise the `implicit` behavior is used.
 
-- <sup>2</sup> You can create your own HTTP server with [Caddy or nginx](create-a-file-server.html). A custom root CA can be appended to the system's default CAs by setting the `cloudstorage.http.custom_ca` [cluster setting](cluster-settings.html), which will be used when verifying certificates from HTTPS URLs.
+- <sup>2</sup> You can create your own HTTP server with [Caddy or nginx](create-a-file-server.html). A custom root CA can be appended to the system's default CAs by setting the `[cloudstorage.http.custom_ca](cluster-settings.html#setting-cloudstorage-http-custom_ca)` [cluster setting](cluster-settings.html), which will be used when verifying certificates from HTTPS URLs.
 
 - <sup>3</sup> The file system backup location on the NFS drive is relative to the path specified by the `--external-io-dir` flag set while [starting the node](start-a-node.html). If the flag is set to `disabled`, then imports from local directories and NFS drives are disabled.
 
-- <sup>4</sup> A custom root CA can be appended to the system's default CAs by setting the `cloudstorage.http.custom_ca` [cluster setting](cluster-settings.html), which will be used when verifying certificates from an S3-compatible service.
+- <sup>4</sup> A custom root CA can be appended to the system's default CAs by setting the `[cloudstorage.http.custom_ca](cluster-settings.html#setting-cloudstorage-http-custom_ca)` [cluster setting](cluster-settings.html), which will be used when verifying certificates from an S3-compatible service.
 
 - <sup>5</sup> The `AWS_REGION` parameter is optional since it is not a required parameter for most S3-compatible services. Specify the parameter only if your S3-compatible service requires it.
 

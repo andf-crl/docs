@@ -6,7 +6,7 @@ toc: true
 
 The `ALTER TABLE` [statement](sql-statements.html) applies a schema change to a table. For information on using `ALTER TABLE`, see the pages for its relevant [subcommands](#subcommands).
 
-{% include {{ page.version.version }}/misc/schema-change-stmt-note.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-stmt-note.md %}
 
 ## Subcommands
 
@@ -23,16 +23,16 @@ Subcommand | Description | Can combine with other subcommands?
 [`DROP COLUMN`](drop-column.html) | Remove columns from tables. | Yes
 [`DROP CONSTRAINT`](drop-constraint.html) | Remove constraints from columns. | Yes
 [`EXPERIMENTAL_AUDIT`](experimental-audit.html) | Enable per-table audit logs, for security purposes. | Yes
-[`OWNER TO`](owner-to.html) | <span class="version-tag">New in v20.2</span>: Change the owner of the table.
+[`OWNER TO`](owner-to.html) | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2</span>: Change the owner of the table.
 [`PARTITION BY`](partition-by.html)  | Partition, re-partition, or un-partition a table ([Enterprise-only](enterprise-licensing.html)). | Yes
 [`RENAME COLUMN`](rename-column.html) | Change the names of columns. | Yes
 [`RENAME CONSTRAINT`](rename-constraint.html) | Change constraints columns. | Yes
 [`RENAME TO`](rename-table.html) | Change the names of tables. | No
-[`SET SCHEMA`](set-schema.html) | <span class="version-tag">New in v20.2</span>: Change the [schema](sql-name-resolution.html) of a table. | No
+[`SET SCHEMA`](set-schema.html) | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2</span>: Change the [schema](sql-name-resolution.html) of a table. | No
 [`SPLIT AT`](split-at.html) | Force a range split at the specified row in the table. | No
 [`UNSPLIT AT`](unsplit-at.html) | Remove a range split enforcement at a specified row in the table. | No
 [`VALIDATE CONSTRAINT`](validate-constraint.html) | Check whether values in a column match a [constraint](constraints.html) on the column. | Yes
 
 ## Viewing schema changes
 
-{% include {{ page.version.version }}/misc/schema-change-view-job.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-view-job.md %}

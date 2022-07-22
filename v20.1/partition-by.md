@@ -10,27 +10,27 @@ toc: true
 [Partitioning](partitioning.html) is an [enterprise-only](enterprise-licensing.html) feature. If you are looking for the `PARTITION BY` used in SQL window functions, see [Window Functions](window-functions.html).
 {{site.data.alerts.end}}
 
-{% include {{ page.version.version }}/sql/combine-alter-table-commands.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/combine-alter-table-commands.md %}
 
 ## Primary key requirements
 
 The [primary key required for partitioning](partitioning.html#partition-using-primary-key) is different from the conventional primary key: The unique identifier in the primary key must be prefixed with all columns you want to partition and subpartition the table on, in the order in which you want to nest your subpartitions.
 
-<span class="version-tag">New in v20.1:</span> If the primary key in your existing table does not meet the requirements, you can change the primary key with an [`ALTER TABLE ... PRIMARY KEY` statement](alter-primary-key.html).
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> If the primary key in your existing table does not meet the requirements, you can change the primary key with an [`ALTER TABLE ... PRIMARY KEY` statement](alter-primary-key.html).
 
 ## Synopsis
 
 **alter_table_partition_by_stmt ::=**
 
 <section>
-{% include {{ page.version.version }}/sql/diagrams/alter_table_partition_by.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/alter_table_partition_by.html %}
 </section>
 
 **alter_index_partition_by_stmt ::=**
 
 <section>
 <div class="horizontal-scroll">
-  {% include {{ page.version.version }}/sql/diagrams/alter_index_partition_by.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/alter_index_partition_by.html %}
 </div>
 </section>
 
@@ -50,10 +50,10 @@ The user must have the `CREATE` [privilege](authorization.html#assign-privileges
 
 ## Viewing schema changes
 
-{% include {{ page.version.version }}/misc/schema-change-view-job.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-view-job.md %}
 
 
-{% include {{page.version.version}}/sql/querying-partitions.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/querying-partitions.md %}
 
 ## Examples
 

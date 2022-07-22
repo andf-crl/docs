@@ -60,7 +60,7 @@ You can configure garbage collection periods using the `ttlseconds` [replication
 
 ### Backups with revision history
 
-{% include {{ page.version.version }}/misc/beta-warning.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/beta-warning.md %}
 
 You can create full or incremental backups with revision history:
 
@@ -102,7 +102,7 @@ If initiated correctly, the statement returns when the backup is finished or if 
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/backup.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/backup.html %}
 </div>
 
 {{site.data.alerts.callout_info}}
@@ -129,7 +129,7 @@ Only members of the `admin` role can run `BACKUP`. By default, the `root` user b
 
 We will use the URL provided to construct a secure API call to the service you specify. The path to each backup must be unique, and the URL for your backup's destination/locations must use the following format:
 
-{% include {{ page.version.version }}/misc/external-urls.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/external-urls.md %}
 
 ## Examples
 

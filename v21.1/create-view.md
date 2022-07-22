@@ -7,10 +7,10 @@ toc: true
 The `CREATE VIEW` statement creates a new [view](views.html), which is a stored query represented as a virtual table.
 
 {{site.data.alerts.callout_info}}
- By default, views created in a database cannot reference objects in a different database. To enable cross-database references for views, set the `sql.cross_db_views.enabled` [cluster setting](cluster-settings.html) to `true`.
+ By default, views created in a database cannot reference objects in a different database. To enable cross-database references for views, set the `[sql.cross_db_views.enabled](cluster-settings.html#setting-sql-cross_db_views-enabled)` [cluster setting](cluster-settings.html) to `true`.
 {{site.data.alerts.end}}
 
-{% include {{{ page.version.version }}/misc/schema-change-stmt-note.md %}
+{% include {{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-stmt-note.md %}
 
 ## Required privileges
 
@@ -18,7 +18,7 @@ The user must have the `CREATE` [privilege](authorization.html#assign-privileges
 
 ## Synopsis
 
-<div>{% include {{ page.version.version }}/sql/generated/diagrams/create_view.html %}</div>
+<div>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/create_view.html %}</div>
 
 ## Parameters
 

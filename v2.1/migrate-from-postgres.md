@@ -4,7 +4,7 @@ summary: Learn how to migrate data from Postgres into a CockroachDB cluster.
 toc: true
 ---
 
-{% include {{page.version.version}}/misc/beta-warning.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/misc/beta-warning.md %}
 
 This page has instructions for migrating data from Postgres to CockroachDB using [`IMPORT`][import]'s support for reading [`pg_dump`][pgdump] files.
 
@@ -220,7 +220,7 @@ Example usage:
 
 <!-- Notes
 
-These instructions were prepared with the following versions:
+These instructions were prepared with the following [version](cluster-settings.html#setting-version)s:
 
 - Postgres 10.5
 

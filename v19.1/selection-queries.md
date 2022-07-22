@@ -21,7 +21,7 @@ Selection queries can occur:
 ## Synopsis
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/select.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/select.html %}
 </div>
 
 ## Parameters
@@ -55,7 +55,7 @@ Form | Usage
 ### Synopsis
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/select_clause.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/select_clause.html %}
 </div>
 
 ### `VALUES` clause
@@ -63,7 +63,7 @@ Form | Usage
 #### Syntax
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/values_clause.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/values_clause.html %}
 </div>
 
 A `VALUES` clause defines tabular data defined by the expressions
@@ -96,7 +96,7 @@ names. [These names can be modified with
 #### Syntax
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/table_clause.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/table_clause.html %}
 </div>
 
 A `TABLE` clause reads tabular data from a specified table. The
@@ -147,7 +147,7 @@ set operations or as main component in a selection query.
 ### Synopsis
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/set_operation.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/set_operation.html %}
 </div>
 
 ### Set operators

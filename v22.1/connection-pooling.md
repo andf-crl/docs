@@ -7,7 +7,7 @@ docs_area: develop
 
 This page has information on planning, configuring, and using connection pools when using drivers or frameworks with CockroachDB.
 
-{% include {{ page.version.version }}/prod-deployment/terminology-vcpu.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/terminology-vcpu.md %}
 
 ## About connection pools
 
@@ -45,11 +45,11 @@ If you have a large number of services connecting to the same cluster, make sure
 
 In addition to setting a maximum connection pool size, set the maximum number of idle connections if possible. Cockroach Labs recommends setting the maximum number of idle connections to the maximum pool size. While this uses more memory, it allows many connections when concurrency is high without having to create a new connection for every new operation.
 
-{% include {{page.version.version}}/sql/server-side-connection-limit.md %} This may be useful in addition to your connection pool settings.
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/server-side-connection-limit.md %} This may be useful in addition to your connection pool settings.
 
 ## Validating connections in a pool
 
-After a connection pool initializes connections to CockroachDB clusters, those connections can occasionally break. This could be due to changes in the cluster topography, or rolling upgrades and restarts, or network disruptions. {{ site.data.products.db }} clusters periodically are restarted for patch version updates, for example, so previously established connections would be invalid after the restart.
+After a connection pool initializes connections to CockroachDB clusters, those connections can occasionally break. This could be due to changes in the cluster topography, or rolling upgrades and restarts, or network disruptions. {{ site.data.products.db }} clusters periodically are restarted for patch [version](cluster-settings.html#setting-version) updates, for example, so previously established connections would be invalid after the restart.
 
 Validating connections is typically handled automatically by the connection pool. For example, in HikariCP the connection is validated whenever you request a connection from the pool, and the `keepaliveTime` property allows you to configure an interval to periodically check if the connections in the pool are valid. Whatever connection pool you use, make sure connection validation is enabled when running your application.
 
@@ -124,6 +124,6 @@ For a full list of connection pool configuration parameters for pgxpool, see [th
 
 Some operational processes involve [node shutdown](node-shutdown.html). During the shutdown sequence, the server forcibly closes all SQL client connections to the node. If any open transactions were interrupted or not admitted by the server because of the connection closure, they will fail with a connection error.
 
-To be resilient to connection closures, your application should use a retry loop to reissue transactions that were open when a connection was closed. This allows procedures such as [rolling upgrades](upgrade-cockroach-version.html) to complete without interrupting your service. For details, see [Connection retry loop](node-shutdown.html#connection-retry-loop).
+To be resilient to connection closures, your application should use a retry loop to reissue transactions that were open when a connection was closed. This allows procedures such as [rolling upgrades](upgrade-cockroach-[version](cluster-settings.html#setting-version).html) to complete without interrupting your service. For details, see [Connection retry loop](node-shutdown.html#connection-retry-loop).
 
-If you cannot tolerate connection errors during node drain, you can change the `server.shutdown.connection_wait` [cluster setting](cluster-settings.html) to allow SQL client connections to gracefully close before CockroachDB forcibly closes them. For guidance, see [Node Shutdown](node-shutdown.html#server-shutdown-connection_wait).
+If you cannot tolerate connection errors during node drain, you can change the `[server.shutdown.connection_wait](cluster-settings.html#setting-server-shutdown-connection_wait)` [cluster setting](cluster-settings.html) to allow SQL client connections to gracefully close before CockroachDB forcibly closes them. For guidance, see [Node Shutdown](node-shutdown.html#[server.shutdown.connection_wait](cluster-settings.html#setting-server-shutdown-connection_wait)).

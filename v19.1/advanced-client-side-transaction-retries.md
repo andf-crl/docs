@@ -48,7 +48,7 @@ A retryable transaction goes through the process described below, which maps to 
 
 ## Customizing the savepoint name
 
-{% include {{ page.version.version }}/misc/customizing-the-savepoint-name.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/customizing-the-savepoint-name.md %}
 
 ## Examples
 

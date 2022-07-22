@@ -4,13 +4,13 @@ summary: Learn about newly identified limitations in CockroachDB as well as unre
 toc: true
 ---
 
-This page describes newly identified limitations in the CockroachDB {{page.release_info.version}} release as well as unresolved limitations identified in earlier releases.
+This page describes newly identified limitations in the CockroachDB {{page.release_info.[version](cluster-settings.html#setting-version)}} release as well as unresolved limitations identified in earlier releases.
 
 ## New Limitations
 
 ### Changes to the default replication zone are not applied to existing replication zones
 
-{% include {{page.version.version}}/known-limitations/system-range-replication.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/known-limitations/system-range-replication.md %}
 
 ### Silent validation error with `DECIMAL` values
 
@@ -26,7 +26,7 @@ Most client drivers and frameworks use the text format to pass placeholder value
 
 {{site.data.alerts.callout_info}}Resolved as of <a href="../releases/v2.0.1.html">v2.0.1</a>. See <a href="https://github.com/cockroachdb/cockroach/pull/24515">#24515</a>.{{site.data.alerts.end}}
 
-In the upgrade process, after upgrading all binaries to v2.0, it's recommended to monitor the cluster's stability and performance for at least one day and only then finalize the upgrade by increasing the `version` cluster setting. However, in the window during which binaries are running v2.0 but the cluster version is still not increased, it is not possible to run enterprise [`BACKUP`](backup.html) and [`RESTORE`](restore.html) jobs.
+In the upgrade process, after upgrading all binaries to v2.0, it's recommended to monitor the cluster's stability and performance for at least one day and only then finalize the upgrade by increasing the `[version](cluster-settings.html#setting-version)` cluster setting. However, in the window during which binaries are running v2.0 but the cluster [version](cluster-settings.html#setting-version) is still not increased, it is not possible to run enterprise [`BACKUP`](backup.html) and [`RESTORE`](restore.html) jobs.
 
 ### Write and update limits for a single statement
 
@@ -46,10 +46,10 @@ As a workaround, use integer values or a percentage, for example, `--cache=1536M
 
 ### Import with a high amount of disk contention
 
-[`IMPORT`](import.html) can sometimes fail with a "context canceled" error, or can restart itself many times without ever finishing. If this is happening, it is likely due to a high amount of disk contention. This can be mitigated by setting the `kv.bulk_io_write.max_rate` [cluster setting](cluster-settings.html) to a value below your max disk write speed. For example, to set it to 10MB/s, execute:
+[`IMPORT`](import.html) can sometimes fail with a "context canceled" error, or can restart itself many times without ever finishing. If this is happening, it is likely due to a high amount of disk contention. This can be mitigated by setting the `[kv.bulk_io_write.max_rate](cluster-settings.html#setting-kv-bulk_io_write-max_rate)` [cluster setting](cluster-settings.html) to a value below your max disk write speed. For example, to set it to 10MB/s, execute:
 
 ~~~ sql
-> SET CLUSTER SETTING kv.bulk_io_write.max_rate = '10MB';
+> SET CLUSTER SETTING [kv.bulk_io_write.max_rate](cluster-settings.html#setting-kv-bulk_io_write-max_rate) = '10MB';
 ~~~
 
 ### Check constraints with `INSERT ... ON CONFLICT`
@@ -97,31 +97,31 @@ However, the same statement with `INSERT ... ON CONFLICT` incorrectly succeeds a
 
 ### Referring to a CTE by name more than once
 
-{% include {{ page.version.version }}/known-limitations/cte-by-name.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/cte-by-name.md %}
 
 ### Using CTEs with data-modifying statements
 
-{% include {{ page.version.version }}/known-limitations/cte-with-dml.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/cte-with-dml.md %}
 
 ### Using CTEs with views
 
-{% include {{ page.version.version }}/known-limitations/cte-with-view.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/cte-with-view.md %}
 
 ### Using CTEs with `VALUES` clauses
 
-{% include {{ page.version.version }}/known-limitations/cte-in-values-clause.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/cte-in-values-clause.md %}
 
 ### Using CTEs with Set Operations
 
-{% include {{ page.version.version }}/known-limitations/cte-in-set-expression.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/cte-in-set-expression.md %}
 
 ### Assigning latitude/longitude for the Node Map
 
-{% include {{ page.version.version }}/known-limitations/node-map.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/node-map.md %}
 
 ### Placeholders in `PARTITION BY`
 
-{% include {{ page.version.version }}/known-limitations/partitioning-with-placeholders.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/partitioning-with-placeholders.md %}
 
 ### Adding a column with sequence-based `DEFAULT` values
 
@@ -307,4 +307,4 @@ Every [`DELETE`](delete.html) or [`UPDATE`](update.html) statement constructs a 
 
 ### `cockroach dump` does not support cyclic foreign key references
 
-{% include {{ page.version.version }}/known-limitations/dump-cyclic-foreign-keys.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/dump-cyclic-foreign-keys.md %}

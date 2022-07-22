@@ -14,7 +14,7 @@ The following syntax forms are recognized for compatibility with the
 SQL standard and PostgreSQL, but are equivalent to regular built-in
 functions:
 
-{% include {{ page.version.version }}/sql/function-special-forms.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/function-special-forms.md %}
 
 ## Conditional and function-like operators
 
@@ -24,8 +24,8 @@ functions but have special evaluation rules:
  Operator | Description
 ----------|-------------
  `ANNOTATE_TYPE(...)` | [Explicitly Typed Expression](scalar-expressions.html#explicitly-typed-expressions)
- `ARRAY(...)` | [Conversion of Subquery Results to An Array](scalar-expressions.html#conversion-of-subquery-results-to-an-array)
- `ARRAY[...]` | [Conversion of Scalar Expressions to An Array](scalar-expressions.html#array-constructors)
+ `ARRAY(...)` | [Con[version](cluster-settings.html#setting-version) of Subquery Results to An Array](scalar-expressions.html#con[version](cluster-settings.html#setting-version)-of-subquery-results-to-an-array)
+ `ARRAY[...]` | [Con[version](cluster-settings.html#setting-version) of Scalar Expressions to An Array](scalar-expressions.html#array-constructors)
  `CAST(...)` | [Type Cast](scalar-expressions.html#explicit-type-coercions)
  `COALESCE(...)` | [First non-NULL expression with Short Circuit](scalar-expressions.html#coalesce-and-ifnull-expressions)
  `EXISTS(...)` | [Existence Test on the Result of Subqueries](scalar-expressions.html#existence-test-on-the-result-of-subqueries)
@@ -36,7 +36,7 @@ functions but have special evaluation rules:
 
 ## Built-in functions
 
-{% remote_include https://raw.githubusercontent.com/cockroachdb/cockroach/release-{{ page.version.version | replace: "v", "" }}/docs/generated/sql/functions.md %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/cockroach/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/docs/generated/sql/functions.md %}
 
 ## Aggregate functions
 
@@ -44,11 +44,11 @@ functions but have special evaluation rules:
 For examples showing how to use aggregate functions, see [the `SELECT` clause documentation](select-clause.html#aggregate-functions).
 {{site.data.alerts.end}}
 
-{% remote_include https://raw.githubusercontent.com/cockroachdb/cockroach/release-{{ page.version.version | replace: "v", "" }}/docs/generated/sql/aggregates.md %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/cockroach/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/docs/generated/sql/aggregates.md %}
 
 ## Window functions
 
-{% remote_include https://raw.githubusercontent.com/cockroachdb/cockroach/release-{{ page.version.version | replace: "v", "" }}/docs/generated/sql/window_functions.md %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/cockroach/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/docs/generated/sql/window_functions.md %}
 
 ## Operators
 
@@ -110,7 +110,7 @@ The following table lists all CockroachDB operators from highest to lowest prece
 
 ### Supported operations
 
-{% remote_include https://raw.githubusercontent.com/cockroachdb/cockroach/release-{{ page.version.version | replace: "v", "" }}/docs/generated/sql/operators.md %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/cockroach/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/docs/generated/sql/operators.md %}
 
 <!--
 ## `CAST()`

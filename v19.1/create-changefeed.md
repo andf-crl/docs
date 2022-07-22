@@ -5,7 +5,7 @@ toc: true
 ---
 
 {{site.data.alerts.callout_info}}
-`CREATE CHANGEFEED` is an [enterprise-only](enterprise-licensing.html) feature. For the core version, see [`EXPERIMENTAL CHANGEFEED FOR`](changefeed-for.html).
+`CREATE CHANGEFEED` is an [enterprise-only](enterprise-licensing.html) feature. For the core [version](cluster-settings.html#setting-version), see [`EXPERIMENTAL CHANGEFEED FOR`](changefeed-for.html).
 {{site.data.alerts.end}}
 
 The `CREATE CHANGEFEED` [statement](sql-statements.html) creates a new enterprise changefeed, which targets an allowlist of tables, called "watched rows".  Every change to a watched row is emitted as a record in a configurable format (`JSON` or Avro) to a configurable sink ([Kafka](https://kafka.apache.org/) or a [cloud storage sink](#cloud-storage-sink)). You can [create](#create-a-changefeed-connected-to-kafka), [pause](#pause-a-changefeed), [resume](#resume-a-paused-changefeed), or [cancel](#cancel-a-changefeed) an enterprise changefeed.
@@ -19,7 +19,7 @@ Changefeeds can only be created by superusers, i.e., [members of the `admin` rol
 ## Synopsis
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/create_changefeed.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/create_changefeed.html %}
 </div>
 
 ## Parameters
@@ -64,7 +64,7 @@ Parameter | Value | Description
 
 #### Cloud storage sink
 
-<span class="version-tag">New in v19.1:</span> Use a cloud storage sink to deliver changefeed data to OLAP or big data systems without requiring transport via Kafka.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v19.1:</span> Use a cloud storage sink to deliver changefeed data to OLAP or big data systems without requiring transport via Kafka.
 
 {{site.data.alerts.callout_info}}
 Currently, cloud storage sinks only work with `JSON` and emits newline-delimited `JSON` files.
@@ -82,7 +82,7 @@ The `scheme` for a cloud storage sink should be prepended with `experimental-`.
 
 Any of the cloud storages below can be used as a sink:
 
-{% include {{ page.version.version }}/misc/external-urls.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/external-urls.md %}
 
 ### Options
 
@@ -94,7 +94,7 @@ Option | Value | Description
 `cursor` | [Timestamp](as-of-system-time.html#parameters)  | Emits any changes after the given timestamp, but does not output the current state of the table first. If `cursor` is not specified, the changefeed starts by doing an initial scan of all the watched rows and emits the current value, then moves to emitting any changes that happen after the scan.<br><br>When starting a changefeed at a specific `cursor`, the `cursor` cannot be before the configured garbage collection window (see [`gc.ttlseconds`](configure-replication-zones.html#replication-zone-variables)) for the table you're trying to follow; otherwise, the changefeed will error. With default garbage collection settings, this means you cannot create a changefeed that starts more than 25 hours in the past.<br><br>`cursor` can be used to [start a new changefeed where a previous changefeed ended.](#start-a-new-changefeed-where-another-ended)<br><br>Example: `CURSOR='1536242855577149065.0000000000'`
 `format` | `json` / `experimental_avro` | Format of the emitted record. Currently, support for [Avro is limited and experimental](#avro-limitations). For mappings of CockroachDB types to Avro types, [see the table below](#avro-types). <br><br>Default: `format=json`.
 `confluent_schema_registry` | Schema Registry address | The [Schema Registry](https://docs.confluent.io/current/schema-registry/docs/index.html#sr) address is required to use `experimental_avro`.
-`key_in_value` | N/A | <span class="version-tag">New in v19.1</span>: Makes the [primary key](primary-key.html) of a deleted row recoverable in sinks where each message has a value but not a key (most have a key and value in each message). `key_in_value` is automatically used for these sinks (currently only [cloud storage sinks](#cloud-storage-sink)).
+`key_in_value` | N/A | <span class="[version](cluster-settings.html#setting-version)-tag">New in v19.1</span>: Makes the [primary key](primary-key.html) of a deleted row recoverable in sinks where each message has a value but not a key (most have a key and value in each message). `key_in_value` is automatically used for these sinks (currently only [cloud storage sinks](#cloud-storage-sink)).
 
 #### Avro limitations
 
@@ -190,7 +190,7 @@ For more information on how to create a changefeed that emits an [Avro](https://
 
 ### Create a changefeed connected to a cloud storage sink
 
-{% include {{ page.version.version }}/cdc/correctness-warning.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/cdc/correctness-warning.md %}
 
 {% include copy-clipboard.html %}
 ~~~ sql

@@ -30,7 +30,7 @@ These instructions assume that you use macOS. If you use Linux, use your default
     echo 'export PATH="/opt/homebrew/opt/ruby/bin:$PATH"' >> ~/.zshrc
     ```
     
-4. Install the latest version of Git from Homebrew.
+4. Install the latest [version](cluster-settings.html#setting-version) of Git from Homebrew.
 
    ```
    brew install git
@@ -42,7 +42,7 @@ These instructions assume that you use macOS. If you use Linux, use your default
 
 6. [Create a local clone](https://help.github.com/articles/cloning-a-repository/) of your fork.
 
-7. Use Gem from Homebrew to install [Jekyll](https://jekyllrb.com/docs/), the tool we use to transform Markdown and layout files into a complete, static HTML site. **Use the `brew-gem` command. If you use `gem`, you'll be using the outdated version of Ruby that installs with macOS.**
+7. Use Gem from Homebrew to install [Jekyll](https://jekyllrb.com/docs/), the tool we use to transform Markdown and layout files into a complete, static HTML site. **Use the `brew-gem` command. If you use `gem`, you'll be using the outdated [version](cluster-settings.html#setting-version) of Ruby that installs with macOS.**
 
     ```
     sudo brew-gem install jekyll bundler
@@ -67,7 +67,7 @@ Once you're ready to contribute:
 
 2. Make your changes in the text editor of your choice (e.g., [Atom](https://atom.io/), [Sublime Text](https://www.sublimetext.com/)).
 
-    Each documented version of CockroachDB has a docs subdirectory. For example, docs for CockroachDB v19.1 are in the `v19.1` directory, whereas docs for CockroachDB v2.1 are in the `v2.1` directory. This is true of most files in the `_includes` and `images` directories as well.
+    Each documented [version](cluster-settings.html#setting-version) of CockroachDB has a docs subdirectory. For example, docs for CockroachDB v19.1 are in the `v19.1` directory, whereas docs for CockroachDB v2.1 are in the `v2.1` directory. This is true of most files in the `_includes` and `images` directories as well.
 
 3. Check the files you've changed:
 
@@ -87,7 +87,7 @@ Once you're ready to contribute:
     git commit -m "<concise message describing changes>"
     ```
 
-6. Use Jekyll to [build a version of the site locally](#build-and-test-the-docs-locally) so you can view your changes in a browser:
+6. Use Jekyll to [build a [version](cluster-settings.html#setting-version) of the site locally](#build-and-test-the-docs-locally) so you can view your changes in a browser:
 
     ```
     make cockroachdb
@@ -141,9 +141,9 @@ Once you've installed Jekyll and have a local clone of the docs repository, you 
 
 ### Pages
 
-We provide documentation for each major version of CockroachDB. The pages for each version are found in a directory named for the version. For example, docs for CockroachDB v19.1 are in the `v19.1` directory, whereas docs for CockroachDB v19.2 are in the `v19.2` directory.
+We provide documentation for each major [version](cluster-settings.html#setting-version) of CockroachDB. The pages for each [version](cluster-settings.html#setting-version) are found in a directory named for the [version](cluster-settings.html#setting-version). For example, docs for CockroachDB v19.1 are in the `v19.1` directory, whereas docs for CockroachDB v19.2 are in the `v19.2` directory.
 
-Within each version directory, each page must be an `.md` file written in the redcarpet dialect of Markdown. File names should be lowercase with a dash between words, and should be brief but descriptive.
+Within each [version](cluster-settings.html#setting-version) directory, each page must be an `.md` file written in the redcarpet dialect of Markdown. File names should be lowercase with a dash between words, and should be brief but descriptive.
 
 Example:
 
@@ -191,24 +191,24 @@ The CockroachDB Jekyll theme can auto-generate a page-level table of contents li
 
 #### Auto-included content
 
-Some pages auto-include content from the [`_includes`](_includes) directory. For example, each SQL statement page includes a syntax diagram from `_includes/<version>/sql/diagrams`, and the [build-an-app-with-cockroachdb.md](build-an-app-with-cockroachdb.md) tutorials include code samples from `_includes/<version>/app`.
+Some pages auto-include content from the [`_includes`](_includes) directory. For example, each SQL statement page includes a syntax diagram from `_includes/<[version](cluster-settings.html#setting-version)>/sql/diagrams`, and the [build-an-app-with-cockroachdb.md](build-an-app-with-cockroachdb.md) tutorials include code samples from `_includes/<[version](cluster-settings.html#setting-version)>/app`.
 
-The syntax for including content is `{% include {{ page.version.version }}/<filepath> %}`, for example, `{% include {{ page.version.version }}/app/basic-sample.rb %}`.
+The syntax for including content is `{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/<filepath> %}`, for example, `{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/app/basic-sample.rb %}`.
 
 #### Version tags
 
-New and changed features should be called out in the documentation using version tags.
+New and changed features should be called out in the documentation using [version](cluster-settings.html#setting-version) tags.
 
-- To add a version tag to a paragraph, place `<span class="version-tag">New in vX.X:</span>` at the start of the paragraph, e.g:
-
-    ```
-    <span class="version-tag">New in v1.1:</span> The `user_privileges` view identifies global privileges.
-    ```
-
-- To add a version tag to a heading, place `<span class="version-tag">New in vX.X</span>` to the right of the heading, for example:
+- To add a [version](cluster-settings.html#setting-version) tag to a paragraph, place `<span class="[version](cluster-settings.html#setting-version)-tag">New in vX.X:</span>` at the start of the paragraph, e.g:
 
     ```
-    ## SQL Shell Welcome <div class="version-tag">New in v2.1</div>
+    <span class="[version](cluster-settings.html#setting-version)-tag">New in v1.1:</span> The `user_privileges` view identifies global privileges.
+    ```
+
+- To add a [version](cluster-settings.html#setting-version) tag to a heading, place `<span class="[version](cluster-settings.html#setting-version)-tag">New in vX.X</span>` to the right of the heading, for example:
+
+    ```
+    ## SQL Shell Welcome <div class="[version](cluster-settings.html#setting-version)-tag">New in v2.1</div>
     ```
 
 When calling out a change, rather than something new, change `New in vX.X` to `Changed in vX.X`.
@@ -245,11 +245,11 @@ We show "Contribute" options in the top-right of every page by default. To remov
 
 ### Sidebar
 
-For each documented version of CockroachDB, a JSON file in the `_includes` directory defines the pages that appear in the docs sidebar. For example, the sidebar for CockroachDB v1.0 is defined by [`_includes/sidebar-data-v1.0.json`](https://github.com/cockroachdb/docs/blob/master/_includes/sidebar-data-v1.0.json).
+For each documented [version](cluster-settings.html#setting-version) of CockroachDB, a JSON file in the `_includes` directory defines the pages that appear in the docs sidebar. For example, the sidebar for CockroachDB v1.0 is defined by [`_includes/sidebar-data-v1.0.json`](https://github.com/cockroachdb/docs/blob/master/_includes/sidebar-data-v1.0.json).
 
 If you're adding a page that you think should appear in the sidebar, please mention this in your pull request.
 
-In the JSON file for a version's sidebar, there are three possible fields:
+In the JSON file for a [version](cluster-settings.html#setting-version)'s sidebar, there are three possible fields:
 
 Field | Type | Description
 ------|------|------------

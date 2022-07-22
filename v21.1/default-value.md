@@ -21,7 +21,7 @@ You can also add the `DEFAULT` value constraint to an existing table through [`A
 {{site.data.alerts.end}}
 
 <div>
-{% include {{ page.version.version }}/sql/generated/diagrams/default_value_column_level.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/default_value_column_level.html %}
 </div>
 
  Parameter | Description

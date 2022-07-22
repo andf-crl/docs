@@ -22,7 +22,7 @@ You can identify high-latency SQL statements on the [Statements](ui-statements-p
 You can also check the [service latency graph](ui-sql-dashboard.html#service-latency-sql-99th-percentile) and the [CPU graph](ui-hardware-dashboard.html#cpu-percent) on the SQL and Hardware Dashboards, respectively. If the graphs show latency spikes or CPU usage spikes, these might indicate slow queries in your cluster.
 
 {{site.data.alerts.callout_info}}
-{% include {{ page.version.version }}/prod-deployment/resolution-untuned-query.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/resolution-untuned-query.md %}
 {{site.data.alerts.end}}
 
 ### Visualize statement traces in Jaeger
@@ -37,7 +37,7 @@ You can look more closely at the behavior of a statement by visualizing a [state
     ~~~ shell
     docker run -d --name jaeger -p 6831:6831/udp -p 16686:16686 jaegertracing/all-in-one:latest
     ~~~
-    This runs the latest version of Jaeger, and forwards two ports to the container. `6831` is the trace ingestion port, `16686` is the UI port. By default, Jaeger will store all received traces in memory.
+    This runs the latest [version](cluster-settings.html#setting-version) of Jaeger, and forwards two ports to the container. `6831` is the trace ingestion port, `16686` is the UI port. By default, Jaeger will store all received traces in memory.
 
 
 #### Import a trace from a diagnostics bundle into Jaeger
@@ -77,7 +77,7 @@ Enabling full tracing is expensive both in terms of CPU usage and memory footpri
 1. Run CockroachDB and set the Jaeger agent configuration:
 
     ~~~ sql
-    SET CLUSTER SETTING trace.jaeger.agent='localhost:6831'
+    SET CLUSTER SETTING [trace.jaeger.agent](cluster-settings.html#setting-trace-jaeger-agent)='localhost:6831'
     ~~~
 
 1. Go to [`http://localhost:16686`](http://localhost:16686).
@@ -137,17 +137,17 @@ For example:
 
 ~~~ sql
 SELECT
-  cnt, organization, concat(os, '-', version) AS bucket
+  cnt, organization, concat(os, '-', [version](cluster-settings.html#setting-version)) AS bucket
 FROM
   (
     SELECT
-      count(1)::FLOAT8 AS cnt, organization, os, version
+      count(1)::FLOAT8 AS cnt, organization, os, [version](cluster-settings.html#setting-version)
     FROM
       nodes
     WHERE
       lastseen > ($1)::TIMESTAMPTZ AND lastseen <= ($2)::TIMESTAMPTZ
     GROUP BY
-      organization, os, version
+      organization, os, [version](cluster-settings.html#setting-version)
   )
 
 Arguments:
@@ -155,7 +155,7 @@ Arguments:
   $2: '2021-10-25 13:22:09.000058Z'
 ~~~
 
-The columns in the `GROUP BY` clause are `organization`, `os`, and `version`.
+The columns in the `GROUP BY` clause are `organization`, `os`, and `[version](cluster-settings.html#setting-version)`.
 
 The query plan shows that it is using index `nodes_lastseen_organization_storing`:
 
@@ -165,15 +165,15 @@ The query plan shows that it is using index `nodes_lastseen_organization_storing
                      vectorized           true
 render                                                                                                      (cnt float, organization varchar, bucket string)
  │                   estimated row count  3760
- │                   render 0             (concat((os)[string], ('-')[string], (version)[string]))[string]
+ │                   render 0             (concat((os)[string], ('-')[string], ([version](cluster-settings.html#setting-version))[string]))[string]
  │                   render 1             ((count_rows)[int]::FLOAT8)[float]
  │                   render 2             (organization)[varchar]
- └── group                                                                                                  (organization varchar, os string, version string, count_rows int)
+ └── group                                                                                                  (organization varchar, os string, [version](cluster-settings.html#setting-version) string, count_rows int)
       │              estimated row count  3760
       │              aggregate 0          count_rows()
-      │              group by             organization, os, version
-      └── project                                                                                           (organization varchar, os string, version string)
-           └── scan                                                                                         (organization varchar, lastseen timestamptz, os string, version string)
+      │              group by             organization, os, [version](cluster-settings.html#setting-version)
+      └── project                                                                                           (organization varchar, os string, [version](cluster-settings.html#setting-version) string)
+           └── scan                                                                                         (organization varchar, lastseen timestamptz, os string, [version](cluster-settings.html#setting-version) string)
                      estimated row count  2330245
                      table                nodes@nodes_lastseen_organization_storing
                      spans                /2021-07-27T13:22:09.000059Z-/2021-10-25T13:22:09.000058001Z
@@ -192,32 +192,32 @@ CREATE TABLE public.nodes (
 	os STRING NOT NULL,
 	arch STRING NOT NULL,
 	autotags JSONB NULL,
-	version STRING NOT NULL DEFAULT '':::STRING,
+	[version](cluster-settings.html#setting-version) STRING NOT NULL DEFAULT '':::STRING,
 	clone BOOL NOT NULL DEFAULT false,
 	cloneof VARCHAR(60) NOT NULL DEFAULT '':::STRING,
 	endpoint_type STRING NOT NULL DEFAULT 'amp':::STRING,
 	ip INET NULL,
-	osqueryversion STRING NOT NULL DEFAULT '':::STRING,
+	osquery[version](cluster-settings.html#setting-version) STRING NOT NULL DEFAULT '':::STRING,
 	CONSTRAINT "primary" PRIMARY KEY (id ASC),
 	INDEX nodes_organization_ampuuid (organization ASC, ampuuid ASC),
 	INDEX nodes_created_asc_organization (created ASC, organization ASC),
 	INDEX nodes_created_desc_organization (created DESC, organization ASC),
-	INDEX nodes_organization_os_version (organization ASC, os ASC, version ASC),
-	INDEX nodes_organization_version (organization ASC, version ASC),
-	INDEX nodes_lastseen_organization_storing (lastseen ASC, organization ASC) STORING (os, version),
-	FAMILY "primary" (id, ampuuid, organization, created, disabled, lastseen, os, arch, autotags, version, clone, cloneof, endpoint_type, ip, osqueryversion)
+	INDEX nodes_organization_os_[version](cluster-settings.html#setting-version) (organization ASC, os ASC, [version](cluster-settings.html#setting-version) ASC),
+	INDEX nodes_organization_[version](cluster-settings.html#setting-version) (organization ASC, [version](cluster-settings.html#setting-version) ASC),
+	INDEX nodes_lastseen_organization_storing (lastseen ASC, organization ASC) STORING (os, [version](cluster-settings.html#setting-version)),
+	FAMILY "primary" (id, ampuuid, organization, created, disabled, lastseen, os, arch, autotags, [version](cluster-settings.html#setting-version), clone, cloneof, endpoint_type, ip, osquery[version](cluster-settings.html#setting-version))
 );
 
 ~~~
 
-The `nodes_lastseen_organization_storing` index has the `GROUP BY` column `organization` as an index key column. However, the `STORING` clause includes the `GROUP BY` columns `os` and `version`.
+The `nodes_lastseen_organization_storing` index has the `GROUP BY` column `organization` as an index key column. However, the `STORING` clause includes the `GROUP BY` columns `os` and `[version](cluster-settings.html#setting-version)`.
 
 #### Solution
 
 Create a new secondary index that has all of the `GROUP BY` columns as key columns in the index.
 
 ~~~ sql
-CREATE INDEX "nodes_lastseen_organization_os_version" (lastseen, organization, os, version)
+CREATE INDEX "nodes_lastseen_organization_os_[version](cluster-settings.html#setting-version)" (lastseen, organization, os, [version](cluster-settings.html#setting-version))
 ~~~
 
 This index allows CockroachDB to perform a streaming `GROUP BY` rather than a hash `GROUP BY`. After you make this change, you should notice an improvement in the latency of the example query.
@@ -325,7 +325,7 @@ This will result in the following output:
 Once the logging is enabled, all client-generated SQL queries executed by the node will be written to the `DEV` [logging channel](logging.html#dev), which outputs by [default](configure-logs.html#default-logging-configuration) to the primary `cockroach` log file in `/cockroach-data/logs`. Use the symlink `cockroach.log` to open the most recent log.
 
 ~~~
-I180402 19:12:28.112957 394661 sql/exec_log.go:173  [n1,client=127.0.0.1:50155,user=root] exec "psql" {} "SELECT version()" {} 0.795 1 ""
+I180402 19:12:28.112957 394661 sql/exec_log.go:173  [n1,client=127.0.0.1:50155,user=root] exec "psql" {} "SELECT [version](cluster-settings.html#setting-version)()" {} 0.795 1 ""
 ~~~
 
 ## Configure CockroachDB to send traces to a third-party trace collector
@@ -347,9 +347,9 @@ The following [cluster settings](cluster-settings.html) are supported:
 <table>
 <thead><tr><th>Setting</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
 <tbody>
-<tr><td><code>trace.opentelemetry.collector</code></td><td>string</td><td><code></code></td><td>The address of an OpenTelemetry trace collector to receive traces using the OTEL gRPC protocol, as <code>&lt;host&gt;:&lt;port&gt;</code>. If no port is specified, <code>4317</code> is used.</td></tr>
-<tr><td><code>trace.jaeger.agent</code></td><td>string</td><td><code></code></td><td>The address of a Jaeger agent to receive traces using the Jaeger UDP Thrift protocol, as <code>&lt;host&gt;:&lt;port&gt;</code>. If no port is specified, <code>6381</code> is used.</td></tr>
-<tr><td><code>trace.zipkin.collector</code></td><td>string</td><td><code></code></td><td>The address of a Zipkin instance to receive traces, as <code>&lt;host&gt;:&lt;port&gt;</code>. If no port is specified, <code>9411</code> is used.</td></tr>
+<tr><td><code>[trace.opentelemetry.collector](cluster-settings.html#setting-trace-opentelemetry-collector)</code></td><td>string</td><td><code></code></td><td>The address of an OpenTelemetry trace collector to receive traces using the OTEL gRPC protocol, as <code>&lt;host&gt;:&lt;port&gt;</code>. If no port is specified, <code>4317</code> is used.</td></tr>
+<tr><td><code>[trace.jaeger.agent](cluster-settings.html#setting-trace-jaeger-agent)</code></td><td>string</td><td><code></code></td><td>The address of a Jaeger agent to receive traces using the Jaeger UDP Thrift protocol, as <code>&lt;host&gt;:&lt;port&gt;</code>. If no port is specified, <code>6381</code> is used.</td></tr>
+<tr><td><code>[trace.zipkin.collector](cluster-settings.html#setting-trace-zipkin-collector)</code></td><td>string</td><td><code></code></td><td>The address of a Zipkin instance to receive traces, as <code>&lt;host&gt;:&lt;port&gt;</code>. If no port is specified, <code>9411</code> is used.</td></tr>
 </tbody>
 </table>
 

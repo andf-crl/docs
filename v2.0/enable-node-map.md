@@ -4,7 +4,7 @@ summary: Learn how to enable the node map in the Admin UI.
 toc: true
 ---
 
-<span class="version-tag">New in v2.0</span> The **Node Map** visualizes the geographical configuration of a multi-regional cluster by plotting the node localities on a world map. The **Node Map** also provides real-time cluster metrics, with the ability to drill down to individual nodes to monitor and troubleshoot the cluster health and performance.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v2.0</span> The **Node Map** visualizes the geographical configuration of a multi-regional cluster by plotting the node localities on a world map. The **Node Map** also provides real-time cluster metrics, with the ability to drill down to individual nodes to monitor and troubleshoot the cluster health and performance.
 
 This page walks you through the process of setting up and enabling the **Node Map**.
 
@@ -31,11 +31,11 @@ Consider a scenario of a four-node geo-distributed cluster with the following co
 ### Step 1. Ensure the CockroachDB Version is 2.0 or Higher
 
 ~~~ shell
-$ cockroach version
+$ cockroach [version](cluster-settings.html#setting-version)
 ~~~
 
 ~~~
-Build Tag:   {{page.release_info.version}}
+Build Tag:   {{page.release_info.[version](cluster-settings.html#setting-version)}}
 Build Time:  {{page.release_info.build_time}}
 Distribution: CCL
 Platform:     darwin amd64 (x86_64-apple-darwin13)
@@ -45,7 +45,7 @@ Build SHA-1:  367ad4f673b33694df06caaa2d7fc63afaaf3053
 Build Type:   release
 ~~~
 
-If any node is running an earlier version, [upgrade it to CockroachDB v2.0](upgrade-cockroach-version.html).
+If any node is running an earlier [version](cluster-settings.html#setting-version), [upgrade it to CockroachDB v2.0](upgrade-cockroach-[version](cluster-settings.html#setting-version).html).
 
 ### Step 2. Start the Nodes with the Correct `--locality` Flags
 
@@ -186,7 +186,7 @@ The **Node Map** is displayed only for the locality levels that have latitude/lo
 
 ### Unable to Assign Latitude/Longitude Coordinates to Localities
 
-{% include {{ page.version.version }}/known-limitations/node-map.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/node-map.md %}
 
 ### **Capacity Used** Value Displayed is More Than Configured Capacity
 
@@ -196,12 +196,12 @@ The **Node Map** is displayed only for the locality levels that have latitude/lo
 
 ### AWS locations
 
-{% include {{ page.version.version }}/misc/aws-locations.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/aws-locations.md %}
 
 ### Azure locations
 
-{% include {{ page.version.version }}/misc/azure-locations.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/azure-locations.md %}
 
 ### Google Cloud locations
 
-{% include {{ page.version.version }}/misc/gce-locations.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/gce-locations.md %}

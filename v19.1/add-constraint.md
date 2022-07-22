@@ -14,12 +14,12 @@ The `ADD CONSTRAINT` [statement](sql-statements.html) is part of `ALTER TABLE` a
 The [`PRIMARY KEY`](primary-key.html) and [`NOT NULL`](not-null.html) constraints can only be applied through [`CREATE TABLE`](create-table.html). The [`DEFAULT`](default-value.html) constraint is managed through [`ALTER COLUMN`](alter-column.html).
 {{site.data.alerts.end}}
 
-{% include {{ page.version.version }}/sql/combine-alter-table-commands.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/combine-alter-table-commands.md %}
 
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/add_constraint.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/add_constraint.html %}
 </div>
 
 ## Required privileges
@@ -36,7 +36,7 @@ The user must have the `CREATE` [privilege](authorization.html#assign-privileges
 
 ## Viewing schema changes
 
-{% include {{ page.version.version }}/misc/schema-change-view-job.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-view-job.md %}
 
 ## Examples
 
@@ -58,7 +58,7 @@ Adding the [`CHECK` constraint](check.html) requires that all of a column's valu
 > ALTER TABLE orders ADD CONSTRAINT check_id_non_zero CHECK (id > 0);
 ~~~
 
-<span class="version-tag">New in v19.1</span>: Check constraints can be added to columns that were created earlier in the transaction. For example:
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v19.1</span>: Check constraints can be added to columns that were created earlier in the transaction. For example:
 
 {% include copy-clipboard.html %}
 ~~~ sql
@@ -138,7 +138,7 @@ Using `ON DELETE CASCADE` will ensure that when the referenced row is deleted, a
 > ALTER TABLE orders ADD CONSTRAINT customer_fk FOREIGN KEY (customer_id) REFERENCES customers (id) ON DELETE CASCADE;
 ~~~
 
-<span class="version-tag">New in v19.1</span>: An index on the referencing columns is automatically created for you when you add a foreign key constraint to an empty table, if an appropriate index does not already exist. You can see it using [`SHOW INDEXES`](show-index.html):
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v19.1</span>: An index on the referencing columns is automatically created for you when you add a foreign key constraint to an empty table, if an appropriate index does not already exist. You can see it using [`SHOW INDEXES`](show-index.html):
 
 {% include copy-clipboard.html %}
 ~~~ sql

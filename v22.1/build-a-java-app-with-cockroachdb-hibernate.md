@@ -14,7 +14,7 @@ docs_area: get_started
 
 This tutorial shows you how build a simple Java application with CockroachDB and the Hibernate ORM.
 
-{% include {{page.version.version}}/app/java-version-note.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/java-[version](cluster-settings.html#setting-version)-note.md %}
 
 {{site.data.alerts.callout_success}}
 For a sample app and tutorial that uses Spring Data JPA (Hibernate) and CockroachDB, see [Build a Spring App with CockroachDB and JPA](build-a-spring-app-with-cockroachdb-jpa.html).
@@ -24,7 +24,7 @@ For another use of Hibernate with CockroachDB, see our [`examples-orms`](https:/
 
 ## Step 1. Start CockroachDB
 
-{% include {{ page.version.version }}/setup/sample-setup-parameters.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/setup/sample-setup-parameters.md %}
 
 ## Step 2. Get the sample code
 
@@ -36,7 +36,7 @@ git clone https://github.com/cockroachlabs/example-app-java-hibernate/
 ~~~
 
 {{site.data.alerts.callout_info}}
-The version of the CockroachDB Hibernate dialect in `hibernate.cfg.xml` corresponds to a version of CockroachDB. For more information, see [Install Client Drivers: Hibernate](install-client-drivers.html).
+The [version](cluster-settings.html#setting-version) of the CockroachDB Hibernate dialect in `hibernate.cfg.xml` corresponds to a [version](cluster-settings.html#setting-version) of CockroachDB. For more information, see [Install Client Drivers: Hibernate](install-client-drivers.html).
 {{site.data.alerts.end}}
 
 ## Step 3. Run the code
@@ -121,7 +121,7 @@ APP: getAccountBalance(2) --> 350.00
 
 ### Generate PKCS8 keys for client authentication
 
-{% include {{page.version.version}}/app/pkcs8-gen.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/pkcs8-gen.md %}
 
 <section class="filter-content" markdown="1" data-scope="cockroachcloud">
 
@@ -155,4 +155,4 @@ Note that interleaved execution (partial execution of multiple statements within
 
 Read more about using the [Hibernate ORM](http://hibernate.org/orm/), or check out a more realistic implementation of Hibernate with CockroachDB in our [`examples-orms`](https://github.com/cockroachdb/examples-orms) repository.
 
-{% include {{page.version.version}}/app/see-also-links.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/see-also-links.md %}

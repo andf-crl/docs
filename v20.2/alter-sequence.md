@@ -11,7 +11,7 @@ The `ALTER SEQUENCE` [statement](sql-statements.html) applies a [schema change](
 This page documents all supported sequence changes except for changing the name of a sequence and changing the schema of a sequence. For information about changing the name of a sequence, see [`RENAME SEQUENCE`](rename-sequence.html). For information about changing the schema of a sequence, see [`SET SCHEMA`](set-schema.html).
 {{site.data.alerts.end}}
 
-{% include {{{ page.version.version }}/misc/schema-change-stmt-note.md %}
+{% include {{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-stmt-note.md %}
 
 ## Required privileges
 
@@ -19,7 +19,7 @@ The user must have the `CREATE` [privilege](authorization.html#assign-privileges
 
 ## Synopsis
 
-<div>{% include {{ page.version.version }}/sql/diagrams/alter_sequence_options.html %}</div>
+<div>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/alter_sequence_options.html %}</div>
 
 ## Parameters
 

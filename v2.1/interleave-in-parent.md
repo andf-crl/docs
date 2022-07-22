@@ -44,7 +44,7 @@ By writing data in this way, related data is more likely to remain on the same k
 
 ## When to interleave tables
 
-{% include {{ page.version.version }}/faq/when-to-interleave-tables.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/faq/when-to-interleave-tables.html %}
 
 ### Interleaved hierarchy
 
@@ -64,7 +64,7 @@ In general, reads, writes, and joins of values related through the interleave pr
 
 <a name="fast-path-deletes"></a>
 
-<span class="version-tag">New in v2.1:</span> Fast deletes are available for interleaved tables that use [`ON DELETE CASCADE`](add-constraint.html#add-the-foreign-key-constraint-with-cascade).  Deleting rows from such tables will use an optimized code path and run much faster, as long as the following conditions are met:
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v2.1:</span> Fast deletes are available for interleaved tables that use [`ON DELETE CASCADE`](add-constraint.html#add-the-foreign-key-constraint-with-cascade).  Deleting rows from such tables will use an optimized code path and run much faster, as long as the following conditions are met:
 
 - The table or any of its interleaved tables do not have any secondary indices.
 - The table or any of its interleaved tables are not referenced by any other table outside of them by foreign key.
@@ -91,7 +91,7 @@ For an example showing how to create tables that meet these criteria, see [Inter
 ## Syntax
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/interleave.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/interleave.html %}
 </div>
 
 ## Parameters

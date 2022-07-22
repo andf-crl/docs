@@ -66,9 +66,9 @@ The size of a `DECIMAL` value is variable, starting at 9 bytes. It's recommended
 # The value in "c" is handled like "a" because NUMERIC is an alias.
 ~~~
 
-## Supported Casting & Conversion
+## Supported Casting & Con[version](cluster-settings.html#setting-version)
 
-`DECIMAL` values can be [cast](data-types.html#data-type-conversions-casts) to any of the following data types:
+`DECIMAL` values can be [cast](data-types.html#data-type-con[version](cluster-settings.html#setting-version)s-casts) to any of the following data types:
 
 Type | Details
 -----|--------

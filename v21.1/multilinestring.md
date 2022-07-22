@@ -6,7 +6,7 @@ toc: true
 
 A `MULTILINESTRING` is a collection of [LineStrings](linestring.html).  MultiLineStrings are useful for gathering a group of LineStrings into one geometry. For example, you may want to gather the LineStrings denoting all of the roads in a particular municipality.
 
-{% include {{page.version.version}}/spatial/zmcoords.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/spatial/zmcoords.md %}
 
 ## Examples
 

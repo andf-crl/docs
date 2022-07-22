@@ -14,7 +14,7 @@ Once you [create a table](create-table.html) and load data into it (e.g., [`INSE
 ## Synopsis
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/create_stats.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/create_stats.html %}
 </div>
 
 ## Required Privileges
@@ -32,7 +32,7 @@ The user must have the `CREATE` [privilege](authorization.html#assign-privileges
 
 ## Examples
 
-{% include {{page.version.version}}/sql/movr-statements.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/movr-statements.md %}
 
 ### Create statistics on a single column
 
@@ -110,7 +110,7 @@ For more information about how the `AS OF SYSTEM TIME` clause works, including s
 
 ### Delete statistics
 
-{% include {{ page.version.version }}/misc/delete-statistics.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/delete-statistics.md %}
 
 ### View statistics jobs
 

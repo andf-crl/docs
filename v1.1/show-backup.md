@@ -4,7 +4,7 @@ summary: The SHOW BACKUP statement lists the contents of a backup.
 toc: true
 ---
 
-<span class="version-tag">New in v1.1:</span> The `SHOW BACKUP` [statement](sql-statements.html) lists the contents of an enterprise backup created with the [`BACKUP`](backup.html) statement.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v1.1:</span> The `SHOW BACKUP` [statement](sql-statements.html) lists the contents of an enterprise backup created with the [`BACKUP`](backup.html) statement.
 
 
 ## Required Privileges
@@ -13,7 +13,7 @@ Only the `root` user can run `SHOW BACKUP`.
 
 ## Synopsis
 
-{% include {{ page.version.version }}/sql/diagrams/show_backup.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/show_backup.html %}
 
 ## Parameters
 

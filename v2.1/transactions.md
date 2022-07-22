@@ -83,7 +83,7 @@ long as the results of a single statement or batch of statements are known to
 stay clear of this limit, the client does not need to worry about transaction
 retries.
 
-In future versions of CockroachDB, we plan on providing stronger guarantees for
+In future [version](cluster-settings.html#setting-version)s of CockroachDB, we plan on providing stronger guarantees for
 read-only queries that return at most one row, regardless of the size of that
 row.
 
@@ -229,7 +229,7 @@ When two transactions contend for the same resources indirectly, they may create
 
 CockroachDB executes all transactions at the strongest ANSI transaction isolation level: `SERIALIZABLE`. All other ANSI transaction isolation levels (e.g., `SNAPSHOT`, `READ UNCOMMITTED`, `READ COMMITTED`, and `REPEATABLE READ`) are automatically upgraded to `SERIALIZABLE`. Weaker isolation levels have historically been used to maximize transaction throughput. However, [recent research](http://www.bailis.org/papers/acidrain-sigmod2017.pdf) has demonstrated that the use of weak isolation levels results in substantial vulnerability to concurrency-based attacks.
 
-<span class="version-tag">New in v2.1:</span> CockroachDB now only supports `SERIALIZABLE` isolation. In previous versions of CockroachDB, you could set transactions to `SNAPSHOT` isolation, but that feature has been removed.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v2.1:</span> CockroachDB now only supports `SERIALIZABLE` isolation. In previous [version](cluster-settings.html#setting-version)s of CockroachDB, you could set transactions to `SNAPSHOT` isolation, but that feature has been removed.
 
 {{site.data.alerts.callout_info}}
 For a detailed discussion of isolation in CockroachDB transactions, see [Serializable, Lockless, Distributed: Isolation in CockroachDB](https://www.cockroachlabs.com/blog/serializable-lockless-distributed-isolation-cockroachdb/).

@@ -24,7 +24,7 @@ For guidance on the syntax for backups and restores, see the [`BACKUP`](backup.h
 
 ## Considerations
 
-- `RESTORE` cannot restore backups made by newer versions of CockroachDB.
+- `RESTORE` cannot restore backups made by newer [version](cluster-settings.html#setting-version)s of CockroachDB.
 - `RESTORE` is a blocking statement. To run a restore job asynchronously, use the `DETACHED` option. See [Options](#options) for more usage detail.
 - `RESTORE` no longer requires an Enterprise license, regardless of the options passed to it or to the backup it is restoring.
 - You cannot restore a backup of a multi-region database into a single-region database.
@@ -37,12 +37,12 @@ For guidance on the syntax for backups and restores, see the [`BACKUP`](backup.h
 
 ### Source privileges
 
-{% include {{ page.version.version }}/misc/non-http-source-privileges.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/non-http-source-privileges.md %}
 
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/generated/diagrams/restore.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/restore.html %}
 </div>
 
 ## Parameters
@@ -191,11 +191,11 @@ If initiated correctly, the statement returns when the restore is finished or if
 
 ## Known limitations
 
-{% include {{ page.version.version }}/known-limitations/restore-aost.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/restore-aost.md %}
 
 ## Examples
 
-{% include {{ page.version.version }}/backups/bulk-auth-options.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/backups/bulk-auth-options.md %}
 
 <div class="filters clearfix">
   <button class="filter-button" data-scope="s3">Amazon S3</button>
@@ -248,7 +248,7 @@ See [Incremental backups with explicitly specified destinations](take-full-and-i
 
 ### Restore the most recent backup
 
-{% include_cached new-in.html version="v21.1.14" %} To restore from the most recent backup in the collection's location, use the `LATEST syntax`:
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.1.14" %} To restore from the most recent backup in the collection's location, use the `LATEST syntax`:
 
 {% include_cached copy-clipboard.html %}
 ~~~ sql
@@ -320,7 +320,7 @@ RESTORE DATABASE bank FROM LATEST IN 's3://{bucket_name}/{path/to/backup-collect
 ~~~
 
 {{site.data.alerts.callout_info}}
-{% include_cached new-in.html version="v21.1" %} `RESTORE` will re-validate [indexes](indexes.html) when [incremental backups](take-full-and-incremental-backups.html) are created from an older version (v20.2.2 and earlier or v20.1.4 and earlier), but restored by a newer version (v21.1.0+). These earlier releases may have included incomplete data for indexes that were in the process of being created.
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.1" %} `RESTORE` will re-validate [indexes](indexes.html) when [incremental backups](take-full-and-incremental-backups.html) are created from an older [version](cluster-settings.html#setting-version) (v20.2.2 and earlier or v20.1.4 and earlier), but restored by a newer [version](cluster-settings.html#setting-version) (v21.1.0+). These earlier releases may have included incomplete data for indexes that were in the process of being created.
 {{site.data.alerts.end}}
 
 ### Restore a backup asynchronously
@@ -449,7 +449,7 @@ See [Incremental backups with explicitly specified destinations](take-full-and-i
 
 ### Restore the most recent backup
 
-{% include_cached new-in.html version="v21.1" %} To restore from the most recent backup in the collection's location, use the `LATEST syntax`:
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.1" %} To restore from the most recent backup in the collection's location, use the `LATEST syntax`:
 
 {% include_cached copy-clipboard.html %}
 ~~~ sql
@@ -521,7 +521,7 @@ RESTORE DATABASE bank FROM LATEST IN 'azure://{container name}/{path/to/backup-c
 ~~~
 
 {{site.data.alerts.callout_info}}
-{% include_cached new-in.html version="v21.1" %} `RESTORE` will re-validate [indexes](indexes.html) when [incremental backups](take-full-and-incremental-backups.html) are created from an older version (v20.2.2 and earlier or v20.1.4 and earlier), but restored by a newer version (v21.1.0+). These earlier releases may have included incomplete data for indexes that were in the process of being created.
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.1" %} `RESTORE` will re-validate [indexes](indexes.html) when [incremental backups](take-full-and-incremental-backups.html) are created from an older [version](cluster-settings.html#setting-version) (v20.2.2 and earlier or v20.1.4 and earlier), but restored by a newer [version](cluster-settings.html#setting-version) (v21.1.0+). These earlier releases may have included incomplete data for indexes that were in the process of being created.
 {{site.data.alerts.end}}
 
 ### Restore a backup asynchronously
@@ -654,7 +654,7 @@ See [Incremental backups with explicitly specified destinations](take-full-and-i
 
 ### Restore the most recent backup
 
-{% include_cached new-in.html version="v21.1" %} To restore from the most recent backup in the collection's location, use the `LATEST syntax`:
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.1" %} To restore from the most recent backup in the collection's location, use the `LATEST syntax`:
 
 {% include_cached copy-clipboard.html %}
 ~~~ sql
@@ -726,7 +726,7 @@ RESTORE DATABASE bank FROM LATEST IN 'gs://{bucket name}/{path/to/backup-collect
 ~~~
 
 {{site.data.alerts.callout_info}}
-{% include_cached new-in.html version="v21.1" %} `RESTORE` will re-validate [indexes](indexes.html) when [incremental backups](take-full-and-incremental-backups.html) are created from an older version (v20.2.2 and earlier or v20.1.4 and earlier), but restored by a newer version (v21.1.0+). These earlier releases may have included incomplete data for indexes that were in the process of being created.
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.1" %} `RESTORE` will re-validate [indexes](indexes.html) when [incremental backups](take-full-and-incremental-backups.html) are created from an older [version](cluster-settings.html#setting-version) (v20.2.2 and earlier or v20.1.4 and earlier), but restored by a newer [version](cluster-settings.html#setting-version) (v21.1.0+). These earlier releases may have included incomplete data for indexes that were in the process of being created.
 {{site.data.alerts.end}}
 
 ### Restore a backup asynchronously

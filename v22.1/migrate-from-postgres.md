@@ -9,7 +9,7 @@ This page has instructions for migrating data from PostgreSQL to CockroachDB usi
 
 The examples pull real data from [Amazon S3](https://aws.amazon.com/s3/). They use the [employees data set](https://github.com/datacharmer/test_db) that is also used in the [MySQL docs](https://dev.mysql.com/doc/employee/en/). The data was imported to PostgreSQL using [pgloader][pgloader], and then modified for use here as explained below.
 
-{% include {{ page.version.version }}/misc/import-perf.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/import-perf.md %}
 
 {{site.data.alerts.callout_info}}
 To migrate from PostgreSQL to CockroachDB using the AWS Database Migration Service, see [Migrate with AWS Database Migration Service (DMS)](aws-dms.html).
@@ -244,7 +244,7 @@ Example usage:
 
 <!-- Notes
 
-These instructions were prepared with the following versions:
+These instructions were prepared with the following [version](cluster-settings.html#setting-version)s:
 
 - PostgreSQL 10.5
 

@@ -21,7 +21,7 @@ Selection queries can occur:
 ## Synopsis
 
 <div class="horizontal-scroll">
-  {% include {{ page.version.version }}/sql/diagrams/select.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/select.html %}
 </div>
 
 ## Parameters
@@ -33,7 +33,7 @@ Parameter | Description
 `sort_clause` | An optional `ORDER BY` clause. See [Ordering Query Results](query-order.html) for details.
 `limit_clause` | An optional `LIMIT` clause. See [Limiting Query Results](limit-offset.html) for details.
 `offset_clause` | An optional `OFFSET` clause. See [Limiting Query Results](limit-offset.html) for details.
-`for_locking_clause` | <span class="version-tag">New in v20.1:</span> The `FOR UPDATE` locking clause is used to order transactions by controlling concurrent access to one or more rows of a table.  For more information, see [`SELECT FOR UPDATE`](select-for-update.html).
+`for_locking_clause` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> The `FOR UPDATE` locking clause is used to order transactions by controlling concurrent access to one or more rows of a table.  For more information, see [`SELECT FOR UPDATE`](select-for-update.html).
 
 The optional `LIMIT` and `OFFSET` clauses can appear in any order, but must appear after `ORDER BY`, if also present.
 
@@ -56,7 +56,7 @@ Form | Usage
 ### Synopsis
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/select_clause.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/select_clause.html %}
 </div>
 
 ### `VALUES` clause
@@ -64,7 +64,7 @@ Form | Usage
 #### Syntax
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/values_clause.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/values_clause.html %}
 </div>
 
 A `VALUES` clause defines tabular data defined by the expressions
@@ -97,7 +97,7 @@ names. [These names can be modified with
 #### Syntax
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/table_clause.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/table_clause.html %}
 </div>
 
 A `TABLE` clause reads tabular data from a specified table. The
@@ -148,7 +148,7 @@ set operations or as main component in a selection query.
 ### Synopsis
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/set_operation.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/set_operation.html %}
 </div>
 
 ### Set operators
@@ -507,7 +507,7 @@ Using a sequential (i.e., non-[UUID](uuid.html)) primary key creates hot spots i
 
 ## Row-level locking for concurrency control with `SELECT FOR UPDATE`
 
-{% include {{page.version.version}}/sql/select-for-update-overview.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/select-for-update-overview.md %}
 
 For an example showing how to use it, see  [`SELECT FOR UPDATE`](select-for-update.html).
 

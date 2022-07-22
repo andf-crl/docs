@@ -18,7 +18,7 @@ For more information about using DBmarlin, see the [DBmarlin documentation](http
 ## Prerequisites
 
 - [DBmarlin installation on a supported platform](https://docs.dbmarlin.com/docs/Getting-Started/supported-platforms#supported-installation-platforms)
-- [Supported version of CockroachDB](https://docs.dbmarlin.com/docs/Getting-Started/supported-platforms#supported-database-platforms)
+- [Supported [version](cluster-settings.html#setting-version) of CockroachDB](https://docs.dbmarlin.com/docs/Getting-Started/supported-platforms#supported-database-platforms)
 
 ## Step 1. Connect DBmarlin to CockroachDB
 

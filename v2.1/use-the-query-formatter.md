@@ -4,14 +4,14 @@ summary: Use cockroach sqlfmt to enhance the text layout of a SQL query.
 toc: true
 ---
 
-<span class="version-tag">New in v2.1:</span> The `cockroach sqlfmt`
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v2.1:</span> The `cockroach sqlfmt`
 [command](cockroach-commands.html) changes the textual formatting of
 one or more SQL queries. It recognizes all SQL extensions supported by
 CockroachDB.
 
 A [web interface to this feature](https://sqlfum.pt/) is also available.
 
-{% include {{ page.version.version }}/misc/experimental-warning.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/experimental-warning.md %}
 
 ## Synopsis
 

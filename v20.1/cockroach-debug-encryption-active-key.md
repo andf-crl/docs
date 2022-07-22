@@ -15,7 +15,7 @@ $ cockroach debug encryption-active-key [path specified by the store flag]
 
 ## Subcommands
 
-{% include {{ page.version.version }}/misc/debug-subcommands.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/debug-subcommands.md %}
 
 ## Example
 

@@ -6,7 +6,7 @@ toc_not_nested: true
 ---
 
 
-<span class="version-tag">New in v2.0:</span>
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v2.0:</span>
 Common Table Expressions, or CTEs, provide a shorthand name to a
 possibly complex [subquery](subqueries.html) before it is used in a
 larger query context. This improves readability of the SQL code.
@@ -19,7 +19,7 @@ clauses](select-clause.html) and [`INSERT`](insert.html),
 
 ## Synopsis
 
-<div>{% include {{ page.version.version }}/sql/diagrams/with_clause.html %}</div>
+<div>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/with_clause.html %}</div>
 
 <div markdown="1"></div>
 
@@ -145,30 +145,30 @@ Writes in Subqueries</a> for details.
 
 {{site.data.alerts.callout_info}}
 The following limitations may be lifted
-in a future version of CockroachDB.
+in a future [version](cluster-settings.html#setting-version) of CockroachDB.
 {{site.data.alerts.end}}
 
 <div markdown="1"></div>
 
 ### Referring to a CTE by name more than once
 
-{% include {{ page.version.version }}/known-limitations/cte-by-name.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/cte-by-name.md %}
 
 ### Using CTEs with data-modifying statements
 
-{% include {{ page.version.version }}/known-limitations/cte-with-dml.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/cte-with-dml.md %}
 
 ### Using CTEs with views
 
-{% include {{ page.version.version }}/known-limitations/cte-with-view.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/cte-with-view.md %}
 
 ### Using CTEs with `VALUES` clauses
 
-{% include {{ page.version.version }}/known-limitations/cte-in-values-clause.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/cte-in-values-clause.md %}
 
 ### Using CTEs with Set Operations
 
-{% include {{ page.version.version }}/known-limitations/cte-in-set-expression.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/cte-in-set-expression.md %}
 
 ## See also
 

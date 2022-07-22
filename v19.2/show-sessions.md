@@ -22,7 +22,7 @@ No [privileges](authorization.html#assign-privileges) are required to execute th
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/show_sessions.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/show_sessions.html %}
 </div>
 
 - To list the active sessions across all nodes of the cluster, use `SHOW SESSIONS` or `SHOW CLUSTER SESSIONS`.

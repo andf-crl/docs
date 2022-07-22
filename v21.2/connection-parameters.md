@@ -74,7 +74,7 @@ The `<database>` part is not used for [`cockroach`
 commands](cockroach-commands.html) other than [`cockroach
 sql`](cockroach-sql.html). A warning
 is currently printed if it is mistakenly specified, and
-future versions of CockroachDB may return an error in that case.
+future [version](cluster-settings.html#setting-version)s of CockroachDB may return an error in that case.
 {{site.data.alerts.end}}
 
 ### Additional connection parameters
@@ -125,7 +125,7 @@ SQL driver to determine whether these options are supported.
 
 ### Convert a URL for different drivers
 
-{% include_cached new-in.html version="v21.2" %} The subcommand `cockroach convert-url` converts a connection URL, such as those printed out by [`cockroach start`](cockroach-start.html) or included in the online documentation, to the syntax recognized by various [client drivers](third-party-database-tools.html#drivers). For example:
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.2" %} The subcommand `cockroach convert-url` converts a connection URL, such as those printed out by [`cockroach start`](cockroach-start.html) or included in the online documentation, to the syntax recognized by various [client drivers](third-party-database-tools.html#drivers). For example:
 
 ~~~
 $ ./cockroach convert-url --url "postgres://foo/bar"
@@ -197,7 +197,7 @@ For each command-line flag that directs a connection parameter,
 CockroachDB also recognizes an environment variable. The environment
 variable is used when the command-line flag is not specified.
 
-{% include {{ page.version.version }}/sql/connection-parameters.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/connection-parameters.md %}
 
 ### Example command-line flags for an insecure connection
 

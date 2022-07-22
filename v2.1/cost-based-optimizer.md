@@ -4,14 +4,14 @@ summary: The cost-based optimizer seeks the lowest cost for a query, usually rel
 toc: true
 ---
 
-<span class="version-tag">New in v2.1:</span> The cost-based optimizer seeks the lowest cost for a query, usually related to time.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v2.1:</span> The cost-based optimizer seeks the lowest cost for a query, usually related to time.
 
-In versions 2.1 and later, CockroachDB's **cost-based optimizer is enabled by default**. In versions prior to v2.1, a heuristic planner was used to generate query execution plans. The heuristic planner will only be used in the following cases:
+In [version](cluster-settings.html#setting-version)s 2.1 and later, CockroachDB's **cost-based optimizer is enabled by default**. In [version](cluster-settings.html#setting-version)s prior to v2.1, a heuristic planner was used to generate query execution plans. The heuristic planner will only be used in the following cases:
 
 - If your query uses functionality that is not supported by the cost-based optimizer
 - If you explicitly [turn off the cost-based optimizer](#how-to-turn-the-optimizer-off)
 
-{% include {{ page.version.version }}/misc/beta-warning.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/beta-warning.md %}
 
 ## How is cost calculated?
 

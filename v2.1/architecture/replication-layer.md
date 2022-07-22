@@ -118,7 +118,7 @@ When checking for leaseholder rebalancing opportunities, the current leaseholder
 
 ##### Controlling leaseholder rebalancing
 
-You can control leaseholder rebalancing through the `kv.allocator.load_based_lease_rebalancing.enabled` and `kv.allocator.lease_rebalancing_aggressiveness` [cluster settings](../cluster-settings.html).
+You can control leaseholder rebalancing through the `[kv.allocator.load_based_lease_rebalancing.enabled](cluster-settings.html#setting-kv-allocator-load_based_lease_rebalancing-enabled)` and `kv.allocator.lease_rebalancing_aggressiveness` [cluster settings](../cluster-settings.html).
 
 ### Membership changes: rebalance/repair
 
@@ -132,7 +132,7 @@ Rebalancing is achieved by using a snapshot of a replica from the leaseholder, a
 
 #### Load-based replica rebalancing
 
-<span class="version-tag">New in v2.1:</span> In addition to the rebalancing that occurs when nodes join or leave a cluster, replicas are also rebalanced automatically based on the relative load across the nodes within a cluster. For more information, see the `kv.allocator.load_based_rebalancing` and `kv.allocator.qps_rebalance_threshold` [cluster settings](../cluster-settings.html).  Note that depending on the needs of your deployment, you can exercise additional control over the location of leases and replicas by [configuring replication zones](../configure-replication-zones.html).
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v2.1:</span> In addition to the rebalancing that occurs when nodes join or leave a cluster, replicas are also rebalanced automatically based on the relative load across the nodes within a cluster. For more information, see the `[kv.allocator.load_based_rebalancing](cluster-settings.html#setting-kv-allocator-load_based_rebalancing)` and `[kv.allocator.qps_rebalance_threshold](cluster-settings.html#setting-kv-allocator-qps_rebalance_threshold)` [cluster settings](../cluster-settings.html).  Note that depending on the needs of your deployment, you can exercise additional control over the location of leases and replicas by [configuring replication zones](../configure-replication-zones.html).
 
 ## Interactions with other layers
 

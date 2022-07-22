@@ -18,7 +18,7 @@ No [privileges](privileges.html) are required to modify the session settings.
 
 General syntax:
 
-{% include {{ page.version.version }}/sql/diagrams/set_var.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/set_var.html %}
 
 {{site.data.alerts.callout_info}}The <code>SET</code> statement for session settings is unrelated to the other <a href="set-transaction.html"><code>SET TRANSACTION</code></a> and <a href="cluster-settings.html#change-a-cluster-setting"><code>SET CLUSTER SETTING</code></a> statements.{{site.data.alerts.end}}
 

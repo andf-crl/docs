@@ -200,7 +200,7 @@ Statement | Usage
 
 ## Changefeed statements ({{ site.data.products.enterprise }})
 
-[Change data capture](change-data-capture-overview.html) (CDC) provides an {{ site.data.products.enterprise }} and core version of row-level change subscriptions for downstream processing.
+[Change data capture](change-data-capture-overview.html) (CDC) provides an {{ site.data.products.enterprise }} and core [version](cluster-settings.html#setting-version) of row-level change subscriptions for downstream processing.
 
 Statement | Usage
 ----------|------------

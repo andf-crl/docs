@@ -37,7 +37,7 @@ Because this kind of behavior is entirely unexpected, you should [file an issue]
 
 ## SQL Logging
 
-{% include {{ page.version.version }}/faq/sql-query-logging.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/faq/sql-query-logging.md %}
 
 ## Something Else?
 

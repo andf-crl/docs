@@ -13,7 +13,7 @@ In a [multi-region deployment](multiregion-overview.html), [regional table local
 Tables with regional table locality can survive zone or region failures, depending on the database-level [survival goal](multiregion-overview.html#survival-goals) setting.
 
 {{site.data.alerts.callout_success}}
-{% include {{page.version.version}}/misc/multiregion-max-offset.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/misc/multiregion-max-offset.md %}
 {{site.data.alerts.end}}
 
 ## Prerequisites
@@ -22,11 +22,11 @@ Tables with regional table locality can survive zone or region failures, dependi
 
 ### Fundamentals
 
-{% include {{ page.version.version }}/topology-patterns/multiregion-fundamentals.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/topology-patterns/multiregion-fundamentals.md %}
 
 ### Cluster setup
 
-{% include {{ page.version.version }}/topology-patterns/multi-region-cluster-setup.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/topology-patterns/multi-region-cluster-setup.md %}
 
 ## Configuration
 
@@ -36,11 +36,11 @@ To use this pattern, set the [table locality](multiregion-overview.html#table-lo
 
 #### Regional tables
 
-{% include {{page.version.version}}/sql/regional-table-description.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/regional-table-description.md %}
 
 #### Regional by row tables
 
-{% include {{page.version.version}}/sql/regional-by-row-table-description.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/regional-by-row-table-description.md %}
 
 ### Steps
 
@@ -48,7 +48,7 @@ To use this pattern, set the [table locality](multiregion-overview.html#table-lo
 By default, all tables in a multi-region database are [regional tables](#regional-tables).  Therefore, the steps below show how to set up [regional by row tables](#regional-by-row-tables).
 {{site.data.alerts.end}}
 
-{% include {{page.version.version}}/topology-patterns/multiregion-db-setup.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/topology-patterns/multiregion-db-setup.md %}
 
 1. Create a `users` table:
 
@@ -107,7 +107,7 @@ By default, all tables in a multi-region database are [regional tables](#regiona
 
     By default, the region column will get auto-assigned on insert; this is also known as "auto-homing".  For more information about how the `crdb_region` column works, see [`ALTER TABLE ... SET LOCALITY REGIONAL BY ROW`](set-locality.html#regional-by-row).
 
-{% include {{page.version.version}}/sql/locality-optimized-search.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/locality-optimized-search.md %}
 
 {{site.data.alerts.callout_success}}
 A good way to check that your [table locality settings](multiregion-overview.html#table-locality) are having the expected effect is by monitoring how the performance metrics of a workload change as the settings are applied to a running cluster.  For a tutorial showing how table localities can improve performance metrics across a multi-region cluster, see [Low Latency Reads and Writes in a Multi-Region Cluster](demo-low-latency-multi-region-deployment.html).
@@ -138,4 +138,4 @@ For a step-by-step demonstration showing how CockroachDB's multi-region capabili
 
 ## See also
 
-{% include {{ page.version.version }}/topology-patterns/see-also.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/topology-patterns/see-also.md %}

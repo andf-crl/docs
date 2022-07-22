@@ -58,7 +58,7 @@ Flag | Description
 `--listening-url-file` | The file to which the node's SQL connection URL will be written as soon as the node is ready to accept connections, in addition to being printed to the [standard output](#standard-output). When `--background` is used, this happens before the process detaches from the terminal.<br><br>This is particularly helpful in identifying the node's port when an unused port is assigned automatically (`--port=0`).
 `--locality` | Arbitrary key-value pairs that describe the location of the node. Locality might include country, region, datacenter, rack, etc. For more details, see [Locality](#locality) below.
 `--max-disk-temp-storage` | The maximum on-disk storage capacity available to store temporary data for SQL queries that exceed the memory budget (see `--max-sql-memory`). This ensures that JOINs, sorts, and other memory-intensive SQL operations are able to spill intermediate results to disk. This can be a percentage (notated as a decimal or with `%`) or any bytes-based unit (e.g., `.25`, `25%`, `500GB`, `1TB`, `1TiB`).<br><br><strong>Note:</strong> If you use the `%` notation, you might need to escape the `%` sign, for instance, while configuring CockroachDB through `systemd` service files. For this reason, it's recommended to use the decimal notation instead. Also, if expressed as a percentage, this value is interpreted relative to the size of the first store. However, the temporary space usage is never counted towards any store usage; therefore, when setting this value, it's important to ensure that the size of this temporary storage plus the size of the first store doesn't exceed the capacity of the storage device.<br><br>The temporary files are located in the path specified by the `--temp-dir` flag, or in the subdirectory of the first store (see `--store`) by default.<br><br>**Default:** `32GiB`
-<a name="flags-max-offset"></a>`--max-offset` | The maximum allowed clock offset for the cluster. If observed clock offsets exceed this limit, servers will crash to minimize the likelihood of reading inconsistent data. Increasing this value will increase the time to recovery of failures as well as the frequency of uncertainty-based read restarts.<br><br>Note that this value must be the same on all nodes in the cluster and cannot be changed with a [rolling upgrade](upgrade-cockroach-version.html). In order to change it, first stop every node in the cluster. Then once the entire cluster is offline, restart each node with the new value.<br><br>**Default:** `500ms`
+<a name="flags-max-offset"></a>`--max-offset` | The maximum allowed clock offset for the cluster. If observed clock offsets exceed this limit, servers will crash to minimize the likelihood of reading inconsistent data. Increasing this value will increase the time to recovery of failures as well as the frequency of uncertainty-based read restarts.<br><br>Note that this value must be the same on all nodes in the cluster and cannot be changed with a [rolling upgrade](upgrade-cockroach-[version](cluster-settings.html#setting-version).html). In order to change it, first stop every node in the cluster. Then once the entire cluster is offline, restart each node with the new value.<br><br>**Default:** `500ms`
 `--max-sql-memory` | The maximum in-memory storage capacity available to store temporary data for SQL queries, including prepared queries and intermediate data rows during query execution. This can be a percentage (notated as a decimal or with `%`) or any bytes-based unit, for example:<br><br>`--max-sql-memory=.25`<br>`--max-sql-memory=25%`<br>`--max-sql-memory=10000000000 ----> 1000000000 bytes`<br>`--max-sql-memory=1GB ----> 1000000000 bytes`<br>`--max-sql-memory=1GiB ----> 1073741824 bytes`<br><br>The temporary files are located in the path specified by the `--temp-dir` flag, or in the subdirectory of the first store (see `--store`) by default.<br><br><strong>Note:</strong> If you use the `%` notation, you might need to escape the `%` sign, for instance, while configuring CockroachDB through `systemd` service files. For this reason, it's recommended to use the decimal notation instead.<br><br>**Default:** `25%`<br><br>The default SQL memory size can be adjusted for production deployments. See [Recommended Production Settings](recommended-production-settings.html#cache-and-sql-memory-size) for more details.
 `--pid-file` | The file to which the node's process ID will be written as soon as the node is ready to accept connections. When `--background` is used, this happens before the process detaches from the terminal. When this flag is not set, the process ID is not written to file.
 `--store`<br>`-s` | The file path to a storage device and, optionally, store attributes and maximum size. When using multiple storage devices for a node, this flag must be specified separately for each device, for example: <br><br>`--store=/mnt/ssd01 --store=/mnt/ssd02` <br><br>For more details, see [Store](#store) below.
@@ -72,7 +72,7 @@ Flag | Description
 `--listen-addr` | The IP address/hostname and port to listen on for connections from other nodes and clients. For IPv6, use the notation `[...]`, e.g., `[::1]` or `[fe80::f6f2:::]`.<br><br>This flag's effect depends on how it is used in combination with `--advertise-addr`. For example, the node will also advertise itself to other nodes using this value if `--advertise-addr` is not specified. For more details, see [Networking](recommended-production-settings.html#networking).<br><br>**Default:** Listen on all IP addresses on port `26257`; if `--advertise-addr` is not specified, also advertise the node's canonical hostname to other nodes
 `--http-addr` | The IP address/hostname and port to listen on for Admin UI HTTP requests. For IPv6, use the notation `[...]`, e.g., `[::1]:8080` or `[fe80::f6f2:::]:8080`.<br><br>**Default:** Listen on the address part of `--listen-addr` on port `8080`
 `--locality-advertise-addr` | The IP address/hostname and port to tell other nodes in specific localities to use. This flag is useful when running a cluster across multiple networks, where nodes in a given network have access to a private or local interface while nodes outside the network do not. In this case, you can use `--locality-advertise-addr` to tell nodes within the same network to prefer the private or local address to improve performance and use `--advertise-addr` to tell nodes outside the network to use another address that is reachable from them.<br><br>This flag relies on nodes being started with the [`--locality`](#locality) flag and uses the `locality@address` notation, for example:<br><br>`--locality-advertise-addr=region=us-west@10.0.0.0:26257`<br><br>See the [example](#start-a-multi-node-cluster-across-private-networks) below for more details.
-`--join`<br>`-j` | The host addresses that connect nodes to the cluster and distribute the rest of the node addresses. These can be IP addresses or DNS aliases of nodes.<br><br>When starting a cluster in a single region, specify the addresses of 3-5 initial nodes. When starting a cluster in multiple regions, specify more than 1 address per region, and select nodes that are spread across failure domains. Then run the [`cockroach init`](cockroach-init.html) command against any of these nodes to complete cluster startup. See the [example](#start-a-multi-node-cluster) below for more details.<br><br>Use the same `--join` list for all nodes to ensure that the cluster can stabilize. Do not list every node in the cluster, because this increases the time for a new cluster to stabilize. Note that these are best practices; it is not required to restart an existing node to update its `--join` flag.<br><br><span class="version-tag">Changed in v19.2:</span> Running `cockroach start` without the `--join` flag has been deprecated. To start a single-node cluster, use `cockroach start-single-node` instead.
+`--join`<br>`-j` | The host addresses that connect nodes to the cluster and distribute the rest of the node addresses. These can be IP addresses or DNS aliases of nodes.<br><br>When starting a cluster in a single region, specify the addresses of 3-5 initial nodes. When starting a cluster in multiple regions, specify more than 1 address per region, and select nodes that are spread across failure domains. Then run the [`cockroach init`](cockroach-init.html) command against any of these nodes to complete cluster startup. See the [example](#start-a-multi-node-cluster) below for more details.<br><br>Use the same `--join` list for all nodes to ensure that the cluster can stabilize. Do not list every node in the cluster, because this increases the time for a new cluster to stabilize. Note that these are best practices; it is not required to restart an existing node to update its `--join` flag.<br><br><span class="[version](cluster-settings.html#setting-version)-tag">Changed in v19.2:</span> Running `cockroach start` without the `--join` flag has been deprecated. To start a single-node cluster, use `cockroach start-single-node` instead.
 `--advertise-host` | **Deprecated.** Use `--advertise-addr` instead.
 `--host` | **Deprecated.** Use `--listen-addr` instead.
 `--port`<br>`-p` | **Deprecated.** Specify port in `--advertise-addr` and/or `--listen-addr` instead.
@@ -118,7 +118,7 @@ The `--store` flag supports the following fields. Note that commas are used to s
 In-memory storage is not suitable for production deployments at this time.
 {{site.data.alerts.end}}
 
-{% include {{ page.version.version }}/misc/multi-store-nodes.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/multi-store-nodes.md %}
 
 Field | Description
 ------|------------
@@ -131,7 +131,7 @@ Field | Description
 
 By default, `cockroach start` writes all messages to log files, and prints nothing to `stderr`. However, you can control the process's [logging](debug-and-error-logs.html) behavior with the following flags:
 
-{% include {{ page.version.version }}/misc/logging-flags.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/logging-flags.md %}
 
 #### Defaults
 
@@ -148,7 +148,7 @@ When you run `cockroach start`, some helpful details are printed to the standard
 
 ~~~ shell
 CockroachDB node starting at {{page.release_info.start_time}}
-build:               CCL {{page.release_info.version}} @ {{page.release_info.build_time}} (go1.12.6)
+build:               CCL {{page.release_info.[version](cluster-settings.html#setting-version)}} @ {{page.release_info.build_time}} (go1.12.6)
 webui:               http://localhost:8080
 sql:                 postgresql://root@localhost:26257?sslmode=disable
 RPC client flags:    cockroach <client cmd> --host=localhost:26257 --insecure
@@ -167,7 +167,7 @@ These details are also written to the `INFO` log in the `/logs` directory. You c
 
 Field | Description
 ------|------------
-`build` | The version of CockroachDB you are running.
+`build` | The [version](cluster-settings.html#setting-version) of CockroachDB you are running.
 `webui` | The URL for accessing the Admin UI.
 `sql` | The connection URL for your client.
 `RPC client flags` | The flags to use when connecting to the node via [`cockroach` client commands](cockroach-commands.html).
@@ -183,7 +183,7 @@ Field | Description
 
 ## Known limitations
 
-{% include {{ page.version.version }}/known-limitations/adding-stores-to-node.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/adding-stores-to-node.md %}
 
 ## Examples
 
@@ -196,10 +196,10 @@ Field | Description
 
 To start a multi-node cluster, run the `cockroach start` command for each node, setting the `--join` flag to the addresses of the initial nodes.
 
-{% include {{ page.version.version }}/prod-deployment/join-flag-single-region.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/join-flag-single-region.md %}
 
 {{site.data.alerts.callout_info}}
-{% include {{ page.version.version }}/prod-deployment/join-flag-multi-region.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/join-flag-multi-region.md %}
 {{site.data.alerts.end}}
 
 <div class="filter-content" markdown="1" data-scope="secure">

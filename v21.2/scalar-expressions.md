@@ -43,7 +43,7 @@ An expression in a query can refer to columns in the current data source in two 
     {{site.data.alerts.callout_danger}}
     Use ordinal references with care in production code. During schema updates, column ordinal
     positions can change and invalidate existing queries that use ordinal positions based on a
-    previous version of the schema.
+    previous [version](cluster-settings.html#setting-version) of the schema.
     {{site.data.alerts.end}}
 
 ## Unary and binary operations
@@ -384,7 +384,7 @@ See also [supported built-in functions](functions-and-operators.html).
 
 In addition, the following SQL special forms are also supported:
 
-{% include {{ page.version.version }}/sql/function-special-forms.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/function-special-forms.md %}
 
 #### Typing rule
 
@@ -611,7 +611,7 @@ CAST (<expr> AS <type>)
 ~~~
 
 Evaluates the expression and converts the resulting value to the
-specified type. An error is reported if the conversion is invalid.
+specified type. An error is reported if the con[version](cluster-settings.html#setting-version) is invalid.
 
 For example: `CAST(now() AS DATE)`
 
@@ -681,10 +681,10 @@ specified explicitly using a type annotation. For example:
 > SELECT ARRAY[]:::int[];
 ~~~
 
-To convert the results of a subquery to an array, use [`ARRAY(...)`](#conversion-of-subquery-results-to-an-array) instead.
+To convert the results of a subquery to an array, use [`ARRAY(...)`](#con[version](cluster-settings.html#setting-version)-of-subquery-results-to-an-array) instead.
 
 {{site.data.alerts.callout_success}}
-- CockroachDB also recognizes the syntax `ARRAY(a, b, c)` as an alias for `ARRAY[a, b, c]`. This is an experimental, CockroachDB-specific SQL extension and may be removed in a later version of CockroachDB.
+- CockroachDB also recognizes the syntax `ARRAY(a, b, c)` as an alias for `ARRAY[a, b, c]`. This is an experimental, CockroachDB-specific SQL extension and may be removed in a later [version](cluster-settings.html#setting-version) of CockroachDB.
 {{site.data.alerts.end}}
 
 #### Typing rule
@@ -862,7 +862,7 @@ any row (for `NOT EXISTS`).
 
 The operand can have any table type. The result has type `BOOL`.
 
-### Conversion of subquery results to an array
+### Con[version](cluster-settings.html#setting-version) of subquery results to an array
 
 Syntax:
 

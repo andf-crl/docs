@@ -12,7 +12,7 @@ The `SHOW TABLES` [statement](sql-statements.html) lists the tables or [views](v
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/show_tables.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/show_tables.html %}
 </div>
 
 ## Required privileges
@@ -118,7 +118,7 @@ This uses the [current schema](sql-name-resolution.html#current-schema) `public`
 
 ### Show tables with comments
 
-<span class="version-tag">New in v19.1:</span>You can use [`COMMENT ON`](comment-on.html) to add comments on a table. To view a table's comments:
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v19.1:</span>You can use [`COMMENT ON`](comment-on.html) to add comments on a table. To view a table's comments:
 
 ~~~ sql
 > SHOW TABLES FROM customers WITH COMMENT;

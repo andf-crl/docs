@@ -6,7 +6,7 @@ toc_not_nested: true
 docs_area: deploy
 ---
 
-{% assign previous_version = site.data.versions | where_exp: "previous_version", "previous_version.major_version == page.version.version" | first | map: "previous_version" %}
+{% assign previous_[version](cluster-settings.html#setting-version) = site.data.[version](cluster-settings.html#setting-version)s | where_exp: "previous_[version](cluster-settings.html#setting-version)", "previous_[version](cluster-settings.html#setting-version).major_[version](cluster-settings.html#setting-version) == page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)" | first | map: "previous_[version](cluster-settings.html#setting-version)" %}
 
 <div class="filters filters-big clearfix">
     <button class="filter-button" data-scope="gke">GKE</button>
@@ -33,7 +33,7 @@ Feature | Description
 --------|------------
 [node](https://kubernetes.io/docs/concepts/architecture/nodes/) | A physical or virtual machine. In this tutorial, you'll run GKE or EKS instances and join them as worker nodes in three independent Kubernetes clusters, each in a different region.
 [pod](http://kubernetes.io/docs/user-guide/pods/) | A pod is a group of one or more Docker containers. In this tutorial, each pod will run on a separate GKE or EKS instance and include one Docker container running a single CockroachDB node. You'll start with 3 pods in each region and grow to 4.
-[StatefulSet](http://kubernetes.io/docs/concepts/abstractions/controllers/statefulsets/) | A group of pods treated as stateful units, where each pod has distinguishable network identity and always binds back to the same persistent storage on restart. StatefulSets are considered stable as of Kubernetes version 1.9 after reaching beta in version 1.5.
+[StatefulSet](http://kubernetes.io/docs/concepts/abstractions/controllers/statefulsets/) | A group of pods treated as stateful units, where each pod has distinguishable network identity and always binds back to the same persistent storage on restart. StatefulSets are considered stable as of Kubernetes [version](cluster-settings.html#setting-version) 1.9 after reaching beta in [version](cluster-settings.html#setting-version) 1.5.
 [persistent volume](http://kubernetes.io/docs/user-guide/persistent-volumes/) | A piece of networked storage (Persistent Disk on GCE, Elastic Block Store on AWS) mounted into a pod. The lifetime of a persistent volume is decoupled from the lifetime of the pod that's using it, ensuring that each CockroachDB node binds back to the same storage on restart.<br><br>This tutorial assumes that dynamic volume provisioning is available. When that is not the case, [persistent volume claims](http://kubernetes.io/docs/user-guide/persistent-volumes/#persistentvolumeclaims) need to be created manually.
 [CSR](https://kubernetes.io/docs/tasks/tls/managing-tls-in-a-cluster/) | A CSR, or certificate signing request, is a request to have a TLS certificate verified by a certificate authority (CA). A CSR is issued for the CockroachDB node running in each pod, as well as each client as it connects to the Kubernetes cluster.
 [RBAC](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) | RBAC, or role-based access control, is the system Kubernetes uses to manage permissions within the cluster. In order to take an action (e.g., `get` or `create`) on an API resource (e.g., a `pod`), the client must have a `Role` that allows it to do so.
@@ -57,7 +57,7 @@ To enable the pods to communicate across regions, we peer the VPCs in all 3 regi
 
 ### Limitations
 
-{% include {{ page.version.version }}/orchestration/kubernetes-limitations.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/orchestration/kubernetes-limitations.md %}
 
 <section class="filter-content" markdown="1" data-scope="gke">
 #### Exposing DNS servers
@@ -321,7 +321,7 @@ Source | The IP range of each region's VPC in CIDR notation (e.g., 10.12.0.0/16)
 
 This important rule enables node communication between Kubernetes clusters in different regions. You need to create a separate rule for each region in your deployment.
 
-{% include {{ page.version.version }}/prod-deployment/aws-inbound-rules.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/aws-inbound-rules.md %}
 
 ### Set up load balancing
 
@@ -690,7 +690,7 @@ The below steps use [`cockroach cert` commands](cockroach-cert.html) to quickly 
 
 ### Create StatefulSets
 
-1. Download and open our [multi-region StatefulSet configuration](https://github.com/cockroachdb/cockroach/blob/master/cloud/kubernetes/multiregion/eks/cockroachdb-statefulset-secure-eks.yaml). You'll save three versions of this file locally, one for each set of 3 CockroachDB nodes per region.
+1. Download and open our [multi-region StatefulSet configuration](https://github.com/cockroachdb/cockroach/blob/master/cloud/kubernetes/multiregion/eks/cockroachdb-statefulset-secure-eks.yaml). You'll save three [version](cluster-settings.html#setting-version)s of this file locally, one for each set of 3 CockroachDB nodes per region.
 
     {% include_cached copy-clipboard.html %}
     ~~~ shell
@@ -840,7 +840,7 @@ The pod uses the `root` client certificate created earlier by the `setup.py` scr
     # All statements must be terminated by a semicolon.
     # To exit: CTRL + D.
     #
-    # Server version: CockroachDB CCL v2.0.5 (x86_64-unknown-linux-gnu, built 2018/08/13 17:59:42, go1.10) (same version as client)
+    # Server [version](cluster-settings.html#setting-version): CockroachDB CCL v2.0.5 (x86_64-unknown-linux-gnu, built 2018/08/13 17:59:42, go1.10) (same [version](cluster-settings.html#setting-version) as client)
     # Cluster ID: 99346e82-9817-4f62-b79b-fdd5d57f8bda
     #
     # Enter \? for a brief introduction.
@@ -1047,41 +1047,41 @@ Each of your Kubernetes clusters contains 3 instances that can run CockroachDB p
 
 ### Upgrade the cluster
 
-We strongly recommend that you regularly upgrade your CockroachDB version in order to pick up bug fixes, performance improvements, and new features.
+We strongly recommend that you regularly upgrade your CockroachDB [version](cluster-settings.html#setting-version) in order to pick up bug fixes, performance improvements, and new features.
 
 The upgrade process on Kubernetes is a [staged update](https://kubernetes.io/docs/tutorials/stateful-application/basic-stateful-set/#staging-an-update) in which the Docker image is applied to the pods one at a time, with each pod being stopped and restarted in turn. This is to ensure that the cluster remains available during the upgrade.
 
 1. Verify that you can upgrade.
 
-    To upgrade to a new major version, you must first be on a production release of the previous version. The release does not need to be the latest production release of the previous version, but it must be a production [release](../releases/index.html) and not a testing release (alpha/beta).
+    To upgrade to a new major [version](cluster-settings.html#setting-version), you must first be on a production release of the previous [version](cluster-settings.html#setting-version). The release does not need to be the latest production release of the previous [version](cluster-settings.html#setting-version), but it must be a production [release](../releases/index.html) and not a testing release (alpha/beta).
 
-    Therefore, in order to upgrade to {{ page.version.version }}, you must be on a production release of {{ previous_version }}.
+    Therefore, in order to upgrade to {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}, you must be on a production release of {{ previous_[version](cluster-settings.html#setting-version) }}.
 
-    1. If you are upgrading to {{ page.version.version }} from a production release earlier than {{ previous_version }}, or from a testing release (alpha/beta), first [upgrade to a production release of {{ previous_version }}](../{{ previous_version }}/orchestrate-cockroachdb-with-kubernetes-multi-cluster.html#upgrade-the-cluster). Be sure to complete all the steps.
+    1. If you are upgrading to {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }} from a production release earlier than {{ previous_[version](cluster-settings.html#setting-version) }}, or from a testing release (alpha/beta), first [upgrade to a production release of {{ previous_[version](cluster-settings.html#setting-version) }}](../{{ previous_[version](cluster-settings.html#setting-version) }}/orchestrate-cockroachdb-with-kubernetes-multi-cluster.html#upgrade-the-cluster). Be sure to complete all the steps.
 
-    1. Then return to this page and perform a second upgrade to {{ page.version.version }}.
+    1. Then return to this page and perform a second upgrade to {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}.
 
-    1. If you are upgrading from any production release of {{ previous_version }}, or from any earlier {{ page.version.version }} release, you do not have to go through intermediate releases; continue to step 2.
+    1. If you are upgrading from any production release of {{ previous_[version](cluster-settings.html#setting-version) }}, or from any earlier {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }} release, you do not have to go through intermediate releases; continue to step 2.
 
 1. Verify the overall health of your cluster using the [DB Console](ui-overview.html). On the **Overview**:
     - Under **Node Status**, make sure all nodes that should be live are listed as such. If any nodes are unexpectedly listed as suspect or dead, identify why the nodes are offline and either restart them or decommission them before beginning your upgrade. If there are dead and non-decommissioned nodes in your cluster, it will not be possible to finalize the upgrade (either automatically or manually).
     - Under **Replication Status**, make sure there are 0 under-replicated and unavailable ranges. Otherwise, performing a rolling upgrade increases the risk that ranges will lose a majority of their replicas and cause cluster unavailability. Therefore, it's important to identify and resolve the cause of range under-replication and/or unavailability before beginning your upgrade.
     - In the **Node List**:
-        - Make sure all nodes are on the same version. If any nodes are behind, upgrade them to the cluster's current version first, and then start this process over.
-        - Make sure capacity and memory usage are reasonable for each node. Nodes must be able to tolerate some increase in case the new version uses more resources for your workload. Also go to **Metrics > Dashboard: Hardware** and make sure CPU percent is reasonable across the cluster. If there's not enough headroom on any of these metrics, consider [adding nodes](#scale-the-cluster) to your cluster before beginning your upgrade.
+        - Make sure all nodes are on the same [version](cluster-settings.html#setting-version). If any nodes are behind, upgrade them to the cluster's current [version](cluster-settings.html#setting-version) first, and then start this process over.
+        - Make sure capacity and memory usage are reasonable for each node. Nodes must be able to tolerate some increase in case the new [version](cluster-settings.html#setting-version) uses more resources for your workload. Also go to **Metrics > Dashboard: Hardware** and make sure CPU percent is reasonable across the cluster. If there's not enough headroom on any of these metrics, consider [adding nodes](#scale-the-cluster) to your cluster before beginning your upgrade.
 
 {% comment %}
-1. Review the [backward-incompatible changes in {{ page.version.version }}](../releases/{{ page.version.version }}.html#v21-2-0#backward-incompatible-changes) and [deprecated features](../releases/{{ page.version.version }}.html#v21-2-0#deprecations). If any affect your deployment, make the necessary changes before starting the rolling upgrade to {{ page.version.version }}.
+1. Review the [backward-incompatible changes in {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}](../releases/{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}.html#v21-2-0#backward-incompatible-changes) and [deprecated features](../releases/{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}.html#v21-2-0#deprecations). If any affect your deployment, make the necessary changes before starting the rolling upgrade to {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}.
 {% endcomment %}
 
-1. Review the backward-incompatible changes in {{ page.version.version }} and deprecated features. If any affect your deployment, make the necessary changes before starting the rolling upgrade to {{ page.version.version }}.
+1. Review the backward-incompatible changes in {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }} and deprecated features. If any affect your deployment, make the necessary changes before starting the rolling upgrade to {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}.
 
 1. Decide how the upgrade will be finalized.
 
-    By default, after all nodes are running the new version, the upgrade process will be **auto-finalized**. This will enable certain [features and performance improvements introduced in {{ page.version.version }}](upgrade-cockroach-version.html#features-that-require-upgrade-finalization). After finalization, however, it will no longer be possible to perform a downgrade to {{ previous_version }}. In the event of a catastrophic failure or corruption, the only option is to start a new cluster using the old binary and then restore from a [backup](take-full-and-incremental-backups.html) created prior to the upgrade. For this reason, **we recommend disabling auto-finalization** so you can monitor the stability and performance of the upgraded cluster before finalizing the upgrade, but note that you will need to follow all of the subsequent directions, including the manual finalization in a later step.
+    By default, after all nodes are running the new [version](cluster-settings.html#setting-version), the upgrade process will be **auto-finalized**. This will enable certain [features and performance improvements introduced in {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}](upgrade-cockroach-[version](cluster-settings.html#setting-version).html#features-that-require-upgrade-finalization). After finalization, however, it will no longer be possible to perform a downgrade to {{ previous_[version](cluster-settings.html#setting-version) }}. In the event of a catastrophic failure or corruption, the only option is to start a new cluster using the old binary and then restore from a [backup](take-full-and-incremental-backups.html) created prior to the upgrade. For this reason, **we recommend disabling auto-finalization** so you can monitor the stability and performance of the upgraded cluster before finalizing the upgrade, but note that you will need to follow all of the subsequent directions, including the manual finalization in a later step.
 
     {{site.data.alerts.callout_info}}
-    Finalization only applies when performing a major version upgrade (for example, from {{ previous_version }}.x to {{ page.version.version }}). Patch version upgrades (for example, within the {{ page.version.version }}.x series) can always be downgraded.
+    Finalization only applies when performing a major [version](cluster-settings.html#setting-version) upgrade (for example, from {{ previous_[version](cluster-settings.html#setting-version) }}.x to {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}). Patch [version](cluster-settings.html#setting-version) upgrades (for example, within the {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}.x series) can always be downgraded.
     {{site.data.alerts.end}}
 
     1. Get a shell into the pod with the `cockroach` binary created earlier and start the CockroachDB [built-in SQL client](cockroach-sql.html):
@@ -1091,14 +1091,14 @@ The upgrade process on Kubernetes is a [staged update](https://kubernetes.io/doc
         $ kubectl exec -it cockroachdb-client-secure --context <cluster-context> --namespace <cluster-namespace> -- ./cockroach sql --certs-dir=/cockroach-certs --host=cockroachdb-public
         ~~~
 
-    2. Set the `cluster.preserve_downgrade_option` [cluster setting](cluster-settings.html):
+    2. Set the `[cluster.preserve_downgrade_option](cluster-settings.html#setting-cluster-preserve_downgrade_option)` [cluster setting](cluster-settings.html):
 
         {% include_cached copy-clipboard.html %}
         ~~~ sql
-        > SET CLUSTER SETTING cluster.preserve_downgrade_option = '21.1';
+        > SET CLUSTER SETTING [cluster.preserve_downgrade_option](cluster-settings.html#setting-cluster-preserve_downgrade_option) = '21.1';
         ~~~
 
-2. For each Kubernetes cluster, kick off the upgrade process by changing the desired Docker image. To do so, pick the version that you want to upgrade to, then run the following command, replacing "VERSION" with your desired new version and specifying the relevant namespace and "context" name for the Kubernetes cluster:
+2. For each Kubernetes cluster, kick off the upgrade process by changing the desired Docker image. To do so, pick the [version](cluster-settings.html#setting-version) that you want to upgrade to, then run the following command, replacing "VERSION" with your desired new [version](cluster-settings.html#setting-version) and specifying the relevant namespace and "context" name for the Kubernetes cluster:
 
     {% include_cached copy-clipboard.html %}
     ~~~ shell
@@ -1139,7 +1139,7 @@ The upgrade process on Kubernetes is a [staged update](https://kubernetes.io/doc
     If you decide to roll back the upgrade, repeat the rolling restart procedure with the old binary.
 
     {{site.data.alerts.callout_info}}
-    This is only possible when performing a major version upgrade (for example, from {{ previous_version }}.x to {{ page.version.version }}). Patch version upgrades (for example, within the {{ page.version.version }}.x series) are auto-finalized.
+    This is only possible when performing a major [version](cluster-settings.html#setting-version) upgrade (for example, from {{ previous_[version](cluster-settings.html#setting-version) }}.x to {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}). Patch [version](cluster-settings.html#setting-version) upgrades (for example, within the {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}.x series) are auto-finalized.
     {{site.data.alerts.end}}
 
     To finalize the upgrade, re-enable auto-finalization:
@@ -1155,7 +1155,7 @@ The upgrade process on Kubernetes is a [staged update](https://kubernetes.io/doc
 
         {% include_cached copy-clipboard.html %}
         ~~~ sql
-        > RESET CLUSTER SETTING cluster.preserve_downgrade_option;
+        > RESET CLUSTER SETTING [cluster.preserve_downgrade_option](cluster-settings.html#setting-cluster-preserve_downgrade_option);
         ~~~
 
 ### Stop the cluster
@@ -1321,4 +1321,4 @@ If you stop Kubernetes without first deleting the persistent volumes, they will 
 
 - [Kubernetes Single-Cluster Deployment](orchestrate-cockroachdb-with-kubernetes.html)
 - [Kubernetes Performance Guide](kubernetes-performance.html)
-{% include {{ page.version.version }}/prod-deployment/prod-see-also.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/prod-see-also.md %}

@@ -4,7 +4,7 @@ summary: The SHOW LOCALITY statement returns the locality of the current node.
 toc: true
 ---
 
-<span class="version-tag">New in v19.2:</span> The `SHOW LOCALITY` [statement](sql-statements.html) returns the [locality](cockroach-start.html#locality) of the current node.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v19.2:</span> The `SHOW LOCALITY` [statement](sql-statements.html) returns the [locality](cockroach-start.html#locality) of the current node.
 
 If locality was not specified on node startup, the statement returns an empty row.
 
@@ -19,7 +19,7 @@ No [privileges](authorization.html#assign-privileges) are required to list the l
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/show_locality.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/show_locality.html %}
 </div>
 
 ## Example

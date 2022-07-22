@@ -365,7 +365,7 @@ Transaction contention can also increase the rate of transaction restarts, and t
 
 ### Find contention
 
-{% include {{ page.version.version }}/performance/statement-contention.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/performance/statement-contention.md %}
 
 ### Avoid contention
 

@@ -14,7 +14,7 @@ No [privileges](privileges.html) are required to display the session settings.
 
 ## Synopsis
 
-{% include {{ page.version.version }}/sql/diagrams/show_var.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/show_var.html %}
 
 {{site.data.alerts.callout_info}}The <code>SHOW</code> statement for session settings is unrelated to the other <code>SHOW</code> statements: <a href="cluster-settings.html#view-current-cluster-settings"><code>SHOW CLUSTER SETTING</code></a>, <a href="show-create-table.html"><code>SHOW CREATE TABLE</code></a>, <a href="show-create-view.html"><code>SHOW CREATE VIEW</code></a>, <a href="show-users.html"><code>SHOW USERS</code></a>, <a href="show-databases.html"><code>SHOW DATABASES</code></a>, <a href="show-columns.html"><code>SHOW COLUMNS</code></a>, <a href="show-grants.html"><code>SHOW GRANTS</code></a>, and <a href="show-constraints.html"><code>SHOW CONSTRAINTS</code></a>.{{site.data.alerts.end}}
 
@@ -32,9 +32,9 @@ The variable name is case insensitive. It may be enclosed in double quotes; this
 | `database` | The default database for the current session. | Database in connection string, or empty if not specified | Yes |
 | `default_transaction_isolation` | The default transaction isolation level for the current session. See [Transaction parameters](transactions.html#transaction-parameters) for more details. | Settings in connection string, or `SERIALIZABLE` if not specified | Yes |
 | `distsql` | | `auto` | |
-| `node_id` | <span class="version-tag">New in v1.1:</span> The ID of the node currently connected to.<br><br>This variable is particularly useful for verifying load balanced connections. | Node-dependent | No |
+| `node_id` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v1.1:</span> The ID of the node currently connected to.<br><br>This variable is particularly useful for verifying load balanced connections. | Node-dependent | No |
 | `search_path` | A list of databases or namespaces that will be searched to resolve unqualified table or function names. For more details, see [Name Resolution](sql-name-resolution.html). | `{pg_catalog}` (for ORM compatibility) | Yes |
-| `server_version` | The version of PostgreSQL that CockroachDB emulates. | Version-dependent | No |
+| `server_[version](cluster-settings.html#setting-version)` | The [version](cluster-settings.html#setting-version) of PostgreSQL that CockroachDB emulates. | Version-dependent | No |
 | `session_user` | The user connected for the current session. | User in connection string | No |
 | `sql_safe_updates` | If `false`, potentially unsafe SQL statements are allowed, including `DROP` of a non-empty database and all dependent objects, `DELETE` without a `WHERE` clause, `UPDATE` without a `WHERE` clause, and `ALTER TABLE .. DROP COLUMN`. See [Allow Potentially Unsafe SQL Statements](use-the-built-in-sql-client.html#allow-potentially-unsafe-sql-statements) for more details. | `true` for interactive sessions from the [built-in SQL client](use-the-built-in-sql-client.html),<br>`false` for sessions from other clients | Yes |
 | `time zone` | The default time zone for the current session   | `UTC` | Yes |
@@ -95,7 +95,7 @@ Special syntax cases supported for compatibility:
 | max_index_keys                |           32 |
 | node_id                       |            1 |
 | search_path                   | pg_catalog   |
-| server_version                | 9.5.0        |
+| server_[version](cluster-settings.html#setting-version)                | 9.5.0        |
 | session_user                  | root         |
 | standard_conforming_strings   | on           |
 | time zone                     | UTC          |

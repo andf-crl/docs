@@ -7,7 +7,7 @@ docs_area: migrate
 
 This page has instructions for migrating data from Avro files into CockroachDB using [`IMPORT`][import].
 
-{% include {{ page.version.version }}/misc/import-perf.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/import-perf.md %}
 
 ## Step 1. Export data to Avro
 
@@ -123,7 +123,7 @@ For example, to import the data from `userdata1.avro` into an `employees` table,
 
 Repeat this process for each OCF you want to import.
 
-{% include {{ page.version.version }}/sql/use-import-into.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/use-import-into.md %}
 
 {{site.data.alerts.callout_info}}
 You will need to run [`ALTER TABLE ... ADD CONSTRAINT`](add-constraint.html) to add any foreign key relationships.
@@ -198,7 +198,7 @@ For example, to import the data from `simple-schema.json` into an `simple` table
 
 Repeat this process for each binary or JSON file you want to import.
 
-{% include {{ page.version.version }}/sql/use-import-into.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/use-import-into.md %}
 
 {{site.data.alerts.callout_info}}
 You will need to run [`ALTER TABLE ... ADD CONSTRAINT`](add-constraint.html) to add any foreign key relationships.

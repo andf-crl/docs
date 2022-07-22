@@ -49,7 +49,7 @@ An expression in a query can refer to columns in the current data source in two 
   Ordinal references should be used with care in production
   code! During schema updates, column ordinal positions can change and
   invalidate existing queries that use ordinal positions based on a
-  previous version of the schema.
+  previous [version](cluster-settings.html#setting-version) of the schema.
   {{site.data.alerts.end}}
 
 ## Unary and binary operations
@@ -406,7 +406,7 @@ See also [the separate section on supported built-in functions](functions-and-op
 
 In addition, the following SQL special forms are also supported:
 
-{% include {{ page.version.version }}/sql/function-special-forms.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/function-special-forms.md %}
 
 #### Typing rule
 
@@ -626,7 +626,7 @@ CAST (<expr> AS <type>)
 ~~~
 
 Evaluates the expression and converts the resulting value to the
-specified type. An error is reported if the conversion is invalid.
+specified type. An error is reported if the con[version](cluster-settings.html#setting-version) is invalid.
 
 For example: `CAST(now() AS DATE)`
 
@@ -698,9 +698,9 @@ specified explicitly using a type annotation. For example:
 > SELECT ARRAY[]:::int[];
 ~~~
 
-{{site.data.alerts.callout_success}}To convert the results of a subquery to an array, use <a href="#conversion-of-subquery-results-to-an-array"><code>ARRAY(...)</code></a> instead.{{site.data.alerts.end}}
+{{site.data.alerts.callout_success}}To convert the results of a subquery to an array, use <a href="#con[version](cluster-settings.html#setting-version)-of-subquery-results-to-an-array"><code>ARRAY(...)</code></a> instead.{{site.data.alerts.end}}
 
-{{site.data.alerts.callout_success}}CockroachDB also recognizes the syntax <code>ARRAY(a, b, c)</code> as an alias for <code>ARRAY[a, b, c]</code>. This is an experimental, CockroachDB-specific SQL extension and may be removed in a later version of CockroachDB.{{site.data.alerts.end}}
+{{site.data.alerts.callout_success}}CockroachDB also recognizes the syntax <code>ARRAY(a, b, c)</code> as an alias for <code>ARRAY[a, b, c]</code>. This is an experimental, CockroachDB-specific SQL extension and may be removed in a later [version](cluster-settings.html#setting-version) of CockroachDB.{{site.data.alerts.end}}
 
 #### Typing rule
 
@@ -851,7 +851,7 @@ can be used as subquery.
 
 The operand can have any table type. The result has type `BOOL`.
 
-### Conversion of subquery results to an array
+### Con[version](cluster-settings.html#setting-version) of subquery results to an array
 
 Syntax:
 

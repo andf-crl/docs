@@ -15,7 +15,7 @@ This page walks you through a series of simple database schema changes using Fly
 Before you begin, do the following:
 
 1. [Install CockroachDB](install-cockroachdb.html) and [start a secure cluster](secure-a-cluster.html).    
-1. Download the latest version of the [Flyway command-line tool](https://flywaydb.org/documentation/commandline/#download-and-installation). CockroachDB v20.2 is fully compatible with Flyway versions 7.1.0 and greater.
+1. Download the latest [version](cluster-settings.html#setting-version) of the [Flyway command-line tool](https://flywaydb.org/documentation/commandline/#download-and-installation). CockroachDB v20.2 is fully compatible with Flyway [version](cluster-settings.html#setting-version)s 7.1.0 and greater.
 
 ## Step 1. Configure Flyway connect to CockroachDB
 
@@ -86,25 +86,25 @@ You should see output similar to the following:
 Database: jdbc:postgresql://localhost:26257/bank (PostgreSQL 9.5)
 Successfully validated 1 migration (execution time 00:00.011s)
 Creating Schema History table "bank"."flyway_schema_history" ...
-Current version of schema "bank": << Empty Schema >>
-Migrating schema "bank" to version 1 - Add accounts table [non-transactional]
+Current [version](cluster-settings.html#setting-version) of schema "bank": << Empty Schema >>
+Migrating schema "bank" to [version](cluster-settings.html#setting-version) 1 - Add accounts table [non-transactional]
 Successfully applied 1 migration to schema "bank" (execution time 00:00.081s)
 ~~~
 
-The schema `"bank"` is now on version 1.
+The schema `"bank"` is now on [version](cluster-settings.html#setting-version) 1.
 
 ## Step 4. Add additional migrations
 
 Suppose that you want to change the primary key of the `accounts` table from a simple, incrementing [integer](int.html) (in this case, `id`) to an auto-generated [UUID](uuid.html), to follow some [CockroachDB best practices](performance-best-practices-overview.html#unique-id-best-practices). You can make these changes to the schema by creating and executing an additional migration:
 
-1. Create a second `.sql` schema migration file, and name the file following the [Flyway naming conventions](https://flywaydb.org/documentation/migrations#naming), to specify a new migration version. For example:
+1. Create a second `.sql` schema migration file, and name the file following the [Flyway naming conventions](https://flywaydb.org/documentation/migrations#naming), to specify a new migration [version](cluster-settings.html#setting-version). For example:
 
     {% include copy-clipboard.html %}
     ~~~ shell
     $ touch sql/V2__Alter_accounts_pk.sql
     ~~~
 
-    This file will create a version 2 of the `"bank"` schema.
+    This file will create a [version](cluster-settings.html#setting-version) 2 of the `"bank"` schema.
 
 1. Edit the `V2__Alter_accounts_pk.sql` migration file, adding some SQL statements that will add a new column to the `accounts` table, and alter the table's primary key. For example:
 
@@ -130,13 +130,13 @@ Suppose that you want to change the primary key of the `accounts` table from a s
     Flyway Community Edition 6.4.2 by Redgate
     Database: jdbc:postgresql://localhost:26257/bank (PostgreSQL 9.5)
     Successfully validated 2 migrations (execution time 00:00.016s)
-    Current version of schema "bank": 1
-    Migrating schema "bank" to version 2 - Alter accounts pk [non-transactional]
+    Current [version](cluster-settings.html#setting-version) of schema "bank": 1
+    Migrating schema "bank" to [version](cluster-settings.html#setting-version) 2 - Alter accounts pk [non-transactional]
     DB: primary key changes are finalized asynchronously; further schema changes on this table may be restricted until the job completes
     Successfully applied 1 migration to schema "bank" (execution time 00:00.508s)
     ~~~
 
-    The schema `"bank"` is now on version 2.
+    The schema `"bank"` is now on [version](cluster-settings.html#setting-version) 2.
 
 1. Check the complete and pending Flyway migrations with the `flyway info` command:
 
@@ -147,7 +147,7 @@ Suppose that you want to change the primary key of the `accounts` table from a s
     ~~~
     Flyway Community Edition 6.4.2 by Redgate
     Database: jdbc:postgresql://localhost:26257/bank (PostgreSQL 9.5)
-    Schema version: 2
+    Schema [version](cluster-settings.html#setting-version): 2
 
     +-----------+---------+--------------------+------+---------------------+---------+
     | Category  | Version | Description        | Type | Installed On        | State   |
@@ -175,8 +175,8 @@ Note that this limitation also applies to single [`ALTER TABLE`](alter-table.htm
 
 If you run into problems, please file an issue on the [Flyway issue tracker](https://github.com/flyway/flyway/issues), including the following details about the environment where you encountered the issue:
 
-- CockroachDB version ([`cockroach version`](cockroach-version.html))
-- Flyway version
+- CockroachDB [version](cluster-settings.html#setting-version) ([`cockroach [version](cluster-settings.html#setting-version)`](cockroach-[version](cluster-settings.html#setting-version).html))
+- Flyway [version](cluster-settings.html#setting-version)
 - Operating system
 - Steps to reproduce the behavior
 

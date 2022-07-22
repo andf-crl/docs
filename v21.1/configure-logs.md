@@ -173,7 +173,7 @@ The files generated for a group named `default` are named after the pattern `coc
 #### Access in DB Console
 
 {{site.data.alerts.callout_success}}
-{% include {{ page.version.version }}/ui/ui-log-files.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/ui/ui-log-files.md %}
 {{site.data.alerts.end}}
 
 #### Known limitations
@@ -455,7 +455,7 @@ When `capture-stray-errors` is disabled, [`redactable`](#redact-logs) cannot be 
 
 ## Default logging configuration
 
-The YAML payload below represents the default logging behavior of [`cockroach start`](cockroach-start.html) and [`cockroach start-single-node`](cockroach-start-single-node.html). To retain backward compatibility with v20.2 and earlier, these settings match the [log filenames used in previous versions](logging-overview.html#changes-to-logging-system) (except `sql-auth`, which should be changed to `auth` to match the log filename used in v20.2 and earlier).
+The YAML payload below represents the default logging behavior of [`cockroach start`](cockroach-start.html) and [`cockroach start-single-node`](cockroach-start-single-node.html). To retain backward compatibility with v20.2 and earlier, these settings match the [log filenames used in previous [version](cluster-settings.html#setting-version)s](logging-overview.html#changes-to-logging-system) (except `sql-auth`, which should be changed to `auth` to match the log filename used in v20.2 and earlier).
 
 ~~~ yaml
 file-defaults:

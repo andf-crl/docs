@@ -16,7 +16,7 @@ While CockroachDB is processing an `ALTER TABLE .. SET LOCALITY` statement that 
 ## Synopsis
 
 <div>
-{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.version.version | replace: "v", "" }}/grammar_svg/alter_table_locality.html %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/grammar_svg/alter_table_locality.html %}
 </div>
 
 ## Parameters
@@ -134,7 +134,7 @@ ALTER TABLE rides ADD COLUMN region crdb_internal_region AS (
 ) STORED;
 ~~~
 
-{% include {{page.version.version}}/sql/locality-optimized-search.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/locality-optimized-search.md %}
 
 ### Turn on auto-rehoming for `REGIONAL BY ROW` tables
 
@@ -161,7 +161,7 @@ To enable it using the [cluster setting](cluster-settings.html), issue the follo
 
 {% include_cached copy-clipboard.html %}
 ~~~ sql
-SET CLUSTER SETTING sql.defaults.experimental_auto_rehoming.enabled = on;
+SET CLUSTER SETTING [sql.defaults.experimental_auto_rehoming.enabled](cluster-settings.html#setting-sql-defaults-experimental_auto_rehoming-enabled) = on;
 ~~~
 
 ~~~
@@ -176,7 +176,7 @@ SET CLUSTER SETTING
 
     {% include_cached copy-clipboard.html %}
     ~~~ sql
-    SET CLUSTER SETTING sql.defaults.experimental_auto_rehoming.enabled = on;
+    SET CLUSTER SETTING [sql.defaults.experimental_auto_rehoming.enabled](cluster-settings.html#setting-sql-defaults-experimental_auto_rehoming-enabled) = on;
     ~~~
 
 1. In a second terminal window (call it _terminal 2_), [finish the tutorial starting from step 3](demo-low-latency-multi-region-deployment.html#step-3-load-and-run-movr) onward to finish loading the cluster with data and applying the multi-region SQL configuration.
@@ -207,7 +207,7 @@ SET CLUSTER SETTING
     # All statements must be terminated by a semicolon.
     # To exit, type: \q.
     #
-    # Server version: CockroachDB CCL {{ page.release_info.version }} (x86_64-apple-darwin19, built {{ page.release_info.build_time }}) (same version as client)
+    # Server [version](cluster-settings.html#setting-version): CockroachDB CCL {{ page.release_info.[version](cluster-settings.html#setting-version) }} (x86_64-apple-darwin19, built {{ page.release_info.build_time }}) (same [version](cluster-settings.html#setting-version) as client)
     # Cluster ID: 87b22d9b-b9ce-4f3a-8635-acad89c5981f
     # Organization: Cockroach Demo
     #

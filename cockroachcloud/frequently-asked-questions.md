@@ -60,7 +60,7 @@ The allowlist is comprised of IP addresses that you provide to us, and is an add
 
 We use separate certificate authorities for each cluster, and all connections to the cluster over the internet use TLS 1.2 or 1.3.
 
-See the [Security Overview page](../{{site.versions["stable"]}}/security-reference/security-overview.html) for more information, and for comparison of security options by CockroachDB product.
+See the [Security Overview page](../{{site.[version](cluster-settings.html#setting-version)s["stable"]}}/security-reference/security-overview.html) for more information, and for comparison of security options by CockroachDB product.
 
 ### Is encryption-at-rest enabled on {{ site.data.products.dedicated }}?
 
@@ -69,11 +69,11 @@ All data in {{ site.data.products.serverless }} and {{ site.data.products.dedica
 {{site.data.alerts.callout_info}}
 {{ site.data.products.serverless }} and {{ site.data.products.dedicated }} users delegate responsibility for encryption-at-rest to the cloud provider. Hence, CockroachDB's proprietary storage-layer encryption-at-rest functionality is currently only available for {{ site.data.products.enterprise }} customers, and is not currently available to users of {{ site.data.products.serverless }} or {{ site.data.products.dedicated }}.
 
-As a result, encryption will appear to be disabled in the [DB Console](../{{site.versions["stable"]}}/ui-overview.html), since the console is unaware of cloud provider encryption.
+As a result, encryption will appear to be disabled in the [DB Console](../{{site.[version](cluster-settings.html#setting-version)s["stable"]}}/ui-overview.html), since the console is unaware of cloud provider encryption.
 {{site.data.alerts.end}}
 
 
-See the [Security Overview page](../{{site.versions["stable"]}}/security-reference/security-overview.html) for more information, and for comparison of security options by CockroachDB product.
+See the [Security Overview page](../{{site.[version](cluster-settings.html#setting-version)s["stable"]}}/security-reference/security-overview.html) for more information, and for comparison of security options by CockroachDB product.
 
 
 
@@ -115,11 +115,11 @@ You can also [backup and restore](run-bulk-operations.html) data on your own. If
 
 ### Can I download the backups that {{ site.data.products.db }} takes for me?
 
-{{ site.data.products.db }} automated backups cannot be downloaded, but you can manually [run a backup](run-bulk-operations.html) to your own [storage location](../{{site.versions["stable"]}}/backup.html#backup-file-urls) at any time. To do this, you will need either `admin` or `SELECT` privileges on the data you are backing up.
+{{ site.data.products.db }} automated backups cannot be downloaded, but you can manually [run a backup](run-bulk-operations.html) to your own [storage location](../{{site.[version](cluster-settings.html#setting-version)s["stable"]}}/backup.html#backup-file-urls) at any time. To do this, you will need either `admin` or `SELECT` privileges on the data you are backing up.
 
 ### Can I restore my self-hosted CockroachDB cluster to {{ site.data.products.dedicated }}?
 
-Yes. You can [backup](../{{site.versions["stable"]}}/backup.html) your self-hosted CockroachDB databases to an [external location](../{{site.versions["stable"]}}/backup.html#backup-file-urls) and then [restore](../{{site.versions["stable"]}}/restore.html) to your {{ site.data.products.db }} cluster.
+Yes. You can [backup](../{{site.[version](cluster-settings.html#setting-version)s["stable"]}}/backup.html) your self-hosted CockroachDB databases to an [external location](../{{site.[version](cluster-settings.html#setting-version)s["stable"]}}/backup.html#backup-file-urls) and then [restore](../{{site.[version](cluster-settings.html#setting-version)s["stable"]}}/restore.html) to your {{ site.data.products.db }} cluster.
 
 {{site.data.alerts.callout_danger}}
 If you are backing up the data to AWS or GCP, use the `specified` option for the `AUTH` parameter.
@@ -135,7 +135,7 @@ GCP clusters can also set up VPC peering after the cluster is created, but you w
 
 ### Are enterprise features available to me?
 
-Yes, {{ site.data.products.dedicated }} clusters run the enterprise version of CockroachDB and all [enterprise features](../stable/enterprise-licensing.html) are available to you.
+Yes, {{ site.data.products.dedicated }} clusters run the enterprise [version](cluster-settings.html#setting-version) of CockroachDB and all [enterprise features](../stable/enterprise-licensing.html) are available to you.
 
 ### Is there a public API for {{ site.data.products.db }}?
 
@@ -160,11 +160,11 @@ The following pages can be found in our [Terms & Conditions](https://www.cockroa
 
 ### Am I in control of upgrades for my {{ site.data.products.dedicated }} clusters?
 
-Yes, a Console Admin can apply major release upgrades directly [through the {{ site.data.products.db }} Console](upgrade-to-v21.2.html); however, patch release upgrades are automatically applied to all clusters. {{ site.data.products.dedicated }} clusters are restarted one node at a time for patch version updates, so previously established connections will need to be [reestablished after the restart](../v21.2/connection-pooling.html#validating-connections-in-a-pool). For more information, see the [Upgrade Policy](upgrade-policy.html).
+Yes, a Console Admin can apply major release upgrades directly [through the {{ site.data.products.db }} Console](upgrade-to-v21.2.html); however, patch release upgrades are automatically applied to all clusters. {{ site.data.products.dedicated }} clusters are restarted one node at a time for patch [version](cluster-settings.html#setting-version) updates, so previously established connections will need to be [reestablished after the restart](../v21.2/connection-pooling.html#validating-connections-in-a-pool). For more information, see the [Upgrade Policy](upgrade-policy.html).
 
-### What is the support policy for older versions of the software?
+### What is the support policy for older [version](cluster-settings.html#setting-version)s of the software?
 
-{{ site.data.products.dedicated }} supports the latest major version of CockroachDB and the version immediately preceding it. We highly recommend running one of the two latest versions of CockroachDB, but we will never force a major upgrade to a cluster without your knowledge. You can contact [Support](https://support.cockroachlabs.com/hc/en-us) if you require an exception.
+{{ site.data.products.dedicated }} supports the latest major [version](cluster-settings.html#setting-version) of CockroachDB and the [version](cluster-settings.html#setting-version) immediately preceding it. We highly recommend running one of the two latest [version](cluster-settings.html#setting-version)s of CockroachDB, but we will never force a major upgrade to a cluster without your knowledge. You can contact [Support](https://support.cockroachlabs.com/hc/en-us) if you require an exception.
 
 ### How do I check to see if {{ site.data.products.db }} is down?
 
@@ -178,7 +178,7 @@ The [**{{ site.data.products.db }} Status** page](https://status.cockroachlabs.c
 
 ### What do I do if my queries are too slow?
 
-To optimize schema design to achieve your performance goals, we recommend working with our Sales Engineering team before you set up your cluster. You can also read our [SQL Performance Best Practices](../{{site.versions["stable"]}}/performance-best-practices-overview.html) and [Query Performance Optimization](../{{site.versions["stable"]}}/make-queries-fast.html) docs for more information.
+To optimize schema design to achieve your performance goals, we recommend working with our Sales Engineering team before you set up your cluster. You can also read our [SQL Performance Best Practices](../{{site.[version](cluster-settings.html#setting-version)s["stable"]}}/performance-best-practices-overview.html) and [Query Performance Optimization](../{{site.[version](cluster-settings.html#setting-version)s["stable"]}}/make-queries-fast.html) docs for more information.
 
 ### Can I monitor my cluster with third-party tools?
 

@@ -7,7 +7,7 @@ toc: true
 The `DROP ROLE` [statement](sql-statements.html) removes one or more SQL roles.
 
 {{site.data.alerts.callout_info}}
-<span class="version-tag">New in v20.1</span> <code>DROP ROLE</code> is no longer an enterprise feature and is now freely available in the core version of CockroachDB. Also, since the keywords `ROLE` and `USER` can now be used interchangeably in SQL statements for enhanced Postgres compatibility, `DROP ROLE` is now an alias for [`DROP USER`](drop-user.html).
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1</span> <code>DROP ROLE</code> is no longer an enterprise feature and is now freely available in the core [version](cluster-settings.html#setting-version) of CockroachDB. Also, since the keywords `ROLE` and `USER` can now be used interchangeably in SQL statements for enhanced Postgres compatibility, `DROP ROLE` is now an alias for [`DROP USER`](drop-user.html).
 {{site.data.alerts.end}}
 
 ## Considerations
@@ -19,11 +19,11 @@ The `DROP ROLE` [statement](sql-statements.html) removes one or more SQL roles.
 
 Roles can only be dropped by super users, i.e., members of the `admin` role.
 
-<span class="version-tag">New in v20.1:</span> To drop other non-admin roles, the role must have the [`CREATEROLE`](create-role.html#allow-the-role-to-create-other-roles) parameter set.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> To drop other non-admin roles, the role must have the [`CREATEROLE`](create-role.html#allow-the-role-to-create-other-roles) parameter set.
 
 ## Synopsis
 
-<section>{% include {{ page.version.version }}/sql/diagrams/drop_role.html %}</section>
+<section>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/drop_role.html %}</section>
 
 
 ## Parameters

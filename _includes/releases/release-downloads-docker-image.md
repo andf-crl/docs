@@ -1,41 +1,41 @@
-{% assign release = site.data.releases | where_exp: "release", "release.version == include.release" | first %}
-{% assign version = site.data.versions | where_exp: "version", "version.major_version == release.major_version" | first %}
+{% assign release = site.data.releases | where_exp: "release", "release.[version](cluster-settings.html#setting-version) == include.release" | first %}
+{% assign [version](cluster-settings.html#setting-version) = site.data.[version](cluster-settings.html#setting-version)s | where_exp: "[version](cluster-settings.html#setting-version)", "[version](cluster-settings.html#setting-version).major_[version](cluster-settings.html#setting-version) == release.major_[version](cluster-settings.html#setting-version)" | first %}
 
-{% comment %} set the release and version based on the include.release parameter {% endcomment %}
+{% comment %} set the release and [version](cluster-settings.html#setting-version) based on the include.release parameter {% endcomment %}
 
 {% if release.withdrawn == "true" %}{% comment %} if the release is withdrawn, automatically disable the download links and Docker image {% endcomment %}
-<h3 id="{{ release.version | downcase | replace: ".", "-" }}-downloads">Downloads</h3>{% comment %} take the version name, force it to be lowercase, and replace all periods with hyphens. {% endcomment %}
+<h3 id="{{ release.[version](cluster-settings.html#setting-version) | downcase | replace: ".", "-" }}-downloads">Downloads</h3>{% comment %} take the [version](cluster-settings.html#setting-version) name, force it to be lowercase, and replace all periods with hyphens. {% endcomment %}
 {{site.data.alerts.callout_danger}}
 This patch release has been withdrawn{% if include.advisory_key %} due to [this technical advisory](../advisories/{{ include.advisory_key }}.html){% endif %}. All the changes listed as part of this release will be in the next release. Do not upgrade to this release.
 {{site.data.alerts.end}}
 
-<h3 id="{{ release.version | downcase | replace: ".", "-" }}-docker-image">Docker image</h3>{% comment %} we use a manual <h3> tag here to account for the duplicated headers {% endcomment %}
+<h3 id="{{ release.[version](cluster-settings.html#setting-version) | downcase | replace: ".", "-" }}-docker-image">Docker image</h3>{% comment %} we use a manual <h3> tag here to account for the duplicated headers {% endcomment %}
 
 {{site.data.alerts.callout_danger}}
 This release was withdrawn, and we've removed the links to the downloads and Docker image.
 {{site.data.alerts.end}}
 {% else %}
-<h3 id="{{ release.version | downcase | replace: ".", "-" }}-downloads">Downloads</h3>
+<h3 id="{{ release.[version](cluster-settings.html#setting-version) | downcase | replace: ".", "-" }}-downloads">Downloads</h3>
 
 {% if release.has_sql_only != "false" %}
 <h4>Full CockroachDB executable</h4>
 {% endif %}
 
 <div><div id="os-tabs" class="filters clearfix">
-    <a href="https://binaries.cockroachdb.com/cockroach-{{ release.version }}.linux-amd64.tgz"><button id="linux" class="filter-button" data-scope="linux" data-eventcategory="linux-binary-release-notes">Linux</button></a>
-    <a href="https://binaries.cockroachdb.com/cockroach-{{ release.version }}.darwin-10.9-amd64.tgz"><button id="mac" class="filter-button" data-scope="mac" data-eventcategory="mac-binary-release-notes">Mac</button></a>
-    <a href="https://binaries.cockroachdb.com/cockroach-{{ release.version }}.windows-6.2-amd64.zip"><button id="windows" class="filter-button" data-scope="windows" data-eventcategory="windows-binary-release-notes">Windows</button></a>
-    <a target="_blank" rel="noopener" href="https://github.com/cockroachdb/cockroach/releases/tag/{{ release.version }}"><button id="source" class="filter-button" data-scope="source" data-eventcategory="source-release-notes">Source</button></a
+    <a href="https://binaries.cockroachdb.com/cockroach-{{ release.[version](cluster-settings.html#setting-version) }}.linux-amd64.tgz"><button id="linux" class="filter-button" data-scope="linux" data-eventcategory="linux-binary-release-notes">Linux</button></a>
+    <a href="https://binaries.cockroachdb.com/cockroach-{{ release.[version](cluster-settings.html#setting-version) }}.darwin-10.9-amd64.tgz"><button id="mac" class="filter-button" data-scope="mac" data-eventcategory="mac-binary-release-notes">Mac</button></a>
+    <a href="https://binaries.cockroachdb.com/cockroach-{{ release.[version](cluster-settings.html#setting-version) }}.windows-6.2-amd64.zip"><button id="windows" class="filter-button" data-scope="windows" data-eventcategory="windows-binary-release-notes">Windows</button></a>
+    <a target="_blank" rel="noopener" href="https://github.com/cockroachdb/cockroach/releases/tag/{{ release.[version](cluster-settings.html#setting-version) }}"><button id="source" class="filter-button" data-scope="source" data-eventcategory="source-release-notes">Source</button></a
 </div></div>
 
 {% if release.has_sql_only != "false" %}
 <h4>SQL-only command-line client executable</h4>
 
 <div><div id="os-tabs" class="filters clearfix">
-    <a href="https://binaries.cockroachdb.com/cockroach-sql-{{ release.version }}.linux-amd64"><button id="linux" class="filter-button" data-scope="linux" data-eventcategory="linux-binary-release-notes">Linux</button></a>
-    <a href="https://binaries.cockroachdb.com/cockroach-sql-{{ release.version }}.darwin-10.9-amd64"><button id="mac" class="filter-button" data-scope="mac" data-eventcategory="mac-binary-release-notes">Mac</button></a>
-    <a href="https://binaries.cockroachdb.com/cockroach-sql-{{ release.version }}.windows-6.2-amd64.exe"><button id="windows" class="filter-button" data-scope="windows" data-eventcategory="windows-binary-release-notes">Windows</button></a>
-    <a target="_blank" rel="noopener" href="https://github.com/cockroachdb/cockroach/releases/tag/{{ release.version }}"><button id="source" class="filter-button" data-scope="source" data-eventcategory="source-release-notes">Source</button></a
+    <a href="https://binaries.cockroachdb.com/cockroach-sql-{{ release.[version](cluster-settings.html#setting-version) }}.linux-amd64"><button id="linux" class="filter-button" data-scope="linux" data-eventcategory="linux-binary-release-notes">Linux</button></a>
+    <a href="https://binaries.cockroachdb.com/cockroach-sql-{{ release.[version](cluster-settings.html#setting-version) }}.darwin-10.9-amd64"><button id="mac" class="filter-button" data-scope="mac" data-eventcategory="mac-binary-release-notes">Mac</button></a>
+    <a href="https://binaries.cockroachdb.com/cockroach-sql-{{ release.[version](cluster-settings.html#setting-version) }}.windows-6.2-amd64.exe"><button id="windows" class="filter-button" data-scope="windows" data-eventcategory="windows-binary-release-notes">Windows</button></a>
+    <a target="_blank" rel="noopener" href="https://github.com/cockroachdb/cockroach/releases/tag/{{ release.[version](cluster-settings.html#setting-version) }}"><button id="source" class="filter-button" data-scope="source" data-eventcategory="source-release-notes">Source</button></a
 </div></div>
 {% endif %}
 
@@ -45,10 +45,10 @@ This release was withdrawn, and we've removed the links to the downloads and Doc
 
 {% if release.release_type == "Testing" %}{% include releases/experimental-test-release.md %}{% endif %}{% comment %} warn users about using testing releases for production environments {% endcomment %}
 
-<h3 id="{{ release.version | downcase | replace: ".", "-" }}-docker-image">Docker image</h3>
+<h3 id="{{ release.[version](cluster-settings.html#setting-version) | downcase | replace: ".", "-" }}-docker-image">Docker image</h3>
 
 {% include_cached copy-clipboard.html %}
 ~~~shell
-$ docker pull {{ release.docker_image }}:{{ release.version }}
+$ docker pull {{ release.docker_image }}:{{ release.[version](cluster-settings.html#setting-version) }}
 ~~~
 {% endif %}

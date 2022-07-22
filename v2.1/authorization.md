@@ -81,7 +81,7 @@ To revoke privileges from roles or users, use the [`REVOKE`](revoke.html) statem
 
 ## Example
 
-For the purpose of this example, you need an [enterprise license](enterprise-licensing.html) and one CockroachDB node running in insecure mode:
+For the purpose of this example, you need an [[enterprise.license](cluster-settings.html#setting-enterprise-license)](enterprise-licensing.html) and one CockroachDB node running in insecure mode:
 
 {% include copy-clipboard.html %}
 ~~~ shell

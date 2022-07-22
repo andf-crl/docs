@@ -1,4 +1,4 @@
-1. [Install the Helm client](https://helm.sh/docs/intro/install) (version 3.0 or higher) and add the `cockroachdb` chart repository:
+1. [Install the Helm client](https://helm.sh/docs/intro/install) ([version](cluster-settings.html#setting-version) 3.0 or higher) and add the `cockroachdb` chart repository:
 
     {% include_cached copy-clipboard.html %}
     ~~~ shell

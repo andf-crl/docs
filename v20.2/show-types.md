@@ -4,7 +4,7 @@ summary: The SHOW TYPES statement lists the user-defined data types in a databas
 toc: true
 ---
 
-<span class="version-tag">New in v20.2:</span> The `SHOW TYPES` statement lists the user-defined [data types](data-types.html) in the current database.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> The `SHOW TYPES` statement lists the user-defined [data types](data-types.html) in the current database.
 
 {{site.data.alerts.callout_info}}
 CockroachDB currently only supports [enumerated user-defined types](enum.html). As a result, [`SHOW ENUMS`](show-enums.html) and `SHOW TYPES` return the same results.

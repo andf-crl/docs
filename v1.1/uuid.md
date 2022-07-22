@@ -4,7 +4,7 @@ summary: The UUID data type stores 128-bit Universal Unique Identifiers.
 toc: true
 ---
 
-<span class="version-tag">New in v1.1:</span> The `UUID` (Universally Unique Identifier) [data type](data-types.html) stores a 128-bit value that is [unique across both space and time](https://www.ietf.org/rfc/rfc4122.txt).
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v1.1:</span> The `UUID` (Universally Unique Identifier) [data type](data-types.html) stores a 128-bit value that is [unique across both space and time](https://www.ietf.org/rfc/rfc4122.txt).
 
 {{site.data.alerts.callout_success}}To auto-generate unique row IDs, we recommend using <a href="uuid.html"><code>UUID</code></a> with the <code>gen_random_uuid()</code> function as the default value. See the <a href="#create-a-table-with-auto-generated-unique-row-ids">example</a> below for more details.{{site.data.alerts.end}}
 
@@ -104,11 +104,11 @@ A `UUID` value is 128 bits in width, but the total storage size is likely to be 
 
 ### Create a table with auto-generated unique row IDs
 
-{% include {{ page.version.version }}/faq/auto-generate-unique-ids.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/faq/auto-generate-unique-ids.html %}
 
-## Supported Casting & Conversion
+## Supported Casting & Con[version](cluster-settings.html#setting-version)
 
-`UUID` values can be [cast](data-types.html#data-type-conversions-casts) to the following data type:
+`UUID` values can be [cast](data-types.html#data-type-con[version](cluster-settings.html#setting-version)s-casts) to the following data type:
 
 Type | Details
 -----|--------

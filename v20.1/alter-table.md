@@ -6,7 +6,7 @@ toc: true
 
 The `ALTER TABLE` [statement](sql-statements.html) applies a schema change to a table. For information on using `ALTER TABLE`, see the pages for its relevant [subcommands](#subcommands).
 
-{% include {{ page.version.version }}/misc/schema-change-stmt-note.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-stmt-note.md %}
 
 ## Subcommands
 
@@ -19,7 +19,7 @@ Subcommand | Description | Can combine with other subcommands?
 [`ADD COLUMN`](add-column.html) | Add columns to tables. | Yes
 [`ADD CONSTRAINT`](add-constraint.html) | Add constraints to columns. | Yes
 [`ALTER COLUMN`](alter-column.html) | Change or drop a column's [`DEFAULT` constraint](default-value.html) or [`NOT NULL` constraint](not-null.html). | Yes
-[`ALTER PRIMARY KEY`](alter-primary-key.html) | <span class="version-tag">New in v20.1:</span> Change the [primary key](primary-key.html) of a table. | Yes
+[`ALTER PRIMARY KEY`](alter-primary-key.html) | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> Change the [primary key](primary-key.html) of a table. | Yes
 [`CONFIGURE ZONE`](configure-zone.html) | [Configure replication zones](configure-replication-zones.html) for a table. | No
 [`DROP COLUMN`](drop-column.html) | Remove columns from tables. | Yes
 [`DROP CONSTRAINT`](drop-constraint.html) | Remove constraints from columns. | Yes
@@ -34,4 +34,4 @@ Subcommand | Description | Can combine with other subcommands?
 
 ## Viewing schema changes
 
-{% include {{ page.version.version }}/misc/schema-change-view-job.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-view-job.md %}

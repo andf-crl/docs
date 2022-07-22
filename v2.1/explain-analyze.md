@@ -4,11 +4,11 @@ summary: The EXPLAIN ANALYZE statement executes a query and generates a physical
 toc: true
 ---
 
-<span class="version-tag">New in v2.1:</span> The `EXPLAIN ANALYZE` [statement](sql-statements.html) **executes a SQL query** and returns a physical query plan with execution statistics. Query plans provide information around SQL execution, which can be used to troubleshoot slow queries by figuring out where time is being spent, how long a processor (i.e., a component that takes streams of input rows and processes them according to a specification) is not doing work, etc. For more information about distributed SQL queries, see the [DistSQL section of our SQL Layer Architecture docs](architecture/sql-layer.html#distsql).
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v2.1:</span> The `EXPLAIN ANALYZE` [statement](sql-statements.html) **executes a SQL query** and returns a physical query plan with execution statistics. Query plans provide information around SQL execution, which can be used to troubleshoot slow queries by figuring out where time is being spent, how long a processor (i.e., a component that takes streams of input rows and processes them according to a specification) is not doing work, etc. For more information about distributed SQL queries, see the [DistSQL section of our SQL Layer Architecture docs](architecture/sql-layer.html#distsql).
 
 ## Synopsis
 
-<section>{% include {{ page.version.version }}/sql/diagrams/explain_analyze.html %}</section>
+<section>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/explain_analyze.html %}</section>
 
 ## Required privileges
 

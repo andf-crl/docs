@@ -4,9 +4,9 @@ summary: Use the ALTER RANGE statement to change an existing system range.
 toc: false
 ---
 
-<span class="version-tag">New in v2.1:</span> The `ALTER RANGE` [statement](sql-statements.html) applies a schema change to a system range.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v2.1:</span> The `ALTER RANGE` [statement](sql-statements.html) applies a schema change to a system range.
 
-{% include {{{ page.version.version }}/misc/schema-change-stmt-note.md %}
+{% include {{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-stmt-note.md %}
 
 For information on using `ALTER RANGE`, see the documents for its relevant subcommands.
 

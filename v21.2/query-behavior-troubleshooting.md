@@ -20,7 +20,7 @@ High latency SQL statements are displayed on the [Statements](ui-statements-page
 You can also check the [service latency graph](ui-sql-dashboard.html#service-latency-sql-99th-percentile) and the [CPU graph](ui-hardware-dashboard.html#cpu-percent) on the SQL and Hardware Dashboards, respectively. If the graphs show latency spikes or CPU usage spikes, these might indicate slow queries in your cluster.
 
 {{site.data.alerts.callout_info}}
-{% include {{ page.version.version }}/prod-deployment/resolution-untuned-query.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/resolution-untuned-query.md %}
 {{site.data.alerts.end}}
 
 ## Visualize statement traces in Jaeger
@@ -181,7 +181,7 @@ This will result in the following output:
 Once the logging is enabled, all client-generated SQL queries executed by the node will be written to the `DEV` [logging channel](logging.html#dev), which outputs by [default](configure-logs.html#default-logging-configuration) to the primary `cockroach` log file in `/cockroach-data/logs`. Use the symlink `cockroach.log` to open the most recent log.
 
 ~~~
-I180402 19:12:28.112957 394661 sql/exec_log.go:173  [n1,client=127.0.0.1:50155,user=root] exec "psql" {} "SELECT version()" {} 0.795 1 ""
+I180402 19:12:28.112957 394661 sql/exec_log.go:173  [n1,client=127.0.0.1:50155,user=root] exec "psql" {} "SELECT [version](cluster-settings.html#setting-version)()" {} 0.795 1 ""
 ~~~
 
 ## Something else?

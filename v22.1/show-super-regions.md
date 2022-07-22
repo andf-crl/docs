@@ -40,29 +40,29 @@ To view the super regions in a database, the user must have one of the following
 
 ## Considerations
 
-{% include {{page.version.version}}/sql/super-region-considerations.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/super-region-considerations.md %}
 
 ## Examples
 
 The examples in this section use the following setup.
 
-{% include {{page.version.version}}/sql/multiregion-example-setup.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/multiregion-example-setup.md %}
 
 #### Set up movr database regions
 
-{% include {{page.version.version}}/sql/multiregion-movr-add-regions.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/multiregion-movr-add-regions.md %}
 
 #### Set up movr global tables
 
-{% include {{page.version.version}}/sql/multiregion-movr-global.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/multiregion-movr-global.md %}
 
 #### Set up movr regional tables
 
-{% include {{page.version.version}}/sql/multiregion-movr-regional-by-row.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/multiregion-movr-regional-by-row.md %}
 
 ### Enable super regions
 
-{% include {{page.version.version}}/sql/enable-super-regions.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/enable-super-regions.md %}
 
 ### View the super regions from a database
 

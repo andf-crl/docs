@@ -15,7 +15,7 @@ When using transactions, your application should include logic to [retry transac
 ## Synopsis
 
 <div>
-{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.version.version | replace: "v", "" }}/grammar_svg/begin.html %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/grammar_svg/begin.html %}
 </div>
 
 ## Required privileges
@@ -38,7 +38,7 @@ In CockroachDB, the following are aliases for the `BEGIN` statement:
 `AS OF SYSTEM TIME` | Execute the transaction using the database contents "as of" a specified time in the past.<br/><br/> The `AS OF SYSTEM TIME` clause can be used only when the transaction is read-only. If the transaction contains any writes, or if the `READ WRITE` mode is specified, an error will be returned.<br/><br/>For more information, see [`AS OF SYSTEM TIME`](as-of-system-time.html).
 `NOT DEFERRABLE`<br>`DEFERRABLE` |  This clause is supported for compatibility with PostgreSQL. `NOT DEFERRABLE` is a no-op and the default behavior for CockroachDB. `DEFERRABLE` returns an `unimplemented` error.
 
- CockroachDB now only supports `SERIALIZABLE` isolation, so transactions can no longer be meaningfully set to any other `ISOLATION LEVEL`. In previous versions of CockroachDB, you could set transactions to `SNAPSHOT` isolation, but that feature has been removed.
+ CockroachDB now only supports `SERIALIZABLE` isolation, so transactions can no longer be meaningfully set to any other `ISOLATION LEVEL`. In previous [version](cluster-settings.html#setting-version)s of CockroachDB, you could set transactions to `SNAPSHOT` isolation, but that feature has been removed.
 
 ## Examples
 
@@ -124,7 +124,7 @@ This example assumes you're using [client-side intervention to handle transactio
 
 You can execute the transaction using the database contents "as of" a specified time in the past.
 
-{% include {{ page.version.version }}/sql/begin-transaction-as-of-system-time-example.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/begin-transaction-as-of-system-time-example.md %}
 
 {{site.data.alerts.callout_success}}
 You can also use the [`SET TRANSACTION`](set-transaction.html#use-the-as-of-system-time-option) statement inside the transaction to achieve the same results. This syntax is easier to use from [drivers and ORMs](install-client-drivers.html).

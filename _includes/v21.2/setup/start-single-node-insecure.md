@@ -19,4 +19,4 @@
     You'll use the `sql` connection string to connect to the cluster later in this tutorial.
 
 
-{% include {{ page.version.version }}/prod-deployment/insecure-flag.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/insecure-flag.md %}

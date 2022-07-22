@@ -15,7 +15,7 @@ statements.
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/sort_clause.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/sort_clause.html %}
 </div>
 
 ## Parameters

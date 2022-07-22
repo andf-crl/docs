@@ -38,7 +38,7 @@ Usable disk space is constrained by the following:
 The DB Console thus calculates **usable** disk space as the sum of empty disk space, up to the value of the maximum store size, and disk space that is already being **used** by CockroachDB data.
 
 {{site.data.alerts.callout_info}}
-{% include {{ page.version.version }}/misc/available-capacity-metric.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/available-capacity-metric.md %}
 {{site.data.alerts.end}}
 
 ## Node List
@@ -67,7 +67,7 @@ Node Status | Description
 `DEAD` | Node has not [updated its liveness record](cluster-setup-troubleshooting.html#node-liveness-issues) for 5 minutes.
 
 {{site.data.alerts.callout_info}}
-Nodes are considered dead once they have not [updated their liveness record](cluster-setup-troubleshooting.html#node-liveness-issues) for the duration of the `server.time_until_store_dead` [cluster setting](cluster-settings.html) (5 minutes by default). At this point, CockroachDB begins to rebalance replicas from dead nodes to live nodes, using the unaffected replicas as sources.
+Nodes are considered dead once they have not [updated their liveness record](cluster-setup-troubleshooting.html#node-liveness-issues) for the duration of the `[server.time_until_store_dead](cluster-settings.html#setting-server-time_until_store_dead)` [cluster setting](cluster-settings.html) (5 minutes by default). At this point, CockroachDB begins to rebalance replicas from dead nodes to live nodes, using the unaffected replicas as sources.
 {{site.data.alerts.end}}
 
 ### Node details
@@ -83,7 +83,7 @@ Replicas | Number of replicas on the node or in the locality.
 Capacity Usage | Percentage of usable disk space occupied by CockroachDB data on the node or in the locality. See [Capacity metrics](#capacity-metrics).
 Memory Usage | Memory used by CockroachDB as a percentage of the total memory on the node or in the locality.
 vCPUs | Number of vCPUs on the machine.
-Version | Build tag of the CockroachDB version installed on the node.
+Version | Build tag of the CockroachDB [version](cluster-settings.html#setting-version) installed on the node.
 
 ### Decommissioned nodes
 
@@ -92,7 +92,7 @@ Nodes that have [completed decommissioning](node-shutdown.html?filters=decommiss
 Node Status | Description
 -------|------------
 `NODE_STATUS_UNAVAILABLE` | Node has been recently decommissioned.
-`NODE_STATUS_DECOMMISSIONED` | Node has been decommissioned for the duration set by the `server.time_until_store_dead` [cluster setting](cluster-settings.html) (5 minutes by default).
+`NODE_STATUS_DECOMMISSIONED` | Node has been decommissioned for the duration set by the `[server.time_until_store_dead](cluster-settings.html#setting-server-time_until_store_dead)` [cluster setting](cluster-settings.html) (5 minutes by default).
 
 You can see the full history of decommissioned nodes by clicking **View all decommissioned nodes**.
 

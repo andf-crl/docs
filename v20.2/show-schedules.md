@@ -4,7 +4,7 @@ summary: The SHOW SCHEDULES statement lists all currently active backup schedule
 toc: true
 ---
 
-<span class="version-tag">New in v20.2:</span> The `SHOW SCHEDULES` [statement](sql-statements.html) lists all of the currently active [backup schedules](create-schedule-for-backup.html).
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> The `SHOW SCHEDULES` [statement](sql-statements.html) lists all of the currently active [backup schedules](create-schedule-for-backup.html).
 
 ## Required privileges
 

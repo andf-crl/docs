@@ -41,7 +41,7 @@ To define a stored computed column, use the following syntax:
 column_name <type> AS (<expr>) STORED
 ~~~
 
-{% include_cached new-in.html version="v21.1" %} To define a virtual computed column, use the following syntax:
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.1" %} To define a virtual computed column, use the following syntax:
 
 ~~~
 column_name <type> AS (<expr>) VIRTUAL
@@ -61,33 +61,33 @@ Parameter | Description
 
 ### Create a table with a stored computed column
 
-{% include {{ page.version.version }}/computed-columns/simple.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/computed-columns/simple.md %}
 
 ### Create a table with a `JSONB` column and a stored computed column
 
-{% include {{ page.version.version }}/computed-columns/jsonb.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/computed-columns/jsonb.md %}
 
 ### Create a virtual computed column using `JSONB` data
 
-{% include {{ page.version.version }}/computed-columns/virtual.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/computed-columns/virtual.md %}
 
 ### Create a table with a secondary index on a computed column
 
-{% include {{ page.version.version }}/computed-columns/secondary-index.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/computed-columns/secondary-index.md %}
 
 ### Add a computed column to an existing table
 
-{% include {{ page.version.version }}/computed-columns/add-computed-column.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/computed-columns/add-computed-column.md %}
 
 For more information, see [`ADD COLUMN`](add-column.html).
 
 ### Convert a computed column into a regular column
 
-{% include {{ page.version.version }}/computed-columns/convert-computed-column.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/computed-columns/convert-computed-column.md %}
 
 ### Alter the formula for a computed column
 
-{% include {{ page.version.version }}/computed-columns/alter-computed-column.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/computed-columns/alter-computed-column.md %}
 
 ## See also
 

@@ -81,7 +81,7 @@ long as the results of a single statement or batch of statements are known to
 stay clear of this limit, the client does not need to worry about transaction
 retries.
 
-In future versions of CockroachDB, we plan on providing stronger guarantees for
+In future [version](cluster-settings.html#setting-version)s of CockroachDB, we plan on providing stronger guarantees for
 read-only queries that return at most one row, regardless of the size of that
 row.
 

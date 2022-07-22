@@ -14,12 +14,12 @@ The `ALTER COLUMN` [statement](sql-statements.html) is part of `ALTER TABLE` and
 To manage other constraints, see [`ADD CONSTRAINT`](add-constraint.html) and [`DROP CONSTRAINT`](drop-constraint.html).
 {{site.data.alerts.end}}
 
-{% include {{ page.version.version }}/sql/combine-alter-table-commands.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/combine-alter-table-commands.md %}
 
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/alter_column.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/alter_column.html %}
 </div>
 
 ## Required privileges
@@ -33,15 +33,15 @@ The user must have the `CREATE` [privilege](authorization.html#assign-privileges
 | `table_name` | The name of the table with the column you want to modify. |
 | `column_name` | The name of the column you want to modify. |
 | `SET DEFAULT a_expr` | The new [Default Value](default-value.html) you want to use. |
-| `typename` | The new, altered type you want to use.<br>In CockroachDB versions < v20.2, support for altering column types is limited to increasing the precision of the current column type. For details, see [Altering column types](#altering-column-types).|
+| `typename` | The new, altered type you want to use.<br>In CockroachDB [version](cluster-settings.html#setting-version)s < v20.2, support for altering column types is limited to increasing the precision of the current column type. For details, see [Altering column types](#altering-column-types).|
 
 ## Viewing schema changes
 
-{% include {{ page.version.version }}/misc/schema-change-view-job.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-view-job.md %}
 
 ## Altering column types
 
-In CockroachDB versions < v20.2, support for altering column types is limited to increasing the precision of the current type of a column. You cannot convert the column type to another data type, or decrease the precision of the column type. Changing the column type from its current type to the same type and precision will result in a no-op, with no error.
+In CockroachDB [version](cluster-settings.html#setting-version)s < v20.2, support for altering column types is limited to increasing the precision of the current type of a column. You cannot convert the column type to another data type, or decrease the precision of the column type. Changing the column type from its current type to the same type and precision will result in a no-op, with no error.
 
 You can use `ALTER COLUMN TYPE` if the following conditions are met:
 
@@ -80,7 +80,7 @@ If the column has a defined [`DEFAULT` value](default-value.html), you can remov
 
 ### Set `NOT NULL` constraint
 
-<span class="version-tag">New in v19.2:</span> Setting the  [`NOT NULL` constraint](not-null.html) specifies that the column cannot contain `NULL` values.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v19.2:</span> Setting the  [`NOT NULL` constraint](not-null.html) specifies that the column cannot contain `NULL` values.
 
 {% include copy-clipboard.html %}
 ~~~ sql
@@ -98,7 +98,7 @@ If the column has the [`NOT NULL` constraint](not-null.html) applied to it, you 
 
 ### Convert a computed column into a regular column
 
-{% include {{ page.version.version }}/computed-columns/convert-computed-column.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/computed-columns/convert-computed-column.md %}
 
 ### Increase a column type's precision
 

@@ -30,7 +30,7 @@ The `SET` statement can set a session variable for the duration of the current s
 ### SET SESSION
 
 <div>
-{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.version.version | replace: "v", "" }}/grammar_svg/set_session.html %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/grammar_svg/set_session.html %}
 </div>
 
 {{site.data.alerts.callout_info}}
@@ -40,7 +40,7 @@ By default, session variables are set for the duration of the current session. A
 ### SET LOCAL
 
 <div>
-  {% include {{ page.version.version }}/sql/generated/diagrams/set_local.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/set_local.html %}
 </div>
 
 {{site.data.alerts.callout_info}}
@@ -56,7 +56,7 @@ Parameter   | Description
 
 ### Supported variables
 
-{% include {{ page.version.version }}/misc/session-vars.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/session-vars.md %}
 
 ### Special syntax cases
 
@@ -449,7 +449,7 @@ When setting a time zone, note the following:
 
 ## Known Limitations
 
-{% include {{page.version.version}}/known-limitations/set-transaction-no-rollback.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/known-limitations/set-transaction-no-rollback.md %}
 
 ## See also
 

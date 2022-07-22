@@ -6,7 +6,7 @@ toc: true
 
 CockroachDB provides a virtual schema called `information_schema` that contains information about your database's tables, columns, indexes, and views. This information can be used for introspection and reflection.
 
-The definition of `information_schema` is part of the SQL standard and can therefore be relied on to remain stable over time. This contrasts with CockroachDB's `SHOW` statements, which provide similar data and are meant to be stable in CockroachDB but not standardized. It also contrasts with the virtual schema `crdb_internal`, which reflects the internals of CockroachDB and may thus change across CockroachDB versions.
+The definition of `information_schema` is part of the SQL standard and can therefore be relied on to remain stable over time. This contrasts with CockroachDB's `SHOW` statements, which provide similar data and are meant to be stable in CockroachDB but not standardized. It also contrasts with the virtual schema `crdb_internal`, which reflects the internals of CockroachDB and may thus change across CockroachDB [version](cluster-settings.html#setting-version)s.
 
 {{site.data.alerts.callout_info}}
 The `information_schema` views typically represent objects that the current user has privilege to access. To ensure you can view all the objects in a database, access it as the `root` user.
@@ -283,7 +283,7 @@ Column | Description
 `table_schema` | Name of the schema that contains the table.
 `table_name` | Name of the table.
 `table_type` | Type of the table: `BASE TABLE` for a normal table, `VIEW` for a view, or `SYSTEM VIEW` for a view created by CockroachDB.
-`version` | Version number of the table; versions begin at 1 and are incremented each time an `ALTER TABLE` statement is issued on the table. Note that this column is an experimental feature used for internal purposes inside CockroachDB and its definition is subject to change without notice.
+`[version](cluster-settings.html#setting-version)` | Version number of the table; [version](cluster-settings.html#setting-version)s begin at 1 and are incremented each time an `ALTER TABLE` statement is issued on the table. Note that this column is an experimental feature used for internal purposes inside CockroachDB and its definition is subject to change without notice.
 
 ### user_privileges
 

@@ -13,7 +13,7 @@ The `SHOW USERS` [statement](sql-statements.html) lists the users for all databa
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/generated/diagrams/show_users.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/show_users.html %}
 </div>
 
 ## Required privileges

@@ -12,7 +12,7 @@ The `ALTER VIEW` [statement](sql-statements.html) applies a schema change to a [
 Note that, in a future release, `ALTER VIEW ... RENAME TO` will be limited to changing the name of a view, and will not have to the ability to change a view's database.
 {{site.data.alerts.end}}
 
-{% include {{{ page.version.version }}/misc/schema-change-stmt-note.md %}
+{% include {{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-stmt-note.md %}
 
 ## Required privileges
 
@@ -21,14 +21,14 @@ The user must have the `DROP` [privilege](authorization.html#assign-privileges) 
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/alter_view.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/alter_view.html %}
 </div>
 
 ## Parameters
 
 Parameter | Description
 ----------|------------
-`MATERIALIZED` | <span class="version-tag">New in v20.2:</span> Rename a [materialized view](views.html#materialized-views).
+`MATERIALIZED` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> Rename a [materialized view](views.html#materialized-views).
 `IF EXISTS` | Rename the view only if a view of `view_name` exists; if one does not exist, do not return an error.
 `view_name` | The name of the view to rename. To find view names, use:<br><br>`SELECT * FROM information_schema.tables WHERE table_type = 'VIEW';`
 `name` | The new [`name`](sql-grammar.html#name) for the view, which must be unique to its database and follow these [identifier rules](keywords-and-identifiers.html#identifiers).

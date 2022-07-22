@@ -111,7 +111,7 @@ This works by giving each write operation a latch on a row. Any reads or writes 
 
 ### Batch Evaluation
 
-The batch evaluator ensures that write operations are valid. Our architecture makes this fairly trivial. First, the evaluator can simply check the leaseholder's data to ensure the write is valid; because it has coordinated all writes to the range, it must have the most up-to-date versions of the range's data. Secondly, because of the latch manager, each write operation is guaranteed to uncontested access to the range (i.e., there is no contention with other write operations).
+The batch evaluator ensures that write operations are valid. Our architecture makes this fairly trivial. First, the evaluator can simply check the leaseholder's data to ensure the write is valid; because it has coordinated all writes to the range, it must have the most up-to-date [version](cluster-settings.html#setting-version)s of the range's data. Secondly, because of the latch manager, each write operation is guaranteed to uncontested access to the range (i.e., there is no contention with other write operations).
 
 If the write operation is valid according to the evaluator, the leaseholder sends a provisional acknowledgment to the gateway node's `DistSender`; this lets the `DistSender` begin to send its subsequent `BatchRequests` for this range.
 
@@ -121,7 +121,7 @@ Importantly, this feature is entirely built for transactional optimization (know
 
 All operations (including writes) begin by reading from the local instance of RocksDB to check for write intents for the operation's key. We talk much more about [write intents in the transaction layer of the CockroachDB architecture](transaction-layer.html#write-intents), which is worth reading, but a simplified explanation is that these are provisional, uncommitted writes that express that some other concurrent transaction plans to write a value to the key.
 
-What we detail below is a simplified version of the CockroachDB transaction model. For more detail, check out [the transaction architecture documentation](transaction-layer.html).
+What we detail below is a simplified [version](cluster-settings.html#setting-version) of the CockroachDB transaction model. For more detail, check out [the transaction architecture documentation](transaction-layer.html).
 
 #### Resolving Write Intents
 
@@ -143,7 +143,7 @@ Check out our architecture documentation for more information about [CockroachDB
 #### Read Operations
 
 
-If the read doesn't encounter a write intent and the key-value operation is meant to serve a read, it can simply use the value it read from the leaseholder's instance of RocksDB. This works because the leaseholder had to be part of the Raft consensus group for any writes to complete, meaning it must have the most up-to-date version of the range's data.
+If the read doesn't encounter a write intent and the key-value operation is meant to serve a read, it can simply use the value it read from the leaseholder's instance of RocksDB. This works because the leaseholder had to be part of the Raft consensus group for any writes to complete, meaning it must have the most up-to-date [version](cluster-settings.html#setting-version) of the range's data.
 
 The leaseholder aggregates all read responses into a `BatchResponse` that will get returned to the gateway node's `DistSender`.
 

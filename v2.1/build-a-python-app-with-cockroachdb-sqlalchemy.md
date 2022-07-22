@@ -16,7 +16,7 @@ We have tested the [psycopg2 driver](http://initd.org/psycopg/docs/) and [SQLAlc
 
 ## Before you begin
 
-{% include {{page.version.version}}/app/before-you-begin.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/before-you-begin.md %}
 
 {{site.data.alerts.callout_danger}}
 **Upgrading from CockroachDB 2.0 to 2.1?** If you used SQLAlchemy with your 2.0 cluster, you must [upgrade the adapter to the latest release](https://github.com/cockroachdb/sqlalchemy-cockroachdb) before upgrading to CockroachDB 2.1.
@@ -45,7 +45,7 @@ For other ways to install SQLAlchemy, see the [official documentation](http://do
 
 ## Step 2. Create the `maxroach` user and `bank` database
 
-{% include {{page.version.version}}/app/create-maxroach-user-and-bank-database.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/create-maxroach-user-and-bank-database.md %}
 
 ## Step 3. Generate a certificate for the `maxroach` user
 
@@ -75,11 +75,11 @@ You must use the `cockroachdb://` prefix in the URL passed to [`sqlalchemy.creat
 {{site.data.alerts.end}}
 
 Copy the code below or
-<a href="https://raw.githubusercontent.com/cockroachdb/docs/master/_includes/{{page.version.version}}/app/sqlalchemy-basic-sample.py">download it directly</a>.
+<a href="https://raw.githubusercontent.com/cockroachdb/docs/master/_includes/{{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/sqlalchemy-basic-sample.py">download it directly</a>.
 
 {% include copy-clipboard.html %}
 ~~~ python
-{% include {{page.version.version}}/app/sqlalchemy-basic-sample.py %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/sqlalchemy-basic-sample.py %}
 ~~~
 
 Then run the code:
@@ -98,7 +98,7 @@ The output should look something like the following:
 2018-12-06 15:59:59,001 INFO sqlalchemy.engine.base.Engine {}
 2018-12-06 15:59:59,001 INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
 2018-12-06 15:59:59,001 INFO sqlalchemy.engine.base.Engine {}
-2018-12-06 15:59:59,002 INFO sqlalchemy.engine.base.Engine select version()
+2018-12-06 15:59:59,002 INFO sqlalchemy.engine.base.Engine select [version](cluster-settings.html#setting-version)()
 2018-12-06 15:59:59,002 INFO sqlalchemy.engine.base.Engine {}
 2018-12-06 15:59:59,003 INFO sqlalchemy.engine.base.Engine SELECT table_name FROM information_schema.tables WHERE table_schema=%s
 2018-12-06 15:59:59,004 INFO sqlalchemy.engine.base.Engine ('public',)
@@ -155,7 +155,7 @@ Then, issue the following statement:
 
 ## Step 2. Create the `maxroach` user and `bank` database
 
-{% include {{page.version.version}}/app/insecure/create-maxroach-user-and-bank-database.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/insecure/create-maxroach-user-and-bank-database.md %}
 
 ## Step 3. Run the Python code
 
@@ -176,11 +176,11 @@ You must use the `cockroachdb://` prefix in the URL passed to [`sqlalchemy.creat
 {{site.data.alerts.end}}
 
 Copy the code below or
-<a href="https://raw.githubusercontent.com/cockroachdb/docs/master/_includes/{{page.version.version}}/app/sqlalchemy-basic-sample.py">download it directly</a>.
+<a href="https://raw.githubusercontent.com/cockroachdb/docs/master/_includes/{{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/sqlalchemy-basic-sample.py">download it directly</a>.
 
 {% include copy-clipboard.html %}
 ~~~ python
-{% include {{page.version.version}}/app/sqlalchemy-basic-sample.py %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/sqlalchemy-basic-sample.py %}
 ~~~
 
 Then run the code:
@@ -199,7 +199,7 @@ The output should look something like the following:
 2018-12-06 15:59:59,001 INFO sqlalchemy.engine.base.Engine {}
 2018-12-06 15:59:59,001 INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
 2018-12-06 15:59:59,001 INFO sqlalchemy.engine.base.Engine {}
-2018-12-06 15:59:59,002 INFO sqlalchemy.engine.base.Engine select version()
+2018-12-06 15:59:59,002 INFO sqlalchemy.engine.base.Engine select [version](cluster-settings.html#setting-version)()
 2018-12-06 15:59:59,002 INFO sqlalchemy.engine.base.Engine {}
 2018-12-06 15:59:59,003 INFO sqlalchemy.engine.base.Engine SELECT table_name FROM information_schema.tables WHERE table_schema=%s
 2018-12-06 15:59:59,004 INFO sqlalchemy.engine.base.Engine ('public',)
@@ -284,12 +284,12 @@ In keeping with the above recommendations from the official docs, we **strongly 
 
 ### Break up large transactions into smaller units of work
 
-If you see an error message like `transaction is too large to complete; try splitting into pieces`, you are trying to commit too much data in a single transaction. As described in our [Cluster Settings](cluster-settings.html) docs, the size limit for transactions is defined by the `kv.transaction.max_intents_bytes` setting, which defaults to 256 KiB. Although this setting can be changed by an admin, we strongly recommend against it in most cases.
+If you see an error message like `transaction is too large to complete; try splitting into pieces`, you are trying to commit too much data in a single transaction. As described in our [Cluster Settings](cluster-settings.html) docs, the size limit for transactions is defined by the `[kv.transaction.max_intents_bytes](cluster-settings.html#setting-kv-transaction-max_intents_bytes)` setting, which defaults to 256 KiB. Although this setting can be changed by an admin, we strongly recommend against it in most cases.
 
 Instead, we recommend breaking your transaction into smaller units of work (or "chunks"). A pattern that works for inserting large numbers of objects using `run_transaction` to handle retries automatically for you is shown below.
 
 ~~~ python
-{% include {{page.version.version}}/app/sqlalchemy-large-txns.py %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/sqlalchemy-large-txns.py %}
 ~~~
 
 ### Use `IMPORT` to read in large data sets
@@ -312,7 +312,7 @@ In general, we recommend using the query-builder APIs of SQLAlchemy (e.g., [`Eng
 - The [SQLAlchemy](https://docs.sqlalchemy.org/en/latest/) docs
 - [Transactions](transactions.html)
 
-{% include {{page.version.version}}/app/see-also-links.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/see-also-links.md %}
 
 <!-- Reference Links -->
 

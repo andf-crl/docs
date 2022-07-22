@@ -36,5 +36,5 @@ TODO: clean up the SQL diagrams not to link to these missing nonterminals.
 <a id="timestamp"></a>
 
 <div class="horizontal-scroll">
-  {% include {{ page.version.version }}/sql/diagrams/grammar.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/grammar.html %}
 </div>

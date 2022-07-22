@@ -46,17 +46,17 @@ The following disk-spilling operations require [memory buffering](https://en.wik
 - [Merge joins](joins.html#merge-joins) on non-unique columns. Merge joins on columns that are guaranteed to have one row per value, also known as "key columns", can execute entirely in-memory.
 - [Window functions](window-functions.html).
 
-By default, the memory limit allocated per disk-spilling operation is `64MiB`. This limit applies to a single operation within a single query, and is configured with the `sql.distsql.temp_storage.workmem` [cluster setting](cluster-settings.html).
+By default, the memory limit allocated per disk-spilling operation is `64MiB`. This limit applies to a single operation within a single query, and is configured with the `[sql.distsql.temp_storage.workmem](cluster-settings.html#setting-sql-distsql-temp_storage-workmem)` [cluster setting](cluster-settings.html).
 
 To increase the limit, change the cluster setting:
 
 {% include_cached copy-clipboard.html %}
 ~~~ sql
-SET CLUSTER SETTING sql.distsql.temp_storage.workmem = '100MiB';
+SET CLUSTER SETTING [sql.distsql.temp_storage.workmem](cluster-settings.html#setting-sql-distsql-temp_storage-workmem) = '100MiB';
 ~~~
 
 {{site.data.alerts.callout_info}}
-Operations that do not support disk spilling ignore the `sql.distsql.temp_storage.workmem` limit.
+Operations that do not support disk spilling ignore the `[sql.distsql.temp_storage.workmem](cluster-settings.html#setting-sql-distsql-temp_storage-workmem)` limit.
 {{site.data.alerts.end}}
 
 The [`--max-disk-temp-storage` flag](cockroach-start.html#general) sets the maximum on-disk storage capacity for disk spilling. If the maximum on-disk storage capacity is reached, the query will return an error during execution.

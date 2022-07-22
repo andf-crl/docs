@@ -29,7 +29,7 @@ Hash-sharded indexes created in v22.1 will not [backfill](use-changefeeds.html#s
 
 ### Shard count
 
-When creating a hash-sharded index, CockroachDB creates a specified number of shards (buckets) within the cluster based on the value of the `sql.defaults.default_hash_sharded_index_bucket_count` [cluster setting](cluster-settings.html). You can also specify a different `bucket_count` by passing in an optional storage parameter. See the example below.
+When creating a hash-sharded index, CockroachDB creates a specified number of shards (buckets) within the cluster based on the value of the `[sql.defaults.default_hash_sharded_index_bucket_count](cluster-settings.html#setting-sql-defaults-default_hash_sharded_index_bucket_count)` [cluster setting](cluster-settings.html). You can also specify a different `bucket_count` by passing in an optional storage parameter. See the example below.
 
 For most use cases, no changes to the cluster setting are needed, and hash-sharded indexes can be created with `USING HASH` instead of `USING HASH WITH (bucket_count = n)`. Changing the cluster setting or storage parameter to a number greater than the number of nodes within that cluster will produce diminishing returns and is not recommended.
 
@@ -60,19 +60,19 @@ When this clause is used, CockroachDB creates a computed shard column and then s
 
 ### Create a table with a hash-sharded primary key
 
-{% include {{page.version.version}}/performance/create-table-hash-sharded-primary-index.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/performance/create-table-hash-sharded-primary-index.md %}
 
 ### Create a table with a hash-sharded secondary index
 
-{% include {{page.version.version}}/performance/create-table-hash-sharded-secondary-index.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/performance/create-table-hash-sharded-secondary-index.md %}
 
 ### Create a hash-sharded secondary index on an existing table
 
-{% include {{page.version.version}}/performance/create-index-hash-sharded-secondary-index.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/performance/create-index-hash-sharded-secondary-index.md %}
 
 ### Alter an existing primary key to use hash sharding
 
-{% include {{page.version.version}}/performance/alter-primary-key-hash-sharded.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/performance/alter-primary-key-hash-sharded.md %}
 
 ### Show hash-sharded index in `SHOW CREATE TABLE`
 

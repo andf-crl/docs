@@ -6,7 +6,7 @@ toc: true
 
 CockroachDB supports importing data from `.sql` dumps and some `.csv` files.
 
-{{site.data.alerts.callout_info}}To import/restore data from CockroachDB-generated <a href="backup.html">enterprise license backups</a>, see <a href="restore.html"><code>RESTORE</code></a>.{{site.data.alerts.end}}
+{{site.data.alerts.callout_info}}To import/restore data from CockroachDB-generated <a href="backup.html">[enterprise.license](cluster-settings.html#setting-enterprise-license) backups</a>, see <a href="restore.html"><code>RESTORE</code></a>.{{site.data.alerts.end}}
 
 
 ## Import from Generic SQL Dump
@@ -70,7 +70,7 @@ For reference, CockroachDB uses these defaults:
 
 You can import numeric data stored in `.csv` files by executing a bash script that reads values from the files and uses them in `INSERT` statements.
 
-{{site.data.alerts.callout_danger}}To import non-numerical data, convert the <code>.csv</code> file to a <code>.sql</code> file (you can find free conversion software online), and then import the <code>.sql</code> file.{{site.data.alerts.end}}
+{{site.data.alerts.callout_danger}}To import non-numerical data, convert the <code>.csv</code> file to a <code>.sql</code> file (you can find free con[version](cluster-settings.html#setting-version) software online), and then import the <code>.sql</code> file.{{site.data.alerts.end}}
 
 ### Template
 

@@ -24,6 +24,6 @@ Subcommand | Description
 [`RENAME TABLE`](rename-table.html) | Change the names of tables.
 `SPLIT AT` | *(Documentation pending)* Potentially improve performance by identifying ideal locations to split data in the key-value layer.
 
-## Viewing Schema Changes <span class="version-tag">New in v1.1</span>
+## Viewing Schema Changes <span class="[version](cluster-settings.html#setting-version)-tag">New in v1.1</span>
 
-{% include {{ page.version.version }}/misc/schema-change-view-job.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-view-job.md %}

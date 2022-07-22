@@ -27,17 +27,17 @@ In addition to the `public` schema, CockroachDB supports a fixed set of [system 
 
 To create a new database, use a [`CREATE DATABASE`](create-database.html) statement. To create a new schema, use a [`CREATE SCHEMA`](create-schema.html) statement. The list of all databases can be obtained with [`SHOW DATABASES`](show-databases.html). The list of all schemas for a given database can be obtained with [`SHOW SCHEMAS`](show-schemas.html). The list of all objects for a given schema can be obtained with other `SHOW` statements.
 
-### Migrating namespaces from previous versions of CockroachDB
+### Migrating namespaces from previous [version](cluster-settings.html#setting-version)s of CockroachDB
 
-In CockroachDB versions < v20.2, [user-defined schemas](create-schema.html) are not supported, and all objects created in a given database use the `public` schema. To provide a multi-level structure for stored objects in earlier versions of CockroachDB, we have recommended using [database](create-database.html) namespaces instead of schema namespaces.
+In CockroachDB [version](cluster-settings.html#setting-version)s < v20.2, [user-defined schemas](create-schema.html) are not supported, and all objects created in a given database use the `public` schema. To provide a multi-level structure for stored objects in earlier [version](cluster-settings.html#setting-version)s of CockroachDB, we have recommended using [database](create-database.html) namespaces instead of schema namespaces.
 
-In CockroachDB versions >= v20.2, we recommend using schema namespaces, not database namespaces, to create a naming structure that is more similar to [PostgreSQL](https://www.postgresql.org/docs/current/ddl-schemas.html).
+In CockroachDB [version](cluster-settings.html#setting-version)s >= v20.2, we recommend using schema namespaces, not database namespaces, to create a naming structure that is more similar to [PostgreSQL](https://www.postgresql.org/docs/current/ddl-schemas.html).
 
-If you are upgrading to {{ page.version.version }}, take any combination of the following actions after the upgrade is complete:
+If you are upgrading to {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}, take any combination of the following actions after the upgrade is complete:
 
 - [Create new schemas](create-schema.html) in databases on your cluster. After the schemas are created, use [`ALTER TABLE ... RENAME`](rename-table.html), [`ALTER SEQUENCE ... RENAME`](alter-sequence.html), [`ALTER TYPE ... RENAME`](alter-type.html), or [`ALTER VIEW ... RENAME`](alter-view.html) statements to move objects between databases as needed. To move objects between schemas, use [`ALTER TABLE ... SET SCHEMA`](set-schema.html), [`ALTER SEQUENCE ... SET SCHEMA`](alter-sequence.html), or [`ALTER VIEW ... SET SCHEMA`](alter-view.html).
 
-- If your cluster contains cross-database references (e.g., a cross-database foreign key reference, or a cross-database view reference), use the relevant [`ALTER TABLE`](alter-table.html), [`ALTER SEQUENCE`](alter-sequence.html), [`ALTER TYPE`](alter-type.html), or [`ALTER VIEW `](alter-view.html) statements to move any cross-referencing objects to the same database, but different schemas. Cross-database object references were allowed in earlier versions of CockroachDB to make database-object naming hierarchies more flexible for users. In v20.2, creating cross-database references are disabled for [foreign keys](foreign-key.html), [views](views.html), and [sequence ownership](create-sequence.html). For details, see [tracking issue](https://github.com/cockroachdb/cockroach/issues/55791).
+- If your cluster contains cross-database references (e.g., a cross-database foreign key reference, or a cross-database view reference), use the relevant [`ALTER TABLE`](alter-table.html), [`ALTER SEQUENCE`](alter-sequence.html), [`ALTER TYPE`](alter-type.html), or [`ALTER VIEW `](alter-view.html) statements to move any cross-referencing objects to the same database, but different schemas. Cross-database object references were allowed in earlier [version](cluster-settings.html#setting-version)s of CockroachDB to make database-object naming hierarchies more flexible for users. In v20.2, creating cross-database references are disabled for [foreign keys](foreign-key.html), [views](views.html), and [sequence ownership](create-sequence.html). For details, see [tracking issue](https://github.com/cockroachdb/cockroach/issues/55791).
 
 ## How name resolution works
 
@@ -265,7 +265,7 @@ fully qualified name, as follows:
 
 ### Preloaded databases
 
-{% include {{ page.version.version }}/sql/preloaded-databases.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/preloaded-databases.md %}
 
 ## See also
 

@@ -15,12 +15,12 @@ There are two ways to use `ROLLBACK`:
   - [Rollback a nested transaction](#rollback-a-nested-transaction)
   - [Retry a transaction](#retry-a-transaction)
 
-{% include {{page.version.version}}/sql/savepoint-ddl-rollbacks.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/savepoint-ddl-rollbacks.md %}
 
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/rollback_transaction.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/rollback_transaction.html %}
 </div>
 
 ## Required privileges
@@ -36,11 +36,11 @@ No [privileges](authorization.html#assign-privileges) are required to rollback a
 
 ## Savepoints and row locks
 
-{% include {{page.version.version}}/sql/savepoints-and-row-locks.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/savepoints-and-row-locks.md %}
 
 ## Savepoints and high priority transactions
 
-{% include {{page.version.version}}/sql/savepoints-and-high-priority-transactions.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/savepoints-and-high-priority-transactions.md %}
 
 ## Examples
 

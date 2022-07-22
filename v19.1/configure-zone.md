@@ -17,25 +17,25 @@ Adding replication zones for rows and secondary indexes is an [enterprise-only](
 **alter_zone_range_stmt ::=**
 
 <div class="horizontal-scroll">
-  {% include {{ page.version.version }}/sql/diagrams/alter_zone_range.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/alter_zone_range.html %}
 </div>
 
 **alter_zone_database_stmt ::=**
 
 <div class="horizontal-scroll">
-  {% include {{ page.version.version }}/sql/diagrams/alter_zone_database.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/alter_zone_database.html %}
 </div>
 
 **alter_zone_table_stmt ::=**
 
 <div class="horizontal-scroll">
-  {% include {{ page.version.version }}/sql/diagrams/alter_zone_table.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/alter_zone_table.html %}
 </div>
 
 **alter_zone_index_stmt ::=**
 
 <div class="horizontal-scroll">
-  {% include {{ page.version.version }}/sql/diagrams/alter_zone_index.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/alter_zone_index.html %}
 </div>
 
 ## Required privileges
@@ -57,11 +57,11 @@ Currently, only the `root` user can configure replication zones.
 
 ### Variables
 
-{% include {{ page.version.version }}/zone-configs/variables.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/zone-configs/variables.md %}
 
 ## Viewing schema changes
 
-{% include {{ page.version.version }}/misc/schema-change-view-job.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-view-job.md %}
 
 ## Examples
 
@@ -78,35 +78,35 @@ CONFIGURE ZONE 1
 
 ### Edit the default replication zone
 
-{% include {{ page.version.version }}/zone-configs/edit-the-default-replication-zone.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/zone-configs/edit-the-default-replication-zone.md %}
 
 ### Create a replication zone for a database
 
-{% include {{ page.version.version }}/zone-configs/create-a-replication-zone-for-a-database.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/zone-configs/create-a-replication-zone-for-a-database.md %}
 
 ### Create a replication zone for a table
 
-{% include {{ page.version.version }}/zone-configs/create-a-replication-zone-for-a-table.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/zone-configs/create-a-replication-zone-for-a-table.md %}
 
 ### Create a replication zone for a secondary index
 
-{% include {{ page.version.version }}/zone-configs/create-a-replication-zone-for-a-secondary-index.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/zone-configs/create-a-replication-zone-for-a-secondary-index.md %}
 
 ### Create a replication zone for a table or secondary index partition
 
-{% include {{ page.version.version }}/zone-configs/create-a-replication-zone-for-a-table-partition.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/zone-configs/create-a-replication-zone-for-a-table-partition.md %}
 
 ### Create a replication zone for a system range
 
-{% include {{ page.version.version }}/zone-configs/create-a-replication-zone-for-a-system-range.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/zone-configs/create-a-replication-zone-for-a-system-range.md %}
 
 ### Reset a replication zone
 
-{% include {{ page.version.version }}/zone-configs/reset-a-replication-zone.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/zone-configs/reset-a-replication-zone.md %}
 
 ### Remove a replication zone
 
-{% include {{ page.version.version }}/zone-configs/remove-a-replication-zone.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/zone-configs/remove-a-replication-zone.md %}
 
 ## See also
 

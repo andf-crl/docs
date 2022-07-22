@@ -7,7 +7,7 @@ toc: true
 The `EXPLAIN ANALYZE` [statement](sql-statements.html) **executes a SQL query** and generates a URL for a physical query plan with execution statistics, or a URL to download a bundle with more details about the query plan. Query plans provide information around SQL execution, which can be used to troubleshoot slow queries by figuring out where time is being spent, how long a processor (i.e., a component that takes streams of input rows and processes them according to a specification) is not doing work, etc. For more information about distributed SQL queries, see the [DistSQL section of our SQL Layer Architecture docs](architecture/sql-layer.html#distsql).
 
 {{site.data.alerts.callout_info}}
-{% include {{ page.version.version }}/sql/physical-plan-url.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/physical-plan-url.md %}
 {{site.data.alerts.end}}
 
 ## Aliases
@@ -18,14 +18,14 @@ In CockroachDB, the following are aliases for `EXPLAIN ANALYZE`:
 
 ## Synopsis
 
-<section>{% include {{ page.version.version }}/sql/diagrams/explain_analyze.html %}</section>
+<section>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/explain_analyze.html %}</section>
 
 ## Parameters
 
 Parameter          | Description
 -------------------|-----------
 `DISTSQL`          | _(Default)_ Generate a link to a distributed SQL physical query plan tree. For more information, see [Default option](#default-option).
-`DEBUG`            | <span class="version-tag">New in v20.1:</span> Generate a ZIP file containing files with detailed information about the query and the database objects referenced in the query. For more information, see [`DEBUG` option](#debug-option).
+`DEBUG`            | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> Generate a ZIP file containing files with detailed information about the query and the database objects referenced in the query. For more information, see [`DEBUG` option](#debug-option).
 `preparable_stmt`  | The [statement](sql-grammar.html#preparable_stmt) you want to execute and analyze. All preparable statements are explainable.
 
 ## Required privileges
@@ -39,7 +39,7 @@ Successful `EXPLAIN ANALYZE` (and `EXPLAIN ANALYZE (DISTSQL)`) statements return
  Column | Description
 --------|------------
 **automatic** | If `true`, the query is distributed. For more information about distributed SQL queries, see the [DistSQL section of our SQL Layer Architecture docs](architecture/sql-layer.html#distsql).
-**url** | The URL generated for a physical query plan that provides high level information about how a query will be executed. For details about reading the physical query plan, see [DistSQL Plan Viewer](#distsql-plan-viewer).<br><br>{% include {{ page.version.version }}/sql/physical-plan-url.md %}
+**url** | The URL generated for a physical query plan that provides high level information about how a query will be executed. For details about reading the physical query plan, see [DistSQL Plan Viewer](#distsql-plan-viewer).<br><br>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/physical-plan-url.md %}
 
 If you use the [`DEBUG` option](#debug-option), the statement will return a single `text` column with a URL and instructions to download the `DEBUG` bundle, which includes the physical query plan.
 
@@ -59,7 +59,7 @@ Out | The output columns.
 @&lt;n&gt; | The index of the column relative to the input.
 Render | The stage that renders the output.
 unordered / ordered | _(Blue box)_ A synchronizer that takes one or more output streams and merges them to be consumable by a processor. An ordered synchronizer is used to merge ordered streams and keeps the rows in sorted order.
-&lt;data type&gt; | <span class="version-tag">New in v20.1:</span> If [`EXPLAIN(DISTSQL, TYPES)`](explain.html#distsql-option) is specified, lists the data types of the input columns.
+&lt;data type&gt; | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> If [`EXPLAIN(DISTSQL, TYPES)`](explain.html#distsql-option) is specified, lists the data types of the input columns.
 left(@&lt;n&gt;)=right(@&lt;n&gt;) | The equality columns used in the join.
 rows read | The number of rows read by the processor.
 stall time | How long the processor spent not doing work. This is aggregated into the stall time numbers as the query progresses down the tree (i.e., stall time is added up and overlaps with previous time).
@@ -77,7 +77,7 @@ Any or all of the above fields may display for a given query plan.
 
 ## `DEBUG` option
 
-<span class="version-tag">New in v20.1:</span> `EXPLAIN ANALYZE (DEBUG)` executes a query and generates a link to a ZIP file that contains the [physical query plan](#distsql-plan-viewer), execution statistics, statement tracing, and other information about the query.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> `EXPLAIN ANALYZE (DEBUG)` executes a query and generates a link to a ZIP file that contains the [physical query plan](#distsql-plan-viewer), execution statistics, statement tracing, and other information about the query.
 
         File        | Description
 --------------------+-------------------

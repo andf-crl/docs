@@ -216,13 +216,13 @@ In this case, the `b` column, which is of type `TIMESTAMPTZ(5)`, cannot be chang
 ~~~
 
 ~~~
-ERROR: unimplemented: type conversion from TIMESTAMPTZ(5) to TIMESTAMPTZ(3) requires overwriting existing values which is not yet implemented
+ERROR: unimplemented: type con[version](cluster-settings.html#setting-version) from TIMESTAMPTZ(5) to TIMESTAMPTZ(3) requires overwriting existing values which is not yet implemented
 SQLSTATE: 0A000
 ~~~
 
-## Supported casting and conversion
+## Supported casting and con[version](cluster-settings.html#setting-version)
 
-`TIMESTAMP` values can be [cast](data-types.html#data-type-conversions-and-casts) to any of the following data types:
+`TIMESTAMP` values can be [cast](data-types.html#data-type-con[version](cluster-settings.html#setting-version)s-and-casts) to any of the following data types:
 
 Type | Details
 -----|--------

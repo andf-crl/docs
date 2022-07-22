@@ -17,7 +17,7 @@ CockroachDB also supports using uninterpreted [string literals](sql-constants.ht
 - `MM-DD-YYYY`
 - `MM-DD-YY` (default)/`YY-MM-DD`/`DD-MM-YY`
 
-To change the input format of truncated dates (e.g., `12-16-06`) from `MM-DD-YY` to `YY-MM-DD` or `DD-MM-YY`, set the `datestyle` [session variable](set-vars.html) or the `sql.defaults.datestyle ` [cluster setting](cluster-settings.html). To set the `datestyle` session variable, the `datestyle_enabled` session variable must be set to `true`.
+To change the input format of truncated dates (e.g., `12-16-06`) from `MM-DD-YY` to `YY-MM-DD` or `DD-MM-YY`, set the `datestyle` [session variable](set-vars.html) or the `[sql.defaults.datestyle](cluster-settings.html#setting-sql-defaults-datestyle) ` [cluster setting](cluster-settings.html). To set the `datestyle` session variable, the `datestyle_enabled` session variable must be set to `true`.
 
 ## PostgreSQL compatibility
 
@@ -74,9 +74,9 @@ String literal implicitly typed as `DATE`:
 (2 rows)
 ~~~
 
-## Supported casting and conversion
+## Supported casting and con[version](cluster-settings.html#setting-version)
 
-`DATE` values can be [cast](data-types.html#data-type-conversions-and-casts) to any of the following data types:
+`DATE` values can be [cast](data-types.html#data-type-con[version](cluster-settings.html#setting-version)s-and-casts) to any of the following data types:
 
 Type | Details
 -----|--------

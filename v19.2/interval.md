@@ -6,7 +6,7 @@ toc: true
 
 The `INTERVAL` [data type](data-types.html) stores a value that represents a span of time.
 
-{% include {{page.version.version}}/sql/vectorized-support.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/vectorized-support.md %}
 
 ## Aliases
 
@@ -95,9 +95,9 @@ When upgrading to 19.1, existing intervals with nanoseconds will no longer be ab
 (3 rows)
 ~~~
 
-## Supported casting and conversion
+## Supported casting and con[version](cluster-settings.html#setting-version)
 
-`INTERVAL` values can be [cast](data-types.html#data-type-conversions-and-casts) to any of the following data types:
+`INTERVAL` values can be [cast](data-types.html#data-type-con[version](cluster-settings.html#setting-version)s-and-casts) to any of the following data types:
 
 Type | Details
 -----|--------

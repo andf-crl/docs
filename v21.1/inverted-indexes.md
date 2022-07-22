@@ -146,7 +146,7 @@ GIN indexes on [`ARRAY`](array.html) columns support the following comparison op
 
 ## Partial GIN indexes
 
-{% include_cached new-in.html version="v21.1" %} You can create a [partial](partial-indexes.html) GIN index, a GIN index on a subset of `JSON`, `ARRAY`, or geospatial container column data. Just like partial indexes that use non-container data types, create a partial GIN index by including a clause that evaluates to true on a boolean predicate, like a `WHERE` clause.
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.1" %} You can create a [partial](partial-indexes.html) GIN index, a GIN index on a subset of `JSON`, `ARRAY`, or geospatial container column data. Just like partial indexes that use non-container data types, create a partial GIN index by including a clause that evaluates to true on a boolean predicate, like a `WHERE` clause.
 
 {% include_cached copy-clipboard.html %}
 ~~~ sql
@@ -159,13 +159,13 @@ CREATE TABLE test (
 
 ## GIN indexes on `REGIONAL BY ROW` tables in multi-region databases
 
-{% include {{page.version.version}}/sql/indexes-regional-by-row.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/indexes-regional-by-row.md %}
 
 For an example that uses unique indexes but applies to all indexes on `REGIONAL BY ROW` tables, see [Add a unique index to a `REGIONAL BY ROW` table](add-constraint.html#add-a-unique-index-to-a-regional-by-row-table).
 
 ## Multi-column GIN indexes
 
-{% include_cached new-in.html version="v21.1" %} You can create a GIN index with multiple columns. The last indexed column must be one of the inverted types such as `JSON`, `ARRAY`, `GEOMETRY`, and `GEOGRAPHY`. All preceding columns must have types that are indexable. These indexes may be used for queries that constrain all index columns.
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.1" %} You can create a GIN index with multiple columns. The last indexed column must be one of the inverted types such as `JSON`, `ARRAY`, `GEOMETRY`, and `GEOGRAPHY`. All preceding columns must have types that are indexable. These indexes may be used for queries that constrain all index columns.
 
 {% include_cached copy-clipboard.html %}
 ~~~ sql
@@ -361,7 +361,7 @@ Time: 2ms total (execution 2ms / network 0ms)
 
 ### Inverted join examples
 
-{% include {{ page.version.version }}/sql/inverted-joins.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/inverted-joins.md %}
 
 ## See also
 

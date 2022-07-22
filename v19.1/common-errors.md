@@ -89,7 +89,7 @@ Uncertainty errors are a form of transaction conflict. For more information abou
 
 ### transaction deadline exceeded
 
-<span class="version-tag">New in v19.1</span>: Errors which were previously reported to the client as opaque `TransactionStatusError`s are now transaction retry errors with the error message "transaction deadline exceeded" and error code `40001`.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v19.1</span>: Errors which were previously reported to the client as opaque `TransactionStatusError`s are now transaction retry errors with the error message "transaction deadline exceeded" and error code `40001`.
 
 This error can occur for long-running transactions (with execution time on the order of minutes) that also experience conflicts with other transactions and thus attempt to commit at a timestamp different than their original timestamp. If the timestamp at which the transaction attempts to commit is above a "deadline" imposed by the various schema elements that the transaction has used (i.e., table structures), then this error might get returned to the client.
 
@@ -193,9 +193,9 @@ When running a multi-node CockroachDB cluster, if you see an error like the one 
 
 ## split failed while applying backpressure
 
-In CockroachDB, a table row is stored on disk as a key-value pair. Whenever the row is updated, CockroachDB also stores a distinct version of the key-value pair to enable concurrent request processing while guaranteeing consistency (see [multi-version concurrency control (MVCC)](architecture/storage-layer.html#mvcc)). All versions of a key-value pair belong to a larger ["range"](architecture/overview.html#terms) of the total key space, and the historical versions remain until the garbage collection period defined by the `gc.ttlseconds` variable in the applicable [zone configuration](configure-replication-zones.html#gc-ttlseconds) has passed (25 hours by default). Once a range reaches a size threshold (64 MiB by default), CockroachDB splits the range into two ranges. However, this message indicates that a range cannot be split as intended.
+In CockroachDB, a table row is stored on disk as a key-value pair. Whenever the row is updated, CockroachDB also stores a distinct [version](cluster-settings.html#setting-version) of the key-value pair to enable concurrent request processing while guaranteeing consistency (see [multi-[version](cluster-settings.html#setting-version) concurrency control (MVCC)](architecture/storage-layer.html#mvcc)). All [version](cluster-settings.html#setting-version)s of a key-value pair belong to a larger ["range"](architecture/overview.html#terms) of the total key space, and the historical [version](cluster-settings.html#setting-version)s remain until the garbage collection period defined by the `gc.ttlseconds` variable in the applicable [zone configuration](configure-replication-zones.html#gc-ttlseconds) has passed (25 hours by default). Once a range reaches a size threshold (64 MiB by default), CockroachDB splits the range into two ranges. However, this message indicates that a range cannot be split as intended.
 
-One possible cause is that the range consists only of MVCC version data due to a row being repeatedly updated, and the range cannot be split because doing so would spread MVCC versions for a single row across multiple ranges.
+One possible cause is that the range consists only of MVCC [version](cluster-settings.html#setting-version) data due to a row being repeatedly updated, and the range cannot be split because doing so would spread MVCC [version](cluster-settings.html#setting-version)s for a single row across multiple ranges.
 
 To resolve this issue, make sure you are not repeatedly updating a single row. If frequent updates of a row are necessary, consider one of the following:
 
@@ -245,7 +245,7 @@ To resolve this issue on Linux, install the [`tzdata`](https://www.iana.org/time
 
 To resolve this issue on Windows, download Go's official [zoneinfo.zip](https://github.com/golang/go/raw/master/lib/time/zoneinfo.zip) and set the `ZONEINFO` environment variable to point to the zip file. For step-by-step guidance on setting environment variables on Windows, see this [external article](https://www.techjunkie.com/environment-variables-windows-10/).
 
-It's important for all nodes to have the same version of this data, so make sure to do this across all nodes in the cluster.  
+It's important for all nodes to have the same [version](cluster-settings.html#setting-version) of this data, so make sure to do this across all nodes in the cluster.  
 
 For details about other libraries the CockroachDB binary depends on, see [Dependencies](recommended-production-settings.html#dependencies).
 

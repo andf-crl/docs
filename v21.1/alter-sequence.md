@@ -6,7 +6,7 @@ toc: true
 
 The `ALTER SEQUENCE` [statement](sql-statements.html) applies a [schema change](online-schema-changes.html) to a sequence.
 
-{% include {{{ page.version.version }}/misc/schema-change-stmt-note.md %}
+{% include {{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-stmt-note.md %}
 
 ## Required privileges
 
@@ -15,7 +15,7 @@ The `ALTER SEQUENCE` [statement](sql-statements.html) applies a [schema change](
 
 ## Syntax
 
-<div>{% include {{ page.version.version }}/sql/generated/diagrams/alter_sequence.html %}</div>
+<div>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/alter_sequence.html %}</div>
 
 ## Parameters
 

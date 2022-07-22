@@ -5,7 +5,7 @@ toc: true
 docs_area: reference.db_console
 ---
 
-{% include {{ page.version.version }}/ui/admin-access.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/ui/admin-access.md %}
 
 The **Databases** page of the DB Console provides details of the following:
 
@@ -19,7 +19,7 @@ To view this page, [access the DB Console](ui-overview.html#db-console-access) a
 
 The **Databases** page shows:
 
-- {% include_cached new-in.html version="v22.1" %} Whether [automatic statistics collection](cost-based-optimizer.html#table-statistics) is enabled for the cluster.
+- {% include_cached new-in.html [version](cluster-settings.html#setting-version)="v22.1" %} Whether [automatic statistics collection](cost-based-optimizer.html#table-statistics) is enabled for the cluster.
 - A list of the databases on the cluster.
 
 The following information is displayed for each database:
@@ -68,15 +68,15 @@ The table details include:
 - **Size**: the approximate disk size of all replicas of this table on the cluster.
 - **Replicas**: the number of [replicas](architecture/replication-layer.html) of this table on the cluster.
 - **Ranges**: the number of [ranges](architecture/glossary.html#architecture-range) in this table.
-- {% include_cached new-in.html version="v22.1" %} **Table Stats Last Updated**: the last time table statistics were created or updated.
-- {% include_cached new-in.html version="v22.1" %} **Auto Stats Collection**: whether [automatic statistics collection](cost-based-optimizer.html#table-statistics) is enabled.
+- {% include_cached new-in.html [version](cluster-settings.html#setting-version)="v22.1" %} **Table Stats Last Updated**: the last time table statistics were created or updated.
+- {% include_cached new-in.html [version](cluster-settings.html#setting-version)="v22.1" %} **Auto Stats Collection**: whether [automatic statistics collection](cost-based-optimizer.html#table-statistics) is enabled.
 - **Regions/nodes**: the regions and nodes on which the table data is stored. This is not displayed on a single-node cluster.
 - **Database**: the database in which the table is found.
 - **Indexes**: the names of the indexes defined on the table.
 
 #### Index details
 
-{% include_cached new-in.html version="v22.1" %} The **Index Stats** table displays index statistics for a table.
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v22.1" %} The **Index Stats** table displays index statistics for a table.
 
 Index statistics accumulate from the time an index was created or when statistics were reset. To reset index statistics for the cluster, click **Reset all index stats**.
 

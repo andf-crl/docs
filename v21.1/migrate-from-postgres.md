@@ -8,7 +8,7 @@ This page has instructions for migrating data from Postgres to CockroachDB using
 
 The examples below pull real data from [Amazon S3](https://aws.amazon.com/s3/).  They use the [employees data set](https://github.com/datacharmer/test_db) that is also used in the [MySQL docs](https://dev.mysql.com/doc/employee/en/).  The data was imported to Postgres using [pgloader][pgloader], and then modified for use here as explained below.
 
-{% include {{ page.version.version }}/misc/import-perf.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/import-perf.md %}
 
 ## Step 1. Dump the Postgres database
 
@@ -74,7 +74,7 @@ You can choose from several variants of the [`IMPORT`][import] statement, depend
 
 Note that all of the [`IMPORT`][import] statements in this section pull real data from [Amazon S3](https://aws.amazon.com/s3/) and will kick off background import jobs that you can monitor with [`SHOW JOBS`](show-jobs.html).
 
-{% include {{ page.version.version }}/sql/use-import-into.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/use-import-into.md %}
 
 ### Import a full database dump
 
@@ -154,9 +154,9 @@ If you need to specify the table's columns for some reason, you can use an [`IMP
 The following options are available to `IMPORT ... PGDUMP`:
 
 + [Max row size](#max-row-size)
-+ {% include_cached new-in.html version="v21.1" %} [Row limit](#row-limit)
-+ {% include_cached new-in.html version="v21.1" %} [Ignore unsupported statements](#ignore-unsupported-statements)
-+ {% include_cached new-in.html version="v21.1" %} [Log unsupported statements](#log-unsupported-statements)
++ {% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.1" %} [Row limit](#row-limit)
++ {% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.1" %} [Ignore unsupported statements](#ignore-unsupported-statements)
++ {% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.1" %} [Log unsupported statements](#log-unsupported-statements)
 + [Skip foreign keys](#skip-foreign-keys)
 
 ### Max row size
@@ -180,7 +180,7 @@ Example usage:
 
 ### Row limit
 
-{% include_cached new-in.html version="v21.1" %} The `row_limit` option determines the number of rows to import. If you are importing one table, setting `row_limit = 'n'` will import the first *n* rows of the table. If you are importing an entire database, this option will import the first *n* rows from each table in the dump file. It is useful for finding errors quickly before executing a more time- and resource-consuming import.
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.1" %} The `row_limit` option determines the number of rows to import. If you are importing one table, setting `row_limit = 'n'` will import the first *n* rows of the table. If you are importing an entire database, this option will import the first *n* rows from each table in the dump file. It is useful for finding errors quickly before executing a more time- and resource-consuming import.
 
 Example usage:
 
@@ -191,7 +191,7 @@ Example usage:
 
 ### Ignore unsupported statements
 
-{% include_cached new-in.html version="v21.1" %} The [`ignore_unsupported_statements` option](import.html#import-options) specifies whether the import will ignore unsupported statements in the `PGDUMP` file. **Default: false**.
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.1" %} The [`ignore_unsupported_statements` option](import.html#import-options) specifies whether the import will ignore unsupported statements in the `PGDUMP` file. **Default: false**.
 
 If `ignore_unsupported_statements` is omitted, the import will fail if it encounters a statement that is unsupported by CockroachDB. Use `ignore_unsupported_statements` with `log_ignored_statements` to log unsupported statements.
 
@@ -204,7 +204,7 @@ Example usage:
 
 ### Log unsupported statements
 
-{% include_cached new-in.html version="v21.1" %} The `log_ignored_statements` option is used with the `ignore_unsupported_statements` option to log unsupported statements in the `PGDUMP` file to specified a destination file.
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.1" %} The `log_ignored_statements` option is used with the `ignore_unsupported_statements` option to log unsupported statements in the `PGDUMP` file to specified a destination file.
 
 Example usage:
 
@@ -264,7 +264,7 @@ Example usage:
 
 <!-- Notes
 
-These instructions were prepared with the following versions:
+These instructions were prepared with the following [version](cluster-settings.html#setting-version)s:
 
 - Postgres 10.5
 

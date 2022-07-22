@@ -56,13 +56,13 @@ An `INTERVAL` column supports values up to 24 bytes in width, but the total stor
 
 ## Precision
 
-<span class="version-tag">New in v20.1:</span> CockroachDB supports precision levels from 0 (seconds) to 6 (microseconds) for `INTERVAL` values. Precision in time values specifies the number of fractional digits retained in the seconds field.  By default, `INTERVAL` values have a precision of 6 (microseconds).
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> CockroachDB supports precision levels from 0 (seconds) to 6 (microseconds) for `INTERVAL` values. Precision in time values specifies the number of fractional digits retained in the seconds field.  By default, `INTERVAL` values have a precision of 6 (microseconds).
 
 For example, specifying an `INTERVAL` value as `INTERVAL(3)` truncates the time precision to milliseconds.
 
 ## Duration fields
 
-<span class="version-tag">New in v20.1:</span> CockroachDB supports duration fields for `INTERVAL` values. You can specify `SECOND`, `MINUTE`, `HOUR`, or `DAY` units of duration in the form `INTERVAL ... <unit>` or `INTERVAL ... <unit> TO <unit>`.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> CockroachDB supports duration fields for `INTERVAL` values. You can specify `SECOND`, `MINUTE`, `HOUR`, or `DAY` units of duration in the form `INTERVAL ... <unit>` or `INTERVAL ... <unit> TO <unit>`.
 
 Specifying a single duration field truncates the interval at the unit specified, defining the interval as having the duration field unit as its least-significant unit. For example, `INTERVAL '1 2:03:04' HOUR` truncates the input to an exact hour, and parses the interval as `1 day 02:00:00`.
 
@@ -113,9 +113,9 @@ If the interval input is ambiguous, specifying two duration fields stores the in
 (3 rows)
 ~~~
 
-## Supported casting and conversion
+## Supported casting and con[version](cluster-settings.html#setting-version)
 
-`INTERVAL` values can be [cast](data-types.html#data-type-conversions-and-casts) to any of the following data types:
+`INTERVAL` values can be [cast](data-types.html#data-type-con[version](cluster-settings.html#setting-version)s-and-casts) to any of the following data types:
 
 Type | Details
 -----|--------

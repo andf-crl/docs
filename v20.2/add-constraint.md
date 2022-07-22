@@ -14,12 +14,12 @@ To add a primary key constraint to a table, you should explicitly define the pri
 
 The [`DEFAULT`](default-value.html) and [`NOT NULL`](not-null.html) constraints are managed through [`ALTER COLUMN`](alter-column.html).
 
-{% include {{ page.version.version }}/sql/combine-alter-table-commands.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/combine-alter-table-commands.md %}
 
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/add_constraint.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/add_constraint.html %}
 </div>
 
 ## Required privileges
@@ -36,7 +36,7 @@ The user must have the `CREATE` [privilege](authorization.html#assign-privileges
 
 ## Viewing schema changes
 
-{% include {{ page.version.version }}/misc/schema-change-view-job.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-view-job.md %}
 
 ## Changing primary keys with `ADD CONSTRAINT ... PRIMARY KEY`
 
@@ -53,7 +53,7 @@ The user must have the `CREATE` [privilege](authorization.html#assign-privileges
 
 ## Examples
 
-{% include {{page.version.version}}/sql/movr-statements.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/movr-statements.md %}
 
 ### Add the `UNIQUE` constraint
 
@@ -160,7 +160,7 @@ Using `ON DELETE CASCADE` will ensure that when the referenced row is deleted, a
 ~~~
 
 {{site.data.alerts.callout_info}}
-<span class="version-tag">New in v20.2:</span> By default, referenced columns must be in the same database as the referencing foreign key column. To enable cross-database foreign key references, set the `sql.cross_db_fks.enabled` [cluster setting](cluster-settings.html) to `true`.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> By default, referenced columns must be in the same database as the referencing foreign key column. To enable cross-database foreign key references, set the `[sql.cross_db_fks.enabled](cluster-settings.html#setting-sql-cross_db_fks-enabled)` [cluster setting](cluster-settings.html) to `true`.
 {{site.data.alerts.end}}
 
 ### Drop and add a primary key constraint

@@ -17,7 +17,7 @@ clauses](select-clause.html) and [`INSERT`](insert.html),
 
 ## Synopsis
 
-<div>{% include {{ page.version.version }}/sql/diagrams/with_clause.html %}</div>
+<div>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/with_clause.html %}</div>
 
 <div markdown="1"></div>
 
@@ -143,14 +143,14 @@ Writes in Subqueries</a> for details.
 
 {{site.data.alerts.callout_info}}
 The following limitations may be lifted
-in a future version of CockroachDB.
+in a future [version](cluster-settings.html#setting-version) of CockroachDB.
 {{site.data.alerts.end}}
 
 <div markdown="1"></div>
 
 ### Referring to a CTE by name more than once
 
-{% include {{ page.version.version }}/known-limitations/cte-by-name.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/cte-by-name.md %}
 
 ## See also
 

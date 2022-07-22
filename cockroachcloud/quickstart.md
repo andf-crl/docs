@@ -167,9 +167,9 @@ Use the [JDBC driver](https://jdbc.postgresql.org/) in a Java application.
 
 ## Start CockroachDB
 
-1. If you haven't already, [download the latest version of CockroachDB](../{{site.versions["stable"]}}/install-cockroachdb.html).
+1. If you haven't already, [download the latest [version](cluster-settings.html#setting-version) of CockroachDB](../{{site.[version](cluster-settings.html#setting-version)s["stable"]}}/install-cockroachdb.html).
 
-1. Run the [`cockroach demo`](../{{site.versions["stable"]}}/cockroach-demo.html) command:
+1. Run the [`cockroach demo`](../{{site.[version](cluster-settings.html#setting-version)s["stable"]}}/cockroach-demo.html) command:
 
     {% include_cached copy-clipboard.html %}
     ~~~ shell
@@ -459,15 +459,15 @@ For reference information about connecting to CockroachDB with supported client 
 
 ## Next steps
 
-- Build a simple CRUD application in [Go](../{{site.versions["stable"]}}/build-a-go-app-with-cockroachdb.html), [Java](../{{site.versions["stable"]}}/build-a-java-app-with-cockroachdb.html), [Node.js](../{{site.versions["stable"]}}/build-a-nodejs-app-with-cockroachdb.html), or [Python](../{{site.versions["stable"]}}/build-a-python-app-with-cockroachdb.html).
+- Build a simple CRUD application in [Go](../{{site.[version](cluster-settings.html#setting-version)s["stable"]}}/build-a-go-app-with-cockroachdb.html), [Java](../{{site.[version](cluster-settings.html#setting-version)s["stable"]}}/build-a-java-app-with-cockroachdb.html), [Node.js](../{{site.[version](cluster-settings.html#setting-version)s["stable"]}}/build-a-nodejs-app-with-cockroachdb.html), or [Python](../{{site.[version](cluster-settings.html#setting-version)s["stable"]}}/build-a-python-app-with-cockroachdb.html).
 - [Learn CockroachDB SQL](learn-cockroachdb-sql.html).
 - [Create and manage SQL users](user-authorization.html).
-- Explore our [example apps](../{{site.versions["stable"]}}/example-apps.html) for examples on how to build applications using your preferred driver or ORM and run it on CockroachDB.
+- Explore our [example apps](../{{site.[version](cluster-settings.html#setting-version)s["stable"]}}/example-apps.html) for examples on how to build applications using your preferred driver or ORM and run it on CockroachDB.
 
 ## Learn more
 
 This page outlines the quickest way to get started with CockroachDB. For information on other options that are available when creating a CockroachDB cluster, see the following:
 
 - To create a free cluster with other configurations (e.g., a different cloud provider, region, or monthly budget), see [Create a {{ site.data.products.serverless }} Cluster](create-a-serverless-cluster.html).
-- To connect to a free cluster with other options (e.g., a different SQL user) and connection methods (with an application or [CockroachDB compatible tool](../{{site.versions["stable"]}}/third-party-database-tools.html)), see [Connect to a {{ site.data.products.serverless }} Cluster](connect-to-a-serverless-cluster.html).
+- To connect to a free cluster with other options (e.g., a different SQL user) and connection methods (with an application or [CockroachDB compatible tool](../{{site.[version](cluster-settings.html#setting-version)s["stable"]}}/third-party-database-tools.html)), see [Connect to a {{ site.data.products.serverless }} Cluster](connect-to-a-serverless-cluster.html).
 - To watch a video walkthrough of connecting to a cluster, see [How to connect to {{ site.data.products.db }} and Import Data](https://www.youtube.com/watch?v=XJZD1rorEQE).

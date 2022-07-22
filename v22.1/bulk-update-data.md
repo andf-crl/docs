@@ -59,7 +59,7 @@ For example, you could create a column named `discounted`, of data type [`BOOL`]
 ALTER TABLE rides ADD COLUMN discounted BOOL DEFAULT false;
 ~~~
 
-{% include {{ page.version.version }}/misc/schema-change-stmt-note.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-stmt-note.md %}
 
 In Python, a batch-update script might look similar to the following:
 

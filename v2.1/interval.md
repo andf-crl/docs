@@ -87,9 +87,9 @@ INSERT 3
 (3 rows)
 ~~~
 
-## Supported casting and conversion
+## Supported casting and con[version](cluster-settings.html#setting-version)
 
-`INTERVAL` values can be [cast](data-types.html#data-type-conversions-and-casts) to any of the following data types:
+`INTERVAL` values can be [cast](data-types.html#data-type-con[version](cluster-settings.html#setting-version)s-and-casts) to any of the following data types:
 
 Type | Details
 -----|--------

@@ -260,4 +260,4 @@ This step is optional, as you do not need to create a new deployment package to 
 - [Build a Simple Django App with CockroachDB](build-a-python-app-with-cockroachdb-django.html)
 - [Deploy a Global, Serverless Application](movr-flask-deployment.html)
 
-{% include {{page.version.version}}/app/see-also-links.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/see-also-links.md %}

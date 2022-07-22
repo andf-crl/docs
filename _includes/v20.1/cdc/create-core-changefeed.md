@@ -19,13 +19,13 @@ In this example, you'll set up a core changefeed for a single-node cluster.
     --insecure
     ~~~
 
-    {% include {{ page.version.version }}/cdc/core-csv.md %}
+    {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/cdc/core-csv.md %}
 
-3. Enable the `kv.rangefeed.enabled` [cluster setting](cluster-settings.html):
+3. Enable the `[kv.rangefeed.enabled](cluster-settings.html#setting-kv-rangefeed-enabled)` [cluster setting](cluster-settings.html):
 
     {% include copy-clipboard.html %}
     ~~~ sql
-    > SET CLUSTER SETTING kv.rangefeed.enabled = true;
+    > SET CLUSTER SETTING [kv.rangefeed.enabled](cluster-settings.html#setting-kv-rangefeed-enabled) = true;
     ~~~
 
 4. Create table `foo`:

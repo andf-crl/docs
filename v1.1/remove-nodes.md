@@ -5,7 +5,7 @@ toc: true
 toc_not_nested: true
 ---
 
-<span class="version-tag">New in v1.1:</span> This page shows you how to decommission and permanently remove one or more nodes from a CockroachDB cluster. You might do this, for example, when downsizing a cluster or reacting to hardware failures.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v1.1:</span> This page shows you how to decommission and permanently remove one or more nodes from a CockroachDB cluster. You might do this, for example, when downsizing a cluster or reacting to hardware failures.
 
 For information about temporarily stopping a node, see [Stop a Node](stop-a-node.html).
 

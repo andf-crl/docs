@@ -77,7 +77,7 @@ To automate backups, you must have a client send the `BACKUP` statement to the c
 
 Once the backup is complete, your client will receive a `BACKUP` response.
 
-## Viewing and Controlling Backups Jobs <span class="version-tag">New in v1.1</span>
+## Viewing and Controlling Backups Jobs <span class="[version](cluster-settings.html#setting-version)-tag">New in v1.1</span>
 
 Whenever you initiate a backup, CockroachDB registers it as a job, which you can view with [`SHOW JOBS`](show-jobs.html).
 
@@ -85,7 +85,7 @@ After the backup has been initiated, you can control it with [`PAUSE JOB`](pause
 
 ## Synopsis
 
-{% include {{ page.version.version }}/sql/diagrams/backup.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/backup.html %}
 
 ## Required Privileges
 
@@ -106,7 +106,7 @@ Only the `root` user can run `BACKUP`.
 
 The path to each backup must be unique. The URL for your backup's destination/locations must use the following format:
 
-{% include {{ page.version.version }}/misc/external-urls.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/external-urls.md %}
 
 ## Examples
 

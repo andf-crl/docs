@@ -4,7 +4,7 @@ summary: The SET PRIMARY REGION statement sets the primary region of a multi-reg
 toc: true
 ---
 
-{% include_cached new-in.html version="v21.1" %} The `ALTER DATABASE .. SET PRIMARY REGION` [statement](sql-statements.html) sets the primary [region](multiregion-overview.html#database-regions) of a [multi-region database](multiregion-overview.html).
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.1" %} The `ALTER DATABASE .. SET PRIMARY REGION` [statement](sql-statements.html) sets the primary [region](multiregion-overview.html#database-regions) of a [multi-region database](multiregion-overview.html).
 
 {% include enterprise-feature.md %}
 
@@ -21,7 +21,7 @@ To remove existing, manually-configured zones from a database (and unblock `SET 
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/generated/diagrams/alter_database_primary_region.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/alter_database_primary_region.html %}
 </div>
 
 ## Parameters
@@ -42,7 +42,7 @@ To switch primary regions to a region that has already been added to a database,
 
 ## Examples
 
-{% include {{page.version.version}}/sql/multiregion-example-setup.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/multiregion-example-setup.md %}
 
 ### Set the primary region
 

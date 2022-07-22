@@ -72,7 +72,7 @@ To delete a large number of rows, we recommend iteratively deleting batches of r
 
 ### Batch delete "expired" data
 
-{% include {{page.version.version}}/sql/row-level-ttl.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/row-level-ttl.md %}
 
 For more information, see [Batch delete expired data with Row-Level TTL](row-level-ttl.html).
 
@@ -175,7 +175,7 @@ Note that the above query also follows the [indexing best practice](indexes.html
 
 ### Use `UUID` to generate unique IDs
 
-{% include {{ page.version.version }}/faq/auto-generate-unique-ids.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/faq/auto-generate-unique-ids.html %}
 
 ### Use `INSERT` with the `RETURNING` clause to generate unique IDs
 
@@ -386,7 +386,7 @@ For further background on transaction contention, see [What is Database Contenti
 
 ### Find transaction contention
 
-{% include {{ page.version.version }}/performance/statement-contention.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/performance/statement-contention.md %}
 
 <a id="avoid-transaction-contention"></a>
 

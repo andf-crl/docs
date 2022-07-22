@@ -6,7 +6,7 @@ keywords: ttl,delete,deletion,bulk deletion,bulk delete,expired data,expire data
 docs_area: develop
 ---
 
-{% include {{page.version.version}}/sql/row-level-ttl.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/row-level-ttl.md %}
 
 Row-Level TTL is in preview because it may not satisfy all functional and performance requirements of your workload. For more information see [Limitations](row-level-ttl.html#limitations).
 
@@ -85,10 +85,10 @@ The settings that control the behavior of Row-Level TTL are provided using [stor
 |----------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------|
 | `ttl_expire_after` <a name="param-ttl-expire-after"></a> | The [interval](interval.html) when a TTL will expire. This parameter is required to enable TTL. Minimum value: `'1 microsecond'`.                                            | N/A                                 |
 | `ttl` <a name="param-ttl"></a>                           | Signifies if a TTL is active. Automatically set.                                                                                                                             | N/A                                 |
-| `ttl_select_batch_size`                                  | How many rows to [select](select-clause.html) at one time during the row expiration check. Default: 500. Minimum: 1.                                                         | `sql.ttl.default_select_batch_size` |
-| `ttl_delete_batch_size`                                  | How many rows to [delete](delete.html) at a time. Default: 100. Minimum: 1.                                                                                                  | `sql.ttl.default_delete_batch_size` |
-| `ttl_delete_rate_limit`                                  | Maximum number of rows to be deleted per second (rate limit). Default: 0 (no limit).                                                                                         | `sql.ttl.default_delete_rate_limit` |
-| `ttl_range_concurrency`                                  | The Row-Level TTL queries split up scans by ranges, and this determines how many concurrent ranges are processed at a time. Default: 1. Minimum: 1.                          | `sql.ttl.default_range_concurrency` |
+| `ttl_select_batch_size`                                  | How many rows to [select](select-clause.html) at one time during the row expiration check. Default: 500. Minimum: 1.                                                         | `[sql.ttl.default_select_batch_size](cluster-settings.html#setting-sql-ttl-default_select_batch_size)` |
+| `ttl_delete_batch_size`                                  | How many rows to [delete](delete.html) at a time. Default: 100. Minimum: 1.                                                                                                  | `[sql.ttl.default_delete_batch_size](cluster-settings.html#setting-sql-ttl-default_delete_batch_size)` |
+| `ttl_delete_rate_limit`                                  | Maximum number of rows to be deleted per second (rate limit). Default: 0 (no limit).                                                                                         | `[sql.ttl.default_delete_rate_limit](cluster-settings.html#setting-sql-ttl-default_delete_rate_limit)` |
+| `ttl_range_concurrency`                                  | The Row-Level TTL queries split up scans by ranges, and this determines how many concurrent ranges are processed at a time. Default: 1. Minimum: 1.                          | `[sql.ttl.default_range_concurrency](cluster-settings.html#setting-sql-ttl-default_range_concurrency)` |
 | `ttl_row_stats_poll_interval`                            | If set, counts rows and expired rows on the table to report as Prometheus metrics while the TTL job is running. Unset by default, meaning no stats are fetched and reported. | N/A                                 |
 | `ttl_pause` <a name="param-ttl-pause"></a>               | If set, stops the TTL job from executing.                                                                                                                                    | N/A                                 |
 | `ttl_job_cron` <a name="param-ttl-job-cron"></a>         | Frequency at which the TTL job runs, specified using [CRON syntax](https://cron.help). Default: `'@hourly'`.                                                                 | N/A                                 |
@@ -113,7 +113,7 @@ The table below lists the metrics you can use to monitor the effectiveness of yo
 
 By default, these metrics are aggregated, meaning that all TTL tables will report the metrics under the same label. If you want to have metrics labelled by table name (at the risk of added cardinality), you must take the following steps:
 
-- Set the `server.child_metrics.enabled` [cluster setting](cluster-settings.html) to `true`.
+- Set the `[server.child_metrics.enabled](cluster-settings.html#setting-server-child_metrics-enabled)` [cluster setting](cluster-settings.html) to `true`.
 - Set the `ttl_label_metrics` storage parameter to `true`.
 
 {{site.data.alerts.callout_info}}
@@ -397,11 +397,11 @@ Note that the behavior described above _only_ applies if you override the TTL fo
 
 ### Disable TTL jobs for the whole cluster
 
-To disable TTL jobs for the whole cluster, set the `sql.ttl.job.enabled` [cluster setting](cluster-settings.html) to `false`:
+To disable TTL jobs for the whole cluster, set the `[sql.ttl.job.enabled](cluster-settings.html#setting-sql-ttl-job-enabled)` [cluster setting](cluster-settings.html) to `false`:
 
 {% include_cached copy-clipboard.html %}
 ~~~ sql
-SET CLUSTER SETTING sql.ttl.job.enabled = false;
+SET CLUSTER SETTING [sql.ttl.job.enabled](cluster-settings.html#setting-sql-ttl-job-enabled) = false;
 ~~~
 
 ~~~
@@ -420,11 +420,11 @@ WITH x AS (SHOW CLUSTER SETTINGS) SELECT * FROM x WHERE variable LIKE 'sql.ttl.%
 ~~~
               variable              | value | setting_type |                                 description
 ------------------------------------+-------+--------------+------------------------------------------------------------------------------
-  sql.ttl.default_delete_batch_size | 100   | i            | default amount of rows to delete in a single query during a TTL job
-  sql.ttl.default_delete_rate_limit | 0     | i            | default delete rate limit for all TTL jobs. Use 0 to signify no rate limit.
-  sql.ttl.default_range_concurrency | 1     | i            | default amount of ranges to process at once during a TTL delete
-  sql.ttl.default_select_batch_size | 500   | i            | default amount of rows to select in a single query during a TTL job
-  sql.ttl.job.enabled               | true  | b            | whether the TTL job is enabled
+  [sql.ttl.default_delete_batch_size](cluster-settings.html#setting-sql-ttl-default_delete_batch_size) | 100   | i            | default amount of rows to delete in a single query during a TTL job
+  [sql.ttl.default_delete_rate_limit](cluster-settings.html#setting-sql-ttl-default_delete_rate_limit) | 0     | i            | default delete rate limit for all TTL jobs. Use 0 to signify no rate limit.
+  [sql.ttl.default_range_concurrency](cluster-settings.html#setting-sql-ttl-default_range_concurrency) | 1     | i            | default amount of ranges to process at once during a TTL delete
+  [sql.ttl.default_select_batch_size](cluster-settings.html#setting-sql-ttl-default_select_batch_size) | 500   | i            | default amount of rows to select in a single query during a TTL job
+  [sql.ttl.job.enabled](cluster-settings.html#setting-sql-ttl-job-enabled)               | true  | b            | whether the TTL job is enabled
   sql.ttl.range_batch_size          | 100   | i            | amount of ranges to fetch at a time for a table during the TTL job
 (6 rows)
 ~~~
@@ -479,7 +479,7 @@ To add or update Row-Level TTL settings on a table, you must have one of the fol
 
 ## Limitations
 
-{% include {{page.version.version}}/known-limitations/row-level-ttl-limitations.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/known-limitations/row-level-ttl-limitations.md %}
 
 ## See also
 

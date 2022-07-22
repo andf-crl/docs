@@ -73,7 +73,7 @@ Here are some best practices for creating indexes:
 
 - Index all columns that you plan to use for [sorting](order-by.html) or [filtering](select-clause.html#filter-rows) data.
 
-    {% include {{page.version.version}}/sql/covering-index.md %}
+    {% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/covering-index.md %}
 
     Note that columns listed in a filtering [`WHERE` clause](select-clause.html#parameters) with the equality operators (`=` or `IN`) should come first in the index, before those referenced with inequality operators (`<`, `>`).
 
@@ -101,9 +101,9 @@ Here are some best practices for creating indexes:
 
 - Do not create indexes as the `root` user. Instead, create indexes as a [different user](schema-design-overview.html#controlling-access-to-objects), with fewer privileges, following [authorization best practices](authorization.html#authorization-best-practices). This will likely be the same user that created the table to which the index belongs.
 
-- {% include {{page.version.version}}/sql/dev-schema-changes.md %}
+- {% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/dev-schema-changes.md %}
 
-- {% include {{page.version.version}}/sql/dev-schema-change-limits.md %}
+- {% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/dev-schema-change-limits.md %}
 
 ### Example
 

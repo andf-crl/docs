@@ -38,7 +38,7 @@ To create an {{ site.data.products.enterprise }} changefeed:
 > CREATE CHANGEFEED FOR TABLE table_name, table_name2 INTO '{scheme}://{host}:{port}?{query_parameters}';
 ~~~
 
-{% include {{ page.version.version }}/cdc/url-encoding.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/cdc/url-encoding.md %}
 
 For more information, see [`CREATE CHANGEFEED`](create-changefeed.html).
 
@@ -77,7 +77,7 @@ For more information, see [`CANCEL JOB`](cancel-job.html).
 
 ### Configuring all changefeeds
 
-{% include {{ page.version.version }}/cdc/configure-all-changefeed.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/cdc/configure-all-changefeed.md %}
 
 </section>
 

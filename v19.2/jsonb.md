@@ -8,7 +8,7 @@ The `JSONB` [data type](data-types.html) stores JSON (JavaScript Object Notation
 
 {{site.data.alerts.callout_success}}For a hands-on demonstration of storing and querying JSON data from a third-party API, see the <a href="demo-json-support.html">JSON tutorial</a>.{{site.data.alerts.end}}
 
-{% include {{page.version.version}}/sql/vectorized-support.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/vectorized-support.md %}
 
 ## Alias
 
@@ -200,11 +200,11 @@ For the full list of functions and operators we support, see [Functions and Oper
 
 ### Create a table with a `JSONB` column and a computed column
 
-{% include {{ page.version.version }}/computed-columns/jsonb.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/computed-columns/jsonb.md %}
 
-## Supported casting and conversion
+## Supported casting and con[version](cluster-settings.html#setting-version)
 
-`JSONB` values can be [cast](data-types.html#data-type-conversions-and-casts) to the following data type:
+`JSONB` values can be [cast](data-types.html#data-type-con[version](cluster-settings.html#setting-version)s-and-casts) to the following data type:
 
 - `STRING`
 

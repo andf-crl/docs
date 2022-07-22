@@ -10,7 +10,7 @@ toc: true
 
 CockroachDB's `BACKUP` [statement](sql-statements.html) allows you to create [full or incremental backups](backup-and-restore.html#perform-enterprise-backup-and-restore) of your cluster's schema and data that are consistent as of a given timestamp.
 
-<span class="version-tag">New in v20.1:</span> You can [backup a full cluster](#backup-a-cluster), which includes:
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> You can [backup a full cluster](#backup-a-cluster), which includes:
 
 - All user tables
 - Relevant system tables
@@ -41,7 +41,7 @@ To view the contents of an enterprise backup created with the `BACKUP` statement
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/backup.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/backup.html %}
 </div>
 
 ## Parameters
@@ -65,7 +65,7 @@ The `BACKUP` statement is a blocking statement and cannot be used within a [tran
  Option                                                          | Value                   | Description
 -----------------------------------------------------------------+-------------------------+------------------------------
 `revision_history`<a name="with-revision-history"></a>           | N/A                     | Create a backup with full [revision history](backup-and-restore.html), which records every change made to the cluster within the garbage collection period leading up to and including the given timestamp.
-`encryption_passphrase`<a name="with-encryption-passphrase"></a> | [`STRING`](string.html) | <span class="version-tag">New in v20.1:</span> The passphrase used to [encrypt the files](backup-and-restore.html) (`BACKUP` manifest and data files) that the `BACKUP` statement generates. This same passphrase is needed to decrypt the file when it is used to [restore](backup-and-restore.html) and to list the contents of the backup when using [`SHOW BACKUP`](show-backup.html). There is no practical limit on the length of the passphrase.
+`encryption_passphrase`<a name="with-encryption-passphrase"></a> | [`STRING`](string.html) | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> The passphrase used to [encrypt the files](backup-and-restore.html) (`BACKUP` manifest and data files) that the `BACKUP` statement generates. This same passphrase is needed to decrypt the file when it is used to [restore](backup-and-restore.html) and to list the contents of the backup when using [`SHOW BACKUP`](show-backup.html). There is no practical limit on the length of the passphrase.
 
 For more information about these options, see [Back up and Restore Data - Advanced Options](backup-and-restore.html).
 
@@ -73,7 +73,7 @@ For more information about these options, see [Back up and Restore Data - Advanc
 
 CockroachDB uses the URL provided to construct a secure API call to the service you specify. The path to each backup must be unique, and the URL for your backup's destination/locations must use the following format:
 
-{% include {{ page.version.version }}/misc/external-urls.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/external-urls.md %}
 
 ## Functional details
 
@@ -147,7 +147,7 @@ Per our guidance in the [Performance](#performance) section, we recommend starti
 
 ### Backup a cluster
 
-<span class="version-tag">New in v20.1:</span> To backup a full cluster:
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> To backup a full cluster:
 
 {% include copy-clipboard.html %}
 ~~~ sql
@@ -198,7 +198,7 @@ AS OF SYSTEM TIME '-10s';
 
 ### Create incremental backups
 
-<span class="version-tag">New in v20.1:</span> If you backup to a destination already containing a full backup, an incremental backup will be produced in a subdirectory with a date-based name (e.g., `destination/day/time_1`, `destination/day/time_2`):
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> If you backup to a destination already containing a full backup, an incremental backup will be produced in a subdirectory with a date-based name (e.g., `destination/day/time_1`, `destination/day/time_2`):
 
 {% include copy-clipboard.html %}
 ~~~ sql
@@ -213,7 +213,7 @@ This incremental backup syntax does not work for backups using HTTP storage; you
 
 ### Advanced examples
 
-{% include {{ page.version.version }}/backups/advanced-examples-list.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/backups/advanced-examples-list.md %}
 
 ## See also
 

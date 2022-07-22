@@ -17,7 +17,7 @@ This tutorial shows you how build a simple Python application with CockroachDB a
 
 ## Before you begin
 
-{% include {{page.version.version}}/app/before-you-begin.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/before-you-begin.md %}
 
 ## Step 1. Install the psycopg2 driver
 
@@ -34,7 +34,7 @@ For other ways to install psycopg2, see the [official documentation](http://init
 
 ## Step 2. Create the `maxroach` user and `bank` database
 
-{% include {{page.version.version}}/app/create-maxroach-user-and-bank-database.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/create-maxroach-user-and-bank-database.md %}
 
 ## Step 3. Generate a certificate for the `maxroach` user
 
@@ -54,16 +54,16 @@ Now that you have a database and a user, you'll run the code shown below to:
 - Finally, we delete the accounts from the table before exiting so we can re-run the example code.
 
 {{site.data.alerts.callout_success}}
-To clone a version of the code below that connects to insecure clusters, run the command below. Note that you will need to edit the connection string to use the certificates that you generated when you set up your secure cluster.
+To clone a [version](cluster-settings.html#setting-version) of the code below that connects to insecure clusters, run the command below. Note that you will need to edit the connection string to use the certificates that you generated when you set up your secure cluster.
 
 `git clone https://github.com/cockroachlabs/hello-world-python-psycopg2/`
 {{site.data.alerts.end}}
 
-Copy the code or <a href="https://raw.githubusercontent.com/cockroachdb/docs/master/_includes/{{page.version.version}}/app/basic-sample.py" download>download it directly</a>.
+Copy the code or <a href="https://raw.githubusercontent.com/cockroachdb/docs/master/_includes/{{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/basic-sample.py" download>download it directly</a>.
 
 {% include copy-clipboard.html %}
 ~~~ python
-{% include {{page.version.version}}/app/basic-sample.py %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/basic-sample.py %}
 ~~~
 
 Then run the code:
@@ -90,7 +90,7 @@ Balances at Wed Aug  7 12:11:23 2019
 
 ## Step 2. Create the `maxroach` user and `bank` database
 
-{% include {{page.version.version}}/app/insecure/create-maxroach-user-and-bank-database.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/insecure/create-maxroach-user-and-bank-database.md %}
 
 ## Step 3. Run the Python code
 
@@ -109,7 +109,7 @@ git clone https://github.com/cockroachlabs/hello-world-python-psycopg2/
 
 {% include copy-clipboard.html %}
 ~~~ python
-{% include {{page.version.version}}/app/insecure/basic-sample.py %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/insecure/basic-sample.py %}
 ~~~
 
 Change to the directory where you cloned the repo and run the code:
@@ -136,4 +136,4 @@ Balances at Wed Jul 24 15:58:40 2019
 
 Read more about using the [Python psycopg2 driver](http://initd.org/psycopg/docs/).
 
-{% include {{page.version.version}}/app/see-also-links.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/see-also-links.md %}

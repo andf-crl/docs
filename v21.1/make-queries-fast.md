@@ -32,7 +32,7 @@ To identify poorly performing statements, use the [DB Console and slow query log
 
 To show each of these rules in action, we will optimize a statement against the [MovR data set](movr.html) as follows:
 
-{% include {{ page.version.version }}/demo_movr.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/demo_movr.md %}
 
 It's common to offer users promo codes to increase usage and customer loyalty. In this scenario, we want to find the 10 users who have taken the highest number of rides on a given date, and offer them promo codes that provide a 10% discount.
 

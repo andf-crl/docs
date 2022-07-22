@@ -239,7 +239,7 @@ In this scenario, you try to add another node to the cluster, but the `--join` a
 
     ~~~
     CockroachDB node starting at 2018-02-08 16:30:26.690638 +0000 UTC (took 0.2s)
-    build:      CCL {{page.release_info.version}} @ 2018/01/08 17:30:06 (go1.8.3)
+    build:      CCL {{page.release_info.[version](cluster-settings.html#setting-version)}} @ 2018/01/08 17:30:06 (go1.8.3)
     webui:               https://localhost:8085
     sql:                 postgresql://root@localhost:26262?sslcert=certs%2Fclient.root.crt&sslkey=certs%2Fclient.root.key&sslmode=verify-full&sslrootcert=certs%2Fca.crt
     RPC client flags:    cockroach <client cmd> --host=localhost:26262 --certs-dir=certs
@@ -304,7 +304,7 @@ $ grep -A 11 'CockroachDB node starting at' ./node6/logs/cockroach.log
 
 ~~~
 CockroachDB node starting at 2019-07-23 04:21:33.130572 +0000 UTC (took 0.2s)
-build:               CCL {{page.release_info.version}} @ 2019/05/22 22:44:42 (go1.12.5)
+build:               CCL {{page.release_info.[version](cluster-settings.html#setting-version)}} @ 2019/05/22 22:44:42 (go1.12.5)
 webui:               https://localhost:8085
 sql:                 postgresql://root@localhost:26262?sslcert=certs%2Fclient.root.crt&sslkey=certs%2Fclient.root.key&sslmode=verify-full&sslrootcert=certs%2Fca.crt
 client flags:        cockroach <client cmd> --host=localhost:26262 --certs-dir=certs

@@ -23,7 +23,7 @@ The user must have the `DELETE` and `SELECT` [privileges](authorization.html#ass
 ## Synopsis
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/delete.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/delete.html %}
 </div>
 
 ## Parameters
@@ -76,7 +76,7 @@ deleted rows more frequently.
 
 ## Sorting the output of deletes
 
-{% include {{page.version.version}}/misc/sorting-delete-output.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/misc/sorting-delete-output.md %}
 
 For more information about ordering query results in general, see
 [Ordering Query Results](query-order.html) and [Ordering of rows in
@@ -84,7 +84,7 @@ DML statements](query-order.html#ordering-rows-in-dml-statements).
 
 ## Force index selection for deletes
 
-<span class="version-tag">New in v19.2:</span> By using the explicit index annotation (also known as "index hinting"), you can override [CockroachDB's index selection](https://www.cockroachlabs.com/blog/index-selection-cockroachdb-2/) and use a specific [index](indexes.html) for deleting rows of a named table.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v19.2:</span> By using the explicit index annotation (also known as "index hinting"), you can override [CockroachDB's index selection](https://www.cockroachlabs.com/blog/index-selection-cockroachdb-2/) and use a specific [index](indexes.html) for deleting rows of a named table.
 
 {{site.data.alerts.callout_info}}
 Index selection can impact [performance](performance-best-practices-overview.html), but does not change the result of a query.
@@ -245,7 +245,7 @@ Saving the `cron` file will install a new job that runs the `cleanup.py` file ev
 
 ### Preserving `DELETE` performance over time
 
-CockroachDB relies on [multi-version concurrency control (MVCC)](architecture/storage-layer.html#mvcc) to process concurrent requests while guaranteeing [strong consistency](frequently-asked-questions.html#how-is-cockroachdb-strongly-consistent). As such, when you delete a row, it is not immediately removed from disk. The MVCC values for the row will remain until the garbage collection period defined by the [`gc.ttlseconds`](configure-replication-zones.html#gc-ttlseconds) variable in the applicable [zone configuration](show-zone-configurations.html) has passed. By default, this period is 25 hours.
+CockroachDB relies on [multi-[version](cluster-settings.html#setting-version) concurrency control (MVCC)](architecture/storage-layer.html#mvcc) to process concurrent requests while guaranteeing [strong consistency](frequently-asked-questions.html#how-is-cockroachdb-strongly-consistent). As such, when you delete a row, it is not immediately removed from disk. The MVCC values for the row will remain until the garbage collection period defined by the [`gc.ttlseconds`](configure-replication-zones.html#gc-ttlseconds) variable in the applicable [zone configuration](show-zone-configurations.html) has passed. By default, this period is 25 hours.
 
 This means that with the default settings, each iteration of your `DELETE` statement must scan over all of the rows previously marked for deletion within the last 25 hours. If you try to delete 10,000 rows 10 times within the same 25 hour period, the 10th command will have to scan over the 90,000 rows previously marked for deletion.
 
@@ -257,7 +257,7 @@ To preserve performance over iterative `DELETE` queries, we recommend taking one
 
 ## Examples
 
-{% include {{page.version.version}}/sql/movr-statements.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/movr-statements.md %}
 
 ### Delete rows using Primary Key/unique columns
 

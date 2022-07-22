@@ -4,7 +4,7 @@ summary: The REASSIGN OWNED statement changes the ownership of all objects in th
 toc: true
 ---
 
-{% include_cached new-in.html version="v21.1" %} The `REASSIGN OWNED` statement changes the [ownership](authorization.html#object-ownership) of all database objects (i.e., tables, types, or schemas) in the current database that are currently owned by a specific [role](authorization.html#roles) or [user](authorization.html#sql-users).
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.1" %} The `REASSIGN OWNED` statement changes the [ownership](authorization.html#object-ownership) of all database objects (i.e., tables, types, or schemas) in the current database that are currently owned by a specific [role](authorization.html#roles) or [user](authorization.html#sql-users).
 
 {{site.data.alerts.callout_success}}
 To change the ownership of any single object (e.g., a table or a database), use the [`OWNER TO`](owner-to.html) subcommand of the object's [`ALTER` statement](sql-statements.html).
@@ -18,7 +18,7 @@ To change the ownership of any single object (e.g., a table or a database), use 
 ## Syntax
 
 <div>
-{% include {{ page.version.version }}/sql/generated/diagrams/reassign_owned_by.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/reassign_owned_by.html %}
 </div>
 
 ## Parameters
@@ -30,7 +30,7 @@ Parameter | Description
 
 ## Example
 
-{% include {{page.version.version}}/sql/movr-statements.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/movr-statements.md %}
 
 ### Change the owner of all tables in a database
 

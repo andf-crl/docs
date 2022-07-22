@@ -6,18 +6,18 @@ toc: true
 
 The `ALTER TABLE` [statement](sql-statements.html) applies a schema change to a table.
 
-{% include {{ page.version.version }}/misc/schema-change-stmt-note.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-stmt-note.md %}
 
 ## Viewing schema changes
 
-{% include {{ page.version.version }}/misc/schema-change-view-job.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-view-job.md %}
 
 ## Subcommands
 
 For information on using `ALTER TABLE`, see the documents for its relevant subcommands.
 
 {{site.data.alerts.callout_success}}
-<span class="version-tag">New in v19.1</span>: Some subcommands can be used in combination in a single `ALTER TABLE` statement. For example, you can [atomically rename a column and add a new column with the old name of the existing column](rename-column.html#add-and-rename-columns-atomically).
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v19.1</span>: Some subcommands can be used in combination in a single `ALTER TABLE` statement. For example, you can [atomically rename a column and add a new column with the old name of the existing column](rename-column.html#add-and-rename-columns-atomically).
 {{site.data.alerts.end}}
 
 Subcommand | Description | Can combine with other subcommands?
@@ -39,4 +39,4 @@ Subcommand | Description | Can combine with other subcommands?
 
 ## Viewing schema changes
 
-{% include {{ page.version.version }}/misc/schema-change-view-job.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-view-job.md %}

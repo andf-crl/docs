@@ -16,7 +16,7 @@ Only members of the `admin` role can display cluster settings. By default, the `
 ## Synopsis
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/show_cluster_setting.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/show_cluster_setting.html %}
 </div>
 
 {{site.data.alerts.callout_info}}The <code>SHOW</code> statement for cluster settings is unrelated to the other <code>SHOW</code> statements: <a href="show-vars.html"><code>SHOW (session variable)</code></a>, <a href="show-create.html"><code>SHOW CREATE</code></a>, <a href="show-users.html"><code>SHOW USERS</code></a>, <a href="show-databases.html"><code>SHOW DATABASES</code></a>, <a href="show-columns.html"><code>SHOW COLUMNS</code></a>, <a href="show-grants.html"><code>SHOW GRANTS</code></a>, and <a href="show-constraints.html"><code>SHOW CONSTRAINTS</code></a>.{{site.data.alerts.end}}
@@ -33,12 +33,12 @@ Parameter | Description
 
 {% include copy-clipboard.html %}
 ~~~ sql
-> SHOW CLUSTER SETTING diagnostics.reporting.enabled;
+> SHOW CLUSTER SETTING [diagnostics.reporting.enabled](cluster-settings.html#setting-diagnostics-reporting-enabled);
 ~~~
 
 ~~~
 +-------------------------------+
-| diagnostics.reporting.enabled |
+| [diagnostics.reporting.enabled](cluster-settings.html#setting-diagnostics-reporting-enabled) |
 +-------------------------------+
 |             true              |
 +-------------------------------+
@@ -57,9 +57,9 @@ Parameter | Description
 |                       variable                       |   value   | setting_type |                               description                                |
 +------------------------------------------------------+-----------+--------------+--------------------------------------------------------------------------+
 | cloudstorage.gs.default.key                          |           | s            | if set, JSON key to use during Google Cloud Storage operations           |
-| cloudstorage.http.custom_ca                          |           | s            | custom root CA (appended to system's default CAs) for verifying          |
+| [cloudstorage.http.custom_ca](cluster-settings.html#setting-cloudstorage-http-custom_ca)                          |           | s            | custom root CA (appended to system's default CAs) for verifying          |
 |                                                      |           |              | certificates when interacting with HTTPS storage                         |
-| cloudstorage.timeout                                 | 10m0s     | d            | the timeout for import/export storage operations                         |
+| [cloudstorage.timeout](cluster-settings.html#setting-cloudstorage-timeout)                                 | 10m0s     | d            | the timeout for import/export storage operations                         |
 ...
 +-------------------------------+---------------+------+--------------------------------------------------------+
 ~~~

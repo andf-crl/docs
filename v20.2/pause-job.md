@@ -12,7 +12,7 @@ The `PAUSE JOB` [statement](sql-statements.html) lets you pause the following ty
 - [Automatic table statistics](cost-based-optimizer.html#table-statistics) jobs
 - [Changefeeds](stream-data-out-of-cockroachdb-using-changefeeds.html)
 - [Schema change](online-schema-changes.html) jobs
-- <span class="version-tag">New in v20.2:</span> [Scheduled backup](manage-a-backup-schedule.html) jobs
+- <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> [Scheduled backup](manage-a-backup-schedule.html) jobs
 
 After pausing jobs, you can resume them with [`RESUME JOB`](resume-job.html).
 
@@ -23,7 +23,7 @@ To pause a job, the user must be a member of the `admin` role or must have the [
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/pause_job.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/pause_job.html %}
 </div>
 
 ## Parameters
@@ -32,7 +32,7 @@ Parameter | Description
 ----------|------------
 `job_id` | The ID of the job you want to pause, which can be found with [`SHOW JOBS`](show-jobs.html).
 `select_stmt` | A [selection query](selection-queries.html) that returns `job_id`(s) to pause.
-`for_schedules_clause` | <span class="version-tag">New in v20.2:</span> The schedule you want to pause jobs for. You can pause jobs for a specific schedule (`FOR SCHEDULE id`) or pause jobs for multiple schedules by nesting a [`SELECT` clause](select-clause.html) in the statement (`FOR SCHEDULES <select_clause>`). See the [examples](#pause-jobs-for-a-schedule) below.
+`for_schedules_clause` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> The schedule you want to pause jobs for. You can pause jobs for a specific schedule (`FOR SCHEDULE id`) or pause jobs for multiple schedules by nesting a [`SELECT` clause](select-clause.html) in the statement (`FOR SCHEDULES <select_clause>`). See the [examples](#pause-jobs-for-a-schedule) below.
 
 ## Examples
 
@@ -85,16 +85,16 @@ All jobs created by `maxroach` will be paused.
 > PAUSE JOB 438235476849557505;
 ~~~
 
-To permanently disable automatic table statistics jobs, disable the `sql.stats.automatic_collection.enabled` [cluster setting](cluster-settings.html):
+To permanently disable automatic table statistics jobs, disable the `[sql.stats.automatic_collection.enabled](cluster-settings.html#setting-sql-stats-automatic_collection-enabled)` [cluster setting](cluster-settings.html):
 
 {% include copy-clipboard.html %}
 ~~~ sql
-> SET CLUSTER SETTING sql.stats.automatic_collection.enabled = false;
+> SET CLUSTER SETTING [sql.stats.automatic_collection.enabled](cluster-settings.html#setting-sql-stats-automatic_collection-enabled) = false;
 ~~~
 
 ### Pause jobs for a schedule
 
-<span class="version-tag">New in v20.2:</span> To pause jobs for a specific [backup schedule](create-schedule-for-backup.html), use the schedule's `id`:
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> To pause jobs for a specific [backup schedule](create-schedule-for-backup.html), use the schedule's `id`:
 
 {% include copy-clipboard.html %}
 ~~~ sql

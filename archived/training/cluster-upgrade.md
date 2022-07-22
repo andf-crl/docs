@@ -113,7 +113,7 @@ Start and initialize a cluster like you did in previous modules, but this time u
     ~~~
 
 {{site.data.alerts.callout_info}}
-You can disable a (manual or automatic) cluster version upgrade from the specified version until you reset your cluster by using the `cluster.preserve_downgrade_option` cluster setting. See the full [Cluster Upgrade](../upgrade-cockroach-version.html) documentation for details.
+You can disable a (manual or automatic) cluster [version](cluster-settings.html#setting-version) upgrade from the specified [version](cluster-settings.html#setting-version) until you reset your cluster by using the `[cluster.preserve_downgrade_option](cluster-settings.html#setting-cluster-preserve_downgrade_option)` cluster setting. See the full [Cluster Upgrade](../upgrade-cockroach-[version](cluster-settings.html#setting-version).html) documentation for details.
 {{site.data.alerts.end}}
 
 ## Step 3. Upgrade the first node to v19.2
@@ -147,7 +147,7 @@ You can disable a (manual or automatic) cluster version upgrade from the specifi
     --join=localhost:26257,localhost:26258,localhost:26259
     ~~~~
 
-4. Go to the Admin UI at <a href="http://localhost:8081" data-proofer-ignore>http://localhost:8081</a> to view the **Node List** and then verify that the node has rejoined the cluster using the new version of the binary.
+4. Go to the Admin UI at <a href="http://localhost:8081" data-proofer-ignore>http://localhost:8081</a> to view the **Node List** and then verify that the node has rejoined the cluster using the new [version](cluster-settings.html#setting-version) of the binary.
 
 ## Step 4. Upgrade the rest of the nodes to v19.2
 
@@ -211,9 +211,9 @@ You can disable a (manual or automatic) cluster version upgrade from the specifi
     --join=localhost:26257,localhost:26258,localhost:26259
     ~~~~
 
-## Step 5. Check your cluster's versions
+## Step 5. Check your cluster's [version](cluster-settings.html#setting-version)s
 
-Back in the Admin UI, you'll see that all 3 nodes now have the same, upgraded version. You can also use the `cockroach node status` command to check each node's version:
+Back in the Admin UI, you'll see that all 3 nodes now have the same, upgraded [version](cluster-settings.html#setting-version). You can also use the `cockroach node status` command to check each node's [version](cluster-settings.html#setting-version):
 
 {% include copy-clipboard.html %}
 ~~~ shell

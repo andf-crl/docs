@@ -19,7 +19,7 @@ For each of the above objects you can control:
 - Which constraints are applied to which data, e.g., "table X's data can only be stored in the German datacenters".
 - The maximum size of ranges (how big ranges get before they are split).
 - How long old data is kept before being garbage collected.
-- <span class="version-tag">New in v2.1:</span> Where you would like the leaseholders for certain ranges to be located, e.g., "for ranges that are already constrained to have at least one replica in `region=us-west`, also try to put their leaseholders in `region=us-west`".
+- <span class="[version](cluster-settings.html#setting-version)-tag">New in v2.1:</span> Where you would like the leaseholders for certain ranges to be located, e.g., "for ranges that are already constrained to have at least one replica in `region=us-west`, also try to put their leaseholders in `region=us-west`".
 
 This page explains how replication zones work and how to use the [`CONFIGURE ZONE`](configure-zone.html) statement to manage them.
 
@@ -49,7 +49,7 @@ Level | Description
 Cluster | CockroachDB comes with a pre-configured `.default` replication zone that applies to all table data in the cluster not constrained by a database, table, or row-specific replication zone. This zone can be adjusted but not removed. See [View the Default Replication Zone](#view-the-default-replication-zone) and [Edit the Default Replication Zone](#edit-the-default-replication-zone) for more details.
 Database | You can add replication zones for specific databases. See [Create a Replication Zone for a Database](#create-a-replication-zone-for-a-database) for more details.
 Table | You can add replication zones for specific tables. See [Create a Replication Zone for a Table](#create-a-replication-zone-for-a-table).
-Index ([Enterprise-only](enterprise-licensing.html)) | The [secondary indexes](indexes.html) on a table will automatically use the replication zone for the table. However, with an enterprise license, you can add distinct replication zones for secondary indexes. See [Create a Replication Zone for a Secondary Index](#create-a-replication-zone-for-a-secondary-index) for more details.
+Index ([Enterprise-only](enterprise-licensing.html)) | The [secondary indexes](indexes.html) on a table will automatically use the replication zone for the table. However, with an [enterprise.license](cluster-settings.html#setting-enterprise-license), you can add distinct replication zones for secondary indexes. See [Create a Replication Zone for a Secondary Index](#create-a-replication-zone-for-a-secondary-index) for more details.
 Row ([Enterprise-only](enterprise-licensing.html)) | You can add replication zones for specific rows in a table or secondary index by [defining table partitions](partitioning.html). See [Create a Replication Zone for a Table Partition](#create-a-replication-zone-for-a-table-or-secondary-index-partition) for more details.
 
 ### For system data
@@ -72,7 +72,7 @@ When replicating data, whether table or system, CockroachDB always uses the most
 5. If there's no applicable database replication zone, CockroachDB uses the `.default` cluster-wide replication zone.
 
 {{site.data.alerts.callout_info}}
-{% include {{page.version.version}}/known-limitations/system-range-replication.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/known-limitations/system-range-replication.md %}
 {{site.data.alerts.end}}
 
 ## Manage replication zones

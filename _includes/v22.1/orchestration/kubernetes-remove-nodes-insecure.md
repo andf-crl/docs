@@ -10,7 +10,7 @@ If you remove nodes without first telling CockroachDB to decommission them, you 
     {% include_cached copy-clipboard.html %}
     ~~~ shell
     $ kubectl run cockroachdb -it \
-    --image=cockroachdb/cockroach:{{page.release_info.version}} \
+    --image=cockroachdb/cockroach:{{page.release_info.[version](cluster-settings.html#setting-version)}} \
     --rm \
     --restart=Never \
     -- node status \
@@ -21,10 +21,10 @@ If you remove nodes without first telling CockroachDB to decommission them, you 
     ~~~
       id |               address                                     | build  |            started_at            |            updated_at            | is_available | is_live
     +----+---------------------------------------------------------------------------------+--------+----------------------------------+----------------------------------+--------------+---------+
-       1 | cockroachdb-0.cockroachdb.default.svc.cluster.local:26257 | {{page.release_info.version}} | 2018-11-29 16:04:36.486082+00:00 | 2018-11-29 18:24:24.587454+00:00 | true         | true
-       2 | cockroachdb-2.cockroachdb.default.svc.cluster.local:26257 | {{page.release_info.version}} | 2018-11-29 16:55:03.880406+00:00 | 2018-11-29 18:24:23.469302+00:00 | true         | true
-       3 | cockroachdb-1.cockroachdb.default.svc.cluster.local:26257 | {{page.release_info.version}} | 2018-11-29 16:04:41.383588+00:00 | 2018-11-29 18:24:25.030175+00:00 | true         | true
-       4 | cockroachdb-3.cockroachdb.default.svc.cluster.local:26257 | {{page.release_info.version}} | 2018-11-29 17:31:19.990784+00:00 | 2018-11-29 18:24:26.041686+00:00 | true         | true
+       1 | cockroachdb-0.cockroachdb.default.svc.cluster.local:26257 | {{page.release_info.[version](cluster-settings.html#setting-version)}} | 2018-11-29 16:04:36.486082+00:00 | 2018-11-29 18:24:24.587454+00:00 | true         | true
+       2 | cockroachdb-2.cockroachdb.default.svc.cluster.local:26257 | {{page.release_info.[version](cluster-settings.html#setting-version)}} | 2018-11-29 16:55:03.880406+00:00 | 2018-11-29 18:24:23.469302+00:00 | true         | true
+       3 | cockroachdb-1.cockroachdb.default.svc.cluster.local:26257 | {{page.release_info.[version](cluster-settings.html#setting-version)}} | 2018-11-29 16:04:41.383588+00:00 | 2018-11-29 18:24:25.030175+00:00 | true         | true
+       4 | cockroachdb-3.cockroachdb.default.svc.cluster.local:26257 | {{page.release_info.[version](cluster-settings.html#setting-version)}} | 2018-11-29 17:31:19.990784+00:00 | 2018-11-29 18:24:26.041686+00:00 | true         | true
     (4 rows)
     ~~~
 
@@ -34,7 +34,7 @@ If you remove nodes without first telling CockroachDB to decommission them, you 
     {% include_cached copy-clipboard.html %}
     ~~~ shell
     $ kubectl run cockroachdb -it \
-    --image=cockroachdb/cockroach:{{page.release_info.version}} \
+    --image=cockroachdb/cockroach:{{page.release_info.[version](cluster-settings.html#setting-version)}} \
     --rm \
     --restart=Never \
     -- node status \
@@ -45,10 +45,10 @@ If you remove nodes without first telling CockroachDB to decommission them, you 
     ~~~
       id |                                     address                                     | build  |            started_at            |            updated_at            | is_available | is_live
     +----+---------------------------------------------------------------------------------+--------+----------------------------------+----------------------------------+--------------+---------+
-       1 | my-release-cockroachdb-0.my-release-cockroachdb.default.svc.cluster.local:26257 | {{page.release_info.version}} | 2018-11-29 16:04:36.486082+00:00 | 2018-11-29 18:24:24.587454+00:00 | true         | true
-       2 | my-release-cockroachdb-2.my-release-cockroachdb.default.svc.cluster.local:26257 | {{page.release_info.version}} | 2018-11-29 16:55:03.880406+00:00 | 2018-11-29 18:24:23.469302+00:00 | true         | true
-       3 | my-release-cockroachdb-1.my-release-cockroachdb.default.svc.cluster.local:26257 | {{page.release_info.version}} | 2018-11-29 16:04:41.383588+00:00 | 2018-11-29 18:24:25.030175+00:00 | true         | true
-       4 | my-release-cockroachdb-3.my-release-cockroachdb.default.svc.cluster.local:26257 | {{page.release_info.version}} | 2018-11-29 17:31:19.990784+00:00 | 2018-11-29 18:24:26.041686+00:00 | true         | true
+       1 | my-release-cockroachdb-0.my-release-cockroachdb.default.svc.cluster.local:26257 | {{page.release_info.[version](cluster-settings.html#setting-version)}} | 2018-11-29 16:04:36.486082+00:00 | 2018-11-29 18:24:24.587454+00:00 | true         | true
+       2 | my-release-cockroachdb-2.my-release-cockroachdb.default.svc.cluster.local:26257 | {{page.release_info.[version](cluster-settings.html#setting-version)}} | 2018-11-29 16:55:03.880406+00:00 | 2018-11-29 18:24:23.469302+00:00 | true         | true
+       3 | my-release-cockroachdb-1.my-release-cockroachdb.default.svc.cluster.local:26257 | {{page.release_info.[version](cluster-settings.html#setting-version)}} | 2018-11-29 16:04:41.383588+00:00 | 2018-11-29 18:24:25.030175+00:00 | true         | true
+       4 | my-release-cockroachdb-3.my-release-cockroachdb.default.svc.cluster.local:26257 | {{page.release_info.[version](cluster-settings.html#setting-version)}} | 2018-11-29 17:31:19.990784+00:00 | 2018-11-29 18:24:26.041686+00:00 | true         | true
     (4 rows)
     ~~~
     </section>
@@ -63,7 +63,7 @@ If you remove nodes without first telling CockroachDB to decommission them, you 
     {% include_cached copy-clipboard.html %}
     ~~~ shell
     $ kubectl run cockroachdb -it \
-    --image=cockroachdb/cockroach:{{page.release_info.version}} \
+    --image=cockroachdb/cockroach:{{page.release_info.[version](cluster-settings.html#setting-version)}} \
     --rm \
     --restart=Never \
     -- node decommission <node ID> \
@@ -76,7 +76,7 @@ If you remove nodes without first telling CockroachDB to decommission them, you 
     {% include_cached copy-clipboard.html %}
     ~~~ shell
     $ kubectl run cockroachdb -it \
-    --image=cockroachdb/cockroach:{{page.release_info.version}} \
+    --image=cockroachdb/cockroach:{{page.release_info.[version](cluster-settings.html#setting-version)}} \
     --rm \
     --restart=Never \
     -- node decommission <node ID> \

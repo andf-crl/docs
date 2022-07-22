@@ -32,7 +32,7 @@ The `cockroach init` command supports the following [client connection](#client-
 
 ### Client connection
 
-{% include {{ page.version.version }}/sql/connection-parameters.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/connection-parameters.md %}
 
 See [Client Connection Parameters](connection-parameters.html) for details.
 
@@ -65,7 +65,7 @@ These examples assume that nodes have already been started with [`cockroach star
     $ cockroach init --certs-dir=certs --host=<address of this node>
     ~~~
 
-    At this point, all the nodes complete startup and print helpful details to the [standard output](start-a-node.html#standard-output), such as the CockroachDB version, the URL for the Admin UI, and the SQL URL for clients.
+    At this point, all the nodes complete startup and print helpful details to the [standard output](start-a-node.html#standard-output), such as the CockroachDB [version](cluster-settings.html#setting-version), the URL for the Admin UI, and the SQL URL for clients.
 </section>
 
 <section class="filter-content" markdown="1" data-scope="insecure">
@@ -78,7 +78,7 @@ These examples assume that nodes have already been started with [`cockroach star
     $ cockroach init --insecure --host=<address of this node>
     ~~~
 
-    At this point, all the nodes complete startup and print helpful details to the [standard output](start-a-node.html#standard-output), such as the CockroachDB version, the URL for the Admin UI, and the SQL URL for clients.
+    At this point, all the nodes complete startup and print helpful details to the [standard output](start-a-node.html#standard-output), such as the CockroachDB [version](cluster-settings.html#setting-version), the URL for the Admin UI, and the SQL URL for clients.
 </section>
 
 ### Initialize a cluster from another machine
@@ -100,7 +100,7 @@ These examples assume that nodes have already been started with [`cockroach star
     $ cockroach init --certs-dir=certs --host=<address of any node>
     ~~~
 
-    At this point, all the nodes complete startup and print helpful details to the [standard output](start-a-node.html#standard-output), such as the CockroachDB version, the URL for the Admin UI, and the SQL URL for clients.
+    At this point, all the nodes complete startup and print helpful details to the [standard output](start-a-node.html#standard-output), such as the CockroachDB [version](cluster-settings.html#setting-version), the URL for the Admin UI, and the SQL URL for clients.
 </section>
 
 <section class="filter-content" markdown="1" data-scope="insecure">
@@ -113,7 +113,7 @@ These examples assume that nodes have already been started with [`cockroach star
     $ cockroach init --insecure --host=<address of any node>
     ~~~
 
-    At this point, all the nodes complete startup and print helpful details to the [standard output](start-a-node.html#standard-output), such as the CockroachDB version, the URL for the Admin UI, and the SQL URL for clients.
+    At this point, all the nodes complete startup and print helpful details to the [standard output](start-a-node.html#standard-output), such as the CockroachDB [version](cluster-settings.html#setting-version), the URL for the Admin UI, and the SQL URL for clients.
 </section>
 
 ## See also

@@ -208,14 +208,14 @@ Now imagine the tables in the `startrek` database have changed and you want to r
 
 Next, you'll use the enterprise `BACKUP` feature to create a backup of the `startrek` database on S3.
 
-1. If you requested and enabled a trial enterprise license in the [Geo-Partitioning](geo-partitioning.html) module, skip to step 2. Otherwise, [request a trial enterprise license](https://www.cockroachlabs.com/get-cockroachdb/) and then enable your license:
+1. If you requested and enabled a trial [enterprise.license](cluster-settings.html#setting-enterprise-license) in the [Geo-Partitioning](geo-partitioning.html) module, skip to step 2. Otherwise, [request a trial [enterprise.license](cluster-settings.html#setting-enterprise-license)](https://www.cockroachlabs.com/get-cockroachdb/) and then enable your license:
 
     {% include copy-clipboard.html %}
     ~~~ shell
     $ cockroach sql \
     --insecure \
     --host=localhost:26257 \
-    --execute="SET CLUSTER SETTING cluster.organization = '<your organization>';"
+    --execute="SET CLUSTER SETTING [cluster.organization](cluster-settings.html#setting-cluster-organization) = '<your organization>';"
     ~~~
 
     {% include copy-clipboard.html %}
@@ -223,7 +223,7 @@ Next, you'll use the enterprise `BACKUP` feature to create a backup of the `star
     $ cockroach sql \
     --insecure \
     --host=localhost:26257 \
-    --execute="SET CLUSTER SETTING enterprise.license = '<your license key>';"
+    --execute="SET CLUSTER SETTING [enterprise.license](cluster-settings.html#setting-enterprise-license) = '<your license key>';"
     ~~~
 
 2. Use the `BACKUP` SQL statement to generate a backup of the `startrek` database and store it on S3. To ensure your backup doesn't conflict with anyone else's, prefix the filename with your name:

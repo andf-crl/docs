@@ -158,7 +158,7 @@ When the SQL shell connects to the demo cluster at startup, it prints a welcome 
 #
 # The user "root" with password "admin" has been created. Use it to access the Web UI!
 #
-# Server version: CockroachDB CCL v20.2.0 (x86_64-apple-darwin19.6.0, built , go1.14.4) (same version as client)
+# Server [version](cluster-settings.html#setting-version): CockroachDB CCL v20.2.0 (x86_64-apple-darwin19.6.0, built , go1.14.4) (same [version](cluster-settings.html#setting-version) as client)
 # Cluster ID: d4055073-8b30-490b-97bf-39ced0cd6471
 # Organization: Cockroach Demo
 #
@@ -218,7 +218,7 @@ node 3:
 
 #### General
 
-{% include {{ page.version.version }}/sql/shell-commands.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/shell-commands.md %}
 
 #### Demo-specific
 
@@ -234,19 +234,19 @@ Command | Usage
 
 ### Client-side options
 
-{% include {{ page.version.version }}/sql/shell-options.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/shell-options.md %}
 
 ### Help
 
-{% include {{ page.version.version }}/sql/shell-help.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/shell-help.md %}
 
 ### Shortcuts
 
-{% include {{ page.version.version }}/sql/shell-shortcuts.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/shell-shortcuts.md %}
 
 ## Diagnostics reporting
 
-By default, `cockroach demo` shares anonymous usage details with Cockroach Labs. To opt out, set the [`diagnostics.reporting.enabled`](diagnostics-reporting.html#after-cluster-initialization) [cluster setting](cluster-settings.html) to `false`. You can also opt out by setting the [`COCKROACH_SKIP_ENABLING_DIAGNOSTIC_REPORTING`](diagnostics-reporting.html#at-cluster-initialization) environment variable to `false` before running `cockroach demo`.
+By default, `cockroach demo` shares anonymous usage details with Cockroach Labs. To opt out, set the [`[diagnostics.reporting.enabled](cluster-settings.html#setting-diagnostics-reporting-enabled)`](diagnostics-reporting.html#after-cluster-initialization) [cluster setting](cluster-settings.html) to `false`. You can also opt out by setting the [`COCKROACH_SKIP_ENABLING_DIAGNOSTIC_REPORTING`](diagnostics-reporting.html#at-cluster-initialization) environment variable to `false` before running `cockroach demo`.
 
 ## Examples
 
@@ -447,7 +447,7 @@ This command starts a 9-node demo cluster with the `movr` database preloaded, an
 
 In a multi-node demo cluster, you can use `\demo` [shell commands](#commands) to shut down, restart, decommission, and recommission individual nodes.
 
-{% include {{ page.version.version }}/misc/experimental-warning.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/experimental-warning.md %}
 
 {% include copy-clipboard.html %}
 ~~~ shell

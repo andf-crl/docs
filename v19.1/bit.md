@@ -110,9 +110,9 @@ For type `VARBIT`, the value must not be larger than the specified maximum size:
 pq: bit string length 4 too large for type VARBIT(3)
 ~~~
 
-## Supported casting and conversion
+## Supported casting and con[version](cluster-settings.html#setting-version)
 
-`BIT` values can be [cast](data-types.html#data-type-conversions-and-casts) to any of the following data types:
+`BIT` values can be [cast](data-types.html#data-type-con[version](cluster-settings.html#setting-version)s-and-casts) to any of the following data types:
 
 Type | Details
 -----|---------

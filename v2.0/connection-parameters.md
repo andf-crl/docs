@@ -149,7 +149,7 @@ For each command-line flag that directs a connection parameter,
 CockroachDB also recognizes an environment variable. The environment
 variable is used when the command-line flag is not specified.
 
-{% include {{ page.version.version }}/sql/connection-parameters-with-url.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/connection-parameters-with-url.md %}
 
 {{site.data.alerts.callout_info}}The command-line flag
 <code>--url</code> is only supported for <code>cockroach</code>
@@ -201,7 +201,7 @@ instead.{{site.data.alerts.end}}
 
 ## Using Both URL and Client Parameters
 
-<span class="version-tag">Changed in v2.0</span>
+<span class="[version](cluster-settings.html#setting-version)-tag">Changed in v2.0</span>
 
 Several [`cockroach` commands](cockroach-commands.html) support both a
 [connection URL](#connect-using-a-url) with `--url` (or `COCKROACH_URL`) and [discrete connection

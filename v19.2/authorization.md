@@ -4,7 +4,7 @@ summary: Learn about the authorization features for secure CockroachDB clusters.
 toc: true
 ---
 
-User authorization is the act of defining access policies for authenticated CockroachDB users. CockroachDB allows you to create, manage, and remove your cluster's [users](#sql-users) and assign SQL-level [privileges](#assign-privileges) to the users. Additionally, if you have an [enterprise license](get-started-with-enterprise-trial.html), you can use [role-based access management (RBAC)](#roles) for simplified user management.
+User authorization is the act of defining access policies for authenticated CockroachDB users. CockroachDB allows you to create, manage, and remove your cluster's [users](#sql-users) and assign SQL-level [privileges](#assign-privileges) to the users. Additionally, if you have an [[enterprise.license](cluster-settings.html#setting-enterprise-license)](get-started-with-enterprise-trial.html), you can use [role-based access management (RBAC)](#roles) for simplified user management.
 
 ## SQL users
 
@@ -260,7 +260,7 @@ Let's say we want to create the following access control setup for the `movr` da
 {{site.data.alerts.callout_info}}
 The [`CREATE ROLE`](create-role.html) command used in this example is an enterprise-only feature. To request a 30-day trial license, see [Get CockroachDB](https://www.cockroachlabs.com/get-cockroachdb/enterprise).
 
-Note that [`GRANT <roles>`](grant-roles.html) does not require an enterprise license. All users can grant the [default roles](#default-roles).
+Note that [`GRANT <roles>`](grant-roles.html) does not require an [enterprise.license](cluster-settings.html#setting-enterprise-license). All users can grant the [default roles](#default-roles).
 {{site.data.alerts.end}}
 
 The following example uses MovR, a fictional vehicle-sharing application, to demonstrate CockroachDB [SQL statements](sql-statements.html). For more information about the MovR example application and dataset, see [MovR: A Global Vehicle-sharing App](movr.html).
@@ -279,7 +279,7 @@ Let's say we want to create the following access control setup for the `movr` da
     ~~~
 
 {{site.data.alerts.callout_info}}
-Each `cockroach demo` instance runs with a temporary enterprise license that enables you to try out enterprise features such as [`CREATE ROLE`](create-role.html). The license expires after an hour.
+Each `cockroach demo` instance runs with a temporary [enterprise.license](cluster-settings.html#setting-enterprise-license) that enables you to try out enterprise features such as [`CREATE ROLE`](create-role.html). The license expires after an hour.
 {{site.data.alerts.end}}
 
 2. Create the database admin role (named `db_admin_role`) whose members can perform all database operations for existing tables as well as for tables added in the future:

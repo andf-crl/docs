@@ -97,7 +97,7 @@ You can force queries [to use a specific partial index](table-expressions.html#f
 
 The following examples use the [`movr` example dataset](cockroach-demo.html#datasets).
 
-{% include {{ page.version.version }}/demo_movr.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/demo_movr.md %}
 
 ### Create an index on a subset of rows
 

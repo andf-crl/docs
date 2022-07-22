@@ -104,7 +104,7 @@ $ cockroach init --insecure --host=<address of any node>
 
 <img src="{{ 'images/v20.1/admin-ui-node-map-before-license.png' | relative_url }}" alt="CockroachDB Admin UI" style="border:1px solid #eee;max-width:100%" />
 
-### Step 2. [Set the enterprise license](enterprise-licensing.html) and refresh the Admin UI
+### Step 2. [Set the [enterprise.license](cluster-settings.html#setting-enterprise-license)](enterprise-licensing.html) and refresh the Admin UI
 
 The Node Map should now be displaying the highest-level localities you defined:
 
@@ -159,7 +159,7 @@ Let's say you want to navigate to Node 2, which is in datacenter `us-east-1a` in
 
 ### Node Map not displayed
 
-The Node Map requires an [enterprise license](enterprise-licensing.html).
+The Node Map requires an [[enterprise.license](cluster-settings.html#setting-enterprise-license)](enterprise-licensing.html).
 
 All nodes in the cluster must be assigned [localities](cockroach-start.html#locality). To be displayed on the world map, localities must be [assigned a corresponding latitude and longitude](#step-3-set-the-latitudes-and-longitudes-for-the-localities).
 
@@ -183,22 +183,22 @@ If a locality (e.g., region) is not assigned latitude/longitude coordinates, it 
 
 ### Unable to assign latitude/longitude coordinates to localities
 
-{% include {{ page.version.version }}/known-limitations/node-map.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/node-map.md %}
 
 ### Displayed **Used Capacity** value is more than configured Capacity
 
-{% include {{ page.version.version }}/misc/available-capacity-metric.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/available-capacity-metric.md %}
 
 ## Location coordinates
 
 ### AWS locations
 
-{% include {{ page.version.version }}/misc/aws-locations.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/aws-locations.md %}
 
 ### Azure locations
 
-{% include {{ page.version.version }}/misc/azure-locations.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/azure-locations.md %}
 
 ### Google Cloud locations
 
-{% include {{ page.version.version }}/misc/gce-locations.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/gce-locations.md %}

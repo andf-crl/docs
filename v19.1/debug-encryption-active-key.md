@@ -8,7 +8,7 @@ The `debug encryption-active-key` [command](cockroach-commands.html) displays th
 
 ## Subcommands
 
-{% include {{ page.version.version }}/misc/debug-subcommands.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/debug-subcommands.md %}
 
 ## Synopsis
 

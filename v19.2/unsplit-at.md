@@ -4,18 +4,18 @@ summary: The UNSPLIT AT statement removes a range split enforcement at a specifi
 toc: true
 ---
 
-<span class="version-tag">New in v19.2:</span> The `UNSPLIT AT` [statement](sql-statements.html) removes a [split enforcement](split-at.html) on a [range split](architecture/distribution-layer.html#range-splits), at a specified row in a table or index.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v19.2:</span> The `UNSPLIT AT` [statement](sql-statements.html) removes a [split enforcement](split-at.html) on a [range split](architecture/distribution-layer.html#range-splits), at a specified row in a table or index.
 
 Removing a split enforcement from a table or index ("unsplitting") allows CockroachDB to merge ranges as needed, to help improve your cluster's performance. For more information, see [Range Merges](range-merges.html).
 
 ## Synopsis
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/unsplit_table_at.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/unsplit_table_at.html %}
 </div>
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/unsplit_index_at.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/unsplit_index_at.html %}
 </div>
 
 ## Required privileges
@@ -32,7 +32,7 @@ The user must have the `INSERT` [privilege](authorization.html#assign-privileges
 
 ## Examples
 
-{% include {{page.version.version}}/sql/movr-statements-nodes.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/movr-statements-nodes.md %}
 
 ### Unsplit a table
 

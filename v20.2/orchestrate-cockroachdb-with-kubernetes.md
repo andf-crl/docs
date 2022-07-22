@@ -30,17 +30,17 @@ Feature | Description
 --------|------------
 [node](https://kubernetes.io/docs/concepts/architecture/nodes/) | A physical or virtual machine. In this tutorial, you'll create GCE or AWS instances and join them as worker nodes into a single Kubernetes cluster from your local workstation.
 [pod](http://kubernetes.io/docs/user-guide/pods/) | A pod is a group of one of more Docker containers. In this tutorial, each pod will run on a separate Kubernetes node and include one Docker container running a single CockroachDB node. You'll start with 3 pods and grow to 4.
-[StatefulSet](http://kubernetes.io/docs/concepts/abstractions/controllers/statefulsets/) | A StatefulSet is a group of pods treated as stateful units, where each pod has distinguishable network identity and always binds back to the same persistent storage on restart. StatefulSets are considered stable as of Kubernetes version 1.9 after reaching beta in version 1.5.
+[StatefulSet](http://kubernetes.io/docs/concepts/abstractions/controllers/statefulsets/) | A StatefulSet is a group of pods treated as stateful units, where each pod has distinguishable network identity and always binds back to the same persistent storage on restart. StatefulSets are considered stable as of Kubernetes [version](cluster-settings.html#setting-version) 1.9 after reaching beta in [version](cluster-settings.html#setting-version) 1.5.
 [persistent volume](http://kubernetes.io/docs/user-guide/persistent-volumes/) | A persistent volume is a piece of networked storage (Persistent Disk on GCE, Elastic Block Store on AWS) mounted into a pod. The lifetime of a persistent volume is decoupled from the lifetime of the pod that's using it, ensuring that each CockroachDB node binds back to the same storage on restart.<br><br>This tutorial assumes that dynamic volume provisioning is available. When that is not the case, [persistent volume claims](http://kubernetes.io/docs/user-guide/persistent-volumes/#persistentvolumeclaims) need to be created manually.
 [RBAC](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) | RBAC, or Role-Based Access Control, is the system Kubernetes uses to manage permissions within the cluster. In order to take an action (e.g., `get` or `create`) on an API resource (e.g., a `pod`), the client must have a `Role` that allows it to do so. This tutorial creates the RBAC resources necessary for CockroachDB to create and access certificates.
 
 ### Limitations
 
-{% include {{ page.version.version }}/orchestration/kubernetes-limitations.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/orchestration/kubernetes-limitations.md %}
 
 ## Step 1. Start Kubernetes
 
-{% include {{ page.version.version }}/orchestration/start-kubernetes.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/orchestration/start-kubernetes.md %}
 
 ## Step 2. Start CockroachDB
 
@@ -51,7 +51,7 @@ Choose how you want to deploy and maintain the CockroachDB cluster:
 - Manually apply our StatefulSet configuration and related files
 
 {{site.data.alerts.callout_success}}
-<span class="version-tag">New in v20.2:</span> The [CockroachDB Kubernetes Operator](https://github.com/cockroachdb/cockroach-operator) eases the creation of StatefulSets, pod authentication, cluster scaling, and rolling upgrades. The Operator is currently in **beta** and is not yet production-ready.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> The [CockroachDB Kubernetes Operator](https://github.com/cockroachdb/cockroach-operator) eases the creation of StatefulSets, pod authentication, cluster scaling, and rolling upgrades. The Operator is currently in **beta** and is not yet production-ready.
 {{site.data.alerts.end}}
 
 {{site.data.alerts.callout_info}}
@@ -65,32 +65,32 @@ The CockroachDB Kubernetes Operator can also be run on platforms such as [Red Ha
 </div>
 
 <section class="filter-content" markdown="1" data-scope="operator">
-{% include {{ page.version.version }}/orchestration/start-cockroachdb-operator-secure.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/orchestration/start-cockroachdb-operator-secure.md %}
 </section>
 
 <section class="filter-content" markdown="1" data-scope="manual">
-{% include {{ page.version.version }}/orchestration/start-cockroachdb-secure.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/orchestration/start-cockroachdb-secure.md %}
 </section>
 
 <section class="filter-content" markdown="1" data-scope="helm">
-{% include {{ page.version.version }}/orchestration/start-cockroachdb-helm-secure.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/orchestration/start-cockroachdb-helm-secure.md %}
 </section>
 
 ## Step 3. Use the built-in SQL client
 
-{% include {{ page.version.version }}/orchestration/test-cluster-secure.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/orchestration/test-cluster-secure.md %}
 
 ## Step 4. Access the DB Console
 
-{% include {{ page.version.version }}/orchestration/monitor-cluster.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/orchestration/monitor-cluster.md %}
 
 ## Step 5. Simulate node failure
 
-{% include {{ page.version.version }}/orchestration/kubernetes-simulate-failure.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/orchestration/kubernetes-simulate-failure.md %}
 
 ## Step 6. Monitor the cluster
 
-{% include {{ page.version.version }}/orchestration/kubernetes-prometheus-alertmanager.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/orchestration/kubernetes-prometheus-alertmanager.md %}
 
 ## Step 7. Maintain the cluster
 
@@ -102,11 +102,11 @@ The CockroachDB Kubernetes Operator can also be run on platforms such as [Red Ha
 
 ### Add nodes
 
-{% include {{ page.version.version }}/orchestration/kubernetes-scale-cluster.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/orchestration/kubernetes-scale-cluster.md %}
 
 ### Remove nodes
 
-{% include {{ page.version.version }}/orchestration/kubernetes-remove-nodes-secure.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/orchestration/kubernetes-remove-nodes-secure.md %}
 
 ### Expand disk size
 
@@ -116,15 +116,15 @@ Expansion of persistent volumes with the Operator is forthcoming. See the [GitHu
 {{site.data.alerts.end}}
 </section>
 
-{% include {{ page.version.version }}/orchestration/kubernetes-expand-disk-size.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/orchestration/kubernetes-expand-disk-size.md %}
 
 ### Upgrade the cluster
 
-{% include {{ page.version.version }}/orchestration/kubernetes-upgrade-cluster.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/orchestration/kubernetes-upgrade-cluster.md %}
 
 ### Stop the cluster
 
-{% include {{ page.version.version }}/orchestration/kubernetes-stop-cluster.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/orchestration/kubernetes-stop-cluster.md %}
 
 #### Stop Kubernetes
 
@@ -151,4 +151,4 @@ If you stop Kubernetes without first deleting the persistent volumes, they will 
 
 - [Kubernetes Multi-Cluster Deployment](orchestrate-cockroachdb-with-kubernetes-multi-cluster.html)
 - [Kubernetes Performance Guide](kubernetes-performance.html)
-{% include {{ page.version.version }}/prod-deployment/prod-see-also.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/prod-see-also.md %}

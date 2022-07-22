@@ -8,7 +8,7 @@ key: sql-dump.html
 The `cockroach dump` [command](cockroach-commands.html) outputs the SQL statements required to recreate tables, views, and sequences. This command can be used to back up or export each database in a cluster. The output should also be suitable for importing into other relational databases, with minimal adjustments.
 
 {{site.data.alerts.callout_success}}
-CockroachDB [enterprise license](https://www.cockroachlabs.com/pricing/) users can also back up their cluster's data using [`BACKUP`](backup.html).
+CockroachDB [[enterprise.license](cluster-settings.html#setting-enterprise-license)](https://www.cockroachlabs.com/pricing/) users can also back up their cluster's data using [`BACKUP`](backup.html).
 {{site.data.alerts.end}}
 
 ## Considerations
@@ -88,7 +88,7 @@ Flag | Description
 
 ### Client connection
 
-{% include {{ page.version.version }}/sql/connection-parameters.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/connection-parameters.md %}
 
 See [Client Connection Parameters](connection-parameters.html) for more details.
 
@@ -394,11 +394,11 @@ As you can see, the results of the dump are identical to the earlier time-travel
 
 ### Dumping a table with no user-visible columns
 
-{% include {{page.version.version}}/known-limitations/dump-table-with-no-columns.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/known-limitations/dump-table-with-no-columns.md %}
 
 ### Dumping a table with collations
 
-{% include {{page.version.version}}/known-limitations/dump-table-with-collations.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/known-limitations/dump-table-with-collations.md %}
 
 ## See also
 

@@ -13,7 +13,7 @@ The `SET SCHEMA` [statement](sql-statements.html) changes the [schema](sql-name-
 CockroachDB also supports `SET SCHEMA` as an [alias for setting the `search_path` session variable](set-vars.html#supported-variables).
 {{site.data.alerts.end}}
 
-{% include {{ page.version.version }}/misc/schema-change-stmt-note.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-stmt-note.md %}
 
 ## Required privileges
 
@@ -36,7 +36,7 @@ ALTER TABLE [IF EXISTS] <name> SET SCHEMA <newschemaname>
 
 ## Examples
 
-{% include {{page.version.version}}/sql/movr-statements.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/movr-statements.md %}
 
 ### Change the schema of a table
 

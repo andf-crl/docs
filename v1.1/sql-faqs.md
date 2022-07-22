@@ -11,7 +11,7 @@ Currently, you can bulk insert data with batches of [`INSERT`](insert.html) stat
 
 ## How do I auto-generate unique row IDs in CockroachDB?
 
-{% include {{ page.version.version }}/faq/auto-generate-unique-ids.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/faq/auto-generate-unique-ids.html %}
 
 ## How do I get the last ID/SERIAL value inserted into a table?
 
@@ -37,7 +37,7 @@ To learn more, see our blog posts on CockroachDB's JOINs:
 
 [Interleaving tables](interleave-in-parent.html) improves query performance by optimizing the key-value structure of closely related tables, attempting to keep data on the same key-value range if it's likely to be read and written together.
 
-{% include {{ page.version.version }}/faq/when-to-interleave-tables.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/faq/when-to-interleave-tables.html %}
 
 ## Does CockroachDB support JSON or Protobuf datatypes?
 
@@ -59,16 +59,16 @@ If you'd like to tell the query planner which index to use, you can do so via so
 
 ## How do I log SQL queries?
 
-For production clusters, the best way to log queries is to turn on the [cluster-wide setting](cluster-settings.html) `sql.trace.log_statement_execute`:
+For production clusters, the best way to log queries is to turn on the [cluster-wide setting](cluster-settings.html) `[sql.trace.log_statement_execute](cluster-settings.html#setting-sql-trace-log_statement_execute)`:
 
 ~~~ sql
-> SET CLUSTER SETTING sql.trace.log_statement_execute = true;
+> SET CLUSTER SETTING [sql.trace.log_statement_execute](cluster-settings.html#setting-sql-trace-log_statement_execute) = true;
 ~~~
 
 With this setting on, each node of the cluster writes all SQL queries it executes to its log file. When you no longer need to log queries, you can turn the setting back off:
 
 ~~~ sql
-> SET CLUSTER SETTING sql.trace.log_statement_execute = false;
+> SET CLUSTER SETTING [sql.trace.log_statement_execute](cluster-settings.html#setting-sql-trace-log_statement_execute) = false;
 ~~~
 
 Alternatively, if you are testing CockroachDB locally and want to log queries executed just by a specific node, you can pass `--vmodule=executor=2` to the [`cockroach start`](start-a-node.html) command when starting the node. For example, to start a single node locally and log all SQL queries it executes, you'd run:

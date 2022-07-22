@@ -19,13 +19,13 @@ Support for schema changes within [transactions][txns] is [limited](#limitations
 
 ## How online schema changes work
 
-At a high level, online schema changes are accomplished by using a bridging strategy involving concurrent uses of multiple versions of the schema. The process is as follows:
+At a high level, online schema changes are accomplished by using a bridging strategy involving concurrent uses of multiple [version](cluster-settings.html#setting-version)s of the schema. The process is as follows:
 
 1. A user initiates a schema change by executing [`ALTER TABLE`][alter-table], [`CREATE INDEX`][create-index], [`TRUNCATE`][truncate], etc.
 
 2. The schema change engine converts the original schema to the new schema in discrete steps while ensuring that the underlying table data is always in a consistent state. These changes are executed as a [background job][show-jobs].
 
-This approach allows the schema change engine to roll out a new schema while the previous version is still in use. It then backfills or deletes the underlying table data as needed in the background, while the cluster is still running and servicing reads and writes from your application.
+This approach allows the schema change engine to roll out a new schema while the previous [version](cluster-settings.html#setting-version) is still in use. It then backfills or deletes the underlying table data as needed in the background, while the cluster is still running and servicing reads and writes from your application.
 
 During the backfilling process, the schema change engine updates the underlying table data to make sure all instances of the table are stored according to the requirements of the new schema.
 
@@ -43,7 +43,7 @@ For more examples of schema change statements, see the [`ALTER TABLE`][alter-tab
 
 As noted in [Limitations](#limitations), you cannot run schema changes inside transactions in general.
 
-However, as of version 2.1, you can run schema changes inside the same transaction as a [`CREATE TABLE`][create-table] statement. For example:
+However, as of [version](cluster-settings.html#setting-version) 2.1, you can run schema changes inside the same transaction as a [`CREATE TABLE`][create-table] statement. For example:
 
 {% include copy-clipboard.html %}
 ~~~ sql
@@ -110,7 +110,7 @@ Schema changes keep your data consistent at all times, but they do not run insid
 Specifically, this behavior is necessary because making schema changes transactional would mean requiring a given schema change to propagate across all the nodes of a cluster. This would block all user-initiated transactions being run by your application, since the schema change would have to commit before any other transactions could make progress. This would prevent the cluster from servicing reads and writes during the schema change, requiring application downtime.
 
 {{site.data.alerts.callout_success}}
-As of version 2.1, you can run schema changes inside the same transaction as a [`CREATE TABLE`][create-table] statement. For more information, [see this example](#run-schema-changes-inside-a-transaction-with-create-table).
+As of [version](cluster-settings.html#setting-version) 2.1, you can run schema changes inside the same transaction as a [`CREATE TABLE`][create-table] statement. For more information, [see this example](#run-schema-changes-inside-a-transaction-with-create-table).
 {{site.data.alerts.end}}
 
 ### No schema changes within transactions

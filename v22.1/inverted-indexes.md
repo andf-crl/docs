@@ -169,7 +169,7 @@ CREATE TABLE test (
 
 ## GIN indexes on `REGIONAL BY ROW` tables in multi-region databases
 
-{% include {{page.version.version}}/sql/indexes-regional-by-row.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/indexes-regional-by-row.md %}
 
 For an example that uses unique indexes but applies to all indexes on `REGIONAL BY ROW` tables, see [Add a unique index to a `REGIONAL BY ROW` table](add-constraint.html#add-a-unique-index-to-a-regional-by-row-table).
 
@@ -367,7 +367,7 @@ SELECT * FROM users@idx_online_users WHERE user_profile->'online' = 'true' AND u
 
 ### Inverted join examples
 
-{% include {{ page.version.version }}/sql/inverted-joins.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/inverted-joins.md %}
 
 ## See also
 

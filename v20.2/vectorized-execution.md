@@ -10,7 +10,7 @@ Many SQL databases execute [query plans](https://en.wikipedia.org/wiki/Query_pla
 
 ## Configuring vectorized execution
 
- <span class="version-tag">New in v20.2:</span> By default, vectorized execution is enabled in CockroachDB.
+ <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> By default, vectorized execution is enabled in CockroachDB.
 
 You can configure vectorized execution with the `vectorize` [session variable](set-vars.html). The following options are supported:
 
@@ -56,7 +56,7 @@ The following operations require [memory buffering](https://en.wikipedia.org/wik
 - [Merge joins](joins.html#merge-joins) on non-unique columns. Merge joins on columns that are guaranteed to have one row per value, also known as "key columns", can execute entirely in-memory.
 - [Window functions](window-functions.html). Note that [support for window functions is limited in the vectorized execution engine](#window-functions).
 
-If there is not enough memory allocated for an operation, CockroachDB will spill the intermediate execution results to disk if the operation supports disk spilling. By default, the memory limit allocated per operator is 64MiB. You can change this limit with the `sql.distsql.temp_storage.workmem` [cluster setting](cluster-settings.html).
+If there is not enough memory allocated for an operation, CockroachDB will spill the intermediate execution results to disk if the operation supports disk spilling. By default, the memory limit allocated per operator is 64MiB. You can change this limit with the `[sql.distsql.temp_storage.workmem](cluster-settings.html#setting-sql-distsql-temp_storage-workmem)` [cluster setting](cluster-settings.html).
 
 You can also configure a node's total budget for in-memory query processing at node startup with the [`--max-sql-memory` flag](cockroach-start.html#general). If the queries running on the node exceed the memory budget, the node spills intermediate execution results to disk, if possible. The [`--max-disk-temp-storage` flag](cockroach-start.html#general) sets the maximum on-disk storage capacity. If the maximum on-disk storage capacity is reached, the query will return an error during execution.
 
@@ -64,7 +64,7 @@ You can also configure a node's total budget for in-memory query processing at n
 
 ### Unordered aggregation operations
 
-{% include {{ page.version.version }}/known-limitations/unordered-operations.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/unordered-operations.md %}
 
 ### Unsupported queries
 

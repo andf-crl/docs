@@ -1,5 +1,5 @@
 {% if page.cloud == true %}
-  {% capture link_prefix %}../{{site.versions["stable"]}}/{% endcapture %}
+  {% capture link_prefix %}../{{site.[version](cluster-settings.html#setting-version)s["stable"]}}/{% endcapture %}
 {% else %}
   {% assign link_prefix = "" %}
 {% endif %}

@@ -16,7 +16,7 @@ Make sure you have already:
 - [Connected to the database](connect-to-the-database.html).
 - [Inserted data](insert-data.html) that you now want to run queries against.
 
-{% include {{page.version.version}}/app/retry-errors.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/retry-errors.md %}
 
 
 ## Run a transaction

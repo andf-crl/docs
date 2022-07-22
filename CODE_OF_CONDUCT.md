@@ -5,7 +5,7 @@
 We value the participation of everyone in the CockroachDB community and want to create an environment that is welcoming, enjoyable, and fulfilling. 
 When posting or participating in a community event or online forum, please use the following guidelines:
 
-- Be specific and detailed. Include relevant details in your inquiries (eg. versions, error messages, deployment environment, etc.), and 
+- Be specific and detailed. Include relevant details in your inquiries (eg. [version](cluster-settings.html#setting-version)s, error messages, deployment environment, etc.), and 
   avoid asking off-topic questions in existing discussion threads.
 - Share experiences and knowledge publicly. Everyone can benefit from the exchange of knowledge, so we encourage all community members to 
   share their experience in public channels (at events, on the [forum](https://forum.cockroachlabs.com/), [GitHub](https://github.com/cockroachdb), [StackOverflow](https://stackoverflow.com/search?q=cockroachdb), [Slack](https://go.crdb.dev/p/slack), etc.).

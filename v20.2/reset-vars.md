@@ -13,7 +13,7 @@ No [privileges](authorization.html#assign-privileges) are required to reset a se
 
 ## Synopsis
 
-<div>{% include {{ page.version.version }}/sql/diagrams/reset_session.html %}</div>
+<div>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/reset_session.html %}</div>
 
 ## Parameters
 

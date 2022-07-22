@@ -69,12 +69,12 @@ A `NOT NULL` constraint cannot be added to existing tables.
 
 By default, composite foreign keys are matched using the `MATCH SIMPLE` algorithm (which is the same default as Postgres). `MATCH FULL` is available if specified.
 
-In versions 2.1 and earlier, the only option for composite foreign key matching was an incorrect implementation of `MATCH FULL`. This allowed null values in the referencing key columns to correspond to null values in the referenced key columns. This was incorrect in two ways:
+In [version](cluster-settings.html#setting-version)s 2.1 and earlier, the only option for composite foreign key matching was an incorrect implementation of `MATCH FULL`. This allowed null values in the referencing key columns to correspond to null values in the referenced key columns. This was incorrect in two ways:
 
 1. `MATCH FULL` should not allow mixed null and non-null values. See below for more details on the differences between comparison methods.
 2. Null values cannot ever be compared to each other.
 
-To correct these issues, all composite key matches defined prior to version 19.1 will now use the `MATCH SIMPLE` comparison method. We have also added the ability to specify both `MATCH FULL` and `MATCH SIMPLE`. If you had a composite foreign key constraint and have just upgraded to version 19.1, then please check that `MATCH SIMPLE` works for your schema and consider replacing that foreign key constraint with a `MATCH FULL` one.
+To correct these issues, all composite key matches defined prior to [version](cluster-settings.html#setting-version) 19.1 will now use the `MATCH SIMPLE` comparison method. We have also added the ability to specify both `MATCH FULL` and `MATCH SIMPLE`. If you had a composite foreign key constraint and have just upgraded to [version](cluster-settings.html#setting-version) 19.1, then please check that `MATCH SIMPLE` works for your schema and consider replacing that foreign key constraint with a `MATCH FULL` one.
 
 #### How it works
 
@@ -137,7 +137,7 @@ You can also add the `FOREIGN KEY` constraint to existing tables through [`ADD C
 
 ### Column level
 
-<section>{% include {{ page.version.version }}/sql/diagrams/foreign_key_column_level.html %}</section>
+<section>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/foreign_key_column_level.html %}</section>
 
 | Parameter | Description |
 |-----------|-------------|
@@ -167,7 +167,7 @@ You can also add the `FOREIGN KEY` constraint to existing tables through [`ADD C
 
 ### Table level
 
-<section>{% include {{ page.version.version }}/sql/diagrams/foreign_key_table_level.html %}</section>
+<section>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/foreign_key_table_level.html %}</section>
 
 | Parameter | Description |
 |-----------|-------------|

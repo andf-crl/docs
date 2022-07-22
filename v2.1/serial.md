@@ -38,14 +38,14 @@ There are three possible translation modes for `SERIAL`:
 | Mode                                                                            | Description                                                                                                                   |
 |---------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------|
 | `rowid` (default)                                                               | `SERIAL` implies `DEFAULT unique_rowid()`. The real data type is always `INT`.                                                    |
-| `virtual_sequence` (experimental, <span class="version-tag">New in v2.1</span>) | `SERIAL` creates a virtual sequence and implies `DEFAULT nextval(<seqname>)`.  The real data type is always `INT`.                |
-| `sql_sequence` (experimental, <span class="version-tag">New in v2.1</span>)     | `SERIAL` creates a regular SQL sequence and implies `DEFAULT nextval(<seqname>)`. The real data type depends on `SERIAL` variant. |
+| `virtual_sequence` (experimental, <span class="[version](cluster-settings.html#setting-version)-tag">New in v2.1</span>) | `SERIAL` creates a virtual sequence and implies `DEFAULT nextval(<seqname>)`.  The real data type is always `INT`.                |
+| `sql_sequence` (experimental, <span class="[version](cluster-settings.html#setting-version)-tag">New in v2.1</span>)     | `SERIAL` creates a regular SQL sequence and implies `DEFAULT nextval(<seqname>)`. The real data type depends on `SERIAL` variant. |
 
 These modes can be configured with the experimental (unsupported) [session variable](set-vars.html) `experimental_serial_normalization`. 
 
 {{site.data.alerts.callout_info}}
 The particular choice of `DEFAULT` expression when clients use the
-`SERIAL` keyword is subject to change in future versions of
+`SERIAL` keyword is subject to change in future [version](cluster-settings.html#setting-version)s of
 CockroachDB. Applications that wish to use `unique_rowid()`
 specifically must use the full explicit syntax `INT DEFAULT
 unique_rowid()` and avoid `SERIAL` altogether.
@@ -79,7 +79,7 @@ database. However in both cases the `unique_rowid()` function is
 ultimately used to generate new values.
 
 This behavior of `virtual_sequence` is experimental and may be removed
-in a later version of CockroachDB.
+in a later [version](cluster-settings.html#setting-version) of CockroachDB.
 {{site.data.alerts.end}}
 
 ### Generated values for mode `sql_sequence`.
@@ -113,7 +113,7 @@ instead of sequences when possible.
 {{site.data.alerts.callout_info}}
 This mode `sql_sequence` is an experimental feature provided for testing compatibility with existing PostgreSQL clients.
 
-It is subject to change without notice and may be removed in later versions of CockroachDB.
+It is subject to change without notice and may be removed in later [version](cluster-settings.html#setting-version)s of CockroachDB.
 {{site.data.alerts.end}}
 
 ## Examples

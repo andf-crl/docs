@@ -13,7 +13,7 @@ The user must have the `DROP` [privilege](authorization.html#assign-privileges) 
 ## Syntax
 
 <div>
-{% include {{ page.version.version }}/sql/generated/diagrams/drop_schema.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/drop_schema.html %}
 </div>
 
 ### Parameters
@@ -27,7 +27,7 @@ Parameter | Description
 
 ## Examples
 
-{% include {{page.version.version}}/sql/movr-statements.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/movr-statements.md %}
 
 ### Drop a schema
 

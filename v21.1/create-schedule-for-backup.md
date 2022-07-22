@@ -53,7 +53,7 @@ For schedules that include both [full and incremental backups](take-full-and-inc
 
 ### Backup options
 
-{% include {{ page.version.version }}/backups/backup-options.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/backups/backup-options.md %}
 
 ### Schedule options
 

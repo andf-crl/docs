@@ -10,7 +10,7 @@ The tutorials in this section show you how to build a simple application with Co
 
 ## Tutorials
 
-{% include {{page.version.version}}/misc/drivers.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/misc/drivers.md %}
 
 ## See also
 

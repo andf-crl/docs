@@ -5,7 +5,7 @@ toc: true
 docs_area: reference.db_console
 ---
 
-{% include {{ page.version.version }}/ui/admin-access.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/ui/admin-access.md %}
 
 The **Transactions** page helps you:
 
@@ -33,14 +33,14 @@ You can search for transactions using the search field or the date range selecto
 
 To search using the search field, type a string over `Search Transactions` and press `Enter`. The list of transactions is filtered by the string.
 
-{% include {{ page.version.version }}/ui/transactions-filter.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/ui/transactions-filter.md %}
 
 ## Transaction statistics
 
-{% include {{ page.version.version }}/ui/statistics.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/ui/statistics.md %}
 
 {% include common/ui/transactions-page.md %}
 
-{% include {{ page.version.version }}/ui/transactions-table.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/ui/transactions-table.md %}
 
-{% include {{ page.version.version }}/ui/transaction-details.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/ui/transaction-details.md %}

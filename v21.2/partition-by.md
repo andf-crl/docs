@@ -7,13 +7,13 @@ docs_area: reference.sql
 
 `PARTITION BY` is a subcommand of [`ALTER TABLE`](alter-table.html) and [`ALTER INDEX`](alter-index.html) that is used to partition, re-partition, or un-partition a table or secondary index. After defining partitions, [`CONFIGURE ZONE`](configure-zone.html) is used to control the replication and placement of partitions.
 
-{% include {{page.version.version}}/sql/use-multiregion-instead-of-partitioning.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/use-multiregion-instead-of-partitioning.md %}
 
 {{site.data.alerts.callout_info}}
 [Partitioning](partitioning.html) is an [Enterprise-only](enterprise-licensing.html) feature. If you are looking for the `PARTITION BY` used in SQL window functions, see [Window Functions](window-functions.html).
 {{site.data.alerts.end}}
 
-{% include {{ page.version.version }}/sql/combine-alter-table-commands.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/combine-alter-table-commands.md %}
 
 ## Primary key requirements
 
@@ -26,13 +26,13 @@ If the primary key in your existing table does not meet the requirements, you ca
 **alter_table_partition_by_stmt ::=**
 
 <div>
-{% include {{ page.version.version }}/sql/generated/diagrams/alter_table_partition_by.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/alter_table_partition_by.html %}
 </div>
 
 **alter_index_partition_by_stmt ::=**
 
 <div>
-{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.version.version | replace: "v", "" }}/grammar_svg/alter_index_partition_by.html %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/grammar_svg/alter_index_partition_by.html %}
 </div>
 
 ## Parameters
@@ -51,10 +51,10 @@ The user must have the `CREATE` [privilege](security-reference/authorization.htm
 
 ## Viewing schema changes
 
-{% include {{ page.version.version }}/misc/schema-change-view-job.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-view-job.md %}
 
 
-{% include {{page.version.version}}/sql/querying-partitions.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/querying-partitions.md %}
 
 ## Examples
 

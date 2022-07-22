@@ -172,4 +172,4 @@ $ rm -rf scale-node1 scale-node2 scale-node3 scale-node4 scale-node5
 
 Explore other core CockroachDB benefits and features:
 
-{% include {{ page.version.version }}/misc/explore-benefits-see-also.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/explore-benefits-see-also.md %}

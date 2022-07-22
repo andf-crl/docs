@@ -179,7 +179,7 @@ The files generated for a group named `default` are named after the pattern `coc
 #### Access in DB Console
 
 {{site.data.alerts.callout_success}}
-{% include {{ page.version.version }}/ui/ui-log-files.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/ui/ui-log-files.md %}
 {{site.data.alerts.end}}
 
 #### Known limitations
@@ -220,7 +220,7 @@ For an example network logging configuration, see [Logging use cases](logging-us
 
 ### Output to HTTP network collectors
 
-{% include_cached new-in.html version="v21.2" %} CockroachDB can send logs over the network to an HTTP server. `http-servers` specifies the channels that output to a server, along with the server configuration details. For example:
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.2" %} CockroachDB can send logs over the network to an HTTP server. `http-servers` specifies the channels that output to a server, along with the server configuration details. For example:
 
 ~~~ yaml
 file-defaults: ...

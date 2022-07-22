@@ -7,7 +7,7 @@ docs_area: reference.sql
 
 A `MULTIPOINT` is a collection of [Points](point.html).  MultiPoints are useful for gathering a group of Points into one geometry. For example, you may want to gather the points denoting all of the State Capitols in the U.S. into a single geometry.
 
-{% include {{page.version.version}}/spatial/zmcoords.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/spatial/zmcoords.md %}
 
 ## Examples
 

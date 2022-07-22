@@ -11,7 +11,7 @@ To view this dashboard, [access the DB Console](ui-overview.html#db-console-acce
 
 The time-series data displayed in DB Console graphs is stored within the CockroachDB cluster and accumulates for 30 days before being truncated. For details about managing this process, see this [FAQ](operational-faqs.html#can-i-reduce-or-disable-the-storage-of-time-series-data). As a result, for the first 30 days or so of a cluster's life, you will see a steady increase in disk usage and the number of ranges even if you aren't writing data to the cluster.
 
-{% include {{ page.version.version }}/ui/ui-metrics-navigation.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/ui/ui-metrics-navigation.md %}
 
 The **Overview** dashboard displays the following time series graphs. All timestamps in the DB Console are shown in 24-hour Coordinated Universal Time (UTC).
 
@@ -25,7 +25,7 @@ See the [Statements page](ui-statements-page.html) for more details on the clust
 
 ## Service Latency: SQL, 99th percentile
 
-{% include {{ page.version.version }}/ui/ui-sql-latency-99th-percentile.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/ui/ui-sql-latency-99th-percentile.md %}
 
 ## SQL Statement Contention
 
@@ -61,7 +61,7 @@ Metric | Description
 **Available** | The free disk space available to CockroachDB data.
 **Used** | The disk space in use by CockroachDB data. This excludes the Cockroach binary, operating system, and other system files.
 
-{% include {{ page.version.version }}/prod-deployment/healthy-storage-capacity.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/healthy-storage-capacity.md %}
 
 ### Capacity metrics
 
@@ -75,10 +75,10 @@ The **available** capacity thus equals the amount of empty disk space, up to the
 The disk usage of the Cockroach binary, operating system, and other system files is not shown on the **Capacity** graph.
 
 {{site.data.alerts.callout_info}}
-{% include {{ page.version.version }}/misc/available-capacity-metric.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/available-capacity-metric.md %}
 {{site.data.alerts.end}}
 
-{% include {{ page.version.version }}/ui/ui-summary-events.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/ui/ui-summary-events.md %}
 
 ## See also
 

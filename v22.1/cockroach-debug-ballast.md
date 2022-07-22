@@ -16,7 +16,7 @@ The `cockroach debug ballast` [command](cockroach-commands.html) creates a large
 
 ## Subcommands
 
-{% include {{ page.version.version }}/misc/debug-subcommands.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/debug-subcommands.md %}
 
 ## Synopsis
 

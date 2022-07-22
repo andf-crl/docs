@@ -15,7 +15,7 @@ The [cost-based optimizer](cost-based-optimizer.html) supports hint syntax to fo
 
 ## Synopsis
 
-<div>{% include {{ page.version.version }}/sql/generated/diagrams/joined_table.html %}</div>
+<div>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/joined_table.html %}</div>
 
 <div markdown="1"></div>
 
@@ -151,7 +151,7 @@ The output of [`EXPLAIN (VERBOSE)`](explain.html#verbose-option) shows whether `
 
 ### Inverted joins
 
-{% include_cached new-in.html version="v21.1" %} Inverted joins force the optimizer to use a join using a [GIN index](inverted-indexes.html) on the right side of the join. Inverted joins can only be used with `INNER` and `LEFT` joins.
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.1" %} Inverted joins force the optimizer to use a join using a [GIN index](inverted-indexes.html) on the right side of the join. Inverted joins can only be used with `INNER` and `LEFT` joins.
 
 ~~~
 <table expr> INNER INVERTED JOIN <table expr> ON <val expr>

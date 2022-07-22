@@ -15,7 +15,7 @@ The [cost-based optimizer](cost-based-optimizer.html) supports hint syntax to fo
 ## Synopsis
 
 <div class="horizontal-scroll">
-  {% include {{ page.version.version }}/sql/diagrams/joined_table.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/joined_table.html %}
 </div>
 
 <div markdown="1"></div>
@@ -142,7 +142,7 @@ Lookup joins are performed on two tables as follows:
 
 You can override the use of lookup joins using [join hints](cost-based-optimizer.html#join-hints).
 
-<span class="version-tag">New in v19.2:</span>: The output of [`EXPLAIN`](explain.html#verbose-option) has been updated to show whether `equality cols are key` for lookup joins, which means that the lookup columns form a key in the target table such that each lookup has at most one result.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v19.2:</span>: The output of [`EXPLAIN`](explain.html#verbose-option) has been updated to show whether `equality cols are key` for lookup joins, which means that the lookup columns form a key in the target table such that each lookup has at most one result.
 
 ## Performance best practices
 

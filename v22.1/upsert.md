@@ -26,7 +26,7 @@ Assuming that columns `a` and `b` are the primary key, the following `UPSERT` an
 
 If your statement considers uniqueness for columns other than primary key columns, you must use `INSERT ON CONFLICT`. For an example, see the [Upsert that fails (conflict on non-primary key)](#upsert-that-fails-conflict-on-non-primary-key).
 
-{% include {{page.version.version}}/sql/insert-vs-upsert.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/insert-vs-upsert.md %}
 
 To learn more about how to perform and when to use an upsert in CockroachDB, PostgreSQL, and MySQL, see [Upsert in SQL: What is an Upsert, and When Should You Use One?](https://www.cockroachlabs.com/blog/sql-upsert/).
 
@@ -50,7 +50,7 @@ The user must have the `INSERT`, `SELECT`, and `UPDATE` [privileges](security-re
 ## Synopsis
 
 <div>
-{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.version.version | replace: "v", "" }}/grammar_svg/upsert.html %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/grammar_svg/upsert.html %}
 </div>
 
 ## Parameters
@@ -352,7 +352,7 @@ Using `DISTINCT ON` incurs a performance cost to search and eliminate duplicates
 For best performance, avoid using it when the input is known to not contain duplicates.
 {{site.data.alerts.end}}
 
-{% include {{page.version.version}}/sql/limit-row-size.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/limit-row-size.md %}
 
 ## See also
 

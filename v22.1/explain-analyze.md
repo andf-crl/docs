@@ -8,7 +8,7 @@ docs_area: reference.sql
 The `EXPLAIN ANALYZE` [statement](sql-statements.html) **executes a SQL query** and generates a statement plan with execution statistics. Statement plans provide information around SQL execution, which can be used to troubleshoot slow queries by figuring out where time is being spent, how long a processor (i.e., a component that takes streams of input rows and processes them according to a specification) is not doing work, etc. The `(DISTSQL)` option returns the statement plan and performance statistics as well as a generated link to a graphical distributed SQL physical statement plan tree. For more information about distributed SQL queries, see the [DistSQL section of our SQL layer architecture docs](architecture/sql-layer.html#distsql). The `(DEBUG)` option generates a URL to download a bundle with more details about the statement plan for advanced debugging.
 
 {{site.data.alerts.callout_info}}
-{% include {{ page.version.version }}/sql/physical-plan-url.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/physical-plan-url.md %}
 {{site.data.alerts.end}}
 
 ## Aliases
@@ -17,7 +17,7 @@ The `EXPLAIN ANALYZE` [statement](sql-statements.html) **executes a SQL query** 
 
 ## Synopsis
 
-<div>{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.version.version | replace: "v", "" }}/grammar_svg/explain_analyze.html %}</div>
+<div>{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/grammar_svg/explain_analyze.html %}</div>
 
 ## Parameters
 
@@ -43,7 +43,7 @@ A successful `EXPLAIN ANALYZE` statement returns a table with the following deta
 Node details | The properties, columns, and ordering details for the current statement plan node in the tree.
 Time | The time details for the statement. The total time is the planning and execution time of the statement. The execution time is the time it took for the final statement plan to complete. The network time is the amount of time it took to distribute the statement across the relevant nodes in the cluster. Some statements do not need to be distributed, so the network time is 0ms.
 
-If you use the [`DISTSQL` option](#distsql-option), the statement will also return a URL generated for a physical statement plan that provides high level information about how a statement will be executed. {% include {{ page.version.version }}/sql/physical-plan-url.md %} For details about reading the physical statement plan, see [DistSQL plan diagram](#distsql-plan-diagram).
+If you use the [`DISTSQL` option](#distsql-option), the statement will also return a URL generated for a physical statement plan that provides high level information about how a statement will be executed. {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/physical-plan-url.md %} For details about reading the physical statement plan, see [DistSQL plan diagram](#distsql-plan-diagram).
 
 If you use the [`DEBUG` option](#debug-option), the statement will return only a URL and instructions to download the `DEBUG` bundle, which includes the physical statement plan.
 
@@ -165,7 +165,7 @@ You can obtain this ZIP file by following the link provided in the `EXPLAIN ANAL
 
 The following examples use the [`movr` example dataset](cockroach-demo.html#datasets).
 
-{% include {{ page.version.version }}/demo_movr.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/demo_movr.md %}
 
 ### `EXPLAIN ANALYZE`
 

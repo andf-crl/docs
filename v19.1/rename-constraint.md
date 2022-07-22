@@ -4,18 +4,18 @@ summary: The RENAME CONSTRAINT statement changes the name of a constraint on a c
 toc: true
 ---
 
-<span class="version-tag">New in v19.1</span>: The `RENAME CONSTRAINT` [statement](sql-statements.html) changes the name of a constraint on a column.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v19.1</span>: The `RENAME CONSTRAINT` [statement](sql-statements.html) changes the name of a constraint on a column.
 
 {{site.data.alerts.callout_info}}
 It is not possible to rename a constraint for a column referenced by a view. For more details, see [View Dependencies](views.html#view-dependencies).
 {{site.data.alerts.end}}
 
-{% include {{ page.version.version }}/sql/combine-alter-table-commands.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/combine-alter-table-commands.md %}
 
 ## Synopsis
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/rename_constraint.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/rename_constraint.html %}
 </div>
 
 ## Required privileges
@@ -33,7 +33,7 @@ The user must have the `CREATE` [privilege](authorization.html#assign-privileges
 
 ## Viewing schema changes
 
-{% include {{ page.version.version }}/misc/schema-change-view-job.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-view-job.md %}
 
 ## Example
 

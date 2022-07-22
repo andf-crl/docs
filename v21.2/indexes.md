@@ -20,13 +20,13 @@ For example, if you index an `INT` column and then filter it <code>WHERE &lt;ind
 
  To index [spatial data](spatial-data.html), CockroachDB uses *spatial indexes*. For more information about spatial indexes, see [Spatial Indexes](spatial-indexes.html).
 
-{% include {{page.version.version}}/sql/indexes-regional-by-row.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/indexes-regional-by-row.md %}
 
 ### Creation
 
 Each table automatically has an index created called `primary`, which indexes either its [primary key](primary-key.html) or&mdash;if there is no primary key&mdash;a unique value for each row known as `rowid`. We recommend always defining a primary key because the index it creates provides much better performance than letting CockroachDB use `rowid`.
 
-{% include_cached new-in.html version="v21.2" %} To require an explicitly defined primary key for all tables created in your cluster, set the `sql.defaults.require_explicit_primary_keys.enabled` [cluster setting](cluster-settings.html) to `true`.
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.2" %} To require an explicitly defined primary key for all tables created in your cluster, set the `[sql.defaults.require_explicit_primary_keys.enabled](cluster-settings.html#setting-sql-defaults-require_explicit_primary_keys-enabled)` [cluster setting](cluster-settings.html) to `true`.
 
 The `primary` index helps filter a table's primary key but doesn't help SQL find values in any other columns. However, you can use secondary indexes to improve the performance of queries using columns not in a table's primary key. You can create them:
 
@@ -66,7 +66,7 @@ For more information about how to tune CockroachDB's performance, see [SQL Perfo
 
 The `STORING` clause specifies columns which are not part of the index key but should be stored in the index. This optimizes queries which retrieve those columns without filtering on them, because it prevents the need to read the [primary index](primary-key.html).
 
-{% include {{page.version.version}}/sql/covering-index.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/covering-index.md %}
 
 Note that the synonym `COVERING` is also supported.
 
@@ -128,7 +128,7 @@ For best practices, see [Add a Secondary Index: Best Practices](schema-design-in
 
 ## Indexes on `REGIONAL BY ROW` tables in multi-region databases
 
-{% include {{page.version.version}}/sql/indexes-regional-by-row.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/indexes-regional-by-row.md %}
 
 This behavior also applies to [GIN indexes](inverted-indexes.html).
 

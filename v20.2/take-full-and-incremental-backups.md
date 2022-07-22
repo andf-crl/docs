@@ -16,12 +16,12 @@ There are two main types of backups:
 You can use the [`BACKUP`](backup.html) statement to efficiently back up your cluster's schemas and data to popular cloud services such as AWS S3, Google Cloud Storage, or NFS, and the [`RESTORE`](restore.html) statement to efficiently restore schema and data as necessary. For more information, see [Use Cloud Storage for Bulk Operations](use-cloud-storage-for-bulk-operations.html).
 
 {{site.data.alerts.callout_success}}
-<span class="version-tag">New in v20.2:</span> You can create [schedules for periodic backups](manage-a-backup-schedule.html) in CockroachDB. We recommend using scheduled backups to automate daily backups of your cluster.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> You can create [schedules for periodic backups](manage-a-backup-schedule.html) in CockroachDB. We recommend using scheduled backups to automate daily backups of your cluster.
 {{site.data.alerts.end}}
 
 ### Full backups
 
-<span class="version-tag">New in v20.2:</span> Full backups are now available to both core and Enterprise users.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> Full backups are now available to both core and Enterprise users.
 
 In most cases, **it's recommended to take full nightly backups of your cluster**. A cluster backup allows you to do the following:
 
@@ -95,9 +95,9 @@ If it's ever necessary, you can then use the [`RESTORE`][restore] command to res
 ~~~
 
 {{site.data.alerts.callout_info}}
-`RESTORE` will re-validate [indexes](indexes.html) when [incremental backups](take-full-and-incremental-backups.html) are created from an older version, but restored from a newer version.
+`RESTORE` will re-validate [indexes](indexes.html) when [incremental backups](take-full-and-incremental-backups.html) are created from an older [version](cluster-settings.html#setting-version), but restored from a newer [version](cluster-settings.html#setting-version).
 
-Incremental backups created by v20.2.2 and prior v20.2.x releases or v20.1.4 and prior v20.1.x releases may include incomplete data for indexes that were in the process of being created. Therefore, when incremental backups taken by these versions are restored by v20.2.8+, any indexes created during those incremental backups will be re-validated by `RESTORE`.
+Incremental backups created by v20.2.2 and prior v20.2.x releases or v20.1.4 and prior v20.1.x releases may include incomplete data for indexes that were in the process of being created. Therefore, when incremental backups taken by these [version](cluster-settings.html#setting-version)s are restored by v20.2.8+, any indexes created during those incremental backups will be re-validated by `RESTORE`.
 {{site.data.alerts.end}}
 
 ### Incremental backups with explicitly specified destinations
@@ -141,7 +141,7 @@ For more examples on how to schedule backups that take full and incremental back
 
 #### Advanced examples
 
-{% include {{ page.version.version }}/backups/advanced-examples-list.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/backups/advanced-examples-list.md %}
 
 {{site.data.alerts.callout_info}}
 To take incremental backups, backups with revision history, locality-aware backups, and encrypted backups, you need an [Enterprise license](enterprise-licensing.html).

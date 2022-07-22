@@ -54,7 +54,7 @@ The following table offers another view of how the various configuration options
 Different databases and tables within the same cluster can each use different combinations of these settings.
 
 {{site.data.alerts.callout_success}}
-{% include {{page.version.version}}/misc/multiregion-max-offset.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/misc/multiregion-max-offset.md %}
 {{site.data.alerts.end}}
 
 ## See also

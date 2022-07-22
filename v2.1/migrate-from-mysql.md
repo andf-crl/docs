@@ -4,7 +4,7 @@ summary: Learn how to migrate data from MySQL into a CockroachDB cluster.
 toc: true
 ---
 
-{% include {{page.version.version}}/misc/beta-warning.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/misc/beta-warning.md %}
 
 This page has instructions for migrating data from MySQL to CockroachDB using [`IMPORT`](import.html)'s support for reading [`mysqldump`][mysqldump] files.
 

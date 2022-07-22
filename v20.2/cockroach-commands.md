@@ -24,16 +24,16 @@ Command | Usage
 [`cockroach dump`](cockroach-dump.html) | **Deprecated.** Use one of the following instead:<ul><li>To back up your data, take a [full backup](take-full-and-incremental-backups.html).</li><li>To export your data in plaintext format, use [`EXPORT`](export.html).</li><li>To view table schema in plaintext, use [`SHOW CREATE TABLE`](show-create.html).</li></ul>
 [`cockroach demo`](cockroach-demo.html) | Start a temporary, in-memory CockroachDB cluster, and open an interactive SQL shell to it.
 [`cockroach gen`](cockroach-gen.html) | Generate manpages, a bash completion file, example SQL data, or an HAProxy configuration file for a running cluster.
-[`cockroach version`](cockroach-version.html) | Output CockroachDB version details.
+[`cockroach [version](cluster-settings.html#setting-version)`](cockroach-[version](cluster-settings.html#setting-version).html) | Output CockroachDB [version](cluster-settings.html#setting-version) details.
 [`cockroach debug ballast`](cockroach-debug-ballast.html) | Create a large, unused file in a node's storage directory that you can delete if the node runs out of disk space.
 [`cockroach debug encryption-active-key`](cockroach-debug-encryption-active-key.html) | View the encryption algorithm and store key.
 [`cockroach debug zip`](cockroach-debug-zip.html) | Generate a `.zip` file that can help Cockroach Labs troubleshoot issues with your cluster.
 [`cockroach debug merge-logs`](cockroach-debug-merge-logs.html) | Merge multiple log files from different machines into a single stream.
 [`cockroach workload`](cockroach-workload.html) | Run a built-in load generator against a cluster.
 [`cockroach nodelocal upload`](cockroach-nodelocal-upload.html) |  Upload a file to the `externalIODir` on a node's local file system.
-[`cockroach userfile upload`](cockroach-userfile-upload.html)   | <span class="version-tag">New in v20.2:</span> The cockroach userfile upload command uploads a file to user-scoped file storage.
-[`cockroach userfile list`](cockroach-userfile-list.html)       | <span class="version-tag">New in v20.2:</span> List the files stored in the user-scoped file storage.
-[`cockroach userfile delete`](cockroach-userfile-delete.html)   | <span class="version-tag">New in v20.2:</span> Deletes the files stored in the user-scoped file storage.
+[`cockroach userfile upload`](cockroach-userfile-upload.html)   | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> The cockroach userfile upload command uploads a file to user-scoped file storage.
+[`cockroach userfile list`](cockroach-userfile-list.html)       | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> List the files stored in the user-scoped file storage.
+[`cockroach userfile delete`](cockroach-userfile-delete.html)   | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> Deletes the files stored in the user-scoped file storage.
 
 ## Environment variables
 

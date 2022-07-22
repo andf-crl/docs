@@ -13,7 +13,7 @@ The `SELECT` [privilege](authorization.html#assign-privileges) on the database i
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/generated/diagrams/show_schemas.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/show_schemas.html %}
 </div>
 
 ## Parameters
@@ -24,7 +24,7 @@ Parameter | Description
 
 ## Example
 
-{% include {{page.version.version}}/sql/movr-statements.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/movr-statements.md %}
 
 ### Show schemas in the current database
 

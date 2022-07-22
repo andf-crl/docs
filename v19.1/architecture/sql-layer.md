@@ -48,7 +48,7 @@ After your node ultimately receives a SQL request from a client, CockroachDB par
 
 #### Parsing
 
-Received queries are parsed against our `yacc` file (which describes our supported syntax), and converts the string version of each query into [abstract syntax trees](https://en.wikipedia.org/wiki/Abstract_syntax_tree) (AST).
+Received queries are parsed against our `yacc` file (which describes our supported syntax), and converts the string [version](cluster-settings.html#setting-version) of each query into [abstract syntax trees](https://en.wikipedia.org/wiki/Abstract_syntax_tree) (AST).
 
 #### Logical planning
 

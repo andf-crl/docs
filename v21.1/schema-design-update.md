@@ -53,9 +53,9 @@ CockroachDB supports the following `ALTER` statements:
 
 - For `ALTER TABLE` statements, combine multiple subcommands in a single `ALTER TABLE` statement, where possible.
 
-- {% include {{page.version.version}}/sql/dev-schema-changes.md %}
+- {% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/dev-schema-changes.md %}
 
-- {% include {{page.version.version}}/sql/dev-schema-change-limits.md %}
+- {% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/dev-schema-change-limits.md %}
 
 ### Altering objects examples
 

@@ -13,7 +13,7 @@ Only members of the `admin` role and the user that the session belongs to can ca
 
 ## Synopsis
 
-<section>{% include {{ page.version.version }}/sql/diagrams/cancel_session.html %}</section>
+<section>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/cancel_session.html %}</section>
 
 ## Parameters
 

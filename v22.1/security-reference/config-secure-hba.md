@@ -57,11 +57,11 @@ Next, we'll configure our cluster to only allow SQL connection attempts from our
 Returning to the SQL console, let's set our authentication configuration to limit access to the jumpbox. This configuration is accessed as a [cluster setting](../cluster-settings.html).
 
 
-Run `SHOW CLUSTER SETTING server.host_based_authentication.configuration;` to view your current authentication configuration, which should be in its default state, which displays as empty:
+Run `SHOW CLUSTER SETTING [server.host_based_authentication.configuration](cluster-settings.html#setting-server-host_based_authentication-configuration);` to view your current authentication configuration, which should be in its default state, which displays as empty:
 
 ```shell
-cockroachlabs.cloud:26257/defaultdb> show cluster setting server.host_based_authentication.configuration;
-  server.host_based_authentication.configuration
+cockroachlabs.cloud:26257/defaultdb> show cluster setting [server.host_based_authentication.configuration](cluster-settings.html#setting-server-host_based_authentication-configuration);
+  [server.host_based_authentication.configuration](cluster-settings.html#setting-server-host_based_authentication-configuration)
 
 (1 row)
 
@@ -72,7 +72,7 @@ Time: 48ms total (execution 1ms / network 48ms)
 Set the authentication configuration to the following value, which limits access to the jumpbox. Replace the IP address with your jumpbox's IP address:
 
 ```shell
-SET CLUSTER SETTING server.host_based_authentication.configuration TO '
+SET CLUSTER SETTING [server.host_based_authentication.configuration](cluster-settings.html#setting-server-host_based_authentication-configuration) TO '
 # TYPE    DATABASE  USER   ADDRESS            METHOD
   host    all       all    35.184.229.244/32  password
   host    all       all    all                reject
@@ -120,7 +120,7 @@ Further, we can fine-tune our configuration and improve the overall security and
 Each user's permissions should then be precisely configured using CockroachDB's system of [access grants](authorization.html). Always keep in mind the [principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege), which is one of the golden rules of security!
 
 ```shell
-SET CLUSTER SETTING server.host_based_authentication.configuration TO '
+SET CLUSTER SETTING [server.host_based_authentication.configuration](cluster-settings.html#setting-server-host_based_authentication-configuration) TO '
 # TYPE    DATABASE  USER        ADDRESS             METHOD
   host    all       ops_user    555.123.456.789/32  password
   host    all       app_user    555.987.654.321/32  password

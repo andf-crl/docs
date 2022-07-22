@@ -91,7 +91,7 @@ Column | Description
 `numeric_precision` | If `data_type` is numeric, the declared or implicit precision (i.e., number of significant digits); otherwise `NULL`.
 `numeric_precision_radix` | If `data_type` identifies a numeric type, the base in which the values in the columns `numeric_precision` and `numeric_scale` are expressed (either `2` or `10`). For all other data types, column is `NULL`.
 `numeric_scale` | If `data_type` is an exact numeric type, the scale (i.e., number of digits to the right of the decimal point); otherwise `NULL`.
-`datetime_precision` | <span class="version-tag">New in v20.2:</span> The precision level of columns with data type [`TIME`/`TIMETZ`](time.html), [`TIMESTAMP`/`TIMESTAMPTZ`](timestamp.html), or [`INTERVAL`](interval.html). For all other data types, this column is `NULL`.
+`datetime_precision` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> The precision level of columns with data type [`TIME`/`TIMETZ`](time.html), [`TIMESTAMP`/`TIMESTAMPTZ`](timestamp.html), or [`INTERVAL`](interval.html). For all other data types, this column is `NULL`.
 `interval_type` | If `data_type` is [`INTERVAL`](interval.html), the specified fields (e.g., `YEAR TO MONTH`); otherwise `NULL`.
 `interval_precision` | If `data_type` is [`INTERVAL`](interval.html), the declared or implicit precision (i.e., number of significant digits); otherwise `NULL`.
 `character_set_catalog` | Always `NULL` (unsupported by CockroachDB).
@@ -142,7 +142,7 @@ Column | Description
 
 ### column_udt_usage
 
-<span class="version-tag">New in v20.2:</span> `column_udt_usage` identifies all columns that use data types owned by a currently-enabled role.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> `column_udt_usage` identifies all columns that use data types owned by a currently-enabled role.
 
 Column | Description
 -------|-----------
@@ -460,11 +460,11 @@ Column | Description
 `table_schema` | Name of the schema that contains the table.
 `table_name` | Name of the table.
 `table_type` | Type of the table: `BASE TABLE` for a normal table, `VIEW` for a view, or `SYSTEM VIEW` for a view created by CockroachDB.
-`version` | Version number of the table; versions begin at 1 and are incremented each time an `ALTER TABLE` statement is issued on the table. Note that this column is an experimental feature used for internal purposes inside CockroachDB and its definition is subject to change without notice.
+`[version](cluster-settings.html#setting-version)` | Version number of the table; [version](cluster-settings.html#setting-version)s begin at 1 and are incremented each time an `ALTER TABLE` statement is issued on the table. Note that this column is an experimental feature used for internal purposes inside CockroachDB and its definition is subject to change without notice.
 
 ### type_privileges
 
-<span class="version-tag">New in v20.2:</span> `type_privileges` contains information about privileges on the user-defined types in the current database.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> `type_privileges` contains information about privileges on the user-defined types in the current database.
 
 Column | Description
 -------|-----------

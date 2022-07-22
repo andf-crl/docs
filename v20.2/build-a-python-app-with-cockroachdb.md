@@ -30,11 +30,11 @@ For other ways to install psycopg2, see the [official documentation](http://init
 
 ## Step 2. Start CockroachDB
 
-{% include {{page.version.version}}/app/start-cockroachdb.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/start-cockroachdb.md %}
 
 ## Step 3. Create a database
 
-{% include {{page.version.version}}/app/create-a-database.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/create-a-database.md %}
 
 ## Step 4. Run the Python code
 
@@ -50,7 +50,7 @@ To [handle transaction retry errors](error-handling-and-troubleshooting.html#tra
 
 Download the [`example.py`](https://raw.githubusercontent.com/cockroachlabs/hello-world-python-psycopg2/master/example.py) file, or create the file yourself and copy the code into it.
 
-If you prefer, you can also clone a version of the code:
+If you prefer, you can also clone a [version](cluster-settings.html#setting-version) of the code:
 
 {% include_cached copy-clipboard.html %}
 ~~~ shell
@@ -117,4 +117,4 @@ Balances at Fri Oct 30 18:27:00 2020:
 
 Read more about using the [Python psycopg2 driver](http://initd.org/psycopg/docs/).
 
-{% include {{page.version.version}}/app/see-also-links.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/see-also-links.md %}

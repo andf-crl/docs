@@ -15,7 +15,7 @@ No [privileges](authorization.html#assign-privileges) are required to list the l
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/show_locality.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/show_locality.html %}
 </div>
 
 ## Example

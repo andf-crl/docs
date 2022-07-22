@@ -16,7 +16,7 @@ Use the [slow query log](#using-the-slow-query-log) or [DB Console](#using-the-d
 
 ### Using the slow query log
 
- The slow query log is a record of SQL queries whose service latency exceeds a specified threshold value. When the `sql.log.slow_query.latency_threshold` [cluster setting](cluster-settings.html) is set to a non-zero value, each gateway node will log slow SQL queries to a secondary log file (`cockroach-sql-slow.log`) in the [log directory](debug-and-error-logs.html#write-to-file).
+ The slow query log is a record of SQL queries whose service latency exceeds a specified threshold value. When the `[sql.log.slow_query.latency_threshold](cluster-settings.html#setting-sql-log-slow_query-latency_threshold)` [cluster setting](cluster-settings.html) is set to a non-zero value, each gateway node will log slow SQL queries to a secondary log file (`cockroach-sql-slow.log`) in the [log directory](debug-and-error-logs.html#write-to-file).
 
 {{site.data.alerts.callout_info}}
 Service latency is the time taken to execute a query once it is received by the cluster. It does not include the time taken to send the query to the cluster or return the result to the client.
@@ -24,18 +24,18 @@ Service latency is the time taken to execute a query once it is received by the 
 
 1. Run the [`cockroach sql`](cockroach-sql.html) command against one of your nodes. This opens the interactive SQL shell.
 
-2. Set the `sql.log.slow_query.latency_threshold` [cluster setting](cluster-settings.html) to a threshold of your choosing. For example, 100 milliseconds represents [the limit where a user feels the system is reacting instantaneously](https://www.nngroup.com/articles/response-times-3-important-limits/).
+2. Set the `[sql.log.slow_query.latency_threshold](cluster-settings.html#setting-sql-log-slow_query-latency_threshold)` [cluster setting](cluster-settings.html) to a threshold of your choosing. For example, 100 milliseconds represents [the limit where a user feels the system is reacting instantaneously](https://www.nngroup.com/articles/response-times-3-important-limits/).
 
   	{% include copy-clipboard.html %}
   	~~~ sql
-  	> SET CLUSTER SETTING sql.log.slow_query.latency_threshold = '100ms';
+  	> SET CLUSTER SETTING [sql.log.slow_query.latency_threshold](cluster-settings.html#setting-sql-log-slow_query-latency_threshold) = '100ms';
     ~~~
 
-3. <span class="version-tag">New in v20.2:</span> To write slow internal queries to a separate log, set the `sql.log.slow_query.internal_queries.enabled` cluster setting to `true`.
+3. <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> To write slow internal queries to a separate log, set the `[sql.log.slow_query.internal_queries.enabled](cluster-settings.html#setting-sql-log-slow_query-internal_queries-enabled)` cluster setting to `true`.
 
     {% include copy-clipboard.html %}
     ~~~ sql
-    > SET CLUSTER SETTING sql.log.slow_query.internal_queries.enabled = 'true';
+    > SET CLUSTER SETTING [sql.log.slow_query.internal_queries.enabled](cluster-settings.html#setting-sql-log-slow_query-internal_queries-enabled) = 'true';
     ~~~
 
 4. Each node's slow query logs are written by default in CockroachDB's standard [log directory](debug-and-error-logs.html#write-to-file).
@@ -43,7 +43,7 @@ Service latency is the time taken to execute a query once it is received by the 
 5. When you open a slow query log, look for a line that corresponds to your earlier [`SET CLUSTER SETTING`](set-cluster-setting.html) command. For example:
 
 	~~~
-  I201008 21:16:13.751178 1947 sql/exec_log.go:225 ⋮ [n1,client=‹[::1]:54351›,hostnossl,user=root] 1 53.832ms ‹exec› ‹"$ cockroach sql"› ‹{}› ‹"SET CLUSTER SETTING \"sql.log.slow_query.latency_threshold\" = '100ms'"› ‹{}› 0 ‹""› 0 ‹{ LATENCY_THRESHOLD }›
+  I201008 21:16:13.751178 1947 sql/exec_log.go:225 ⋮ [n1,client=‹[::1]:54351›,hostnossl,user=root] 1 53.832ms ‹exec› ‹"$ cockroach sql"› ‹{}› ‹"SET CLUSTER SETTING \"[sql.log.slow_query.latency_threshold](cluster-settings.html#setting-sql-log-slow_query-latency_threshold)\" = '100ms'"› ‹{}› 0 ‹""› 0 ‹{ LATENCY_THRESHOLD }›
 	~~~
 
 	Slow queries will be logged after this line.
@@ -63,11 +63,11 @@ Service latency is the time taken to execute a query once it is received by the 
     ~~~
 
 {{site.data.alerts.callout_info}}
-Setting `sql.log.slow_query.latency_threshold` to a non-zero value enables tracing on all queries, which impacts performance. After debugging, set the value back to `0s` to disable the log.
+Setting `[sql.log.slow_query.latency_threshold](cluster-settings.html#setting-sql-log-slow_query-latency_threshold)` to a non-zero value enables tracing on all queries, which impacts performance. After debugging, set the value back to `0s` to disable the log.
 {{site.data.alerts.end}}
 
 {{site.data.alerts.callout_success}}
-{% include {{ page.version.version }}/ui/ui-log-files.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/ui/ui-log-files.md %}
 {{site.data.alerts.end}}
 
 ### Using the DB Console
@@ -203,7 +203,7 @@ Because this kind of behavior is entirely unexpected, you should [file an issue]
 
 ## SQL logging
 
-{% include {{ page.version.version }}/faq/sql-query-logging.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/faq/sql-query-logging.md %}
 
 ## Something else?
 

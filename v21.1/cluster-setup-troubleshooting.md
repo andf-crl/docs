@@ -509,7 +509,7 @@ To view command commit latency:
 
 When the cluster needs to access a range on a leaseholder node that is dead, that range's [lease must be transferred to a healthy node](architecture/replication-layer.html#how-leases-are-transferred-from-a-dead-node). In theory, this process should take no more than 9 seconds for liveness expiration plus the cost of several network roundtrips.
 
-In production, lease transfer upon node failure can take longer than expected. In {{ page.version.version }}, this is observed in the following scenarios:
+In production, lease transfer upon node failure can take longer than expected. In {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}, this is observed in the following scenarios:
 
 - **The leaseholder node for the liveness range fails.** The liveness range is a system range that [stores the liveness record](architecture/replication-layer.html#epoch-based-leases-table-data) for each node on the cluster. If a node fails and is also the leaseholder for the liveness range, operations cannot proceed until the liveness range is transferred to a new leaseholder and the liveness record is made available to other nodes. This can cause momentary cluster unavailability.
 
@@ -523,17 +523,17 @@ In production, lease transfer upon node failure can take longer than expected. I
 
 - **Otherwise unresponsive nodes.** Internal deadlock due to faulty code, resource exhaustion, OS/hardware issues, and other arbitrary failures can make a node unresponsive. This can cause leases to become stuck in certain cases, such as when a response from the previous leaseholder is needed in order to move the lease.
 
-**Solution:** If you are experiencing intermittent network or connectivity issues, first [shut down the affected nodes](../{{site.versions["stable"]}}/node-shutdown.html) temporarily so that nodes phasing in and out do not cause disruption.
+**Solution:** If you are experiencing intermittent network or connectivity issues, first [shut down the affected nodes](../{{site.[version](cluster-settings.html#setting-version)s["stable"]}}/node-shutdown.html) temporarily so that nodes phasing in and out do not cause disruption.
 
-If a node has become unresponsive without returning an error, [shut down the node](../{{site.versions["stable"]}}/node-shutdown.html) so that network requests immediately become hard errors rather than stalling.
+If a node has become unresponsive without returning an error, [shut down the node](../{{site.[version](cluster-settings.html#setting-version)s["stable"]}}/node-shutdown.html) so that network requests immediately become hard errors rather than stalling.
 
-If you are running a version of CockroachDB that is affected by an issue described here, [upgrade to a version](upgrade-cockroach-version.html) that contains the fix for the issue, as described in the preceding list.
+If you are running a [version](cluster-settings.html#setting-version) of CockroachDB that is affected by an issue described here, [upgrade to a [version](cluster-settings.html#setting-version)](upgrade-cockroach-[version](cluster-settings.html#setting-version).html) that contains the fix for the issue, as described in the preceding list.
 
 ## Partial availability issues
 
-If your cluster is in a partially-available state due to a recent node or network failure, the internal logging table `system.eventlog` might be unavailable. This can cause the logging of [notable events](eventlog.html) (e.g., the execution of SQL statements) to the `system.eventlog` table to fail to complete, contributing to cluster unavailability. If this occurs, you can set the [cluster setting](cluster-settings.html) `server.eventlog.enabled` to `false` to disable writing notable log events to this table, which may help to recover your cluster.
+If your cluster is in a partially-available state due to a recent node or network failure, the internal logging table `system.eventlog` might be unavailable. This can cause the logging of [notable events](eventlog.html) (e.g., the execution of SQL statements) to the `system.eventlog` table to fail to complete, contributing to cluster unavailability. If this occurs, you can set the [cluster setting](cluster-settings.html) `[server.eventlog.enabled](cluster-settings.html#setting-server-eventlog-enabled)` to `false` to disable writing notable log events to this table, which may help to recover your cluster.
 
-Even with `server.eventlog.enabled` set to `false`, notable log events are still sent to configured [log sinks](configure-logs.html#configure-log-sinks) as usual.
+Even with `[server.eventlog.enabled](cluster-settings.html#setting-server-eventlog-enabled)` set to `false`, notable log events are still sent to configured [log sinks](configure-logs.html#configure-log-sinks) as usual.
 
 ## Check for under-replicated or unavailable data
 

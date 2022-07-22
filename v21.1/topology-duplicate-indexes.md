@@ -28,11 +28,11 @@ In general, this pattern is suited well for immutable/reference tables that are 
 
 ### Fundamentals
 
-{% include {{ page.version.version }}/topology-patterns/fundamentals.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/topology-patterns/fundamentals.md %}
 
 ### Cluster setup
 
-{% include {{ page.version.version }}/topology-patterns/multi-region-cluster-setup.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/topology-patterns/multi-region-cluster-setup.md %}
 
 ## Configuration
 
@@ -248,12 +248,12 @@ $ cockroach sql --insecure --host=localhost --port=26257
 
 {% include_cached copy-clipboard.html %}
 ~~~ sql
-> SET CLUSTER SETTING cluster.organization = 'FooCorp - Local Testing';
+> SET CLUSTER SETTING [cluster.organization](cluster-settings.html#setting-cluster-organization) = 'FooCorp - Local Testing';
 ~~~
 
 {% include_cached copy-clipboard.html %}
 ~~~ sql
-> SET CLUSTER SETTING enterprise.license = 'xxxxx';
+> SET CLUSTER SETTING [enterprise.license](cluster-settings.html#setting-enterprise-license) = 'xxxxx';
 ~~~
 
 Create a test database and table. The table will have 3 indexes into the same data. Later, we'll configure the cluster to associate each of these indexes with a different datacenter using replication zones.
@@ -420,12 +420,12 @@ $ cockroach sql --insecure --host=localhost --port=26257
 
 {% include_cached copy-clipboard.html %}
 ~~~ sql
-> SET CLUSTER SETTING cluster.organization = 'FooCorp - Local Testing';
+> SET CLUSTER SETTING [cluster.organization](cluster-settings.html#setting-cluster-organization) = 'FooCorp - Local Testing';
 ~~~
 
 {% include_cached copy-clipboard.html %}
 ~~~ sql
-> SET CLUSTER SETTING enterprise.license = 'xxxxx';
+> SET CLUSTER SETTING [enterprise.license](cluster-settings.html#setting-enterprise-license) = 'xxxxx';
 ~~~
 
 Create an authentication database and table:
@@ -680,4 +680,4 @@ For a step-by-step demonstration of how this pattern gets you low-latency reads 
 
 ## See also
 
-{% include {{ page.version.version }}/topology-patterns/see-also.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/topology-patterns/see-also.md %}

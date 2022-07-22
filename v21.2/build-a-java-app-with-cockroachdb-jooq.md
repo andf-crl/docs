@@ -15,7 +15,7 @@ This tutorial shows you how build a simple Java application with CockroachDB and
 
 CockroachDB is supported in jOOQ [Professional and Enterprise editions](https://www.jooq.org/download/#databases).
 
-{% include {{page.version.version}}/app/java-version-note.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/java-[version](cluster-settings.html#setting-version)-note.md %}
 
 {{site.data.alerts.callout_success}}
 For another use of jOOQ with CockroachDB, see our [`examples-orms`](https://github.com/cockroachdb/examples-orms) repository.
@@ -23,7 +23,7 @@ For another use of jOOQ with CockroachDB, see our [`examples-orms`](https://gith
 
 ## Before you begin
 
-{% include {{page.version.version}}/app/before-you-begin.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/before-you-begin.md %}
 
 ## Step 1. Install Maven
 
@@ -65,7 +65,7 @@ $ ./maven-install.sh
 
 ## Step 3. Create the `maxroach` user and `bank` database
 
-{% include {{page.version.version}}/app/create-maxroach-user-and-bank-database.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/create-maxroach-user-and-bank-database.md %}
 
 ## Step 4. Generate a certificate for the `maxroach` user
 
@@ -91,7 +91,7 @@ In addition, the code shows a pattern for automatically handling [transaction re
 
 To run it:
 
-1. Download and unzip [jooq-basic-sample.zip](https://github.com/cockroachdb/docs/raw/master/_includes/{{ page.version.version }}/app/jooq-basic-sample/jooq-basic-sample.zip).
+1. Download and unzip [jooq-basic-sample.zip](https://github.com/cockroachdb/docs/raw/master/_includes/{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/app/jooq-basic-sample/jooq-basic-sample.zip).
 2. Open `jooq-basic-sample/src/main/java/com/cockroachlabs/Sample.java`, and edit the connection string passed to `DriverManager.getConnection()` in the `Sample` class's `main()` method so that the certificate paths are fully and correctly specified.
 3. Compile and run the code using Maven:
 
@@ -110,11 +110,11 @@ To run it:
     $ mvn exec:java -Dexec.mainClass=com.cockroachlabs.Sample
     ~~~
 
-Here are the contents of [`Sample.java`](https://raw.githubusercontent.com/cockroachdb/docs/master/_includes/{{page.version.version}}/app/jooq-basic-sample/Sample.java), the Java file containing the main `Sample` class:
+Here are the contents of [`Sample.java`](https://raw.githubusercontent.com/cockroachdb/docs/master/_includes/{{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/jooq-basic-sample/Sample.java), the Java file containing the main `Sample` class:
 
 {% include_cached copy-clipboard.html %}
 ~~~ java
-{% include {{page.version.version}}/app/jooq-basic-sample/Sample.java %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/jooq-basic-sample/Sample.java %}
 ~~~
 
 Toward the end of the output, you should see:
@@ -174,7 +174,7 @@ SELECT id, balance FROM accounts;
 
 ## Step 3. Create the `maxroach` user and `bank` database
 
-{% include {{page.version.version}}/app/insecure/create-maxroach-user-and-bank-database.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/insecure/create-maxroach-user-and-bank-database.md %}
 
 ## Step 4. Run the Java code
 
@@ -189,7 +189,7 @@ In addition, the code shows a pattern for automatically handling [transaction re
 
 To run it:
 
-1. Download and unzip [jooq-basic-sample.zip](https://github.com/cockroachdb/docs/raw/master/_includes/{{ page.version.version }}/app/insecure/jooq-basic-sample/jooq-basic-sample.zip).
+1. Download and unzip [jooq-basic-sample.zip](https://github.com/cockroachdb/docs/raw/master/_includes/{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/app/insecure/jooq-basic-sample/jooq-basic-sample.zip).
 2. Compile and run the code using Maven:
 
     {% include_cached copy-clipboard.html %}
@@ -207,11 +207,11 @@ To run it:
     $ mvn exec:java -Dexec.mainClass=com.cockroachlabs.Sample
     ~~~
 
-Here are the contents of [`Sample.java`](https://raw.githubusercontent.com/cockroachdb/docs/master/_includes/{{page.version.version}}/app/insecure/jooq-basic-sample/Sample.java), the Java file containing the main `Sample` class:
+Here are the contents of [`Sample.java`](https://raw.githubusercontent.com/cockroachdb/docs/master/_includes/{{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/insecure/jooq-basic-sample/Sample.java), the Java file containing the main `Sample` class:
 
 {% include_cached copy-clipboard.html %}
 ~~~ java
-{% include {{page.version.version}}/app/insecure/jooq-basic-sample/Sample.java %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/insecure/jooq-basic-sample/Sample.java %}
 ~~~
 
 Toward the end of the output, you should see:
@@ -272,4 +272,4 @@ SELECT id, balance FROM accounts;
 
 Read more about using [jOOQ](https://www.jooq.org/), or check out a more realistic implementation of jOOQ with CockroachDB in our [`examples-orms`](https://github.com/cockroachdb/examples-orms) repository.
 
-{% include {{page.version.version}}/app/see-also-links.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/see-also-links.md %}

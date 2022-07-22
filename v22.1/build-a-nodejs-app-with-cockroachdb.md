@@ -16,7 +16,7 @@ This tutorial shows you how build a simple Node.js application with CockroachDB 
 
 ## Step 1. Start CockroachDB
 
-{% include {{ page.version.version }}/setup/sample-setup.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/setup/sample-setup.md %}
 
 ## Step 2. Get the code
 
@@ -61,7 +61,7 @@ All of the database operations are wrapped in a helper function named `retryTxn`
     $ cd example-node-postgres
     ~~~
     
-{% include {{ page.version.version }}/setup/init-bank-sample.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/setup/init-bank-sample.md %}
 
 ## Step 4. Run the code
 
@@ -104,4 +104,4 @@ All of the database operations are wrapped in a helper function named `retryTxn`
 
 Read more about using the [node-postgres driver](https://www.npmjs.com/package/pg).
 
-{% include {{page.version.version}}/app/see-also-links.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/see-also-links.md %}

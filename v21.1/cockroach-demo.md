@@ -10,7 +10,7 @@ The `cockroach demo` [command](cockroach-commands.html) starts a temporary, in-m
 - The in-memory cluster persists only as long as the SQL shell is open. As soon as the shell is exited, the cluster and all its data are permanently destroyed. This command is therefore recommended only as an easy way to experiment with the CockroachDB SQL dialect.
 - By default, `cockroach demo` starts in secure mode using TLS certificates to encrypt network communication. It also serves a local [DB Console](#connection-parameters) that does not use TLS encryption.
 - Each instance of `cockroach demo` loads a temporary [Enterprise license](https://www.cockroachlabs.com/get-cockroachdb) that expires after 24 hours. To prevent the loading of a temporary license, set the `--disable-demo-license` flag.
-- {% include_cached new-in.html version="v21.1" %} `cockroach demo` opens the SQL shell with a new [SQL user](authorization.html#sql-users) named `demo`. The `demo` user is assigned a random password and granted the [`admin` role](authorization.html#admin-role).
+- {% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.1" %} `cockroach demo` opens the SQL shell with a new [SQL user](authorization.html#sql-users) named `demo`. The `demo` user is assigned a random password and granted the [`admin` role](authorization.html#admin-role).
 
 {{site.data.alerts.callout_danger}}
 `cockroach demo` is designed for testing purposes only. It is not suitable for production deployments. To see a list of recommendations for production deployments, see the [Production Checklist](recommended-production-settings.html).
@@ -175,7 +175,7 @@ When the SQL shell connects to the demo cluster at startup, it prints a welcome 
 #   - Username: "demo", password: "demo55826"
 #   - Directory with certificate files (for certain SQL drivers/tools): /var/folders/8c/915dtgrx5_57bvc5tq4kpvqr0000gn/T/demo699845497
 #
-# Server version: CockroachDB CCL v21.2.0-alpha.00000000-1724-gc5c74249f7 (x86_64-apple-darwin20.5.0, built 2021/06/23 21:26:17, go1.16) (same version as client)
+# Server [version](cluster-settings.html#setting-version): CockroachDB CCL v21.2.0-alpha.00000000-1724-gc5c74249f7 (x86_64-apple-darwin20.5.0, built 2021/06/23 21:26:17, go1.16) (same [version](cluster-settings.html#setting-version) as client)
 # Cluster ID: f78b7feb-b6cf-4396-9d7f-494982d7d81e
 # Organization: Cockroach Demo
 #
@@ -236,7 +236,7 @@ node 3:
 
 #### General
 
-{% include {{ page.version.version }}/sql/shell-commands.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/shell-commands.md %}
 
 #### Demo-specific
 
@@ -253,19 +253,19 @@ Command | Usage
 
 ### Client-side options
 
-{% include {{ page.version.version }}/sql/shell-options.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/shell-options.md %}
 
 ### Help
 
-{% include {{ page.version.version }}/sql/shell-help.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/shell-help.md %}
 
 ### Shortcuts
 
-{% include {{ page.version.version }}/sql/shell-shortcuts.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/shell-shortcuts.md %}
 
 ## Diagnostics reporting
 
-By default, `cockroach demo` shares anonymous usage details with Cockroach Labs. To opt out, set the [`diagnostics.reporting.enabled`](diagnostics-reporting.html#after-cluster-initialization) [cluster setting](cluster-settings.html) to `false`. You can also opt out by setting the [`COCKROACH_SKIP_ENABLING_DIAGNOSTIC_REPORTING`](diagnostics-reporting.html#at-cluster-initialization) environment variable to `false` before running `cockroach demo`.
+By default, `cockroach demo` shares anonymous usage details with Cockroach Labs. To opt out, set the [`[diagnostics.reporting.enabled](cluster-settings.html#setting-diagnostics-reporting-enabled)`](diagnostics-reporting.html#after-cluster-initialization) [cluster setting](cluster-settings.html) to `false`. You can also opt out by setting the [`COCKROACH_SKIP_ENABLING_DIAGNOSTIC_REPORTING`](diagnostics-reporting.html#at-cluster-initialization) environment variable to `false` before running `cockroach demo`.
 
 ## Examples
 
@@ -493,7 +493,7 @@ For a tutorial that uses a demo cluster to demonstrate CockroachDB's multi-regio
 
 In a multi-node demo cluster, you can use `\demo` [shell commands](#commands) to add, shut down, restart, decommission, and recommission individual nodes.
 
-{% include {{ page.version.version }}/misc/experimental-warning.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/experimental-warning.md %}
 
 {% include_cached copy-clipboard.html %}
 ~~~ shell

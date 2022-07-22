@@ -17,14 +17,14 @@ For a detailed description of exactly what is logged, see the [Audit Log File Fo
 
 CockroachDB stores audit log information in a way that ensures durability, but negatively impacts performance. As a result, we recommend using SQL audit logs for security purposes only. For more information, see [Performance considerations](#performance-considerations).
 
-{% include {{ page.version.version }}/misc/experimental-warning.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/experimental-warning.md %}
 
-{% include {{ page.version.version }}/sql/combine-alter-table-commands.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/combine-alter-table-commands.md %}
 
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/experimental_audit.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/experimental_audit.html %}
 </div>
 
 ## Required privileges
@@ -88,13 +88,13 @@ If your deployment requires particular lifecycle and access policies for audit l
 
 ## Viewing schema changes
 
-{% include {{ page.version.version }}/misc/schema-change-view-job.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-view-job.md %}
 
 ## Performance considerations
 
 To ensure [non-repudiation](https://en.wikipedia.org/wiki/Non-repudiation) in audit logs, CockroachDB synchronously logs all of the activity of every user on a cluster in a way that is durable to system failures. Every query that causes a logging event must access the disk of the node on which audit logging is enabled. As a result, enabling SQL audit logs negatively impacts performance, and we recommend using SQL audit logs for security purposes only.
 
-For debugging and troubleshooting on production clusters, the most performant way to log all queries is to turn on the [cluster-wide setting](cluster-settings.html) `sql.trace.log_statement_execute`. For details, see [Troubleshoot Query Behavior](query-behavior-troubleshooting.html#cluster-wide-execution-logs).
+For debugging and troubleshooting on production clusters, the most performant way to log all queries is to turn on the [cluster-wide setting](cluster-settings.html) `[sql.trace.log_statement_execute](cluster-settings.html#setting-sql-trace-log_statement_execute)`. For details, see [Troubleshoot Query Behavior](query-behavior-troubleshooting.html#cluster-wide-execution-logs).
 
 ## Examples
 

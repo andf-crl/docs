@@ -59,8 +59,8 @@ Flag | Description
 `--listening-url-file` | The file to which the node's SQL connection URL will be written as soon as the node is ready to accept connections, in addition to being printed to the [standard output](#standard-output). When `--background` is used, this happens before the process detaches from the terminal.<br><br>This is particularly helpful in identifying the node's port when an unused port is assigned automatically (`--port=0`).
 `--locality` | Arbitrary key-value pairs that describe the location of the node. Locality might include country, region, availability zone, etc. For more details, see [Locality](#locality) below.
 `--max-disk-temp-storage` | The maximum on-disk storage capacity available to store temporary data for SQL queries that exceed the memory budget (see `--max-sql-memory`). This ensures that JOINs, sorts, and other memory-intensive SQL operations are able to spill intermediate results to disk. This can be a percentage (notated as a decimal or with `%`) or any bytes-based unit (e.g., `.25`, `25%`, `500GB`, `1TB`, `1TiB`).<br><br><strong>Note:</strong> If you use the `%` notation, you might need to escape the `%` sign, for instance, while configuring CockroachDB through `systemd` service files. For this reason, it's recommended to use the decimal notation instead. Also, if expressed as a percentage, this value is interpreted relative to the size of the first store. However, the temporary space usage is never counted towards any store usage; therefore, when setting this value, it's important to ensure that the size of this temporary storage plus the size of the first store doesn't exceed the capacity of the storage device.<br><br>The temporary files are located in the path specified by the `--temp-dir` flag, or in the subdirectory of the first store (see `--store`) by default.<br><br>**Default:** `32GiB`
-<a name="flags-max-offset"></a>`--max-offset` | The maximum allowed clock offset for the cluster. If observed clock offsets exceed this limit, servers will crash to minimize the likelihood of reading inconsistent data. Increasing this value will increase the time to recovery of failures as well as the frequency of uncertainty-based read restarts.<br><br>Note that this value must be the same on all nodes in the cluster and cannot be changed with a [rolling upgrade](upgrade-cockroach-version.html). In order to change it, first stop every node in the cluster. Then once the entire cluster is offline, restart each node with the new value.<br><br>**Default:** `500ms`
-`--max-sql-memory` | The maximum in-memory storage capacity available to store temporary data for SQL queries, including prepared queries and intermediate data rows during query execution. This can be a percentage (notated as a decimal or with `%`) or any bytes-based unit, for example:<br><br>`--max-sql-memory=.25`<br>`--max-sql-memory=25%`<br>`--max-sql-memory=10000000000 ----> 1000000000 bytes`<br>`--max-sql-memory=1GB ----> 1000000000 bytes`<br>`--max-sql-memory=1GiB ----> 1073741824 bytes`<br><br>The temporary files are located in the path specified by the `--temp-dir` flag, or in the subdirectory of the first store (see `--store`) by default.<br><br><strong>Note:</strong> If you use the `%` notation, you might need to escape the `%` sign, for instance, while configuring CockroachDB through `systemd` service files. For this reason, it's recommended to use the decimal notation instead.<br><br>**Default:** `25%` <span class="version-tag">Changed in v20.1</span><br><br>The default SQL memory size is suitable for production deployments but can be raised to increase the number of simultaneous client connections the node allows as well as the node's capacity for in-memory processing of rows when using `ORDER BY`, `GROUP BY`, `DISTINCT`, joins, and window functions. For local development clusters with memory-intensive workloads, reduce this value to, for example, `128MiB` to prevent out of memory errors.
+<a name="flags-max-offset"></a>`--max-offset` | The maximum allowed clock offset for the cluster. If observed clock offsets exceed this limit, servers will crash to minimize the likelihood of reading inconsistent data. Increasing this value will increase the time to recovery of failures as well as the frequency of uncertainty-based read restarts.<br><br>Note that this value must be the same on all nodes in the cluster and cannot be changed with a [rolling upgrade](upgrade-cockroach-[version](cluster-settings.html#setting-version).html). In order to change it, first stop every node in the cluster. Then once the entire cluster is offline, restart each node with the new value.<br><br>**Default:** `500ms`
+`--max-sql-memory` | The maximum in-memory storage capacity available to store temporary data for SQL queries, including prepared queries and intermediate data rows during query execution. This can be a percentage (notated as a decimal or with `%`) or any bytes-based unit, for example:<br><br>`--max-sql-memory=.25`<br>`--max-sql-memory=25%`<br>`--max-sql-memory=10000000000 ----> 1000000000 bytes`<br>`--max-sql-memory=1GB ----> 1000000000 bytes`<br>`--max-sql-memory=1GiB ----> 1073741824 bytes`<br><br>The temporary files are located in the path specified by the `--temp-dir` flag, or in the subdirectory of the first store (see `--store`) by default.<br><br><strong>Note:</strong> If you use the `%` notation, you might need to escape the `%` sign, for instance, while configuring CockroachDB through `systemd` service files. For this reason, it's recommended to use the decimal notation instead.<br><br>**Default:** `25%` <span class="[version](cluster-settings.html#setting-version)-tag">Changed in v20.1</span><br><br>The default SQL memory size is suitable for production deployments but can be raised to increase the number of simultaneous client connections the node allows as well as the node's capacity for in-memory processing of rows when using `ORDER BY`, `GROUP BY`, `DISTINCT`, joins, and window functions. For local development clusters with memory-intensive workloads, reduce this value to, for example, `128MiB` to prevent out of memory errors.
 `--pid-file` | The file to which the node's process ID will be written as soon as the node is ready to accept connections. When `--background` is used, this happens before the process detaches from the terminal. When this flag is not set, the process ID is not written to file.
 `--store`<br>`-s` | The file path to a storage device and, optionally, store attributes and maximum size. When using multiple storage devices for a node, this flag must be specified separately for each device, for example: <br><br>`--store=/mnt/ssd01 --store=/mnt/ssd02` <br><br>For more details, see [Store](#store) below.
 `--temp-dir` <a name="temp-dir"></a> | The path of the node's temporary store directory. On node start up, the location for the temporary files is printed to the standard output. <br><br>**Default:** Subdirectory of the first [store](#store)
@@ -69,7 +69,7 @@ Flag | Description
 
 Flag | Description
 -----|-----------
-`--experimental-dns-srv` | When this flag is included, the node will first attempt to fetch SRV records from DNS for every name specified with `--join`. If a valid SRV record is found, that information is used instead of regular DNS A/AAAA lookups. This feature is experimental and may be removed or modified in a later version.
+`--experimental-dns-srv` | When this flag is included, the node will first attempt to fetch SRV records from DNS for every name specified with `--join`. If a valid SRV record is found, that information is used instead of regular DNS A/AAAA lookups. This feature is experimental and may be removed or modified in a later [version](cluster-settings.html#setting-version).
 `--listen-addr` | The IP address/hostname and port to listen on for connections from other nodes and clients. For IPv6, use the notation `[...]`, e.g., `[::1]` or `[fe80::f6f2:::]`.<br><br>This flag's effect depends on how it is used in combination with `--advertise-addr`. For example, the node will also advertise itself to other nodes using this value if `--advertise-addr` is not specified. For more details, see [Networking](recommended-production-settings.html#networking).<br><br>**Default:** Listen on all IP addresses on port `26257`; if `--advertise-addr` is not specified, also advertise the node's canonical hostname to other nodes
 `--advertise-addr` | The IP address/hostname and port to tell other nodes to use. If using a hostname, it must be resolvable from all nodes. If using an IP address, it must be routable from all nodes; for IPv6, use the notation `[...]`, e.g., `[::1]` or `[fe80::f6f2:::]`.<br><br>This flag's effect depends on how it is used in combination with `--listen-addr`. For example, if the port number is different than the one used in `--listen-addr`, port forwarding is required. For more details, see [Networking](recommended-production-settings.html#networking).<br><br>**Default:** The value of `--listen-addr`; if `--listen-addr` is not specified, advertises the node's canonical hostname and port `26257`
 `--http-addr` | The IP address/hostname and port to listen on for Admin UI HTTP requests. For IPv6, use the notation `[...]`, e.g., `[::1]:8080` or `[fe80::f6f2:::]:8080`.<br><br>**Default:** Listen on the address part of `--listen-addr` on port `8080`
@@ -77,7 +77,7 @@ Flag | Description
 `--sql-addr` | The IP address/hostname and port to listen on for SQL connections from clients. For IPv6, use the notation `[...]`, e.g., `[::1]` or `[fe80::f6f2:::]`.<br><br>This flag's effect depends on how it is used in combination with `--advertise-sql-addr`. For example, the node will also advertise itself to clients using this value if `--advertise-sql-addr` is not specified. <br><br>**Default:** The value of `--listen-addr`; if `--listen-addr` is not specified, advertises the node's canonical hostname and port `26257` <br><br>For an example, see [Start a cluster with separate RPC and SQL networks](#start-a-cluster-with-separate-rpc-and-sql-networks).
 `--advertise-sql-addr` | The IP address/hostname and port to tell clients to use. If using a hostname, it must be resolvable from all nodes. If using an IP address, it must be routable from all nodes; for IPv6, use the notation `[...]`, e.g., `[::1]` or `[fe80::f6f2:::]`.<br><br>This flag's effect depends on how it is used in combination with `--sql-addr`. For example, if the port number is different than the one used in `--sql-addr`, port forwarding is required. <br><br>**Default:** The value of `--sql-addr`; if `--sql-addr` is not specified, advertises the value of `--listen-addr`
 `--join`<br>`-j` | The host addresses that connect nodes to the cluster and distribute the rest of the node addresses. These can be IP addresses or DNS aliases of nodes.<br><br>When starting a cluster in a single region, specify the addresses of 3-5 initial nodes. When starting a cluster in multiple regions, specify more than 1 address per region, and select nodes that are spread across failure domains. Then run the [`cockroach init`](cockroach-init.html) command against any of these nodes to complete cluster startup. See the [example](#start-a-multi-node-cluster) below for more details.<br><br>Use the same `--join` list for all nodes to ensure that the cluster can stabilize. Do not list every node in the cluster, because this increases the time for a new cluster to stabilize. Note that these are best practices; it is not required to restart an existing node to update its `--join` flag.<br><br>`cockroach start` must be run with the `--join` flag. To start a single-node cluster, use `cockroach start-single-node` instead.
-`--socket-dir` | <span class="version-tag">New in v20.1:</span> The directory path on which to listen for [Unix domain socket](https://en.wikipedia.org/wiki/Unix_domain_socket) connections from clients installed on the same Unix-based machine. For an example, see [Connect to a cluster listening for Unix domain socket connections](cockroach-sql.html#connect-to-a-cluster-listening-for-unix-domain-socket-connections).
+`--socket-dir` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> The directory path on which to listen for [Unix domain socket](https://en.wikipedia.org/wiki/Unix_domain_socket) connections from clients installed on the same Unix-based machine. For an example, see [Connect to a cluster listening for Unix domain socket connections](cockroach-sql.html#connect-to-a-cluster-listening-for-unix-domain-socket-connections).
 `--advertise-host` | **Deprecated.** Use `--advertise-addr` instead.
 `--host` | **Deprecated.** Use `--listen-addr` instead.
 `--port`<br>`-p` | **Deprecated.** Specify port in `--advertise-addr` and/or `--listen-addr` instead.
@@ -90,10 +90,10 @@ Flag | Description
 -----|-----------
 `--certs-dir` | The path to the [certificate directory](cockroach-cert.html). The directory must contain valid certificates if running in secure mode.<br><br>**Default:** `${HOME}/.cockroach-certs/`
 `--insecure` | Run in insecure mode. If this flag is not set, the `--certs-dir` flag must point to valid certificates.<br><br><strong>Note the following risks:</strong> An insecure cluster is open to any client that can access any node's IP addresses; any user, even `root`, can log in without providing a password; any user, connecting as `root`, can read or write any data in your cluster; and there is no network encryption or authentication, and thus no confidentiality.<br><br>**Default:** `false`
-`--cert-principal-map` | <span class="version-tag">New in v20.1:</span> A comma-separated list of `cert-principal:db-principal` mappings used to map the certificate principals to IP addresses, DNS names, and SQL users. This allows the use of certificates generated by Certificate Authorities that place restrictions on the contents of the `commonName` field. For usage information, see [Create Security Certificates using Openssl](create-security-certificates-openssl.html#examples).
+`--cert-principal-map` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> A comma-separated list of `cert-principal:db-principal` mappings used to map the certificate principals to IP addresses, DNS names, and SQL users. This allows the use of certificates generated by Certificate Authorities that place restrictions on the contents of the `commonName` field. For usage information, see [Create Security Certificates using Openssl](create-security-certificates-openssl.html#examples).
 `--enterprise-encryption` | This optional flag specifies the encryption options for one of the stores on the node. If multiple stores exist, the flag must be specified for each store. <br /><br /> This flag takes a number of options.  For a complete list of options, and usage instructions, see [Encryption at Rest](encryption.html). <br /><br /> Note that this is an [enterprise feature](enterprise-licensing.html).
-`--external-io-disable-http` | <span class="version-tag">New in v20.1:</span> This optional flag disables external HTTP(S) access (as well as custom HTTP(S) endpoints) when performing bulk operations (e.g, [`BACKUP`](backup.html), [`IMPORT`](import.html), etc.). This can be used in environments where you cannot run a full proxy server. <br><br>If you want to run a proxy server, you can start CockroachDB while specifying the `HTTP(S)_PROXY` environment variable.
-`--external-io-disable-implicit-credentials` <a name="external-io-disable-implicit-credentials"></a> | <span class="version-tag">New in v20.1:</span> This optional flag disables the use of implicit credentials when accessing external cloud storage services for bulk operations (e.g, [`BACKUP`](backup.html), [`IMPORT`](import.html), etc.).
+`--external-io-disable-http` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> This optional flag disables external HTTP(S) access (as well as custom HTTP(S) endpoints) when performing bulk operations (e.g, [`BACKUP`](backup.html), [`IMPORT`](import.html), etc.). This can be used in environments where you cannot run a full proxy server. <br><br>If you want to run a proxy server, you can start CockroachDB while specifying the `HTTP(S)_PROXY` environment variable.
+`--external-io-disable-implicit-credentials` <a name="external-io-disable-implicit-credentials"></a> | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> This optional flag disables the use of implicit credentials when accessing external cloud storage services for bulk operations (e.g, [`BACKUP`](backup.html), [`IMPORT`](import.html), etc.).
 
 ### Locality
 
@@ -122,7 +122,7 @@ The `--locality` flag accepts arbitrary key-value pairs that describe the locati
 
 #### Storage engine
 
-<span class="version-tag">New in v20.1:</span> The `--storage-engine` flag is used to choose the storage engine used by the node.  Note that this setting applies to all [stores](#store) on the node, including the [temp store](#temp-dir).
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> The `--storage-engine` flag is used to choose the storage engine used by the node.  Note that this setting applies to all [stores](#store) on the node, including the [temp store](#temp-dir).
 
 Supported options:
 
@@ -138,7 +138,7 @@ The `--store` flag supports the following fields. Note that commas are used to s
 In-memory storage is not suitable for production deployments at this time.
 {{site.data.alerts.end}}
 
-{% include {{ page.version.version }}/misc/multi-store-nodes.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/multi-store-nodes.md %}
 
 Field | Description
 ------|------------
@@ -151,7 +151,7 @@ Field | Description
 
 By default, `cockroach start` writes all messages to log files, and prints nothing to `stderr`. However, you can control the process's [logging](debug-and-error-logs.html) behavior with the following flags:
 
-{% include {{ page.version.version }}/misc/logging-flags.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/logging-flags.md %}
 
 #### Defaults
 
@@ -168,7 +168,7 @@ When you run `cockroach start`, some helpful details are printed to the standard
 
 ~~~ shell
 CockroachDB node starting at {{page.release_info.start_time}}
-build:               CCL {{page.release_info.version}} @ {{page.release_info.build_time}} (go1.12.6)
+build:               CCL {{page.release_info.[version](cluster-settings.html#setting-version)}} @ {{page.release_info.build_time}} (go1.12.6)
 webui:               http://localhost:8080
 sql:                 postgresql://root@localhost:26257?sslmode=disable
 RPC client flags:    cockroach <client cmd> --host=localhost:26257 --insecure
@@ -187,7 +187,7 @@ These details are also written to the `INFO` log in the `/logs` directory. You c
 
 Field | Description
 ------|------------
-`build` | The version of CockroachDB you are running.
+`build` | The [version](cluster-settings.html#setting-version) of CockroachDB you are running.
 `webui` | The URL for accessing the Admin UI.
 `sql` | The connection URL for your client.
 `RPC client flags` | The flags to use when connecting to the node via [`cockroach` client commands](cockroach-commands.html).
@@ -204,7 +204,7 @@ Field | Description
 
 ## Known limitations
 
-{% include {{ page.version.version }}/known-limitations/adding-stores-to-node.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/adding-stores-to-node.md %}
 
 ## Examples
 
@@ -217,10 +217,10 @@ Field | Description
 
 To start a multi-node cluster, run the `cockroach start` command for each node, setting the `--join` flag to the addresses of the initial nodes.
 
-{% include {{ page.version.version }}/prod-deployment/join-flag-single-region.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/join-flag-single-region.md %}
 
 {{site.data.alerts.callout_info}}
-{% include {{ page.version.version }}/prod-deployment/join-flag-multi-region.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/join-flag-multi-region.md %}
 {{site.data.alerts.end}}
 
 <div class="filter-content" markdown="1" data-scope="secure">

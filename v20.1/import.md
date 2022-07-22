@@ -6,7 +6,7 @@ toc: true
 
 The `IMPORT` [statement](sql-statements.html) imports the following types of data into CockroachDB:
 
-- <span class="version-tag">New in v20.1:</span> [Avro][avro]
+- <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> [Avro][avro]
 - [CSV/TSV][csv]
 - [Postgres dump files][postgres]
 - [MySQL dump files][mysql]
@@ -18,7 +18,7 @@ The `IMPORT` [statement](sql-statements.html) imports the following types of dat
 {{site.data.alerts.end}}
 
 {{site.data.alerts.callout_danger}}
-`IMPORT` is a blocking statement and cannot be used within a [transaction](transactions.html). Also, `IMPORT` cannot be used during a [rolling upgrade](upgrade-cockroach-version.html).
+`IMPORT` is a blocking statement and cannot be used within a [transaction](transactions.html). Also, `IMPORT` cannot be used during a [rolling upgrade](upgrade-cockroach-[version](cluster-settings.html#setting-version).html).
 {{site.data.alerts.end}}
 
 ## Required privileges
@@ -30,13 +30,13 @@ Only members of the `admin` role can run `IMPORT`. By default, the `root` user b
 **Import a table from CSV or Avro**
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/import_csv.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/import_csv.html %}
 </div>
 
 **Import a database or table from dump file**
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/import_dump.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/import_dump.html %}
 </div>
 
 ## Parameters
@@ -75,7 +75,7 @@ For examples showing how to use the `DELIMITED DATA` format, see the [Examples](
 
 URLs for the files you want to import must use the format shown below.  For examples, see [Example file URLs](#example-file-urls).
 
-{% include {{ page.version.version }}/misc/external-urls.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/external-urls.md %}
 
 ### Import options
 
@@ -136,7 +136,7 @@ Your `IMPORT` statement must reference a `CREATE TABLE` statement representing t
 
 We also recommend [specifying all secondary indexes you want to use in the `CREATE TABLE` statement](create-table.html#create-a-table-with-secondary-and-inverted-indexes). It is possible to [add secondary indexes later](create-index.html), but it is significantly faster to specify them during import.
 
-{% include {{ page.version.version }}/sql/import-default-value.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/import-default-value.md %}
 
 {{site.data.alerts.callout_info}}
 By default, the [Postgres][postgres] and [MySQL][mysql] import formats support foreign keys. However, the most common dependency issues during import are caused by unsatisfied foreign key relationships that cause errors like `pq: there is no unique constraint matching given keys for referenced table tablename`. You can avoid these issues by adding the [`skip_foreign_keys`](#import-options) option to your `IMPORT` statement as needed. Ignoring foreign constraints will also speed up data import.
@@ -180,7 +180,7 @@ After CockroachDB initiates an import, you can view its progress with [`SHOW JOB
 {{site.data.alerts.callout_info}}
 If initiated correctly, the statement returns when the import is finished or if it encounters an error. In some cases, the import can continue after an error has been returned (the error message will tell you that the import has resumed in the background).
 
-<span class="version-tag">Changed in v20.1:</span> When [resumed](resume-job.html), [paused](pause-job.html) imports now continue from their internally recorded progress instead of starting over.
+<span class="[version](cluster-settings.html#setting-version)-tag">Changed in v20.1:</span> When [resumed](resume-job.html), [paused](pause-job.html) imports now continue from their internally recorded progress instead of starting over.
 {{site.data.alerts.end}}
 
 ## Examples
@@ -260,7 +260,7 @@ CSV DATA ('gs://acme-co/customers.csv')
 ;
 ~~~
 
-{% include {{ page.version.version }}/misc/csv-import-callout.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/csv-import-callout.md %}
 
 ### Import a table from multiple CSV files
 
@@ -898,11 +898,11 @@ CSV DATA ('nodelocal://2/customers.csv')
 ;
 ~~~
 
-<span class="version-tag">New in v20.1:</span> You can also use the [`cockroach nodelocal upload`](cockroach-nodelocal-upload.html) command to upload a file to the external IO directory on a node's (the gateway node, by default) local file system.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> You can also use the [`cockroach nodelocal upload`](cockroach-nodelocal-upload.html) command to upload a file to the external IO directory on a node's (the gateway node, by default) local file system.
 
 ### Import a table from an Avro file
 
-<span class="version-tag">New in v20.1:</span> [Avro OCF data](migrate-from-avro.html#import-an-object-container-file), [JSON records, or binary records](migrate-from-avro.html#import-binary-or-json-records) can be imported. The following are examples of importing Avro OCF data.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> [Avro OCF data](migrate-from-avro.html#import-an-object-container-file), [JSON records, or binary records](migrate-from-avro.html#import-binary-or-json-records) can be imported. The following are examples of importing Avro OCF data.
 
 To specify the table schema in-line:
 
@@ -981,7 +981,7 @@ For more detailed information about importing data from Avro and examples, see [
 
 ## Known limitation
 
-{% include {{ page.version.version }}/known-limitations/import-high-disk-contention.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/import-high-disk-contention.md %}
 
 ## See also
 

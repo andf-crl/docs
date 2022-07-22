@@ -44,13 +44,13 @@ You can use the high-water timestamp to [start a new changefeed where another en
 An {{ site.data.products.enterprise }} license is required to use metrics labels in changefeeds.
 {{site.data.alerts.end}}
 
-{% include {{ page.version.version }}/cdc/metrics-labels.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/cdc/metrics-labels.md %}
 
 To start a changefeed with a metrics label, set the following cluster setting to `true`:
 
 {% include_cached copy-clipboard.html %}
 ~~~ sql
-SET CLUSTER SETTING server.child_metrics.enabled=true;
+SET CLUSTER SETTING [server.child_metrics.enabled](cluster-settings.html#setting-server-child_metrics-enabled)=true;
 ~~~
 
 Create the changefeed, passing the `metrics_label` option with the label name as its value:
@@ -131,7 +131,7 @@ I190312 18:56:53.537686 585 vendor/github.com/Shopify/sarama/client.go:170  [kaf
 
 ### Using `SHOW CHANGEFEED JOBS`
 
-{% include_cached new-in.html version="v21.2" %} For {{ site.data.products.enterprise }} changefeeds, use `SHOW CHANGEFEED JOBS` to check the status of your changefeed jobs:
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.2" %} For {{ site.data.products.enterprise }} changefeeds, use `SHOW CHANGEFEED JOBS` to check the status of your changefeed jobs:
 
 {% include_cached copy-clipboard.html %}
 ~~~ sql

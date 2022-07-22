@@ -9,7 +9,7 @@ This page shows you how to decommission one or more nodes. Decommissioning a nod
 You might do this, for example, when downsizing a cluster or reacting to hardware failures.
 
 {{site.data.alerts.callout_info}}
-Node decommissioning should not be performed when [upgrading your cluster's version of CockroachDB](upgrade-cockroach-version.html) or performing planned maintenance (e.g., upgrading system software). In these scenarios, you will want to temporarily [stop the node](cockroach-quit.html) and restart it later.
+Node decommissioning should not be performed when [upgrading your cluster's [version](cluster-settings.html#setting-version) of CockroachDB](upgrade-cockroach-[version](cluster-settings.html#setting-version).html) or performing planned maintenance (e.g., upgrading system software). In these scenarios, you will want to temporarily [stop the node](cockroach-quit.html) and restart it later.
 {{site.data.alerts.end}}
 
 ## Overview
@@ -19,11 +19,11 @@ Node decommissioning should not be performed when [upgrading your cluster's vers
 A node is considered to be decommissioned when it meets two criteria:
 
 1. The node has completed the decommissioning process.
-2. The node has been stopped and has not [updated its liveness record](architecture/replication-layer.html#epoch-based-leases-table-data) for the duration configured via [`server.time_until_store_dead`](cluster-settings.html), which defaults to 5 minutes.
+2. The node has been stopped and has not [updated its liveness record](architecture/replication-layer.html#epoch-based-leases-table-data) for the duration configured via [`[server.time_until_store_dead](cluster-settings.html#setting-server-time_until_store_dead)`](cluster-settings.html), which defaults to 5 minutes.
 
 The decommissioning process transfers all range replicas on the node to other nodes. During and after this process, the node is considered "decommissioning" and continues to accept new SQL connections. Even without replicas, the node can still function as a gateway to route connections to relevant data. However, note that the [`/health?ready=1` monitoring endpoint](monitoring-and-alerting.html#health-ready-1) considers the node "unready" and returns a `503 Service Unavailable` status response code so load balancers stop directing traffic to the node. In v20.1, the health endpoint correctly considers the node "ready" during decommissioning.
 
-After all range replicas have been transferred, a graceful shutdown is initiated by sending `SIGTERM` or running [`cockroach quit`](cockroach-quit.html), during which the node is drained of SQL clients, [distributed SQL](architecture/sql-layer.html#distsql) queries, and range leases. Once draining completes and the process is terminated, the node stops updating its liveness record, and after the duration configured via [`server.time_until_store_dead`](cluster-settings.html) is considered to be decommissioned.
+After all range replicas have been transferred, a graceful shutdown is initiated by sending `SIGTERM` or running [`cockroach quit`](cockroach-quit.html), during which the node is drained of SQL clients, [distributed SQL](architecture/sql-layer.html#distsql) queries, and range leases. Once draining completes and the process is terminated, the node stops updating its liveness record, and after the duration configured via [`[server.time_until_store_dead](cluster-settings.html#setting-server-time_until_store_dead)`](cluster-settings.html) is considered to be decommissioned.
 
 You can [check the status of node decommissioning](#check-the-status-of-decommissioning-nodes) with the CLI.
 
@@ -178,7 +178,7 @@ $ cockroach quit --insecure --host=<address of decommissioned node>
 ~~~
 </div>
 
-After the duration configured via [`server.time_until_store_dead`](cluster-settings.html), you'll see the removed node listed under **Decommissioned Nodes**:
+After the duration configured via [`[server.time_until_store_dead](cluster-settings.html#setting-server-time_until_store_dead)`](cluster-settings.html), you'll see the removed node listed under **Decommissioned Nodes**:
 
 <div style="text-align: center;"><img src="{{ 'images/v19.2/cluster-status-after-decommission2.png' | relative_url }}" alt="Decommission a single live node" style="border:1px solid #eee;max-width:100%" /></div>
 
@@ -343,7 +343,7 @@ $ cockroach quit --insecure --host=<address of decommissioned node>
 ~~~
 </div>
 
-After the duration configured via [`server.time_until_store_dead`](cluster-settings.html), you'll see the nodes move to the **Decommissioned Nodes** list.
+After the duration configured via [`[server.time_until_store_dead](cluster-settings.html#setting-server-time_until_store_dead)`](cluster-settings.html), you'll see the nodes move to the **Decommissioned Nodes** list.
 
 <div style="text-align: center;"><img src="{{ 'images/v19.2/decommission-multiple7.png' | relative_url }}" alt="Decommission multiple nodes" style="border:1px solid #eee;max-width:100%" /></div>
 

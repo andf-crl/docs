@@ -20,7 +20,7 @@ Indexes are automatically created for a table's [`PRIMARY KEY`](primary-key.html
 When querying a table, CockroachDB uses the fastest index. For more information about that process, see [Index Selection in CockroachDB](https://www.cockroachlabs.com/blog/index-selection-cockroachdb-2/).
 {{site.data.alerts.end}}
 
-{% include {{{ page.version.version }}/misc/schema-change-stmt-note.md %}
+{% include {{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-stmt-note.md %}
 
 ## Required privileges
 
@@ -30,11 +30,11 @@ The user must have the `CREATE` [privilege](authorization.html#assign-privileges
 
 **Standard index:**
 
-<section>{% include {{ page.version.version }}/sql/diagrams/create_index.html %}</section>
+<section>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/create_index.html %}</section>
 
 **Inverted index:**
 
-<section>{% include {{ page.version.version }}/sql/diagrams/create_inverted_index.html %}</section>
+<section>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/create_inverted_index.html %}</section>
 
 ## Parameters
 
@@ -54,7 +54,7 @@ Parameter | Description
 
 ## Viewing schema changes
 
-{% include {{ page.version.version }}/misc/schema-change-view-job.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-view-job.md %}
 
 ## Examples
 

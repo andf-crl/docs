@@ -4,12 +4,12 @@ summary: Import CSV data into an existing CockroachDB table.
 toc: true
 ---
 
-<span class="version-tag">New in v19.2:</span> The `IMPORT INTO` [statement](sql-statements.html) imports CSV data into an [existing table](create-table.html). `IMPORT INTO` appends new rows onto the table.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v19.2:</span> The `IMPORT INTO` [statement](sql-statements.html) imports CSV data into an [existing table](create-table.html). `IMPORT INTO` appends new rows onto the table.
 
 ## Considerations
 
 - `IMPORT INTO` only works for existing tables. For information on how to import data into new tables, see [`IMPORT`](import.html).
-- `IMPORT INTO` cannot be used within a [transaction](transactions.html) or during a [rolling upgrade](upgrade-cockroach-version.html).
+- `IMPORT INTO` cannot be used within a [transaction](transactions.html) or during a [rolling upgrade](upgrade-cockroach-[version](cluster-settings.html#setting-version).html).
 - `IMPORT INTO` invalidates all [foreign keys](foreign-key.html) on the target table. To validate the foreign key(s), use the [`VALIDATE CONSTRAINT`](validate-constraint.html) statement.
 - `IMPORT INTO` cannot be used to insert data into a column for an existing row. To do this, use [`INSERT`](insert.html).
 
@@ -20,7 +20,7 @@ Only members of the `admin` role can run `IMPORT INTO`. By default, the `root` u
 ## Synopsis
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/import_into.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/import_into.html %}
 </div>
 
 {{site.data.alerts.callout_info}}
@@ -40,7 +40,7 @@ Parameter | Description
 
 URLs for the files you want to import must use the format shown below. For examples, see [Example file URLs](#example-file-urls).
 
-{% include {{ page.version.version }}/misc/external-urls.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/external-urls.md %}
 
 ### Import options
 
@@ -67,7 +67,7 @@ Before using `IMPORT INTO`, you should have:
 - An existing table to import into (use [`CREATE TABLE`](create-table.html)).
 - The CSV data you want to import, preferably hosted on cloud storage. This location must be equally accessible to all nodes using the same import file location. This is necessary because the `IMPORT INTO` statement is issued once by the client, but is executed concurrently across all nodes of the cluster. For more information, see the [Import file location](#import-file-location) section below.
 
-{% include {{ page.version.version }}/sql/import-into-default-value.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/import-into-default-value.md %}
 
 ### Available storage
 
@@ -191,10 +191,10 @@ Google Cloud:
 - Imported rows must not conflict with existing rows in the table or any unique secondary indexes.
 - `IMPORT INTO` works for only a single existing table, and the table must not be [interleaved](interleave-in-parent.html).
 - `IMPORT INTO` cannot be used within a [transaction](transactions.html).
-- `IMPORT INTO` can sometimes fail with a "context canceled" error, or can restart itself many times without ever finishing. If this is happening, it is likely due to a high amount of disk contention. This can be mitigated by setting the `kv.bulk_io_write.max_rate` [cluster setting](cluster-settings.html) to a value below your max disk write speed. For example, to set it to 10MB/s, execute:
+- `IMPORT INTO` can sometimes fail with a "context canceled" error, or can restart itself many times without ever finishing. If this is happening, it is likely due to a high amount of disk contention. This can be mitigated by setting the `[kv.bulk_io_write.max_rate](cluster-settings.html#setting-kv-bulk_io_write-max_rate)` [cluster setting](cluster-settings.html) to a value below your max disk write speed. For example, to set it to 10MB/s, execute:
     {% include copy-clipboard.html %}
     ~~~ sql
-    > SET CLUSTER SETTING kv.bulk_io_write.max_rate = '10MB';
+    > SET CLUSTER SETTING [kv.bulk_io_write.max_rate](cluster-settings.html#setting-kv-bulk_io_write-max_rate) = '10MB';
     ~~~
 - `IMPORT INTO` cannot be used on a table with a [`DEFAULT`](default-value.html) expression for any of its columns.
 

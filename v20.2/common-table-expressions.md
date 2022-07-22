@@ -12,7 +12,7 @@ CTEs can be used in combination with [`SELECT` clauses](select-clause.html) and 
 ## Synopsis
 
 <div class="horizontal-scroll">
-{% include {{ page.version.version }}/sql/diagrams/with_clause.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/with_clause.html %}
 </div>
 <div markdown="1"></div>
 
@@ -23,7 +23,7 @@ Parameter | Description
 `table_alias_name` | The name to use to refer to the common table expression from the accompanying query or statement.
 `name` | A name for one of the columns in the newly defined common table expression.
 `preparable_stmt` | The statement or subquery to use as common table expression.
-`MATERIALIZED`/`NOT MATERIALIZED` | <span class="version-tag">New in v20.2:</span> Override the [optimizer](cost-based-optimizer.html)'s decision to materialize (i.e., store the results) of the common table expression. By default, the optimizer materializes the common table expression if it affects other objects in the database, or if it is used in the query multiple times.
+`MATERIALIZED`/`NOT MATERIALIZED` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> Override the [optimizer](cost-based-optimizer.html)'s decision to materialize (i.e., store the results) of the common table expression. By default, the optimizer materializes the common table expression if it affects other objects in the database, or if it is used in the query multiple times.
 
 ## Overview
 
@@ -308,7 +308,7 @@ CockroachDB does not currently support the [Postgres recursive CTE variant](http
 
 ### Correlated common table expressions
 
-{% include {{ page.version.version }}/known-limitations/correlated-ctes.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/correlated-ctes.md %}
 
 For details, see the [tracking issue](https://github.com/cockroachdb/cockroach/issues/42540).
 

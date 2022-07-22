@@ -4,14 +4,14 @@ summary: Change data capture (CDC) provides efficient, distributed, row-level ch
 toc: true
 ---
 
-<span class="version-tag">New in v2.1:</span> Change data capture (CDC) provides efficient, distributed, row-level change feeds into Apache Kafka for downstream processing such as reporting, caching, or full-text indexing.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v2.1:</span> Change data capture (CDC) provides efficient, distributed, row-level change feeds into Apache Kafka for downstream processing such as reporting, caching, or full-text indexing.
 
 {{site.data.alerts.callout_danger}}
 **This feature is under active development** and only works for a [targeted use case](#usage-examples). Please [file a Github issue](file-an-issue.html) if you have feedback on the roadmap.
 {{site.data.alerts.end}}
 
 {{site.data.alerts.callout_info}}
-CDC is an [enterprise-only](enterprise-licensing.html). There will be a core version in a future release.
+CDC is an [enterprise-only](enterprise-licensing.html). There will be a core [version](cluster-settings.html#setting-version) in a future release.
 {{site.data.alerts.end}}
 
 ## What is change data capture?
@@ -22,9 +22,9 @@ The core feature of CDC is the [changefeed](create-changefeed.html). Changefeeds
 
 ## Ordering guarantees
 
-- In most cases, each version of a row will be emitted once. However, some infrequent conditions (e.g., node failures, network partitions) will cause them to be repeated. This gives our changefeeds an **at-least-once delivery guarantee**.
+- In most cases, each [version](cluster-settings.html#setting-version) of a row will be emitted once. However, some infrequent conditions (e.g., node failures, network partitions) will cause them to be repeated. This gives our changefeeds an **at-least-once delivery guarantee**.
 
-- Once a row has been emitted with some timestamp, no previously unseen versions of that row will be emitted with a lower timestamp. That is, you will never see a _new_ change for that row at an earlier timestamp.
+- Once a row has been emitted with some timestamp, no previously unseen [version](cluster-settings.html#setting-version)s of that row will be emitted with a lower timestamp. That is, you will never see a _new_ change for that row at an earlier timestamp.
 
     For example, if you ran the following:
 
@@ -188,7 +188,7 @@ You can use the high-water timestamp to [start a new changefeed where another en
 
 In this example, you'll set up a changefeed for a single-node cluster that is connected to a Kafka sink.
 
-1. If you do not already have one, [request a trial enterprise license](enterprise-licensing.html).
+1. If you do not already have one, [request a trial [enterprise.license](cluster-settings.html#setting-enterprise-license)](enterprise-licensing.html).
 
 2. In a terminal window, start `cockroach`:
 
@@ -199,7 +199,7 @@ In this example, you'll set up a changefeed for a single-node cluster that is co
 
 3. Download and extract the [Confluent Open Source platform](https://www.confluent.io/download/) (which includes Kafka).
 
-4. Move into the extracted `confluent-<version>` directory and start Confluent:
+4. Move into the extracted `confluent-<[version](cluster-settings.html#setting-version)>` directory and start Confluent:
 
     {% include copy-clipboard.html %}
     ~~~ shell
@@ -231,16 +231,16 @@ In this example, you'll set up a changefeed for a single-node cluster that is co
     $ cockroach sql --insecure
     ~~~
 
-7. Set your organization name and [enterprise license](enterprise-licensing.html) key that you received via email:
+7. Set your organization name and [[enterprise.license](cluster-settings.html#setting-enterprise-license)](enterprise-licensing.html) key that you received via email:
 
     {% include copy-clipboard.html %}
     ~~~ sql
-    > SET CLUSTER SETTING cluster.organization = '<organization name>';
+    > SET CLUSTER SETTING [cluster.organization](cluster-settings.html#setting-cluster-organization) = '<organization name>';
     ~~~
 
     {% include copy-clipboard.html %}
     ~~~ sql
-    > SET CLUSTER SETTING enterprise.license = '<secret>';
+    > SET CLUSTER SETTING [enterprise.license](cluster-settings.html#setting-enterprise-license) = '<secret>';
     ~~~
 
 8. Create a database called `cdc_demo`:
@@ -294,7 +294,7 @@ In this example, you'll set up a changefeed for a single-node cluster that is co
 
     This will start up the changefeed in the background and return the `job_id`. The changefeed writes to Kafka.
 
-12. In a new terminal, move into the extracted `confluent-<version>` directory and start watching the Kafka topic:
+12. In a new terminal, move into the extracted `confluent-<[version](cluster-settings.html#setting-version)>` directory and start watching the Kafka topic:
 
     {% include copy-clipboard.html %}
     ~~~ shell
@@ -334,7 +334,7 @@ In this example, you'll set up a changefeed for a single-node cluster that is co
     $ cockroach quit --insecure
     ~~~
 
-17. To stop Kafka, move into the extracted `confluent-<version>` directory and stop Confluent:
+17. To stop Kafka, move into the extracted `confluent-<[version](cluster-settings.html#setting-version)>` directory and stop Confluent:
 
     {% include copy-clipboard.html %}
     ~~~ shell
@@ -345,7 +345,7 @@ In this example, you'll set up a changefeed for a single-node cluster that is co
 
 In this example, you'll set up a changefeed for a single-node cluster that is connected to a Kafka sink and emits [Avro](https://avro.apache.org/docs/1.8.2/spec.html) records.
 
-1. If you do not already have one, [request a trial enterprise license](enterprise-licensing.html).
+1. If you do not already have one, [request a trial [enterprise.license](cluster-settings.html#setting-enterprise-license)](enterprise-licensing.html).
 
 2. In a terminal window, start `cockroach`:
 
@@ -356,7 +356,7 @@ In this example, you'll set up a changefeed for a single-node cluster that is co
 
 3. Download and extract the [Confluent Open Source platform](https://www.confluent.io/download/) (which includes Kafka).
 
-4. Move into the extracted `confluent-<version>` directory and start Confluent:
+4. Move into the extracted `confluent-<[version](cluster-settings.html#setting-version)>` directory and start Confluent:
 
     {% include copy-clipboard.html %}
     ~~~ shell
@@ -388,16 +388,16 @@ In this example, you'll set up a changefeed for a single-node cluster that is co
     $ cockroach sql --insecure
     ~~~
 
-7. Set your organization name and [enterprise license](enterprise-licensing.html) key that you received via email:
+7. Set your organization name and [[enterprise.license](cluster-settings.html#setting-enterprise-license)](enterprise-licensing.html) key that you received via email:
 
     {% include copy-clipboard.html %}
     ~~~ sql
-    > SET CLUSTER SETTING cluster.organization = '<organization name>';
+    > SET CLUSTER SETTING [cluster.organization](cluster-settings.html#setting-cluster-organization) = '<organization name>';
     ~~~
 
     {% include copy-clipboard.html %}
     ~~~ sql
-    > SET CLUSTER SETTING enterprise.license = '<secret>';
+    > SET CLUSTER SETTING [enterprise.license](cluster-settings.html#setting-enterprise-license) = '<secret>';
     ~~~
 
 8. Create a database called `cdc_demo`:
@@ -451,7 +451,7 @@ In this example, you'll set up a changefeed for a single-node cluster that is co
 
     This will start up the changefeed in the background and return the `job_id`. The changefeed writes to Kafka.
 
-12. In a new terminal, move into the extracted `confluent-<version>` directory and start watching the Kafka topic:
+12. In a new terminal, move into the extracted `confluent-<[version](cluster-settings.html#setting-version)>` directory and start watching the Kafka topic:
 
     {% include copy-clipboard.html %}
     ~~~ shell
@@ -491,7 +491,7 @@ In this example, you'll set up a changefeed for a single-node cluster that is co
     $ cockroach quit --insecure
     ~~~
 
-17. To stop Kafka, move into the extracted `confluent-<version>` directory and stop Confluent:
+17. To stop Kafka, move into the extracted `confluent-<[version](cluster-settings.html#setting-version)>` directory and stop Confluent:
 
     {% include copy-clipboard.html %}
     ~~~ shell

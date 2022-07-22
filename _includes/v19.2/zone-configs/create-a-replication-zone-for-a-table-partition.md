@@ -28,7 +28,7 @@ CONFIGURE ZONE 1
 CONFIGURE ZONE 1
 ~~~
 
-<span class="version-tag">New in v19.2:</span> To define replication zones for identically named partitions of a table and its secondary indexes, you can use the `<table>@*` syntax to save several steps:
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v19.2:</span> To define replication zones for identically named partitions of a table and its secondary indexes, you can use the `<table>@*` syntax to save several steps:
 
 {% include copy-clipboard.html %}
 ~~~ sql
@@ -59,5 +59,5 @@ To view the zone configuration for a partition, use `SHOW ZONE CONFIGURATION FOR
 ~~~
 
 {{site.data.alerts.callout_success}}
-<span class="version-tag">New in v19.2:</span> You can also use the [`SHOW CREATE TABLE`](show-create.html) statement or [`SHOW PARTITIONS`](show-partitions.html) statements to view details about all of the replication zones defined for the partitions of a table and its secondary indexes.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v19.2:</span> You can also use the [`SHOW CREATE TABLE`](show-create.html) statement or [`SHOW PARTITIONS`](show-partitions.html) statements to view details about all of the replication zones defined for the partitions of a table and its secondary indexes.
 {{site.data.alerts.end}}

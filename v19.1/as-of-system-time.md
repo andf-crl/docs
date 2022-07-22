@@ -24,8 +24,8 @@ including but not limited to:
 - In [`SELECT` clauses](select-clause.html), at the very end of the `FROM` sub-clause.
 - In [`BACKUP`](backup.html), after the parameters of the `TO` sub-clause.
 - In [`RESTORE`](restore.html), after the parameters of the `FROM` sub-clause.
-- <span class="version-tag">New in v19.1</span> In [`BEGIN`](begin-transaction.html), after the `BEGIN` keyword.
-- <span class="version-tag">New in v19.1</span> In [`SET`](set-transaction.html), after the `SET TRANSACTION` keyword.
+- <span class="[version](cluster-settings.html#setting-version)-tag">New in v19.1</span> In [`BEGIN`](begin-transaction.html), after the `BEGIN` keyword.
+- <span class="[version](cluster-settings.html#setting-version)-tag">New in v19.1</span> In [`SET`](set-transaction.html), after the `SET TRANSACTION` keyword.
 
 ## Parameters
 
@@ -167,11 +167,11 @@ For example:
 
 You can use the [`BEGIN`](begin-transaction.html) statement to execute the transaction using the database contents "as of" a specified time in the past.
 
-{% include {{ page.version.version }}/sql/begin-transaction-as-of-system-time-example.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/begin-transaction-as-of-system-time-example.md %}
 
 Alternatively, you can use the [`SET`](set-transaction.html) statement to execute the transaction using the database contents "as of" a specified time in the past.
 
-{% include {{ page.version.version }}/sql/set-transaction-as-of-system-time-example.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/set-transaction-as-of-system-time-example.md %}
 
 ## See also
 

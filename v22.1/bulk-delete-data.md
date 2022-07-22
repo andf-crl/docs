@@ -138,7 +138,7 @@ CockroachDB records the timestamp of each row created in a table in the `crdb_in
 
 ## Batch-delete "expired" data
 
-{% include {{page.version.version}}/sql/row-level-ttl.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/row-level-ttl.md %}
 
 For more information, see [Batch delete expired data with Row-Level TTL](row-level-ttl.html).
 

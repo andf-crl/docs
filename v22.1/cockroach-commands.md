@@ -35,7 +35,7 @@ Command | Usage
 [`cockroach userfile list`](cockroach-userfile-list.html) | List the files stored in the user-scoped file storage.
 [`cockroach userfile get`](cockroach-userfile-get.html) | Fetch a file from the user-scoped file storage.
 [`cockroach userfile delete`](cockroach-userfile-delete.html) | Delete the files stored in the user-scoped file storage.
-[`cockroach version`](cockroach-version.html) | Output CockroachDB version details.
+[`cockroach [version](cluster-settings.html#setting-version)`](cockroach-[version](cluster-settings.html#setting-version).html) | Output CockroachDB [version](cluster-settings.html#setting-version) details.
 [`cockroach workload`](cockroach-workload.html) | Run a built-in load generator against a cluster.
 [`cockroach import`](cockroach-import.html) | Import a table or database from a local dump file into a running cluster. Supported file formats are `PGDUMP` and `MYSQLDUMP`.
 

@@ -15,7 +15,7 @@ expression.
 ## Synopsis
 
 <div class="horizontal-scroll">
-  {% include {{ page.version.version }}/sql/diagrams/table_ref.html %}</div>
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/table_ref.html %}</div>
 <div markdown="1"></div>
 
 ## Parameters
@@ -69,7 +69,7 @@ A single SQL identifier in a table expression context designates
 the contents of the table, [view](views.html), or sequence with that name
 in the current database, as configured by [`SET DATABASE`](set-vars.html).
 
-<span class="version-tag">Changed in v2.0:</span> If the name is composed of two or more identifiers, [name resolution](sql-name-resolution.html) rules apply.
+<span class="[version](cluster-settings.html#setting-version)-tag">Changed in v2.0:</span> If the name is composed of two or more identifiers, [name resolution](sql-name-resolution.html) rules apply.
 
 For example:
 
@@ -150,7 +150,7 @@ Resolution](sql-name-resolution.html) for more details.
 
 #### Scalar Function as Data Source
 
-<span class="version-tag">New in v2.0</span>
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v2.0</span>
 
 When a [function returning a single
 value](scalar-expressions.html#function-calls-and-sql-special-forms) is

@@ -14,20 +14,20 @@ If you haven't already, you'll need to [locally install](install-cockroachdb.htm
 
 ## Enable Enterprise features
 
-{% include {{ page.version.version }}/misc/set-enterprise-license.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/set-[enterprise.license](cluster-settings.html#setting-enterprise-license).md %}
 
 You can then use the [`SHOW CLUSTER SETTING`](set-cluster-setting.html) command to verify your license:
 
 {% include_cached copy-clipboard.html %}
 ~~~ sql
->  SHOW CLUSTER SETTING cluster.organization;
+>  SHOW CLUSTER SETTING [cluster.organization](cluster-settings.html#setting-cluster-organization);
 ~~~
 
 ## Use Enterprise features
 
 Your cluster now has access to all of CockroachDB's Enterprise features for the length of the trial:
 
-{% include {{ page.version.version }}/misc/enterprise-features.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/enterprise-features.md %}
 
 ## Getting help
 

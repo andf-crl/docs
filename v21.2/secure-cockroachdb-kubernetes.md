@@ -28,7 +28,7 @@ If you are running a secure Helm deployment on Kubernetes 1.22 and later, you mu
     <button class="filter-button" data-scope="helm">Helm</button>
 </div>
 
-{% include {{ page.version.version }}/orchestration/operator-check-namespace.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/orchestration/operator-check-namespace.md %}
 
 ## Use a custom CA
 
@@ -52,7 +52,7 @@ These should specify the names of Kubernetes secrets that contain your generated
 Currently, the Operator requires that the client and node secrets each contain the filenames `tls.crt` and `tls.key`.
 {{site.data.alerts.end}}
 
-{% include {{ page.version.version }}/orchestration/apply-custom-resource.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/orchestration/apply-custom-resource.md %}
 </section>
 
 <section class="filter-content" markdown="1" data-scope="helm">
@@ -75,7 +75,7 @@ tls:
 - `clientRootSecret` specifies the client secret name.
 - `nodeSecret` specifies the node secret name.
 
-{% include {{ page.version.version }}/orchestration/apply-helm-values.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/orchestration/apply-helm-values.md %}
 </section>
 
 ### Example: Authenticating with `cockroach cert`
@@ -530,7 +530,7 @@ If you previously [authenticated with `cockroach cert`](#example-authenticating-
 
 ## Migration to self-signer
 
-Previous versions of the Helm chart used the Kubernetes CA to sign certificates. However, the Kubernetes CA is deprecated from Kubernetes 1.22 and later. The Helm chart now uses a self-signer for cluster authentication.
+Previous [version](cluster-settings.html#setting-version)s of the Helm chart used the Kubernetes CA to sign certificates. However, the Kubernetes CA is deprecated from Kubernetes 1.22 and later. The Helm chart now uses a self-signer for cluster authentication.
 
 To migrate your Helm deployment to use the self-signer:
 

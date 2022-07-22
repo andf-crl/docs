@@ -6,7 +6,7 @@ toc: true
 
 The `SHOW RANGE ... FOR ROW` [statement](sql-statements.html) shows information about a [range](architecture/overview.html#glossary) for a single row in a table or index. This information is useful for verifying how SQL data maps to underlying ranges, and where the replicas for a range are located.
 
-{% include {{ page.version.version }}/misc/experimental-warning.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/experimental-warning.md %}
 
 {{site.data.alerts.callout_info}}
 To show information about the ranges for all data in a table, index, or database, use the [`SHOW RANGES`](show-ranges.html) statement.
@@ -29,7 +29,7 @@ Parameter | Description
 ----------|------------
 `tablename` | The name of the table that contains the row that you want range information about.
 `indexname` | The name of the index that contains the row that you want range information about.
-`(value1, value2, ...)` | <span class="version-tag">New in v20.2</span>: The values of the indexed columns of the row that you want range information about, as a tuple. In previous releases, this statement required the values of all columns of a row.
+`(value1, value2, ...)` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2</span>: The values of the indexed columns of the row that you want range information about, as a tuple. In previous releases, this statement required the values of all columns of a row.
 
 ## Response
 
@@ -47,7 +47,7 @@ Field | Description
 
 ## Examples
 
-{% include {{page.version.version}}/sql/movr-statements.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/movr-statements.md %}
 
 ### Show range information for a row in a table
 

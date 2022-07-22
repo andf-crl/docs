@@ -65,7 +65,7 @@ We recommend formatting your import files as `CSV`, `DELIMITED DATA`, or `AVRO`.
 
 `MYSQLDUMP` and `PGDUMP` are two examples of "bundled" data. This means that the dump file contains both the table schema and the data to import. These formats are the slowest to import, with `PGDUMP` being the slower of the two. This is because CockroachDB has to first load the whole file, read the whole file to get the schema, create the table with that schema, and then import the data. While these formats are slow, see [Import the schema separately from the data](#import-the-schema-separately-from-the-data) for guidance on speeding up bundled-data imports.
 
-{% include {{ page.version.version }}/import-table-deprecate.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/import-table-deprecate.md %}
 
 ### Import the schema separately from the data
 

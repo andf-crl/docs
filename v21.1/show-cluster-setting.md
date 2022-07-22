@@ -47,7 +47,7 @@ Only members of the `admin` role can display cluster settings. By default, the `
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/generated/diagrams/show_cluster_setting.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/show_cluster_setting.html %}
 </div>
 
 ## Parameters
@@ -76,11 +76,11 @@ Field | Description
 
 {% include_cached copy-clipboard.html %}
 ~~~ sql
-> SHOW CLUSTER SETTING diagnostics.reporting.enabled;
+> SHOW CLUSTER SETTING [diagnostics.reporting.enabled](cluster-settings.html#setting-diagnostics-reporting-enabled);
 ~~~
 
 ~~~
-  diagnostics.reporting.enabled
+  [diagnostics.reporting.enabled](cluster-settings.html#setting-diagnostics-reporting-enabled)
 ---------------------------------
               true
 (1 row)
@@ -97,9 +97,9 @@ Field | Description
            variable           |     value      | setting_type |                                                   description
 ------------------------------+----------------+--------------+-------------------------------------------------------------------------------------------------------------------
   cloudstorage.gs.default.key |                | s            | if set, JSON key to use during Google Cloud Storage operations
-  cloudstorage.http.custom_ca |                | s            | custom root CA (appended to system's default CAs) for verifying certificates when interacting with HTTPS storage
-  cloudstorage.timeout        | 10m0s          | d            | the timeout for import/export storage operations
-  cluster.organization        | Cockroach Demo | s            | organization name
+  [cloudstorage.http.custom_ca](cluster-settings.html#setting-cloudstorage-http-custom_ca) |                | s            | custom root CA (appended to system's default CAs) for verifying certificates when interacting with HTTPS storage
+  [cloudstorage.timeout](cluster-settings.html#setting-cloudstorage-timeout)        | 10m0s          | d            | the timeout for import/export storage operations
+  [cluster.organization](cluster-settings.html#setting-cluster-organization)        | Cockroach Demo | s            | organization name
   ...
 ~~~
 
@@ -115,8 +115,8 @@ Field | Description
 ----------------------------------------+-------+--------------+--------+-------------------------------------------------------------------------------------------------------------------
   changefeed.experimental_poll_interval | 1s    | d            | false  | polling interval for the table descriptors
   cloudstorage.gs.default.key           |       | s            |  true  | if set, JSON key to use during Google Cloud Storage operations
-  cloudstorage.http.custom_ca           |       | s            |  true  | custom root CA (appended to system's default CAs) for verifying certificates when interacting with HTTPS storage
-  cloudstorage.timeout                  | 10m0s | d            |  true  | the timeout for import/export storage operations
+  [cloudstorage.http.custom_ca](cluster-settings.html#setting-cloudstorage-http-custom_ca)           |       | s            |  true  | custom root CA (appended to system's default CAs) for verifying certificates when interacting with HTTPS storage
+  [cloudstorage.timeout](cluster-settings.html#setting-cloudstorage-timeout)                  | 10m0s | d            |  true  | the timeout for import/export storage operations
   ...
 ~~~
 

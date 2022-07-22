@@ -7,18 +7,18 @@ Use the `CREATE STATISTICS` [statement](sql-statements.html) to generate table s
 
 Once you [create a table](create-table.html) and load data into it (e.g., [`INSERT`](insert.html), [`IMPORT`](import.html)), table statistics can be generated. Table statistics help the cost-based optimizer determine the cardinality of the rows used in each query, which helps to predict more accurate costs.
 
-<span class="version-tag">New in v20.2:</span> For compatibility with PostgreSQL, CockroachDB supports the `ANALYZE`/`ANALYSE` statement as an alias for `CREATE STATISTICS`. For syntax, [see below](#aliases).
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> For compatibility with PostgreSQL, CockroachDB supports the `ANALYZE`/`ANALYSE` statement as an alias for `CREATE STATISTICS`. For syntax, [see below](#aliases).
 
 {{site.data.alerts.callout_info}}
 [By default, CockroachDB automatically generates statistics](cost-based-optimizer.html#table-statistics) on all indexed columns, and up to 100 non-indexed columns. As a result, most users do not need to issue `CREATE STATISTICS` statements directly.
 
-<span class="version-tag">New in v20.2:</span> CockroachDB also automatically collects [multi-column statistics](#create-statistics-on-multiple-columns) on columns that prefix each index.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> CockroachDB also automatically collects [multi-column statistics](#create-statistics-on-multiple-columns) on columns that prefix each index.
 {{site.data.alerts.end}}
 
 ## Syntax
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/create_stats.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/create_stats.html %}
 </div>
 
 ## Parameters
@@ -36,12 +36,12 @@ The user must have the `CREATE` [privilege](authorization.html#assign-privileges
 
 ## Aliases
 
-<span class="version-tag">New in v20.2:</span> For PostgreSQL compatibility, CockroachDB supports `ANALYZE`/`ANALYSE` as an alias for `CREATE STATISTICS`.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> For PostgreSQL compatibility, CockroachDB supports `ANALYZE`/`ANALYSE` as an alias for `CREATE STATISTICS`.
 
 ### Alias syntax
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/analyze.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/analyze.html %}
 </div>
 
 ### Alias parameters
@@ -52,7 +52,7 @@ Parameter | Description
 
 ## Examples
 
-{% include {{page.version.version}}/sql/movr-statements.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/movr-statements.md %}
 
 ### Create statistics on a single column
 
@@ -121,7 +121,7 @@ Note that statistics are automatically collected for all columns in the `rides` 
 (15 rows)
 ~~~
 
-<span class="version-tag">New in v20.2:</span> Multi-column statistics are automatically collected for all columns that prefix an index. In this example, `city` and `revenue` are not an index prefix, making the `city_revenue_stats` statistics unique for the table.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> Multi-column statistics are automatically collected for all columns that prefix an index. In this example, `city` and `revenue` are not an index prefix, making the `city_revenue_stats` statistics unique for the table.
 
 ### Create statistics on a default set of columns
 
@@ -170,7 +170,7 @@ For more information about how the `AS OF SYSTEM TIME` clause works, including s
 
 ### Delete statistics
 
-{% include {{ page.version.version }}/misc/delete-statistics.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/delete-statistics.md %}
 
 ### View statistics jobs
 

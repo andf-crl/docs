@@ -15,7 +15,7 @@ By default, only the `root` user can control a job.
 
 ## Synopsis
 
-{% include {{ page.version.version }}/sql/diagrams/resume_job.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/resume_job.html %}
 
 ## Parameters
 

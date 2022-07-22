@@ -21,7 +21,7 @@ The user must have the `INSERT` and `UPDATE` [privileges](privileges.html) on th
 
 ## Synopsis
 
-{% include {{ page.version.version }}/sql/diagrams/create_user.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/create_user.html %}
 
 ## Parameters
 

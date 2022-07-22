@@ -28,7 +28,7 @@ For more information, see [Find the Indexes and Key Ranges a Query Uses](#find-t
 
 ## Synopsis
 
-<section>{% include {{ page.version.version }}/sql/diagrams/explain.html %}</section>
+<section>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/explain.html %}</section>
 
 ## Required privileges
 
@@ -40,8 +40,8 @@ The user requires the appropriate [privileges](authorization.html#assign-privile
 --------------------+------------
  `VERBOSE`          | Show as much information as possible about the query plan.
  `TYPES`            | Include the intermediate [data types](data-types.html) CockroachDB chooses to evaluate intermediate SQL expressions.
- `OPT`              | <span class="version-tag">New in v2.1:</span> Display a query plan tree if the query will be run with the [cost-based optimizer](cost-based-optimizer.html). If it returns an "unsupported statement" error, the query will not be run with the cost-based optimizer and will be run with the heuristic planner.
- `DISTSQL`          | <span class="version-tag">New in v2.1:</span> Generate a link to a [distributed SQL physical query plan tree](explain-analyze.html#distsql-plan-viewer).
+ `OPT`              | <span class="[version](cluster-settings.html#setting-version)-tag">New in v2.1:</span> Display a query plan tree if the query will be run with the [cost-based optimizer](cost-based-optimizer.html). If it returns an "unsupported statement" error, the query will not be run with the cost-based optimizer and will be run with the heuristic planner.
+ `DISTSQL`          | <span class="[version](cluster-settings.html#setting-version)-tag">New in v2.1:</span> Generate a link to a [distributed SQL physical query plan tree](explain-analyze.html#distsql-plan-viewer).
  `preparable_stmt` | The [statement](sql-grammar.html#preparable_stmt) you want details about. All preparable statements are explainable.
 
 {{site.data.alerts.callout_danger}}
@@ -143,7 +143,7 @@ The `TYPES` mode includes the types of the values used in the query plan.  It al
 
 ### `OPT` option
 
-<span class="version-tag">New in v2.1:</span> The `OPT` option displays a query plan tree, along with some information that was used to plan the query, if the query will be run with the [cost-based optimizer](cost-based-optimizer.html). If it returns an "unsupported statement" error, the query will not be run with the cost-based optimizer and will be run with the legacy heuristic planner.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v2.1:</span> The `OPT` option displays a query plan tree, along with some information that was used to plan the query, if the query will be run with the [cost-based optimizer](cost-based-optimizer.html). If it returns an "unsupported statement" error, the query will not be run with the cost-based optimizer and will be run with the legacy heuristic planner.
 
 For example, the following query returns the query plan tree, which means that it will be run with the cost-based optimizer:
 
@@ -187,7 +187,7 @@ pq: unsupported statement: *tree.Insert
 
 ### `DISTSQL` option
 
-<span class="version-tag">New in v2.1:</span> The  `DISTSQL` option generates a physical query plan for a query. Query plans provide information around SQL execution, which can be used to troubleshoot slow queries. For more information about distributed SQL queries, see the [DistSQL section of our SQL Layer Architecture docs](architecture/sql-layer.html#distsql).
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v2.1:</span> The  `DISTSQL` option generates a physical query plan for a query. Query plans provide information around SQL execution, which can be used to troubleshoot slow queries. For more information about distributed SQL queries, see the [DistSQL section of our SQL Layer Architecture docs](architecture/sql-layer.html#distsql).
 
 `EXPLAIN (DISTSQL)` generates a physical query plan that provides high level information about how a query will be executed:
 

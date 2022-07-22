@@ -9,7 +9,7 @@ The `DROP COLUMN` [statement](sql-statements.html) is part of `ALTER TABLE` and 
 
 ## Synopsis
 
-<section> {% include {{ page.version.version }}/sql/diagrams/drop_column.html %} </section>
+<section> {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/drop_column.html %} </section>
 
 ## Required privileges
 
@@ -26,7 +26,7 @@ The user must have the `CREATE` [privilege](authorization.html#assign-privileges
 
 ## Viewing schema changes
 
-{% include {{ page.version.version }}/misc/schema-change-view-job.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-view-job.md %}
 
 ## Examples
 

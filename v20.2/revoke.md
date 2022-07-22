@@ -39,7 +39,7 @@ Parameter       | Description
 
 The following privileges can be revoked:
 
-{% include {{ page.version.version }}/sql/privileges.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/privileges.md %}
 
 ## Required privileges
 
@@ -49,7 +49,7 @@ In addition to the `GRANT` privilege, the user revoking privileges must have the
 
 ## Examples
 
-{% include {{page.version.version}}/sql/movr-statements.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/movr-statements.md %}
 
 ### Revoke privileges on databases
 

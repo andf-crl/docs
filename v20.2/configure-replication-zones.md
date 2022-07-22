@@ -84,7 +84,7 @@ Use the [`ALTER ... CONFIGURE ZONE`](configure-zone.html) [statement](sql-statem
 > ALTER TABLE t CONFIGURE ZONE USING range_min_bytes = 0, range_max_bytes = 90000, gc.ttlseconds = 89999, num_replicas = 5, constraints = '[-region=west]';
 ~~~
 
-{% include {{page.version.version}}/zone-configs/variables.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/zone-configs/variables.md %}
 
 ### Replication constraints
 
@@ -140,11 +140,11 @@ Use the [`SHOW ZONE CONFIGURATIONS`](#view-all-replication-zones) statement to v
 
 You can also use the [`SHOW PARTITIONS`](show-partitions.html) statement to view the zone constraints on existing table partitions, or [`SHOW CREATE TABLE`](show-create.html) to view zone configurations for a table.
 
-{% include {{page.version.version}}/sql/crdb-internal-partitions.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/crdb-internal-partitions.md %}
 
 ## Basic examples
 
-{% include {{ page.version.version }}/sql/movr-statements-geo-partitioned-replicas.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/movr-statements-geo-partitioned-replicas.md %}
 
 These examples focus on the basic approach and syntax for working with zone configuration. For examples demonstrating how to use constraints, see [Scenario-based examples](#scenario-based-examples).
 
@@ -152,67 +152,67 @@ For more examples, see [`CONFIGURE ZONE`](configure-zone.html) and [`SHOW ZONE C
 
 ### View all replication zones
 
-{% include {{ page.version.version }}/zone-configs/view-all-replication-zones.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/zone-configs/view-all-replication-zones.md %}
 
 For more information, see [`SHOW ZONE CONFIGURATIONS`](show-zone-configurations.html).
 
 ### View the default replication zone
 
-{% include {{ page.version.version }}/zone-configs/view-the-default-replication-zone.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/zone-configs/view-the-default-replication-zone.md %}
 
 For more information, see [`SHOW ZONE CONFIGURATIONS`](show-zone-configurations.html).
 
 ### Edit the default replication zone
 
-{% include {{ page.version.version }}/zone-configs/edit-the-default-replication-zone.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/zone-configs/edit-the-default-replication-zone.md %}
 
 For more information, see [`CONFIGURE ZONE`](configure-zone.html).
 
 ### Create a replication zone for a system range
 
-{% include {{ page.version.version }}/zone-configs/create-a-replication-zone-for-a-system-range.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/zone-configs/create-a-replication-zone-for-a-system-range.md %}
 
 For more information, see [`CONFIGURE ZONE`](configure-zone.html).
 
 ### Create a replication zone for a database
 
-{% include {{ page.version.version }}/zone-configs/create-a-replication-zone-for-a-database.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/zone-configs/create-a-replication-zone-for-a-database.md %}
 
 For more information, see [`CONFIGURE ZONE`](configure-zone.html).
 
 ### Create a replication zone for a table
 
-{% include {{ page.version.version }}/zone-configs/create-a-replication-zone-for-a-table.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/zone-configs/create-a-replication-zone-for-a-table.md %}
 
 For more information, see [`CONFIGURE ZONE`](configure-zone.html).
 
 ### Create a replication zone for a secondary index
 
-{% include {{ page.version.version }}/zone-configs/create-a-replication-zone-for-a-secondary-index.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/zone-configs/create-a-replication-zone-for-a-secondary-index.md %}
 
 For more information, see [`CONFIGURE ZONE`](configure-zone.html).
 
 ### Create a replication zone for a partition
 
-{% include {{ page.version.version }}/zone-configs/create-a-replication-zone-for-a-table-partition.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/zone-configs/create-a-replication-zone-for-a-table-partition.md %}
 
 For more information, see [`CONFIGURE ZONE`](configure-zone.html).
 
 ### Reset a replication zone
 
-{% include {{ page.version.version }}/zone-configs/reset-a-replication-zone.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/zone-configs/reset-a-replication-zone.md %}
 
 For more information, see [`CONFIGURE ZONE`](configure-zone.html).
 
 ### Remove a replication zone
 
-{% include {{ page.version.version }}/zone-configs/remove-a-replication-zone.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/zone-configs/remove-a-replication-zone.md %}
 
 For more information, see [`CONFIGURE ZONE`](configure-zone.html).
 
 ### Constrain leaseholders to specific availability zones
 
-{% include {{ page.version.version }}/zone-configs/constrain-leaseholders-to-specific-datacenters.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/zone-configs/constrain-leaseholders-to-specific-datacenters.md %}
 
 For more information, see [`CONFIGURE ZONE`](configure-zone.html).
 

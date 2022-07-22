@@ -4,7 +4,7 @@ summary: Learn how to migrate data from GeoJSON into a CockroachDB cluster.
 toc: true
 ---
 
-<span class="version-tag">New in v20.2</span>: CockroachDB supports efficiently storing and querying [spatial data](spatial-data.html).
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2</span>: CockroachDB supports efficiently storing and querying [spatial data](spatial-data.html).
 
 This page has instructions for migrating data from the [GeoJSON](https://en.wikipedia.org/wiki/GeoJSON) format into CockroachDB using [`ogr2ogr`](https://gdal.org/programs/ogr2ogr.html) and [`IMPORT`][import].
 
@@ -18,7 +18,7 @@ To follow along with the example below, you will need the following prerequisite
 - [`ogr2ogr`](https://gdal.org/programs/ogr2ogr.html)
 - [Python 3](https://www.python.org)
 
-{% include {{page.version.version}}/spatial/ogr2ogr-supported-version.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/spatial/ogr2ogr-supported-[version](cluster-settings.html#setting-version).md %}
 
 ## Step 1. Download the GeoJSON data
 
@@ -38,7 +38,7 @@ Next, convert the GeoJSON data to SQL using the following `ogr2ogr` command:
 ogr2ogr -f PGDUMP tanks.sql -lco LAUNDER=NO -lco DROP_TABLE=OFF tanks.geojson
 ~~~
 
-{% include {{page.version.version}}/spatial/ogr2ogr-supported-version.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/spatial/ogr2ogr-supported-[version](cluster-settings.html#setting-version).md %}
 
 ## Step 3. Host the files where the cluster can access them
 

@@ -4,9 +4,9 @@ summary: The CONVERT TO SCHEMA statement converts a database to a schema.
 toc: true
 ---
 
-<span class="version-tag">New in v20.2</span>: The `CONVERT TO SCHEMA` [statement](sql-statements.html) converts a database to a new, user-defined [schema](sql-name-resolution.html). When you convert a database to a schema, all [tables](create-table.html), [sequences](create-sequence.html), and [user-defined types](enum.html) in the database become child objects of the new schema, and the database is deleted.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2</span>: The `CONVERT TO SCHEMA` [statement](sql-statements.html) converts a database to a new, user-defined [schema](sql-name-resolution.html). When you convert a database to a schema, all [tables](create-table.html), [sequences](create-sequence.html), and [user-defined types](enum.html) in the database become child objects of the new schema, and the database is deleted.
 
-In CockroachDB versions < v20.2, [user-defined schemas](create-schema.html) are not supported, and all stored objects in a given database use the `public` schema. To provide a [multi-level structure for stored objects](sql-name-resolution.html) in earlier versions of CockroachDB, we've recommended using [database](create-database.html) namespaces instead of schema namespaces. The `CONVERT TO SCHEMA` statement is meant to help users who are upgrading to v20.2 and want to use schema namespaces in a way that is more similar to [PostgreSQL](https://www.postgresql.org/docs/current/ddl-schemas.html).
+In CockroachDB [version](cluster-settings.html#setting-version)s < v20.2, [user-defined schemas](create-schema.html) are not supported, and all stored objects in a given database use the `public` schema. To provide a [multi-level structure for stored objects](sql-name-resolution.html) in earlier [version](cluster-settings.html#setting-version)s of CockroachDB, we've recommended using [database](create-database.html) namespaces instead of schema namespaces. The `CONVERT TO SCHEMA` statement is meant to help users who are upgrading to v20.2 and want to use schema namespaces in a way that is more similar to [PostgreSQL](https://www.postgresql.org/docs/current/ddl-schemas.html).
 
 {{site.data.alerts.callout_info}}
 `CONVERT TO SCHEMA` is a subcommand of [`ALTER DATABASE`](alter-database.html).
@@ -39,7 +39,7 @@ A database cannot be converted to a schema if:
 
 ## Example
 
-{% include {{page.version.version}}/sql/movr-statements.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/movr-statements.md %}
 
 ### Convert a database to a schema
 

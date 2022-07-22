@@ -1,4 +1,4 @@
-It is strongly recommended that you regularly upgrade your CockroachDB version in order to pick up bug fixes, performance improvements, and new features. The [CockroachDB upgrade documentation](upgrade-cockroach-version.html) describes how to perform a "rolling upgrade" of a CockroachDB cluster by stopping and restarting nodes one at a time. This is to ensure that the cluster remains available during the upgrade.
+It is strongly recommended that you regularly upgrade your CockroachDB [version](cluster-settings.html#setting-version) in order to pick up bug fixes, performance improvements, and new features. The [CockroachDB upgrade documentation](upgrade-cockroach-[version](cluster-settings.html#setting-version).html) describes how to perform a "rolling upgrade" of a CockroachDB cluster by stopping and restarting nodes one at a time. This is to ensure that the cluster remains available during the upgrade.
 
 The corresponding process on Kubernetes is a [staged update](https://kubernetes.io/docs/tutorials/stateful-application/basic-stateful-set/#staging-an-update), in which the Docker image is updated in the CockroachDB StatefulSet and then applied to the pods one at a time.
 
@@ -9,7 +9,7 @@ The corresponding process on Kubernetes is a [staged update](https://kubernetes.
     This step is relevant only when upgrading from v20.1.x to v20.2. For upgrades within the v20.2.x series, skip this step.
     {{site.data.alerts.end}}
 
-    By default, after all nodes are running the new version, the upgrade process will be **auto-finalized**. This will enable certain performance improvements and bug fixes introduced in v20.2. After finalization, however, it will no longer be possible to perform a downgrade to v20.1. In the event of a catastrophic failure or corruption, the only option will be to start a new cluster using the old binary and then restore from one of the backups created prior to performing the upgrade.
+    By default, after all nodes are running the new [version](cluster-settings.html#setting-version), the upgrade process will be **auto-finalized**. This will enable certain performance improvements and bug fixes introduced in v20.2. After finalization, however, it will no longer be possible to perform a downgrade to v20.1. In the event of a catastrophic failure or corruption, the only option will be to start a new cluster using the old binary and then restore from one of the backups created prior to performing the upgrade.
 
     We recommend disabling auto-finalization so you can monitor the stability and performance of the upgraded cluster before finalizing the upgrade:
 
@@ -22,11 +22,11 @@ The corresponding process on Kubernetes is a [staged update](https://kubernetes.
         --certs-dir cockroach-certs
         ~~~
 
-    1. Set the `cluster.preserve_downgrade_option` [cluster setting](cluster-settings.html) to the version you are upgrading from:
+    1. Set the `[cluster.preserve_downgrade_option](cluster-settings.html#setting-cluster-preserve_downgrade_option)` [cluster setting](cluster-settings.html) to the [version](cluster-settings.html#setting-version) you are upgrading from:
 
         {% include copy-clipboard.html %}
         ~~~ sql
-        > SET CLUSTER SETTING cluster.preserve_downgrade_option = '20.1';
+        > SET CLUSTER SETTING [cluster.preserve_downgrade_option](cluster-settings.html#setting-cluster-preserve_downgrade_option) = '20.1';
         ~~~
         
     1. Exit the SQL shell and pod:
@@ -47,7 +47,7 @@ The corresponding process on Kubernetes is a [staged update](https://kubernetes.
 
     ~~~
     image:
-      name: cockroachdb/cockroach:{{page.release_info.version}}
+      name: cockroachdb/cockroach:{{page.release_info.[version](cluster-settings.html#setting-version)}}
     ~~~
 
     Apply `example.yaml` with the new image:
@@ -84,14 +84,14 @@ The corresponding process on Kubernetes is a [staged update](https://kubernetes.
     ~~~
 
     ~~~
-    cockroachdb-0   cockroachdb/cockroach:{{page.release_info.version}}
-    cockroachdb-1   cockroachdb/cockroach:{{page.release_info.version}}
-    cockroachdb-2   cockroachdb/cockroach:{{page.release_info.version}}
-    cockroachdb-3   cockroachdb/cockroach:{{page.release_info.version}}
+    cockroachdb-0   cockroachdb/cockroach:{{page.release_info.[version](cluster-settings.html#setting-version)}}
+    cockroachdb-1   cockroachdb/cockroach:{{page.release_info.[version](cluster-settings.html#setting-version)}}
+    cockroachdb-2   cockroachdb/cockroach:{{page.release_info.[version](cluster-settings.html#setting-version)}}
+    cockroachdb-3   cockroachdb/cockroach:{{page.release_info.[version](cluster-settings.html#setting-version)}}
     ...
     ~~~
 
-    You can also check the CockroachDB version of each node in the [DB Console](ui-cluster-overview-page.html#node-details).
+    You can also check the CockroachDB [version](cluster-settings.html#setting-version) of each node in the [DB Console](ui-cluster-overview-page.html#node-details).
 
 1. Finish the upgrade.
 
@@ -101,7 +101,7 @@ The corresponding process on Kubernetes is a [staged update](https://kubernetes.
 
     If you disabled auto-finalization in step 1 above, monitor the stability and performance of your cluster for as long as you require to feel comfortable with the upgrade (generally at least a day). If during this time you decide to roll back the upgrade, repeat the rolling restart procedure with the old binary.
 
-    Once you are satisfied with the new version, re-enable auto-finalization.
+    Once you are satisfied with the new [version](cluster-settings.html#setting-version), re-enable auto-finalization.
     
     1. Start the CockroachDB [built-in SQL client](cockroach-sql.html):
 
@@ -116,7 +116,7 @@ The corresponding process on Kubernetes is a [staged update](https://kubernetes.
 
         {% include copy-clipboard.html %}
         ~~~ sql
-        > RESET CLUSTER SETTING cluster.preserve_downgrade_option;
+        > RESET CLUSTER SETTING [cluster.preserve_downgrade_option](cluster-settings.html#setting-cluster-preserve_downgrade_option);
         ~~~
 
     1. Exit the SQL shell and pod:
@@ -135,7 +135,7 @@ The corresponding process on Kubernetes is a [staged update](https://kubernetes.
     This step is relevant only when upgrading from v20.1.x to v20.2. For upgrades within the v20.2.x series, skip this step.
     {{site.data.alerts.end}}
 
-    By default, after all nodes are running the new version, the upgrade process will be **auto-finalized**. This will enable certain performance improvements and bug fixes introduced in v20.2. After finalization, however, it will no longer be possible to perform a downgrade to v20.1. In the event of a catastrophic failure or corruption, the only option will be to start a new cluster using the old binary and then restore from one of the backups created prior to performing the upgrade.
+    By default, after all nodes are running the new [version](cluster-settings.html#setting-version), the upgrade process will be **auto-finalized**. This will enable certain performance improvements and bug fixes introduced in v20.2. After finalization, however, it will no longer be possible to perform a downgrade to v20.1. In the event of a catastrophic failure or corruption, the only option will be to start a new cluster using the old binary and then restore from one of the backups created prior to performing the upgrade.
 
     We recommend disabling auto-finalization so you can monitor the stability and performance of the upgraded cluster before finalizing the upgrade:
 
@@ -167,11 +167,11 @@ The corresponding process on Kubernetes is a [staged update](https://kubernetes.
 
     {% endif %}
 
-    1. Set the `cluster.preserve_downgrade_option` [cluster setting](cluster-settings.html) to the version you are upgrading from:
+    1. Set the `[cluster.preserve_downgrade_option](cluster-settings.html#setting-cluster-preserve_downgrade_option)` [cluster setting](cluster-settings.html) to the [version](cluster-settings.html#setting-version) you are upgrading from:
 
         {% include copy-clipboard.html %}
         ~~~ sql
-        > SET CLUSTER SETTING cluster.preserve_downgrade_option = '20.1';
+        > SET CLUSTER SETTING [cluster.preserve_downgrade_option](cluster-settings.html#setting-cluster-preserve_downgrade_option) = '20.1';
         ~~~
 
     1. Exit the SQL shell and delete the temporary pod:
@@ -199,7 +199,7 @@ The corresponding process on Kubernetes is a [staged update](https://kubernetes.
     ~~~ shell
     $ kubectl patch statefulset cockroachdb \
     --type='json' \
-    -p='[{"op": "replace", "path": "/spec/template/spec/containers/0/image", "value":"cockroachdb/cockroach:{{page.release_info.version}}"}]'
+    -p='[{"op": "replace", "path": "/spec/template/spec/containers/0/image", "value":"cockroachdb/cockroach:{{page.release_info.[version](cluster-settings.html#setting-version)}}"}]'
     ~~~
 
     ~~~
@@ -292,13 +292,13 @@ The corresponding process on Kubernetes is a [staged update](https://kubernetes.
     ~~~
 
     ~~~
-    cockroachdb-0   cockroachdb/cockroach:{{page.release_info.version}}
-    cockroachdb-1   cockroachdb/cockroach:{{page.release_info.version}}
-    cockroachdb-2   cockroachdb/cockroach:{{page.release_info.version}}
+    cockroachdb-0   cockroachdb/cockroach:{{page.release_info.[version](cluster-settings.html#setting-version)}}
+    cockroachdb-1   cockroachdb/cockroach:{{page.release_info.[version](cluster-settings.html#setting-version)}}
+    cockroachdb-2   cockroachdb/cockroach:{{page.release_info.[version](cluster-settings.html#setting-version)}}
     ...
     ~~~
 
-    You can also check the CockroachDB version of each node in the [DB Console](ui-cluster-overview-page.html#node-details).
+    You can also check the CockroachDB [version](cluster-settings.html#setting-version) of each node in the [DB Console](ui-cluster-overview-page.html#node-details).
 
 
 1. Finish the upgrade.
@@ -309,7 +309,7 @@ The corresponding process on Kubernetes is a [staged update](https://kubernetes.
 
     If you disabled auto-finalization in step 1 above, monitor the stability and performance of your cluster for as long as you require to feel comfortable with the upgrade (generally at least a day). If during this time you decide to roll back the upgrade, repeat the rolling restart procedure with the old binary.
 
-    Once you are satisfied with the new version, re-enable auto-finalization:
+    Once you are satisfied with the new [version](cluster-settings.html#setting-version), re-enable auto-finalization:
 
     {% if page.secure == true %}
 
@@ -344,7 +344,7 @@ The corresponding process on Kubernetes is a [staged update](https://kubernetes.
 
         {% include copy-clipboard.html %}
         ~~~ sql
-        > RESET CLUSTER SETTING cluster.preserve_downgrade_option;
+        > RESET CLUSTER SETTING [cluster.preserve_downgrade_option](cluster-settings.html#setting-cluster-preserve_downgrade_option);
         ~~~
 
     3. Exit the SQL shell and delete the temporary pod:
@@ -363,7 +363,7 @@ The corresponding process on Kubernetes is a [staged update](https://kubernetes.
     This step is relevant only when upgrading from v20.1.x to v20.2. For upgrades within the v20.2.x series, skip this step.
     {{site.data.alerts.end}}
 
-    By default, after all nodes are running the new version, the upgrade process will be **auto-finalized**. This will enable certain performance improvements and bug fixes introduced in v20.2. After finalization, however, it will no longer be possible to perform a downgrade to v20.1. In the event of a catastrophic failure or corruption, the only option will be to start a new cluster using the old binary and then restore from one of the backups created prior to performing the upgrade.
+    By default, after all nodes are running the new [version](cluster-settings.html#setting-version), the upgrade process will be **auto-finalized**. This will enable certain performance improvements and bug fixes introduced in v20.2. After finalization, however, it will no longer be possible to perform a downgrade to v20.1. In the event of a catastrophic failure or corruption, the only option will be to start a new cluster using the old binary and then restore from one of the backups created prior to performing the upgrade.
 
     We recommend disabling auto-finalization so you can monitor the stability and performance of the upgraded cluster before finalizing the upgrade:
 
@@ -396,11 +396,11 @@ The corresponding process on Kubernetes is a [staged update](https://kubernetes.
 
     {% endif %}
 
-    1. Set the `cluster.preserve_downgrade_option` [cluster setting](cluster-settings.html) to the version you are upgrading from:
+    1. Set the `[cluster.preserve_downgrade_option](cluster-settings.html#setting-cluster-preserve_downgrade_option)` [cluster setting](cluster-settings.html) to the [version](cluster-settings.html#setting-version) you are upgrading from:
 
         {% include copy-clipboard.html %}
         ~~~ sql
-        > SET CLUSTER SETTING cluster.preserve_downgrade_option = '20.1';
+        > SET CLUSTER SETTING [cluster.preserve_downgrade_option](cluster-settings.html#setting-cluster-preserve_downgrade_option) = '20.1';
         ~~~
 
     1. Exit the SQL shell and delete the temporary pod:
@@ -423,7 +423,7 @@ The corresponding process on Kubernetes is a [staged update](https://kubernetes.
 1. Kick off the upgrade process by changing the Docker image used in the CockroachDB StatefulSet:
 
     {{site.data.alerts.callout_info}}
-    For Helm, you must remove the cluster initialization job from when the cluster was created before the cluster version can be changed.
+    For Helm, you must remove the cluster initialization job from when the cluster was created before the cluster [version](cluster-settings.html#setting-version) can be changed.
     {{site.data.alerts.end}}
 
     {% include copy-clipboard.html %}
@@ -436,7 +436,7 @@ The corresponding process on Kubernetes is a [staged update](https://kubernetes.
     $ helm upgrade \
     my-release \
     cockroachdb/cockroachdb \
-    --set image.tag={{page.release_info.version}} \
+    --set image.tag={{page.release_info.[version](cluster-settings.html#setting-version)}} \
     --reuse-values
     ~~~
 
@@ -530,13 +530,13 @@ The corresponding process on Kubernetes is a [staged update](https://kubernetes.
     ~~~
 
     ~~~
-    my-release-cockroachdb-0    cockroachdb/cockroach:{{page.release_info.version}}
-    my-release-cockroachdb-1    cockroachdb/cockroach:{{page.release_info.version}}
-    my-release-cockroachdb-2    cockroachdb/cockroach:{{page.release_info.version}}
+    my-release-cockroachdb-0    cockroachdb/cockroach:{{page.release_info.[version](cluster-settings.html#setting-version)}}
+    my-release-cockroachdb-1    cockroachdb/cockroach:{{page.release_info.[version](cluster-settings.html#setting-version)}}
+    my-release-cockroachdb-2    cockroachdb/cockroach:{{page.release_info.[version](cluster-settings.html#setting-version)}}
     ...
     ~~~
 
-    You can also check the CockroachDB version of each node in the [DB Console](ui-cluster-overview-page.html#node-details).
+    You can also check the CockroachDB [version](cluster-settings.html#setting-version) of each node in the [DB Console](ui-cluster-overview-page.html#node-details).
 
 
 1. Finish the upgrade.
@@ -547,7 +547,7 @@ The corresponding process on Kubernetes is a [staged update](https://kubernetes.
 
     If you disabled auto-finalization in step 1 above, monitor the stability and performance of your cluster for as long as you require to feel comfortable with the upgrade (generally at least a day). If during this time you decide to roll back the upgrade, repeat the rolling restart procedure with the old binary.
 
-    Once you are satisfied with the new version, re-enable auto-finalization:
+    Once you are satisfied with the new [version](cluster-settings.html#setting-version), re-enable auto-finalization:
 
     {% if page.secure == true %}
 
@@ -582,7 +582,7 @@ The corresponding process on Kubernetes is a [staged update](https://kubernetes.
 
         {% include copy-clipboard.html %}
         ~~~ sql
-        > RESET CLUSTER SETTING cluster.preserve_downgrade_option;
+        > RESET CLUSTER SETTING [cluster.preserve_downgrade_option](cluster-settings.html#setting-cluster-preserve_downgrade_option);
         ~~~
 
     3. Exit the SQL shell and delete the temporary pod:

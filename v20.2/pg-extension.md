@@ -4,11 +4,11 @@ summary: The pg_extension schema contains information about CockroachDB extensio
 toc: true
 ---
 
-<span class="version-tag">New in v20.2</span>: The `pg_extension` [system catalogs](system-catalogs.html) provides information about CockroachDB extensions.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2</span>: The `pg_extension` [system catalogs](system-catalogs.html) provides information about CockroachDB extensions.
 
 ## Data exposed by `pg_extension`
 
-In CockroachDB {{ page.version.version }}, `pg_extension` contains the following tables, all of which provide information about CockroachDB's [spatial extension](spatial-features.html):
+In CockroachDB {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}, `pg_extension` contains the following tables, all of which provide information about CockroachDB's [spatial extension](spatial-features.html):
 
 - `geography_columns`
 - `geometry_columns`

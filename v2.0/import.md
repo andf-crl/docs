@@ -75,7 +75,7 @@ Imported tables are treated as new tables, so you must [`GRANT`](grant.html) pri
 
 ## Performance
 
-All nodes are used during tabular data conversion into key-value data, which means all nodes' CPU and RAM will be partially consumed by the [`IMPORT`](import.html) task in addition to serving normal traffic.
+All nodes are used during tabular data con[version](cluster-settings.html#setting-version) into key-value data, which means all nodes' CPU and RAM will be partially consumed by the [`IMPORT`](import.html) task in addition to serving normal traffic.
 
 ## Viewing and Controlling Import Jobs
 
@@ -88,7 +88,7 @@ After the import has been initiated, you can control it with [`PAUSE JOB`](pause
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/import.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/import.html %}
 </div>
 
 {{site.data.alerts.callout_info}}The <code>IMPORT</code> statement cannot be used within a <a href=transactions.html>transaction</a>.{{site.data.alerts.end}}
@@ -111,7 +111,7 @@ Only the `root` user can run [`IMPORT`](import.html).
 
 URLs for the files you want to import must use the following format:
 
-{% include {{ page.version.version }}/misc/external-urls.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/external-urls.md %}
 
 ### Import Options
 
@@ -259,10 +259,10 @@ WITH
 
 ## Known Limitation
 
-`IMPORT` can sometimes fail with a "context canceled" error, or can restart itself many times without ever finishing. If this is happening, it is likely due to a high amount of disk contention. This can be mitigated by setting the `kv.bulk_io_write.max_rate` [cluster setting](cluster-settings.html) to a value below your max disk write speed. For example, to set it to 10MB/s, execute:
+`IMPORT` can sometimes fail with a "context canceled" error, or can restart itself many times without ever finishing. If this is happening, it is likely due to a high amount of disk contention. This can be mitigated by setting the `[kv.bulk_io_write.max_rate](cluster-settings.html#setting-kv-bulk_io_write-max_rate)` [cluster setting](cluster-settings.html) to a value below your max disk write speed. For example, to set it to 10MB/s, execute:
 
 ~~~ sql
-> SET CLUSTER SETTING kv.bulk_io_write.max_rate = '10MB';
+> SET CLUSTER SETTING [kv.bulk_io_write.max_rate](cluster-settings.html#setting-kv-bulk_io_write-max_rate) = '10MB';
 ~~~
 
 ## See Also

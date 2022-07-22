@@ -11,7 +11,7 @@ The `DROP CONSTRAINT` [statement](sql-statements.html) is part of `ALTER TABLE` 
 
 ## Synopsis
 
-{% include {{ page.version.version }}/sql/diagrams/drop_constraint.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/drop_constraint.html %}
 
 ## Required Privileges
 
@@ -24,8 +24,8 @@ The user must have the `CREATE` [privilege](privileges.html) on the table.
 | `table_name` | The name of the table with the constraint you want to drop. |
 | `name` | The name of the constraint you want to drop. |
 
-## Viewing Schema Changes <span class="version-tag">New in v1.1</span>
-{% include {{ page.version.version }}/misc/schema-change-view-job.md %}
+## Viewing Schema Changes <span class="[version](cluster-settings.html#setting-version)-tag">New in v1.1</span>
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-view-job.md %}
 
 ## Example
 

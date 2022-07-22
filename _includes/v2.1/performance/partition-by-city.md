@@ -2,14 +2,14 @@ For this service, the most effective technique for improving read and write late
 
 1. Partitioning is an enterprise feature, so start off by [registering for a 30-day trial license](https://www.cockroachlabs.com/get-cockroachdb/enterprise/).
 
-2. Once you've received the trial license, SSH to any node in your cluster and [apply the license](enterprise-licensing.html#set-the-trial-or-enterprise-license-key):
+2. Once you've received the trial license, SSH to any node in your cluster and [apply the license](enterprise-licensing.html#set-the-trial-or-[enterprise.license](cluster-settings.html#setting-enterprise-license)-key):
 
     {% include copy-clipboard.html %}
     ~~~ shell
     $ cockroach sql \
     {{page.certs}} \
     --host=<address of any node> \
-    --execute="SET CLUSTER SETTING cluster.organization = '<your org name>';"
+    --execute="SET CLUSTER SETTING [cluster.organization](cluster-settings.html#setting-cluster-organization) = '<your org name>';"
     ~~~
 
     {% include copy-clipboard.html %}
@@ -17,7 +17,7 @@ For this service, the most effective technique for improving read and write late
     $ cockroach sql \
     {{page.certs}} \
     --host=<address of any node> \
-    --execute="SET CLUSTER SETTING enterprise.license = '<your license>';"
+    --execute="SET CLUSTER SETTING [enterprise.license](cluster-settings.html#setting-enterprise-license) = '<your license>';"
     ~~~
 
 3. Define partitions for all tables and their secondary indexes.

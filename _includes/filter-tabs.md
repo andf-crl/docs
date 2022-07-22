@@ -13,7 +13,7 @@ filter_html: The HTML of the text to be used for that page's tab in the filter.
 filter_sort: The sort order of that particular page's tab in the filter. If this value is accidentally set to be the same across two or more pages, those pages will be sorted by alphabetical order of their file name.
 {% endcomment %}
 
-{% assign fpage = site.pages | where: "filter_category", page.filter_category | where_exp: "p", "p.version.version == page.version.version" | sort: "filter_sort" %}
+{% assign fpage = site.pages | where: "filter_category", page.filter_category | where_exp: "p", "p.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) == page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)" | sort: "filter_sort" %}
 
 <div class="filters clearfix">
     {% for x in fpage %}

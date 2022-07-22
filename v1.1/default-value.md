@@ -18,7 +18,7 @@ You can only apply the Default Value constraint to individual columns.
 
 {{site.data.alerts.callout_info}}You can also add the Default Value constraint to an existing table through <a href="alter-column.html#set-or-change-a-default-value"><code>ALTER COLUMN</code></a>. {{site.data.alerts.end}}
 
-{% include {{ page.version.version }}/sql/diagrams/default_value_column_level.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/default_value_column_level.html %}
 
 | Parameter | Description |
 |-----------|-------------|

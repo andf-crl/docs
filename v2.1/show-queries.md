@@ -25,7 +25,7 @@ No [privileges](authorization.html#assign-privileges) are required to execute th
 ## Synopsis
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/show_queries.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/show_queries.html %}
 </div>
 
 - To list the active queries across all nodes of the cluster, use `SHOW QUERIES` or `SHOW CLUSTER QUERIES`.

@@ -4,7 +4,7 @@ summary: Learn how to migrate data from Oracle into a CockroachDB cluster.
 toc: true
 ---
 
-<span class="version-tag">New in v19.2:</span> This page has instructions for migrating data from Oracle into CockroachDB by [importing](import.html) CSV files. Note that `IMPORT` only works for creating new tables. For information on how to add CSV data to existing tables, see [`IMPORT INTO`](import-into.html).
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v19.2:</span> This page has instructions for migrating data from Oracle into CockroachDB by [importing](import.html) CSV files. Note that `IMPORT` only works for creating new tables. For information on how to add CSV data to existing tables, see [`IMPORT INTO`](import-into.html).
 
 To illustrate this process, we use the following sample data and tools:
 
@@ -217,7 +217,7 @@ Use the table below for data type mappings:
 <a name="considerations"></a>
 
 - <sup>1</sup> `BLOBS` and `CLOBS` should be converted to [`BYTES`](bytes.html), or [`STRING`](string.html) where the size is variable, but it's recommended to keep values under 1 MB to ensure performance. Anything above 1 MB would require refactoring into an object store with a pointer embedded in the table in place of the object.
-- <sup>2</sup> `JSON` and `XML` types can be converted to [`JSONB`](jsonb.html) using any XML to JSON conversion. `XML` must be converted to `JSONB` before importing into CockroachDB.
+- <sup>2</sup> `JSON` and `XML` types can be converted to [`JSONB`](jsonb.html) using any XML to JSON con[version](cluster-settings.html#setting-version). `XML` must be converted to `JSONB` before importing into CockroachDB.
 - <sup>3</sup> When converting `NUMBER(p,0)`, consider `NUMBER` types with Base-10 limits map to the Base-10 Limits for CockroachDB [`INT`](int.html) types. Optionally, `NUMBERS` can be converted to [`DECIMAL`](decimal.html).
 
 When moving from Oracle to CockroachDB data types, consider the following:
@@ -294,7 +294,7 @@ For example, to import the data from `CUSTOMERS.csv.gz` into a new `CUSTOMERS` t
 (1 row)
 ~~~
 
-{% include {{ page.version.version }}/sql/use-import-into.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/use-import-into.md %}
 
 Then add the [computed columns](computed-columns.html), [constraints](add-constraint.html), and [function-based indexes](create-index.html). For example:
 

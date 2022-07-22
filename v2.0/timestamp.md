@@ -94,9 +94,9 @@ A `TIMESTAMP` column supports values up to 12 bytes in width, but the total stor
 # Note that the first timestamp is UTC-05:00, which is the equivalent of EST.
 ~~~
 
-## Supported Casting & Conversion
+## Supported Casting & Con[version](cluster-settings.html#setting-version)
 
-`TIMESTAMP` values can be [cast](data-types.html#data-type-conversions-casts) to any of the following data types:
+`TIMESTAMP` values can be [cast](data-types.html#data-type-con[version](cluster-settings.html#setting-version)s-casts) to any of the following data types:
 
 Type | Details
 -----|--------
@@ -104,7 +104,7 @@ Type | Details
 `SERIAL` | Converts to number of seconds since the Unix epoch (Jan. 1, 1970). This is a CockroachDB experimental feature which may be changed without notice.
 `DECIMAL` | Converts to number of seconds since the Unix epoch (Jan. 1, 1970). This is a CockroachDB experimental feature which may be changed without notice.
 `FLOAT` | Converts to number of seconds since the Unix epoch (Jan. 1, 1970). This is a CockroachDB experimental feature which may be changed without notice.
-`TIME` | <span class="version-tag">New in v2.0:</span> Converts to the time portion (HH:MM:SS) of the timestamp
+`TIME` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v2.0:</span> Converts to the time portion (HH:MM:SS) of the timestamp
 `DATE` | ––
 `STRING` | ––
 

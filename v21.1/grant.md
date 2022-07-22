@@ -11,7 +11,7 @@ You can use `GRANT` to directly grant privileges to a role or user, or you can g
 ## Syntax
 
 <div>
-{% include {{ page.version.version }}/sql/generated/diagrams/grant.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/grant.html %}
 </div>
 
 ### Parameters
@@ -29,7 +29,7 @@ Parameter                 | Description
 
 Roles and users can be granted the following privileges:
 
-{% include {{ page.version.version }}/sql/privileges.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/privileges.md %}
 
 ## Required privileges
 
@@ -60,7 +60,7 @@ Roles and users can be granted the following privileges:
 
 ## Examples
 
-{% include {{page.version.version}}/sql/movr-statements.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/movr-statements.md %}
 
 ### Grant privileges on databases
 

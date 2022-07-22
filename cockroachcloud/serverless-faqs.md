@@ -49,11 +49,11 @@ No, you can create a Serverless cluster that is free forever. If you choose to s
 
 ### How can I reduce the number of RUs my workload consumes?
 
-Make sure your queries have been [optimized for performance](../{{site.versions["stable"]}}/make-queries-fast.html), and follow the [SQL best practices recommendations](../{{site.versions["stable"]}}/performance-best-practices-overview.html).
+Make sure your queries have been [optimized for performance](../{{site.[version](cluster-settings.html#setting-version)s["stable"]}}/make-queries-fast.html), and follow the [SQL best practices recommendations](../{{site.[version](cluster-settings.html#setting-version)s["stable"]}}/performance-best-practices-overview.html).
 
-For example, if your statement uses filters in a `WHERE` clause but you don't have [indexes on the filter columns](../{{site.versions["stable"]}}/schema-design-indexes.html#best-practices), you will consume more RUs because the statement causes a full table scan when doing the join. Use the [`EXPLAIN` statement](../{{site.versions["stable"]}}/explain.html) with your queries to find full table scans or other costly operations. Adding the correct index will result in better performance for the statement, and also consume fewer RUs.
+For example, if your statement uses filters in a `WHERE` clause but you don't have [indexes on the filter columns](../{{site.[version](cluster-settings.html#setting-version)s["stable"]}}/schema-design-indexes.html#best-practices), you will consume more RUs because the statement causes a full table scan when doing the join. Use the [`EXPLAIN` statement](../{{site.[version](cluster-settings.html#setting-version)s["stable"]}}/explain.html) with your queries to find full table scans or other costly operations. Adding the correct index will result in better performance for the statement, and also consume fewer RUs.
 
-The size of the data in your columns also directly affects RU consumption and query performance. For example, Cockroach Labs recommends [keeping `JSONB` column data under 1 MB](../{{site.versions["stable"]}}/jsonb.html#size) to maximize performance. Statements that read or write large `JSONB` values will consume more RUs as the storage and I/O costs are higher. Adding [GIN indexes](../{{site.versions["stable"]}}/inverted-indexes.html) or [partial GIN indexes](../{{site.versions["stable"]}}/partial-indexes.html#partial-gin-indexes) when querying `JSONB` columns can help improve performance and reduce the RU usage of these statements.
+The size of the data in your columns also directly affects RU consumption and query performance. For example, Cockroach Labs recommends [keeping `JSONB` column data under 1 MB](../{{site.[version](cluster-settings.html#setting-version)s["stable"]}}/jsonb.html#size) to maximize performance. Statements that read or write large `JSONB` values will consume more RUs as the storage and I/O costs are higher. Adding [GIN indexes](../{{site.[version](cluster-settings.html#setting-version)s["stable"]}}/inverted-indexes.html) or [partial GIN indexes](../{{site.[version](cluster-settings.html#setting-version)s["stable"]}}/partial-indexes.html#partial-gin-indexes) when querying `JSONB` columns can help improve performance and reduce the RU usage of these statements.
 
 ### What can I use {{ site.data.products.serverless }} for?
 
@@ -77,9 +77,9 @@ Yes, your free cluster has been automatically migrated to {{ site.data.products.
 
 ### Why does my RU usage briefly spike when I'm running a steady workload?
 
-CockroachDB [automatically collects statistics](../{{site.versions["stable"]}}/cost-based-optimizer.html#table-statistics) in a background process when certain conditions are met (for example, when more than 20% of rows in a table are modified). The statistics are used by the cost-based optimizer to tune statements for higher performance.
+CockroachDB [automatically collects statistics](../{{site.[version](cluster-settings.html#setting-version)s["stable"]}}/cost-based-optimizer.html#table-statistics) in a background process when certain conditions are met (for example, when more than 20% of rows in a table are modified). The statistics are used by the cost-based optimizer to tune statements for higher performance.
 
-When automatic statistics collection starts your cluster may consume RUs above the 100 RUs per second baseline when your workload is otherwise consuming RUs below the baseline. You can [turn off automatic statistics collection](../{{site.versions["stable"]}}/cost-based-optimizer.html#enable-and-disable-automatic-statistics-collection-for-clusters) to avoid these RU bursts, but the cost-based optimizer may choose inefficient statement plans as it doesn't have access to the latest statistics.
+When automatic statistics collection starts your cluster may consume RUs above the 100 RUs per second baseline when your workload is otherwise consuming RUs below the baseline. You can [turn off automatic statistics collection](../{{site.[version](cluster-settings.html#setting-version)s["stable"]}}/cost-based-optimizer.html#enable-and-disable-automatic-statistics-collection-for-clusters) to avoid these RU bursts, but the cost-based optimizer may choose inefficient statement plans as it doesn't have access to the latest statistics.
 
 ### What is the cold start latency of a Serverless cluster?
 
@@ -103,11 +103,11 @@ Yes, we use separate certificate authorities for each cluster, and all connectio
 
 ### What certificates do I need to connect to my cluster?
 
-All connections to {{ site.data.products.serverless }} require SSL encryption. When connecting to your cluster using the CockroachDB SQL client or many drivers and ORMs, you don't need to download a root certificate and configure your client to use that certificate because the client will connect using the system root certificates. If you configure your client to use SSL and to verify the certificates (for example, by setting `sslmode=verify-full` in your [connection string](../{{site.versions["stable"]}}/connection-parameters.html#additional-connection-parameters)), your connection will be encrypted.
+All connections to {{ site.data.products.serverless }} require SSL encryption. When connecting to your cluster using the CockroachDB SQL client or many drivers and ORMs, you don't need to download a root certificate and configure your client to use that certificate because the client will connect using the system root certificates. If you configure your client to use SSL and to verify the certificates (for example, by setting `sslmode=verify-full` in your [connection string](../{{site.[version](cluster-settings.html#setting-version)s["stable"]}}/connection-parameters.html#additional-connection-parameters)), your connection will be encrypted.
 
 However, some drivers and ORMs don't use the system root certificates. In those cases, you need to download a root certificate file and configure your client to use that certificate when connecting to your cluster. You can [download the certificate](connect-to-a-serverless-cluster.html?filters=connection-string#step-2-connect-to-your-cluster) by following the instructions in the {{ site.data.products.db }} Console. Configure your client to use this certificate (for example, by setting `sslrootcert=<path to the root certificate>` in your connection string) and to use SSL (for example, by setting `sslmode=verify-full` in your connection string) to connect to your cluster.
 
-See [Connect to a CockroachDB Cluster](../{{site.versions["stable"]}}/connect-to-the-database.html) for detailed information on connecting to your cluster using CockroachDB supported languages, drivers, and ORMs
+See [Connect to a CockroachDB Cluster](../{{site.[version](cluster-settings.html#setting-version)s["stable"]}}/connect-to-the-database.html) for detailed information on connecting to your cluster using CockroachDB supported languages, drivers, and ORMs
 
 ### Is encryption-at-rest enabled on {{ site.data.products.serverless }}?
 
@@ -116,7 +116,7 @@ Yes. All data on {{ site.data.products.db }} is encrypted-at-rest using the tool
 - Data stored in clusters running in GCP are encrypted-at-rest using [persistent disk encryption](https://cloud.google.com/compute/docs/disks#pd_encryption).
 - Data stored in clusters running in AWS are encrypted-at-rest using [EBS encryption-at-rest](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html).
 
-Because we are relying on the cloud provider's encryption implementation (as noted above), we do not enable CockroachDB's [internal implementation of encryption-at-rest](../{{site.versions["stable"]}}/security-reference/encryption.html#encryption-at-rest-enterprise). This means that encryption will appear to be disabled in the [DB Console](../{{site.versions["stable"]}}/ui-overview.html), since the console is unaware of cloud provider encryption.
+Because we are relying on the cloud provider's encryption implementation (as noted above), we do not enable CockroachDB's [internal implementation of encryption-at-rest](../{{site.[version](cluster-settings.html#setting-version)s["stable"]}}/security-reference/encryption.html#encryption-at-rest-enterprise). This means that encryption will appear to be disabled in the [DB Console](../{{site.[version](cluster-settings.html#setting-version)s["stable"]}}/ui-overview.html), since the console is unaware of cloud provider encryption.
 
 ### Is my cluster isolated? Does it share resources with any other clusters?
 
@@ -128,15 +128,15 @@ Because we are relying on the cloud provider's encryption implementation (as not
 
 Yes, you can upgrade your cluster through the Console by [increasing your spend limit](serverless-cluster-management.html#edit-your-spend-limit) and entering [billing information](billing-management.html) if you haven't already.
 
-### Can I upgrade the version of CockroachDB my {{ site.data.products.serverless }} cluster is running on?
+### Can I upgrade the [version](cluster-settings.html#setting-version) of CockroachDB my {{ site.data.products.serverless }} cluster is running on?
 
-No, {{ site.data.products.serverless }} clusters are upgraded automatically for you. You can see what version of CockroachDB your cluster is running in the [{{ site.data.products.db }} Console](https://cockroachlabs.cloud/) or in the [latest release notes](../releases/cloud.html).
+No, {{ site.data.products.serverless }} clusters are upgraded automatically for you. You can see what [version](cluster-settings.html#setting-version) of CockroachDB your cluster is running in the [{{ site.data.products.db }} Console](https://cockroachlabs.cloud/) or in the [latest release notes](../releases/cloud.html).
 
 ## Product features
 
 ### Do you have a UI? How can I see details?
 
-Yes, you can view and your clusters in the [{{ site.data.products.db }} Console](https://cockroachlabs.cloud/). However, some [DB Console](../{{site.versions["stable"]}}/ui-overview.html) pages are not currently available for {{ site.data.products.serverless }} clusters.
+Yes, you can view and your clusters in the [{{ site.data.products.db }} Console](https://cockroachlabs.cloud/). However, some [DB Console](../{{site.[version](cluster-settings.html#setting-version)s["stable"]}}/ui-overview.html) pages are not currently available for {{ site.data.products.serverless }} clusters.
 
 ### Are all CockroachDB features available in {{ site.data.products.serverless }} clusters?
 
@@ -144,7 +144,7 @@ There are some features of CockroachDB that are unsupported or partially support
 
 ### Can I run bulk operations such as `IMPORT` and `EXPORT` from my cluster?
 
-Yes, you can [run bulk operations on Serverless clusters](run-bulk-operations.html). If you [add billing information to your organization](billing-management.html), even if you don't set a spend limit, you can run bulk operations using cloud storage providers. If you don't have billing set up for your organization, you can set up a [`userfile`](../{{site.versions["stable"]}}/use-userfile-for-bulk-operations.html) location for bulk operations.
+Yes, you can [run bulk operations on Serverless clusters](run-bulk-operations.html). If you [add billing information to your organization](billing-management.html), even if you don't set a spend limit, you can run bulk operations using cloud storage providers. If you don't have billing set up for your organization, you can set up a [`userfile`](../{{site.[version](cluster-settings.html#setting-version)s["stable"]}}/use-userfile-for-bulk-operations.html) location for bulk operations.
 
 {{site.data.alerts.callout_danger}}
 We don't recommend `userfile` for `EXPORT` operations. You can either add billing information to your organization to enable access to cloud storage, or [export data to a local CSV file](migrate-from-serverless-to-dedicated.html#step-1-export-data-to-a-local-csv-file).
@@ -152,7 +152,7 @@ We don't recommend `userfile` for `EXPORT` operations. You can either add billin
 
 ### Is change data capture available to me?
 
-Yes, {{ site.data.products.serverless-plan }} clusters have access to both [Core Changefeeds](../{{site.versions["stable"]}}/changefeed-examples.html#create-a-core-changefeed) and [Enterprise Changefeeds](../{{site.versions["stable"]}}/changefeed-examples.html).
+Yes, {{ site.data.products.serverless-plan }} clusters have access to both [Core Changefeeds](../{{site.[version](cluster-settings.html#setting-version)s["stable"]}}/changefeed-examples.html#create-a-core-changefeed) and [Enterprise Changefeeds](../{{site.[version](cluster-settings.html#setting-version)s["stable"]}}/changefeed-examples.html).
 
 ### Can I backup my {{ site.data.products.serverless }} cluster? Does Cockroach Labs take backups of my cluster?
 

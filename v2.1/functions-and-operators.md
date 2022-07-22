@@ -14,7 +14,7 @@ The following syntax forms are recognized for compatibility with the
 SQL standard and PostgreSQL, but are equivalent to regular built-in
 functions:
 
-{% include {{ page.version.version }}/sql/function-special-forms.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/function-special-forms.md %}
 
 ## Conditional and function-like operators
 
@@ -24,8 +24,8 @@ functions but have special evaluation rules:
  Operator | Description
 ----------|-------------
  `ANNOTATE_TYPE(...)` | [Explicitly Typed Expression](scalar-expressions.html#explicitly-typed-expressions)
- `ARRAY(...)` | [Conversion of Subquery Results to An Array](scalar-expressions.html#conversion-of-subquery-results-to-an-array)
- `ARRAY[...]` | [Conversion of Scalar Expressions to An Array](scalar-expressions.html#array-constructors)
+ `ARRAY(...)` | [Con[version](cluster-settings.html#setting-version) of Subquery Results to An Array](scalar-expressions.html#con[version](cluster-settings.html#setting-version)-of-subquery-results-to-an-array)
+ `ARRAY[...]` | [Con[version](cluster-settings.html#setting-version) of Scalar Expressions to An Array](scalar-expressions.html#array-constructors)
  `CAST(...)` | [Type Cast](scalar-expressions.html#explicit-type-coercions)
  `COALESCE(...)` | [First non-NULL expression with Short Circuit](scalar-expressions.html#coalesce-and-ifnull-expressions)
  `EXISTS(...)` | [Existence Test on the Result of Subqueries](scalar-expressions.html#existence-test-on-the-result-of-subqueries)

@@ -170,11 +170,11 @@ For example:
 
 You can use the [`BEGIN`](begin-transaction.html) statement to execute the transaction using the database contents "as of" a specified time in the past.
 
-{% include {{ page.version.version }}/sql/begin-transaction-as-of-system-time-example.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/begin-transaction-as-of-system-time-example.md %}
 
 Alternatively, you can use the [`SET`](set-transaction.html) statement to execute the transaction using the database contents "as of" a specified time in the past.
 
-{% include {{ page.version.version }}/sql/set-transaction-as-of-system-time-example.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/set-transaction-as-of-system-time-example.md %}
 
 ### Use `AS OF SYSTEM TIME` to recover recently lost data
 

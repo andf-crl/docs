@@ -11,7 +11,7 @@ The `ALTER COLUMN` [statement](sql-statements.html) is part of `ALTER TABLE` and
 
 ## Synopsis
 
-{% include {{ page.version.version }}/sql/diagrams/alter_column.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/alter_column.html %}
 
 ## Required Privileges
 
@@ -25,8 +25,8 @@ The user must have the `CREATE` [privilege](privileges.html) on the table.
 | `name` | The name of the column you want to modify. |
 | `a_expr` | The new Default Value you want to use. |
 
-## Viewing Schema Changes <span class="version-tag">New in v1.1</span>
-{% include {{ page.version.version }}/misc/schema-change-view-job.md %}
+## Viewing Schema Changes <span class="[version](cluster-settings.html#setting-version)-tag">New in v1.1</span>
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-view-job.md %}
 
 ## Examples
 

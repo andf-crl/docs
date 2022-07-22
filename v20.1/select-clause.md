@@ -17,7 +17,7 @@ with other constructs to form more complex [selection queries](selection-queries
 ## Synopsis
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/simple_select_clause.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/simple_select_clause.html %}
 </div>
 
 
@@ -39,7 +39,7 @@ Parameter | Description
 `table_ref` | The [table expression](table-expressions.html) you want to retrieve data from.<br><br>Using two or more table expressions in the `FROM` sub-clause, separated with a comma, is equivalent to a [`CROSS JOIN`](joins.html) expression.
 `AS OF SYSTEM TIME timestamp` | Retrieve data as it existed [as of `timestamp`](as-of-system-time.html). <br><br>**Note**: Because `AS OF SYSTEM TIME` returns historical data, your reads might be stale.
 `WHERE a_expr` | Only retrieve rows that return `TRUE` for `a_expr`, which must be a [scalar expression](scalar-expressions.html) that returns Boolean values using columns (e.g., `<column> = <value>`).
-`GROUP BY a_expr` | Group results on one or more columns.<br><br>When an [aggregate function](functions-and-operators.html#aggregate-functions) follows `SELECT` as a `target_elem`, or `HAVING` as an `a_expr`, you can [create aggregate groups](#create-aggregate-groups) on column groupings listed after `GROUP BY`.<br><span class="version-tag">New in v20.1:</span> You can group columns by an alias (i.e., a label assigned to the column with an `AS` clause) rather than the column name.<br><span class="version-tag">New in v20.1:</span> If aggregate groups are created on a full primary key, any column in the table can be selected as a `target_elem`, or specified in a `HAVING` clause.<br><span class="version-tag">New in v20.1:</span> If a selected column is in a [subquery](subqueries.html), and the column references a higher scope, the column does not need to be included in the `GROUP BY` clause (if one exists).<br><br>Using a `GROUP BY` clause in a statement without an aggregate function is equivalent to using a [`DISTINCT ON`](#eliminate-duplicate-rows) clause on the grouping columns.
+`GROUP BY a_expr` | Group results on one or more columns.<br><br>When an [aggregate function](functions-and-operators.html#aggregate-functions) follows `SELECT` as a `target_elem`, or `HAVING` as an `a_expr`, you can [create aggregate groups](#create-aggregate-groups) on column groupings listed after `GROUP BY`.<br><span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> You can group columns by an alias (i.e., a label assigned to the column with an `AS` clause) rather than the column name.<br><span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> If aggregate groups are created on a full primary key, any column in the table can be selected as a `target_elem`, or specified in a `HAVING` clause.<br><span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> If a selected column is in a [subquery](subqueries.html), and the column references a higher scope, the column does not need to be included in the `GROUP BY` clause (if one exists).<br><br>Using a `GROUP BY` clause in a statement without an aggregate function is equivalent to using a [`DISTINCT ON`](#eliminate-duplicate-rows) clause on the grouping columns.
 `HAVING a_expr` | Only retrieve aggregate function groups that return `TRUE` for `a_expr`, which must be a [scalar expression](scalar-expressions.html) that returns Boolean values using an aggregate function (e.g., `<aggregate function> = <value>`). <br/><br/>`HAVING` works like the `WHERE` clause, but for aggregate functions.
 `WINDOW window_definition_list` | A list of [window definitions](window-functions.html#window-definitions).
 
@@ -59,7 +59,7 @@ using the [scalar expressions](scalar-expressions.html) listed with `ON`. When t
 
 ## Examples
 
-{% include {{page.version.version}}/sql/movr-statements.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/movr-statements.md %}
 
 ### Choose columns
 
@@ -371,7 +371,7 @@ WHERE city IN ('new york', 'chicago', 'seattle') GROUP BY city;
 ~~~
 
 {{site.data.alerts.callout_info}}
-<span class="version-tag">New in v20.1:</span> If the group is created on a primary key column, any column in the table can be selected as a `target_elem`. If a selected column is in a [subquery](subqueries.html) that references a higher scope, a `GROUP BY` clause is not needed.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> If the group is created on a primary key column, any column in the table can be selected as a `target_elem`. If a selected column is in a [subquery](subqueries.html) that references a higher scope, a `GROUP BY` clause is not needed.
 {{site.data.alerts.end}}
 
 #### Filter aggregate groups
@@ -489,7 +489,7 @@ If you include multiple aggregate functions in a single `SELECT` clause, you can
 
 ### Group by an alias
 
-<span class="version-tag">New in v20.1:</span> If a query includes an alias (i.e., a [label assigned to the column with an `AS` clause](#rename-columns-in-output)), you can group the aggregations in the query by the alias rather than by the column name. For example:
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> If a query includes an alias (i.e., a [label assigned to the column with an `AS` clause](#rename-columns-in-output)), you can group the aggregations in the query by the alias rather than by the column name. For example:
 
 {% include copy-clipboard.html %}
 ~~~ sql
@@ -512,7 +512,7 @@ If you include multiple aggregate functions in a single `SELECT` clause, you can
 
 ### Select from a specific index
 
-{% include {{page.version.version}}/misc/force-index-selection.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/misc/force-index-selection.md %}
 
 ### Select historical data (time-travel)
 
@@ -553,7 +553,7 @@ Results from two or more queries can be combined together as follows:
 
 ### Row-level locking for concurrency control with `SELECT FOR UPDATE`
 
-{% include {{page.version.version}}/sql/select-for-update-overview.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/select-for-update-overview.md %}
 
 For an example showing how to use it, see  [`SELECT FOR UPDATE`](select-for-update.html).
 

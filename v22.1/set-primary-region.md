@@ -22,7 +22,7 @@ To remove existing, manually-configured zones from a database (and unblock `SET 
 ## Synopsis
 
 <div>
-{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.version.version | replace: "v", "" }}/grammar_svg/alter_database_primary_region.html %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/grammar_svg/alter_database_primary_region.html %}
 </div>
 
 ## Parameters
@@ -43,7 +43,7 @@ To switch primary regions to a region that has already been added to a database,
 
 ## Examples
 
-{% include {{page.version.version}}/sql/multiregion-example-setup.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/multiregion-example-setup.md %}
 
 ### Set the primary region
 

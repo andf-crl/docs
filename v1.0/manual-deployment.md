@@ -165,14 +165,14 @@ Locally, you'll need to [create the following certificates and keys](create-secu
     {% include copy-clipboard.html %}
 	~~~ shell
 	# Get the latest CockroachDB tarball:
-	$ curl https://binaries.cockroachdb.com/cockroach-{{ page.release_info.version }}.linux-amd64.tgz
+	$ curl https://binaries.cockroachdb.com/cockroach-{{ page.release_info.[version](cluster-settings.html#setting-version) }}.linux-amd64.tgz
 	~~~
 
 	{% include copy-clipboard.html %}
 	~~~ shell
 	# Extract the binary:
-	$ tar -xzf cockroach-{{ page.release_info.version }}.linux-amd64.tgz  \
-	--strip=1 cockroach-{{ page.release_info.version }}.linux-amd64/cockroach
+	$ tar -xzf cockroach-{{ page.release_info.[version](cluster-settings.html#setting-version) }}.linux-amd64.tgz  \
+	--strip=1 cockroach-{{ page.release_info.[version](cluster-settings.html#setting-version) }}.linux-amd64/cockroach
 	~~~
 
 	{% include copy-clipboard.html %}
@@ -203,14 +203,14 @@ At this point, your cluster is live and operational but contains only a single n
     {% include copy-clipboard.html %}
 	~~~ shell
 	# Get the latest CockroachDB tarball:
-	$ curl https://binaries.cockroachdb.com/cockroach-{{ page.release_info.version }}.linux-amd64.tgz
+	$ curl https://binaries.cockroachdb.com/cockroach-{{ page.release_info.[version](cluster-settings.html#setting-version) }}.linux-amd64.tgz
 	~~~
 
 	{% include copy-clipboard.html %}
 	~~~ shell
 	# Extract the binary:
-	$ tar -xzf cockroach-{{ page.release_info.version }}.linux-amd64.tgz  \
-	--strip=1 cockroach-{{ page.release_info.version }}.linux-amd64/cockroach
+	$ tar -xzf cockroach-{{ page.release_info.[version](cluster-settings.html#setting-version) }}.linux-amd64.tgz  \
+	--strip=1 cockroach-{{ page.release_info.[version](cluster-settings.html#setting-version) }}.linux-amd64/cockroach
 	~~~
 
 	{% include copy-clipboard.html %}
@@ -447,7 +447,7 @@ On this page, verify that the cluster is running as expected:
 
 2. Click the **Databases** tab on the left to verify that `insecurenodetest` is listed.
 
-{% include {{ page.version.version }}/misc/prometheus-callout.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/prometheus-callout.html %}
 
 ## See Also
 

@@ -6,14 +6,14 @@ toc: true
 docs_area: reference.sql
 ---
 
-{% include {{page.version.version}}/sql/select-for-update-overview.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/select-for-update-overview.md %}
 
 ## Syntax
 
 The following diagram shows the supported syntax for the optional `FOR` locking clause of a `SELECT` statement.
 
 <div>
-{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.version.version | replace: "v", "" }}/grammar_svg/for_locking.html %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/grammar_svg/for_locking.html %}
 </div>
 
 For the full `SELECT` statement syntax documentation, see [Selection Queries](selection-queries.html).

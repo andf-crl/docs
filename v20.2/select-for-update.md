@@ -5,14 +5,14 @@ keywords: concurrency control, locking, transactions, update locking, update, co
 toc: true
 ---
 
-{% include {{page.version.version}}/sql/select-for-update-overview.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/select-for-update-overview.md %}
 
 ## Syntax
 
 The following diagram shows the supported syntax for the optional `FOR` locking clause of a `SELECT` statement.
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/for_locking.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/for_locking.html %}
 </div>
 
 For the full `SELECT` statement syntax documentation, see [Selection Queries](selection-queries.html).
@@ -30,7 +30,7 @@ Parameter | Description
 
 ### Wait policies
 
-<span class="version-tag">New in v20.2:</span> Wait policies determine how a `SELECT FOR UPDATE` statement handles conflicts with locks held by other active transactions. By default, `SELECT FOR UPDATE` queries on rows that are already locked by an active transaction must wait for the transaction to finish.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> Wait policies determine how a `SELECT FOR UPDATE` statement handles conflicts with locks held by other active transactions. By default, `SELECT FOR UPDATE` queries on rows that are already locked by an active transaction must wait for the transaction to finish.
 
 Parameter | Description
 ----------|------------

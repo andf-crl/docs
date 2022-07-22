@@ -22,7 +22,7 @@ This page shows you how to reproduce [CockroachDB's TPC-C performance benchmarki
 | Medium   | 15 nodes on `c5d.4xlarge` machines | 13,000     | 1.04 TB   |
 | Large    | 81 nodes on `c5d.9xlarge` machines | 140,000    | 11.2 TB   |
 
-<span class="version-tag">New in v20.2</span>: CockroachDB can achieve a TPC-C run of 140k warehouses on the same cluster size used for 100k in version 19.2, a 40% improvement:
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2</span>: CockroachDB can achieve a TPC-C run of 140k warehouses on the same cluster size used for 100k in [version](cluster-settings.html#setting-version) 19.2, a 40% improvement:
 
 <img src="{{ 'images/v20.2/tpcc140k.png' | relative_url }}" alt="TPC-C 140,000" style="border:1px solid #eee;max-width:100%" />
 
@@ -90,21 +90,21 @@ CockroachDB requires TCP communication on two ports:
 
 ## Step 2. Start CockroachDB
 
-{% include {{ page.version.version }}/prod-deployment/insecure-flag.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/insecure-flag.md %}
 
 1. SSH to the first VM where you want to run a CockroachDB node.
 
-2. Download the [CockroachDB archive](https://binaries.cockroachdb.com/cockroach-{{ page.release_info.version }}.linux-amd64.tgz) for Linux, extract the binary, and copy it into the `PATH`:
+2. Download the [CockroachDB archive](https://binaries.cockroachdb.com/cockroach-{{ page.release_info.[version](cluster-settings.html#setting-version) }}.linux-amd64.tgz) for Linux, extract the binary, and copy it into the `PATH`:
 
     {% include copy-clipboard.html %}
     ~~~ shell
-    $ curl https://binaries.cockroachdb.com/cockroach-{{ page.release_info.version }}.linux-amd64.tgz \
+    $ curl https://binaries.cockroachdb.com/cockroach-{{ page.release_info.[version](cluster-settings.html#setting-version) }}.linux-amd64.tgz \
     | tar -xz
     ~~~
 
     {% include copy-clipboard.html %}
     ~~~ shell
-    $ cp -i cockroach-{{ page.release_info.version }}.linux-amd64/cockroach /usr/local/bin/
+    $ cp -i cockroach-{{ page.release_info.[version](cluster-settings.html#setting-version) }}.linux-amd64/cockroach /usr/local/bin/
     ~~~
 
     If you get a permissions error, prefix the command with `sudo`.
@@ -153,9 +153,9 @@ You'll be importing a large TPC-C data set. To speed that up, you can temporaril
     {% include copy-clipboard.html %}
     ~~~ sql
     SET CLUSTER SETTING kv.dist_sender.concurrency_limit = 2016;
-    SET CLUSTER SETTING kv.snapshot_rebalance.max_rate = '256 MiB';
-    SET CLUSTER SETTING kv.snapshot_recovery.max_rate = '256 MiB';
-    SET CLUSTER SETTING sql.stats.automatic_collection.enabled = false;
+    SET CLUSTER SETTING [kv.snapshot_rebalance.max_rate](cluster-settings.html#setting-kv-snapshot_rebalance-max_rate) = '256 MiB';
+    SET CLUSTER SETTING [kv.snapshot_recovery.max_rate](cluster-settings.html#setting-kv-snapshot_recovery-max_rate) = '256 MiB';
+    SET CLUSTER SETTING [sql.stats.automatic_collection.enabled](cluster-settings.html#setting-sql-stats-automatic_collection-enabled) = false;
     SET CLUSTER SETTING schemachanger.backfiller.max_buffer_size = '5 GiB';
     SET CLUSTER SETTING rocksdb.min_wal_sync_interval = '500us';
     SET CLUSTER SETTING kv.range_merge.queue_enabled = false
@@ -172,12 +172,12 @@ You'll be importing a large TPC-C data set. To speed that up, you can temporaril
 
     {% include copy-clipboard.html %}
     ~~~ sql
-    > SET CLUSTER SETTING cluster.organization = '<your organization>';
+    > SET CLUSTER SETTING [cluster.organization](cluster-settings.html#setting-cluster-organization) = '<your organization>';
     ~~~
 
     {% include copy-clipboard.html %}
     ~~~ sql
-    > SET CLUSTER SETTING enterprise.license = '<your license key>';
+    > SET CLUSTER SETTING [enterprise.license](cluster-settings.html#setting-enterprise-license) = '<your license key>';
     ~~~
 
 6. Exit the SQL shell:
@@ -189,21 +189,21 @@ You'll be importing a large TPC-C data set. To speed that up, you can temporaril
 
 ## Step 4. Import the TPC-C dataset
 
-CockroachDB comes with a number of [built-in workloads](cockroach-workload.html) for simulating client traffic. This step features CockroachDB's version of the [TPC-C](http://www.tpc.org/tpcc/) workload.
+CockroachDB comes with a number of [built-in workloads](cockroach-workload.html) for simulating client traffic. This step features CockroachDB's [version](cluster-settings.html#setting-version) of the [TPC-C](http://www.tpc.org/tpcc/) workload.
 
 1. SSH to the VM where you want to run TPC-C.
 
-1. Download the [CockroachDB archive](https://binaries.cockroachdb.com/cockroach-{{ page.release_info.version }}.linux-amd64.tgz) for Linux, extract the binary, and copy it into the `PATH`:
+1. Download the [CockroachDB archive](https://binaries.cockroachdb.com/cockroach-{{ page.release_info.[version](cluster-settings.html#setting-version) }}.linux-amd64.tgz) for Linux, extract the binary, and copy it into the `PATH`:
 
     {% include copy-clipboard.html %}
     ~~~ shell
-    $ curl https://binaries.cockroachdb.com/cockroach-{{ page.release_info.version }}.linux-amd64.tgz \
+    $ curl https://binaries.cockroachdb.com/cockroach-{{ page.release_info.[version](cluster-settings.html#setting-version) }}.linux-amd64.tgz \
     | tar -xz
     ~~~
 
     {% include copy-clipboard.html %}
     ~~~ shell
-    $ cp -i cockroach-{{ page.release_info.version }}.linux-amd64/cockroach /usr/local/bin/
+    $ cp -i cockroach-{{ page.release_info.[version](cluster-settings.html#setting-version) }}.linux-amd64/cockroach /usr/local/bin/
     ~~~
 
     If you get a permissions error, prefix the command with `sudo`.

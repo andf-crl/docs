@@ -7,7 +7,7 @@ toc: true
 
 ## Synopsis
 
-{% include {{ page.version.version }}/sql/diagrams/table.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/table.html %}
 
 ## Privileges
 

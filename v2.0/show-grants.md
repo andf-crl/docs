@@ -10,7 +10,7 @@ The `SHOW GRANTS` [statement](sql-statements.html) lists the [privileges](privil
 
 ## Synopsis
 
-<section>{% include {{ page.version.version }}/sql/diagrams/show_grants.html %}</section>
+<section>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/show_grants.html %}</section>
 
 ## Required Privileges
 
@@ -27,7 +27,7 @@ Parameter | Description
 
 ## Examples
 
-### Show All Grants <span class="version-tag">New in v2.0</span>
+### Show All Grants <span class="[version](cluster-settings.html#setting-version)-tag">New in v2.0</span>
 
 To list all grants for all users and roles on all databases and tables:
 
@@ -48,7 +48,7 @@ To list all grants for all users and roles on all databases and tables:
 (167 rows)
 ~~~
 
-### Show a Specific User or Role's Grants <span class="version-tag">New in v2.0</span>
+### Show a Specific User or Role's Grants <span class="[version](cluster-settings.html#setting-version)-tag">New in v2.0</span>
 
 {% include copy-clipboard.html %}
 ~~~ sql
@@ -174,7 +174,7 @@ To list all grants for all users and roles on all databases and tables:
 +------------+--------+-----------+------------+------------+
 ~~~
 
-### Show Role Memberships <span class="version-tag">New in v2.0</span>
+### Show Role Memberships <span class="[version](cluster-settings.html#setting-version)-tag">New in v2.0</span>
 
 **All members of all roles:**
 

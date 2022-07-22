@@ -4,7 +4,7 @@ summary: The CANCEL SESSION statement stops long-running sessions.
 toc: true
 ---
 
-<span class="version-tag">New in v2.1:</span> The `CANCEL SESSION` [statement](sql-statements.html) lets you stop long-running sessions. `CANCEL SESSION` will attempt to cancel the currently active query and end the session.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v2.1:</span> The `CANCEL SESSION` [statement](sql-statements.html) lets you stop long-running sessions. `CANCEL SESSION` will attempt to cancel the currently active query and end the session.
 
 
 ## Required privileges
@@ -13,7 +13,7 @@ Only members of the `admin` role and the user that the session belongs to can ca
 
 ## Synopsis
 
-<section>{% include {{ page.version.version }}/sql/diagrams/cancel_session.html %}</section>
+<section>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/cancel_session.html %}</section>
 
 ## Parameters
 

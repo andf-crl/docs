@@ -19,12 +19,12 @@ For guidance on the syntax for `SHOW BACKUP FROM`, see the [examples](#examples)
 
 `SHOW BACKUP` requires read permissions to its target destination.
 
-{% include {{ page.version.version }}/misc/non-http-source-privileges.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/non-http-source-privileges.md %}
 
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/generated/diagrams/show_backup.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/show_backup.html %}
 </div>
 
 ## Parameters
@@ -90,7 +90,7 @@ The path format is `<year>/<month>/<day>-<timestamp>`.
 
 ### Show the most recent backup
 
-{% include_cached new-in.html version="v22.1" %} To view the most recent backup, use the `LATEST` syntax:
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v22.1" %} To view the most recent backup, use the `LATEST` syntax:
 
 {% include_cached copy-clipboard.html %}
 ~~~ sql
@@ -140,7 +140,7 @@ system        | public             | role_members               | table       | 
 
 ### Show a backup taken with the incremental location option
 
-{% include_cached new-in.html version="v22.1" %} To view an incremental backup that was taken with the `incremental_location` option, run `SHOW BACKUP` with the full backup and incremental backup location following the original `BACKUP` statement.
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v22.1" %} To view an incremental backup that was taken with the `incremental_location` option, run `SHOW BACKUP` with the full backup and incremental backup location following the original `BACKUP` statement.
 
 You can use the option to show the most recent backup where `incremental_location` has stored the backup:
 
@@ -317,7 +317,7 @@ SHOW BACKUP FROM '/2021/11/15-150703.21' IN 's3://{bucket name}?AWS_ACCESS_KEY_I
 The response will include a `manifest` column with the file's contents as the JSON value. Use [JSONB functions](functions-and-operators.html#jsonb-functions) to query particular data or edit the format of the response.
 
 {{site.data.alerts.callout_info}}
-The response returned from `SHOW BACKUP FROM ... WITH as_json` is a backup's internal metadata. This content is subject to change from version to version of CockroachDB and does not offer the same stability guarantees as the other `SHOW BACKUP` [options](#options) and their [responses](#response). As a result, `as_json` should **only** be used for debugging or general inspection purposes.
+The response returned from `SHOW BACKUP FROM ... WITH as_json` is a backup's internal metadata. This content is subject to change from [version](cluster-settings.html#setting-version) to [version](cluster-settings.html#setting-version) of CockroachDB and does not offer the same stability guarantees as the other `SHOW BACKUP` [options](#options) and their [responses](#response). As a result, `as_json` should **only** be used for debugging or general inspection purposes.
 {{site.data.alerts.end}}
 
 For example, to return a specific entry from the JSON response as a [`string`](string.html) indented and with newlines use the [`jsonb_pretty()`](functions-and-operators.html#jsonb-functions) function:

@@ -38,25 +38,25 @@ The user must have the `CREATE` [privilege](authorization.html#assign-privileges
 </div><p></p>
 
 <div class="filter-content horizontal-scroll" markdown="1" data-scope="basic">
-{% include {{ page.version.version }}/sql/diagrams/create_table_as.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/create_table_as.html %}
 </div>
 
 <div class="filter-content" markdown="1" data-scope="expanded">
 
 <div class="horizontal-scroll">
-  {% include {{ page.version.version }}/sql/diagrams/create_table_as.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/create_table_as.html %}
 </div>
 
 **create_as_col_qual_list ::=**
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/create_as_col_qual_list.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/create_as_col_qual_list.html %}
 </div>
 
 **create_as_constraint_def ::=**
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/create_as_constraint_def.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/create_as_constraint_def.html %}
 </div>
 
 </div>
@@ -74,9 +74,9 @@ table td:first-child {
  `IF NOT EXISTS` | Create a new table only if a table of the same name does not already exist in the database; if one does exist, do not return an error.<br><br>Note that `IF NOT EXISTS` checks the table name only; it does not check if an existing table has the same columns, indexes, constraints, etc., of the new table.
  `table_name` | The name of the table to create, which must be unique within its database and follow these [identifier rules](keywords-and-identifiers.html#identifiers). When the parent database is not set as the default, the name must be formatted as `database.name`.<br><br>The [`UPSERT`](upsert.html) and [`INSERT ON CONFLICT`](insert.html) statements use a temporary table called `excluded` to handle uniqueness conflicts during execution. It's therefore not recommended to use the name `excluded` for any of your tables.
  `column_name` | The name of the column you want to use instead of the name of the column from `select_stmt`.
- `create_as_col_qual_list` | <span class="version-tag">New in v19.2:</span> An optional column definition, which may include [primary key constraints](primary-key.html) and [column family assignments](column-families.html).
- `family_def` | <span class="version-tag">New in v19.2:</span> An optional [column family definition](column-families.html). Column family names must be unique within the table but can have the same name as columns, constraints, or indexes.
- `create_as_constraint_def` | <span class="version-tag">New in v19.2:</span> An optional [primary key constraint](primary-key.html).
+ `create_as_col_qual_list` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v19.2:</span> An optional column definition, which may include [primary key constraints](primary-key.html) and [column family assignments](column-families.html).
+ `family_def` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v19.2:</span> An optional [column family definition](column-families.html). Column family names must be unique within the table but can have the same name as columns, constraints, or indexes.
+ `create_as_constraint_def` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v19.2:</span> An optional [primary key constraint](primary-key.html).
  `select_stmt` | A [selection query](selection-queries.html) to provide the data.
 
 ## Limitations
@@ -88,7 +88,7 @@ The [primary key](primary-key.html) of tables created with `CREATE TABLE ... AS`
 
 ## Examples
 
-{% include {{page.version.version}}/sql/movr-statements.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/movr-statements.md %}
 
 ### Create a table from a `SELECT` query
 
@@ -202,7 +202,7 @@ original table.
 
 ### Specify a primary key
 
-<span class="version-tag">New in v19.2:</span> You can specify the [primary key](primary-key.html) of a new table created from a selection query:
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v19.2:</span> You can specify the [primary key](primary-key.html) of a new table created from a selection query:
 
 {% include copy-clipboard.html %}
 ~~~ sql
@@ -244,7 +244,7 @@ original table.
 
 ### Define column families
 
-<span class="version-tag">New in v19.2:</span> You can define the [column families](column-families.html) of a new table created from a selection query:
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v19.2:</span> You can define the [column families](column-families.html) of a new table created from a selection query:
 
 {% include copy-clipboard.html %}
 ~~~ sql
@@ -290,7 +290,7 @@ original table.
 
 ### Specify a primary key for partitioning
 
-<span class="version-tag">New in v19.2:</span> If you are [partitioning](partitioning.html) a table based on a [primary key](primary-key.html), you must correctly define the primary key at table creation. It is not possible to add or change primary keys after table creation. To work around this limitation, you can create a new table from an existing one, with the correct primary keys specified in your `CREATE TABLE ... AS` statement.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v19.2:</span> If you are [partitioning](partitioning.html) a table based on a [primary key](primary-key.html), you must correctly define the primary key at table creation. It is not possible to add or change primary keys after table creation. To work around this limitation, you can create a new table from an existing one, with the correct primary keys specified in your `CREATE TABLE ... AS` statement.
 
 Suppose that you want to [geo-partition](demo-low-latency-multi-region-deployment.html) the `drivers` table that you created with the following statement:
 

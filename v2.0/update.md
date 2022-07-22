@@ -16,7 +16,7 @@ The user must have the `SELECT` and `UPDATE` [privileges](privileges.html) on th
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/update.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/update.html %}
 </div>
 
 <div markdown="1"></div>
@@ -174,7 +174,7 @@ Parameter | Description
 
 ### Update and Return Values
 
-In this example, the `RETURNING` clause returns the `id` value of the row updated. The language-specific versions assume that you have installed the relevant [client drivers](install-client-drivers.html).
+In this example, the `RETURNING` clause returns the `id` value of the row updated. The language-specific [version](cluster-settings.html#setting-version)s assume that you have installed the relevant [client drivers](install-client-drivers.html).
 
 {{site.data.alerts.callout_success}}This use of <code>RETURNING</code> mirrors the behavior of MySQL's <code>last_insert_id()</code> function.{{site.data.alerts.end}}
 

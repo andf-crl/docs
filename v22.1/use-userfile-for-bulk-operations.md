@@ -88,11 +88,11 @@ For more information, see [`cockroach import`](cockroach-import.html).
 
 ## Import from `userfile`
 
-{% include {{ page.version.version }}/userfile-examples/import-into-userfile.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/userfile-examples/import-into-userfile.md %}
 
 ## Backup and restore with `userfile`
 
-{% include {{ page.version.version }}/userfile-examples/backup-userfile.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/userfile-examples/backup-userfile.md %}
 
 ## See also
 

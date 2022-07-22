@@ -109,12 +109,12 @@ cockroachdb (1.6.0)
   Last Execution Date : 2021-07-14 12:34:56 EDT / 2021-07-14 16:34:56 UTC (1626280496000)
   Last Successful Execution Date : 2021-07-14 12:34:56 EDT / 2021-07-14 16:34:56 UTC (1626280496000)
   metadata:
-    version.major: 21
-    version.minor: 2
-    version.patch: 0
-    version.raw: {{ page.version.version }}.0-alpha.00000000-1724-gc5c74249f7
-    version.release: alpha.0
-    version.scheme: semver
+    [version](cluster-settings.html#setting-version).major: 21
+    [version](cluster-settings.html#setting-version).minor: 2
+    [version](cluster-settings.html#setting-version).patch: 0
+    [version](cluster-settings.html#setting-version).raw: {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}.0-alpha.00000000-1724-gc5c74249f7
+    [version](cluster-settings.html#setting-version).release: alpha.0
+    [version](cluster-settings.html#setting-version).scheme: semver
 ~~~
 
 ## Step 4. View CockroachDB dashboards on Datadog
@@ -128,7 +128,7 @@ This sample dashboard presents metrics on cluster availability, query performanc
 <img src="{{ 'images/v21.1/datadog-crdb-overview-dashboard.png' | relative_url }}" alt="CockroachDB Overview dashboard for Datadog" style="border:1px solid #eee;max-width:100%" />
 
 {{site.data.alerts.callout_info}}
-If you wish to customize your CockroachDB dashboard, it's recommended that you clone the default `CockroachDB Overview` dashboard before adding and removing widgets. If you leave the default dashboard intact, Datadog will update it when new versions of the integration's dashboard are released.
+If you wish to customize your CockroachDB dashboard, it's recommended that you clone the default `CockroachDB Overview` dashboard before adding and removing widgets. If you leave the default dashboard intact, Datadog will update it when new [version](cluster-settings.html#setting-version)s of the integration's dashboard are released.
 {{site.data.alerts.end}}
 
 ## Step 5. Run a sample workload

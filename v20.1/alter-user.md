@@ -7,7 +7,7 @@ toc: true
 The `ALTER USER` [statement](sql-statements.html) can be used to add, change, or remove a [user's](create-user.html) password and to change the login privileges for a user.
 
 {{site.data.alerts.callout_info}}
-<span class="version-tag">New in v20.1</span>: Since the keywords `ROLE` and `USER` can now be used interchangeably in SQL statements for enhanced Postgres compatibility, `ALTER USER` is now an alias for [`ALTER ROLE`](alter-role.html).
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1</span>: Since the keywords `ROLE` and `USER` can now be used interchangeably in SQL statements for enhanced Postgres compatibility, `ALTER USER` is now an alias for [`ALTER ROLE`](alter-role.html).
 {{site.data.alerts.end}}
 
 ## Considerations
@@ -16,11 +16,11 @@ The `ALTER USER` [statement](sql-statements.html) can be used to add, change, or
 
 ## Required privileges
 
-<span class="version-tag">New in v20.1:</span> To alter other users, the user must have the [`CREATEROLE`](create-user.html#allow-the-user-to-create-other-users) parameter set.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> To alter other users, the user must have the [`CREATEROLE`](create-user.html#allow-the-user-to-create-other-users) parameter set.
 
 ## Synopsis
 
-<div>{% include {{ page.version.version }}/sql/diagrams/alter_user_password.html %}</div>
+<div>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/alter_user_password.html %}</div>
 
 ## Parameters
 
@@ -34,9 +34,9 @@ Parameter | Description
 ----------|-------------
 `name` | The name of the user whose password you want to create or add.
 `password` | Let the user [authenticate their access to a secure cluster](authentication.html#client-authentication) using this new password. Passwords should be entered as a [string literal](sql-constants.html#string-literals). For compatibility with PostgreSQL, a password can also be entered as an [identifier](#change-password-using-an-identifier). <br><br>To prevent a user from using [password authentication](authentication.html#client-authentication) and to mandate [certificate-based client authentication](authentication.html#client-authentication), [set the password as `NULL`](#prevent-a-user-from-using-password-authentication).
-`VALID UNTIL` | <span class="version-tag">New in v20.1:</span> The date and time (in the [`timestamp`](timestamp.html) format) after which the password is not valid.
-`LOGIN`/`NOLOGIN` | <span class="version-tag">New in v20.1:</span> The `LOGIN` parameter allows a user to login with one of the [client authentication methods](authentication.html#client-authentication). [Setting the parameter to `NOLOGIN`](#change-login-privileges-for-a-user) prevents the user from logging in using any authentication method.
-`CREATEROLE`/`NOCREATEROLE` | <span class="version-tag">New in v20.1:</span> Allow or disallow the user to create, alter, and drop other users. <br><br>By default, the parameter is set to `NOCREATEROLE` for all non-admin and non-root users.
+`VALID UNTIL` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> The date and time (in the [`timestamp`](timestamp.html) format) after which the password is not valid.
+`LOGIN`/`NOLOGIN` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> The `LOGIN` parameter allows a user to login with one of the [client authentication methods](authentication.html#client-authentication). [Setting the parameter to `NOLOGIN`](#change-login-privileges-for-a-user) prevents the user from logging in using any authentication method.
+`CREATEROLE`/`NOCREATEROLE` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> Allow or disallow the user to create, alter, and drop other users. <br><br>By default, the parameter is set to `NOCREATEROLE` for all non-admin and non-root users.
 
 ## Examples
 

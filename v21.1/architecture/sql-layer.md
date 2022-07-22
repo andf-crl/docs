@@ -57,7 +57,7 @@ When a node in a CockroachDB cluster receives a SQL request from a client, it [p
 
 #### Parsing
 
-SQL queries are parsed against our `yacc` file (which describes our supported syntax), and the SQL version of each query is converted into an [abstract syntax tree](https://en.wikipedia.org/wiki/Abstract_syntax_tree) (AST).
+SQL queries are parsed against our `yacc` file (which describes our supported syntax), and the SQL [version](cluster-settings.html#setting-version) of each query is converted into an [abstract syntax tree](https://en.wikipedia.org/wiki/Abstract_syntax_tree) (AST).
 
 #### Logical planning
 
@@ -139,7 +139,7 @@ CockroachDB performs schema changes, such as the [addition of columns](../add-co
 
 The schema change protocol decomposes each schema change into a sequence of incremental changes that will achieve the desired effect.
 
-For example, the addition of a secondary index requires two intermediate schema versions between the start and end versions to ensure that the index is being updated on writes across the entire cluster before it becomes available for reads. To ensure that the database will remain in a consistent state throughout the schema change, we enforce the invariant that there are at most two successive versions of this schema used in the cluster at all times.
+For example, the addition of a secondary index requires two intermediate schema [version](cluster-settings.html#setting-version)s between the start and end [version](cluster-settings.html#setting-version)s to ensure that the index is being updated on writes across the entire cluster before it becomes available for reads. To ensure that the database will remain in a consistent state throughout the schema change, we enforce the invariant that there are at most two successive [version](cluster-settings.html#setting-version)s of this schema used in the cluster at all times.
 
 This approach is based on the paper [_Online, Asynchronous Schema Change in F1_](https://research.google/pubs/pub41376/).
 

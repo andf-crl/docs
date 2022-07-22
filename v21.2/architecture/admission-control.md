@@ -5,7 +5,7 @@ toc: true
 docs_area: reference.architecture
 ---
 
-{% include_cached new-in.html version="v21.2" %} CockroachDB implements an optional admission control system to maintain cluster performance and availability when some nodes experience high load. When admission control is enabled, CockroachDB sorts request and response operations into work queues by priority, giving preference to higher priority operations. Internal operations critical to node health, like node liveness heartbeats, are high priority. The admission control system also prioritizes transactions that hold locks, to reduce contention by releasing locks in a timely manner.
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.2" %} CockroachDB implements an optional admission control system to maintain cluster performance and availability when some nodes experience high load. When admission control is enabled, CockroachDB sorts request and response operations into work queues by priority, giving preference to higher priority operations. Internal operations critical to node health, like node liveness heartbeats, are high priority. The admission control system also prioritizes transactions that hold locks, to reduce contention by releasing locks in a timely manner.
 
 {{site.data.alerts.callout_info}}
 Admission control is not available for {{ site.data.products.serverless }} clusters.
@@ -15,9 +15,9 @@ Admission control is not available for {{ site.data.products.serverless }} clust
 
 Admission control is disabled by default. To enable admission control:
 
-- Set the [`admission.kv.enabled`](../cluster-settings.html) cluster setting to `true` for work performed by the [KV layer](distribution-layer.html).
-- Set the [`admission.sql_kv_response.enabled`](../cluster-settings.html) cluster setting to `true` for work performed in the SQL layer when receiving [KV responses](distribution-layer.html).
-- Set the [`admission.sql_sql_response.enabled`](../cluster-settings.html) cluster setting to `true` for work performed in the SQL layer when receiving [DistSQL responses](sql-layer.html#distsql).
+- Set the [`[admission.kv.enabled](cluster-settings.html#setting-admission-kv-enabled)`](../cluster-settings.html) cluster setting to `true` for work performed by the [KV layer](distribution-layer.html).
+- Set the [`[admission.sql_kv_response.enabled](cluster-settings.html#setting-admission-sql_kv_response-enabled)`](../cluster-settings.html) cluster setting to `true` for work performed in the SQL layer when receiving [KV responses](distribution-layer.html).
+- Set the [`[admission.sql_sql_response.enabled](cluster-settings.html#setting-admission-sql_sql_response-enabled)`](../cluster-settings.html) cluster setting to `true` for work performed in the SQL layer when receiving [DistSQL responses](sql-layer.html#distsql).
 
 If you decide to use admission control, Cockroach Labs recommends that you enable admission control on all layers.
 

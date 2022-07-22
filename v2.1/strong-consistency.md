@@ -16,7 +16,7 @@ Key properties:
 
 How does this work?
 
-- Stored data is versioned with MVCC, so reads simply limit
+- Stored data is [version](cluster-settings.html#setting-version)ed with MVCC, so reads simply limit
   their scope to the data visible at the time the read transaction started.
 
 - Writes are serviced using the

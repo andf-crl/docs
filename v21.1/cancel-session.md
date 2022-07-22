@@ -13,7 +13,7 @@ To view and cancel a session, the user must be a member of the `admin` role or m
 
 ## Synopsis
 
-<div>{% include {{ page.version.version }}/sql/generated/diagrams/cancel_session.html %}</div>
+<div>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/cancel_session.html %}</div>
 
 ## Parameters
 

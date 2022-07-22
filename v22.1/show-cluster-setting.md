@@ -48,7 +48,7 @@ To use the `SHOW CLUSTER SETTING` statement, a user must either be a member of t
 ## Synopsis
 
 <div>
-{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.version.version | replace: "v", "" }}/grammar_svg/show_cluster_setting.html %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/grammar_svg/show_cluster_setting.html %}
 </div>
 
 ## Parameters
@@ -77,11 +77,11 @@ Field | Description
 
 {% include_cached copy-clipboard.html %}
 ~~~ sql
-> SHOW CLUSTER SETTING diagnostics.reporting.enabled;
+> SHOW CLUSTER SETTING [diagnostics.reporting.enabled](cluster-settings.html#setting-diagnostics-reporting-enabled);
 ~~~
 
 ~~~
-  diagnostics.reporting.enabled
+  [diagnostics.reporting.enabled](cluster-settings.html#setting-diagnostics-reporting-enabled)
 ---------------------------------
               true
 (1 row)
@@ -97,10 +97,10 @@ Field | Description
 ~~~
                      variable                    | value | setting_type |                                                 description
 -------------------------------------------------+-------+--------------+---------------------------------------------------------------------------------------------------------------
-  admission.kv.enabled                           | false | b            | when true, work performed by the KV layer is subject to admission control
-  admission.sql_kv_response.enabled              | false | b            | when true, work performed by the SQL layer when receiving a KV response is subject to admission control
-  admission.sql_sql_response.enabled             | false | b            | when true, work performed by the SQL layer when receiving a DistSQL response is subject to admission control
-  bulkio.stream_ingestion.minimum_flush_interval | 5s    | d            | the minimum timestamp between flushes; flushes may still occur if internal buffers fill up
+  [admission.kv.enabled](cluster-settings.html#setting-admission-kv-enabled)                           | false | b            | when true, work performed by the KV layer is subject to admission control
+  [admission.sql_kv_response.enabled](cluster-settings.html#setting-admission-sql_kv_response-enabled)              | false | b            | when true, work performed by the SQL layer when receiving a KV response is subject to admission control
+  [admission.sql_sql_response.enabled](cluster-settings.html#setting-admission-sql_sql_response-enabled)             | false | b            | when true, work performed by the SQL layer when receiving a DistSQL response is subject to admission control
+  [bulkio.stream_ingestion.minimum_flush_interval](cluster-settings.html#setting-bulkio-stream_ingestion-minimum_flush_interval) | 5s    | d            | the minimum timestamp between flushes; flushes may still occur if internal buffers fill up
   ...
 ~~~
 
@@ -114,7 +114,7 @@ Field | Description
 ~~~
                      variable                     | value | setting_type | public |                                                             description
 --------------------------------------------------+-------+--------------+--------+--------------------------------------------------------------------------------------------------------------------------------------
-  admission.kv.enabled                            | false | b            |  true  | when true, work performed by the KV layer is subject to admission control
+  [admission.kv.enabled](cluster-settings.html#setting-admission-kv-enabled)                            | false | b            |  true  | when true, work performed by the KV layer is subject to admission control
   admission.kv_slot_adjuster.overload_threshold   | 32    | i            | false  | when the number of runnable goroutines per CPU is greater than this threshold, the slot adjuster considers the cpu to be overloaded
   admission.l0_file_count_overload_threshold      | 1000  | i            | false  | when the L0 file count exceeds this theshold, the store is considered overloaded
   admission.l0_sub_level_count_overload_threshold | 20    | i            | false  | when the L0 sub-level count exceeds this threshold, the store is considered overloaded

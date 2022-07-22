@@ -66,7 +66,7 @@ Type | Description
 
 Transactions may require retries if they experience deadlock or [read/write contention](performance-best-practices-overview.html#understanding-and-avoiding-transaction-contention) with other concurrent transactions which cannot be resolved without allowing potential [serializable anomalies](https://en.wikipedia.org/wiki/Serializability).
 
-{% include {{page.version.version}}/misc/mitigate-contention-note.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/misc/mitigate-contention-note.md %}
 
 There are two cases in which transaction retries occur:
 
@@ -78,10 +78,10 @@ There are two cases in which transaction retries occur:
 CockroachDB automatically retries individual statements (implicit transactions) and transactions sent from the client as a single batch, as long as the size of the results being produced for the client, including protocol overhead, is less than 16KiB by default. Once that buffer overflows, CockroachDB starts streaming results back to the client, at which point automatic retries cannot be performed any more. As long as the results of a single statement or batch of statements are known to stay clear of this limit, the client does not need to worry about transaction retries.
 
 {{site.data.alerts.callout_success}}
-You can change the results buffer size for all new sessions using the `sql.defaults.results_buffer.size` [cluster setting](cluster-settings.html), or for a specific session using the `results_buffer_size` [session variable](set-vars.html). Note, however, that decreasing the buffer size can increase the number of transaction retry errors a client receives, whereas increasing the buffer size can increase the delay until the client receives the first result row.
+You can change the results buffer size for all new sessions using the `[sql.defaults.results_buffer.size](cluster-settings.html#setting-sql-defaults-results_buffer-size)` [cluster setting](cluster-settings.html), or for a specific session using the `results_buffer_size` [session variable](set-vars.html). Note, however, that decreasing the buffer size can increase the number of transaction retry errors a client receives, whereas increasing the buffer size can increase the delay until the client receives the first result row.
 {{site.data.alerts.end}}
 
-In future versions of CockroachDB, we plan on providing stronger guarantees for read-only queries that return at most one row, regardless of the size of that row.
+In future [version](cluster-settings.html#setting-version)s of CockroachDB, we plan on providing stronger guarantees for read-only queries that return at most one row, regardless of the size of that row.
 
 #### Individual statements
 
@@ -156,11 +156,11 @@ To handle these types of errors you have the following options:
 2. **Most users, such as application authors**: Abort the transaction using the [`ROLLBACK`](rollback-transaction.html) statement, and then reissue all of the statements in the transaction. For an example, see the [Client-side intervention example](#client-side-intervention-example).
 3. **Advanced users, such as library authors**: See [Advanced Client-Side Transaction Retries](advanced-client-side-transaction-retries.html).
 
-{% include {{page.version.version}}/misc/mitigate-contention-note.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/misc/mitigate-contention-note.md %}
 
 #### Client-side intervention example
 
-{% include {{page.version.version}}/misc/client-side-intervention-example.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/misc/client-side-intervention-example.md %}
 
 ## Transaction contention
 
@@ -170,7 +170,7 @@ For more details about transaction contention and best practices for avoiding co
 
 ## Nested transactions
 
-<span class="version-tag">New in v20.1:</span> CockroachDB supports the nesting of transactions using [savepoints](savepoint.html).  These nested transactions are also known as sub-transactions.  Nested transactions can be rolled back without discarding the state of the entire surrounding transaction.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> CockroachDB supports the nesting of transactions using [savepoints](savepoint.html).  These nested transactions are also known as sub-transactions.  Nested transactions can be rolled back without discarding the state of the entire surrounding transaction.
 
 This can be useful in applications that abstract database access using an application development framework or [ORM](install-client-drivers.html).  Different components of the application can operate on different sub-transactions without having to know about each others' internal operations, while trusting that the database will maintain isolation between sub-transactions and preserve data integrity.
 

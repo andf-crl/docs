@@ -8,4 +8,4 @@
 
 - Carefully review the [Production Checklist](recommended-production-settings.html) and recommended [Topology Patterns](topology-patterns.html).
 
-{% include {{ page.version.version }}/prod-deployment/topology-recommendations.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/topology-recommendations.md %}

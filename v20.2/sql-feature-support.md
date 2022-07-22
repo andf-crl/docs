@@ -34,7 +34,7 @@ table tr td:nth-child(2) {
  `COLLATE` | ✓ | Standard | [`COLLATE` documentation](collate.html)
  `DATE` | ✓ | Standard | [`DATE` documentation](date.html)
  `DECIMAL`, `NUMERIC` | ✓ | Standard | [`DECIMAL` documentation](decimal.html)
- `ENUM` | ✓ | PostgreSQL Extension | <span class="version-tag">New in v20.2:</span> [`ENUM` documentation](enum.html)
+ `ENUM` | ✓ | PostgreSQL Extension | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> [`ENUM` documentation](enum.html)
  `FLOAT`, `REAL` | ✓ | Standard | [`FLOAT` documentation](float.html)
  `INET` | ✓ | PostgreSQL Extension | [`INET` documentation](inet.html)
  `INT` | ✓ | Standard | [`INT` documentation](int.html)
@@ -81,8 +81,8 @@ table tr td:nth-child(2) {
  Multi-column indexes | ✓ | Common Extension | We do not limit on the number of columns indexes can include
  Covering indexes | ✓ | Common Extension | [Storing Columns documentation](create-index.html#store-columns)
  GIN indexes | ✓ | Common Extension | [GIN Indexes documentation](inverted-indexes.html)
- Partial indexes | ✓ | Common Extension | <span class="version-tag">New in v20.2:</span> [Partial indexes documentation](partial-indexes.html)
- Spatial indexes | ✓ | Common Extension | <span class="version-tag">New in v20.2:</span> [Spatial indexes documentation](spatial-indexes.html)
+ Partial indexes | ✓ | Common Extension | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> [Partial indexes documentation](partial-indexes.html)
+ Spatial indexes | ✓ | Common Extension | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> [Spatial indexes documentation](spatial-indexes.html)
  Multiple indexes per query | Partial | Common Extension | [Use multiple indexes for a single query](https://github.com/cockroachdb/cockroach/issues/2142)
  Full-text indexes | Planned | Common Extension | [GitHub issue tracking full-text index support](https://github.com/cockroachdb/cockroach/issues/7821)
  Prefix/Expression Indexes | Potential | Common Extension | Apply expressions (such as `LOWER()`) to values before indexing them
@@ -96,7 +96,7 @@ table tr td:nth-child(2) {
  Database renames | ✓ | Standard | [`RENAME DATABASE` documentation](rename-database.html)
  Table renames | ✓ | Standard | [`RENAME TABLE` documentation](rename-table.html)
  Column renames | ✓ | Standard | [`RENAME COLUMN` documentation](rename-column.html)
- Altering a column's data type | ✓ | Standard | <span class="version-tag">New in v20.2:</span> [`ALTER COLUMN` documentation](alter-column.html#altering-column-types)
+ Altering a column's data type | ✓ | Standard | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> [`ALTER COLUMN` documentation](alter-column.html#altering-column-types)
  Adding columns | ✓ | Standard | [`ADD COLUMN` documentation](add-column.html)
  Removing columns | ✓ | Standard | [`DROP COLUMN` documentation](drop-column.html)
  Adding constraints | ✓ | Standard | [`ADD CONSTRAINT` documentation](add-constraint.html)
@@ -105,10 +105,10 @@ table tr td:nth-child(2) {
  Adding indexes | ✓ | Standard | [`CREATE INDEX` documentation](create-index.html)
  Removing indexes | ✓ | Standard | [`DROP INDEX` documentation](drop-index.html)
  Altering a primary key | ✓ | Standard | [`ALTER PRIMARY KEY` documentation](alter-primary-key.html)
- Adding user-defined schemas | ✓ | Standard | <span class="version-tag">New in v20.2:</span> [`CREATE SCHEMA` documentation](create-schema.html)
- Removing user-defined schemas | ✓ | Standard | <span class="version-tag">New in v20.2:</span> [`DROP SCHEMA` documentation](drop-schema.html)
- Altering user-defined schemas | ✓ | Standard | <span class="version-tag">New in v20.2:</span> [`ALTER SCHEMA` documentation](create-schema.html)
- Converting a database to a user-defined schema | ✓ | CockroachDB Extension | <span class="version-tag">New in v20.2:</span> [`CONVERT TO SCHEMA` documentation](convert-to-schema.html)
+ Adding user-defined schemas | ✓ | Standard | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> [`CREATE SCHEMA` documentation](create-schema.html)
+ Removing user-defined schemas | ✓ | Standard | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> [`DROP SCHEMA` documentation](drop-schema.html)
+ Altering user-defined schemas | ✓ | Standard | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> [`ALTER SCHEMA` documentation](create-schema.html)
+ Converting a database to a user-defined schema | ✓ | CockroachDB Extension | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> [`CONVERT TO SCHEMA` documentation](convert-to-schema.html)
 
 ### Statements
 
@@ -166,7 +166,7 @@ table tr td:nth-child(2) {
 -----------|-----------|------|---------
  Users | ✓ | Standard | [Users documentation](authorization.html#users)
  Roles | ✓ | Standard | [Roles documentation](authorization.html#roles)
- Object ownership | ✓ | Common Extension | <span class="version-tag">New in v20.2:</span> [Ownership documentation](authorization.html#object-ownership)
+ Object ownership | ✓ | Common Extension | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> [Ownership documentation](authorization.html#object-ownership)
  Privileges | ✓ | Standard | [Privileges documentation](authorization.html#assign-privileges)
 
 ### Miscellaneous
@@ -174,10 +174,10 @@ table tr td:nth-child(2) {
  Component | Supported | Type | Details
 -----------|-----------|------|---------
  Column families | ✓ | CockroachDB Extension | [Column Families documentation](column-families.html)
- Interleaved tables | ✓ | CockroachDB Extension | [Interleaved Tables documentation](interleave-in-parent.html)<br>{% include {{ page.version.version }}/misc/interleave-deprecation-note.md %}
+ Interleaved tables | ✓ | CockroachDB Extension | [Interleaved Tables documentation](interleave-in-parent.html)<br>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/interleave-deprecation-note.md %}
  Information Schema | ✓ | Standard | [Information Schema documentation](information-schema.html)
  Views | ✓ | Standard | [Views documentation](views.html)
- Materialized views | ✓ | Common Extension | <span class="version-tag">New in v20.2:</span> [Materialized views documentation](views.html#materialized-views)
+ Materialized views | ✓ | Common Extension | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> [Materialized views documentation](views.html#materialized-views)
  Window functions | ✓ | Standard | [Window Functions documentation](window-functions.html)
  Common Table Expressions | Partial | Common Extension | [Common Table Expressions documentation](common-table-expressions.html)
  Stored Procedures | Planned | Common Extension | Execute a procedure explicitly.

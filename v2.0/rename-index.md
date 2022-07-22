@@ -12,7 +12,7 @@ The `RENAME INDEX` [statement](sql-statements.html) changes the name of an index
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/rename_index.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/rename_index.html %}
 </div>
 
 ## Required Privileges

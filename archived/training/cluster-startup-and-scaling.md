@@ -26,7 +26,7 @@ sidebar_data: sidebar-data-training.json
     <div class="filter-content" markdown="1" data-scope="mac">
     {% include copy-clipboard.html %}
     ~~~ shell
-    $ curl https://binaries.cockroachdb.com/cockroach-{{ page.release_info.version }}.darwin-10.9-amd64.tgz \
+    $ curl https://binaries.cockroachdb.com/cockroach-{{ page.release_info.[version](cluster-settings.html#setting-version) }}.darwin-10.9-amd64.tgz \
     | tar -xz
     ~~~
     </div>
@@ -34,7 +34,7 @@ sidebar_data: sidebar-data-training.json
     <div class="filter-content" markdown="1" data-scope="linux">
     {% include copy-clipboard.html %}
     ~~~ shell
-    $ curl https://binaries.cockroachdb.com/cockroach-{{ page.release_info.version }}.linux-amd64.tgz \
+    $ curl https://binaries.cockroachdb.com/cockroach-{{ page.release_info.[version](cluster-settings.html#setting-version) }}.linux-amd64.tgz \
     | tar -xz
     ~~~
     </div>
@@ -44,7 +44,7 @@ sidebar_data: sidebar-data-training.json
     <div class="filter-content" markdown="1" data-scope="mac">
     {% include copy-clipboard.html %}
     ~~~ shell
-    $ mv cockroach-{{ page.release_info.version }}.darwin-10.9-amd64/cockroach \
+    $ mv cockroach-{{ page.release_info.[version](cluster-settings.html#setting-version) }}.darwin-10.9-amd64/cockroach \
     /usr/local/bin/
     ~~~
     </div>
@@ -52,7 +52,7 @@ sidebar_data: sidebar-data-training.json
     <div class="filter-content" markdown="1" data-scope="linux">
     {% include copy-clipboard.html %}
     ~~~ shell
-    $ mv cockroach-{{ page.release_info.version }}.linux-amd64/cockroach \
+    $ mv cockroach-{{ page.release_info.[version](cluster-settings.html#setting-version) }}.linux-amd64/cockroach \
     /usr/local/bin/
     ~~~
     </div>
@@ -66,14 +66,14 @@ sidebar_data: sidebar-data-training.json
     <div class="filter-content" markdown="1" data-scope="mac">
     {% include copy-clipboard.html %}
     ~~~ shell
-    $ rm -rf cockroach-{{ page.release_info.version }}.darwin-10.9-amd64
+    $ rm -rf cockroach-{{ page.release_info.[version](cluster-settings.html#setting-version) }}.darwin-10.9-amd64
     ~~~
     </div>
 
     <div class="filter-content" markdown="1" data-scope="linux">
     {% include copy-clipboard.html %}
     ~~~ shell
-    $ rm -rf cockroach-{{ page.release_info.version }}.linux-amd64
+    $ rm -rf cockroach-{{ page.release_info.[version](cluster-settings.html#setting-version) }}.linux-amd64
     ~~~
     </div>
 
@@ -188,7 +188,7 @@ Start two more nodes, using the same `cockroach start` command as earlier but wi
 
     ~~~
     CockroachDB node starting at 2019-10-01 20:14:55.358954 +0000 UTC (took 27.9s)
-    build:               CCL {{page.release_info.version}} @ 2019/09/25 15:18:08 (go1.12.6)
+    build:               CCL {{page.release_info.[version](cluster-settings.html#setting-version)}} @ 2019/09/25 15:18:08 (go1.12.6)
     webui:               http://localhost:8080
     sql:                 postgresql://root@localhost:26257?sslmode=disable
     client flags:        cockroach <client cmd> --host=localhost:26257 --insecure
@@ -203,7 +203,7 @@ Start two more nodes, using the same `cockroach start` command as earlier but wi
 
     Field | Description
     ------|------------
-    `build` | The version of CockroachDB you are running.
+    `build` | The [version](cluster-settings.html#setting-version) of CockroachDB you are running.
     `webui` | The URL for accessing the Admin UI.
     `sql` | The connection URL for your client.
     `client flags` | The flags to use when connecting to the node via [`cockroach` client commands](../cockroach-commands.html).

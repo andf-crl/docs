@@ -15,7 +15,7 @@ expression.
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/generated/diagrams/table_ref.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/table_ref.html %}
 </div>
 
 ## Parameters
@@ -85,7 +85,7 @@ For example:
 
 #### Force index selection
 
-{% include {{page.version.version}}/misc/force-index-selection.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/misc/force-index-selection.md %}
 
 {{site.data.alerts.callout_info}}
 You can also force index selection for [`DELETE`](delete.html#force-index-selection-for-deletes) and [`UPDATE`](update.html#force-index-selection-for-updates) statements.

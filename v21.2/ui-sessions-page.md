@@ -15,4 +15,4 @@ To view this page, click **SQL Activity** in the left-hand navigation of the DB 
 
 {% include common/ui/sessions-page.md %}
 
-{% include {{ page.version.version }}/ui/sessions.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/ui/sessions.md %}

@@ -12,7 +12,7 @@ To illustrate this process, we use the following sample data and tools:
 - [Oracle Data Pump](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/sutil/oracle-data-pump.html), which enables the movement of data and metadata from one database to another, and comes with all Oracle installations.
 - [SQL*Plus](https://docs.oracle.com/database/121/SQPUG/ch_three.htm), the interactive and batch query tool that comes with every Oracle Database installation.
 
-{% include {{ page.version.version }}/misc/import-perf.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/import-perf.md %}
 
 ## Step 1. Export the Oracle schema
 
@@ -219,7 +219,7 @@ Use the table below for data type mappings:
 <a name="considerations"></a>
 
 - <sup>1</sup> `BLOBS` and `CLOBS` should be converted to [`BYTES`](bytes.html), or [`STRING`](string.html) where the size is variable, but it's recommended to keep values under 1 MB to ensure performance. Anything above 1 MB would require refactoring into an object store with a pointer embedded in the table in place of the object.
-- <sup>2</sup> `JSON` and `XML` types can be converted to [`JSONB`](jsonb.html) using any XML to JSON conversion. `XML` must be converted to `JSONB` before importing into CockroachDB.
+- <sup>2</sup> `JSON` and `XML` types can be converted to [`JSONB`](jsonb.html) using any XML to JSON con[version](cluster-settings.html#setting-version). `XML` must be converted to `JSONB` before importing into CockroachDB.
 - <sup>3</sup> When converting `NUMBER(p,0)`, consider `NUMBER` types with Base-10 limits map to the Base-10 Limits for CockroachDB [`INT`](int.html) types. Optionally, `NUMBERS` can be converted to [`DECIMAL`](decimal.html).
 
 When moving from Oracle to CockroachDB data types, consider the following:
@@ -296,7 +296,7 @@ For example, to import the data from `CUSTOMERS.csv.gz` into a new `CUSTOMERS` t
 (1 row)
 ~~~
 
-{% include {{ page.version.version }}/sql/use-import-into.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/use-import-into.md %}
 
 Then add the [computed columns](computed-columns.html), [constraints](add-constraint.html), and [function-based indexes](create-index.html). For example:
 

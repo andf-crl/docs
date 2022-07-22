@@ -50,7 +50,7 @@ On each instance:
 
     {% include copy-clipboard.html %}
     ~~~ shell
-    $ sudo docker version
+    $ sudo docker [version](cluster-settings.html#setting-version)
     ~~~
 
 ## Step 3. Start the swarm
@@ -120,14 +120,14 @@ A secure CockroachDB cluster uses TLS certificates for encrypted inter-node and 
     {% include copy-clipboard.html %}
     ~~~ shell
     # Get the latest CockroachDB tarball:
-    $ curl https://binaries.cockroachdb.com/cockroach-{{ page.release_info.version }}.linux-amd64.tgz
+    $ curl https://binaries.cockroachdb.com/cockroach-{{ page.release_info.[version](cluster-settings.html#setting-version) }}.linux-amd64.tgz
     ~~~
 
     {% include copy-clipboard.html %}
     ~~~ shell
     # Extract the binary:
-    $ tar -xzf cockroach-{{ page.release_info.version }}.linux-amd64.tgz  \
-    --strip=1 cockroach-{{ page.release_info.version }}.linux-amd64/cockroach
+    $ tar -xzf cockroach-{{ page.release_info.[version](cluster-settings.html#setting-version) }}.linux-amd64.tgz  \
+    --strip=1 cockroach-{{ page.release_info.[version](cluster-settings.html#setting-version) }}.linux-amd64/cockroach
     ~~~
 
     {% include copy-clipboard.html %}
@@ -328,7 +328,7 @@ A secure CockroachDB cluster uses TLS certificates for encrypted inter-node and 
     --secret source=cockroachdb-1-key,target=node.key,mode=0600 \
     --secret source=cockroachdb-root-crt,target=client.root.crt \
     --secret source=cockroachdb-root-key,target=client.root.key,mode=0600 \
-    cockroachdb/cockroach:{{page.release_info.version}} start \
+    cockroachdb/cockroach:{{page.release_info.[version](cluster-settings.html#setting-version)}} start \
     --join=cockroachdb-1:26257,cockroachdb-2:26257,cockroachdb-3:26257 \
     --cache=.25 \
     --max-sql-memory=.25 \
@@ -351,7 +351,7 @@ A secure CockroachDB cluster uses TLS certificates for encrypted inter-node and 
     --secret source=cockroachdb-2-key,target=node.key,mode=0600 \
     --secret source=cockroachdb-root-crt,target=client.root.crt \
     --secret source=cockroachdb-root-key,target=client.root.key,mode=0600 \
-    cockroachdb/cockroach:{{page.release_info.version}} start \
+    cockroachdb/cockroach:{{page.release_info.[version](cluster-settings.html#setting-version)}} start \
     --join=cockroachdb-1:26257,cockroachdb-2:26257,cockroachdb-3:26257 \
     --cache=.25 \
     --max-sql-memory=.25 \
@@ -374,7 +374,7 @@ A secure CockroachDB cluster uses TLS certificates for encrypted inter-node and 
     --secret source=cockroachdb-3-key,target=node.key,mode=0600 \
     --secret source=cockroachdb-root-crt,target=client.root.crt \
     --secret source=cockroachdb-root-key,target=client.root.key,mode=0600 \
-    cockroachdb/cockroach:{{page.release_info.version}} start \
+    cockroachdb/cockroach:{{page.release_info.[version](cluster-settings.html#setting-version)}} start \
     --join=cockroachdb-1:26257,cockroachdb-2:26257,cockroachdb-3:26257 \
     --cache=.25 \
     --max-sql-memory=.25 \
@@ -393,7 +393,7 @@ A secure CockroachDB cluster uses TLS certificates for encrypted inter-node and 
     - `--stop-grace-period`: This flag sets a grace period to give CockroachDB enough time to shut down gracefully, when possible.
     - `--publish`: This flag makes the Admin UI accessible at the IP of any instance running a swarm node on port `8080`. Note that, even though this flag is defined only in the first node's service, the swarm exposes this port on every swarm node using a routing mesh. See [Publishing ports](https://docs.docker.com/engine/swarm/services/#publish-ports) for more details.
     - `--secret`: These flags identify the secrets to use in securing the node. They must reference the secret names defined in step 5. For the node and client certificate and key secrets, the `source` field identifies the relevant secret, and the `target` field defines the name to be used in `cockroach start` and `cockroach sql` flags. For the node and client key secrets, the `mode` field also sets the file permissions to `0600`; if this isn't set, Docker will assign a default file permission of `0444`, which will not work with CockroachDB's built-in SQL client.
-    - `cockroachdb/cockroach:{{page.release_info.version}} start ...`: The CockroachDB command to [start a node](start-a-node.html) in the container in insecure mode and instruct other cluster members to talk to each other using their persistent network addresses, which match the services' names.
+    - `cockroachdb/cockroach:{{page.release_info.[version](cluster-settings.html#setting-version)}} start ...`: The CockroachDB command to [start a node](start-a-node.html) in the container in insecure mode and instruct other cluster members to talk to each other using their persistent network addresses, which match the services' names.
 
 2. Verify that all three services were created successfully:
 
@@ -404,9 +404,9 @@ A secure CockroachDB cluster uses TLS certificates for encrypted inter-node and 
 
     ~~~
     ID            NAME           MODE        REPLICAS  IMAGE
-    a6g0ur6857j6  cockroachdb-1  replicated  1/1       cockroachdb/cockroach:{{page.release_info.version}}
-    dr81a756gaa6  cockroachdb-2  replicated  1/1       cockroachdb/cockroach:{{page.release_info.version}}
-    il4m7op1afg9  cockroachdb-3  replicated  1/1       cockroachdb/cockroach:{{page.release_info.version}}
+    a6g0ur6857j6  cockroachdb-1  replicated  1/1       cockroachdb/cockroach:{{page.release_info.[version](cluster-settings.html#setting-version)}}
+    dr81a756gaa6  cockroachdb-2  replicated  1/1       cockroachdb/cockroach:{{page.release_info.[version](cluster-settings.html#setting-version)}}
+    il4m7op1afg9  cockroachdb-3  replicated  1/1       cockroachdb/cockroach:{{page.release_info.[version](cluster-settings.html#setting-version)}}
     ~~~
 
     {{site.data.alerts.callout_success}}The service definitions tell the CockroachDB nodes to log to <code>stderr</code>, so if you ever need access to a node's logs for troubleshooting, use <a href="https://docs.docker.com/engine/reference/commandline/logs/"><code>sudo docker logs &lt;container id&gt;</code></a> from the instance on which the container is running.{{site.data.alerts.end}}
@@ -415,7 +415,7 @@ A secure CockroachDB cluster uses TLS certificates for encrypted inter-node and 
 
     {% include copy-clipboard.html %}
     ~~~ shell
-    $ sudo docker run -it --rm --network cockroachdb --mount type=bind,source="$(pwd)/certs",target=/cockroach/certs,readonly cockroachdb/cockroach:{{page.release_info.version}} init --host=cockroachdb-1 --certs-dir=certs
+    $ sudo docker run -it --rm --network cockroachdb --mount type=bind,source="$(pwd)/certs",target=/cockroach/certs,readonly cockroachdb/cockroach:{{page.release_info.[version](cluster-settings.html#setting-version)}} init --host=cockroachdb-1 --certs-dir=certs
     ~~~
 
     We mount the `certs` directory as a volume inside the container because it contains the `root` user's client certificate and key, which we need to talk to the cluster.
@@ -426,7 +426,7 @@ A secure CockroachDB cluster uses TLS certificates for encrypted inter-node and 
 
     {% include copy-clipboard.html %}
     ~~~ shell
-    $ sudo docker run -it --rm --network cockroachdb --mount type=bind,source="$(pwd)/certs",target=/cockroach/certs,readonly cockroachdb/cockroach:{{page.release_info.version}} sql --host=cockroachdb-1 --certs-dir=certs
+    $ sudo docker run -it --rm --network cockroachdb --mount type=bind,source="$(pwd)/certs",target=/cockroach/certs,readonly cockroachdb/cockroach:{{page.release_info.[version](cluster-settings.html#setting-version)}} sql --host=cockroachdb-1 --certs-dir=certs
     ~~~
 
 2. Create a `securenodetest` database:
@@ -476,7 +476,7 @@ To see this in action:
     ~~~
 
     ~~~
-    32769a6dd664        cockroachdb/cockroach:{{page.release_info.version}}   "/cockroach/cockroach"   10 minutes ago        Up 10 minutes         8080/tcp, 26257/tcp   cockroachdb-2.1.0wigdh8lx0ylhuzm4on9bbldq
+    32769a6dd664        cockroachdb/cockroach:{{page.release_info.[version](cluster-settings.html#setting-version)}}   "/cockroach/cockroach"   10 minutes ago        Up 10 minutes         8080/tcp, 26257/tcp   cockroachdb-2.1.0wigdh8lx0ylhuzm4on9bbldq
     ~~~
 
 2. Use `sudo docker kill` to remove the container, which implicitly stops the node:
@@ -494,7 +494,7 @@ To see this in action:
     ~~~
 
     ~~~
-    4a58f86e3ced        cockroachdb/cockroach:{{page.release_info.version}}   "/cockroach/cockroach"   7 seconds ago       Up 1 seconds        8080/tcp, 26257/tcp   cockroachdb-2.1.cph86kmhhcp8xzq6a1nxtk9ng
+    4a58f86e3ced        cockroachdb/cockroach:{{page.release_info.[version](cluster-settings.html#setting-version)}}   "/cockroach/cockroach"   7 seconds ago       Up 1 seconds        8080/tcp, 26257/tcp   cockroachdb-2.1.cph86kmhhcp8xzq6a1nxtk9ng
     ~~~
 
 4. Back in the Admin UI, view **Node List** and verify that all 3 nodes are live.
@@ -562,4 +562,4 @@ $ sudo docker secret rm ca-crt cockroachdb-1-crt cockroachdb-1-key
 
 ## See also
 
-{% include {{ page.version.version }}/prod-deployment/prod-see-also.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/prod-see-also.md %}

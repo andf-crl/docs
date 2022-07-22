@@ -15,7 +15,7 @@ statements.
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/sort_clause.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/sort_clause.html %}
 </div>
 
 ## Parameters
@@ -39,7 +39,7 @@ the sorting key as-is, and thus is meaningless.
 The optional keyword `DESC` inverts the direction of the column(s)
 selected by the selection that immediately precedes.
 
-<span class="version-tag">New in v20.1:</span> CockroachDB supports `NULLS FIRST`/`NULLS LAST` in `ORDER BY` clauses for compatibility with [PostgreSQL row-sorting syntax](https://www.postgresql.org/docs/current/queries-order.html).
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> CockroachDB supports `NULLS FIRST`/`NULLS LAST` in `ORDER BY` clauses for compatibility with [PostgreSQL row-sorting syntax](https://www.postgresql.org/docs/current/queries-order.html).
 
 {{site.data.alerts.callout_info}}
 Support for `NULLS LAST` is currently syntax-only. If you specify `NULLS LAST` in an `ORDER BY` clause, CockroachDB uses `NULLS FIRST` and does not return an error.
@@ -275,7 +275,7 @@ of deletes](#sorting-the-output-of-deletes).
 
 ## Sorting the output of deletes
 
-{% include {{page.version.version}}/misc/sorting-delete-output.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/misc/sorting-delete-output.md %}
 
 ## See also
 

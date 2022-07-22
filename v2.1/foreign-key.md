@@ -84,7 +84,7 @@ You can also add the Foreign Key constraint to existing tables through [`ADD CON
 
 ### Column level
 
-<section>{% include {{ page.version.version }}/sql/diagrams/foreign_key_column_level.html %}</section>
+<section>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/foreign_key_column_level.html %}</section>
 
 | Parameter | Description |
 |-----------|-------------|
@@ -114,7 +114,7 @@ You can also add the Foreign Key constraint to existing tables through [`ADD CON
 
 ### Table level
 
-<section>{% include {{ page.version.version }}/sql/diagrams/foreign_key_table_level.html %}</section>
+<section>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/foreign_key_table_level.html %}</section>
 
 | Parameter | Description |
 |-----------|-------------|

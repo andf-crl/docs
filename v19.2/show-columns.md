@@ -13,7 +13,7 @@ The user must have any [privilege](authorization.html#assign-privileges) on the 
 ## Synopsis
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/show_columns.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/show_columns.html %}
 </div>
 
 ## Parameters
@@ -38,7 +38,7 @@ Field | Description
 
 ## Examples
 
-{% include {{page.version.version}}/sql/movr-statements.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/movr-statements.md %}
 
 ### Show columns in a table
 
@@ -58,7 +58,7 @@ Field | Description
 (5 rows)
 ~~~
 
-<span class="version-tag">New in v19.2:</span> Alternatively, within the built-in SQL shell, you can use the `\d <table>` [shell command](cockroach-sql.html#commands):
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v19.2:</span> Alternatively, within the built-in SQL shell, you can use the `\d <table>` [shell command](cockroach-sql.html#commands):
 
 {% include copy-clipboard.html %}
 ~~~ sql

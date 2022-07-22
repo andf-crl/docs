@@ -98,11 +98,11 @@ You should receive your trial license via email within a few minutes. You'll ena
 
 ## Step 2. Configure your network
 
-{% include {{ page.version.version }}/performance/configure-network.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/performance/configure-network.md %}
 
 ## Step 3. Provision VMs
 
-You need 9 VMs across 3 GCE regions, 3 per region with each VM in a distinct availability zone. You also need 3 extra VMs, 1 per region, for a region-specific version of MovR and the HAProxy load balancer.
+You need 9 VMs across 3 GCE regions, 3 per region with each VM in a distinct availability zone. You also need 3 extra VMs, 1 per region, for a region-specific [version](cluster-settings.html#setting-version) of MovR and the HAProxy load balancer.
 
 1. [Create 9 VMs](https://cloud.google.com/compute/docs/instances/create-start-instance) for CockroachDB nodes.
 
@@ -124,7 +124,7 @@ You need 9 VMs across 3 GCE regions, 3 per region with each VM in a distinct ava
     - [Create and mount a local SSD](https://cloud.google.com/compute/docs/disks/local-ssd#create_local_ssd).
     - To apply the Admin UI firewall rule you created earlier, click **Management, disk, networking, SSH keys**, select the **Networking** tab, and then enter `cockroachdb` in the **Network tags** field.
 
-2. [Create 3 VMs](https://cloud.google.com/compute/docs/instances/create-start-instance) for the region-specific versions of MovR and HAProxy, one in each of the regions mentioned above, using same machine types and OS image as mentioned above.
+2. [Create 3 VMs](https://cloud.google.com/compute/docs/instances/create-start-instance) for the region-specific [version](cluster-settings.html#setting-version)s of MovR and HAProxy, one in each of the regions mentioned above, using same machine types and OS image as mentioned above.
 
 3. Note the internal IP address of each VM. You'll need these addresses when starting the CockroachDB nodes, configuring HAProxy, and running the MovR application.
 
@@ -136,17 +136,17 @@ Now that you have VMs in place, start your CockroachDB cluster across the three 
 
 1. SSH to the first VM in the US East region where you want to run a CockroachDB node.
 
-2. Download the [CockroachDB archive](https://binaries.cockroachdb.com/cockroach-{{ page.release_info.version }}.linux-amd64.tgz) for Linux, extract the binary, and copy it into the `PATH`:
+2. Download the [CockroachDB archive](https://binaries.cockroachdb.com/cockroach-{{ page.release_info.[version](cluster-settings.html#setting-version) }}.linux-amd64.tgz) for Linux, extract the binary, and copy it into the `PATH`:
 
     {% include copy-clipboard.html %}
     ~~~ shell
-    $ curl https://binaries.cockroachdb.com/cockroach-{{ page.release_info.version }}.linux-amd64.tgz \
+    $ curl https://binaries.cockroachdb.com/cockroach-{{ page.release_info.[version](cluster-settings.html#setting-version) }}.linux-amd64.tgz \
     | tar -xz
     ~~~
 
     {% include copy-clipboard.html %}
     ~~~ shell
-    $ sudo cp -i cockroach-{{ page.release_info.version }}.linux-amd64/cockroach /usr/local/bin/
+    $ sudo cp -i cockroach-{{ page.release_info.[version](cluster-settings.html#setting-version) }}.linux-amd64/cockroach /usr/local/bin/
     ~~~
 
 3. Run the [`cockroach start`](start-a-node.html) command:
@@ -178,17 +178,17 @@ Now that you have VMs in place, start your CockroachDB cluster across the three 
 
 1. SSH to the first VM in the US Central region where you want to run a CockroachDB node.
 
-2. Download the [CockroachDB archive](https://binaries.cockroachdb.com/cockroach-{{ page.release_info.version }}.linux-amd64.tgz) for Linux, extract the binary, and copy it into the `PATH`:
+2. Download the [CockroachDB archive](https://binaries.cockroachdb.com/cockroach-{{ page.release_info.[version](cluster-settings.html#setting-version) }}.linux-amd64.tgz) for Linux, extract the binary, and copy it into the `PATH`:
 
     {% include copy-clipboard.html %}
     ~~~ shell
-    $ curl https://binaries.cockroachdb.com/cockroach-{{ page.release_info.version }}.linux-amd64.tgz \
+    $ curl https://binaries.cockroachdb.com/cockroach-{{ page.release_info.[version](cluster-settings.html#setting-version) }}.linux-amd64.tgz \
     | tar -xz
     ~~~
 
     {% include copy-clipboard.html %}
     ~~~ shell
-    $ sudo cp -i cockroach-{{ page.release_info.version }}.linux-amd64/cockroach /usr/local/bin/
+    $ sudo cp -i cockroach-{{ page.release_info.[version](cluster-settings.html#setting-version) }}.linux-amd64/cockroach /usr/local/bin/
     ~~~
 
 3. Run the [`cockroach start`](start-a-node.html) command:
@@ -213,17 +213,17 @@ Now that you have VMs in place, start your CockroachDB cluster across the three 
 
 1. SSH to the first VM in the US West region where you want to run a CockroachDB node.
 
-2. Download the [CockroachDB archive](https://binaries.cockroachdb.com/cockroach-{{ page.release_info.version }}.linux-amd64.tgz) for Linux, extract the binary, and copy it into the `PATH`:
+2. Download the [CockroachDB archive](https://binaries.cockroachdb.com/cockroach-{{ page.release_info.[version](cluster-settings.html#setting-version) }}.linux-amd64.tgz) for Linux, extract the binary, and copy it into the `PATH`:
 
     {% include copy-clipboard.html %}
     ~~~ shell
-    $ curl https://binaries.cockroachdb.com/cockroach-{{ page.release_info.version }}.linux-amd64.tgz \
+    $ curl https://binaries.cockroachdb.com/cockroach-{{ page.release_info.[version](cluster-settings.html#setting-version) }}.linux-amd64.tgz \
     | tar -xz
     ~~~
 
     {% include copy-clipboard.html %}
     ~~~ shell
-    $ sudo cp -i cockroach-{{ page.release_info.version }}.linux-amd64/cockroach /usr/local/bin/
+    $ sudo cp -i cockroach-{{ page.release_info.[version](cluster-settings.html#setting-version) }}.linux-amd64/cockroach /usr/local/bin/
     ~~~
 
 3. Run the [`cockroach start`](start-a-node.html) command:
@@ -264,17 +264,17 @@ Next, install Docker and HAProxy on each client VM. Docker is required so you ca
     $ sudo apt-get install haproxy
     ~~~
 
-4. Download the [CockroachDB archive](https://binaries.cockroachdb.com/cockroach-{{ page.release_info.version }}.linux-amd64.tgz) for Linux, extract the binary, and copy it into the `PATH`:
+4. Download the [CockroachDB archive](https://binaries.cockroachdb.com/cockroach-{{ page.release_info.[version](cluster-settings.html#setting-version) }}.linux-amd64.tgz) for Linux, extract the binary, and copy it into the `PATH`:
 
     {% include copy-clipboard.html %}
     ~~~ shell
-    $ curl https://binaries.cockroachdb.com/cockroach-{{ page.release_info.version }}.linux-amd64.tgz \
+    $ curl https://binaries.cockroachdb.com/cockroach-{{ page.release_info.[version](cluster-settings.html#setting-version) }}.linux-amd64.tgz \
     | tar -xz
     ~~~
 
     {% include copy-clipboard.html %}
     ~~~ shell
-    $ sudo cp -i cockroach-{{ page.release_info.version }}.linux-amd64/cockroach /usr/local/bin/
+    $ sudo cp -i cockroach-{{ page.release_info.[version](cluster-settings.html#setting-version) }}.linux-amd64/cockroach /usr/local/bin/
     ~~~
 
     The `cockroach` binary needs to be on these VMs so you can run some client commands built into the binary, such as the command in the next step and the command for starting the built-in SQL shell.
@@ -326,7 +326,7 @@ Next, install Docker and HAProxy on each client VM. Docker is required so you ca
 
 ## Step 6. Configure the cluster
 
-Before you can run MovR against the cluster and demonstrate the geo-partitioning feature, you must create a `movr` database and enable an enterprise license.
+Before you can run MovR against the cluster and demonstrate the geo-partitioning feature, you must create a `movr` database and enable an [enterprise.license](cluster-settings.html#setting-enterprise-license).
 
 1. SSH to the client VM in the US East region.
 
@@ -348,12 +348,12 @@ Before you can run MovR against the cluster and demonstrate the geo-partitioning
 
     {% include copy-clipboard.html %}
     ~~~ sql
-    > SET CLUSTER SETTING cluster.organization = '<your organization>';
+    > SET CLUSTER SETTING [cluster.organization](cluster-settings.html#setting-cluster-organization) = '<your organization>';
     ~~~
 
     {% include copy-clipboard.html %}
     ~~~ sql
-    > SET CLUSTER SETTING enterprise.license = '<your license key>';
+    > SET CLUSTER SETTING [enterprise.license](cluster-settings.html#setting-enterprise-license) = '<your license key>';
     ~~~
 
 5. Set the longitude and latitude of the regions where you are running CockroachDB nodes:
@@ -396,7 +396,7 @@ Now that you've deployed and configured your cluster, take a look at it in the A
 ## Step 8. Start MovR
 
 {{site.data.alerts.callout_info}}
-Be sure to use the exact version of MovR specified in the commands: `movr:19.03.2`. This tutorial relies on this specific version. Later versions use an expanded schema and will be featured in future tutorials.
+Be sure to use the exact [version](cluster-settings.html#setting-version) of MovR specified in the commands: `movr:19.03.2`. This tutorial relies on this specific [version](cluster-settings.html#setting-version). Later [version](cluster-settings.html#setting-version)s use an expanded schema and will be featured in future tutorials.
 {{site.data.alerts.end}}
 
 ### MovR in US East

@@ -15,7 +15,7 @@ statements.
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/sort_clause.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/sort_clause.html %}
 </div>
 
 ## Parameters
@@ -275,7 +275,7 @@ of deletes](#sorting-the-output-of-deletes).
 
 ## Sorting the output of deletes
 
-{% include {{page.version.version}}/misc/sorting-delete-output.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/misc/sorting-delete-output.md %}
 
 ## See also
 

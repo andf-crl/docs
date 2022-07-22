@@ -14,7 +14,7 @@ No [privileges](privileges.html) are required to display the session settings.
 
 ## Synopsis
 
-{% include {{ page.version.version }}/sql/diagrams/show_var.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/show_var.html %}
 
 {{site.data.alerts.callout_info}}The <code>SHOW</code> statement for session settings is unrelated to the other <code>SHOW</code> statements: <a href="cluster-settings.html#view-current-cluster-settings"><code>SHOW CLUSTER SETTING</code></a>, <a href="show-create-table.html"><code>SHOW CREATE TABLE</code></a>, <a href="show-create-view.html"><code>SHOW CREATE VIEW</code></a>, <a href="show-users.html"><code>SHOW USERS</code></a>, <a href="show-databases.html"><code>SHOW DATABASES</code></a>, <a href="show-columns.html"><code>SHOW COLUMNS</code></a>, <a href="show-grants.html"><code>SHOW GRANTS</code></a>, and <a href="show-constraints.html"><code>SHOW CONSTRAINTS</code></a>.{{site.data.alerts.end}}
 
@@ -37,7 +37,7 @@ It may be enclosed in double quotes; this is useful if the variable name itself 
 | `transaction isolation level`   | The isolation level of the current transaction. See [Transaction parameters](transactions.html#transaction-parameters) for more details. | `SERIALIZABLE`                                                                         | Yes |
 | `transaction priority`          | The priority of the current transaction. See [Transaction parameters](transactions.html#transaction-parameters) for more details. | `NORMAL`                                                                                      | Yes |
 | `transaction status`            | The state of the current transaction. See [Transactions](transactions.html) for more details. | `NoTxn`                                                                                                                           | No |
-| `server_version`                | The version of PostgreSQL that CockroachDB emulates. | Version-dependent.                                                                                                                                                         | No |
+| `server_[version](cluster-settings.html#setting-version)`                | The [version](cluster-settings.html#setting-version) of PostgreSQL that CockroachDB emulates. | Version-dependent.                                                                                                                                                         | No |
 | `client_min_messages`           | (Reserved; exposed only for ORM compatibility.) | (Reserved) | No |
 | `client_encoding`               | (Reserved; exposed only for ORM compatibility.) | (Reserved) | No |
 | `extra_float_digits`            | (Reserved; exposed only for ORM compatibility.) | (Reserved) | No |
@@ -89,7 +89,7 @@ Special syntax cases supported for compatibility:
 | extra_float_digits            |              |
 | max_index_keys                |           32 |
 | search_path                   | pg_catalog   |
-| server_version                | 9.5.0        |
+| server_[version](cluster-settings.html#setting-version)                | 9.5.0        |
 | session_user                  | root         |
 | standard_conforming_strings   | on           |
 | time zone                     | UTC          |

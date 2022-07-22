@@ -19,7 +19,7 @@ In contrast to cluster-wide settings, node-level settings apply to a single node
 These cluster settings have a broad impact on CockroachDB internals and affect all applications, workloads, and users running on a CockroachDB cluster. For some settings, a [session setting](set-vars.html#supported-variables) could be a more appropriate scope.
 {{site.data.alerts.end}}
 
-{% remote_include https://raw.githubusercontent.com/cockroachdb/cockroach/release-{{ page.version.version | replace: "v", "" }}/docs/generated/settings/settings.html %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/cockroach/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/docs/generated/settings/settings.html %}
 
 ## View current cluster settings
 
@@ -33,7 +33,7 @@ Before changing a cluster setting, please note the following:
 
 - 	Changing a cluster setting is not instantaneous, as the change must be propagated to other nodes in the cluster.
 
-- 	Do not change cluster settings while [upgrading to a new version of CockroachDB](upgrade-cockroach-version.html). Wait until all nodes have been upgraded before you make the change.
+- 	Do not change cluster settings while [upgrading to a new [version](cluster-settings.html#setting-version) of CockroachDB](upgrade-cockroach-[version](cluster-settings.html#setting-version).html). Wait until all nodes have been upgraded before you make the change.
 
 ## See also
 

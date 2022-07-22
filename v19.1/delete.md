@@ -17,7 +17,7 @@ The user must have the `DELETE` and `SELECT` [privileges](authorization.html#ass
 ## Synopsis
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/delete.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/delete.html %}
 </div>
 
 ## Parameters
@@ -34,7 +34,7 @@ table td:first-child {
  `table_name` | The name of the table that contains the rows you want to update.
  `AS table_alias_name` | An alias for the table name. When an alias is provided, it completely hides the actual table name.
 `WHERE a_expr`| `a_expr` must be an expression that returns Boolean values using columns (e.g., `<column> = <value>`). Delete rows that return `TRUE`.<br><br/>__Without a `WHERE` clause in your statement, `DELETE` removes all rows from the table.__
- `sort_clause` | An `ORDER BY` clause. <br /><br /> <span class="version-tag">New in v19.1</span>: The `ORDER BY` clause can no longer be used with a `DELETE` statement when there is no `LIMIT` clause present.
+ `sort_clause` | An `ORDER BY` clause. <br /><br /> <span class="[version](cluster-settings.html#setting-version)-tag">New in v19.1</span>: The `ORDER BY` clause can no longer be used with a `DELETE` statement when there is no `LIMIT` clause present.
  `limit_clause` | A `LIMIT` clause. See [Limiting Query Results](limit-offset.html) for more details.
  `RETURNING target_list` | Return values based on rows deleted, where `target_list` can be specific column names from the table, `*` for all columns, or computations using [scalar expressions](scalar-expressions.html). <br><br>To return nothing in the response, not even the number of rows updated, use `RETURNING NOTHING`.
 
@@ -70,7 +70,7 @@ deleted rows more frequently.
 
 ## Sorting the output of deletes
 
-{% include {{page.version.version}}/misc/sorting-delete-output.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/misc/sorting-delete-output.md %}
 
 For more information about ordering query results in general, see
 [Ordering Query Results](query-order.html).

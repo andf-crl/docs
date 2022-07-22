@@ -391,7 +391,7 @@ For example, let's say you want to calculate the average value of column `b` as 
 
 When [sorting a column](order-by.html) containing `NULL` values, CockroachDB sorts `NULL` values first with `ASC` and last with `DESC`. This differs from PostgreSQL, which sorts `NULL` values last with `ASC` and first with `DESC`.
 
-{% include_cached new-in.html version="v22.1" %} Use the `NULLS FIRST` and `NULLS LAST` options of the [`ORDER BY`](order-by.html#parameters) to change where `NULL` values appear in the sort order.
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v22.1" %} Use the `NULLS FIRST` and `NULLS LAST` options of the [`ORDER BY`](order-by.html#parameters) to change where `NULL` values appear in the sort order.
 
 {% include_cached copy-clipboard.html %}
 ~~~ sql
@@ -526,7 +526,7 @@ failed to satisfy CHECK constraint (discount <= price)
  Concatenation between a non-`NULL` value and a `NULL` value results in a `NULL` value.
 
 {{site.data.alerts.callout_info}}
-In CockroachDB v20.2 and earlier, for all values other than [`STRING`](string.html), concatenation between a non-`NULL` value and a `NULL` value results in an [`ARRAY`](array.html) of the non-`NULL` value's type. To return an `ARRAY` of a specific type from a `NULL` concatenation in CockroachDB v21.1 and later, [cast](data-types.html#data-type-conversions-and-casts) the `NULL` value to an `ARRAY`.
+In CockroachDB v20.2 and earlier, for all values other than [`STRING`](string.html), concatenation between a non-`NULL` value and a `NULL` value results in an [`ARRAY`](array.html) of the non-`NULL` value's type. To return an `ARRAY` of a specific type from a `NULL` concatenation in CockroachDB v21.1 and later, [cast](data-types.html#data-type-con[version](cluster-settings.html#setting-version)s-and-casts) the `NULL` value to an `ARRAY`.
 {{site.data.alerts.end}}
 
 For example:

@@ -88,4 +88,4 @@ The diagrams below shows how {{ site.data.products.serverless }} autoscales with
 
 ## Learn more
 
-See the [CockroachDB architecture](../{{site.versions["stable"]}}/architecture/overview.html) documentation for more information.
+See the [CockroachDB architecture](../{{site.[version](cluster-settings.html#setting-version)s["stable"]}}/architecture/overview.html) documentation for more information.

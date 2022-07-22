@@ -198,7 +198,7 @@ type 'string'
 'string':::type
 ~~~
 
-The value of the string part is used as input for the conversion function to the
+The value of the string part is used as input for the con[version](cluster-settings.html#setting-version) function to the
 specified data type, and the result is used as a constant with that data type.
 
 Examples:

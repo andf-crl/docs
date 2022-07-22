@@ -29,7 +29,7 @@ At a high level, the simplest process for running a multi-region cluster is:
 These steps describe the simplest case, where you accept all of the default settings. The latter two steps are optional, but table locality and survival goals have a significant impact on performance. Therefore Cockroach Labs recommends that you give these aspects some consideration [when you choose a multi-region configuration](choosing-a-multi-region-configuration.html).
 
 {{site.data.alerts.callout_success}}
-{% include {{page.version.version}}/misc/multiregion-max-offset.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/misc/multiregion-max-offset.md %}
 {{site.data.alerts.end}}
 
 ## Cluster regions
@@ -70,14 +70,14 @@ If the default survival goals and table localities meet your needs, there is not
 
 {% include common/experimental-warning.md %}
 
-{% include_cached new-in.html version="v22.1" %} Super regions allow you to define a set of [database regions](#database-regions) such that the following [schema objects](schema-design-overview.html#database-schema-objects) will have all of their replicas stored _only_ in regions that are members of the super region:
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v22.1" %} Super regions allow you to define a set of [database regions](#database-regions) such that the following [schema objects](schema-design-overview.html#database-schema-objects) will have all of their replicas stored _only_ in regions that are members of the super region:
 
 - [Regional tables](#regional-tables) whose home region is a member of the super region.
 - Any row of a [regional by row table](#regional-by-row-tables) whose [home region](set-locality.html#crdb_region) is a member of the super region.
 
 The primary use case for super regions is data domiciling. As mentioned above, data from [regional](#regional-tables) and [regional by row](#regional-by-row-tables) tables will be stored only in regions that are members of the super region. Further, if the super region contains 3 or more regions and if you use [`REGION` survival goals](#survive-region-failures), the data domiciled in the super region will remain available if you lose a region.
 
-{% include {{page.version.version}}/sql/super-region-considerations.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/super-region-considerations.md %}
 
 <a name="enable-super-regions"></a>
 
@@ -93,7 +93,7 @@ Note that super regions take a different approach to data domiciling than [`ALTE
 For more information about data domiciling using `PLACEMENT RESTRICTED`, see [Data Domiciling with CockroachDB](data-domiciling.html).
 
 {{site.data.alerts.callout_info}}
-{% include {{page.version.version}}/sql/super-regions-for-domiciling-with-region-survivability.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/super-regions-for-domiciling-with-region-survivability.md %}
 {{site.data.alerts.end}}
 
 {{site.data.alerts.callout_info}}
@@ -163,15 +163,15 @@ Table locality settings are used for optimizing latency under different read and
 
 ### Regional tables
 
-{% include {{page.version.version}}/sql/regional-table-description.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/regional-table-description.md %}
 
 ### Regional by row tables
 
-{% include {{page.version.version}}/sql/regional-by-row-table-description.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/regional-by-row-table-description.md %}
 
 ### Global tables
 
-{% include {{page.version.version}}/sql/global-table-description.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/global-table-description.md %}
 
 ## Additional features
 
@@ -179,7 +179,7 @@ The features listed in this section make working with multi-region clusters easi
 
 ### Indexes on `REGIONAL BY ROW` tables
 
-{% include {{page.version.version}}/sql/indexes-regional-by-row.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/indexes-regional-by-row.md %}
 
 This behavior also applies to [GIN indexes](inverted-indexes.html).
 
@@ -187,7 +187,7 @@ For an example that uses unique indexes but applies to all indexes on `REGIONAL 
 
 ## Schema changes in multi-region clusters
 
-{% include {{ page.version.version }}/performance/lease-preference-system-database.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/performance/lease-preference-system-database.md %}
 
 ## Next steps
 

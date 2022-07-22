@@ -10,7 +10,7 @@ Unlike other constraints which have very specific uses, the `PRIMARY KEY` constr
 
 A table's primary key should be explicitly defined in the [`CREATE TABLE`](create-table.html) statement. Tables can only have one primary key.
 
-<span class="version-tag">New in v20.1:</span> You can [change the primary key](#changing-primary-key-columns) of an existing table with an [`ALTER TABLE ... ALTER PRIMARY KEY`](alter-primary-key.html) statement, or by using [`DROP CONSTRAINT`](drop-constraint.html) and then [`ADD CONSTRAINT`](add-constraint.html) in the same transaction.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> You can [change the primary key](#changing-primary-key-columns) of an existing table with an [`ALTER TABLE ... ALTER PRIMARY KEY`](alter-primary-key.html) statement, or by using [`DROP CONSTRAINT`](drop-constraint.html) and then [`ADD CONSTRAINT`](add-constraint.html) in the same transaction.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ A table's primary key should be explicitly defined in the [`CREATE TABLE`](creat
 ### Column level
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/primary_key_column_level.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/primary_key_column_level.html %}
 </div>
 
  Parameter | Description
@@ -47,7 +47,7 @@ A table's primary key should be explicitly defined in the [`CREATE TABLE`](creat
 ### Table level
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/primary_key_table_level.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/primary_key_table_level.html %}
 </div>
 
  Parameter | Description
@@ -145,7 +145,7 @@ pq: null value in column "warehouse_id" violates not-null constraint
 
 ## Changing primary key columns
 
-<span class="version-tag">New in v20.1:</span> You can change the primary key of an existing table by doing one of the following:
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> You can change the primary key of an existing table by doing one of the following:
 
 - Issuing an [`ALTER TABLE ... ALTER PRIMARY KEY`](alter-primary-key.html) statement. When you change a primary key with `ALTER PRIMARY KEY`, the old primary key index becomes a secondary index. This helps optimize the performance of queries that still filter on the old primary key column.
 - Issuing an [`ALTER TABLE ... DROP CONSTRAINT ... PRIMARY KEY`](drop-constraint.html) statement to drop the primary key, followed by an [`ALTER TABLE ... ADD CONSTRAINT ... PRIMARY KEY`](add-constraint.html) statement, in the same transaction, to add a new primary key. This replaces the existing primary key without creating a secondary index from the old primary key. For examples, see the [`ADD CONSTRAINT`](add-constraint.html#examples) and [`DROP CONSTRAINT`](drop-constraint.html#examples) pages.

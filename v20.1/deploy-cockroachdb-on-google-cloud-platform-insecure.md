@@ -21,13 +21,13 @@ If you plan to use CockroachDB in production, we strongly recommend using a secu
 
 ### Requirements
 
-{% include {{ page.version.version }}/prod-deployment/insecure-requirements.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/insecure-requirements.md %}
 
 - This article covers the use of Linux instances with GCE. You may wish to review the instructions for [connecting to Windows instances](https://cloud.google.com/compute/docs/instances/connecting-to-instance#windows).
 
 ### Recommendations
 
-{% include {{ page.version.version }}/prod-deployment/insecure-recommendations.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/insecure-recommendations.md %}
 
 ## Step 1. Configure your network
 
@@ -68,7 +68,7 @@ For more details, see [Hardware Recommendations](recommended-production-settings
 
 ## Step 3. Synchronize clocks
 
-{% include {{ page.version.version }}/prod-deployment/synchronize-clocks.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/synchronize-clocks.md %}
 
 ## Step 4. Set up load balancing
 
@@ -102,27 +102,27 @@ To use GCE's TCP Proxy Load Balancing service:
 By default, inter-node communication uses the internal IP addresses of your GCE instances.
 {{site.data.alerts.end}}
 
-{% include {{ page.version.version }}/prod-deployment/insecure-start-nodes.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/insecure-start-nodes.md %}
 
 ## Step 6. Initialize the cluster
 
-{% include {{ page.version.version }}/prod-deployment/insecure-initialize-cluster.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/insecure-initialize-cluster.md %}
 
 ## Step 7. Test the cluster
 
-{% include {{ page.version.version }}/prod-deployment/insecure-test-cluster.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/insecure-test-cluster.md %}
 
 ## Step 8. Run a sample workload
 
-{% include {{ page.version.version }}/prod-deployment/insecure-test-load-balancing.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/insecure-test-load-balancing.md %}
 
 ## Step 9. Monitor the cluster
 
-{% include {{ page.version.version }}/prod-deployment/monitor-cluster.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/monitor-cluster.md %}
 
 ## Step 10. Scale the cluster
 
-{% include {{ page.version.version }}/prod-deployment/insecure-scale-cluster.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/insecure-scale-cluster.md %}
 
 ## Step 11. Use the cluster
 
@@ -134,4 +134,4 @@ Now that your deployment is working, you can:
 
 ## See also
 
-{% include {{ page.version.version }}/prod-deployment/prod-see-also.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/prod-see-also.md %}

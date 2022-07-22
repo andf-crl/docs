@@ -89,7 +89,7 @@ This configuration is intended for training and performance benchmarking only. F
 
 ## Step 3. Load data for the benchmark
 
-CockroachDB comes with built-in load generators for simulating different types of client workloads, printing out per-operation statistics every second and totals after a specific duration or max number of operations. This step features CockroachDB's version of the TPC-C workload.
+CockroachDB comes with built-in load generators for simulating different types of client workloads, printing out per-operation statistics every second and totals after a specific duration or max number of operations. This step features CockroachDB's [version](cluster-settings.html#setting-version) of the TPC-C workload.
 
 On the fourth node, use `cockroach workload` to load the initial schema and data:
 
@@ -132,7 +132,7 @@ _elapsed_______tpmC____efc__avg(ms)__p50(ms)__p90(ms)__p95(ms)__p99(ms)_pMax(ms)
 
 You will also see some audit checks and latency statistics for each individual query. For this run, some of those checks might indicate that they were `SKIPPED` due to insufficient data. For a more comprehensive test, run `workload` for a longer duration (e.g., two hours). The `tpmC` (new order transactions/minute) number is the headline number and `efc` ("efficiency") tells you how close CockroachDB gets to theoretical maximum `tpmC`.
 
-The [TPC-C specification](http://www.tpc.org/tpc_documents_current_versions/pdf/tpc-c_v5.11.0.pdf) has p90 latency requirements in the order of seconds, but as you see here, CockroachDB far surpasses that requirement with p90 latencies in the hundreds of milliseconds.
+The [TPC-C specification](http://www.tpc.org/tpc_documents_current_[version](cluster-settings.html#setting-version)s/pdf/tpc-c_v5.11.0.pdf) has p90 latency requirements in the order of seconds, but as you see here, CockroachDB far surpasses that requirement with p90 latencies in the hundreds of milliseconds.
 
 ## Step 6. Clean up
 

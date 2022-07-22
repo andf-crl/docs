@@ -80,7 +80,7 @@ When using the [`ALTER TABLE .. ADD COLUMN`](add-column.html) statement to add a
 
 ## Compatibility with Past Releases
 
-Using the `beta-20160714` release makes your data incompatible with versions earlier than the `beta-20160629` release.
+Using the `beta-20160714` release makes your data incompatible with [version](cluster-settings.html#setting-version)s earlier than the `beta-20160629` release.
 
 ## See Also
 

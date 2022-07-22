@@ -4,7 +4,7 @@ summary: List the files stored in the user-scoped file storage.
 toc: true
 ---
 
-<span class="version-tag">New in v20.2:</span> The `cockroach userfile list` [command](cockroach-commands.html) lists the files stored in the [user-scoped file storage](use-userfile-for-bulk-operations.html) which match the [provided pattern](cockroach-userfile-upload.html#file-destination), using a SQL connection. If no pattern is provided, all files in the specified (or default, if unspecified) user scoped file storage will be listed.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> The `cockroach userfile list` [command](cockroach-commands.html) lists the files stored in the [user-scoped file storage](use-userfile-for-bulk-operations.html) which match the [provided pattern](cockroach-userfile-upload.html#file-destination), using a SQL connection. If no pattern is provided, all files in the specified (or default, if unspecified) user scoped file storage will be listed.
 
 ## Required privileges
 

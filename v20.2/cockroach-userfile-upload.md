@@ -4,7 +4,7 @@ summary: The cockroach userfile upload command uploads a file to user-scoped fil
 toc: true
 ---
 
-<span class="version-tag">New in v20.2:</span> The `cockroach userfile upload` [command](cockroach-commands.html) uploads a file to the [user-scoped file storage](use-userfile-for-bulk-operations.html) using a SQL connection.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> The `cockroach userfile upload` [command](cockroach-commands.html) uploads a file to the [user-scoped file storage](use-userfile-for-bulk-operations.html) using a SQL connection.
 
 This command takes in a source file to upload and a destination filename. It will then use a SQL connection to upload the file to the [destination](#file-destination).
 
@@ -123,7 +123,7 @@ successfully uploaded to userfile://testdb.public.uploads/test-data.csv
 
 ## Known limitation
 
-{% include {{ page.version.version }}/known-limitations/userfile-upload-non-recursive.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/userfile-upload-non-recursive.md %}
 
 ## See also
 

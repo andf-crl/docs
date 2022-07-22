@@ -4,7 +4,7 @@ summary: Learn how to migrate data from the OpenStreetMap pbf format into a Cock
 toc: true
 ---
 
-<span class="version-tag">New in v20.2</span>: CockroachDB supports efficiently storing and querying [spatial data](spatial-data.html).
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2</span>: CockroachDB supports efficiently storing and querying [spatial data](spatial-data.html).
 
 This page has instructions for migrating data from [OpenStreetMap](https://www.openstreetmap.org) `.pbf` data files into CockroachDB using [`osm2pgsql`](https://github.com/openstreetmap/osm2pgsql/) and [`IMPORT`][import].
 
@@ -53,7 +53,7 @@ osm2pgsql -C 2048 -d australia -U root -H localhost -P 26257 australia-latest.os
 This will take a few (30+) minutes to run on a laptop, and there will be a lot of output. A successful run will look something like the following:
 
 ~~~
-osm2pgsql version 1.3.0
+osm2pgsql [version](cluster-settings.html#setting-version) 1.3.0
 
 Allocating memory for dense node cache
 Allocating dense node cache in one big chunk

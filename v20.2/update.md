@@ -18,7 +18,7 @@ The user must have the `SELECT` and `UPDATE` [privileges](authorization.html#ass
 ## Synopsis
 
 <div class="horizontal-scroll">
-{% include {{ page.version.version }}/sql/diagrams/update.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/update.html %}
 </div>
 
 ## Parameters
@@ -36,7 +36,7 @@ Parameter | Description
 `sort_clause` | An `ORDER BY` clause. See [Ordering Query Results](order-by.html) and [Ordering of rows in DML statements](order-by.html#ordering-rows-in-dml-statements) for more details.
 `limit_clause` | A `LIMIT` clause. See [Limiting Query Results](limit-offset.html) for more details.
 `RETURNING target_list` | Return values based on rows updated, where `target_list` can be specific column names from the table, `*` for all columns, or computations using [scalar expressions](scalar-expressions.html). <br><br>To return nothing in the response, not even the number of rows updated, use `RETURNING NOTHING`.
-`ONLY ... *` | <span class="version-tag">New in v20.2:</span> Supported for compatibility with PostgreSQL table inheritance syntax. This clause is a no-op, as CockroachDB does not currently support table inheritance.
+`ONLY ... *` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> Supported for compatibility with PostgreSQL table inheritance syntax. This clause is a no-op, as CockroachDB does not currently support table inheritance.
 
 ## Force index selection for updates
 
@@ -80,7 +80,7 @@ For guidance and an example, see [Bulk-update Data](bulk-update-data.html).
 
 ## Examples
 
-{% include {{page.version.version}}/sql/movr-statements.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/movr-statements.md %}
 
 ### Update a single column in a single row
 
@@ -294,7 +294,7 @@ You can use a [`SET`](set-vars.html) statement to set session variables.
 
 ### Update and return values
 
-In this example, the `RETURNING` clause returns the `id` value of the row updated. The language-specific versions assume that you have installed the relevant [client drivers](install-client-drivers.html).
+In this example, the `RETURNING` clause returns the `id` value of the row updated. The language-specific [version](cluster-settings.html#setting-version)s assume that you have installed the relevant [client drivers](install-client-drivers.html).
 
 {{site.data.alerts.callout_success}}This use of <code>RETURNING</code> mirrors the behavior of MySQL's <code>last_insert_id()</code> function.{{site.data.alerts.end}}
 

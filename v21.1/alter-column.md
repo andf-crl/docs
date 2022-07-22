@@ -18,12 +18,12 @@ To manage other constraints, see [`ADD CONSTRAINT`](add-constraint.html) and [`D
 Support for altering column types is [experimental](experimental-features.html), with certain limitations. For details, see [Altering column data types](#altering-column-data-types).
 {{site.data.alerts.end}}
 
-{% include {{ page.version.version }}/sql/combine-alter-table-commands.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/combine-alter-table-commands.md %}
 
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/generated/diagrams/alter_column.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/alter_column.html %}
 </div>
 
 ## Required privileges
@@ -42,7 +42,7 @@ The user must have the `CREATE` [privilege](authorization.html#assign-privileges
 
 ## Viewing schema changes
 
-{% include {{ page.version.version }}/misc/schema-change-view-job.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-view-job.md %}
 
 ## Altering column data types
 
@@ -112,11 +112,11 @@ If the column has the [`NOT NULL` constraint](not-null.html) applied to it, you 
 
 ### Convert a computed column into a regular column
 
-{% include {{ page.version.version }}/computed-columns/convert-computed-column.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/computed-columns/convert-computed-column.md %}
 
 ### Alter the formula for a computed column
 
-{% include {{ page.version.version }}/computed-columns/alter-computed-column.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/computed-columns/alter-computed-column.md %}
 
 ### Convert to a different data type
 

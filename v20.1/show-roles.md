@@ -7,13 +7,13 @@ toc: true
 The `SHOW ROLES` [statement](sql-statements.html) lists the roles for all databases.
 
 {{site.data.alerts.callout_info}}
-<span class="version-tag">New in v20.1</span>: Since the keywords `ROLES` and `USERS` can now be used interchangeably in SQL statements for enhanced Postgres compatibility, `SHOW ROLES` is now an alias for [`SHOW USERS`](show-users.html).
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1</span>: Since the keywords `ROLES` and `USERS` can now be used interchangeably in SQL statements for enhanced Postgres compatibility, `SHOW ROLES` is now an alias for [`SHOW USERS`](show-users.html).
 {{site.data.alerts.end}}
 
 ## Synopsis
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/show_roles.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/show_roles.html %}
 </div>
 
 ## Required privileges

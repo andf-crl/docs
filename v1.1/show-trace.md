@@ -4,7 +4,7 @@ summary: The SHOW TRACE statement...
 toc: true
 ---
 
-<span class="version-tag">New in v1.1:</span> The `SHOW TRACE` [statement](sql-statements.html) returns details about how CockroachDB executed a statement or series of statements. These details include messages and timing information from all nodes involved in the execution, providing visibility into the actions taken by CockroachDB across all of its software layers.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v1.1:</span> The `SHOW TRACE` [statement](sql-statements.html) returns details about how CockroachDB executed a statement or series of statements. These details include messages and timing information from all nodes involved in the execution, providing visibility into the actions taken by CockroachDB across all of its software layers.
 
 You can use `SHOW TRACE` to debug why a query is not performing as expected, to add more information to bug reports, or to generally learn more about how CockroachDB works.
 
@@ -50,7 +50,7 @@ For `SHOW TRACE FOR <stmt>`, the user must have the appropriate [privileges](pri
 
 ## Syntax
 
-<section>{% include {{ page.version.version }}/sql/diagrams/show_trace.html %}</section>
+<section>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/show_trace.html %}</section>
 
 ## Parameters
 
@@ -76,7 +76,7 @@ To further clarify these concepts, let's look at a visualization of a trace for 
 
 ## Response
 
-{{site.data.alerts.callout_info}}The format of the <code>SHOW TRACE</code> response may change in future versions.{{site.data.alerts.end}}
+{{site.data.alerts.callout_info}}The format of the <code>SHOW TRACE</code> response may change in future [version](cluster-settings.html#setting-version)s.{{site.data.alerts.end}}
 
 CockroachDB outputs traces in linear tabular format. Each result row represents either a span start (identified by the `=== SPAN START: <operation> ===` message) or a log message from a span. Rows are generally listed in their timestamp order (i.e., the order in which the events they represent occurred) with the exception that messages from child spans are interleaved in the parent span according to their timing. Messages from sibling spans, however, are not interleaved with respect to one another.
 

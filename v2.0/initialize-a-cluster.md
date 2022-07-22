@@ -4,7 +4,7 @@ summary: Perform a one-time-only initialization of a CockroachDB cluster.
 toc: true
 ---
 
-<span class="version-tag">New in v1.1:</span> This page explains the `cockroach init` [command](cockroach-commands.html), which you use to perform a one-time initialization of a new multi-node cluster. For a full walk-through of the cluster startup and initialization process, see one of the [Manual Deployment](manual-deployment.html) tutorials.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v1.1:</span> This page explains the `cockroach init` [command](cockroach-commands.html), which you use to perform a one-time initialization of a new multi-node cluster. For a full walk-through of the cluster startup and initialization process, see one of the [Manual Deployment](manual-deployment.html) tutorials.
 
 {{site.data.alerts.callout_info}}When <a href="start-a-node.html#start-a-single-node-cluster">starting a single-node cluster</a>, you do not need to use the <code>cockroach init</code> command. You can simply run the <code>cockroach start</code> command without the <code>--join</code> flag to start and initialize the single-node cluster.{{site.data.alerts.end}}
 
@@ -25,7 +25,7 @@ The `cockroach init` command supports the following [client connection](#client-
 
 ### Client Connection
 
-{% include {{ page.version.version }}/sql/connection-parameters.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/connection-parameters.md %}
 
 See [Client Connection Parameters](connection-parameters.html) for details.
 
@@ -57,7 +57,7 @@ These examples assume that nodes have already been started with [`cockroach star
     $ cockroach init --certs-dir=certs --host=<address of this node>
     ~~~
 
-    At this point, all the nodes complete startup and print helpful details to the [standard output](start-a-node.html#standard-output), such as the CockroachDB version, the URL for the admin UI, and the SQL URL for clients.
+    At this point, all the nodes complete startup and print helpful details to the [standard output](start-a-node.html#standard-output), such as the CockroachDB [version](cluster-settings.html#setting-version), the URL for the admin UI, and the SQL URL for clients.
 </div>
 
 <div class="filter-content" markdown="1" data-scope="insecure">
@@ -69,7 +69,7 @@ These examples assume that nodes have already been started with [`cockroach star
     $ cockroach init --insecure --host=<address of this node>
     ~~~
 
-    At this point, all the nodes complete startup and print helpful details to the [standard output](start-a-node.html#standard-output), such as the CockroachDB version, the URL for the admin UI, and the SQL URL for clients.
+    At this point, all the nodes complete startup and print helpful details to the [standard output](start-a-node.html#standard-output), such as the CockroachDB [version](cluster-settings.html#setting-version), the URL for the admin UI, and the SQL URL for clients.
 </div>
 
 ### Initialize a Cluster from Another Machine
@@ -90,7 +90,7 @@ These examples assume that nodes have already been started with [`cockroach star
     $ cockroach init --certs-dir=certs --host=<address of any node>
     ~~~
 
-    At this point, all the nodes complete startup and print helpful details to the [standard output](start-a-node.html#standard-output), such as the CockroachDB version, the URL for the admin UI, and the SQL URL for clients.
+    At this point, all the nodes complete startup and print helpful details to the [standard output](start-a-node.html#standard-output), such as the CockroachDB [version](cluster-settings.html#setting-version), the URL for the admin UI, and the SQL URL for clients.
 </div>
 
 <div class="filter-content" markdown="1" data-scope="insecure">
@@ -102,7 +102,7 @@ These examples assume that nodes have already been started with [`cockroach star
     $ cockroach init --insecure --host=<address of any node>
     ~~~
 
-    At this point, all the nodes complete startup and print helpful details to the [standard output](start-a-node.html#standard-output), such as the CockroachDB version, the URL for the admin UI, and the SQL URL for clients.
+    At this point, all the nodes complete startup and print helpful details to the [standard output](start-a-node.html#standard-output), such as the CockroachDB [version](cluster-settings.html#setting-version), the URL for the admin UI, and the SQL URL for clients.
 </div>
 
 ## See Also

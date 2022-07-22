@@ -11,7 +11,7 @@ CTEs can be used in combination with [`SELECT` clauses](select-clause.html) and 
 
 ## Synopsis
 
-<div>{% include {{ page.version.version }}/sql/generated/diagrams/with_clause.html %}</div>
+<div>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/with_clause.html %}</div>
 
 <div markdown="1"></div>
 
@@ -307,7 +307,7 @@ CockroachDB does not currently support the [Postgres recursive CTE variant](http
 
 ### Correlated common table expressions
 
-{% include {{ page.version.version }}/known-limitations/correlated-ctes.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/correlated-ctes.md %}
 
 For details, see the [tracking issue](https://github.com/cockroachdb/cockroach/issues/42540).
 

@@ -18,7 +18,7 @@ Your deployment may use an external service (e.g., [Elasticsearch](https://www.e
 {{site.data.alerts.callout_info}}
 All log examples on this page use the default `crdb-v2` format, except for the [network logging](#network-logging) configuration, which uses the default `json-fluent-compact` format for network output. Most log entries for non-`DEV` channels record *structured* events, which use a standardized format that can be reliably parsed by an external collector. All structured event types and their fields are detailed in the [Notable events reference](eventlog.html).
 
-Logging channels may also contain events that are *unstructured*. Unstructured events can routinely change between CockroachDB versions, including minor patch revisions, so they are not officially documented.
+Logging channels may also contain events that are *unstructured*. Unstructured events can routinely change between CockroachDB [version](cluster-settings.html#setting-version)s, including minor patch revisions, so they are not officially documented.
 {{site.data.alerts.end}}
 
 {{site.data.alerts.callout_info}}
@@ -152,15 +152,15 @@ The [`SESSIONS`](logging.html#sessions) channel logs SQL session events. This in
 These logs perform one disk I/O per event. Enabling each setting will impact performance.
 {{site.data.alerts.end}}
 
-{% include {{ page.version.version }}/misc/experimental-warning.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/experimental-warning.md %}
 
 #### Example: Client connection events
 
-To log SQL client connection events to the `SESSIONS` channel, enable the `server.auth_log.sql_connections.enabled` [cluster setting](cluster-settings.html):
+To log SQL client connection events to the `SESSIONS` channel, enable the `[server.auth_log.sql_connections.enabled](cluster-settings.html#setting-server-auth_log-sql_connections-enabled)` [cluster setting](cluster-settings.html):
 
 {% include_cached copy-clipboard.html %}
 ~~~ sql
-> SET CLUSTER SETTING server.auth_log.sql_connections.enabled = true;
+> SET CLUSTER SETTING [server.auth_log.sql_connections.enabled](cluster-settings.html#setting-server-auth_log-sql_connections-enabled) = true;
 ~~~
 
 {{site.data.alerts.callout_info}}
@@ -180,11 +180,11 @@ I210323 21:53:58.305074 53298 4@util/log/event_log.go:32 ⋮ [n1,client=‹[::1]
 
 #### Example: Session authentication events
 
-To log SQL session authentication events to the `SESSIONS` channel, enable the `server.auth_log.sql_sessions.enabled` [cluster setting](cluster-settings.html) on every cluster:
+To log SQL session authentication events to the `SESSIONS` channel, enable the `[server.auth_log.sql_sessions.enabled](cluster-settings.html#setting-server-auth_log-sql_sessions-enabled)` [cluster setting](cluster-settings.html) on every cluster:
 
 {% include_cached copy-clipboard.html %}
 ~~~ sql
-> SET CLUSTER SETTING server.auth_log.sql_sessions.enabled = true;
+> SET CLUSTER SETTING [server.auth_log.sql_sessions.enabled](cluster-settings.html#setting-server-auth_log-sql_sessions-enabled) = true;
 ~~~
 
 These logs show certificate authentication success over a `hostssl` (TLS transport over TCP) connection:
@@ -227,7 +227,7 @@ The [`SENSITIVE_ACCESS`](logging.html#sensitive_access) channel logs SQL audit e
 Enabling these logs can negatively impact performance. We recommend using `SENSITIVE_ACCESS` for security purposes only.
 {{site.data.alerts.end}}
 
-{% include {{ page.version.version }}/misc/experimental-warning.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/experimental-warning.md %}
 
 To log all queries against a specific table, enable auditing on the table with [`ALTER TABLE ... EXPERIMENTAL_AUDIT`](experimental-audit.html).
 
@@ -311,11 +311,11 @@ sinks:
 
 The [`SQL_EXEC`](logging.html#sql_exec) channel reports all SQL executions on the cluster, when enabled.
 
-To log cluster-wide executions, enable the `sql.trace.log_statement_execute` [cluster setting](cluster-settings.html):
+To log cluster-wide executions, enable the `[sql.trace.log_statement_execute](cluster-settings.html#setting-sql-trace-log_statement_execute)` [cluster setting](cluster-settings.html):
 
 {% include_cached copy-clipboard.html %}
 ~~~ sql
-> SET CLUSTER SETTING sql.trace.log_statement_execute = true;
+> SET CLUSTER SETTING [sql.trace.log_statement_execute](cluster-settings.html#setting-sql-trace-log_statement_execute) = true;
 ~~~
 
 Each node of the cluster will write all SQL queries it executes to the `SQL_EXEC` channel. These are recorded as [`query_execute`](eventlog.html#query_execute) events.
@@ -345,7 +345,7 @@ If you no longer need to log queries across the cluster, you can disable the set
 
 {% include_cached copy-clipboard.html %}
 ~~~ sql
-> SET CLUSTER SETTING sql.trace.log_statement_execute = false;
+> SET CLUSTER SETTING [sql.trace.log_statement_execute](cluster-settings.html#setting-sql-trace-log_statement_execute) = false;
 ~~~
 
 {{site.data.alerts.callout_info}}
@@ -356,13 +356,13 @@ All possible `SQL_EXEC` event types are detailed in the [reference documentation
 
 The [`SQL_PERF`](logging.html#sql_perf) channel reports slow SQL queries, when enabled. This includes queries whose latency exceeds a configured threshold, as well as queries that perform a full table or index scan.
 
-To enable slow query logging, enable the `sql.log.slow_query.latency_threshold` [cluster setting](cluster-settings.html) by setting it to a non-zero value. This will log queries whose service latency exceeds a specified threshold value. The threshold value must be specified with a unit of time (e.g., `500ms` for 500 milliseconds, `5us` for 5 nanoseconds, or `5s` for 5 seconds). A threshold of `0s` disables the slow query log.
+To enable slow query logging, enable the `[sql.log.slow_query.latency_threshold](cluster-settings.html#setting-sql-log-slow_query-latency_threshold)` [cluster setting](cluster-settings.html) by setting it to a non-zero value. This will log queries whose service latency exceeds a specified threshold value. The threshold value must be specified with a unit of time (e.g., `500ms` for 500 milliseconds, `5us` for 5 nanoseconds, or `5s` for 5 seconds). A threshold of `0s` disables the slow query log.
 
 {{site.data.alerts.callout_info}}
-Setting `sql.log.slow_query.latency_threshold` to a non-zero time enables tracing on all queries, which impacts performance. After debugging, set the value back to `0s` to disable the log.
+Setting `[sql.log.slow_query.latency_threshold](cluster-settings.html#setting-sql-log-slow_query-latency_threshold)` to a non-zero time enables tracing on all queries, which impacts performance. After debugging, set the value back to `0s` to disable the log.
 {{site.data.alerts.end}}
 
-To log all queries that perform full table or index scans to `SQL_PERF`, regardless of query latency, set the `sql.log.slow_query.experimental_full_table_scans.enabled` [cluster setting](cluster-settings.html) to `true`.
+To log all queries that perform full table or index scans to `SQL_PERF`, regardless of query latency, set the `[sql.log.slow_query.experimental_full_table_scans.enabled](cluster-settings.html#setting-sql-log-slow_query-experimental_full_table_scans-enabled)` [cluster setting](cluster-settings.html) to `true`.
 
 #### Example: Slow SQL query
 
@@ -370,7 +370,7 @@ For example, to enable the slow query log for all queries with a latency above 1
 
 {% include_cached copy-clipboard.html %}
 ~~~ sql
-> SET CLUSTER SETTING sql.log.slow_query.latency_threshold = '100ms';
+> SET CLUSTER SETTING [sql.log.slow_query.latency_threshold](cluster-settings.html#setting-sql-log-slow_query-latency_threshold) = '100ms';
 ~~~
 
 Each gateway node will now record queries that take longer than 100 milliseconds to the `SQL_PERF` channel as [`slow_query` events](eventlog.html#slow_query).

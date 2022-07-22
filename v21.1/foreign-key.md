@@ -33,7 +33,7 @@ To read more about how foreign keys work, see our [What is a Foreign Key? (With 
 
 - Referenced columns must contain only unique sets of values. This means the `REFERENCES` clause must use exactly the same columns as a [`UNIQUE`](unique.html) or [`PRIMARY KEY`](primary-key.html) constraint on the referenced table, in the same order as they are defined in the referenced table. For example, the clause `REFERENCES tbl (C, D)` requires `tbl` to have either the constraint `UNIQUE (C, D)` or `PRIMARY KEY (C, D)`.
 - In the `REFERENCES` clause, if you specify a table but no columns, CockroachDB references the table's primary key. In these cases, the `FOREIGN KEY` constraint and the referenced table's primary key must contain the same number of columns.
--  By default, referenced columns must be in the same database as the referencing foreign key column. To enable cross-database foreign key references, set the `sql.cross_db_fks.enabled` [cluster setting](cluster-settings.html) to `true`.
+-  By default, referenced columns must be in the same database as the referencing foreign key column. To enable cross-database foreign key references, set the `[sql.cross_db_fks.enabled](cluster-settings.html#setting-sql-cross_db_fks-enabled)` [cluster setting](cluster-settings.html) to `true`.
 
 ### Null values
 
@@ -56,7 +56,7 @@ A `NOT NULL` constraint cannot be added to existing tables.
 
 By default, composite foreign keys are matched using the `MATCH SIMPLE` algorithm (which is the same default as Postgres). `MATCH FULL` is available if specified. You can specify both `MATCH FULL` and `MATCH SIMPLE`.
 
-All composite key matches defined prior to version 19.1 use the `MATCH SIMPLE` comparison method. If you had a composite foreign key constraint and have just upgraded to version 19.1, then please check that `MATCH SIMPLE` works for your schema and consider replacing that foreign key constraint with a `MATCH FULL` one.
+All composite key matches defined prior to [version](cluster-settings.html#setting-version) 19.1 use the `MATCH SIMPLE` comparison method. If you had a composite foreign key constraint and have just upgraded to [version](cluster-settings.html#setting-version) 19.1, then please check that `MATCH SIMPLE` works for your schema and consider replacing that foreign key constraint with a `MATCH FULL` one.
 
 #### How it works
 
@@ -131,7 +131,7 @@ You can also add the `FOREIGN KEY` constraint to existing tables through [`ADD C
 
 ### Column level
 
-<section>{% include {{ page.version.version }}/sql/generated/diagrams/foreign_key_column_level.html %}</section>
+<section>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/foreign_key_column_level.html %}</section>
 
 | Parameter | Description |
 |-----------|-------------|
@@ -161,7 +161,7 @@ You can also add the `FOREIGN KEY` constraint to existing tables through [`ADD C
 
 ### Table level
 
-<section>{% include {{ page.version.version }}/sql/generated/diagrams/foreign_key_table_level.html %}</section>
+<section>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/foreign_key_table_level.html %}</section>
 
 | Parameter | Description |
 |-----------|-------------|

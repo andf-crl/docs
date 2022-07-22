@@ -27,7 +27,7 @@ These tables store information about the users and vehicles registered with MovR
 Initialization statements for `movr` are defined in [`dbinit.sql`](https://github.com/cockroachlabs/movr-flask/blob/master/dbinit.sql), a SQL file that you use later in this tutorial to load the database to a running cluster.
 
 {{site.data.alerts.callout_info}}
-The database schema used in this application is a slightly simplified version of the [`movr` database schema](movr.html) that is built into the `cockroach` binary. The schemas are similar, but they are not the same.
+The database schema used in this application is a slightly simplified [version](cluster-settings.html#setting-version) of the [`movr` database schema](movr.html) that is built into the `cockroach` binary. The schemas are similar, but they are not the same.
 {{site.data.alerts.end}}
 
 ## Multi-region in CockroachDB

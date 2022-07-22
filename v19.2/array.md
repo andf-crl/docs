@@ -12,7 +12,7 @@ The `ARRAY` data type is useful for ensuring compatibility with ORMs and other t
 CockroachDB does not support nested arrays, creating database indexes on arrays, and ordering by arrays.
 {{site.data.alerts.end}}
 
-{% include {{page.version.version}}/sql/vectorized-support.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/vectorized-support.md %}
 
 ## Syntax
 
@@ -188,9 +188,9 @@ Arrays in CockroachDB are 1-indexed.
 (1 row)
 ~~~
 
-## Supported casting and conversion
+## Supported casting and con[version](cluster-settings.html#setting-version)
 
-[Casting](data-types.html#data-type-conversions-and-casts) between `ARRAY` values is supported when the data types of the arrays support casting. For example, it is possible to cast from a `BOOL` array to an `INT` array but not from a `BOOL` array to a `TIMESTAMP` array:
+[Casting](data-types.html#data-type-con[version](cluster-settings.html#setting-version)s-and-casts) between `ARRAY` values is supported when the data types of the arrays support casting. For example, it is possible to cast from a `BOOL` array to an `INT` array but not from a `BOOL` array to a `TIMESTAMP` array:
 
 {% include copy-clipboard.html %}
 ~~~ sql

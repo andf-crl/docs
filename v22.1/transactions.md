@@ -79,7 +79,7 @@ There are two cases in which transaction retries can occur:
 
 CockroachDB automatically retries individual statements (implicit transactions) and transactions sent from the client as a single batch, as long as the size of the results being produced for the client, including protocol overhead, is less than 16KiB by default. Once that buffer overflows, CockroachDB starts streaming results back to the client, at which point automatic retries cannot be performed any more. As long as the results of a single statement or batch of statements are known to stay clear of this limit, the client does not need to worry about transaction retries.
 
-You can change the results buffer size for all new sessions using the `sql.defaults.results_buffer.size` [cluster setting](cluster-settings.html), or for a specific session using the `results_buffer_size` [session variable](set-vars.html). Decreasing the buffer size can increase the number of transaction retry errors a client receives, whereas increasing the buffer size can increase the delay until the client receives the first result row.
+You can change the results buffer size for all new sessions using the `[sql.defaults.results_buffer.size](cluster-settings.html#setting-sql-defaults-results_buffer-size)` [cluster setting](cluster-settings.html), or for a specific session using the `results_buffer_size` [session variable](set-vars.html). Decreasing the buffer size can increase the number of transaction retry errors a client receives, whereas increasing the buffer size can increase the delay until the client receives the first result row.
 
 #### Individual statements
 
@@ -160,11 +160,11 @@ To handle these types of errors, you have the following options:
 
 #### Client-side intervention example
 
-{% include {{page.version.version}}/misc/client-side-intervention-example.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/misc/client-side-intervention-example.md %}
 
 #### Testing transaction retry logic
 
-{% include_cached new-in.html version="v22.1" %} To test your transaction retry logic, use the [`inject_retry_errors_enabled` session variable](set-vars.html#supported-variables). When `inject_retry_errors_enabled` is set to `true`, any statement (with the exception of [`SET` statements](set-vars.html)) executed in the session inside of an explicit transaction will return a [transaction retry error](transaction-retry-error-reference.html) with the message ```restart transaction: TransactionRetryWithProtoRefreshError: injected by `inject_retry_errors_enabled` session variable```.
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v22.1" %} To test your transaction retry logic, use the [`inject_retry_errors_enabled` session variable](set-vars.html#supported-variables). When `inject_retry_errors_enabled` is set to `true`, any statement (with the exception of [`SET` statements](set-vars.html)) executed in the session inside of an explicit transaction will return a [transaction retry error](transaction-retry-error-reference.html) with the message ```restart transaction: TransactionRetryWithProtoRefreshError: injected by `inject_retry_errors_enabled` session variable```.
 
 If the client retries the transaction using the special [`cockroach_restart` `SAVEPOINT` name](savepoint.html#savepoints-for-client-side-transaction-retries), after the 3rd retry, the transaction will proceed as normal. Otherwise, the errors will continue until the client issues a `SET inject_retry_errors_enabled=false` statement.
 
@@ -369,9 +369,9 @@ For more information about the relationship between these levels, see [A Critiqu
 
 You can limit the number of rows written or read in a transaction at the cluster or session level. This allows you configure CockroachDB to log or reject statements that could destabilize a cluster or violate application best practices.
 
-Use the [cluster settings](cluster-settings.html) `sql.defaults.transaction_rows_written_log`,
-`sql.defaults.transaction_rows_written_err`, `sql.defaults.transaction_rows_read_log`, and
-`sql.defaults.transaction_rows_read_err` and [session settings](set-vars.html) `transaction_rows_written_log`,
+Use the [cluster settings](cluster-settings.html) `[sql.defaults.transaction_rows_written_log](cluster-settings.html#setting-sql-defaults-transaction_rows_written_log)`,
+`[sql.defaults.transaction_rows_written_err](cluster-settings.html#setting-sql-defaults-transaction_rows_written_err)`, `[sql.defaults.transaction_rows_read_log](cluster-settings.html#setting-sql-defaults-transaction_rows_read_log)`, and
+`[sql.defaults.transaction_rows_read_err](cluster-settings.html#setting-sql-defaults-transaction_rows_read_err)` and [session settings](set-vars.html) `transaction_rows_written_log`,
 `transaction_rows_written_err`, `transaction_rows_read_log`, and
 `transaction_rows_read_err` to limit the number of rows written or read in a
 transaction. When the `log` limit is reached, the transaction is logged to the `SQL_PERF` channel.

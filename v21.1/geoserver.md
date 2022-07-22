@@ -60,7 +60,7 @@ CockroachDB's support for GeoServer is still in development. To use CockroachDB 
 
 {% include_cached copy-clipboard.html %}
 ~~~ sql
-SET CLUSTER SETTING sql.spatial.experimental_box2d_comparison_operators.enabled = ON;
+SET CLUSTER SETTING [sql.spatial.experimental_box2d_comparison_operators.enabled](cluster-settings.html#setting-sql-spatial-experimental_box2d_comparison_operators-enabled) = ON;
 ~~~
 
 The reasons the box2d comparison operators are experimental in CockroachDB are as follows:

@@ -16,7 +16,7 @@ referral_id: docs_hello_world_python_django
 
 This tutorial shows you how build a simple Python application with CockroachDB and the [Django](https://www.djangoproject.com/) framework.
 
-CockroachDB supports Django versions 3.1+.
+CockroachDB supports Django [version](cluster-settings.html#setting-version)s 3.1+.
 
 {{site.data.alerts.callout_info}}
 The example code and instructions on this page use Python 3.9 and Django 3.1.
@@ -24,11 +24,11 @@ The example code and instructions on this page use Python 3.9 and Django 3.1.
 
 ## Step 1. Start CockroachDB
 
-{% include {{page.version.version}}/app/start-cockroachdb.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/start-cockroachdb.md %}
 
 ## Step 2. Create a database
 
-{% include {{page.version.version}}/app/create-a-database.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/create-a-database.md %}
 
 ## Step 3. Get the sample code
 
@@ -109,7 +109,7 @@ To use CockroachDB with Django, the following modules are required:
 - [`django-cockroachdb`](https://github.com/cockroachdb/django-cockroachdb)
 
 {{site.data.alerts.callout_info}}
-The major version of `django-cockroachdb` must correspond to the major version of `django`. The minor release numbers do not need to match.
+The major [version](cluster-settings.html#setting-version) of `django-cockroachdb` must correspond to the major [version](cluster-settings.html#setting-version) of `django`. The minor release numbers do not need to match.
 {{site.data.alerts.end}}
 
 The `requirements.txt` file at the top level of the `example-app-python-django` project directory contains a list of the requirements needed to run this application:
@@ -322,4 +322,4 @@ Lastly, define some [URL routes](https://docs.djangoproject.com/en/3.1/topics/ht
 
 Read more about writing a [Django app](https://docs.djangoproject.com/en/3.1/intro/tutorial01/).
 
-{% include {{page.version.version}}/app/see-also-links.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/see-also-links.md %}

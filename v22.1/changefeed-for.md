@@ -6,12 +6,12 @@ docs_area: reference.sql
 ---
 
 {{site.data.alerts.callout_info}}
-`EXPERIMENTAL CHANGEFEED FOR` is the core implementation of changefeeds. For the [Enterprise-only](enterprise-licensing.html) version, see [`CREATE CHANGEFEED`](create-changefeed.html).
+`EXPERIMENTAL CHANGEFEED FOR` is the core implementation of changefeeds. For the [Enterprise-only](enterprise-licensing.html) [version](cluster-settings.html#setting-version), see [`CREATE CHANGEFEED`](create-changefeed.html).
 {{site.data.alerts.end}}
 
 The `EXPERIMENTAL CHANGEFEED FOR` [statement](sql-statements.html) creates a new core changefeed, which streams row-level changes to the client indefinitely until the underlying connection is closed or the changefeed is canceled. A core changefeed can watch one table or multiple tables in a comma-separated list.
 
-{% include {{ page.version.version }}/cdc/core-url.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/cdc/core-url.md %}
 
 For more information, see [Change Data Capture Overview](change-data-capture-overview.html).
 
@@ -27,8 +27,8 @@ Changefeeds can only be created by superusers, i.e., [members of the `admin` rol
 
     This cancellation behavior (i.e., close the underlying connection to cancel the changefeed) also extends to client driver usage; in particular, when a client driver calls `Rows.Close()` after encountering errors for a stream of rows. The pgwire protocol requires that the rows be consumed before the connection is again usable, but in the case of a core changefeed, the rows are never consumed. It is therefore critical that you close the connection, otherwise the application will be blocked forever on `Rows.Close()`.
 
-- In most cases, each version of a row will be emitted once. However, some infrequent conditions (e.g., node failures, network partitions) will cause them to be repeated. This gives our changefeeds an at-least-once delivery guarantee. For more information, see [Change Data Capture - Ordering Guarantees](use-changefeeds.html#ordering-guarantees).
-- As of v22.1, changefeeds filter out [`VIRTUAL` computed columns](computed-columns.html) from events by default. This is a [backward-incompatible change](../releases/v22.1.html#v22-1-0-backward-incompatible-changes). To maintain the changefeed behavior in previous versions where [`NULL`](null-handling.html) values are emitted for virtual computed columns, see the [`virtual_columns`](changefeed-for.html#virtual-columns) option for more detail.
+- In most cases, each [version](cluster-settings.html#setting-version) of a row will be emitted once. However, some infrequent conditions (e.g., node failures, network partitions) will cause them to be repeated. This gives our changefeeds an at-least-once delivery guarantee. For more information, see [Change Data Capture - Ordering Guarantees](use-changefeeds.html#ordering-guarantees).
+- As of v22.1, changefeeds filter out [`VIRTUAL` computed columns](computed-columns.html) from events by default. This is a [backward-incompatible change](../releases/v22.1.html#v22-1-0-backward-incompatible-changes). To maintain the changefeed behavior in previous [version](cluster-settings.html#setting-version)s where [`NULL`](null-handling.html) values are emitted for virtual computed columns, see the [`virtual_columns`](changefeed-for.html#virtual-columns) option for more detail.
 
 ## Synopsis
 
@@ -60,7 +60,7 @@ Option | Value | Description
 `format` | `json` / `avro` | Format of the emitted record. Currently, support for [Avro is limited](use-changefeeds.html#avro-limitations). <br><br>Default: `format=json`.
 `confluent_schema_registry` | Schema Registry address | The [Schema Registry](https://docs.confluent.io/current/schema-registry/docs/index.html#sr) address is required to use `avro`.
 `split_column_families` | N/A | **New in v22.1:** Target a table with multiple columns families. Emit messages for each column family in the target table. Each message will include the label: `table.family`.
-<a name="virtual-columns"></a>`virtual_columns` | `STRING` | **New in v22.1:** Changefeeds omit [virtual computed columns](computed-columns.html) from emitted [messages](use-changefeeds.html#messages) by default. To maintain the behavior of previous CockroachDB versions where the changefeed would emit [`NULL`](null-handling.html) values for virtual computed columns, set `virtual_columns = "null"` when you start a changefeed. <br><br>You may also define `virtual_columns = "omitted"`, though this is already the default behavior for v22.1+. If you do not set `"omitted"` on a table with virtual computed columns when you create a changefeed, you will receive a warning that changefeeds will filter out virtual computed values. <br><br>**Default:** `"omitted"`
+<a name="virtual-columns"></a>`virtual_columns` | `STRING` | **New in v22.1:** Changefeeds omit [virtual computed columns](computed-columns.html) from emitted [messages](use-changefeeds.html#messages) by default. To maintain the behavior of previous CockroachDB [version](cluster-settings.html#setting-version)s where the changefeed would emit [`NULL`](null-handling.html) values for virtual computed columns, set `virtual_columns = "null"` when you start a changefeed. <br><br>You may also define `virtual_columns = "omitted"`, though this is already the default behavior for v22.1+. If you do not set `"omitted"` on a table with virtual computed columns when you create a changefeed, you will receive a warning that changefeeds will filter out virtual computed values. <br><br>**Default:** `"omitted"`
 
 #### Avro limitations
 
@@ -69,7 +69,7 @@ Below are clarifications for particular SQL types and values for Avro changefeed
 - [Decimals](decimal.html) must have precision specified.
 - [`BIT`](bit.html) and [`VARBIT`](bit.html) types are encoded as arrays of 64-bit integers.
 
-  {% include {{ page.version.version }}/cdc/avro-bit-varbit.md %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/cdc/avro-bit-varbit.md %}
 
 ## Examples
 

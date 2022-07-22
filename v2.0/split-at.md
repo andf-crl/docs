@@ -9,9 +9,9 @@ The `SPLIT AT` [statement](sql-statements.html) forces a key-value layer range s
 
 ## Synopsis
 
-<section>{% include {{ page.version.version }}/sql/diagrams/split_table_at.html %}</section>
+<section>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/split_table_at.html %}</section>
 
-<section>{% include {{ page.version.version }}/sql/diagrams/split_index_at.html %}</section>
+<section>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/split_index_at.html %}</section>
 
 ## Required Privileges
 
@@ -51,7 +51,7 @@ the ranges that store tables or indexes:
   workload performance that results when automatic splits are unable to keep up
   with write traffic.
 
-Note that when a table is [truncated](truncate.html), it is essentially re-created in a single new empty range, and the old ranges that used to constitute the table are garbage collected. Any pre-splitting you have performed on the old version of the table will not carry over to the new version. The new table will need to be pre-split again.
+Note that when a table is [truncated](truncate.html), it is essentially re-created in a single new empty range, and the old ranges that used to constitute the table are garbage collected. Any pre-splitting you have performed on the old [version](cluster-settings.html#setting-version) of the table will not carry over to the new [version](cluster-settings.html#setting-version). The new table will need to be pre-split again.
 
 ## Examples
 

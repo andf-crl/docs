@@ -4,14 +4,14 @@ summary: The SHOW FULL TABLE SCANS statement lists recent queries that used a fu
 toc: true
 ---
 
-{% include_cached new-in.html version="v21.1" %} The `SHOW FULL TABLE SCANS` [statement](sql-statements.html) lists recent queries for which CockroachDB performed a full table scan during query execution.
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.1" %} The `SHOW FULL TABLE SCANS` [statement](sql-statements.html) lists recent queries for which CockroachDB performed a full table scan during query execution.
 
 Limiting the number of queries that require full table scans can help you optimize query execution performance. For more information on query performance optimization, see [Optimize Statement Performance](make-queries-fast.html) and [SQL Tuning with `EXPLAIN`](sql-tuning-with-explain.html).
 
 ## Syntax
 
 <div>
-{% include {{ page.version.version }}/sql/generated/diagrams/show_full_scans.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/show_full_scans.html %}
 </div>
 
 ## Required privileges

@@ -61,7 +61,7 @@ For short-term failures, such as a server restart, CockroachDB uses Raft to cont
 
 CockroachDB guarantees [serializable SQL transactions](demo-serializable.html), the highest isolation level defined by the SQL standard. It does so by combining the Raft consensus algorithm for writes and a custom time-based synchronization algorithms for reads.
 
-- Stored data is versioned with MVCC, so [reads simply limit their scope to the data visible at the time the read transaction started](architecture/transaction-layer.html#time-and-hybrid-logical-clocks).
+- Stored data is [version](cluster-settings.html#setting-version)ed with MVCC, so [reads simply limit their scope to the data visible at the time the read transaction started](architecture/transaction-layer.html#time-and-hybrid-logical-clocks).
 
 - Writes are serviced using the [Raft consensus algorithm](https://raft.github.io/), a popular alternative to <a href="https://www.microsoft.com/en-us/research/publication/paxos-made-simple/" data-proofer-ignore>Paxos</a>. A consensus algorithm guarantees that any majority of replicas together always agree on whether an update was committed successfully. Updates (writes) must reach a majority of replicas (2 out of 3 by default) before they are considered committed.
 
@@ -172,7 +172,7 @@ For more details, see the [{{ site.data.products.dedicated }}](../cockroachcloud
 
 Our past outlook on the right business model relied on a crucial norm in the OSS world: that companies could build a business around a strong open source core product without a much larger technology platform company coming along and offering the same product as a service.
 
-Recently, however, OSS companies have seen the rise of highly-integrated providers take advantage of their unique position to offer “as-a-service” versions of OSS products, and offer a superior user experience as a consequence of their integrations. We’ve most recently seen it happen with Amazon’s forked version of ElasticSearch.
+Recently, however, OSS companies have seen the rise of highly-integrated providers take advantage of their unique position to offer “as-a-service” [version](cluster-settings.html#setting-version)s of OSS products, and offer a superior user experience as a consequence of their integrations. We’ve most recently seen it happen with Amazon’s forked [version](cluster-settings.html#setting-version) of ElasticSearch.
 
 To respond to this breed of competitor, we changed our software licensing terms. To learn more about our motivations, see the [Licensing FAQs](licensing-faqs.html) as well as our [blog post](https://www.cockroachlabs.com/blog/oss-relicensing-cockroachdb/) about the license change.
 

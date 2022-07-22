@@ -79,7 +79,7 @@ When [inserted values](insert.html) conflict with a `UNIQUE` constraint on one o
 
 ## Partial GIN indexes
 
-{% include_cached new-in.html version="v21.1" %} You can create partial [GIN indexes](inverted-indexes.html#partial-gin-indexes), which are indexes on a subset of `JSON`, `ARRAY`, or geospatial container column data.
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.1" %} You can create partial [GIN indexes](inverted-indexes.html#partial-gin-indexes), which are indexes on a subset of `JSON`, `ARRAY`, or geospatial container column data.
 
 ## Index hints
 
@@ -98,7 +98,7 @@ The following examples use MovR, a fictional vehicle-sharing application, to dem
 
 To follow along, run [`cockroach demo`](cockroach-demo.html) to start a temporary, in-memory cluster with the `movr` workload:
 
-{% include {{ page.version.version }}/demo_movr.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/demo_movr.md %}
 
 ### Create an index on a subset of rows
 

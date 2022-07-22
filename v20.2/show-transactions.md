@@ -4,7 +4,7 @@ summary: The SHOW TRANSACTIONS statement lists all currently active transactions
 toc: true
 ---
 
-<span class="version-tag">New in v20.2:</span> The `SHOW TRANSACTIONS` [statement](sql-statements.html) lists details about currently active transactions, including:
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> The `SHOW TRANSACTIONS` [statement](sql-statements.html) lists details about currently active transactions, including:
 
 - The node running the transaction
 - The application that initiated the transaction

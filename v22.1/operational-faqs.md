@@ -41,22 +41,22 @@ By default, CockroachDB stores time-series data at 10s resolution for 10 days. T
 
 To reduce the interval for storage of time-series data:
 
-- For data stored at 10s resolution, change the `timeseries.storage.resolution_10s.ttl` cluster setting to an [`INTERVAL`](interval.html) value less than `240h0m0s` (10 days).
+- For data stored at 10s resolution, change the `[timeseries.storage.resolution_10s.ttl](cluster-settings.html#setting-timeseries-storage-resolution_10s-ttl)` cluster setting to an [`INTERVAL`](interval.html) value less than `240h0m0s` (10 days).
 
   For example, to change the storage interval for time-series data at 10s resolution to 5 days, run the following [`SET CLUSTER SETTING`](set-cluster-setting.html) command:
 
   {% include_cached copy-clipboard.html %}
   ~~~ sql
-  > SET CLUSTER SETTING timeseries.storage.resolution_10s.ttl = '120h0m0s';
+  > SET CLUSTER SETTING [timeseries.storage.resolution_10s.ttl](cluster-settings.html#setting-timeseries-storage-resolution_10s-ttl) = '120h0m0s';
   ~~~
 
   {% include_cached copy-clipboard.html %}
   ~~~ sql
-  > SHOW CLUSTER SETTING timeseries.storage.resolution_10s.ttl;
+  > SHOW CLUSTER SETTING [timeseries.storage.resolution_10s.ttl](cluster-settings.html#setting-timeseries-storage-resolution_10s-ttl);
   ~~~
 
   ~~~
-    timeseries.storage.resolution_10s.ttl
+    [timeseries.storage.resolution_10s.ttl](cluster-settings.html#setting-timeseries-storage-resolution_10s-ttl)
   +---------------------------------------+
     120:00:00
   (1 row)
@@ -64,7 +64,7 @@ To reduce the interval for storage of time-series data:
 
   Note that this data is still aggregated into data at 30m resolution, which is stored for 90 days by default.
 
-- For data stored at 30m resolution, change the `timeseries.storage.resolution_30m.ttl` cluster setting to an [`INTERVAL`](interval.html) value less than `2160h0m0s` (90 days).
+- For data stored at 30m resolution, change the `[timeseries.storage.resolution_30m.ttl](cluster-settings.html#setting-timeseries-storage-resolution_30m-ttl)` cluster setting to an [`INTERVAL`](interval.html) value less than `2160h0m0s` (90 days).
 
 ### Disable time-series storage
 
@@ -74,31 +74,31 @@ To disable the storage of time-series data, run the following command:
 
 {% include_cached copy-clipboard.html %}
 ~~~ sql
-> SET CLUSTER SETTING timeseries.storage.enabled = false;
+> SET CLUSTER SETTING [timeseries.storage.enabled](cluster-settings.html#setting-timeseries-storage-enabled) = false;
 ~~~
 
 {% include_cached copy-clipboard.html %}
 ~~~ sql
-> SHOW CLUSTER SETTING timeseries.storage.enabled;
+> SHOW CLUSTER SETTING [timeseries.storage.enabled](cluster-settings.html#setting-timeseries-storage-enabled);
 ~~~
 
 ~~~
-  timeseries.storage.enabled
+  [timeseries.storage.enabled](cluster-settings.html#setting-timeseries-storage-enabled)
 +----------------------------+
             false
 (1 row)
 ~~~
 
-If you want all existing time-series data to be deleted, also change both the `timeseries.storage.resolution_10s.ttl` and `timeseries.storage.resolution_30m.ttl` cluster settings:
+If you want all existing time-series data to be deleted, also change both the `[timeseries.storage.resolution_10s.ttl](cluster-settings.html#setting-timeseries-storage-resolution_10s-ttl)` and `[timeseries.storage.resolution_30m.ttl](cluster-settings.html#setting-timeseries-storage-resolution_30m-ttl)` cluster settings:
 
 {% include_cached copy-clipboard.html %}
 ~~~ sql
-> SET CLUSTER SETTING timeseries.storage.resolution_10s.ttl = '0s';
+> SET CLUSTER SETTING [timeseries.storage.resolution_10s.ttl](cluster-settings.html#setting-timeseries-storage-resolution_10s-ttl) = '0s';
 ~~~
 
 {% include_cached copy-clipboard.html %}
 ~~~ sql
-> SET CLUSTER SETTING timeseries.storage.resolution_30m.ttl = '0s';
+> SET CLUSTER SETTING [timeseries.storage.resolution_30m.ttl](cluster-settings.html#setting-timeseries-storage-resolution_30m-ttl) = '0s';
 ~~~
 
 ## What happens when a node runs out of disk space?
@@ -125,11 +125,11 @@ Cockroach Labs collects information about CockroachDB's real-world usage to help
 
 ## What happens when node clocks are not properly synchronized?
 
-{% include {{ page.version.version }}/faq/clock-synchronization-effects.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/faq/clock-synchronization-effects.md %}
 
 ## How can I tell how well node clocks are synchronized?
 
-{% include {{ page.version.version }}/faq/clock-synchronization-monitoring.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/faq/clock-synchronization-monitoring.html %}
 
 You can also see these metrics in [the Clock Offset graph](ui-runtime-dashboard.html#clock-offset) on the DB Console.
 

@@ -6,11 +6,11 @@ toc: true
 
 The `DROP INDEX` [statement](sql-statements.html) removes indexes from tables.
 
-{% include {{{ page.version.version }}/misc/schema-change-stmt-note.md %}
+{% include {{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-stmt-note.md %}
 
 ## Synopsis
 
-<section>{% include {{ page.version.version }}/sql/diagrams/drop_index.html %}</section>
+<section>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/drop_index.html %}</section>
 
 ## Required privileges
 
@@ -25,11 +25,11 @@ The user must have the `CREATE` [privilege](authorization.html#assign-privileges
  `index_name`	| The name of the index you want to drop. Find index names with [`SHOW INDEX`](show-index.html).<br/><br/>You cannot drop a table's `primary` index.
  `CASCADE`	| Drop all objects (such as [constraints](constraints.html)) that depend on the indexes. `CASCADE` does not list objects it drops, so should be used cautiously.<br><br> To drop an index created with [`CREATE UNIQUE INDEX`](create-index.html#unique-indexes), you do not need to use `CASCADE`.
  `RESTRICT`	| _(Default)_ Do not drop the indexes if any objects (such as [constraints](constraints.html)) depend on them.
- `CONCURRENTLY` | <span class="version-tag">New in v20.1:</span> Optional, no-op syntax for PostgreSQL compatibility. All indexes are dropped concurrently in CockroachDB.
+ `CONCURRENTLY` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> Optional, no-op syntax for PostgreSQL compatibility. All indexes are dropped concurrently in CockroachDB.
 
 ## Viewing schema changes
 
-{% include {{ page.version.version }}/misc/schema-change-view-job.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-view-job.md %}
 
 ## Examples
 

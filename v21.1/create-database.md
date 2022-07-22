@@ -6,7 +6,7 @@ toc: true
 
 The `CREATE DATABASE` [statement](sql-statements.html) creates a new CockroachDB database.
 
-{% include {{{ page.version.version }}/misc/schema-change-stmt-note.md %}
+{% include {{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-stmt-note.md %}
 
 ## Required privileges
 
@@ -15,7 +15,7 @@ To create a database, the user must be a member of the `admin` role or must have
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/generated/diagrams/create_database.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/create_database.html %}
 </div>
 
 ## Parameters

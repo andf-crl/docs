@@ -10,12 +10,12 @@ The `RENAME COLUMN` [statement](sql-statements.html) changes the name of a colum
 It is not possible to rename a column referenced by a view. For more details, see [View Dependencies](views.html#view-dependencies).
 {{site.data.alerts.end}}
 
-{% include {{ page.version.version }}/sql/combine-alter-table-commands.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/combine-alter-table-commands.md %}
 
 ## Synopsis
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/rename_column.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/rename_column.html %}
 </div>
 
 ## Required privileges
@@ -33,7 +33,7 @@ The user must have the `CREATE` [privilege](authorization.html#assign-privileges
 
 ## Viewing schema changes
 
-{% include {{ page.version.version }}/misc/schema-change-view-job.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-view-job.md %}
 
 ## Examples
 
@@ -68,7 +68,7 @@ The user must have the `CREATE` [privilege](authorization.html#assign-privileges
 
 ### Add and rename columns atomically
 
-<span class="version-tag">New in v19.1</span>: Some subcommands can be used in combination in a single [`ALTER TABLE`](alter-table.html) statement. For example, let's say you create a `users` table with 2 columns, an `id` column for the primary key and a `name` column for each user's last name:
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v19.1</span>: Some subcommands can be used in combination in a single [`ALTER TABLE`](alter-table.html) statement. For example, let's say you create a `users` table with 2 columns, an `id` column for the primary key and a `name` column for each user's last name:
 
 {% include copy-clipboard.html %}
 ~~~ sql

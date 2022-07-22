@@ -56,14 +56,14 @@ The size of a `BYTES` value is variable, but it's recommended to keep values und
 (4 rows)
 ~~~
 
-## Supported Conversions
+## Supported Con[version](cluster-settings.html#setting-version)s
 
 `BYTES` values can be
-[cast](data-types.html#data-type-conversions-casts) explicitly to
-`STRING`. The conversion verifies that the byte array contains only
+[cast](data-types.html#data-type-con[version](cluster-settings.html#setting-version)s-casts) explicitly to
+`STRING`. The con[version](cluster-settings.html#setting-version) verifies that the byte array contains only
 valid UTF-8 byte sequences; an error is reported otherwise.
 
-`STRING` values can be cast explicitly to `BYTES`. This conversion
+`STRING` values can be cast explicitly to `BYTES`. This con[version](cluster-settings.html#setting-version)
 always succeeds.
 
 ## See Also

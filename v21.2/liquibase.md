@@ -14,16 +14,16 @@ For detailed information about using Liquibase, see the [Liquibase documentation
 Before you begin the tutorial, do the following:
 
 1. [Install CockroachDB](install-cockroachdb.html), and [start a secure cluster](secure-a-cluster.html). When starting your cluster, make sure that you generate cluster certificates, create the `bank` database, and create the `max` user.
-1. Download and install a Java Development Kit. Liquibase supports JDK versions 8+. In this tutorial, we use [AdoptOpenJDK](https://adoptopenjdk.net/) 8, but you can follow along with any JDK version 8+.
+1. Download and install a Java Development Kit. Liquibase supports JDK [version](cluster-settings.html#setting-version)s 8+. In this tutorial, we use [AdoptOpenJDK](https://adoptopenjdk.net/) 8, but you can follow along with any JDK [version](cluster-settings.html#setting-version) 8+.
 
 ## Step 1. Download and install Liquibase
 
 To install the Liquibase binary on your machine:
 
-1. Download the latest version of the [Liquibase command-line tool](https://www.liquibase.org/download). CockroachDB is fully compatible with Liquibase versions 4.2.0 and greater. We use the binary download of Liquibase 4.20, for macOS.
+1. Download the latest [version](cluster-settings.html#setting-version) of the [Liquibase command-line tool](https://www.liquibase.org/download). CockroachDB is fully compatible with Liquibase [version](cluster-settings.html#setting-version)s 4.2.0 and greater. We use the binary download of Liquibase 4.20, for macOS.
 
     {{site.data.alerts.callout_info}}
-    In this tutorial, we go through a manual installation, using a download of the binary version of the Liquibase command-line tool. If you are new to Liquibase, you can also use the [Liquibase Installer](https://www.liquibase.org/get-started/using-the-liquibase-installer) to get started. The installer comes with some example properties and changelog files, an example H2 database, and a distribution of AdoptOpenJDK.
+    In this tutorial, we go through a manual installation, using a download of the binary [version](cluster-settings.html#setting-version) of the Liquibase command-line tool. If you are new to Liquibase, you can also use the [Liquibase Installer](https://www.liquibase.org/get-started/using-the-liquibase-installer) to get started. The installer comes with some example properties and changelog files, an example H2 database, and a distribution of AdoptOpenJDK.
     {{site.data.alerts.end}}
 
 1. Make a new directory for your Liquibase installation:
@@ -60,7 +60,7 @@ To install the Liquibase binary on your machine:
 
     {% include_cached copy-clipboard.html %}
     ~~~ shell
-    $ liquibase --version
+    $ liquibase --[version](cluster-settings.html#setting-version)
     ~~~
 
     You should get output similar to the following:
@@ -82,7 +82,7 @@ To install the Liquibase binary on your machine:
     ##      liquibase.com/support                     ##
     ##                                                ##
     ####################################################
-    Starting Liquibase at 13:38:36 (version 4.2.0 #18 built at 2020-11-13 16:49+0000)
+    Starting Liquibase at 13:38:36 ([version](cluster-settings.html#setting-version) 4.2.0 #18 built at 2020-11-13 16:49+0000)
     Liquibase Version: 4.2.0
     Liquibase Community 4.2.0 by Datical
     Running Java under /Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home/jre (Version 1.8.0_242)
@@ -279,7 +279,7 @@ Liquibase Community 4.2.0 by Datical
 ##      liquibase.com/support                     ##
 ##                                                ##
 ####################################################
-Starting Liquibase at 13:59:37 (version 4.2.0 #18 built at 2020-11-13 16:49+0000)
+Starting Liquibase at 13:59:37 ([version](cluster-settings.html#setting-version) 4.2.0 #18 built at 2020-11-13 16:49+0000)
 Liquibase: Update has been successful.
 ~~~
 
@@ -411,7 +411,7 @@ Suppose that you want to change the primary key of the `accounts` table from a s
     ##      liquibase.com/support                     ##
     ##                                                ##
     ####################################################
-    Starting Liquibase at 14:26:50 (version 4.2.0 #18 built at 2020-11-13 16:49+0000)
+    Starting Liquibase at 14:26:50 ([version](cluster-settings.html#setting-version) 4.2.0 #18 built at 2020-11-13 16:49+0000)
     Liquibase: Update has been successful.
     ~~~
 
@@ -501,8 +501,8 @@ For documentation on running Liquibase with other tooling, see [the Liquibase do
 
 If you run into problems, please file an issue on the [Liquibase issue tracker](https://github.com/liquibase/liquibase/issues), including the following details about the environment where you encountered the issue:
 
-- CockroachDB version ([`cockroach version`](cockroach-version.html))
-- Liquibase version
+- CockroachDB [version](cluster-settings.html#setting-version) ([`cockroach [version](cluster-settings.html#setting-version)`](cockroach-[version](cluster-settings.html#setting-version).html))
+- Liquibase [version](cluster-settings.html#setting-version)
 - Operating system
 - Steps to reproduce the behavior
 

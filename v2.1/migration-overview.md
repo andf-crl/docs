@@ -40,7 +40,7 @@ Above a certain size, many data types such as [`STRING`](string.html)s, [`DECIMA
 
 CockroachDB does not provide `ENUM` or `SET` data types.
 
-In Postgres, you can emulate an `ENUM` type using a [`CHECK` constraint](check.html) as shown below.  For MySQL, we perform this conversion automatically during the import.
+In Postgres, you can emulate an `ENUM` type using a [`CHECK` constraint](check.html) as shown below.  For MySQL, we perform this con[version](cluster-settings.html#setting-version) automatically during the import.
 
 {% include copy-clipboard.html %}
 ~~~ sql

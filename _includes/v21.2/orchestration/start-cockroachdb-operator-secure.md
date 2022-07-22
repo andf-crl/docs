@@ -4,7 +4,7 @@
 
     {% include_cached copy-clipboard.html %}
     ~~~ shell
-    $ kubectl apply -f https://raw.githubusercontent.com/cockroachdb/cockroach-operator/{{site.operator_version}}/install/crds.yaml
+    $ kubectl apply -f https://raw.githubusercontent.com/cockroachdb/cockroach-operator/{{site.operator_[version](cluster-settings.html#setting-version)}}/install/crds.yaml
     ~~~
 
     ~~~
@@ -19,14 +19,14 @@
 
         {% include_cached copy-clipboard.html %}
         ~~~ shell
-        $ curl -O https://raw.githubusercontent.com/cockroachdb/cockroach-operator/{{site.operator_version}}/install/operator.yaml
+        $ curl -O https://raw.githubusercontent.com/cockroachdb/cockroach-operator/{{site.operator_[version](cluster-settings.html#setting-version)}}/install/operator.yaml
         ~~~
 
     1. To use a custom namespace, edit all instances of `namespace: cockroach-operator-system` with your desired namespace.
 
     1. To limit the namespaces that will be monitored, set the `WATCH_NAMESPACE` environment variable in the `Deployment` pod spec. This can be set to a single namespace, or a comma-delimited set of namespaces. When set, only those `CrdbCluster` resources in the supplied namespace(s) will be reconciled.
 
-    1. Instead of using the command below, apply your local version of the Operator manifest to the cluster:
+    1. Instead of using the command below, apply your local [version](cluster-settings.html#setting-version) of the Operator manifest to the cluster:
 
         {% include_cached copy-clipboard.html %}
         ~~~ shell
@@ -37,7 +37,7 @@
 
     {% include_cached copy-clipboard.html %}
     ~~~ shell
-    $ kubectl apply -f https://raw.githubusercontent.com/cockroachdb/cockroach-operator/{{site.operator_version}}/install/operator.yaml
+    $ kubectl apply -f https://raw.githubusercontent.com/cockroachdb/cockroach-operator/{{site.operator_[version](cluster-settings.html#setting-version)}}/install/operator.yaml
     ~~~
 
     ~~~
@@ -77,7 +77,7 @@
 
     {% include_cached copy-clipboard.html %}
     ~~~ shell
-    $ curl -O https://raw.githubusercontent.com/cockroachdb/cockroach-operator/{{site.operator_version}}/examples/example.yaml
+    $ curl -O https://raw.githubusercontent.com/cockroachdb/cockroach-operator/{{site.operator_[version](cluster-settings.html#setting-version)}}/examples/example.yaml
     ~~~
 
     {{site.data.alerts.callout_info}}

@@ -16,7 +16,7 @@ This tutorial shows you how build a simple Node.js application with CockroachDB 
 
 ## Step 1. Start CockroachDB
 
-{% include {{ page.version.version }}/setup/sample-setup.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/setup/sample-setup.md %}
 
 ## Step 2. Get the code
 
@@ -79,7 +79,7 @@ To start the app:
     The output should look similar to the following:
 
     ~~~ shell
-    Executing (default): SELECT version() AS version
+    Executing (default): SELECT [version](cluster-settings.html#setting-version)() AS [version](cluster-settings.html#setting-version)
     Executing (default): DROP TABLE IF EXISTS "accounts" CASCADE;
     Executing (default): SELECT crdb_internal.increment_feature_counter(concat('Sequelize ', '6.17'))
     Executing (default): SELECT crdb_internal.increment_feature_counter(concat('sequelize-cockroachdb ', '6.0.5'))
@@ -95,4 +95,4 @@ To start the app:
 
 Read more about using the [Sequelize ORM](https://sequelize.org/), or check out a more realistic implementation of Sequelize with CockroachDB in our [`examples-orms`](https://github.com/cockroachdb/examples-orms) repository.
 
-{% include {{ page.version.version }}/app/see-also-links.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/app/see-also-links.md %}

@@ -13,13 +13,13 @@ Once you [create a table](create-table.html) and load data into it (e.g., [`INSE
 - Up to 100 non-indexed columns (unless you specify which columns to create statistics on, as shown in [this example](#create-statistics-on-a-specific-column)).
 
 {{site.data.alerts.callout_info}}
-<span class="version-tag">New in v19.1</span>: [Automatic statistics is enabled by default](cost-based-optimizer.html#table-statistics); most users do not need to issue `CREATE STATISTICS` statements directly.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v19.1</span>: [Automatic statistics is enabled by default](cost-based-optimizer.html#table-statistics); most users do not need to issue `CREATE STATISTICS` statements directly.
 {{site.data.alerts.end}}
 
 ## Synopsis
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/create_stats.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/create_stats.html %}
 </div>
 
 ## Required Privileges
@@ -73,7 +73,7 @@ For more information about how the `AS OF SYSTEM TIME` clause works, including s
 
 ### Delete statistics
 
-{% include {{ page.version.version }}/misc/delete-statistics.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/delete-statistics.md %}
 
 ### View statistics jobs
 

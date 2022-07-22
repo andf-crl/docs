@@ -75,9 +75,9 @@ String literal implicitly typed as `DATE`:
 +---------------------------+-------+
 ~~~
 
-## Supported casting and conversion
+## Supported casting and con[version](cluster-settings.html#setting-version)
 
-`DATE` values can be [cast](data-types.html#data-type-conversions-and-casts) to any of the following data types:
+`DATE` values can be [cast](data-types.html#data-type-con[version](cluster-settings.html#setting-version)s-and-casts) to any of the following data types:
 
 Type | Details
 -----|--------

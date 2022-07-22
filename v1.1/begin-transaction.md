@@ -11,7 +11,7 @@ The `BEGIN` [statement](sql-statements.html) initiates a [transaction](transacti
 
 ## Synopsis
 
-{% include {{ page.version.version }}/sql/diagrams/begin_transaction.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/begin_transaction.html %}
 
 ## Required Privileges
 

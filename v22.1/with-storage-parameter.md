@@ -16,13 +16,13 @@ The `SET (storage parameter)` is a subcommand of [`ALTER TABLE`](alter-table.htm
 **create_index_with_storage_param ::=**
 
 <div>
-{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.version.version | replace: "v", "" }}/grammar_svg/create_index_with_storage_param.html %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/grammar_svg/create_index_with_storage_param.html %}
 </div>
 
 **create_table_with_storage_param ::=**
 
 <div>
-{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.version.version | replace: "v", "" }}/grammar_svg/create_table_with_storage_param.html %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/grammar_svg/create_table_with_storage_param.html %}
 </div>
 
 ## Command parameters
@@ -37,11 +37,11 @@ The `SET (storage parameter)` is a subcommand of [`ALTER TABLE`](alter-table.htm
 
 ### Index parameters
 
-{% include {{ page.version.version }}/misc/index-storage-parameters.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/index-storage-parameters.md %}
 
 ### Table parameters
 
-{% include {{ page.version.version }}/misc/table-storage-parameters.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/table-storage-parameters.md %}
 
 ## Required privileges
 

@@ -9,7 +9,7 @@ For this service, the most effective technique for improving read and write late
     $ cockroach sql \
     {{page.certs}} \
     --host=<address of any node> \
-    --execute="SET CLUSTER SETTING cluster.organization = '<your org name>';"
+    --execute="SET CLUSTER SETTING [cluster.organization](cluster-settings.html#setting-cluster-organization) = '<your org name>';"
     ~~~
 
     {% include_cached copy-clipboard.html %}
@@ -17,7 +17,7 @@ For this service, the most effective technique for improving read and write late
     $ cockroach sql \
     {{page.certs}} \
     --host=<address of any node> \
-    --execute="SET CLUSTER SETTING enterprise.license = '<your license>';"
+    --execute="SET CLUSTER SETTING [enterprise.license](cluster-settings.html#setting-enterprise-license) = '<your license>';"
     ~~~
 
 3. Define partitions for all tables and their secondary indexes.

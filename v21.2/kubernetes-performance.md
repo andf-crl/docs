@@ -20,7 +20,7 @@ Before you focus on optimizing a Kubernetes-orchestrated CockroachDB cluster:
 
 A number of independent factors affect performance when running CockroachDB on Kubernetes. Most are easiest to change before you create your CockroachDB cluster. If you need to modify a CockroachDB cluster that is already running on Kubernetes, extra care and testing is strongly recommended.
 
-The following sections show how to modify excerpts from our provided Kubernetes configuration YAML files. You can find the most up-to-date versions of these files on GitHub: [one for running CockroachDB in secure mode](https://github.com/cockroachdb/cockroach/blob/master/cloud/kubernetes/cockroachdb-statefulset-secure.yaml) and one for [running CockroachDB in insecure mode](https://github.com/cockroachdb/cockroach/blob/master/cloud/kubernetes/cockroachdb-statefulset.yaml).
+The following sections show how to modify excerpts from our provided Kubernetes configuration YAML files. You can find the most up-to-date [version](cluster-settings.html#setting-version)s of these files on GitHub: [one for running CockroachDB in secure mode](https://github.com/cockroachdb/cockroach/blob/master/cloud/kubernetes/cockroachdb-statefulset-secure.yaml) and one for [running CockroachDB in insecure mode](https://github.com/cockroachdb/cockroach/blob/master/cloud/kubernetes/cockroachdb-statefulset.yaml).
 
 You can also use a [performance-optimized configuration file for secure mode](https://github.com/cockroachdb/cockroach/blob/master/cloud/kubernetes/performance/cockroachdb-statefulset-secure.yaml) or [insecure mode](https://github.com/cockroachdb/cockroach/blob/master/cloud/kubernetes/performance/cockroachdb-statefulset-insecure.yaml). Be sure to modify the file wherever there is a `TODO` comment.
 
@@ -122,7 +122,7 @@ $ kubectl patch storageclass ssd -p '{"metadata": {"annotations":{"storageclass.
 storageclass "ssd" patched
 ~~~
 
-Note that if you are running an older version of Kubernetes, you may need to use a beta version of the annotation instead of the form used above. In particular, on v1.8 of Kubernetes you need to use `storageclass.beta.kubernetes.io/is-default-class`. To determine for sure which to use, run `kubectl describe storageclass` and copy the annotation used by the current default.
+Note that if you are running an older [version](cluster-settings.html#setting-version) of Kubernetes, you may need to use a beta [version](cluster-settings.html#setting-version) of the annotation instead of the form used above. In particular, on v1.8 of Kubernetes you need to use `storageclass.beta.kubernetes.io/is-default-class`. To determine for sure which to use, run `kubectl describe storageclass` and copy the annotation used by the current default.
 
 ### Disk size
 
@@ -205,14 +205,14 @@ This will output a lot of information for each of the nodes in your cluster, but
 
 You'll also see a number of pods running here that you may not have realized were in your cluster. Kubernetes runs a handful of pods in the `kube-system` namespace that are part of the cluster infrastructure. These may make it tough to attempt to reserve all the allocatable space on your nodes for CockroachDB, since some of them are essential for the Kubernetes cluster's health. If you want to run CockroachDB on every node in your cluster, you'll have to leave room for these processes. If you are only running CockroachDB on a subset of the nodes in your cluster, you can choose to take up all the "allocatable" space other than what is being used by the `kube-system` pods that are on all the nodes in the cluster, such as `kube-proxy` or the `fluentd` logging agent.
 
-Note that it will be difficult to truly use up all of the allocatable space in the current versions of Kubernetes (v1.10 or older) because you'd have to manually preempt the `kube-system` pods that are already on the nodes you want CockroachDB to run on (by deleting them). This should become easier in future versions of Kubernetes when its [Pod Priority](https://kubernetes.io/docs/concepts/configuration/pod-priority-preemption/) feature gets promoted from alpha to beta. Once that feature is more widely available, you could set the CockroachDB pods to a higher priority, causing the Kubernetes scheduler to preempt and reschedule the `kube-system` pods onto other machines.
+Note that it will be difficult to truly use up all of the allocatable space in the current [version](cluster-settings.html#setting-version)s of Kubernetes (v1.10 or older) because you'd have to manually preempt the `kube-system` pods that are already on the nodes you want CockroachDB to run on (by deleting them). This should become easier in future [version](cluster-settings.html#setting-version)s of Kubernetes when its [Pod Priority](https://kubernetes.io/docs/concepts/configuration/pod-priority-preemption/) feature gets promoted from alpha to beta. Once that feature is more widely available, you could set the CockroachDB pods to a higher priority, causing the Kubernetes scheduler to preempt and reschedule the `kube-system` pods onto other machines.
 
 Once you've picked out an amount of CPU and memory to reserve for Cockroach, you'll have to configure the resource request in your CockroachDB YAML file. They should go underneath the `containers` heading. For example, to use most of the available resources on the machines described above, you'd change these lines of your YAML config file:
 
 ~~~ yaml
       containers:
       - name: cockroachdb
-        image: {{page.release_info.docker_image}}:{{page.release_info.version}}
+        image: {{page.release_info.docker_image}}:{{page.release_info.[version](cluster-settings.html#setting-version)}}
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 26257
@@ -226,7 +226,7 @@ To be:
 ~~~ yaml
       containers:
       - name: cockroachdb
-        image: {{page.release_info.docker_image}}:{{page.release_info.version}}
+        image: {{page.release_info.docker_image}}:{{page.release_info.[version](cluster-settings.html#setting-version)}}
         imagePullPolicy: IfNotPresent
         resources:
           requests:
@@ -243,14 +243,14 @@ When you create the StatefulSet, you'll want to check to make sure that all the 
 
 #### Resource limits
 
-Resource limits are conceptually similar to resource requests, but serve a different purpose. They let you cap the resources used by a pod to no more than the provided limit, which can have a couple of different uses. For one, it makes for more predictable performance because your pods will not be allowed to use any excess capacity on their machines, meaning that they will not have more resources available to them at some times (during lulls in traffic) than others (busy periods where the other pods on a machine are also fully utilizing their reserved resources). Secondly, it also increases the ["Quality of Service" guaranteed by the Kubernetes runtime](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/node/resource-qos.md) on Kubernetes versions 1.8 and below, making the pods less likely to be preempted when a machine is oversubscribed. Finally, memory limits in particular limit the amount of memory that the container knows is available to it, which help when you specify percentages for the CockroachDB `--cache` and `--max-sql-memory` flags, as our default configuration file does.
+Resource limits are conceptually similar to resource requests, but serve a different purpose. They let you cap the resources used by a pod to no more than the provided limit, which can have a couple of different uses. For one, it makes for more predictable performance because your pods will not be allowed to use any excess capacity on their machines, meaning that they will not have more resources available to them at some times (during lulls in traffic) than others (busy periods where the other pods on a machine are also fully utilizing their reserved resources). Secondly, it also increases the ["Quality of Service" guaranteed by the Kubernetes runtime](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/node/resource-qos.md) on Kubernetes [version](cluster-settings.html#setting-version)s 1.8 and below, making the pods less likely to be preempted when a machine is oversubscribed. Finally, memory limits in particular limit the amount of memory that the container knows is available to it, which help when you specify percentages for the CockroachDB `--cache` and `--max-sql-memory` flags, as our default configuration file does.
 
 Setting resource limits works about the same as setting resource requests. If you wanted to set resource limits in addition to requests on the config from the [Resource Requests](#resource-requests) section above, you'd change the config to:
 
 ~~~ yaml
       containers:
       - name: cockroachdb
-        image: {{page.release_info.docker_image}}:{{page.release_info.version}}
+        image: {{page.release_info.docker_image}}:{{page.release_info.[version](cluster-settings.html#setting-version)}}
         imagePullPolicy: IfNotPresent
         resources:
           requests:

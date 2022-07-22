@@ -6,7 +6,7 @@ toc: true
 
 The `DROP CONSTRAINT` [statement](sql-statements.html) is part of [`ALTER TABLE`](alter-table.html) and removes [`CHECK`](check.html) and [`FOREIGN KEY`](foreign-key.html) constraints from columns.
 
-<span class="version-tag">New in v20.1:</span> [`PRIMARY KEY`](primary-key.html) constraints can be dropped with `DROP CONSTRAINT` if an [`ADD CONSTRAINT`](add-constraint.html) statement follows the `DROP CONSTRAINT` statement in the same transaction.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> [`PRIMARY KEY`](primary-key.html) constraints can be dropped with `DROP CONSTRAINT` if an [`ADD CONSTRAINT`](add-constraint.html) statement follows the `DROP CONSTRAINT` statement in the same transaction.
 
 {{site.data.alerts.callout_success}}
 When you change a primary key with [`ALTER TABLE ... ALTER PRIMARY KEY`](alter-primary-key.html), the old primary key index becomes a secondary index. If you do not want the old primary key to become a secondary index, use `DROP CONSTRAINT`/[`ADD CONSTRAINT`](add-constraint.html) to change the primary key.
@@ -16,11 +16,11 @@ When you change a primary key with [`ALTER TABLE ... ALTER PRIMARY KEY`](alter-p
 For information about removing other constraints, see [Constraints: Remove Constraints](constraints.html#remove-constraints).
 {{site.data.alerts.end}}
 
-{% include {{ page.version.version }}/sql/combine-alter-table-commands.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/combine-alter-table-commands.md %}
 
 ## Synopsis
 
-<section>{% include {{ page.version.version }}/sql/diagrams/drop_constraint.html %} </section>
+<section>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/drop_constraint.html %} </section>
 
 ## Required privileges
 
@@ -35,11 +35,11 @@ The user must have the `CREATE` [privilege](authorization.html#assign-privileges
 
 ## Viewing schema changes
 
-{% include {{ page.version.version }}/misc/schema-change-view-job.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-view-job.md %}
 
 ## Examples
 
-{% include {{page.version.version}}/sql/movr-statements.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/movr-statements.md %}
 
 ### Drop a foreign key constraint
 

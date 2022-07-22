@@ -27,7 +27,7 @@ To read more about how foreign keys work, see our [What is a Foreign Key? (With 
 
 - Foreign key columns must use their referenced column's [type](data-types.html).
 - A foreign key column cannot be a [computed column](computed-columns.html).
-- <span class="version-tag">New in v20.1:</span> A single column can have multiple foreign key constraints. For an example, see [Add multiple foreign key constraints to a single column](#add-multiple-foreign-key-constraints-to-a-single-column).
+- <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> A single column can have multiple foreign key constraints. For an example, see [Add multiple foreign key constraints to a single column](#add-multiple-foreign-key-constraints-to-a-single-column).
 - Foreign key columns must be [indexed](indexes.html).
 
     If you are adding the `FOREIGN KEY` constraint to an existing table, and the columns you want to constraint are not already indexed, use [`CREATE INDEX`](create-index.html) to index them and only then use the [`ADD CONSTRAINT`](add-constraint.html) statement to add the `FOREIGN KEY` constraint to the columns.
@@ -43,7 +43,7 @@ To read more about how foreign keys work, see our [What is a Foreign Key? (With 
     {{site.data.alerts.end}}
 
     {{site.data.alerts.callout_info}}
-    <span class="version-tag">New in v20.1:</span> You can drop the index on foreign key columns if another index exists on the same columns and fulfills the indexing requirement described above.
+    <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> You can drop the index on foreign key columns if another index exists on the same columns and fulfills the indexing requirement described above.
     {{site.data.alerts.end}}
 
 **Referenced Columns**
@@ -61,7 +61,7 @@ To read more about how foreign keys work, see our [What is a Foreign Key? (With 
     {{site.data.alerts.end}}
 
     {{site.data.alerts.callout_info}}
-    <span class="version-tag">New in v20.1:</span> You can drop the index on the referenced columns if another index exists on the same columns and fulfills the indexing requirement described above.
+    <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> You can drop the index on the referenced columns if another index exists on the same columns and fulfills the indexing requirement described above.
     {{site.data.alerts.end}}
 
 ### Null values
@@ -85,7 +85,7 @@ A `NOT NULL` constraint cannot be added to existing tables.
 
 By default, composite foreign keys are matched using the `MATCH SIMPLE` algorithm (which is the same default as Postgres). `MATCH FULL` is available if specified. You can specify both `MATCH FULL` and `MATCH SIMPLE`.
 
-All composite key matches defined prior to version 19.1 use the `MATCH SIMPLE` comparison method. If you had a composite foreign key constraint and have just upgraded to version 19.1, then please check that `MATCH SIMPLE` works for your schema and consider replacing that foreign key constraint with a `MATCH FULL` one.
+All composite key matches defined prior to [version](cluster-settings.html#setting-version) 19.1 use the `MATCH SIMPLE` comparison method. If you had a composite foreign key constraint and have just upgraded to [version](cluster-settings.html#setting-version) 19.1, then please check that `MATCH SIMPLE` works for your schema and consider replacing that foreign key constraint with a `MATCH FULL` one.
 
 #### How it works
 
@@ -133,7 +133,7 @@ Parameter | Description
 `ON DELETE SET DEFAULT` / `ON UPDATE SET DEFAULT` | When a referenced foreign key is deleted or updated, the columns of all rows referencing that key are set to the default value for that column. <br/><br/> If the default value for the column is null, or if no default value is provided and the column does not have a [`NOT NULL`](not-null.html) constraint, this will have the same effect as `ON DELETE SET NULL` or `ON UPDATE SET NULL`. The default value must still conform with all other constraints, such as `UNIQUE`.
 
 {{site.data.alerts.callout_info}}
-<span class="version-tag">New in v20.1:</span> If a foreign key column has multiple constraints that reference the same column, the foreign key action that is specified by the first foreign key takes precedence. For an example, see [Add multiple foreign key constraints to a single column](#add-multiple-foreign-key-constraints-to-a-single-column).
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> If a foreign key column has multiple constraints that reference the same column, the foreign key action that is specified by the first foreign key takes precedence. For an example, see [Add multiple foreign key constraints to a single column](#add-multiple-foreign-key-constraints-to-a-single-column).
 {{site.data.alerts.end}}
 
 ### Performance
@@ -156,7 +156,7 @@ You can also add the `FOREIGN KEY` constraint to existing tables through [`ADD C
 
 ### Column level
 
-<section>{% include {{ page.version.version }}/sql/diagrams/foreign_key_column_level.html %}</section>
+<section>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/foreign_key_column_level.html %}</section>
 
 | Parameter | Description |
 |-----------|-------------|
@@ -186,7 +186,7 @@ You can also add the `FOREIGN KEY` constraint to existing tables through [`ADD C
 
 ### Table level
 
-<section>{% include {{ page.version.version }}/sql/diagrams/foreign_key_table_level.html %}</section>
+<section>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/foreign_key_table_level.html %}</section>
 
 | Parameter | Description |
 |-----------|-------------|
@@ -731,7 +731,7 @@ Deleting and updating values in the `customers_5` table sets the referenced valu
 
 ### Add multiple foreign key constraints to a single column
 
-<span class="version-tag">New in v20.1:</span> You can add more than one foreign key constraint to a single column.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> You can add more than one foreign key constraint to a single column.
 
 For example, if you create the following tables:
 

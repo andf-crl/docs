@@ -22,13 +22,13 @@ If you are only testing CockroachDB, or you are not concerned with protecting ne
 
 ### Requirements
 
-{% include {{ page.version.version }}/prod-deployment/secure-requirements.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/secure-requirements.md %}
 
 - This article covers the use of Linux instances with GCE. You may wish to review the instructions for [connecting to Windows instances](https://cloud.google.com/compute/docs/instances/connecting-to-instance#windows).
 
 ### Recommendations
 
-{% include {{ page.version.version }}/prod-deployment/secure-recommendations.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/secure-recommendations.md %}
 
 ## Step 1. Configure your network
 
@@ -59,7 +59,7 @@ Applications will not connect directly to your CockroachDB nodes. Instead, they'
 
 - Run at least 3 nodes to [ensure survivability](recommended-production-settings.html#topology).
 
-{% include {{ page.version.version }}/prod-deployment/recommended-instances-gcp.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/recommended-instances-gcp.md %}
 
 - If you used a tag for your firewall rules, when you create the instance, click **Management, security, disks, networking, sole tenancy**. Under the **Networking** tab, in the **Network tags** field, enter **cockroachdb**.
 
@@ -67,7 +67,7 @@ For more details, see [Hardware Recommendations](recommended-production-settings
 
 ## Step 3. Synchronize clocks
 
-{% include {{ page.version.version }}/prod-deployment/synchronize-clocks.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/synchronize-clocks.md %}
 
 ## Step 4. Set up load balancing
 
@@ -97,7 +97,7 @@ To use GCE's TCP Proxy Load Balancing service:
 
 ## Step 5. Generate certificates
 
-{% include {{ page.version.version }}/prod-deployment/secure-generate-certificates.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/secure-generate-certificates.md %}
 
 ## Step 6. Start nodes
 
@@ -105,32 +105,32 @@ To use GCE's TCP Proxy Load Balancing service:
 By default, inter-node communication uses the internal IP addresses of your GCE instances.
 {{site.data.alerts.end}}
 
-{% include {{ page.version.version }}/prod-deployment/secure-start-nodes.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/secure-start-nodes.md %}
 
 ## Step 7. Initialize the cluster
 
-{% include {{ page.version.version }}/prod-deployment/secure-initialize-cluster.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/secure-initialize-cluster.md %}
 
 ## Step 8. Test the cluster
 
-{% include {{ page.version.version }}/prod-deployment/secure-test-cluster.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/secure-test-cluster.md %}
 
 ## Step 9. Run a sample workload
 
-{% include {{ page.version.version }}/prod-deployment/secure-test-load-balancing.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/secure-test-load-balancing.md %}
 
 ## Step 10. Monitor the cluster
 
-{% include {{ page.version.version }}/prod-deployment/monitor-cluster.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/monitor-cluster.md %}
 
 ## Step 11. Scale the cluster
 
-{% include {{ page.version.version }}/prod-deployment/secure-scale-cluster.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/secure-scale-cluster.md %}
 
 ## Step 12. Use the database
 
-{% include {{ page.version.version }}/prod-deployment/use-cluster.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/use-cluster.md %}
 
 ## See also
 
-{% include {{ page.version.version }}/prod-deployment/prod-see-also.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/prod-see-also.md %}

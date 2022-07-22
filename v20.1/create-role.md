@@ -7,7 +7,7 @@ toc: true
 The `CREATE ROLE` [statement](sql-statements.html) creates SQL [roles](authorization.html#create-and-manage-roles), which are groups containing any number of roles and users as members. You can assign privileges to roles, and all members of the role (regardless of whether if they are direct or indirect members) will inherit the role's privileges.
 
 {{site.data.alerts.callout_info}}
-<span class="version-tag">New in v20.1</span>: <code>CREATE ROLE</code> is no longer an enterprise feature and is now freely available in the core version of CockroachDB. Also, since the keywords `ROLE` and `USER` can now be used interchangeably in SQL statements for enhanced Postgres compatibility, `CREATE ROLE` is now an alias for [`CREATE USER`](create-user.html).
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1</span>: <code>CREATE ROLE</code> is no longer an enterprise feature and is now freely available in the core [version](cluster-settings.html#setting-version) of CockroachDB. Also, since the keywords `ROLE` and `USER` can now be used interchangeably in SQL statements for enhanced Postgres compatibility, `CREATE ROLE` is now an alias for [`CREATE USER`](create-user.html).
 {{site.data.alerts.end}}
 
 ## Considerations
@@ -27,11 +27,11 @@ The `CREATE ROLE` [statement](sql-statements.html) creates SQL [roles](authoriza
 
 ## Required privileges
 
-<span class="version-tag">New in v20.1:</span> To create other roles, the role must have the [`CREATEROLE`](#allow-the-role-to-create-other-roles) parameter set.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> To create other roles, the role must have the [`CREATEROLE`](#allow-the-role-to-create-other-roles) parameter set.
 
 ## Synopsis
 
-<section>{% include {{ page.version.version }}/sql/diagrams/create_role.html %}</section>
+<section>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/create_role.html %}</section>
 
 ## Parameters
 
@@ -39,9 +39,9 @@ The `CREATE ROLE` [statement](sql-statements.html) creates SQL [roles](authoriza
 ------------|--------------
 `name` | The name of the role you want to create. Role names are case-insensitive; must start with either a letter or underscore; must contain only letters, numbers, periods, or underscores; and must be between 1 and 63 characters.<br><br>Note that roles and [users](create-user.html) share the same namespace and must be unique.
 `password` | Let the role [authenticate their access to a secure cluster](authentication.html#client-authentication) using this password. Passwords should be entered as a [string literal](sql-constants.html#string-literals). For compatibility with PostgreSQL, a password can also be entered as an [identifier](#create-a-role-with-a-password-using-an-identifier). <br><br>To prevent a role from using [password authentication](authentication.html#client-authentication) and to mandate [certificate-based client authentication](authentication.html#client-authentication), [set the password as `NULL`](#prevent-a-role-from-using-password-authentication).
-`VALID UNTIL` | <span class="version-tag">New in v20.1:</span>  The date and time (in the [`timestamp`](timestamp.html) format) after which the password is not valid.
-`LOGIN`/`NOLOGIN` | <span class="version-tag">New in v20.1:</span> Allow or disallow a role to login with one of the [client authentication methods](authentication.html#client-authentication). <br><br>By default, the parameter is set to `NOLOGIN` for the `CREATE ROLE` statement.
-`CREATEROLE`/`NOCREATEROLE` | <span class="version-tag">New in v20.1:</span> Allow or disallow the new role to create, alter, and drop other roles. <br><br>By default, the parameter is set to `NOCREATEROLE` for all non-admin and non-root users.
+`VALID UNTIL` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span>  The date and time (in the [`timestamp`](timestamp.html) format) after which the password is not valid.
+`LOGIN`/`NOLOGIN` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> Allow or disallow a role to login with one of the [client authentication methods](authentication.html#client-authentication). <br><br>By default, the parameter is set to `NOLOGIN` for the `CREATE ROLE` statement.
+`CREATEROLE`/`NOCREATEROLE` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> Allow or disallow the new role to create, alter, and drop other roles. <br><br>By default, the parameter is set to `NOCREATEROLE` for all non-admin and non-root users.
 
 ## Examples
 

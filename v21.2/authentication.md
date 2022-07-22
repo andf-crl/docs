@@ -70,14 +70,14 @@ CockroachDB offers the following methods for client authentication:
    Note that the client still needs the CA certificate to validate the nodes' certificates.
 
    {{site.data.alerts.callout_success}}
-   {% include_cached new-in.html version="v21.2" %} For improved performance, CockroachDB securely caches password authentication information for users. To limit the authentication latency of users logging into a new session, we recommend that you run bulk `ROLE` operations ([`CREATE ROLE`](create-role.html), [`ALTER ROLE`](alter-role.html), [`DROP ROLE`](drop-role.html)) inside a transaction, and run any regularly-scheduled `ROLE` operations together, rather than at different times throughout the day.
+   {% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.2" %} For improved performance, CockroachDB securely caches password authentication information for users. To limit the authentication latency of users logging into a new session, we recommend that you run bulk `ROLE` operations ([`CREATE ROLE`](create-role.html), [`ALTER ROLE`](alter-role.html), [`DROP ROLE`](drop-role.html)) inside a transaction, and run any regularly-scheduled `ROLE` operations together, rather than at different times throughout the day.
    {{site.data.alerts.end}}
 
 - **Password authentication without TLS**
 
     For deployments where transport security is already handled at the infrastructure level (e.g., IPSec with DMZ), and TLS-based transport security is not possible or not desirable, CockroachDB now supports delegating transport security to the infrastructure with the new experimental flag `--accept-sql-without-tls` for [`cockroach start`](cockroach-start.html#security).
 
-   With this flag, SQL clients can establish a session over TCP without a TLS handshake. They still need to present valid authentication credentials, for example a password in the default configuration. Different authentication schemes can be further configured as per `server.host_based_authentication.configuration`.
+   With this flag, SQL clients can establish a session over TCP without a TLS handshake. They still need to present valid authentication credentials, for example a password in the default configuration. Different authentication schemes can be further configured as per `[server.host_based_authentication.configuration](cluster-settings.html#setting-server-host_based_authentication-configuration)`.
 
    Example:
    {% include_cached copy-clipboard.html %}

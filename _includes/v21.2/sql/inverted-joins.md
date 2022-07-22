@@ -1,6 +1,6 @@
 To run these examples, initialize a demo cluster with the MovR workload.
 
-{% include {{ page.version.version }}/demo_movr.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/demo_movr.md %}
 
 Create a GIN index on the `vehicles` table's `ext` column.
 

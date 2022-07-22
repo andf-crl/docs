@@ -4,7 +4,7 @@ summary: The COMMENT ON statement associates comments to databases, tables, or c
 toc: true
 ---
 
-<span class="version-tag">New in v19.1:</span> The `COMMENT ON` [statement](sql-statements.html) associates comments to [databases](create-database.html), [tables](create-table.html), or [columns](add-column.html).
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v19.1:</span> The `COMMENT ON` [statement](sql-statements.html) associates comments to [databases](create-database.html), [tables](create-table.html), or [columns](add-column.html).
 
 {{site.data.alerts.callout_success}}
 Currently, `COMMENT ON` is best suited for use with database GUI navigation tools (e.g., [dBeaver](dbeaver.html)).
@@ -16,7 +16,7 @@ The user must have the `CREATE` [privilege](authorization.html#assign-privileges
 
 ## Synopsis
 
-<section>{% include {{ page.version.version }}/sql/diagrams/comment.html %}</section>
+<section>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/comment.html %}</section>
 
 ## Parameters
 

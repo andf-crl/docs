@@ -37,7 +37,7 @@ below](#auto-incrementing-is-not-always-sequential) for details.
 
 {{site.data.alerts.callout_info}}
 The particular choice of `DEFAULT` expression when clients use the
-`SERIAL` keyword is subject to change in future versions of
+`SERIAL` keyword is subject to change in future [version](cluster-settings.html#setting-version)s of
 CockroachDB. Applications that wish to use `unique_rowid()`
 specifically must use the full explicit syntax `INT DEFAULT
 unique_rowid()` and avoid `SERIAL` altogether.

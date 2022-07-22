@@ -16,7 +16,7 @@ docs_area: reference.sql
 ## Synopsis
 
 <div>
-{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.version.version | replace: "v", "" }}/grammar_svg/alter_database_drop_region.html %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/grammar_svg/alter_database_drop_region.html %}
 </div>
 
 ## Parameters
@@ -35,7 +35,7 @@ To drop a region from a database, the user must have one of the following:
 
 ## Examples
 
-{% include {{page.version.version}}/sql/multiregion-example-setup.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/multiregion-example-setup.md %}
 
 ### Set the primary region
 

@@ -467,7 +467,7 @@ To understand the extent to which we support the standard SQL features, use the 
 |  T176 | Sequence generator support | Yes |
 |  T177 | Sequence generator support: simple restart option | No |
 |  T178 | Identity columns: simple restart option | No |
-|  T180 | System-versioned tables | No |
+|  T180 | System-[version](cluster-settings.html#setting-version)ed tables | No |
 |  T181 | Application-time period tables | No |
 |  T191 | Referential action RESTRICT | Yes |
 |  T201 | Comparable data types for referential constraints | No |

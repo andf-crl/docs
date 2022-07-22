@@ -7,7 +7,7 @@ docs_area: releases
 
 {% assign today = "today" | date: "%Y-%m-%d" %} {% comment %} Fetch today's date. {% endcomment %}
 
-{% assign versions = site.data.versions | where_exp: "versions", "versions.release_date <= today" | sort: "release_date" | reverse %} {% comment %} Get all versions (e.g., v21.2) sorted in reverse chronological order. {% endcomment %}
+{% assign [version](cluster-settings.html#setting-version)s = site.data.[version](cluster-settings.html#setting-version)s | where_exp: "[version](cluster-settings.html#setting-version)s", "[version](cluster-settings.html#setting-version)s.release_date <= today" | sort: "release_date" | reverse %} {% comment %} Get all [version](cluster-settings.html#setting-version)s (e.g., v21.2) sorted in reverse chronological order. {% endcomment %}
 
 {% assign oldreleases = "v1.0,v1.1,v2.0,v2.1,v19.1,v19.2,v20.1" | split: "," %} {% comment %} For all releases prior to and including 20.1, we use different logic to generate the page (vXX.Y.Z.html vs vXX.Y.html#vXX-Y-Z). {% endcomment %}
 
@@ -26,7 +26,7 @@ Each major release of CockroachDB goes through the following support cycle:
 - **Assistance Support:** Following the maintenance support period, Cockroach Labs will provide assistance support for at least an additional 180 days. During this period, the following guidelines will apply:
     - New enhancements and error corrections will not be made to the major release.
     - Cockroach Labs will direct customers to existing fixes/patches and workarounds applicable to the reported case.
-    - Cockroach Labs may direct customers to [upgrade](../{{site.versions["stable"]}}/upgrade-cockroach-version.html) to a more current version of the product if a workaround does not exist.
+    - Cockroach Labs may direct customers to [upgrade](../{{site.[version](cluster-settings.html#setting-version)s["stable"]}}/upgrade-cockroach-[version](cluster-settings.html#setting-version).html) to a more current [version](cluster-settings.html#setting-version) of the product if a workaround does not exist.
     - Cockroach Labs will continue to add critical security fixes to the major release in the form of patch releases.
 
 - **End of Life (EOL):** Following the assistance support period, Cockroach Labs will no longer provide any support for the release.
@@ -35,7 +35,7 @@ Cockroach Labs will notify you by mail or email 6 months in advance of a major r
 
 ## Current supported releases
 
-As of v19.1, Cockroach Labs uses a three-component calendar versioning scheme. Prior releases use a different versioning scheme. For more details, see [Release Naming](index.html#release-naming).
+As of v19.1, Cockroach Labs uses a three-component calendar [version](cluster-settings.html#setting-version)ing scheme. Prior releases use a different [version](cluster-settings.html#setting-version)ing scheme. For more details, see [Release Naming](index.html#release-naming).
 
 Date format: YYYY-MM-DD
 
@@ -48,20 +48,20 @@ Date format: YYYY-MM-DD
 			<th>Assistance Support ends (EOL Date)</th>
 		</tr>
 	</thead>
-  {% for v in versions %}
-    {% assign r_latest = site.data.releases | where_exp: "r_latest", "r_latest.major_version == v.major_version" | where: "withdrawn", "false" | sort: "release_date" | last | map: "version" %} {% comment %} Calculate the latest non-withdrawn release for a version v. {% endcomment %}
+  {% for v in [version](cluster-settings.html#setting-version)s %}
+    {% assign r_latest = site.data.releases | where_exp: "r_latest", "r_latest.major_[version](cluster-settings.html#setting-version) == v.major_[version](cluster-settings.html#setting-version)" | where: "withdrawn", "false" | sort: "release_date" | last | map: "[version](cluster-settings.html#setting-version)" %} {% comment %} Calculate the latest non-withdrawn release for a [version](cluster-settings.html#setting-version) v. {% endcomment %}
 
-    {% if oldreleases contains v.major_version %}
+    {% if oldreleases contains v.major_[version](cluster-settings.html#setting-version) %}
       {% assign old_release_format = "True" %}
     {% endif %}
 
     <tr{% if v.asst_supp_exp_date < today %} class=eol{% endif %}>
-      <td><a href="{% if old_release_format %}{{ r_latest }}.html{% else %}{{ v.major_version }}.html{% endif %}">{{ v.major_version }}{% if v.asst_supp_exp_date < today %}*{% endif %}</a></td>
+      <td><a href="{% if old_release_format %}{{ r_latest }}.html{% else %}{{ v.major_[version](cluster-settings.html#setting-version) }}.html{% endif %}">{{ v.major_[version](cluster-settings.html#setting-version) }}{% if v.asst_supp_exp_date < today %}*{% endif %}</a></td>
       <td>{{ v.release_date }}</td>
       <td>{{ v.maint_supp_exp_date }}</td>
       <td>{{ v.asst_supp_exp_date }}</td>
     </tr>
-  {% endfor %} {% comment %} Display each version, its release date, its maintenance support expiration date, and its assistance support expiration date. Also include links to the latest hotfix version. {% endcomment %}
+  {% endfor %} {% comment %} Display each [version](cluster-settings.html#setting-version), its release date, its maintenance support expiration date, and its assistance support expiration date. Also include links to the latest hotfix [version](cluster-settings.html#setting-version). {% endcomment %}
 </table>
 
 &#42; Version has reached EOL

@@ -7,7 +7,7 @@ toc: true
 User authorization is the act of defining access policies for authenticated CockroachDB users. CockroachDB allows you to create, manage, and remove your cluster's SQL [users](#sql-users) and assign SQL-level [privileges](#assign-privileges) to the users. Additionally, you can use [role-based access management (RBAC)](#roles) for simplified user management.
 
 {{site.data.alerts.callout_info}}
-<span class="version-tag">New in v20.1</span>: Role-based access management (RBAC) is no longer an enterprise feature and is now freely available in the core version of CockroachDB. Also, for enhanced PostgreSQL compatibility, the keywords `ROLE` and `USER` can now be used interchangeably in SQL statements. Note that even though the keywords are now interchangeable, it is still helpful to understand the distinction between the concepts (a "user" refers to an individual database user and a "role" refers to a group of database users).
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1</span>: Role-based access management (RBAC) is no longer an enterprise feature and is now freely available in the core [version](cluster-settings.html#setting-version) of CockroachDB. Also, for enhanced PostgreSQL compatibility, the keywords `ROLE` and `USER` can now be used interchangeably in SQL statements. Note that even though the keywords are now interchangeable, it is still helpful to understand the distinction between the concepts (a "user" refers to an individual database user and a "role" refers to a group of database users).
 {{site.data.alerts.end}}
 
 ## Users and roles
@@ -47,7 +47,7 @@ For secure clusters, in addition to [generating the client certificate](authenti
 ## Roles
 
 {{site.data.alerts.callout_info}}
-<span class="version-tag">New in v20.1</span> Role-based access management is no longer an enterprise feature and is now freely available in the core version of CockroachDB.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1</span> Role-based access management is no longer an enterprise feature and is now freely available in the core [version](cluster-settings.html#setting-version) of CockroachDB.
 {{site.data.alerts.end}}
 
 A role is a group of users and/or other roles for which you can grant or revoke privileges as a whole. To simplify access management, create a role and grant privileges to the role, then create SQL users and grant them membership to the role.

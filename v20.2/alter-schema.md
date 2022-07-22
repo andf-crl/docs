@@ -4,12 +4,12 @@ summary: The ALTER SCHEMA statement modifies a user-defined schema in a database
 toc: true
 ---
 
-<span class="version-tag">New in v20.2:</span> The `ALTER SCHEMA` [statement](sql-statements.html) modifies a user-defined [schema](sql-name-resolution.html#naming-hierarchy) in the current database. CockroachDB currently supports changing the name of the schema and the owner of the schema.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> The `ALTER SCHEMA` [statement](sql-statements.html) modifies a user-defined [schema](sql-name-resolution.html#naming-hierarchy) in the current database. CockroachDB currently supports changing the name of the schema and the owner of the schema.
 
 ## Syntax
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/alter_schema.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/alter_schema.html %}
 </div>
 
 ### Parameters
@@ -27,7 +27,7 @@ Parameter | Description
 
 ## Example
 
-{% include {{page.version.version}}/sql/movr-statements.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/movr-statements.md %}
 
 ### Rename a schema
 

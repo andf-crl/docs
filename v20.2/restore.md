@@ -5,7 +5,7 @@ toc: true
 ---
 
 {{site.data.alerts.callout_info}}
-<span class="version-tag">New in v20.2:</span> `RESTORE` no longer requires an Enterprise license, regardless of the options passed to it or to the backup it is restoring.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> `RESTORE` no longer requires an Enterprise license, regardless of the options passed to it or to the backup it is restoring.
 {{site.data.alerts.end}}
 
 The `RESTORE` [statement](sql-statements.html) restores your cluster's schemas and data from [a `BACKUP`][backup] stored on a services such as AWS S3, Google Cloud Storage, NFS, or HTTP storage.
@@ -29,12 +29,12 @@ You can restore:
 
 ### Source privileges
 
-{% include {{ page.version.version }}/misc/source-privileges.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/source-privileges.md %}
 
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/restore.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/restore.html %}
 </div>
 
 ## Parameters
@@ -57,10 +57,10 @@ You can control `RESTORE` behavior using any of the following in the `restore_op
 <a name="into_db"></a>`into_db`                                     | Database name                               | Use to [change the target database](#restore-tables-into-a-different-database) for table restores. (Does not apply to database or cluster restores.)<br><br>Example: `WITH into_db = 'newdb'`
 <a name="skip_missing_foreign_keys"></a>`skip_missing_foreign_keys` | N/A                                         | Use to remove the missing [foreign key](foreign-key.html) constraints before restoring.<br><br>Example: `WITH skip_missing_foreign_keys`
 <a name="skip_missing_sequences"></a>`skip_missing_sequences`       | N/A                                         | Use to ignore [sequence](show-sequences.html) dependencies (i.e., the `DEFAULT` expression that uses the sequence).<br><br>Example: `WITH skip_missing_sequences`
-`skip_missing_sequence_owners`                                      | N/A                                         | <span class="version-tag">New in v20.2:</span> Must be used when restoring either a table that was previously a [sequence owner](create-sequence.html#owned-by) or a sequence that was previously owned by a table.<br><br>Example: `WITH skip_missing_sequence_owners`
+`skip_missing_sequence_owners`                                      | N/A                                         | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> Must be used when restoring either a table that was previously a [sequence owner](create-sequence.html#owned-by) or a sequence that was previously owned by a table.<br><br>Example: `WITH skip_missing_sequence_owners`
 `skip_missing_views`                                                | N/A                                         | Use to skip restoring [views](views.html) that cannot be restored because their dependencies are not being restored at the same time.<br><br>Example: `WITH skip_missing_views`
 `encryption_passphrase`                                             | Passphrase used to create the [encrypted backup](take-and-restore-encrypted-backups.html) |  The passphrase used to decrypt the file(s) that were encrypted by the [`BACKUP`](take-and-restore-encrypted-backups.html) statement.
-`DETACHED`                                                          | N/A                                         | <span class="version-tag">New in v20.2:</span> When `RESTORE` runs with `DETACHED`, the job will execute asynchronously and the job ID will be returned immediately without waiting for the job to finish. Note that with `DETACHED` specified, further job information and the job completion status will not be returned. For more on the differences between the returned job data, see the [example](restore.html#restore-a-backup-asynchronously) below. To check on the job status, use the [`SHOW JOBS`](show-jobs.html) statement. <br><br>To run a restore within a [transaction](transactions.html), use the `DETACHED` option.
+`DETACHED`                                                          | N/A                                         | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> When `RESTORE` runs with `DETACHED`, the job will execute asynchronously and the job ID will be returned immediately without waiting for the job to finish. Note that with `DETACHED` specified, further job information and the job completion status will not be returned. For more on the differences between the returned job data, see the [example](restore.html#restore-a-backup-asynchronously) below. To check on the job status, use the [`SHOW JOBS`](show-jobs.html) statement. <br><br>To run a restore within a [transaction](transactions.html), use the `DETACHED` option.
 
 ### Backup file URLs
 
@@ -118,7 +118,7 @@ The target database must not have tables or views with the same name as the tabl
 `RESTORE` only offers table-level granularity; it _does not_ support restoring subsets of a table.
 {{site.data.alerts.end}}
 
-<span class="version-tag">New in v20.2:</span> When restoring an individual table that references a user-defined type (e.g., [`ENUM`](enum.html)), CockroachDB will first check to see if the type already exists. The restore will attempt the following for each user-defined type within a table backup:
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> When restoring an individual table that references a user-defined type (e.g., [`ENUM`](enum.html)), CockroachDB will first check to see if the type already exists. The restore will attempt the following for each user-defined type within a table backup:
 
 - If there is _not_ an existing type in the cluster with the same name, CockroachDB will create the user-defined type as it exists in the backup.
 - If there is an existing type in the cluster with the same name that is compatible with the type in the backup, CockroachDB will map the type in the backup to the type in the cluster.
@@ -177,7 +177,7 @@ If initiated correctly, the statement returns when the restore is finished or if
 
 ## Known limitations
 
-{% include {{ page.version.version }}/known-limitations/restore-aost.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/restore-aost.md %}
 
 ## Examples
 
@@ -239,14 +239,14 @@ If you are restoring from HTTP storage, provide the previous full and incrementa
 {{site.data.alerts.end}}
 
 {{site.data.alerts.callout_info}}
-`RESTORE` will re-validate [indexes](indexes.html) when [incremental backups](take-full-and-incremental-backups.html) are created from an older version, but restored from a newer version.
+`RESTORE` will re-validate [indexes](indexes.html) when [incremental backups](take-full-and-incremental-backups.html) are created from an older [version](cluster-settings.html#setting-version), but restored from a newer [version](cluster-settings.html#setting-version).
 
-Incremental backups created by v20.2.2 and prior v20.2.x releases or v20.1.4 and prior v20.1.x releases may include incomplete data for indexes that were in the process of being created. Therefore, when incremental backups taken by these versions are restored by v20.2.8+, any indexes created during those incremental backups will be re-validated by `RESTORE`.
+Incremental backups created by v20.2.2 and prior v20.2.x releases or v20.1.4 and prior v20.1.x releases may include incomplete data for indexes that were in the process of being created. Therefore, when incremental backups taken by these [version](cluster-settings.html#setting-version)s are restored by v20.2.8+, any indexes created during those incremental backups will be re-validated by `RESTORE`.
 {{site.data.alerts.end}}
 
 ### Restore a backup asynchronously
 
-<span class="version-tag">New in v20.2:</span> Use the `DETACHED` [option](#options) to execute the restore job asynchronously:
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> Use the `DETACHED` [option](#options) to execute the restore job asynchronously:
 
 {% include copy-clipboard.html %}
 ~~~ sql
@@ -332,7 +332,7 @@ WITH into_db = 'newdb';
 - [Take and Restore Encrypted Backups](take-and-restore-encrypted-backups.html)
 - [Take and Restore Locality-aware Backups](take-and-restore-locality-aware-backups.html)
 - [Take Backups with Revision History and Restore from a Point-in-time](take-backups-with-revision-history-and-restore-from-a-point-in-time.html)
-- <span class="version-tag">New in v20.2:</span> [Manage a Backup Schedule](manage-a-backup-schedule.html)
+- <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> [Manage a Backup Schedule](manage-a-backup-schedule.html)
 - [Configure Replication Zones](configure-replication-zones.html)
 - [`ENUM`](enum.html)
 - [`CREATE TYPE`](create-type.html)

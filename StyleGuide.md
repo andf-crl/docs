@@ -47,7 +47,7 @@ Included in this guide:
   - [Product names](#product-names)
   - [Code](#code)
   - [Examples](#examples)
-  - [Version tags](#version-tags)
+  - [Version tags](#[version](cluster-settings.html#setting-version)-tags)
   - [Tables](#tables)
   - [Lists](#lists)
   - [Images](#images)
@@ -80,7 +80,7 @@ Other general guidance about language and tone:
 
     **Example:** You cannot change primary key using `ALTER TABLE`.
 
-    **Example:** If you leave versioned binaries on your servers, you do not need to do anything.
+    **Example:** If you leave [version](cluster-settings.html#setting-version)ed binaries on your servers, you do not need to do anything.
 
 - Avoid using forward-looking language when writing about supported syntax and behavior:
     - Do not suggest that a feature may or may not be added in a future release.
@@ -202,16 +202,16 @@ CockroachDB docs are mainly comprised of pages (`.md`) and images (`.png` or `.g
 - `this-is-a-doc.md`
 - `name-of-your-image.png`
 
-Each version's pages are found in a directory named for the version. For example, pages for CockroachDB v21.1 are in the `docs > v21.1` directory. For more information about page structure, see the [Pages](https://github.com/cockroachdb/docs/blob/master/CONTRIBUTING.md#pages) section in our [Contributing Guide](https://github.com/cockroachdb/docs/blob/master/CONTRIBUTING.md). For more information about how to style page content, see [Components](#components).
+Each [version](cluster-settings.html#setting-version)'s pages are found in a directory named for the [version](cluster-settings.html#setting-version). For example, pages for CockroachDB v21.1 are in the `docs > v21.1` directory. For more information about page structure, see the [Pages](https://github.com/cockroachdb/docs/blob/master/CONTRIBUTING.md#pages) section in our [Contributing Guide](https://github.com/cockroachdb/docs/blob/master/CONTRIBUTING.md). For more information about how to style page content, see [Components](#components).
 
-Each version's images are stored in a versioned directory under the `images` directory. For example, images for CockroachDB v21.1 are in the `docs > images > v21.1` directory. For more information, see [Images](#images).
+Each [version](cluster-settings.html#setting-version)'s images are stored in a [version](cluster-settings.html#setting-version)ed directory under the `images` directory. For example, images for CockroachDB v21.1 are in the `docs > images > v21.1` directory. For more information, see [Images](#images).
 
 ### File naming
 
 File names should match the page title. If you need to change a file name, it is necessary to do the following:
 
 - Add the previous page URL with the new URL to `_redirects`.
-- Replace all links to the previous file name with the new file name in the applicable docs versions.
+- Replace all links to the previous file name with the new file name in the applicable docs [version](cluster-settings.html#setting-version)s.
 
 ## Content types
 
@@ -280,7 +280,7 @@ At the page level, a task could take two different forms: a page with multiple, 
 #### Examples
 
 - [Create a CockroachCloud Cluster](https://www.cockroachlabs.com/docs/cockroachcloud/create-your-cluster.html)
-- [Upgrade to CockroachDB vX.X](https://www.cockroachlabs.com/docs/stable/upgrade-cockroach-version.html)
+- [Upgrade to CockroachDB vX.X](https://www.cockroachlabs.com/docs/stable/upgrade-cockroach-[version](cluster-settings.html#setting-version).html)
 - [Configure Replication Zones](https://www.cockroachlabs.com/docs/stable/configure-replication-zones.html)
 
 ### Reference
@@ -406,7 +406,7 @@ A FAQ helps users quickly find answers to questions that recur.
 
 A _release note_ is a description of features and bug fixes related to a specific release of CockroachDB.
 
-A release note helps users understand what they gain from upgrading to the version of CockroachDB.
+A release note helps users understand what they gain from upgrading to the [version](cluster-settings.html#setting-version) of CockroachDB.
 
 #### Examples
 
@@ -567,14 +567,14 @@ To insert a warning, use the following code:
 {{site.data.alerts.end}}
 ~~~
 
-#### CockroachDB version callout
+#### CockroachDB [version](cluster-settings.html#setting-version) callout
 
-A custom callout at the top of the CockroachDB Cloud Release Notes displays the CockroachDB version that Cloud clusters are running.
+A custom callout at the top of the CockroachDB Cloud Release Notes displays the CockroachDB [version](cluster-settings.html#setting-version) that Cloud clusters are running.
 It should not be used anywhere else.
 
 ~~~
-{{site.data.alerts.callout_version}}
-<CockroachDB version>
+{{site.data.alerts.callout_[version](cluster-settings.html#setting-version)}}
+<CockroachDB [version](cluster-settings.html#setting-version)>
 {{site.data.alerts.end}}
 ~~~
 
@@ -650,7 +650,7 @@ For more examples, check out the [Known Limitations](https://www.cockroachlabs.c
 
 When the time comes to document known limitations, keep in mind that you are documenting known limitations for a specific release, just like you document any other feature. This means that you have to update all documented known limitations be relevant to the upcoming release
 
-1. In the latest version's docset, move all existing known limitations from the ["New limitations"](https://www.cockroachlabs.com/docs/stable/known-limitations.html#new-limitations) header, and place them under the ["Unresolved limitations"](https://www.cockroachlabs.com/docs/stable/known-limitations.html#unresolved-limitations) header.
+1. In the latest [version](cluster-settings.html#setting-version)'s docset, move all existing known limitations from the ["New limitations"](https://www.cockroachlabs.com/docs/stable/known-limitations.html#new-limitations) header, and place them under the ["Unresolved limitations"](https://www.cockroachlabs.com/docs/stable/known-limitations.html#unresolved-limitations) header.
 
 1. Verify that each of the limitations under "Unresolved limitations" is, in fact, still a limitation:
 
@@ -658,9 +658,9 @@ When the time comes to document known limitations, keep in mind that you are doc
 
     1. If the tracking GitHub issue is still open, you should leave the known limitation as unresolved. If it is closed, you need to find the PR that resolved the issue, and see if it was backported to a previous release.
 
-    1. Remove the limitation from the Known Limitations page, and from all other pages in the docs **for each version in which the resolving PR was merged**. If the resolving PR was not backported, then you can remove the limitation from just the latest release's docs.
+    1. Remove the limitation from the Known Limitations page, and from all other pages in the docs **for each [version](cluster-settings.html#setting-version) in which the resolving PR was merged**. If the resolving PR was not backported, then you can remove the limitation from just the latest release's docs.
 
-1. [Document all new limitations](#where-to-find-known-limitations) under the "New limitations" header. Note that undocumented known limitations might apply to more than just one release. If the limitation applies to previous releases, then add the limitation under the "Existing limitations" header for each supported versioned docset to which the limitation applies.
+1. [Document all new limitations](#where-to-find-known-limitations) under the "New limitations" header. Note that undocumented known limitations might apply to more than just one release. If the limitation applies to previous releases, then add the limitation under the "Existing limitations" header for each supported [version](cluster-settings.html#setting-version)ed docset to which the limitation applies.
 
 1. After you document a known limitation, add the `docs-done` label to the limitation's tracking issue in the `cockroach` repo (it will have both `docs-known-limitations` and `docs-done` labels). *Do not close the issue* if it is in the `cockroach` repo. Documenting a limitation does not resolve the limitation.
 
@@ -807,23 +807,23 @@ Examples help show the feature in action. Examples follow a basic format:
 
 ### Version tags
 
-Version tags inform users of new and updated features in CockroachDB, and could motivate users to upgrade to the latest major or minor version of CockroachDB. Version tags also help us identify new and updated features that we can call out in [our GA release notes](https://cockroachlabs.atlassian.net/wiki/spaces/ED/pages/402718726/GA+Release+Checklist).
+Version tags inform users of new and updated features in CockroachDB, and could motivate users to upgrade to the latest major or minor [version](cluster-settings.html#setting-version) of CockroachDB. Version tags also help us identify new and updated features that we can call out in [our GA release notes](https://cockroachlabs.atlassian.net/wiki/spaces/ED/pages/402718726/GA+Release+Checklist).
 
-To add a version tag, use the following Liquid tag:
+To add a [version](cluster-settings.html#setting-version) tag, use the following Liquid tag:
 
 ~~~
-{% include_cached new-in.html version="v22.1" %}
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v22.1" %}
 ~~~
 
-Note: If using a version tag inside of a Markdown table, use `<span class="version-tag">New in vXX.Y:</span>` or `<span class="version-tag">New in vXX.Y.Z:</span>` instead.
+Note: If using a [version](cluster-settings.html#setting-version) tag inside of a Markdown table, use `<span class="[version](cluster-settings.html#setting-version)-tag">New in vXX.Y:</span>` or `<span class="[version](cluster-settings.html#setting-version)-tag">New in vXX.Y.Z:</span>` instead.
 
-Put version tags at the beginning of a paragraph, sentence, or description in a table cell.
+Put [version](cluster-settings.html#setting-version) tags at the beginning of a paragraph, sentence, or description in a table cell.
 
-If a feature is new in a GA release, use the major release number for the release version tag (e.g., `{% include_cached new-in.html version="v21.2" %}`).
+If a feature is new in a GA release, use the major release number for the release [version](cluster-settings.html#setting-version) tag (e.g., `{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.2" %}`).
 
-If a feature has been backported to a previous version in a patch release, use the minor release number for the release version tag (e.g., `{% include_cached new-in.html version="v21.2.10" %}`).
+If a feature has been backported to a previous [version](cluster-settings.html#setting-version) in a patch release, use the minor release number for the release [version](cluster-settings.html#setting-version) tag (e.g., `{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.2.10" %}`).
 
-Version tags should only refer to the version of the docset that contains them. For example, the version tag `{% include_cached new-in.html version="v21.1.9" %}` should only be on pages in `v21.1` directories.
+Version tags should only refer to the [version](cluster-settings.html#setting-version) of the docset that contains them. For example, the [version](cluster-settings.html#setting-version) tag `{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.1.9" %}` should only be on pages in `v21.1` directories.
 
 ### Tables
 
@@ -976,4 +976,4 @@ Term | Classification | Note
 --- |:---:| ---
 Postgres | 🔴 | This is a nickname for PostgreSQL. Use PostgreSQL instead: it's the official name, our docs site and Google treat these as synonyms, and Cmd+F on `Postgres` will still find `PostgreSQL`.
 PostgreSQL | 🟢 | Preferred over Postgres.
-vxx.x.x | 🟢 | This is the correct way to refer to any version of CockroachDB (for example, `v21.1.8`). Preferred over `version xx.x.x`.
+vxx.x.x | 🟢 | This is the correct way to refer to any [version](cluster-settings.html#setting-version) of CockroachDB (for example, `v21.1.8`). Preferred over `[version](cluster-settings.html#setting-version) xx.x.x`.

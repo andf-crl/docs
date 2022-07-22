@@ -16,7 +16,7 @@ We have tested the [Node.js pg driver](https://www.npmjs.com/package/pg) enough 
 
 ## Before you begin
 
-{% include {{page.version.version}}/app/before-you-begin.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/before-you-begin.md %}
 
 ## Step 1. Install Node.js packages
 
@@ -38,7 +38,7 @@ $ npm install async
 
 ## Step 2. Create the `maxroach` user and `bank` database
 
-{% include {{page.version.version}}/app/create-maxroach-user-and-bank-database.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/create-maxroach-user-and-bank-database.md %}
 
 ## Step 3. Generate a certificate for the `maxroach` user
 
@@ -57,11 +57,11 @@ Now that you have a database and a user, you'll run code to create a table and i
 
 First, use the following code to connect as the `maxroach` user and execute some basic SQL statements, creating a table, inserting rows, and reading and printing the rows.
 
-Download the [`basic-sample.js`](https://raw.githubusercontent.com/cockroachdb/docs/master/_includes/{{ page.version.version }}/app/basic-sample.js) file, or create the file yourself and copy the code into it.
+Download the [`basic-sample.js`](https://raw.githubusercontent.com/cockroachdb/docs/master/_includes/{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/app/basic-sample.js) file, or create the file yourself and copy the code into it.
 
 {% include copy-clipboard.html %}
 ~~~ js
-{% include {{page.version.version}}/app/basic-sample.js %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/basic-sample.js %}
 ~~~
 
 Then run the code:
@@ -83,13 +83,13 @@ Initial balances:
 
 Next, use the following code to again connect as the `maxroach` user but this time execute a batch of statements as an atomic transaction to transfer funds from one account to another and then read the updated values, where all included statements are either committed or aborted.
 
-Download the [`txn-sample.js`](https://raw.githubusercontent.com/cockroachdb/docs/master/_includes/{{ page.version.version }}/app/txn-sample.js) file, or create the file yourself and copy the code into it.
+Download the [`txn-sample.js`](https://raw.githubusercontent.com/cockroachdb/docs/master/_includes/{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/app/txn-sample.js) file, or create the file yourself and copy the code into it.
 
-{% include {{ page.version.version }}/client-transaction-retry.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/client-transaction-retry.md %}
 
 {% include copy-clipboard.html %}
 ~~~ js
-{% include {{page.version.version}}/app/txn-sample.js %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/txn-sample.js %}
 ~~~
 
 Then run the code:
@@ -137,7 +137,7 @@ To check the account balances, issue the following statement:
 
 ## Step 2. Create the `maxroach` user and `bank` database
 
-{% include {{page.version.version}}/app/insecure/create-maxroach-user-and-bank-database.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/insecure/create-maxroach-user-and-bank-database.md %}
 
 ## Step 3. Run the Node.js code
 
@@ -147,11 +147,11 @@ Now that you have a database and a user, you'll run code to create a table and i
 
 First, use the following code to connect as the `maxroach` user and execute some basic SQL statements, creating a table, inserting rows, and reading and printing the rows.
 
-Download the [`basic-sample.js`](https://raw.githubusercontent.com/cockroachdb/docs/master/_includes/{{ page.version.version }}/app/insecure/basic-sample.js) file, or create the file yourself and copy the code into it.
+Download the [`basic-sample.js`](https://raw.githubusercontent.com/cockroachdb/docs/master/_includes/{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/app/insecure/basic-sample.js) file, or create the file yourself and copy the code into it.
 
 {% include copy-clipboard.html %}
 ~~~ js
-{% include {{page.version.version}}/app/insecure/basic-sample.js %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/insecure/basic-sample.js %}
 ~~~
 
 Then run the code:
@@ -173,13 +173,13 @@ Initial balances:
 
 Next, use the following code to again connect as the `maxroach` user but this time execute a batch of statements as an atomic transaction to transfer funds from one account to another and then read the updated values, where all included statements are either committed or aborted.
 
-Download the [`txn-sample.js`](https://raw.githubusercontent.com/cockroachdb/docs/master/_includes/{{ page.version.version }}/app/insecure/txn-sample.js) file, or create the file yourself and copy the code into it.
+Download the [`txn-sample.js`](https://raw.githubusercontent.com/cockroachdb/docs/master/_includes/{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/app/insecure/txn-sample.js) file, or create the file yourself and copy the code into it.
 
-{% include {{ page.version.version }}/client-transaction-retry.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/client-transaction-retry.md %}
 
 {% include copy-clipboard.html %}
 ~~~ js
-{% include {{page.version.version}}/app/insecure/txn-sample.js %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/insecure/txn-sample.js %}
 ~~~
 
 Then run the code:
@@ -227,4 +227,4 @@ To check the account balances, issue the following statement:
 
 Read more about using the [Node.js pg driver](https://www.npmjs.com/package/pg).
 
-{% include {{page.version.version}}/app/see-also-links.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/see-also-links.md %}

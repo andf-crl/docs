@@ -110,7 +110,7 @@ Example: A is a member of C ... is a member of B where "..." is an arbitrary num
 
 ## Object ownership
 
-<span class="version-tag">New in v20.2</span> All CockroachDB objects (such as databases, tables, schemas, and types) must have owners. The user that created the object is the default owner of the object and has `ALL` privileges on the object. Similarly, any roles that are members of the owner role also have all privileges on the object.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2</span> All CockroachDB objects (such as databases, tables, schemas, and types) must have owners. The user that created the object is the default owner of the object and has `ALL` privileges on the object. Similarly, any roles that are members of the owner role also have all privileges on the object.
 
 All objects that do not have owners (for example, objects created before upgrading to v20.2) have `admin` set as the default owner, with the exception of system objects. System objects without owners have `node` as their owner.
 
@@ -126,7 +126,7 @@ When a user connects to a database, either via the built-in SQL client or a clie
 
 Roles and users can be granted the following privileges:
 
-{% include {{ page.version.version }}/sql/privileges.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/privileges.md %}
 
 ### Assign privileges
 

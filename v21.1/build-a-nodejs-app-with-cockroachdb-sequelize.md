@@ -24,11 +24,11 @@ For a more realistic use of Sequelize with CockroachDB, see our [`examples-orms`
 
 ## Step 1. Start CockroachDB
 
-{% include {{page.version.version}}/app/start-cockroachdb.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/start-cockroachdb.md %}
 
 ## Step 2. Create a database
 
-{% include {{page.version.version}}/app/create-a-database.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/create-a-database.md %}
 
 ## Step 3. Install the Sequelize ORM
 
@@ -97,4 +97,4 @@ The output should be:
 
 Read more about using the [Sequelize ORM](https://sequelize.org/), or check out a more realistic implementation of Sequelize with CockroachDB in our [`examples-orms`](https://github.com/cockroachdb/examples-orms) repository.
 
-{% include {{ page.version.version }}/app/see-also-links.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/app/see-also-links.md %}

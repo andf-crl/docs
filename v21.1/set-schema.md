@@ -33,7 +33,7 @@ ALTER TABLE [IF EXISTS] <name> SET SCHEMA <newschemaname>
 
 ## Examples
 
-{% include {{page.version.version}}/sql/movr-statements.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/movr-statements.md %}
 
 ### Change the schema of a table
 

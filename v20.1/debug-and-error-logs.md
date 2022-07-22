@@ -84,7 +84,7 @@ Disabled by | `--log-dir=""`<sup>1</sup> | Default
 {{site.data.alerts.end}}
 
 {{site.data.alerts.callout_success}}
-{% include {{ page.version.version }}/admin-ui/admin-ui-log-files.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/admin-ui/admin-ui-log-files.md %}
 {{site.data.alerts.end}}
 
 #### Print to `stderr`
@@ -110,7 +110,7 @@ By default, commands besides `cockroach start` discard messages with the `INFO` 
 
 These logging flags are used with [`cockroach` commands](cockroach-commands.html).
 
-{% include {{ page.version.version }}/misc/logging-flags.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/logging-flags.md %}
 
 ## See also
 

@@ -5,7 +5,7 @@ toc: true
 docs_area: reference.db_console
 ---
 
-{% include {{ page.version.version }}/ui/admin-access.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/ui/admin-access.md %}
 
 The **Transactions** page helps you:
 
@@ -31,19 +31,19 @@ By default, the **Transactions** page shows transactions from all applications a
 
 To search using the search field:
 
-1. Type a string over `Search Transactions`. {% include_cached new-in.html version="v22.1.4" %} To search for exact terms in order, wrap the search string in quotes.
+1. Type a string over `Search Transactions`. {% include_cached new-in.html [version](cluster-settings.html#setting-version)="v22.1.4" %} To search for exact terms in order, wrap the search string in quotes.
 1. Press `Enter`.
 
     The list of transactions is filtered by the string.
 
-{% include {{ page.version.version }}/ui/transactions-filter.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/ui/transactions-filter.md %}
 
 ## Transaction statistics
 
-{% include {{ page.version.version }}/ui/statistics.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/ui/statistics.md %}
 
 {% include common/ui/transactions-page.md %}
 
-{% include {{ page.version.version }}/ui/transactions-table.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/ui/transactions-table.md %}
 
-{% include {{ page.version.version }}/ui/transaction-details.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/ui/transaction-details.md %}

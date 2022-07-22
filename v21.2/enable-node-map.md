@@ -5,7 +5,7 @@ toc: true
 docs_area: manage
 ---
 
-{% include {{ page.version.version }}/ui/admin-access.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/ui/admin-access.md %}
 
 The **Node Map** is useful for:
 
@@ -184,7 +184,7 @@ If a locality (e.g., region) is not assigned latitude and longitude coordinates,
 
 ### Displayed Used Capacity value is more than configured Capacity
 
-{% include {{ page.version.version }}/misc/available-capacity-metric.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/available-capacity-metric.md %}
 
 ## Location coordinates
 
@@ -192,12 +192,12 @@ This section lists the latitudes and longitudes of AWS, Azure, and Google Cloud 
 
 ### AWS locations
 
-{% include {{ page.version.version }}/misc/aws-locations.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/aws-locations.md %}
 
 ### Azure locations
 
-{% include {{ page.version.version }}/misc/azure-locations.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/azure-locations.md %}
 
 ### Google Cloud locations
 
-{% include {{ page.version.version }}/misc/gce-locations.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/gce-locations.md %}

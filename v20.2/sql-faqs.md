@@ -16,19 +16,19 @@ toc_not_nested: true
 
 ## How do I auto-generate unique row IDs in CockroachDB?
 
-{% include {{ page.version.version }}/faq/auto-generate-unique-ids.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/faq/auto-generate-unique-ids.html %}
 
 ## How do I generate unique, slowly increasing sequential numbers in CockroachDB?
 
-{% include {{ page.version.version }}/faq/sequential-numbers.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/faq/sequential-numbers.md %}
 
 ## What are the differences between `UUID`, sequences, and `unique_rowid()`?
 
-{% include {{ page.version.version }}/faq/differences-between-numberings.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/faq/differences-between-numberings.md %}
 
 ## How do I order writes to a table to closely follow time in CockroachDB?
 
-{% include {{ page.version.version }}/faq/sequential-transactions.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/faq/sequential-transactions.md %}
 
 ## How do I get the last ID/SERIAL value inserted into a table?
 
@@ -84,7 +84,7 @@ If you'd like to tell the query planner which index to use, you can do so via so
 
 ## How do I log SQL queries?
 
-{% include {{ page.version.version }}/faq/sql-query-logging.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/faq/sql-query-logging.md %}
 
 ## Does CockroachDB support a UUID type?
 
@@ -132,7 +132,7 @@ require('long').fromString(idString).add(1).toString(); // GOOD: returns '235191
 
 ## Can I use CockroachDB as a key-value store?
 
-{% include {{ page.version.version }}/faq/simulate-key-value-store.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/faq/simulate-key-value-store.html %}
 
 
 ## See also

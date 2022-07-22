@@ -27,7 +27,7 @@ This function is the inverse of [`ST_Covers`](st_covers.html).
 
 ## Examples
 
-{% include {{page.version.version}}/misc/geojson_geometry_note.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/misc/geojson_geometry_note.md %}
 
 ### True
 

@@ -8,7 +8,7 @@ This graph shows the CPU consumption by the CockroachDB process, and excludes ot
 
 - In the cluster view, the graph shows the percentage of CPU in use by the CockroachDB process across all nodes.
 
-{% include {{ page.version.version }}/prod-deployment/healthy-cpu-percent.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/healthy-cpu-percent.md %}
 
 {{site.data.alerts.callout_info}}
 For multi-core systems, the percentage of CPU usage is calculated by normalizing the CPU usage across all cores, whereby 100% utilization indicates that all cores are fully utilized.

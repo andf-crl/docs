@@ -56,9 +56,9 @@ A `BOOL` value is 1 byte in width, but the total storage size is likely to be la
 +-------+------+-------+
 ~~~
 
-## Supported Casting & Conversion
+## Supported Casting & Con[version](cluster-settings.html#setting-version)
 
-`BOOL` values can be [cast](data-types.html#data-type-conversions-casts) to any of the following data types:
+`BOOL` values can be [cast](data-types.html#data-type-con[version](cluster-settings.html#setting-version)s-casts) to any of the following data types:
 
 Type | Details
 -----|--------

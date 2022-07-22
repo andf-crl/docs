@@ -7,7 +7,7 @@ docs_area: reference.sql
 
 The `ALTER RANGE` [statement](sql-statements.html) applies a [schema change](online-schema-changes.html) to a range.  For information on using `ALTER RANGE`, see the pages for its [subcommands](#subcommands).
 
-{% include {{ page.version.version }}/misc/schema-change-stmt-note.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-stmt-note.md %}
 
 ## Subcommands
 

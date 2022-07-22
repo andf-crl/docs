@@ -80,7 +80,7 @@ Uptime | How long the node has been running.
 Bytes | The used capacity for the node.
 Replicas | The number of replicas on the node.
 Mem Usage | The memory usage for the node.
-Version | The build tag of the CockroachDB version installed on the node.
+Version | The build tag of the CockroachDB [version](cluster-settings.html#setting-version) installed on the node.
 Logs | Click **Logs** to see the logs for the node.
 
 #### Dead Nodes
@@ -97,7 +97,7 @@ Down Since | How long the node has been down.
 
 #### Decommissioned Nodes
 
-<span class="version-tag">New in v1.1:</span> Nodes that have been decommissioned for permanent removal from the cluster are listed in the **Decommissioned Nodes** table.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v1.1:</span> Nodes that have been decommissioned for permanent removal from the cluster are listed in the **Decommissioned Nodes** table.
 
 <img src="{{ 'images/v1.1/cluster-status-after-decommission2.png' | relative_url }}" alt="CockroachDB Admin UI" style="border:1px solid #eee;max-width:100%" />
 

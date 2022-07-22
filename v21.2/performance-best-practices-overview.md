@@ -173,7 +173,7 @@ Note that the above query also follows the [indexing best practice](indexes.html
 
 ### Use `UUID` to generate unique IDs
 
-{% include {{ page.version.version }}/faq/auto-generate-unique-ids.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/faq/auto-generate-unique-ids.html %}
 
 ### Use `INSERT` with the `RETURNING` clause to generate unique IDs
 
@@ -384,7 +384,7 @@ For further background on transaction contention, see [What is Database Contenti
 
 ### Find transaction contention
 
-{% include {{ page.version.version }}/performance/statement-contention.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/performance/statement-contention.md %}
 
 <a id="avoid-transaction-contention"></a>
 

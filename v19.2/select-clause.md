@@ -17,7 +17,7 @@ with other constructs to form more complex [selection queries](selection-queries
 ## Synopsis
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/simple_select_clause.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/simple_select_clause.html %}
 </div>
 
 
@@ -59,7 +59,7 @@ using the [scalar expressions](scalar-expressions.html) listed with `ON`. When t
 
 ## Examples
 
-{% include {{page.version.version}}/sql/movr-statements.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/movr-statements.md %}
 
 ### Choose columns
 
@@ -420,7 +420,7 @@ GROUP BY vehicle_id, city HAVING COUNT(vehicle_id) > 20;
 
 #### Order aggregate function input rows by column
 
-<span class="version-tag">New in v19.2</span>: Non-commutative aggregate functions are sensitive to the order in which the rows are processed in the surrounding `SELECT` clause. To specify the order in which input rows are processed, you can add an [`ORDER BY`](query-order.html) clause within the function argument list.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v19.2</span>: Non-commutative aggregate functions are sensitive to the order in which the rows are processed in the surrounding `SELECT` clause. To specify the order in which input rows are processed, you can add an [`ORDER BY`](query-order.html) clause within the function argument list.
 
 For example, suppose you want to create an array of `name` values, ordered alphabetically, and grouped by `city`. You can use the following statement to do so:
 
@@ -489,7 +489,7 @@ If you include multiple aggregate functions in a single `SELECT` clause, you can
 
 ### Select from a specific index
 
-{% include {{page.version.version}}/misc/force-index-selection.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/misc/force-index-selection.md %}
 
 ### Select historical data (time-travel)
 

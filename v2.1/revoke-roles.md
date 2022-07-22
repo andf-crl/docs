@@ -12,7 +12,7 @@ The `REVOKE <roles>` [statement](sql-statements.html) lets you revoke a [role](a
 ## Synopsis
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/revoke_roles.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/revoke_roles.html %}
 </div>
 
 ## Required privileges

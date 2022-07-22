@@ -13,7 +13,7 @@ Queries per second | The total number of `SELECT`, `UPDATE`, `INSERT`, and `DELE
 P99 Latency | The 99th percentile of service latency.
 
 {{site.data.alerts.callout_info}}
-{% include {{ page.version.version }}/misc/available-capacity-metric.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/available-capacity-metric.md %}
 {{site.data.alerts.end}}
 
 ### Events panel

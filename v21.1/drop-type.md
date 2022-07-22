@@ -9,7 +9,7 @@ toc: true
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/generated/diagrams/drop_type.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/drop_type.html %}
 </div>
 
 ## Parameters

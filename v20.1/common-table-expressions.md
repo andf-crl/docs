@@ -18,7 +18,7 @@ clauses](select-clause.html) and [`INSERT`](insert.html),
 ## Synopsis
 
 <div class="horizontal-scroll">
-  {% include {{ page.version.version }}/sql/diagrams/with_clause.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/with_clause.html %}
 </div>
 <div markdown="1"></div>
 
@@ -117,7 +117,7 @@ In this example, the inner subquery `SELECT * FROM v` will select from
 table `vehicles` (closest `WITH` clause), not from table `users`.
 
 {{site.data.alerts.callout_info}}
-<span class="version-tag">New in v20.1:</span> CockroachDB does not support nested `WITH` clauses containing [data-modifying statements](#data-modifying-statements). `WITH` clauses containing data-modifying statements must be at the top level of the query.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> CockroachDB does not support nested `WITH` clauses containing [data-modifying statements](#data-modifying-statements). `WITH` clauses containing data-modifying statements must be at the top level of the query.
 {{site.data.alerts.end}}
 
 ## Data-modifying statements
@@ -196,7 +196,7 @@ In this single query, you define two CTE's and then reuse them in a table join.
 
 ## Recursive common table expressions
 
-<span class="version-tag">New in v20.1:</span> CockroachDB supports [recursive common table expressions](https://en.wikipedia.org/wiki/Hierarchical_and_recursive_queries_in_SQL#Common_table_expression). Recursive common table expressions are common table expressions that contain subqueries that refer to their own output.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> CockroachDB supports [recursive common table expressions](https://en.wikipedia.org/wiki/Hierarchical_and_recursive_queries_in_SQL#Common_table_expression). Recursive common table expressions are common table expressions that contain subqueries that refer to their own output.
 
 Recursive CTE definitions take the following form:
 
@@ -313,7 +313,7 @@ CockroachDB does not currently support the [Postgres recursive CTE variant](http
 
 ### Correlated common table expressions
 
-{% include {{ page.version.version }}/known-limitations/correlated-ctes.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/known-limitations/correlated-ctes.md %}
 
 For details, see the [tracking issue](https://github.com/cockroachdb/cockroach/issues/42540).
 

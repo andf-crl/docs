@@ -14,7 +14,7 @@ The user must have any [privilege](security-reference/authorization.html#managin
 ## Synopsis
 
 <div>
-{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.version.version | replace: "v", "" }}/grammar_svg/show_create.html %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/grammar_svg/show_create.html %}
 </div>
 
 ## Parameters
@@ -36,7 +36,7 @@ Field | Description
 
 ## Example
 
-{% include {{page.version.version}}/sql/movr-statements-nodes.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/movr-statements-nodes.md %}
 
 ### Show the `CREATE TABLE` statement for a table
 

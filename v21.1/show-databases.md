@@ -10,7 +10,7 @@ The `SHOW DATABASES` [statement](sql-statements.html) lists all databases in the
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/generated/diagrams/show_databases.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/show_databases.html %}
 </div>
 
 ## Required privileges
@@ -86,7 +86,7 @@ For more information, see [`COMMENT ON`](comment-on.html).
 
 ## Preloaded databases
 
-{% include {{ page.version.version }}/sql/preloaded-databases.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/preloaded-databases.md %}
 
 ## See also
 

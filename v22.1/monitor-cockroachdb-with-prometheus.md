@@ -23,14 +23,14 @@ CockroachDB generates detailed time series metrics for each node in a cluster. T
 
     {% include_cached copy-clipboard.html %}
     ~~~ shell
-    $ prometheus --version
+    $ prometheus --[version](cluster-settings.html#setting-version)
     ~~~
 
     ~~~
-    prometheus, version 2.34.0 (branch: HEAD, revision: 881111fec4332c33094a6fb2680c71fffc427275)
+    prometheus, [version](cluster-settings.html#setting-version) 2.34.0 (branch: HEAD, revision: 881111fec4332c33094a6fb2680c71fffc427275)
       build user:       root@d80b449ae319
       build date:       20220315-15:04:36
-      go version:       go1.17.8
+      go [version](cluster-settings.html#setting-version):       go1.17.8
     ~~~
 
 ## Step 2. Configure Prometheus
@@ -89,7 +89,7 @@ CockroachDB generates detailed time series metrics for each node in a cluster. T
     ~~~
 
     ~~~
-    ts=2022-04-20T18:57:45.857Z caller=main.go:516 level=info msg="Starting Prometheus" version="(version=2.34.0, branch=HEAD, revision=881111fec4332c33094a6fb2680c71fffc427275)"
+    ts=2022-04-20T18:57:45.857Z caller=main.go:516 level=info msg="Starting Prometheus" [version](cluster-settings.html#setting-version)="([version](cluster-settings.html#setting-version)=2.34.0, branch=HEAD, revision=881111fec4332c33094a6fb2680c71fffc427275)"
     ts=2022-04-20T18:57:45.857Z caller=main.go:521 level=info build_context="(go=go1.17.8, user=root@d80b449ae319, date=20220315-15:04:36)"
     ...
     ts=2022-04-20T18:57:45.859Z caller=web.go:540 level=info component=web msg="Start listening for connections" address=localhost:9090
@@ -115,14 +115,14 @@ Active monitoring helps you spot problems early, but it is also essential to sen
 
     {% include_cached copy-clipboard.html %}
     ~~~ shell
-    $ alertmanager --version
+    $ alertmanager --[version](cluster-settings.html#setting-version)
     ~~~
 
     ~~~
-    alertmanager, version 0.24.0 (branch: HEAD, revision: f484b17fa3c583ed1b2c8bbcec20ba1db2aa5f11)
+    alertmanager, [version](cluster-settings.html#setting-version) 0.24.0 (branch: HEAD, revision: f484b17fa3c583ed1b2c8bbcec20ba1db2aa5f11)
       build user:       root@8fd670bfea94
       build date:       20220325-09:24:35
-      go version:       go1.17.8
+      go [version](cluster-settings.html#setting-version):       go1.17.8
     ~~~
 
 4. [Edit the Alertmanager configuration file](https://prometheus.io/docs/alerting/configuration/) that came with the binary, `alertmanager.yml`, to specify the desired receivers for notifications.

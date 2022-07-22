@@ -29,7 +29,7 @@ This page shows you how to reproduce [CockroachDB TPC-C performance benchmarking
 
 ## Step 1. Start CockroachDB
 
-{% include {{ page.version.version }}/prod-deployment/insecure-flag.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/insecure-flag.md %}
 
 In the terminal, use the [`cockroach demo`](cockroach-demo.html) command to start a simulated multi-region cluster with 9 nodes:
 
@@ -42,7 +42,7 @@ This simulated multi-region deployment will take advantage of CockroachDB's [mul
 
 ## Step 2. Import the TPC-C dataset
 
-CockroachDB comes with a number of [built-in workloads](cockroach-workload.html) for simulating client traffic. This step features CockroachDB's version of the [TPC-C](http://www.tpc.org/tpcc/) workload.
+CockroachDB comes with a number of [built-in workloads](cockroach-workload.html) for simulating client traffic. This step features CockroachDB's [version](cluster-settings.html#setting-version) of the [TPC-C](http://www.tpc.org/tpcc/) workload.
 
 In a second terminal window (call it terminal 2), use [`cockroach workload`](cockroach-workload.html) to load the initial schema and data:
 

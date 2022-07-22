@@ -16,7 +16,7 @@ By default, only the `root` user can control a job.
 ## Synopsis
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/resume_job.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/resume_job.html %}
 </div>
 
 ## Parameters
@@ -57,7 +57,7 @@ Parameter | Description
 
 ### Resume multiple jobs
 
-<span class="version-tag">New in v2.1:</span> To resume multiple jobs, nest a [`SELECT` clause](select-clause.html) that retrieves `job_id`(s) inside the `RESUME JOBS` statement:
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v2.1:</span> To resume multiple jobs, nest a [`SELECT` clause](select-clause.html) that retrieves `job_id`(s) inside the `RESUME JOBS` statement:
 
 {% include copy-clipboard.html %}
 ~~~ sql

@@ -28,13 +28,13 @@ Only members of the `admin` role can run `IMPORT`. By default, the `root` user b
 **Import a table from CSV**
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/import_csv.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/import_csv.html %}
 </div>
 
 **Import a database or table from dump file**
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/import_dump.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/import_dump.html %}
 </div>
 
 ## Parameters
@@ -62,7 +62,7 @@ Parameter | Description
 
 URLs for the files you want to import must use the format shown below.  For examples, see [Example file URLs](#example-file-urls).
 
-{% include {{ page.version.version }}/misc/external-urls.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/external-urls.md %}
 
 ### Import options
 
@@ -701,11 +701,11 @@ For more detailed information about importing data from MySQL, see [Migrate from
 
 ## Known limitation
 
-`IMPORT` can sometimes fail with a "context canceled" error, or can restart itself many times without ever finishing. If this is happening, it is likely due to a high amount of disk contention. This can be mitigated by setting the `kv.bulk_io_write.max_rate` [cluster setting](cluster-settings.html) to a value below your max disk write speed. For example, to set it to 10MB/s, execute:
+`IMPORT` can sometimes fail with a "context canceled" error, or can restart itself many times without ever finishing. If this is happening, it is likely due to a high amount of disk contention. This can be mitigated by setting the `[kv.bulk_io_write.max_rate](cluster-settings.html#setting-kv-bulk_io_write-max_rate)` [cluster setting](cluster-settings.html) to a value below your max disk write speed. For example, to set it to 10MB/s, execute:
 
 {% include copy-clipboard.html %}
 ~~~ sql
-> SET CLUSTER SETTING kv.bulk_io_write.max_rate = '10MB';
+> SET CLUSTER SETTING [kv.bulk_io_write.max_rate](cluster-settings.html#setting-kv-bulk_io_write-max_rate) = '10MB';
 ~~~
 
 ## See also

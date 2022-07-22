@@ -23,7 +23,7 @@ Command | Usage
 [`dump`](sql-dump.html) | Back up a table by outputting the SQL statements required to recreate the table and all its rows.
 [`debug zip`](debug-zip.html) | Generate a `.zip` file that can help Cockroach Labs troubleshoot issues with your cluster.
 [`gen`](generate-cockroachdb-resources.html) | Generate manpages, a bash completion file, and example data.
-[`version`](view-version-details.html) | Output CockroachDB version and dependency details.
+[`[version](cluster-settings.html#setting-version)`](view-[version](cluster-settings.html#setting-version)-details.html) | Output CockroachDB [version](cluster-settings.html#setting-version) and dependency details.
 
 ## Environment Variables
 

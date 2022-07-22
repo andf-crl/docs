@@ -21,7 +21,7 @@ The `UNIQUE` [constraint](constraints.html) specifies that each non-`NULL` value
 
 - You can define the `UNIQUE` constraint when [creating a table](#syntax), or you can add it to existing tables through [`ADD CONSTRAINT`](add-constraint.html#add-the-unique-constraint).
 
-{% include {{page.version.version}}/sql/indexes-regional-by-row.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/indexes-regional-by-row.md %}
 
 For an example that uses unique indexes, see [Add a unique index to a `REGIONAL BY ROW` table](add-constraint.html#add-a-unique-index-to-a-regional-by-row-table).
 
@@ -32,7 +32,7 @@ For an example that uses unique indexes, see [Add a unique index to a `REGIONAL 
 ### Column level
 
 <div>
-{% include {{ page.version.version }}/sql/generated/diagrams/unique_column_level.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/unique_column_level.html %}
 </div>
 
 Parameter | Description
@@ -58,7 +58,7 @@ Parameter | Description
 ### Table level
 
 <div>
-{% include {{ page.version.version }}/sql/generated/diagrams/unique_table_level.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/unique_table_level.html %}
 </div>
 
 Parameter | Description

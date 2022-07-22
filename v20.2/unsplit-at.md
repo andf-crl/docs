@@ -11,11 +11,11 @@ Removing a split enforcement from a table or index ("unsplitting") allows Cockro
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/unsplit_table_at.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/unsplit_table_at.html %}
 </div>
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/unsplit_index_at.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/unsplit_index_at.html %}
 </div>
 
 ## Required privileges
@@ -32,7 +32,7 @@ The user must have the `INSERT` [privilege](authorization.html#assign-privileges
 
 ## Examples
 
-{% include {{page.version.version}}/sql/movr-statements-nodes.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/movr-statements-nodes.md %}
 
 ### Unsplit a table
 

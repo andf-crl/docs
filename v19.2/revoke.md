@@ -12,7 +12,7 @@ For the list of privileges that can be granted to and revoked from users and rol
 ## Synopsis
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/revoke_privileges.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/revoke_privileges.html %}
 </div>
 
 ## Required privileges

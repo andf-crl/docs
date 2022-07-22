@@ -17,7 +17,7 @@ The <a href="primary-key.html">Primary Key</a> and <a href="not-null.html">Not N
 ## Synopsis
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/add_constraint.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/add_constraint.html %}
 </div>
 
 ## Required Privileges
@@ -34,7 +34,7 @@ The user must have the `CREATE` [privilege](privileges.html) on the table.
 
 ## Viewing Schema Changes
 
-{% include {{ page.version.version }}/misc/schema-change-view-job.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-view-job.md %}
 
 ## Examples
 
@@ -112,7 +112,7 @@ To ensure that each value in the `orders.customer_id` column matches a unique va
 
 Then you add the Foreign Key constraint.
 
-<span class="version-tag">New in v2.0:</span> You can include a [foreign key action](foreign-key.html#foreign-key-actions-new-in-v2-0) to specify what happens when a foreign key is updated or deleted.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v2.0:</span> You can include a [foreign key action](foreign-key.html#foreign-key-actions-new-in-v2-0) to specify what happens when a foreign key is updated or deleted.
 
 In this example, let's use `ON DELETE CASCADE` (i.e., when referenced row is deleted, all dependent objects are also deleted).
 

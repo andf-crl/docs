@@ -3,14 +3,14 @@ title: SHOW STATISTICS (Experimental)
 summary: The SHOW STATISTICS statement lists table statistics.
 toc: true
 ---
-<span class="version-tag">New in v2.1:</span> The `SHOW STATISTICS` [statement](sql-statements.html) lists [table statistics](create-statistics.html) used by the [cost-based optimizer](cost-based-optimizer.html).
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v2.1:</span> The `SHOW STATISTICS` [statement](sql-statements.html) lists [table statistics](create-statistics.html) used by the [cost-based optimizer](cost-based-optimizer.html).
 
-{% include {{ page.version.version }}/misc/experimental-warning.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/experimental-warning.md %}
 
 ## Synopsis
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/show_stats.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/show_stats.html %}
 </div>
 
 ## Required Privileges

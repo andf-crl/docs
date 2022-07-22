@@ -17,7 +17,7 @@ Each CockroachDB node contains at least one `store`, specified when the node sta
 
 This data is stored as key-value pairs on disk using the storage engine, which is treated primarily as a black-box API.
 
-<span class="version-tag">New in v20.2</span>: By default, [CockroachDB uses the Pebble storage engine](../cockroach-start.html#storage-engine), with RocksDB available as an option.  Pebble is intended to be bidirectionally compatible with the RocksDB on-disk format, but differs in that it:
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2</span>: By default, [CockroachDB uses the Pebble storage engine](../cockroach-start.html#storage-engine), with RocksDB available as an option.  Pebble is intended to be bidirectionally compatible with the RocksDB on-disk format, but differs in that it:
 
 - Is written in Go and implements a subset of RocksDB's large feature set.
 - Contains optimizations that benefit CockroachDB.
@@ -39,7 +39,7 @@ In relationship to other layers in CockroachDB, the storage layer:
 
 ### Pebble
 
-<span class="version-tag">New in v20.2</span>: CockroachDB uses [Pebble by default](../cockroach-start.html#storage-engine)––an embedded key-value store with a RocksDB-compatible API developed by Cockroach Labs––to read and write data to disk. You can find more information about it on the [Pebble GitHub page](https://github.com/cockroachdb/pebble) or in the blog post [Introducing Pebble: A RocksDB Inspired Key-Value Store Written in Go](https://www.cockroachlabs.com/blog/pebble-rocksdb-kv-store/).
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2</span>: CockroachDB uses [Pebble by default](../cockroach-start.html#storage-engine)––an embedded key-value store with a RocksDB-compatible API developed by Cockroach Labs––to read and write data to disk. You can find more information about it on the [Pebble GitHub page](https://github.com/cockroachdb/pebble) or in the blog post [Introducing Pebble: A RocksDB Inspired Key-Value Store Written in Go](https://www.cockroachlabs.com/blog/pebble-rocksdb-kv-store/).
 
 Pebble integrates well with CockroachDB for a number of reasons:
 
@@ -63,7 +63,7 @@ Efficient storage for the keys is guaranteed by the underlying RocksDB engine by
 
 ### MVCC
 
-CockroachDB relies heavily on [multi-version concurrency control (MVCC)](https://en.wikipedia.org/wiki/Multiversion_concurrency_control) to process concurrent requests and guarantee consistency. Much of this work is done by using [hybrid logical clock (HLC) timestamps](transaction-layer.html#time-and-hybrid-logical-clocks) to differentiate between versions of data, track commit timestamps, and identify a value's garbage collection expiration. All of this MVCC data is then stored in Pebble.
+CockroachDB relies heavily on [multi-[version](cluster-settings.html#setting-version) concurrency control (MVCC)](https://en.wikipedia.org/wiki/Multi[version](cluster-settings.html#setting-version)_concurrency_control) to process concurrent requests and guarantee consistency. Much of this work is done by using [hybrid logical clock (HLC) timestamps](transaction-layer.html#time-and-hybrid-logical-clocks) to differentiate between [version](cluster-settings.html#setting-version)s of data, track commit timestamps, and identify a value's garbage collection expiration. All of this MVCC data is then stored in Pebble.
 
 Despite being implemented in the storage layer, MVCC values are widely used to enforce consistency in the [transaction layer](transaction-layer.html). For example, CockroachDB maintains a [timestamp cache](transaction-layer.html#timestamp-cache), which stores the timestamp of the last time that the key was read. If a write operation occurs at a lower timestamp than the largest value in the read timestamp cache, it signifies there’s a potential anomaly and the transaction must be restarted at a later timestamp.
 

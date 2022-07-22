@@ -13,11 +13,11 @@ twitter: false
 
 This tutorial shows you how to build a simple Java application with CockroachDB and the Java JDBC driver.
 
-{% include {{page.version.version}}/app/java-version-note.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/java-[version](cluster-settings.html#setting-version)-note.md %}
 
 ## Before you begin
 
-{% include {{page.version.version}}/app/before-you-begin.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/before-you-begin.md %}
 
 ## Step 1. Install the Java JDBC driver
 
@@ -27,7 +27,7 @@ Download and set up the Java JDBC driver as described in the [official documenta
 
 ## Step 2. Create the `maxroach` user and `bank` database
 
-{% include {{page.version.version}}/app/create-maxroach-user-and-bank-database.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/create-maxroach-user-and-bank-database.md %}
 
 ## Step 3. Generate a certificate for the `maxroach` user
 
@@ -62,7 +62,7 @@ It does all of the above using the practices we recommend for using JDBC with Co
 
 To run it:
 
-1. Download [`BasicExample.java`](https://raw.githubusercontent.com/cockroachdb/docs/master/_includes/{{page.version.version}}/app/BasicExample.java), or create the file yourself and copy the code below.
+1. Download [`BasicExample.java`](https://raw.githubusercontent.com/cockroachdb/docs/master/_includes/{{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/BasicExample.java), or create the file yourself and copy the code below.
 2. Compile and run the code (adding the PostgreSQL JDBC driver to your classpath):
 
     {% include copy-clipboard.html %}
@@ -75,11 +75,11 @@ To run it:
     $ java -classpath .:/path/to/postgresql.jar BasicExample
     ~~~
 
-The contents of [`BasicExample.java`](https://raw.githubusercontent.com/cockroachdb/docs/master/_includes/{{page.version.version}}/app/BasicExample.java):
+The contents of [`BasicExample.java`](https://raw.githubusercontent.com/cockroachdb/docs/master/_includes/{{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/BasicExample.java):
 
 {% include copy-clipboard.html %}
 ~~~ java
-{% include {{page.version.version}}/app/BasicExample.java %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/BasicExample.java %}
 ~~~
 
 </section>
@@ -88,7 +88,7 @@ The contents of [`BasicExample.java`](https://raw.githubusercontent.com/cockroac
 
 ## Step 2. Create the `maxroach` user and `bank` database
 
-{% include {{page.version.version}}/app/insecure/create-maxroach-user-and-bank-database.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/insecure/create-maxroach-user-and-bank-database.md %}
 
 ## Step 3. Run the Java code
 
@@ -123,11 +123,11 @@ To run it:
     $ java -classpath .:/path/to/postgresql.jar BasicExample
     ~~~
 
-The contents of [`BasicExample.java`](https://raw.githubusercontent.com/cockroachdb/docs/master/_includes/{{page.version.version}}/app/insecure/BasicExample.java):
+The contents of [`BasicExample.java`](https://raw.githubusercontent.com/cockroachdb/docs/master/_includes/{{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/insecure/BasicExample.java):
 
 {% include copy-clipboard.html %}
 ~~~ java
-{% include {{page.version.version}}/app/insecure/BasicExample.java %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/insecure/BasicExample.java %}
 ~~~
 
 </section>
@@ -255,7 +255,7 @@ try (PreparedStatement pstmt = connection.prepareStatement("INSERT INTO accounts
 
 ### Retrieve large data sets in chunks using cursors
 
-<span class="version-tag">New in v19.2:</span> CockroachDB now supports the Postgres wire-protocol cursors for implicit transactions and explicit transactions executed to completion. This means the [PGJDBC driver](https://jdbc.postgresql.org) can use this protocol to stream queries with large result sets. This is much faster than [paginating through results in SQL using `LIMIT .. OFFSET`](selection-queries.html#paginate-through-limited-results).
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v19.2:</span> CockroachDB now supports the Postgres wire-protocol cursors for implicit transactions and explicit transactions executed to completion. This means the [PGJDBC driver](https://jdbc.postgresql.org) can use this protocol to stream queries with large result sets. This is much faster than [paginating through results in SQL using `LIMIT .. OFFSET`](selection-queries.html#paginate-through-limited-results).
 
 For instructions showing how to use cursors in your Java code, see [Getting results based on a cursor](https://jdbc.postgresql.org/documentation/head/query.html#query-with-cursor) from the PGJDBC documentation.
 
@@ -265,4 +265,4 @@ Note that interleaved execution (partial execution of multiple statements within
 
 Read more about using the [Java JDBC driver](https://jdbc.postgresql.org/).
 
-{% include {{page.version.version}}/app/see-also-links.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/see-also-links.md %}

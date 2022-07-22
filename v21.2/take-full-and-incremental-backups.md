@@ -76,7 +76,7 @@ In most cases, **it's recommended to take nightly full backups of your cluster**
 
 Backups will export [Enterprise license keys](enterprise-licensing.html) during a [full cluster backup](backup.html#backup-a-cluster). When you [restore](restore.html) a full cluster with an Enterprise license, it will restore the Enterprise license of the cluster you are restoring from.
 
-{% include {{ page.version.version }}/backups/file-size-setting.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/backups/file-size-setting.md %}
 
 ### Take a full backup
 
@@ -177,10 +177,10 @@ To restore from a specific backup, run `RESTORE` with the backup's subdirectory:
 > RESTORE FROM '{subdirectory}' IN '{collectionURI}';
 ~~~
 
-{% include {{ page.version.version }}/backups/no-incremental-restore.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/backups/no-incremental-restore.md %}
 
 {{site.data.alerts.callout_info}}
- `RESTORE` will re-validate [indexes](indexes.html) when [incremental backups](take-full-and-incremental-backups.html) are created from an older version (v20.2.2 and earlier or v20.1.4 and earlier), but restored by a newer version (v21.1.0+). These earlier releases may have included incomplete data for indexes that were in the process of being created.
+ `RESTORE` will re-validate [indexes](indexes.html) when [incremental backups](take-full-and-incremental-backups.html) are created from an older [version](cluster-settings.html#setting-version) (v20.2.2 and earlier or v20.1.4 and earlier), but restored by a newer [version](cluster-settings.html#setting-version) (v21.1.0+). These earlier releases may have included incomplete data for indexes that were in the process of being created.
 {{site.data.alerts.end}}
 
 ## Incremental backups with explicitly specified destinations
@@ -208,7 +208,7 @@ To take incremental backups, you need an [Enterprise license](enterprise-licensi
   <button class="filter-button" data-scope="gcs">Google Cloud Storage</button>
 </div>
 
-{% include {{ page.version.version }}/backups/bulk-auth-options.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/backups/bulk-auth-options.md %}
 
 <section class="filter-content" markdown="1" data-scope="s3">
 
@@ -283,7 +283,7 @@ For more examples on how to schedule backups that take full and incremental back
 
 ### Advanced examples
 
-{% include {{ page.version.version }}/backups/advanced-examples-list.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/backups/advanced-examples-list.md %}
 
 {{site.data.alerts.callout_info}}
 To take incremental backups, backups with revision history, locality-aware backups, and encrypted backups, you need an [Enterprise license](enterprise-licensing.html).

@@ -69,7 +69,7 @@ Workload | Description
 [`ycsb`](#ycsb-workload) | Simulates a high-scale key value workload, either read-heavy, write-heavy, or scan-based, with additional customizations.<br><br>For this workload, you run `workload init` to load the schema and then `workload run` to generate data.
 
 {{site.data.alerts.callout_info}}
-<span class="version-tag">New in v20.1:</span> `cockroach workload` sets the [`application_name`](set-vars.html#supported-variables) for its workload queries to the name of the workload that is used. You can filter queries on `application_name` on the [Statements page of the Admin UI](admin-ui-statements-page.html#search-and-filter-by-application), or in a [`SHOW QUERIES`](show-queries.html#filter-for-specific-queries) statement.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> `cockroach workload` sets the [`application_name`](set-vars.html#supported-variables) for its workload queries to the name of the workload that is used. You can filter queries on `application_name` on the [Statements page of the Admin UI](admin-ui-statements-page.html#search-and-filter-by-application), or in a [`SHOW QUERIES`](show-queries.html#filter-for-specific-queries) statement.
 {{site.data.alerts.end}}
 
 ## Flags
@@ -177,7 +177,7 @@ Flag | Description
 `--interleaved` | Use [interleaved tables](interleave-in-parent.html).<br><br>**Applicable commands:** `init` or `run`
 `--max-ops` | The maximum number of operations to run.<br><br>**Applicable command:** `run`
 `--max-rate` | The maximum frequency of operations (reads/writes).<br><br>**Applicable command:** `run`<br>**Default:** `0`, which means unlimited.
-`--mix` | Weights for the transaction mix.<br><br>**Applicable commands:** `init` or `run`<br>**Default:** `newOrder=10,payment=10,orderStatus=1,delivery=1,stockLevel=1`, which matches the [TPC-C specification](http://tpc.org/tpc_documents_current_versions/current_specifications5.asp).
+`--mix` | Weights for the transaction mix.<br><br>**Applicable commands:** `init` or `run`<br>**Default:** `newOrder=10,payment=10,orderStatus=1,delivery=1,stockLevel=1`, which matches the [TPC-C specification](http://tpc.org/tpc_documents_current_[version](cluster-settings.html#setting-version)s/current_specifications5.asp).
 `--partition-affinity` | Run the load generator against a specific partition. This flag must be used in conjunction with `--partitions`.<br><br>**Applicable commands:** `init` or `run`<br>**Default:** `-1`
 `--partitions` | Partition tables. This flag must be used in conjunction with `--split`.<br><br>**Applicable commands:** `init` or `run`
 `--ramp` | The duration over which to ramp up load.<br><br>**Applicable command:** `run`

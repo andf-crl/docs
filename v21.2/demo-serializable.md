@@ -542,7 +542,7 @@ When you repeat the scenario on CockroachDB, you'll see that the anomaly is prev
 
 Explore other core CockroachDB benefits and features:
 
-{% include {{ page.version.version }}/misc/explore-benefits-see-also.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/explore-benefits-see-also.md %}
 
 You might also want to learn more about how transactions work in CockroachDB and in general:
 

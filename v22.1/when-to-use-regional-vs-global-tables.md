@@ -25,7 +25,7 @@ Use a [`GLOBAL` table locality](multiregion-overview.html#global-tables) if:
 - You can accept that writes to the table will incur higher latencies from any given region, since writes use a novel [non-blocking transaction protocol](architecture/transaction-layer.html#non-blocking-transactions) that uses a timestamp "in the future". Note that the observed write latency is dependent on the [`--max-offset`](cockroach-start.html#flags-max-offset) setting.
 
 {{site.data.alerts.callout_success}}
-{% include {{page.version.version}}/misc/multiregion-max-offset.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/misc/multiregion-max-offset.md %}
 {{site.data.alerts.end}}
 
 ## See also

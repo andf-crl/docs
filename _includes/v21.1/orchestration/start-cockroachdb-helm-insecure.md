@@ -1,8 +1,8 @@
 {{site.data.alerts.callout_danger}}
-The CockroachDB Helm chart is undergoing maintenance for compatibility with Kubernetes versions 1.17 through 1.21 (the latest version as of this writing). No new feature development is currently planned. For new production and local deployments, we currently recommend using a manual configuration (**Configs** option). If you are experiencing issues with a Helm deployment on production, contact our [Support team](https://support.cockroachlabs.com/).
+The CockroachDB Helm chart is undergoing maintenance for compatibility with Kubernetes [version](cluster-settings.html#setting-version)s 1.17 through 1.21 (the latest [version](cluster-settings.html#setting-version) as of this writing). No new feature development is currently planned. For new production and local deployments, we currently recommend using a manual configuration (**Configs** option). If you are experiencing issues with a Helm deployment on production, contact our [Support team](https://support.cockroachlabs.com/).
 {{site.data.alerts.end}}
 
-1. [Install the Helm client](https://helm.sh/docs/intro/install) (version 3.0 or higher) and add the `cockroachdb` chart repository:
+1. [Install the Helm client](https://helm.sh/docs/intro/install) ([version](cluster-settings.html#setting-version) 3.0 or higher) and add the `cockroachdb` chart repository:
 
     {% include_cached copy-clipboard.html %}
     ~~~ shell
@@ -63,7 +63,7 @@ The CockroachDB Helm chart is undergoing maintenance for compatibility with Kube
     1. You may want to modify `storage.persistentVolume.size` and `storage.persistentVolume.storageClass` for your use case. This chart defaults to 100Gi of disk space per pod. For more details on customizing disks for performance, see [these instructions](kubernetes-performance.html#disk-type).
 
         {{site.data.alerts.callout_info}}
-        If necessary, you can [expand disk size](/docs/{{site.versions["stable"]}}/configure-cockroachdb-kubernetes.html?filters=helm#expand-disk-size) after the cluster is live.
+        If necessary, you can [expand disk size](/docs/{{site.[version](cluster-settings.html#setting-version)s["stable"]}}/configure-cockroachdb-kubernetes.html?filters=helm#expand-disk-size) after the cluster is live.
         {{site.data.alerts.end}}
 
 

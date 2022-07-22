@@ -15,11 +15,11 @@ This tutorial shows you essential techniques for getting fast reads and writes i
 
 For a comprehensive list of tuning recommendations, only some of which are demonstrated here, see [SQL Performance Best Practices](performance-best-practices-overview.html).
 
-{% include {{ page.version.version }}/prod-deployment/insecure-flag.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/insecure-flag.md %}
 
 ## Overview
 
-{% include {{ page.version.version }}/performance/overview.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/performance/overview.md %}
 
 ## Single-region deployment
 
@@ -42,7 +42,7 @@ For a comprehensive list of tuning recommendations, only some of which are demon
 
 ### Step 1. Configure your network
 
-{% include {{ page.version.version }}/performance/configure-network.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/performance/configure-network.md %}
 
 ### Step 2. Create instances
 
@@ -61,11 +61,11 @@ You'll start with a 3-node CockroachDB cluster in the `us-east1-b` GCE zone, wit
 
 ### Step 3. Start a 3-node cluster
 
-{% include {{ page.version.version }}/performance/start-cluster.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/performance/start-cluster.md %}
 
 ### Step 4. Import the Movr dataset
 
-{% include {{ page.version.version }}/performance/import-movr.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/performance/import-movr.md %}
 
 ### Step 5. Install the Python client
 
@@ -89,7 +89,7 @@ When measuring SQL performance, it's best to run a given statement multiple time
 
     {% include copy-clipboard.html %}
     ~~~ shell
-    $ wget https://raw.githubusercontent.com/cockroachdb/docs/master/_includes/{{ page.version.version }}/performance/tuning.py \
+    $ wget https://raw.githubusercontent.com/cockroachdb/docs/master/_includes/{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/performance/tuning.py \
     && chmod +x tuning.py
     ~~~
 
@@ -698,7 +698,7 @@ GROUP BY vehicle_id;"
 (24 rows)
 ~~~
 
-This is a complex query plan, but the important thing to note is the full table scan of `rides@primary` above the `subquery`. This shows you that, after the subquery returns the IDs of the top 5 vehicles, CockroachDB scans the entire primary index to find the rows with `max(end_time)` for each `vehicle_id`, although you might expect CockroachDB to more efficiently use the secondary index on `vehicle_id` (CockroachDB is working to remove this limitation in a future version).
+This is a complex query plan, but the important thing to note is the full table scan of `rides@primary` above the `subquery`. This shows you that, after the subquery returns the IDs of the top 5 vehicles, CockroachDB scans the entire primary index to find the rows with `max(end_time)` for each `vehicle_id`, although you might expect CockroachDB to more efficiently use the secondary index on `vehicle_id` (CockroachDB is working to remove this limitation in a future [version](cluster-settings.html#setting-version)).
 
 #### Using `IN (list)` with explicit values
 
@@ -1038,7 +1038,7 @@ Given that Movr is active on both US coasts, you'll now scale the cluster into t
 
 ### Step 9. Scale the cluster
 
-{% include {{ page.version.version }}/performance/scale-cluster.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/performance/scale-cluster.md %}
 
 ### Step 10. Install the Python client
 
@@ -1046,23 +1046,23 @@ In each of the new zones, SSH to the instance not running a CockroachDB node, an
 
 ### Step 11. Check rebalancing
 
-{% include {{ page.version.version }}/performance/check-rebalancing.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/performance/check-rebalancing.md %}
 
 ### Step 12. Test performance
 
-{% include {{ page.version.version }}/performance/test-performance.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/performance/test-performance.md %}
 
 ### Step 13. Partition data by city
 
-{% include {{ page.version.version }}/performance/partition-by-city.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/performance/partition-by-city.md %}
 
 ### Step 14. Check rebalancing after partitioning
 
-{% include {{ page.version.version }}/performance/check-rebalancing-after-partitioning.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/performance/check-rebalancing-after-partitioning.md %}
 
 ### Step 15. Test performance after partitioning
 
-{% include {{ page.version.version }}/performance/test-performance-after-partitioning.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/performance/test-performance-after-partitioning.md %}
 
 ## See also
 

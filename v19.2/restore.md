@@ -64,7 +64,7 @@ Restore Type | Parameters
 
 ### Point-in-time restore
 
-{% include {{ page.version.version }}/misc/beta-warning.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/beta-warning.md %}
 
 If the full or incremental backup was taken [with revision history](backup.html#backups-with-revision-history), you can restore the data as it existed at the specified point-in-time within the revision history captured by that backup.
 
@@ -89,7 +89,7 @@ If initiated correctly, the statement returns when the restore is finished or if
 ## Synopsis
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/restore.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/restore.html %}
 </div>
 
 {{site.data.alerts.callout_info}}The <code>RESTORE</code> statement cannot be used within a <a href=transactions.html>transaction</a>.{{site.data.alerts.end}}
@@ -113,7 +113,7 @@ Only members of the `admin` role can run `RESTORE`. By default, the `root` user 
 
 The URL for your backup's locations must use the following format:
 
-{% include {{ page.version.version }}/misc/external-urls.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/external-urls.md %}
 
 ### Restore option list
 
@@ -142,7 +142,7 @@ You can include the following options as key-value pairs in the `kv_option_list`
 
 #### `skip_missing_views`
 
-- **Description**: <span class="version-tag">New in v19.2</span> If you want to restore a table with a [view](views.html) but do not want to restore the view's dependencies, you can drop the view and then have the table restored.
+- **Description**: <span class="[version](cluster-settings.html#setting-version)-tag">New in v19.2</span> If you want to restore a table with a [view](views.html) but do not want to restore the view's dependencies, you can drop the view and then have the table restored.
 - **Key**: `skip_missing_views`
 - **Value**: *No value*
 - **Example**: `WITH skip_missing_views`
@@ -252,7 +252,7 @@ WITH into_db = 'newdb';
 
 ### Restore from a locality-aware backup
 
-<span class="version-tag">New in v19.2:</span> You can create locality-aware backups such that each node writes files only to the backup destination that matches the [node locality](configure-replication-zones.html#descriptive-attributes-assigned-to-nodes) configured at [node startup](cockroach-start.html).
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v19.2:</span> You can create locality-aware backups such that each node writes files only to the backup destination that matches the [node locality](configure-replication-zones.html#descriptive-attributes-assigned-to-nodes) configured at [node startup](cockroach-start.html).
 
 A locality-aware backup is specified by a list of URIs, each of which has a `COCKROACH_LOCALITY` URL parameter whose single value is either `default` or a single locality key-value pair such as `region=us-east`. At least one `COCKROACH_LOCALITY` must be the `default`. Given a list of URIs that together contain the locations of all of the files for a single locality-aware backup, [`RESTORE`][restore] can read in that backup.
 

@@ -4,7 +4,7 @@ summary: A summary of CockroachDB's support for storing and querying spatial dat
 toc: true
 ---
 
-<span class="version-tag">New in v20.2</span>: CockroachDB supports efficiently storing and querying spatial data.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2</span>: CockroachDB supports efficiently storing and querying spatial data.
 
 See the links below for more information about how to use CockroachDB for spatial use cases.
 

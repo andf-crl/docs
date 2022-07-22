@@ -18,7 +18,7 @@ This tutorial shows you how build a simple Node.js application with CockroachDB 
 
 ## Step 1. Start CockroachDB
 
-{% include {{ page.version.version }}/app/start-cockroachdb-no-cert.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/app/start-cockroachdb-no-cert.md %}
 
 ## Step 2. Get the code
 
@@ -225,4 +225,4 @@ All Customer rows deleted. { count: 10 }
 
 Read more about using [Prisma Client](https://www.prisma.io/docs/).
 
-{% include {{page.version.version}}/app/see-also-links.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/see-also-links.md %}

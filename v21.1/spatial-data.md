@@ -71,7 +71,7 @@ In order to avoid full table scans, make sure to add [indexes](spatial-indexes.h
 - [`ST_Touches`](st_touches.html)
 - [`ST_Within`](st_within.html)
 
-To use a version of a function from the list above that will explicitly *not* use the index, add an underscore (`_`) to the beginning of the function name, e.g., [`_ST_Covers`](st_covers.html).
+To use a [version](cluster-settings.html#setting-version) of a function from the list above that will explicitly *not* use the index, add an underscore (`_`) to the beginning of the function name, e.g., [`_ST_Covers`](st_covers.html).
 
 You can check which queries are using which indexes using the [`EXPLAIN`](explain.html) statement. For more information about general query tuning (including index usage), see [Optimize Statement Performance](make-queries-fast.html).
 

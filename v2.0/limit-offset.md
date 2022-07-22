@@ -14,11 +14,11 @@ as part of [`INSERT`](insert.html) or [`UPSERT`](upsert.html).
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/limit_clause.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/limit_clause.html %}
 </div>
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/offset_clause.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/offset_clause.html %}
 </div>
 
 `LIMIT` restricts the operation to only retrieve `limit_val` number of rows.

@@ -1,6 +1,6 @@
 ---
 title: Upgrade to CockroachDB v20.2
-summary: Learn how to upgrade your CockroachDB cluster to a new version.
+summary: Learn how to upgrade your CockroachDB cluster to a new [version](cluster-settings.html#setting-version).
 toc: true
 ---
 
@@ -8,11 +8,11 @@ Because of CockroachDB's [multi-active availability](multi-active-availability.h
 
 ## Step 1. Verify that you can upgrade
 
-To upgrade to a new version, you must first be on a [production release](../releases/) of the previous version. The release does not need to be the **latest** production release of the previous version, but it must be a production release rather than a testing release (alpha/beta).
+To upgrade to a new [version](cluster-settings.html#setting-version), you must first be on a [production release](../releases/) of the previous [version](cluster-settings.html#setting-version). The release does not need to be the **latest** production release of the previous [version](cluster-settings.html#setting-version), but it must be a production release rather than a testing release (alpha/beta).
 
 Therefore, if you are upgrading from v19.2 to v20.2, or from a testing release (alpha/beta) of v20.1 to v20.2:
 
-1. First [upgrade to a production release of v20.1](../v20.1/upgrade-cockroach-version.html). Be sure to complete all the steps.
+1. First [upgrade to a production release of v20.1](../v20.1/upgrade-cockroach-[version](cluster-settings.html#setting-version).html). Be sure to complete all the steps.
 
 2. Then return to this page and perform a second rolling upgrade to v20.2.
 
@@ -35,8 +35,8 @@ Verify the overall health of your cluster using the [DB Console](ui-overview.htm
   - Under **Replication Status**, make sure there are 0 under-replicated and unavailable ranges. Otherwise, performing a rolling upgrade increases the risk that ranges will lose a majority of their replicas and cause cluster unavailability. Therefore, it's important to identify and resolve the cause of range under-replication and/or unavailability before beginning your upgrade.
 
   - In the **Node List**:
-      - Make sure all nodes are on the same version. If any nodes are behind, upgrade them to the cluster's current version first, and then start this process over.
-      - Make sure capacity and memory usage are reasonable for each node. Nodes must be able to tolerate some increase in case the new version uses more resources for your workload. Also go to **Metrics > Dashboard: Hardware** and make sure CPU percent is reasonable across the cluster. If there's not enough headroom on any of these metrics, consider [adding nodes](cockroach-start.html) to your cluster before beginning your upgrade.
+      - Make sure all nodes are on the same [version](cluster-settings.html#setting-version). If any nodes are behind, upgrade them to the cluster's current [version](cluster-settings.html#setting-version) first, and then start this process over.
+      - Make sure capacity and memory usage are reasonable for each node. Nodes must be able to tolerate some increase in case the new [version](cluster-settings.html#setting-version) uses more resources for your workload. Also go to **Metrics > Dashboard: Hardware** and make sure CPU percent is reasonable across the cluster. If there's not enough headroom on any of these metrics, consider [adding nodes](cockroach-start.html) to your cluster before beginning your upgrade.
 
 ### Review breaking changes
 
@@ -48,20 +48,20 @@ Review the [backward-incompatible changes in v20.2](../releases/v20.2.html#v20-2
 This step is relevant only when upgrading from v20.1.x to v20.2. For upgrades within the v20.2.x series, skip this step.
 {{site.data.alerts.end}}
 
-By default, after all nodes are running the new version, the upgrade process will be **auto-finalized**. This will enable certain [features and performance improvements introduced in v20.2](#features-that-require-upgrade-finalization). However, it will no longer be possible to perform a downgrade to v20.1. In the event of a catastrophic failure or corruption, the only option will be to start a new cluster using the old binary and then restore from one of the backups created prior to performing the upgrade. For this reason, **we recommend disabling auto-finalization** so you can monitor the stability and performance of the upgraded cluster before finalizing the upgrade, but note that you will need to follow all of the subsequent directions, including the manual finalization in [step 5](#step-5-finish-the-upgrade):
+By default, after all nodes are running the new [version](cluster-settings.html#setting-version), the upgrade process will be **auto-finalized**. This will enable certain [features and performance improvements introduced in v20.2](#features-that-require-upgrade-finalization). However, it will no longer be possible to perform a downgrade to v20.1. In the event of a catastrophic failure or corruption, the only option will be to start a new cluster using the old binary and then restore from one of the backups created prior to performing the upgrade. For this reason, **we recommend disabling auto-finalization** so you can monitor the stability and performance of the upgraded cluster before finalizing the upgrade, but note that you will need to follow all of the subsequent directions, including the manual finalization in [step 5](#step-5-finish-the-upgrade):
 
-1. [Upgrade to v20.1](../v20.1/upgrade-cockroach-version.html), if you haven't already.
+1. [Upgrade to v20.1](../v20.1/upgrade-cockroach-[version](cluster-settings.html#setting-version).html), if you haven't already.
 
 2. Start the [`cockroach sql`](cockroach-sql.html) shell against any node in the cluster.
 
-3. Set the `cluster.preserve_downgrade_option` [cluster setting](cluster-settings.html):
+3. Set the `[cluster.preserve_downgrade_option](cluster-settings.html#setting-cluster-preserve_downgrade_option)` [cluster setting](cluster-settings.html):
 
     {% include copy-clipboard.html %}
     ~~~ sql
-    > SET CLUSTER SETTING cluster.preserve_downgrade_option = '20.1';
+    > SET CLUSTER SETTING [cluster.preserve_downgrade_option](cluster-settings.html#setting-cluster-preserve_downgrade_option) = '20.1';
     ~~~
 
-    It is only possible to set this setting to the current cluster version.
+    It is only possible to set this setting to the current cluster [version](cluster-settings.html#setting-version).
 
 ### Features that require upgrade finalization
 
@@ -73,11 +73,11 @@ When upgrading from v20.1 to v20.2, certain features and performance improvement
 
 - **Altering column data types:** After finalization, it will be possible to [alter column data types](../v20.2/alter-column.html#altering-column-types) where column data must be rewritten.
 
-- **User-defined schemas:** After finalization, it will be possible to [create user-defined logical schemas](../v20.2/create-schema.html), as well [alter user-defined schemas](../v20.2/alter-schema.html), [drop user-defined schemas](../v20.2/drop-schema.html), [set the schema for a database object](../v20.2/set-schema.html), and [convert databases to user-defined schemas](../v20.2/convert-to-schema.html). For details on migrating a cluster that does not use user-defined schemas in its naming hierarchy, see [Migrating namespaces from previous versions of CockroachDB](sql-name-resolution.html#migrating-namespaces-from-previous-versions-of-cockroachdb).
+- **User-defined schemas:** After finalization, it will be possible to [create user-defined logical schemas](../v20.2/create-schema.html), as well [alter user-defined schemas](../v20.2/alter-schema.html), [drop user-defined schemas](../v20.2/drop-schema.html), [set the schema for a database object](../v20.2/set-schema.html), and [convert databases to user-defined schemas](../v20.2/convert-to-schema.html). For details on migrating a cluster that does not use user-defined schemas in its naming hierarchy, see [Migrating namespaces from previous [version](cluster-settings.html#setting-version)s of CockroachDB](sql-name-resolution.html#migrating-namespaces-from-previous-[version](cluster-settings.html#setting-version)s-of-cockroachdb).
 
 - **Foreign key index requirement:** After finalization, it will no longer be required to have an index on the referencing columns of a [`FOREIGN KEY`](../v20.2/foreign-key.html) constraint.
 
-- **Minimum password length:** After finalization, it will be possible to use the `server.user_login.min_password_length` [cluster setting](../v20.2/cluster-settings.html) to set a minimum length for passwords.
+- **Minimum password length:** After finalization, it will be possible to use the `[server.user_login.min_password_length](cluster-settings.html#setting-server-user_login-min_password_length)` [cluster setting](../v20.2/cluster-settings.html) to set a minimum length for passwords.
 
 - **Materialized views:** After finalization, it will be possible to create [materialized views](../v20.2/views.html#materialized-views), or views that store their selection query results on-disk.
 
@@ -93,7 +93,7 @@ We recommend creating scripts to perform these steps instead of performing them 
 
 1. Drain and stop the node using one of the following methods:
 
-    {% include {{ page.version.version }}/prod-deployment/node-shutdown.md %}
+    {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/node-shutdown.md %}
 
     Verify that the process has stopped:
 
@@ -115,14 +115,14 @@ We recommend creating scripts to perform these steps instead of performing them 
     <div class="filter-content" markdown="1" data-scope="mac">
     {% include copy-clipboard.html %}
     ~~~ shell
-    $ curl https://binaries.cockroachdb.com/cockroach-{{page.release_info.version}}.darwin-10.9-amd64.tgz|tar -xzf -
+    $ curl https://binaries.cockroachdb.com/cockroach-{{page.release_info.[version](cluster-settings.html#setting-version)}}.darwin-10.9-amd64.tgz|tar -xzf -
     ~~~
     </div>
 
     <div class="filter-content" markdown="1" data-scope="linux">
     {% include copy-clipboard.html %}
     ~~~ shell
-    $ curl https://binaries.cockroachdb.com/cockroach-{{page.release_info.version}}.linux-amd64.tgz|tar -xzf -
+    $ curl https://binaries.cockroachdb.com/cockroach-{{page.release_info.[version](cluster-settings.html#setting-version)}}.linux-amd64.tgz|tar -xzf -
     ~~~
     </div>
 
@@ -142,7 +142,7 @@ We recommend creating scripts to perform these steps instead of performing them 
 
     {% include copy-clipboard.html %}
     ~~~ shell
-    $ cp -i cockroach-{{page.release_info.version}}.darwin-10.9-amd64/cockroach /usr/local/bin/cockroach
+    $ cp -i cockroach-{{page.release_info.[version](cluster-settings.html#setting-version)}}.darwin-10.9-amd64/cockroach /usr/local/bin/cockroach
     ~~~
     </div>
 
@@ -154,7 +154,7 @@ We recommend creating scripts to perform these steps instead of performing them 
 
     {% include copy-clipboard.html %}
     ~~~ shell
-    $ cp -i cockroach-{{page.release_info.version}}.linux-amd64/cockroach /usr/local/bin/cockroach
+    $ cp -i cockroach-{{page.release_info.[version](cluster-settings.html#setting-version)}}.linux-amd64/cockroach /usr/local/bin/cockroach
     ~~~
     </div>
 
@@ -190,7 +190,7 @@ We recommend creating scripts to perform these steps instead of performing them 
     $ rm /usr/local/bin/cockroach_old
     ~~~
 
-    If you leave versioned binaries on your servers, you do not need to do anything.
+    If you leave [version](cluster-settings.html#setting-version)ed binaries on your servers, you do not need to do anything.
 
 1. After the node has rejoined the cluster, ensure that the node is ready to accept a SQL connection.
 
@@ -213,7 +213,7 @@ This step is relevant only when upgrading from v20.1.x to v20.2. For upgrades wi
 
 If you disabled auto-finalization in [step 3](#step-3-decide-how-the-upgrade-will-be-finalized), monitor the stability and performance of your cluster for as long as you require to feel comfortable with the upgrade (generally at least a day). If during this time you decide to roll back the upgrade, repeat the rolling restart procedure with the old binary.
 
-Once you are satisfied with the new version:
+Once you are satisfied with the new [version](cluster-settings.html#setting-version):
 
 1. Start the [`cockroach sql`](cockroach-sql.html) shell against any node in the cluster.
 
@@ -221,7 +221,7 @@ Once you are satisfied with the new version:
 
     {% include copy-clipboard.html %}
     ~~~ sql
-    > RESET CLUSTER SETTING cluster.preserve_downgrade_option;
+    > RESET CLUSTER SETTING [cluster.preserve_downgrade_option](cluster-settings.html#setting-cluster-preserve_downgrade_option);
     ~~~
 
 ## Troubleshooting
@@ -238,5 +238,5 @@ In the event of catastrophic failure or corruption, the only option will be to s
 
 - [View Node Details](cockroach-node.html)
 - [Collect Debug Information](cockroach-debug-zip.html)
-- [View Version Details](cockroach-version.html)
-- [Release notes for our latest version](../releases/{{page.version.version}}.html)
+- [View Version Details](cockroach-[version](cluster-settings.html#setting-version).html)
+- [Release notes for our latest [version](cluster-settings.html#setting-version)](../releases/{{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}.html)

@@ -16,7 +16,7 @@
 ~~~
 
 {{site.data.alerts.callout_info}}
-Currently, [changefeeds](stream-data-out-of-cockroachdb-using-changefeeds.html) connected to [Kafka versions < v1.0](https://docs.confluent.io/platform/current/installation/versions-interoperability.html) are not supported in CockroachDB v21.1.
+Currently, [changefeeds](stream-data-out-of-cockroachdb-using-changefeeds.html) connected to [Kafka [version](cluster-settings.html#setting-version)s < v1.0](https://docs.confluent.io/platform/current/installation/[version](cluster-settings.html#setting-version)s-interoperability.html) are not supported in CockroachDB v21.1.
 {{site.data.alerts.end}}
 
 For more information on how to create a changefeed connected to Kafka, see [Stream Data Out of CockroachDB Using Changefeeds](stream-data-out-of-cockroachdb-using-changefeeds.html#create-a-changefeed-connected-to-kafka).

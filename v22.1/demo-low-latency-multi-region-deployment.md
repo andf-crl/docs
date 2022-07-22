@@ -44,7 +44,7 @@ The workload you'll run against the cluster is our open-source, fictional, peer-
 
 #### The MovR schema
 
-{% include {{ page.version.version }}/misc/movr-schema.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/movr-schema.md %}
 
 All of the tables except `promo_codes` have a composite primary key of `city` and `id`, in that order. This means that the rows in these tables are ordered by their geography. These tables are read from and written to very frequently. To keep read and write latency low, you'll use the [`REGIONAL BY ROW` table locality pattern](multiregion-overview.html#regional-by-row-tables) for these tables.
 
@@ -54,7 +54,7 @@ For a description of the sequence of SQL statements issued by the MovR applicati
 
 ## Step 1. Simulate a multi-region cluster
 
-{% include {{page.version.version}}/sql/start-a-multi-region-demo-cluster.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/start-a-multi-region-demo-cluster.md %}
 
 To verify that the simulated latencies are working as expected, check the [Network Latency Page](ui-network-latency-page.html) in the DB Console. Round trip times between  `us-west1` and `europe-west1` should be in the 150 ms range.
 
@@ -288,7 +288,7 @@ Back in the SQL shell, switch to the `movr` database:
 USE movr;
 ~~~
 
-{% include {{page.version.version}}/sql/multiregion-movr-add-regions.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/multiregion-movr-add-regions.md %}
 
 ### Configure table localities
 
@@ -296,11 +296,11 @@ USE movr;
 
 As mentioned earlier, all of the tables except `promo_codes` are geographically specific.
 
-{% include {{page.version.version}}/sql/multiregion-movr-global.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/multiregion-movr-global.md %}
 
 #### Configure REGIONAL BY ROW tables
 
-{% include {{page.version.version}}/sql/multiregion-movr-regional-by-row.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/multiregion-movr-regional-by-row.md %}
 
 ## Step 6. Re-check service latency
 

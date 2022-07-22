@@ -9,7 +9,7 @@ Manual inspection may be required to determine the actual state of the database.
 ```
 
 {{site.data.alerts.callout_info}}
-This limitation exists in versions of CockroachDB prior to 19.2.  In these older versions, CockroachDB returned the PostgreSQL error code `40003`, `"statement completion unknown"`.
+This limitation exists in [version](cluster-settings.html#setting-version)s of CockroachDB prior to 19.2.  In these older [version](cluster-settings.html#setting-version)s, CockroachDB returned the PostgreSQL error code `40003`, `"statement completion unknown"`.
 {{site.data.alerts.end}}
 
 {{site.data.alerts.callout_danger}}

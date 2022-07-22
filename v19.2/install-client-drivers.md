@@ -69,7 +69,7 @@ For a simple but complete "Hello World" example app, see [Build a Python App wit
 
 **Support level:** Full
 
-CockroachDB supports Django versions 2.2 and 3.0.
+CockroachDB supports Django [version](cluster-settings.html#setting-version)s 2.2 and 3.0.
 
 To install [Django](https://docs.djangoproject.com/en/3.0/topics/install/):
 
@@ -94,7 +94,7 @@ $ python -m pip install django-cockroachdb==3.0.*
 ~~~
 
 {{site.data.alerts.callout_info}}
-The major version of `django-cockroachdb` must correspond to the major version of `django`. The minor release numbers do not need to match.
+The major [version](cluster-settings.html#setting-version) of `django-cockroachdb` must correspond to the major [version](cluster-settings.html#setting-version) of `django`. The minor release numbers do not need to match.
 {{site.data.alerts.end}}
 
 For a simple but complete "Hello World" example app, see [Build a Python App with CockroachDB and Django](build-a-python-app-with-cockroachdb-django.html).
@@ -129,7 +129,7 @@ For instructions on using peewee with CockroachDB, see the [CockroachDatabase pe
 
 <section class="filter-content" markdown="1" data-scope="java">
 
-{% include {{page.version.version}}/app/java-version-note.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/java-[version](cluster-settings.html#setting-version)-note.md %}
 
 ## Drivers
 
@@ -147,7 +147,7 @@ For a simple but complete "Hello World" example app, see [Build a Java App with 
 
 **Support level:** Full
 
-You can use [Gradle](https://gradle.org/install) or [Maven](https://maven.apache.org/install.html) to get all dependencies for your application, including Hibernate. Only Hibernate versions 5.4.19 and later support the Hibernate CockroachDB dialect.
+You can use [Gradle](https://gradle.org/install) or [Maven](https://maven.apache.org/install.html) to get all dependencies for your application, including Hibernate. Only Hibernate [version](cluster-settings.html#setting-version)s 5.4.19 and later support the Hibernate CockroachDB dialect.
 
 If you are using Gradle, add the following to your `dependencies`:
 
@@ -162,7 +162,7 @@ If you are using Maven, add the following to your `<dependencies>`:
 <dependency>
     <groupId>org.hibernate</groupId>
     <artifactId>hibernate-core</artifactId>
-    <version>5.4.19.Final</version>
+    <[version](cluster-settings.html#setting-version)>5.4.19.Final</[version](cluster-settings.html#setting-version)>
 </dependency>
 <dependency>
     <groupId>org.postgresql</groupId>
@@ -171,9 +171,9 @@ If you are using Maven, add the following to your `<dependencies>`:
 ~~~
 
 
-You will also need to specify the CockroachDB dialect in your [Hibernate configuration file](https://www.tutorialspoint.com/hibernate/hibernate_configuration.htm). Versions of the Hibernate CockroachDB dialect correspond to the version of CockroachDB installed on your machine. For example, `org.hibernate.dialect.CockroachDB201Dialect` corresponds to CockroachDB v20.1, and `org.hibernate.dialect.CockroachDB192Dialect` corresponds to CockroachDB v19.2.
+You will also need to specify the CockroachDB dialect in your [Hibernate configuration file](https://www.tutorialspoint.com/hibernate/hibernate_configuration.htm). Versions of the Hibernate CockroachDB dialect correspond to the [version](cluster-settings.html#setting-version) of CockroachDB installed on your machine. For example, `org.hibernate.dialect.CockroachDB201Dialect` corresponds to CockroachDB v20.1, and `org.hibernate.dialect.CockroachDB192Dialect` corresponds to CockroachDB v19.2.
 
-All dialect versions are forward-compatible (e.g., CockroachDB v20.1 is compatible with `CockroachDB192Dialect`), as long as your application is not affected by any backward-incompatible changes listed in your CockroachDB version's [release notes](../releases/index.html). In the event of a CockroachDB version upgrade, using a previous version of the CockroachDB dialect will not break an application, but, to enable all features available in your version of CockroachDB, we recommend keeping the dialect version in sync with the installed version of CockroachDB.
+All dialect [version](cluster-settings.html#setting-version)s are forward-compatible (e.g., CockroachDB v20.1 is compatible with `CockroachDB192Dialect`), as long as your application is not affected by any backward-incompatible changes listed in your CockroachDB [version](cluster-settings.html#setting-version)'s [release notes](../releases/index.html). In the event of a CockroachDB [version](cluster-settings.html#setting-version) upgrade, using a previous [version](cluster-settings.html#setting-version) of the CockroachDB dialect will not break an application, but, to enable all features available in your [version](cluster-settings.html#setting-version) of CockroachDB, we recommend keeping the dialect [version](cluster-settings.html#setting-version) in sync with the installed [version](cluster-settings.html#setting-version) of CockroachDB.
 
 For a simple but complete "Hello World" example app, see [Build a Java App with CockroachDB and Hibernate](build-a-java-app-with-cockroachdb-hibernate.html).
 
@@ -257,7 +257,7 @@ $ gem install activerecord pg activerecord-cockroachdb-adapter
 ~~~
 
 {{site.data.alerts.callout_info}}
-The exact command above will vary depending on the desired version of ActiveRecord. Specifically, version 4.2.x of ActiveRecord requires version 0.1.x of the adapter; version 5.1.x of ActiveRecord requires version 0.2.x of the adapter; version 5.2.x of ActiveRecord requires version 5.2.x of the adapter.
+The exact command above will vary depending on the desired [version](cluster-settings.html#setting-version) of ActiveRecord. Specifically, [version](cluster-settings.html#setting-version) 4.2.x of ActiveRecord requires [version](cluster-settings.html#setting-version) 0.1.x of the adapter; [version](cluster-settings.html#setting-version) 5.1.x of ActiveRecord requires [version](cluster-settings.html#setting-version) 0.2.x of the adapter; [version](cluster-settings.html#setting-version) 5.2.x of ActiveRecord requires [version](cluster-settings.html#setting-version) 5.2.x of the adapter.
 {{site.data.alerts.end}}
 
 For a simple but complete "Hello World" example app, see [Build a Ruby App with CockroachDB and ActiveRecord](build-a-ruby-app-with-cockroachdb-activerecord.html).
@@ -328,7 +328,7 @@ Install the C libpq driver as described in the [official documentation](https://
 Install the C++ libpqxx driver as described in the [official documentation](https://github.com/jtv/libpqxx).
 
 {{site.data.alerts.callout_info}}
-If you are running macOS, you need to install version 4.0.1 or higher of the libpqxx driver.
+If you are running macOS, you need to install [version](cluster-settings.html#setting-version) 4.0.1 or higher of the libpqxx driver.
 {{site.data.alerts.end}}
 
 For a simple but complete "Hello World" example app, see [Build a C++ App with CockroachDB and libpqxx](build-a-c++-app-with-cockroachdb.html).
@@ -357,7 +357,7 @@ For a simple but complete "Hello World" example app, see [Build a C++ App with C
 
     The `dotnet` command creates a new app of type `console`. The `-o` parameter creates a directory named `cockroachdb-test-app` where your app will be stored and populates it with the required files. The `cd cockroachdb-test-app` command puts you into the newly created app directory.
 
-2. Install the latest version of the [Npgsql driver](https://www.nuget.org/packages/Npgsql/) into the .NET project using the built-in nuget package manager:
+2. Install the latest [version](cluster-settings.html#setting-version) of the [Npgsql driver](https://www.nuget.org/packages/Npgsql/) into the .NET project using the built-in nuget package manager:
 
     {% include copy-clipboard.html %}
     ~~~ shell

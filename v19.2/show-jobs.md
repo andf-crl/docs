@@ -14,13 +14,13 @@ The `SHOW JOBS` [statement](sql-statements.html) lists all of the types of long-
 
 These details can help you understand the status of crucial tasks that can impact the performance of your cluster, as well as help you control them.
 
-<span class="version-tag">New in v19.2:</span> To block a call to `SHOW JOBS` that returns after all specified job ID(s) have a terminal state, use `SHOW JOBS WHEN COMPLETE`. The statement will return a row per job ID, which provides details of the job execution. Note that while this statement is blocking, it will time out after 24 hours.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v19.2:</span> To block a call to `SHOW JOBS` that returns after all specified job ID(s) have a terminal state, use `SHOW JOBS WHEN COMPLETE`. The statement will return a row per job ID, which provides details of the job execution. Note that while this statement is blocking, it will time out after 24 hours.
 
 ## Considerations
 
 - The `SHOW JOBS` statement shows only long-running tasks.
 - For jobs older than 12 hours, query the `crdb_internal.jobs` table.
-- Jobs are deleted after 14 days. This interval can be changed via the `jobs.retention_time` [cluster setting](cluster-settings.html).
+- Jobs are deleted after 14 days. This interval can be changed via the `[jobs.retention_time](cluster-settings.html#setting-jobs-retention_time)` [cluster setting](cluster-settings.html).
 - While the `SHOW JOBS WHEN COMPLETE` statement is blocking, it will time out after 24 hours.
 
 ## Required privileges
@@ -30,7 +30,7 @@ By default, only the `root` user can execute `SHOW JOBS`.
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/show_jobs.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/show_jobs.html %}
 </div>
 
 
@@ -142,7 +142,7 @@ You can show just schema change jobs by using `SHOW JOBS` as the data source for
 
 ### Show job when complete
 
-<span class="version-tag">New in v19.2:</span> To block `SHOW JOB` until the provided job ID reaches a terminal state, use `SHOW JOB WHEN COMPLETE`:
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v19.2:</span> To block `SHOW JOB` until the provided job ID reaches a terminal state, use `SHOW JOB WHEN COMPLETE`:
 
 {% include copy-clipboard.html %}
 ~~~ sql

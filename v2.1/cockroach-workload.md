@@ -4,7 +4,7 @@ summary: Use cockroach workload to run a load generator against a CockroachDB cl
 toc: true
 ---
 
-<span class="version-tag">New in v2.1:</span> CockroachDB comes with built-in load generators for simulating different types of client workloads, printing out per-operation statistics every second and totals after a specific duration or max number of operations. To run one of these load generators, use the `cockroach workload` [command](cockroach-commands.html) as described below.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v2.1:</span> CockroachDB comes with built-in load generators for simulating different types of client workloads, printing out per-operation statistics every second and totals after a specific duration or max number of operations. To run one of these load generators, use the `cockroach workload` [command](cockroach-commands.html) as described below.
 
 {{site.data.alerts.callout_danger}}
 The `cockroach workload` command is experimental. The interface and output are subject to change.
@@ -124,7 +124,7 @@ Flag | Description
 `--interleaved` | Use [interleaved tables](interleave-in-parent.html).<br><br>**Applicable commands:** `init` or `run`
 `--max-ops` | The maximum number of operations to run.<br><br>**Applicable command:** `run`
 `--max-rate` | The maximum frequency of operations (reads/writes).<br><br>**Applicable command:** `run`<br>**Default:** `0`, which means unlimited.
-`--mix` | Weights for the transaction mix.<br><br>**Applicable commands:** `init` or `run`<br>**Default:** `newOrder=10,payment=10,orderStatus=1,delivery=1,stockLevel=1`, which matches the [TPC-C specification](http://tpc.org/tpc_documents_current_versions/current_specifications5.asp).
+`--mix` | Weights for the transaction mix.<br><br>**Applicable commands:** `init` or `run`<br>**Default:** `newOrder=10,payment=10,orderStatus=1,delivery=1,stockLevel=1`, which matches the [TPC-C specification](http://tpc.org/tpc_documents_current_[version](cluster-settings.html#setting-version)s/current_specifications5.asp).
 `--partition-affinity` | Run the load generator against a specific partition. This flag must be used in conjunction with `--partitions`.<br><br>**Applicable commands:** `init` or `run`<br>**Default:** `-1`
 `--partitions` | Partition tables. This flag must be used in conjunction with `--split`.<br><br>**Applicable commands:** `init` or `run`
 `--ramp` | The duration over which to ramp up load.<br><br>**Applicable command:** `run`

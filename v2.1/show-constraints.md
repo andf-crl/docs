@@ -17,7 +17,7 @@ The user must have any [privilege](authorization.html#assign-privileges) on the 
 ## Synopsis
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/show_constraints.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/show_constraints.html %}
 </div>
 
 ## Parameters

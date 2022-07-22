@@ -6,7 +6,7 @@ toc_not_nested: true
 key: demo-geo-partitioning.html
 ---
 
-{% include_cached new-in.html version="v21.1" %} CockroachDB has improved multi-region capabilities that make it easier to run global applications. For an overview of these capabilities, see the [Multi-region Overview](multiregion-overview.html).
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.1" %} CockroachDB has improved multi-region capabilities that make it easier to run global applications. For an overview of these capabilities, see the [Multi-region Overview](multiregion-overview.html).
 
 In multi-region clusters, the distribution of data becomes a performance consideration. This makes it important to think about the [survival goals](multiregion-overview.html#survival-goals) of each database. Then, for each table in the database, use the right [table locality](multiregion-overview.html#table-locality) to locate data for optimal performance.
 
@@ -43,7 +43,7 @@ The workload you'll run against the cluster is our open-source, fictional, peer-
 
 #### The MovR schema
 
-{% include {{ page.version.version }}/misc/movr-schema.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/movr-schema.md %}
 
 All of the tables except `promo_codes` have a composite primary key of `city` and `id`, in that order. This means that the rows in these tables are ordered by their geography. These tables are read from and written to very frequently. To keep read and write latency low, you'll use the [`REGIONAL BY ROW` table locality pattern](multiregion-overview.html#regional-by-row-tables) for these tables.
 
@@ -53,7 +53,7 @@ For a description of the sequence of SQL statements issued by the MovR applicati
 
 ## Step 1. Simulate a multi-region cluster
 
-{% include {{page.version.version}}/sql/start-a-multi-region-demo-cluster.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/start-a-multi-region-demo-cluster.md %}
 
 To verify that the simulated latencies are working as expected, check the [Network Latency Page](ui-network-latency-page.html) in the DB Console. Round trip times between  `us-west1` and `europe-west1` should be in the 150 ms range.
 

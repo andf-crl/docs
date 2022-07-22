@@ -14,7 +14,7 @@ Because CockroachDB is designed with high fault tolerance, restores are designed
 
 You can restore:
 
-- <span class="version-tag">New in v20.1:</span> [A full cluster](#full-cluster)
+- <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> [A full cluster](#full-cluster)
 - [Databases](#databases)
 - [Tables](#tables)
 
@@ -25,7 +25,7 @@ Only members of the `admin` role can run `RESTORE`. By default, the `root` user 
 ## Synopsis
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/restore.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/restore.html %}
 </div>
 
 ## Parameters
@@ -53,25 +53,25 @@ You can include the following options as key-value pairs in the `kv_option_list`
 <a name="skip_missing_foreign_keys"></a>`skip_missing_foreign_keys` | N/A                                         | Use to remove the [foreign key](foreign-key.html) constraints before restoring.<br><br>Example: `WITH skip_missing_foreign_keys`
 <a name="skip_missing_sequences"></a>`skip_missing_sequences`       | N/A                                         | Use to ignore [sequence](show-sequences.html) dependencies (i.e., the `DEFAULT` expression that uses the sequence).<br><br>Example: `WITH skip_missing_sequences`
 `skip_missing_views`                                                | N/A                                         | Use to skip restoring [views](views.html) that cannot be restored because their dependencies are not being restored at the same time.<br><br>Example: `WITH skip_missing_views`
-`encryption_passphrase`                                             | Passphrase used to create the [encrypted backup](backup-and-restore.html) | <span class="version-tag">New in v20.1:</span> The passphrase used to decrypt the file(s) that were encrypted by the [`BACKUP`](backup-and-restore.html) statement.
+`encryption_passphrase`                                             | Passphrase used to create the [encrypted backup](backup-and-restore.html) | <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> The passphrase used to decrypt the file(s) that were encrypted by the [`BACKUP`](backup-and-restore.html) statement.
 
 ### Backup file URLs
 
 The URL for your backup's locations must use the following format:
 
-{% include {{ page.version.version }}/misc/external-urls.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/external-urls.md %}
 
 ## Functional details
 
 You can restore:
 
-- <span class="version-tag">New in v20.1:</span> [A full cluster](#full-cluster)
+- <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> [A full cluster](#full-cluster)
 - [Databases](#databases)
 - [Tables](#tables)
 
 #### Full cluster
 
-<span class="version-tag">New in v20.1:</span> A full cluster restore can only be run on a target cluster with no user-created databases or tables. Restoring a full cluster includes:
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> A full cluster restore can only be run on a target cluster with no user-created databases or tables. Restoring a full cluster includes:
 
 - All user tables
 - Relevant system tables
@@ -80,7 +80,7 @@ You can restore:
 - All [views](views.html)
 
 {{site.data.alerts.callout_info}}
-When you do a full cluster restore, it will restore the [enterprise license](enterprise-licensing.html) of the cluster you are restoring from. If you want to use a different license in the new cluster, make sure to [update the license](licensing-faqs.html#set-a-license) _after_ the restore is complete.
+When you do a full cluster restore, it will restore the [[enterprise.license](cluster-settings.html#setting-enterprise-license)](enterprise-licensing.html) of the cluster you are restoring from. If you want to use a different license in the new cluster, make sure to [update the license](licensing-faqs.html#set-a-license) _after_ the restore is complete.
 {{site.data.alerts.end}}
 
 #### Databases
@@ -163,7 +163,7 @@ If initiated correctly, the statement returns when the restore is finished or if
 
 ### Restore a cluster
 
-<span class="version-tag">New in v20.1:</span> To restore a full cluster:
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> To restore a full cluster:
 
 {% include copy-clipboard.html %}
 ~~~ sql
@@ -199,7 +199,7 @@ To restore multiple tables:
 
 ### Restore from incremental backups
 
-<span class="version-tag">New in v20.1:</span> Restoring from incremental backups requires previous full and incremental backups. To restore from a destination containing the full backup, as well as the incremental backups (stored as subdirectories):
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> Restoring from incremental backups requires previous full and incremental backups. To restore from a destination containing the full backup, as well as the incremental backups (stored as subdirectories):
 
 {% include copy-clipboard.html %}
 ~~~ sql
@@ -220,7 +220,7 @@ If you are restoring from HTTP storage, provide the previous full and incrementa
 
 ### Advanced examples
 
-{% include {{ page.version.version }}/backups/advanced-examples-list.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/backups/advanced-examples-list.md %}
 
 ## See also
 

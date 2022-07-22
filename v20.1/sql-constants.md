@@ -124,7 +124,7 @@ values equivalent to the `'aaa'` string literal.
 
 ### Dollar-quoted string literals
 
-<span class="version-tag">New in v20.1:</span> To make it easier to write certain types of string constants in SQL code, CockroachDB supports dollar-quoted string literals.  This is particularly useful for strings that need to contain lots of single quotes (`'`) or backslashes (`\`).
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> To make it easier to write certain types of string constants in SQL code, CockroachDB supports dollar-quoted string literals.  This is particularly useful for strings that need to contain lots of single quotes (`'`) or backslashes (`\`).
 
 At a high level, the dollar-quoting behavior works similarly to ["heredocs"](https://en.wikipedia.org/wiki/Here_document) as used in UNIX shells and some programming languages.
 
@@ -247,7 +247,7 @@ type 'string'
 'string':::type
 ~~~
 
-The value of the string part is used as input for the conversion function to the
+The value of the string part is used as input for the con[version](cluster-settings.html#setting-version) function to the
 specified data type, and the result is used as a constant with that data type.
 
 Examples:

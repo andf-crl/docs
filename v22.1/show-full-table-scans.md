@@ -12,7 +12,7 @@ Limiting the number of queries that require full table scans can help you optimi
 ## Syntax
 
 <div>
-{% include {{ page.version.version }}/sql/generated/diagrams/show_full_scans.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/show_full_scans.html %}
 </div>
 
 ## Required privileges

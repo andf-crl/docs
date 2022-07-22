@@ -13,7 +13,7 @@ The `SHOW TABLES` [statement](sql-statements.html) lists the tables or [views](v
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/show_tables.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/show_tables.html %}
 </div>
 
 ## Required Privileges
@@ -24,7 +24,7 @@ No [privileges](privileges.html) are required to list the tables in a schema or 
 
 Parameter | Description
 ----------|------------
-`name` | <span class="version-tag">Changed in v2.0:</span> The name of the schema or database for which to show tables. When omitted, the tables of the [current schema](sql-name-resolution.html#current-schema) in the [current database](sql-name-resolution.html#current-database) are listed.
+`name` | <span class="[version](cluster-settings.html#setting-version)-tag">Changed in v2.0:</span> The name of the schema or database for which to show tables. When omitted, the tables of the [current schema](sql-name-resolution.html#current-schema) in the [current database](sql-name-resolution.html#current-database) are listed.
 
 `SHOW TABLES` will attempt to find a schema with the specified name first. If that fails, it will try to find a database with that name instead, and list the tables of its `public` schema. For more details, see [Name Resolution](sql-name-resolution.html).
 

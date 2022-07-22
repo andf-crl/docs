@@ -74,17 +74,17 @@ To disable the storage of timeseries data entirely, run the following command:
 
 {% include copy-clipboard.html %}
 ~~~ sql
-> SET CLUSTER SETTING timeseries.storage.enabled = false;
+> SET CLUSTER SETTING [timeseries.storage.enabled](cluster-settings.html#setting-timeseries-storage-enabled) = false;
 ~~~
 
 {% include copy-clipboard.html %}
 ~~~ sql
-> SHOW CLUSTER SETTING timeseries.storage.enabled;
+> SHOW CLUSTER SETTING [timeseries.storage.enabled](cluster-settings.html#setting-timeseries-storage-enabled);
 ~~~
 
 ~~~
 +----------------------------+
-| timeseries.storage.enabled |
+| [timeseries.storage.enabled](cluster-settings.html#setting-timeseries-storage-enabled) |
 +----------------------------+
 | false                      |
 +----------------------------+
@@ -115,17 +115,17 @@ Collecting information about CockroachDB's real world usage helps us prioritize 
 
 ## What happens when node clocks are not properly synchronized?
 
-{% include {{ page.version.version }}/faq/clock-synchronization-effects.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/faq/clock-synchronization-effects.md %}
 
 ## How can I tell how well node clocks are synchronized?
 
-{% include {{ page.version.version }}/faq/clock-synchronization-monitoring.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/faq/clock-synchronization-monitoring.html %}
 
 You can also see these metrics in [the Clock Offset graph](admin-ui-runtime-dashboard.html#clock-offset) on the Admin UI's Runtime dashboard.
 
 ## How do I prepare for planned node maintenance?
 
-{% include {{ page.version.version }}/faq/planned-maintenance.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/faq/planned-maintenance.md %}
 
 ## See also
 

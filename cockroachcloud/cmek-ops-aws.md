@@ -64,7 +64,7 @@ You can create the CMEK key two ways:
 - [Directly in the AWS console](#option-a-use-the-aws-console-to-create-the-cmek-key)
 - By setting up a [Vault AWS-KMS secrets engine](#option-b-use-the-vault-aws-kms-secrets-engine-to-create-the-cmek-key) with access to AWS KMS, in order to leverage the security advantages of Vault's additional layer of abstraction.
 		{{site.data.alerts.callout_info}}
-		Learn more about [CockroachDB - HashiCorp Vault integrations](../{{site.versions["stable"]}}/hashicorp-integration.html).
+		Learn more about [CockroachDB - HashiCorp Vault integrations](../{{site.[version](cluster-settings.html#setting-version)s["stable"]}}/hashicorp-integration.html).
 		{{site.data.alerts.end}}
 
 ### Option A: Use the AWS Console to create the CMEK key
@@ -84,8 +84,8 @@ After you have provisioned the cross-account IAM role and CMEK key for your Cock
 
 #### Prerequisites
 
-- [Vault enterprise license](https://www.vaultproject.io/docs/enterprise)
-- [Vault enterprise edition installed locally](https://learn.hashicorp.com/tutorials/nomad/hashicorp-enterprise-license?in=vault/enterprise)
+- [Vault [enterprise.license](cluster-settings.html#setting-enterprise-license)](https://www.vaultproject.io/docs/enterprise)
+- [Vault enterprise edition installed locally](https://learn.hashicorp.com/tutorials/nomad/hashicorp-[enterprise.license](cluster-settings.html#setting-enterprise-license)?in=vault/enterprise)
 
 1. Initialize your shell for Vault:
 	{% include_cached copy-clipboard.html %}

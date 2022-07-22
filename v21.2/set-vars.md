@@ -7,7 +7,7 @@ docs_area: reference.sql
 
 The `SET` [statement](sql-statements.html) can modify one of the session configuration variables. These can also be queried via [`SHOW`](show-vars.html). By default, session variable values are set for the duration of the current session.
 
-{% include_cached new-in.html version="v21.2" %} CockroachDB supports setting session variables for the duration of a single transaction, using [the `LOCAL` keyword](#set-local).
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.2" %} CockroachDB supports setting session variables for the duration of a single transaction, using [the `LOCAL` keyword](#set-local).
 
 {{site.data.alerts.callout_info}}
 The `SET` statement for session variables is unrelated to the other [`SET TRANSACTION`](set-transaction.html) and [`SET CLUSTER SETTING`](cluster-settings.html#change-a-cluster-setting) statements.
@@ -30,7 +30,7 @@ The `SET` statement can set a session variable for the duration of the current s
 ### SET SESSION
 
 <div>
-{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.version.version | replace: "v", "" }}/grammar_svg/set_session.html %}
+{% remote_include https://raw.githubusercontent.com/cockroachdb/generated-diagrams/release-{{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) | replace: "v", "" }}/grammar_svg/set_session.html %}
 </div>
 
 {{site.data.alerts.callout_info}}
@@ -40,7 +40,7 @@ By default, session variables are set for the duration of the current session. A
 ### SET LOCAL
 
 <div>
-  {% include {{ page.version.version }}/sql/generated/diagrams/set_local.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/set_local.html %}
 </div>
 
 {{site.data.alerts.callout_info}}
@@ -56,7 +56,7 @@ Parameter   | Description
 
 ### Supported variables
 
-{% include {{ page.version.version }}/misc/session-vars.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/session-vars.html %}
 
 ### Special syntax cases
 
@@ -174,7 +174,7 @@ SHOW search_path;
 
 ### Set a variable for the duration of a single transaction
 
-{% include_cached new-in.html version="v21.2" %} To set a variable for the duration of a single transaction, use the `SET LOCAL` statement.
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.2" %} To set a variable for the duration of a single transaction, use the `SET LOCAL` statement.
 
 {% include_cached copy-clipboard.html %}
 ~~~ sql
@@ -217,7 +217,7 @@ SHOW application_name;
 
 ### Roll back session variables set for a transaction
 
-{% include_cached new-in.html version="v21.2" %} You can roll back session variable settings to [savepoints](savepoint.html).
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.2" %} You can roll back session variable settings to [savepoints](savepoint.html).
 
 {% include_cached copy-clipboard.html %}
 ~~~ sql
@@ -287,7 +287,7 @@ SHOW timezone;
 
 ### Assume another role
 
-{% include_cached new-in.html version="v21.2" %} To assume another [role](security-reference/authorization.html#roles) for the duration of a session, use `SET ROLE <role>`. `SET ROLE <role>` is equivalent to `SET role = <role>`.
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.2" %} To assume another [role](security-reference/authorization.html#roles) for the duration of a session, use `SET ROLE <role>`. `SET ROLE <role>` is equivalent to `SET role = <role>`.
 
 {{site.data.alerts.callout_info}}
 To assume a new role, the current user must be a member of the `admin` role, or a member of the target role.
@@ -449,7 +449,7 @@ When setting a time zone, note the following:
 
 ## Known Limitations
 
-{% include {{page.version.version}}/known-limitations/set-transaction-no-rollback.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/known-limitations/set-transaction-no-rollback.md %}
 
 ## See also
 

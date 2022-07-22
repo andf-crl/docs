@@ -13,7 +13,7 @@ Only members of the `admin` role can run `SHOW BACKUP`. By default, the `root` u
 ## Synopsis
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/show_backup.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/show_backup.html %}
 </div>
 
 ## Parameters
@@ -33,7 +33,7 @@ Field | Description
 `start_time` | The time of the earliest data encapsulated in the backup. Note that this only displays for incremental backups. For a full backup, this is `NULL`.
 `end_time` | The time to which data can be restored. This is equivalent to the [`AS OF SYSTEM TIME`](as-of-system-time.html) of the backup. If the backup was _not_ taken with [revision history](backup.html#backups-with-revision-history), the `end_time` is the _only_ time the data can be restored to. If the backup was taken with revision history, the `end_time` is the latest time the data can be restored to.
 `size_bytes` | The size of the backup, in bytes.
-`create_statement` | <span class="version-tag">New in v19.2:</span> The `CREATE` statement used to create [table(s)](create-table.html), [view(s)](create-view.html), or [sequence(s)](create-sequence.html) that are stored within the backup. This displays when `SHOW BACKUP SCHEMAS` is used. Note that tables with references to [foreign keys](foreign-key.html) will only display foreign key constraints if the table to which the constraint relates to is also included in the backup.
+`create_statement` | <span class="[version](cluster-settings.html#setting-version)-tag">New in v19.2:</span> The `CREATE` statement used to create [table(s)](create-table.html), [view(s)](create-view.html), or [sequence(s)](create-sequence.html) that are stored within the backup. This displays when `SHOW BACKUP SCHEMAS` is used. Note that tables with references to [foreign keys](foreign-key.html) will only display foreign key constraints if the table to which the constraint relates to is also included in the backup.
 
 ## Example
 
@@ -64,7 +64,7 @@ Time: 32.540353ms
 
 ### Show a backup with schemas
 
-<span class="version-tag">New in v19.2:</span> You can add number of rows and the schema of the backed up table.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v19.2:</span> You can add number of rows and the schema of the backed up table.
 
 {% include copy-clipboard.html %}
 ~~~ sql

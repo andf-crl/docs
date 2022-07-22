@@ -13,7 +13,7 @@ We have tested the [.NET Npgsql driver](http://www.npgsql.org/) enough to claim 
 
 ## Step 1. Start CockroachDB
 
-{% include {{page.version.version}}/app/start-cockroachdb.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/start-cockroachdb.md %}
 
 ## Step 2. Create a .NET project
 
@@ -33,7 +33,7 @@ The `dotnet` command creates a new app of type `console`. The `-o` parameter cre
 
 ## Step 3. Install the Npgsql driver
 
-Install the latest version of the [Npgsql driver](https://www.nuget.org/packages/Npgsql/) into the .NET project using the built-in nuget package manager:
+Install the latest [version](cluster-settings.html#setting-version) of the [Npgsql driver](https://www.nuget.org/packages/Npgsql/) into the .NET project using the built-in nuget package manager:
 
 {% include_cached copy-clipboard.html %}
 ~~~ shell
@@ -42,7 +42,7 @@ $ dotnet add package Npgsql
 
 ## Step 4. Create a database
 
-{% include {{page.version.version}}/app/create-a-database.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/app/create-a-database.md %}
 
 ## Step 5. Run the C# code
 
@@ -207,4 +207,4 @@ $ cockroach sql --insecure  --database=bank -e 'SELECT id, balance FROM accounts
 
 Read more about using the [.NET Npgsql driver](http://www.npgsql.org/).
 
-{% include {{ page.version.version }}/app/see-also-links.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/app/see-also-links.md %}

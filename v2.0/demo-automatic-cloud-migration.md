@@ -13,12 +13,12 @@ CockroachDB's flexible [replication controls](configure-replication-zones.html) 
 
 ## Step 1. Install prerequisites
 
-In this tutorial, you'll use CockroachDB, the HAProxy load balancer, and CockroachDB's version of the YCSB load generator, which requires Go. Before you begin, make sure these applications are installed:
+In this tutorial, you'll use CockroachDB, the HAProxy load balancer, and CockroachDB's [version](cluster-settings.html#setting-version) of the YCSB load generator, which requires Go. Before you begin, make sure these applications are installed:
 
-- Install the latest version of [CockroachDB](install-cockroachdb.html).
+- Install the latest [version](cluster-settings.html#setting-version) of [CockroachDB](install-cockroachdb.html).
 - Install [HAProxy](http://www.haproxy.org/). If you're on a Mac and using Homebrew, use `brew install haproxy`.
-- Install [Go](https://golang.org/doc/install) version 1.9 or higher. If you're on a Mac and using Homebrew, use `brew install go`. You can check your local version by running `go version`.
-- Install the [CockroachDB version of YCSB](https://github.com/cockroachdb/loadgen/tree/master/ycsb): `go get github.com/cockroachdb/loadgen/ycsb`
+- Install [Go](https://golang.org/doc/install) [version](cluster-settings.html#setting-version) 1.9 or higher. If you're on a Mac and using Homebrew, use `brew install go`. You can check your local [version](cluster-settings.html#setting-version) by running `go [version](cluster-settings.html#setting-version)`.
+- Install the [CockroachDB [version](cluster-settings.html#setting-version) of YCSB](https://github.com/cockroachdb/loadgen/tree/master/ycsb): `go get github.com/cockroachdb/loadgen/ycsb`
 
 Also, to keep track of the data files and logs for your cluster, you may want to create a new directory (e.g., `mkdir cloud-migration`) and start all your nodes in that directory.
 

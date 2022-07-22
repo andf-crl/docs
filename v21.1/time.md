@@ -202,14 +202,14 @@ In this case, the `time_val` column, which is of type `TIME(5)`, cannot be chang
 ~~~
 
 ~~~
-ERROR: unimplemented: type conversion from TIME(5) to TIME(3) requires overwriting existing values which is not yet implemented
+ERROR: unimplemented: type con[version](cluster-settings.html#setting-version) from TIME(5) to TIME(3) requires overwriting existing values which is not yet implemented
 SQLSTATE: 0A000
 ~~~
 
 
-## Supported casting & conversion
+## Supported casting & con[version](cluster-settings.html#setting-version)
 
-`TIME`/`TIMETZ` values can be [cast](data-types.html#data-type-conversions-and-casts) to any of the following data types:
+`TIME`/`TIMETZ` values can be [cast](data-types.html#data-type-con[version](cluster-settings.html#setting-version)s-and-casts) to any of the following data types:
 
 Type | Details
 -----|--------
@@ -217,7 +217,7 @@ Type | Details
 `STRING` | Converts to format `'HH:MM:SS.SSSSSS'` (microsecond precision)
 
 {{site.data.alerts.callout_info}}
-CockroachDB displays `TIME '24:00:00'` and `TIMETZ '24:00:00'` as `0000-01-01 00:00:00`. To display the proper stored value (`24:00:00`), you can [cast the data type to a `STRING`](time.html#supported-casting-conversion).
+CockroachDB displays `TIME '24:00:00'` and `TIMETZ '24:00:00'` as `0000-01-01 00:00:00`. To display the proper stored value (`24:00:00`), you can [cast the data type to a `STRING`](time.html#supported-casting-con[version](cluster-settings.html#setting-version)).
 {{site.data.alerts.end}}
 
 ## See also

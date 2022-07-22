@@ -31,7 +31,7 @@ To use `ON CONFLICT DO UPDATE`, the user must additionally have the `UPDATE` pri
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/insert.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/insert.html %}
 </div>
 
 ## Parameters
@@ -49,7 +49,7 @@ Parameter | Description
 ### `ON CONFLICT` clause
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/on_conflict.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/on_conflict.html %}
 </div>
 
 Normally, when inserted values
@@ -89,7 +89,7 @@ In this case, be sure to use the `UPSERT` statement.
 
 ## Examples
 
-{% include {{page.version.version}}/sql/movr-statements.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/movr-statements.md %}
 
 ### Insert a single row
 
@@ -306,7 +306,7 @@ pq: null value in column "city" violates not-null constraint
 
 ### Insert and return values
 
-In this example, the `RETURNING` clause returns the `id` values of the rows inserted, which are generated server-side by the `gen_random_uuid()` function. The language-specific versions assume that you have installed the relevant [client drivers](install-client-drivers.html).
+In this example, the `RETURNING` clause returns the `id` values of the rows inserted, which are generated server-side by the `gen_random_uuid()` function. The language-specific [version](cluster-settings.html#setting-version)s assume that you have installed the relevant [client drivers](install-client-drivers.html).
 
 {{site.data.alerts.callout_success}}This use of <code>RETURNING</code> mirrors the behavior of MySQL's <code>last_insert_id()</code> function.{{site.data.alerts.end}}
 

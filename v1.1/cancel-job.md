@@ -4,7 +4,7 @@ summary: The CANCEL JOB statement stops long-running jobs such as imports, backu
 toc: true
 ---
 
-<span class="version-tag">New in v1.1:</span> The `CANCEL JOB` [statement](sql-statements.html) lets you stop long-running jobs, which include enterprise [`BACKUP`](backup.html) and [`RESTORE`](restore.html) tasks.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v1.1:</span> The `CANCEL JOB` [statement](sql-statements.html) lets you stop long-running jobs, which include enterprise [`BACKUP`](backup.html) and [`RESTORE`](restore.html) tasks.
 
 
 ## Limitations
@@ -18,7 +18,7 @@ By default, only the `root` user can cancel a job.
 
 ## Synopsis
 
-{% include {{ page.version.version }}/sql/diagrams/cancel_job.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/cancel_job.html %}
 
 ## Parameters
 

@@ -20,14 +20,14 @@ PostgreSQL 13 system catalog | `pg_catalog` table
 `pg_attribute` | `pg_attribute`
 `pg_auth_members` | `pg_auth_members`
 `pg_authid` | `pg_authid`
-`pg_available_extension_versions` | None
+`pg_available_extension_[version](cluster-settings.html#setting-version)s` | None
 `pg_available_extensions` | `pg_available_extensions`
 `pg_cast` | `pg_cast`
 `pg_class` | `pg_class`
 `pg_collation` | `pg_collation`
 `pg_config` | None
 `pg_constraint` | `pg_constraint`
-`pg_conversion` | `pg_conversion`
+`pg_con[version](cluster-settings.html#setting-version)` | `pg_con[version](cluster-settings.html#setting-version)`
 `pg_cursors` | None
 `pg_database` | `pg_database`
 `pg_db_role_setting` | None

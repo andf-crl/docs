@@ -4,7 +4,7 @@ summary: The CockroachDB vectorized SQL query execution engine processes query p
 toc: true
 ---
 
-<span class="version-tag">New in v19.2:</span> CockroachDB supports [column-oriented](https://en.wikipedia.org/wiki/Column-oriented_DBMS#Column-oriented_systems) ("vectorized") query execution.
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v19.2:</span> CockroachDB supports [column-oriented](https://en.wikipedia.org/wiki/Column-oriented_DBMS#Column-oriented_systems) ("vectorized") query execution.
 
 Many SQL databases execute [query plans](https://en.wikipedia.org/wiki/Query_plan) one row of table data at a time. Row-oriented execution models can offer good performance for [online transaction processing (OLTP)](https://en.wikipedia.org/wiki/Online_transaction_processing) queries, but suboptimal performance for [online analytical processing (OLAP)](https://en.wikipedia.org/wiki/Online_analytical_processing) queries. The CockroachDB vectorized execution engine dramatically improves performance over [row-oriented execution](https://en.wikipedia.org/wiki/Column-oriented_DBMS#Row-oriented_systems) by processing each component of a query plan on type-specific batches of column data.
 
@@ -88,7 +88,7 @@ For more information, see the [tracking issue](https://github.com/cockroachdb/co
 
 Support for vectorized execution is experimental for the following memory-intensive operations:
 
-{% include {{page.version.version}}/sql/disk-spilling-ops.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/disk-spilling-ops.md %}
 
 We do not recommend using vectorized execution in production environments for memory-intensive queries that cannot spill to disk. Executing these queries with the vectorized execution engine (i.e., with the `vectorize` [session variable](set-vars.html) set to `experimental_on`) can cause CockroachDB nodes to run out of memory and crash.
 

@@ -8,7 +8,7 @@ toc: true
 On a secure cluster, this area of the DB Console can only be accessed by an `admin` user. See [DB Console access](ui-overview.html#db-console-access).
 {{site.data.alerts.end}}
 
-<span class="version-tag">New in v20.2:</span> The **Transactions** page helps you:
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.2:</span> The **Transactions** page helps you:
 
 - Identify frequently retried or high latency transactions.
 - View transaction [details](#transaction-details-page).
@@ -59,7 +59,7 @@ Significant transactions on your database are likely to have a high execution co
 
 ### Time interval
 
-By default, the Transactions page displays all transactions executed within a one-hour time interval. The display is cleared at the end of each interval. You can change the interval with the [`diagnostics.reporting.interval`](cluster-settings.html#settings) cluster setting.
+By default, the Transactions page displays all transactions executed within a one-hour time interval. The display is cleared at the end of each interval. You can change the interval with the [`[diagnostics.reporting.interval](cluster-settings.html#setting-diagnostics-reporting-interval)`](cluster-settings.html#settings) cluster setting.
 
 ## Transaction Details page
 

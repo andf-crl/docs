@@ -32,7 +32,7 @@ For each cluster, the following details display:
     - [**Add or remove nodes**](?filters=dedicated#add-or-remove-nodes-from-a-cluster)
     - [**Increase storage**](?filters=dedicated#increase-storage-for-a-cluster)
     - [**Change compute**](?filters=dedicated#change-compute-for-a-cluster)
-    - [**Upgrade major version**](upgrade-to-v21.2.html)
+    - [**Upgrade major [version](cluster-settings.html#setting-version)**](upgrade-to-v21.2.html)
     {% comment %}
     - [**Add/remove regions**](?filters=dedicated#add-or-remove-regions-from-a-cluster)
     {% endcomment %}
@@ -165,7 +165,7 @@ All databases are not backed up at the same time. Each database is backed up eve
 
 To restore your data, [contact us](https://support.cockroachlabs.com).
 
-Additionally, you can [backup and restore](../{{site.versions["stable"]}}/take-full-and-incremental-backups.html) data on your own.
+Additionally, you can [backup and restore](../{{site.[version](cluster-settings.html#setting-version)s["stable"]}}/take-full-and-incremental-backups.html) data on your own.
 
 ## Delete cluster
 

@@ -9,7 +9,7 @@ Inverted indexes store mappings from values within a container column (such as a
 CockroachDB stores the contents of the following data types in inverted indexes:
 
 - [JSONB](jsonb.html)
-- <span class="version-tag">New in v20.1:</span> [Arrays](array.html)
+- <span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> [Arrays](array.html)
 
 {{site.data.alerts.callout_success}}For a hands-on demonstration of using an inverted index to improve query performance on a <code>JSONB</code> column, see the <a href="demo-json-support.html">JSON tutorial</a>.{{site.data.alerts.end}}
 
@@ -137,7 +137,7 @@ If you require comparisons using `<`, `<=`, etc., you can create an index on a c
 
 #### Arrays
 
-<span class="version-tag">New in v20.1:</span> Inverted indexes on [`ARRAY`](array.html) columns support the following comparison operators:
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v20.1:</span> Inverted indexes on [`ARRAY`](array.html) columns support the following comparison operators:
 
 - "is contained by": `<@`
 - "contains": `@>`

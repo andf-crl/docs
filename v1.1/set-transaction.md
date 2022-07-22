@@ -11,7 +11,7 @@ The `SET TRANSACTION` [statement](sql-statements.html) sets the transaction isol
 
 ## Synopsis
 
-<section>{% include {{ page.version.version }}/sql/diagrams/set_transaction.html %}</section>
+<section>{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/set_transaction.html %}</section>
 
 ## Required Privileges
 

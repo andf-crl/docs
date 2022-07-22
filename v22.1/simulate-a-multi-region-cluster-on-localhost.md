@@ -17,7 +17,7 @@ docs_area: deploy
 
 ## Step 1. Start the cluster
 
-{% include {{page.version.version}}/sql/start-a-multi-region-demo-cluster.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/start-a-multi-region-demo-cluster.md %}
 
 ## Step 2. Enter SQL statements at the prompt
 

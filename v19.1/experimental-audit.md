@@ -15,14 +15,14 @@ The audit logs contain detailed information about queries being executed against
 
 For a detailed description of exactly what is logged, see the [Audit Log File Format](#audit-log-file-format) section below.
 
-{% include {{ page.version.version }}/misc/experimental-warning.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/experimental-warning.md %}
 
-{% include {{ page.version.version }}/sql/combine-alter-table-commands.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/combine-alter-table-commands.md %}
 
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/experimental_audit.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/experimental_audit.html %}
 </div>
 
 ## Required privileges
@@ -39,7 +39,7 @@ Only members of the `admin` role can enable audit logs on a table. By default, t
  `OFF`        | Turn off audit logging.                                  
 
 {{site.data.alerts.callout_info}}
-As of version 2.0, this command logs all reads and writes, and both the <code>READ</code> and <code>WRITE</code> parameters are required (as shown in the <a href="#examples">examples</a> below). In a future release, this should change to allow logging only reads, only writes, or both.
+As of [version](cluster-settings.html#setting-version) 2.0, this command logs all reads and writes, and both the <code>READ</code> and <code>WRITE</code> parameters are required (as shown in the <a href="#examples">examples</a> below). In a future release, this should change to allow logging only reads, only writes, or both.
 {{site.data.alerts.end}}
 
 ## Audit log file format
@@ -86,7 +86,7 @@ If your deployment requires particular lifecycle and access policies for audit l
 
 ## Viewing schema changes
 
-{% include {{ page.version.version }}/misc/schema-change-view-job.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/schema-change-view-job.md %}
 
 ## Examples
 

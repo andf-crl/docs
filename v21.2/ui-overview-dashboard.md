@@ -9,7 +9,7 @@ The **Overview** dashboard lets you monitor important SQL performance, replicati
 
 To view this dashboard, [access the DB Console](ui-overview.html#db-console-access) and click **Metrics** on the left-hand navigation bar. The **Overview** dashboard is displayed by default.
 
-{% include {{ page.version.version }}/ui/ui-metrics-navigation.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/ui/ui-metrics-navigation.md %}
 
 {{site.data.alerts.callout_info}}
 All timestamps in the DB Console are shown in Coordinated Universal Time (UTC).
@@ -27,7 +27,7 @@ See the [Statements page](ui-statements-page.html) for more details on the clust
 
 ## Service Latency: SQL, 99th percentile
 
-{% include {{ page.version.version }}/ui/ui-sql-latency-99th-percentile.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/ui/ui-sql-latency-99th-percentile.md %}
 
 ## SQL Statement Contention
 
@@ -67,7 +67,7 @@ Metric | Description
 **Available** | The free disk space available to CockroachDB data.
 **Used** | The disk space in use by CockroachDB data. This excludes the Cockroach binary, operating system, and other system files.
 
-{% include {{ page.version.version }}/prod-deployment/healthy-storage-capacity.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/healthy-storage-capacity.md %}
 
 ### Capacity metrics
 
@@ -81,10 +81,10 @@ The **available** capacity thus equals the amount of empty disk space, up to the
 The disk usage of the Cockroach binary, operating system, and other system files is not shown on the **Capacity** graph.
 
 {{site.data.alerts.callout_info}}
-{% include {{ page.version.version }}/misc/available-capacity-metric.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/available-capacity-metric.md %}
 {{site.data.alerts.end}}
 
-{% include {{ page.version.version }}/ui/ui-summary-events.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/ui/ui-summary-events.md %}
 
 ## See also
 

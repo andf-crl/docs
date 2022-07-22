@@ -54,7 +54,7 @@ osm2pgsql -C 2048 -d australia -U root -H localhost -P 26257 australia-latest.os
 This will take a few (30+) minutes to run on a laptop, and there will be a lot of output. A successful run will look something like the following:
 
 ~~~
-osm2pgsql version 1.3.0
+osm2pgsql [version](cluster-settings.html#setting-version) 1.3.0
 
 Allocating memory for dense node cache
 Allocating dense node cache in one big chunk

@@ -61,7 +61,7 @@ Flag | Description
 `--listening-url-file` | The file to which the node's SQL connection URL will be written as soon as the node is ready to accept connections, in addition to being printed to the [standard output](#standard-output). When `--background` is used, this happens before the process detaches from the terminal.<br><br>This is particularly helpful in identifying the node's port when an unused port is assigned automatically (`--port=0`).
 `--locality` | Arbitrary key-value pairs that describe the location of the node. Locality might include country, region, availability zone, etc. A `region` tier must be included in order to enable [multi-region capabilities](multiregion-overview.html). For more details, see [Locality](#locality) below.
 `--max-disk-temp-storage` | The maximum on-disk storage capacity available to store temporary data for SQL queries that exceed the memory budget (see `--max-sql-memory`). This ensures that JOINs, sorts, and other memory-intensive SQL operations are able to spill intermediate results to disk. This can be a percentage (notated as a decimal or with `%`) or any bytes-based unit (e.g., `.25`, `25%`, `500GB`, `1TB`, `1TiB`).<br><br><strong>Note:</strong> If you use the `%` notation, you might need to escape the `%` sign, for instance, while configuring CockroachDB through `systemd` service files. For this reason, it's recommended to use the decimal notation instead. Also, if expressed as a percentage, this value is interpreted relative to the size of the first store. However, the temporary space usage is never counted towards any store usage; therefore, when setting this value, it's important to ensure that the size of this temporary storage plus the size of the first store doesn't exceed the capacity of the storage device.<br><br>The temporary files are located in the path specified by the `--temp-dir` flag, or in the subdirectory of the first store (see `--store`) by default.<br><br>**Default:** `32GiB`
-<a name="flags-max-offset"></a>`--max-offset` | The maximum allowed clock offset for the cluster. If observed clock offsets exceed this limit, servers will crash to minimize the likelihood of reading inconsistent data. Increasing this value will increase the time to recovery of failures as well as the frequency of uncertainty-based read restarts.<br><br>Note that this value must be the same on all nodes in the cluster and cannot be changed with a [rolling upgrade](upgrade-cockroach-version.html). In order to change it, first stop every node in the cluster. Then once the entire cluster is offline, restart each node with the new value.<br><br>**Default:** `500ms`
+<a name="flags-max-offset"></a>`--max-offset` | The maximum allowed clock offset for the cluster. If observed clock offsets exceed this limit, servers will crash to minimize the likelihood of reading inconsistent data. Increasing this value will increase the time to recovery of failures as well as the frequency of uncertainty-based read restarts.<br><br>Note that this value must be the same on all nodes in the cluster and cannot be changed with a [rolling upgrade](upgrade-cockroach-[version](cluster-settings.html#setting-version).html). In order to change it, first stop every node in the cluster. Then once the entire cluster is offline, restart each node with the new value.<br><br>**Default:** `500ms`
 `--max-sql-memory` | The maximum in-memory storage capacity available to store temporary data for SQL queries, including prepared queries and intermediate data rows during query execution. This can be a percentage (notated as a decimal or with `%`) or any bytes-based unit, for example:<br><br>`--max-sql-memory=.25`<br>`--max-sql-memory=25%`<br>`--max-sql-memory=10000000000 ----> 1000000000 bytes`<br>`--max-sql-memory=1GB ----> 1000000000 bytes`<br>`--max-sql-memory=1GiB ----> 1073741824 bytes`<br><br>The temporary files are located in the path specified by the `--temp-dir` flag, or in the subdirectory of the first store (see `--store`) by default.<br><br><strong>Note:</strong> If you use the `%` notation, you might need to escape the `%` sign, for instance, while configuring CockroachDB through `systemd` service files. For this reason, it's recommended to use the decimal notation instead.<br><br>**Default:** `25%` <br><br>The default SQL memory size is suitable for production deployments but can be raised to increase the number of simultaneous client connections the node allows as well as the node's capacity for in-memory processing of rows when using `ORDER BY`, `GROUP BY`, `DISTINCT`, joins, and window functions. For local development clusters with memory-intensive workloads, reduce this value to, for example, `128MiB` to prevent out of memory errors.
 `--pid-file` | The file to which the node's process ID will be written as soon as the node is ready to accept connections. When `--background` is used, this happens before the process detaches from the terminal. When this flag is not set, the process ID is not written to file.
 `--store`<br>`-s` | The file path to a storage device and, optionally, store attributes and maximum size. When using multiple storage devices for a node, this flag must be specified separately for each device, for example: <br><br>`--store=/mnt/ssd01 --store=/mnt/ssd02` <br><br>For more details, see [Store](#store) below.
@@ -72,7 +72,7 @@ Flag | Description
 
 Flag | Description
 -----|-----------
-`--experimental-dns-srv` | When this flag is included, the node will first attempt to fetch SRV records from DNS for every name specified with `--join`. If a valid SRV record is found, that information is used instead of regular DNS A/AAAA lookups. This feature is experimental and may be removed or modified in a later version.
+`--experimental-dns-srv` | When this flag is included, the node will first attempt to fetch SRV records from DNS for every name specified with `--join`. If a valid SRV record is found, that information is used instead of regular DNS A/AAAA lookups. This feature is experimental and may be removed or modified in a later [version](cluster-settings.html#setting-version).
 `--listen-addr` | The IP address/hostname and port to listen on for connections from other nodes and clients. For IPv6, use the notation `[...]`, e.g., `[::1]` or `[fe80::f6f2:::]`.<br><br>This flag's effect depends on how it is used in combination with `--advertise-addr`. For example, the node will also advertise itself to other nodes using this value if `--advertise-addr` is not specified. For more details, see [Networking](recommended-production-settings.html#networking).<br><br>**Default:** Listen on all IP addresses on port `26257`; if `--advertise-addr` is not specified, also advertise the node's canonical hostname to other nodes
 `--advertise-addr` | The IP address/hostname and port to tell other nodes to use. If using a hostname, it must be resolvable from all nodes. If using an IP address, it must be routable from all nodes; for IPv6, use the notation `[...]`, e.g., `[::1]` or `[fe80::f6f2:::]`.<br><br>This flag's effect depends on how it is used in combination with `--listen-addr`. For example, if the port number is different than the one used in `--listen-addr`, port forwarding is required. For more details, see [Networking](recommended-production-settings.html#networking).<br><br>**Default:** The value of `--listen-addr`; if `--listen-addr` is not specified, advertises the node's canonical hostname and port `26257`
 `--http-addr` | The IP address/hostname and port to listen on for DB Console HTTP requests. For IPv6, use the notation `[...]`, e.g., `[::1]:8080` or `[fe80::f6f2:::]:8080`.<br><br>**Default:** Listen on the address part of `--listen-addr` on port `8080`
@@ -130,10 +130,10 @@ The `--locality` flag accepts arbitrary key-value pairs that describe the locati
 
 The `--storage-engine` flag is used to choose the storage engine used by the node. Note that this setting applies to all [stores](#store) on the node, including the [temp store](#temp-dir).
 
-{% include_cached new-in.html version="v21.1" %} As of v21.1, CockroachDB always uses the [Pebble storage engine](architecture/storage-layer.html#pebble). As such, `pebble` is the default and only option for the `--storage-engine` flag.
+{% include_cached new-in.html [version](cluster-settings.html#setting-version)="v21.1" %} As of v21.1, CockroachDB always uses the [Pebble storage engine](architecture/storage-layer.html#pebble). As such, `pebble` is the default and only option for the `--storage-engine` flag.
 
 {{site.data.alerts.callout_danger}}
-If you specified `--storage-engine=rocksdb` when starting nodes with v20.2, be sure to change that to `--storage-engine=pebble` or remove the flag entirely before [upgrading to v21.1](upgrade-cockroach-version.html). Pebble is intended to be bi-directionally compatible with the RocksDB on-disk format, so the switch will be seamless during the upgrade process.
+If you specified `--storage-engine=rocksdb` when starting nodes with v20.2, be sure to change that to `--storage-engine=pebble` or remove the flag entirely before [upgrading to v21.1](upgrade-cockroach-[version](cluster-settings.html#setting-version).html). Pebble is intended to be bi-directionally compatible with the RocksDB on-disk format, so the switch will be seamless during the upgrade process.
 {{site.data.alerts.end}}
 
 #### Store
@@ -155,7 +155,7 @@ Field | Description
 
 By [default](configure-logs.html#default-logging-configuration), `cockroach start` writes all messages to log files, and prints nothing to `stderr`. This includes events with `INFO` [severity](logging.html#logging-levels-severities) and higher. However, you can [customize the logging behavior](configure-logs.html) of this command by using the `--log` flag:
 
-{% include {{ page.version.version }}/misc/logging-flags.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/logging-flags.md %}
 
 #### Defaults
 
@@ -167,7 +167,7 @@ When you run `cockroach start`, some helpful details are printed to the standard
 
 ~~~ shell
 CockroachDB node starting at {{ now | date: "%Y-%m-%d %H:%M:%S.%6 +0000 UTC" }}
-build:               CCL {{page.release_info.version}} @ {{page.release_info.build_time}} (go1.12.6)
+build:               CCL {{page.release_info.[version](cluster-settings.html#setting-version)}} @ {{page.release_info.build_time}} (go1.12.6)
 webui:               http://localhost:8080
 sql:                 postgresql://root@localhost:26257?sslmode=disable
 RPC client flags:    cockroach <client cmd> --host=localhost:26257 --insecure
@@ -186,7 +186,7 @@ These details are also written to the `INFO` log in the `/logs` directory. You c
 
 Field | Description
 ------|------------
-`build` | The version of CockroachDB you are running.
+`build` | The [version](cluster-settings.html#setting-version) of CockroachDB you are running.
 `webui` | The URL for accessing the DB Console.
 `sql` | The connection URL for your client.
 `RPC client flags` | The flags to use when connecting to the node via [`cockroach` client commands](cockroach-commands.html).
@@ -211,10 +211,10 @@ Field | Description
 
 To start a multi-node cluster, run the `cockroach start` command for each node, setting the `--join` flag to the addresses of the initial nodes.
 
-{% include {{ page.version.version }}/prod-deployment/join-flag-single-region.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/join-flag-single-region.md %}
 
 {{site.data.alerts.callout_info}}
-{% include {{ page.version.version }}/prod-deployment/join-flag-multi-region.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/join-flag-multi-region.md %}
 {{site.data.alerts.end}}
 
 <div class="filter-content" markdown="1" data-scope="secure">

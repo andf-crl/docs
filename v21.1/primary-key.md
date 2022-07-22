@@ -17,7 +17,7 @@ You can [change the primary key](#changing-primary-key-columns) of an existing t
 ### Column level
 
 <div>
-{% include {{ page.version.version }}/sql/generated/diagrams/primary_key_column_level.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/primary_key_column_level.html %}
 </div>
 
  Parameter | Description
@@ -45,7 +45,7 @@ You can [change the primary key](#changing-primary-key-columns) of an existing t
 ### Table level
 
 <div>
-{% include {{ page.version.version }}/sql/generated/diagrams/primary_key_table_level.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/primary_key_table_level.html %}
 </div>
 
  Parameter | Description

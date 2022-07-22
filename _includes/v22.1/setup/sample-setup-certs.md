@@ -8,11 +8,11 @@
 
 ### Create a free cluster
 
-{% include {{ page.version.version }}/setup/create-a-free-cluster.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/setup/create-a-free-cluster.md %}
 
 ### Create a SQL user
 
-{% include {{ page.version.version }}/setup/create-first-sql-user.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/setup/create-first-sql-user.md %}
 
 ### Get the root certificate
 
@@ -33,6 +33,6 @@ The connection string is pre-populated with your username, password, cluster nam
 
 <section class="filter-content" markdown="1" data-scope="local">
 
-{% include {{ page.version.version }}/setup/start-single-node-insecure.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/setup/start-single-node-insecure.md %}
 
 </section>

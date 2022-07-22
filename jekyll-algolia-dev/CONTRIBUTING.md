@@ -19,8 +19,8 @@ Start by running `bundle install` to get all the dependencies up to date.
 
 ## Testing
 
-Run `rake test` to launch the test suite. Run `./scripts/test_all_ruby_versions`
-to run the test on all the supported ruby versions (requires `rvm`).
+Run `rake test` to launch the test suite. Run `./scripts/test_all_ruby_[version](cluster-settings.html#setting-version)s`
+to run the test on all the supported ruby [version](cluster-settings.html#setting-version)s (requires `rvm`).
 
 ## TDD
 
@@ -72,8 +72,8 @@ $ ln -s ./scripts/git_hooks/ ./.git/hooks
 
 # Tagging and releasing
 
-If you need to release a new version of the gem, run `rake release` from the
-`develop` branch. It will ask you for the new version and automatically create
+If you need to release a new [version](cluster-settings.html#setting-version) of the gem, run `rake release` from the
+`develop` branch. It will ask you for the new [version](cluster-settings.html#setting-version) and automatically create
 the git tags, create the gem and push it to Rubygems.
 
 # Documentation
@@ -89,7 +89,7 @@ The documentation website uses Metalsmith (and not Jekyll), so you'll need:
 
 All the documentation source files live in the `./docs-src` folder.
 
-To serve a local version of the documentation (including livereload), run `rake
+To serve a local [version](cluster-settings.html#setting-version) of the documentation (including livereload), run `rake
 docs:serve`. The documentation will be available on
 [localhost:3000](http://localhost:3000/).
 

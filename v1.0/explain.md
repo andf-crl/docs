@@ -38,7 +38,7 @@ For more information, see [Find the Indexes and Key Ranges a Query Uses](#find-t
 
 ## Synopsis
 
-{% include {{ page.version.version }}/sql/diagrams/explain.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/explain.html %}
 
 ## Required Privileges
 

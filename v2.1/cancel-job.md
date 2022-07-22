@@ -18,7 +18,7 @@ Only members of the `admin` role can cancel a job. By default, the `root` user b
 ## Synopsis
 
 <div>
-  {% include {{ page.version.version }}/sql/diagrams/cancel_job.html %}
+  {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/cancel_job.html %}
 </div>
 
 ## Parameters
@@ -48,7 +48,7 @@ Parameter | Description
 
 ### Cancel multiple jobs
 
-<span class="version-tag">New in v2.1:</span> To cancel multiple jobs, nest a [`SELECT` clause](select-clause.html) that retrieves `job_id`(s) inside the `CANCEL JOBS` statement:
+<span class="[version](cluster-settings.html#setting-version)-tag">New in v2.1:</span> To cancel multiple jobs, nest a [`SELECT` clause](select-clause.html) that retrieves `job_id`(s) inside the `CANCEL JOBS` statement:
 
 {% include copy-clipboard.html %}
 ~~~ sql

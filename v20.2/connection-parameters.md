@@ -74,7 +74,7 @@ The `<database>` part is not used for [`cockroach`
 commands](cockroach-commands.html) other than [`cockroach
 sql`](cockroach-sql.html). A warning
 is currently printed if it is mistakenly specified, and
-future versions of CockroachDB may return an error in that case.
+future [version](cluster-settings.html#setting-version)s of CockroachDB may return an error in that case.
 {{site.data.alerts.end}}
 
 ### Additional connection parameters
@@ -164,7 +164,7 @@ For each command-line flag that directs a connection parameter,
 CockroachDB also recognizes an environment variable. The environment
 variable is used when the command-line flag is not specified.
 
-{% include {{ page.version.version }}/sql/connection-parameters.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/connection-parameters.md %}
 
 ### Example command-line flags for an insecure connection
 

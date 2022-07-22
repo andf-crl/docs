@@ -18,7 +18,7 @@ Once you [create a table](create-table.html) and load data into it (e.g., [`INSE
 ## Syntax
 
 <div>
-{% include {{ page.version.version }}/sql/generated/diagrams/create_stats.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/create_stats.html %}
 </div>
 
 ## Parameters
@@ -41,7 +41,7 @@ The user must have the `CREATE` [privilege](authorization.html#assign-privileges
 ### Alias syntax
 
 <div>
-{% include {{ page.version.version }}/sql/generated/diagrams/analyze.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/generated/diagrams/analyze.html %}
 </div>
 
 ### Alias parameters
@@ -52,7 +52,7 @@ Parameter | Description
 
 ## Examples
 
-{% include {{page.version.version}}/sql/movr-statements.md %}
+{% include {{page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version)}}/sql/movr-statements.md %}
 
 ### Create statistics on a single column
 
@@ -170,7 +170,7 @@ For more information about how the `AS OF SYSTEM TIME` clause works, including s
 
 ### Delete statistics
 
-{% include {{ page.version.version }}/misc/delete-statistics.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/misc/delete-statistics.md %}
 
 ### View statistics jobs
 

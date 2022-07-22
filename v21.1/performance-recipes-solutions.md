@@ -23,7 +23,7 @@ This page provides solutions for common performance issues in your clusters. See
 
 ## Fixing contention problems
 
-{% include {{ page.version.version }}/performance/statement-contention.md %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/performance/statement-contention.md %}
 </section>
 
 <section class="filter-content" markdown="1" data-scope="fullscans">

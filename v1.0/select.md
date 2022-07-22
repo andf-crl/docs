@@ -9,7 +9,7 @@ The `SELECT` [statement](sql-statements.html) retrieves data from a table.
 
 ## Synopsis
 
-{% include {{ page.version.version }}/sql/diagrams/select.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/select.html %}
 
 {{site.data.alerts.callout_success}}<code>SELECT</code> also has other applications not covered here, such as executing <a href="functions-and-operators.html">functions</a> like <code>SELECT current_timestamp();</code>.{{site.data.alerts.end}}
 

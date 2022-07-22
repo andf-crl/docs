@@ -43,11 +43,11 @@ To make sure that absolutely no diagnostic details are shared, you can set the e
 
 ### After cluster initialization
 
-To stop sending diagnostic details to Cockroach Labs once a cluster is running, [use the built-in SQL client](use-the-built-in-sql-client.html) to execute the following [`SET CLUSTER SETTING`](set-cluster-setting.html) statement, which switches the `diagnostics.reporting.enabled` [cluster setting](cluster-settings.html) to `false`:
+To stop sending diagnostic details to Cockroach Labs once a cluster is running, [use the built-in SQL client](use-the-built-in-sql-client.html) to execute the following [`SET CLUSTER SETTING`](set-cluster-setting.html) statement, which switches the `[diagnostics.reporting.enabled](cluster-settings.html#setting-diagnostics-reporting-enabled)` [cluster setting](cluster-settings.html) to `false`:
 
 {% include copy-clipboard.html %}
 ~~~ sql
-> SET CLUSTER SETTING diagnostics.reporting.enabled = false;
+> SET CLUSTER SETTING [diagnostics.reporting.enabled](cluster-settings.html#setting-diagnostics-reporting-enabled) = false;
 ~~~
 
 This change will not be instantaneous, as it must be propagated to other nodes in the cluster.
@@ -58,12 +58,12 @@ To check the state of diagnostics reporting, [use the built-in SQL client](use-t
 
 {% include copy-clipboard.html %}
 ~~~ sql
-> SHOW CLUSTER SETTING diagnostics.reporting.enabled;
+> SHOW CLUSTER SETTING [diagnostics.reporting.enabled](cluster-settings.html#setting-diagnostics-reporting-enabled);
 ~~~
 
 ~~~
 +-------------------------------+
-| diagnostics.reporting.enabled |
+| [diagnostics.reporting.enabled](cluster-settings.html#setting-diagnostics-reporting-enabled) |
 +-------------------------------+
 | false                         |
 +-------------------------------+

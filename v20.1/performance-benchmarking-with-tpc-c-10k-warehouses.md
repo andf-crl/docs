@@ -87,17 +87,17 @@ CockroachDB requires TCP communication on two ports:
 
 1. SSH to the first VM where you want to run a CockroachDB node.
 
-2. Download the [CockroachDB archive](https://binaries.cockroachdb.com/cockroach-{{ page.release_info.version }}.linux-amd64.tgz) for Linux, extract the binary, and copy it into the `PATH`:
+2. Download the [CockroachDB archive](https://binaries.cockroachdb.com/cockroach-{{ page.release_info.[version](cluster-settings.html#setting-version) }}.linux-amd64.tgz) for Linux, extract the binary, and copy it into the `PATH`:
 
     {% include copy-clipboard.html %}
     ~~~ shell
-    $ curl https://binaries.cockroachdb.com/cockroach-{{ page.release_info.version }}.linux-amd64.tgz \
+    $ curl https://binaries.cockroachdb.com/cockroach-{{ page.release_info.[version](cluster-settings.html#setting-version) }}.linux-amd64.tgz \
     | tar -xz
     ~~~
 
     {% include copy-clipboard.html %}
     ~~~ shell
-    $ cp -i cockroach-{{ page.release_info.version }}.linux-amd64/cockroach /usr/local/bin/
+    $ cp -i cockroach-{{ page.release_info.[version](cluster-settings.html#setting-version) }}.linux-amd64/cockroach /usr/local/bin/
     ~~~
 
     If you get a permissions error, prefix the command with `sudo`.
@@ -131,7 +131,7 @@ CockroachDB requires TCP communication on two ports:
 
 ## Step 3. Configure the cluster
 
-You'll be importing a large TPC-C data set. To speed that up, you can temporarily disable replication and tweak some cluster settings. You'll also need to enable the enterprise license you requested earlier.
+You'll be importing a large TPC-C data set. To speed that up, you can temporarily disable replication and tweak some cluster settings. You'll also need to enable the [enterprise.license](cluster-settings.html#setting-enterprise-license) you requested earlier.
 
 1. SSH to any VM with the `cockroach` binary.
 
@@ -156,7 +156,7 @@ You'll be importing a large TPC-C data set. To speed that up, you can temporaril
     > SET CLUSTER SETTING rocksdb.ingest_backpressure.l0_file_count_threshold = 100;
     SET CLUSTER SETTING rocksdb.ingest_backpressure.pending_compaction_threshold = '5 GiB';
     SET CLUSTER SETTING schemachanger.backfiller.max_buffer_size = '5 GiB';
-    SET CLUSTER SETTING kv.snapshot_rebalance.max_rate = '128 MiB';
+    SET CLUSTER SETTING [kv.snapshot_rebalance.max_rate](cluster-settings.html#setting-kv-snapshot_rebalance-max_rate) = '128 MiB';
     SET CLUSTER SETTING rocksdb.min_wal_sync_interval = '500us';
     ~~~
 
@@ -164,12 +164,12 @@ You'll be importing a large TPC-C data set. To speed that up, you can temporaril
 
     {% include copy-clipboard.html %}
     ~~~ sql
-    > SET CLUSTER SETTING cluster.organization = '<your organization>';
+    > SET CLUSTER SETTING [cluster.organization](cluster-settings.html#setting-cluster-organization) = '<your organization>';
     ~~~
 
     {% include copy-clipboard.html %}
     ~~~ sql
-    > SET CLUSTER SETTING enterprise.license = '<your license key>';
+    > SET CLUSTER SETTING [enterprise.license](cluster-settings.html#setting-enterprise-license) = '<your license key>';
     ~~~
 
 6. Exit the SQL shell:

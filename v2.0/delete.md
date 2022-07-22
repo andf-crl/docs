@@ -18,7 +18,7 @@ The user must have the `DELETE` and `SELECT` [privileges](privileges.html) on th
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/delete.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/delete.html %}
 </div>
 
 <div markdown="1"></div>

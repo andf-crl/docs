@@ -62,7 +62,7 @@ Once you've [installed CockroachDB](install-cockroachdb.html), it's simple to ru
     - The `--store` flag indicates the location where the node's data and logs are stored.
     - The `--join` flag specifies the addresses and ports of the nodes that will initially comprise your cluster. You'll use this exact `--join` flag when starting other nodes as well.
 
-        {% include {{ page.version.version }}/prod-deployment/join-flag-single-region.md %}
+        {% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/prod-deployment/join-flag-single-region.md %}
     - The `--background` flag starts the `cockroach` process in the background so you can continue using the same terminal for other operations.
 
 3. Start two more nodes:
@@ -115,7 +115,7 @@ Once you've [installed CockroachDB](install-cockroachdb.html), it's simple to ru
 
     ~~~
     CockroachDB node starting at {{ now | date: "%Y-%m-%d %H:%M:%S.%6 +0000 UTC" }}
-    build:               CCL {{page.release_info.version}} @ {{page.release_info.build_time}} (go1.12.6)
+    build:               CCL {{page.release_info.[version](cluster-settings.html#setting-version)}} @ {{page.release_info.build_time}} (go1.12.6)
     webui:               http://localhost:8080
     sql:                 postgresql://root@localhost:26257?sslmode=disable
     RPC client flags:    cockroach <client cmd> --host=localhost:26257 --insecure

@@ -15,7 +15,7 @@ Database renames **are not transactional**. For more information, see [Database 
 ## Synopsis
 
 <div>
-{% include {{ page.version.version }}/sql/diagrams/rename_database.html %}
+{% include {{ page.[version](cluster-settings.html#setting-version).[version](cluster-settings.html#setting-version) }}/sql/diagrams/rename_database.html %}
 </div>
 
 ## Required privileges
