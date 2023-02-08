@@ -17,6 +17,7 @@ See below for a complete list of retry error codes. For each error code, we desc
 
 - Why the error is happening.
 - What to do about it.
+- Why we care!
 
 This page is meant to provide information about specific transaction retry error codes to make troubleshooting easier. In most cases, the correct actions to take when these errors occur are:
 
